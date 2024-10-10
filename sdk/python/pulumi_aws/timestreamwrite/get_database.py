@@ -147,9 +147,6 @@ def get_database(name: Optional[str] = None,
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         name=pulumi.get(__ret__, 'name'),
         table_count=pulumi.get(__ret__, 'table_count'))
-
-
-@_utilities.lift_output_func(get_database)
 def get_database_output(name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseResult]:
     """
@@ -166,4 +163,15 @@ def get_database_output(name: Optional[pulumi.Input[str]] = None,
     test = aws.timestreamwrite.get_database(name="database-example")
     ```
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:timestreamwrite/getDatabase:getDatabase', __args__, opts=opts, typ=GetDatabaseResult)
+    return __ret__.apply(lambda __response__: GetDatabaseResult(
+        arn=pulumi.get(__response__, 'arn'),
+        created_time=pulumi.get(__response__, 'created_time'),
+        id=pulumi.get(__response__, 'id'),
+        kms_key_id=pulumi.get(__response__, 'kms_key_id'),
+        last_updated_time=pulumi.get(__response__, 'last_updated_time'),
+        name=pulumi.get(__response__, 'name'),
+        table_count=pulumi.get(__response__, 'table_count')))

@@ -135,9 +135,6 @@ def get_policy_store(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         last_updated_date=pulumi.get(__ret__, 'last_updated_date'),
         validation_settings=pulumi.get(__ret__, 'validation_settings'))
-
-
-@_utilities.lift_output_func(get_policy_store)
 def get_policy_store_output(id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyStoreResult]:
     """
@@ -157,4 +154,14 @@ def get_policy_store_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: The ID of the Policy Store.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:verifiedpermissions/getPolicyStore:getPolicyStore', __args__, opts=opts, typ=GetPolicyStoreResult)
+    return __ret__.apply(lambda __response__: GetPolicyStoreResult(
+        arn=pulumi.get(__response__, 'arn'),
+        created_date=pulumi.get(__response__, 'created_date'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        last_updated_date=pulumi.get(__response__, 'last_updated_date'),
+        validation_settings=pulumi.get(__response__, 'validation_settings')))

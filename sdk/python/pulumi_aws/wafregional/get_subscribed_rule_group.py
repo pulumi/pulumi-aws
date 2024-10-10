@@ -109,9 +109,6 @@ def get_subscribed_rule_group(metric_name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         metric_name=pulumi.get(__ret__, 'metric_name'),
         name=pulumi.get(__ret__, 'name'))
-
-
-@_utilities.lift_output_func(get_subscribed_rule_group)
 def get_subscribed_rule_group_output(metric_name: Optional[pulumi.Input[Optional[str]]] = None,
                                      name: Optional[pulumi.Input[Optional[str]]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscribedRuleGroupResult]:
@@ -144,4 +141,12 @@ def get_subscribed_rule_group_output(metric_name: Optional[pulumi.Input[Optional
     :param str metric_name: Name of the WAF rule group.
     :param str name: Name of the WAF rule group.
     """
-    ...
+    __args__ = dict()
+    __args__['metricName'] = metric_name
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:wafregional/getSubscribedRuleGroup:getSubscribedRuleGroup', __args__, opts=opts, typ=GetSubscribedRuleGroupResult)
+    return __ret__.apply(lambda __response__: GetSubscribedRuleGroupResult(
+        id=pulumi.get(__response__, 'id'),
+        metric_name=pulumi.get(__response__, 'metric_name'),
+        name=pulumi.get(__response__, 'name')))

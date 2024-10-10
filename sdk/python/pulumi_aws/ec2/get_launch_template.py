@@ -476,9 +476,6 @@ def get_launch_template(filters: Optional[Sequence[Union['GetLaunchTemplateFilte
         tags=pulumi.get(__ret__, 'tags'),
         user_data=pulumi.get(__ret__, 'user_data'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
-
-
-@_utilities.lift_output_func(get_launch_template)
 def get_launch_template_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetLaunchTemplateFilterArgs', 'GetLaunchTemplateFilterArgsDict']]]]] = None,
                                id: Optional[pulumi.Input[Optional[str]]] = None,
                                name: Optional[pulumi.Input[Optional[str]]] = None,
@@ -514,4 +511,50 @@ def get_launch_template_output(filters: Optional[pulumi.Input[Optional[Sequence[
     :param str name: Name of the launch template.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['id'] = id
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getLaunchTemplate:getLaunchTemplate', __args__, opts=opts, typ=GetLaunchTemplateResult)
+    return __ret__.apply(lambda __response__: GetLaunchTemplateResult(
+        arn=pulumi.get(__response__, 'arn'),
+        block_device_mappings=pulumi.get(__response__, 'block_device_mappings'),
+        capacity_reservation_specifications=pulumi.get(__response__, 'capacity_reservation_specifications'),
+        cpu_options=pulumi.get(__response__, 'cpu_options'),
+        credit_specifications=pulumi.get(__response__, 'credit_specifications'),
+        default_version=pulumi.get(__response__, 'default_version'),
+        description=pulumi.get(__response__, 'description'),
+        disable_api_stop=pulumi.get(__response__, 'disable_api_stop'),
+        disable_api_termination=pulumi.get(__response__, 'disable_api_termination'),
+        ebs_optimized=pulumi.get(__response__, 'ebs_optimized'),
+        elastic_gpu_specifications=pulumi.get(__response__, 'elastic_gpu_specifications'),
+        elastic_inference_accelerators=pulumi.get(__response__, 'elastic_inference_accelerators'),
+        enclave_options=pulumi.get(__response__, 'enclave_options'),
+        filters=pulumi.get(__response__, 'filters'),
+        hibernation_options=pulumi.get(__response__, 'hibernation_options'),
+        iam_instance_profiles=pulumi.get(__response__, 'iam_instance_profiles'),
+        id=pulumi.get(__response__, 'id'),
+        image_id=pulumi.get(__response__, 'image_id'),
+        instance_initiated_shutdown_behavior=pulumi.get(__response__, 'instance_initiated_shutdown_behavior'),
+        instance_market_options=pulumi.get(__response__, 'instance_market_options'),
+        instance_requirements=pulumi.get(__response__, 'instance_requirements'),
+        instance_type=pulumi.get(__response__, 'instance_type'),
+        kernel_id=pulumi.get(__response__, 'kernel_id'),
+        key_name=pulumi.get(__response__, 'key_name'),
+        latest_version=pulumi.get(__response__, 'latest_version'),
+        license_specifications=pulumi.get(__response__, 'license_specifications'),
+        maintenance_options=pulumi.get(__response__, 'maintenance_options'),
+        metadata_options=pulumi.get(__response__, 'metadata_options'),
+        monitorings=pulumi.get(__response__, 'monitorings'),
+        name=pulumi.get(__response__, 'name'),
+        network_interfaces=pulumi.get(__response__, 'network_interfaces'),
+        placements=pulumi.get(__response__, 'placements'),
+        private_dns_name_options=pulumi.get(__response__, 'private_dns_name_options'),
+        ram_disk_id=pulumi.get(__response__, 'ram_disk_id'),
+        security_group_names=pulumi.get(__response__, 'security_group_names'),
+        tag_specifications=pulumi.get(__response__, 'tag_specifications'),
+        tags=pulumi.get(__response__, 'tags'),
+        user_data=pulumi.get(__response__, 'user_data'),
+        vpc_security_group_ids=pulumi.get(__response__, 'vpc_security_group_ids')))

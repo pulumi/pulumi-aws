@@ -123,9 +123,6 @@ def get_detector(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         service_role_arn=pulumi.get(__ret__, 'service_role_arn'),
         status=pulumi.get(__ret__, 'status'))
-
-
-@_utilities.lift_output_func(get_detector)
 def get_detector_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDetectorResult]:
     """
@@ -143,4 +140,13 @@ def get_detector_output(id: Optional[pulumi.Input[Optional[str]]] = None,
 
     :param str id: ID of the detector.
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:guardduty/getDetector:getDetector', __args__, opts=opts, typ=GetDetectorResult)
+    return __ret__.apply(lambda __response__: GetDetectorResult(
+        features=pulumi.get(__response__, 'features'),
+        finding_publishing_frequency=pulumi.get(__response__, 'finding_publishing_frequency'),
+        id=pulumi.get(__response__, 'id'),
+        service_role_arn=pulumi.get(__response__, 'service_role_arn'),
+        status=pulumi.get(__response__, 'status')))

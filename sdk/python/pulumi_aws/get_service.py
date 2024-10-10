@@ -179,9 +179,6 @@ def get_service(dns_name: Optional[str] = None,
         reverse_dns_prefix=pulumi.get(__ret__, 'reverse_dns_prefix'),
         service_id=pulumi.get(__ret__, 'service_id'),
         supported=pulumi.get(__ret__, 'supported'))
-
-
-@_utilities.lift_output_func(get_service)
 def get_service_output(dns_name: Optional[pulumi.Input[Optional[str]]] = None,
                        id: Optional[pulumi.Input[Optional[str]]] = None,
                        region: Optional[pulumi.Input[Optional[str]]] = None,
@@ -230,4 +227,21 @@ def get_service_output(dns_name: Optional[pulumi.Input[Optional[str]]] = None,
     :param str reverse_dns_prefix: Prefix of the service (_e.g.,_ `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
     :param str service_id: Service endpoint ID (_e.g.,_ `s3`, `rds`, `ec2`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required. A service's endpoint ID can be found in the [_AWS General Reference_](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html).
     """
-    ...
+    __args__ = dict()
+    __args__['dnsName'] = dns_name
+    __args__['id'] = id
+    __args__['region'] = region
+    __args__['reverseDnsName'] = reverse_dns_name
+    __args__['reverseDnsPrefix'] = reverse_dns_prefix
+    __args__['serviceId'] = service_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:index/getService:getService', __args__, opts=opts, typ=GetServiceResult)
+    return __ret__.apply(lambda __response__: GetServiceResult(
+        dns_name=pulumi.get(__response__, 'dns_name'),
+        id=pulumi.get(__response__, 'id'),
+        partition=pulumi.get(__response__, 'partition'),
+        region=pulumi.get(__response__, 'region'),
+        reverse_dns_name=pulumi.get(__response__, 'reverse_dns_name'),
+        reverse_dns_prefix=pulumi.get(__response__, 'reverse_dns_prefix'),
+        service_id=pulumi.get(__response__, 'service_id'),
+        supported=pulumi.get(__response__, 'supported')))

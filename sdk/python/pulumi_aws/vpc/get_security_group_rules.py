@@ -115,9 +115,6 @@ def get_security_group_rules(filters: Optional[Sequence[Union['GetSecurityGroupR
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_security_group_rules)
 def get_security_group_rules_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSecurityGroupRulesFilterArgs', 'GetSecurityGroupRulesFilterArgsDict']]]]] = None,
                                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityGroupRulesResult]:
@@ -144,4 +141,13 @@ def get_security_group_rules_output(filters: Optional[pulumi.Input[Optional[Sequ
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:vpc/getSecurityGroupRules:getSecurityGroupRules', __args__, opts=opts, typ=GetSecurityGroupRulesResult)
+    return __ret__.apply(lambda __response__: GetSecurityGroupRulesResult(
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        ids=pulumi.get(__response__, 'ids'),
+        tags=pulumi.get(__response__, 'tags')))

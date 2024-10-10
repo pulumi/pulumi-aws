@@ -396,9 +396,6 @@ def get_load_balancer(arn: Optional[str] = None,
         vpc_id=pulumi.get(__ret__, 'vpc_id'),
         xff_header_processing_mode=pulumi.get(__ret__, 'xff_header_processing_mode'),
         zone_id=pulumi.get(__ret__, 'zone_id'))
-
-
-@_utilities.lift_output_func(get_load_balancer)
 def get_load_balancer_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                              name: Optional[pulumi.Input[Optional[str]]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -436,4 +433,41 @@ def get_load_balancer_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
            
            > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has lowest precedence.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:lb/getLoadBalancer:getLoadBalancer', __args__, opts=opts, typ=GetLoadBalancerResult)
+    return __ret__.apply(lambda __response__: GetLoadBalancerResult(
+        access_logs=pulumi.get(__response__, 'access_logs'),
+        arn=pulumi.get(__response__, 'arn'),
+        arn_suffix=pulumi.get(__response__, 'arn_suffix'),
+        client_keep_alive=pulumi.get(__response__, 'client_keep_alive'),
+        connection_logs=pulumi.get(__response__, 'connection_logs'),
+        customer_owned_ipv4_pool=pulumi.get(__response__, 'customer_owned_ipv4_pool'),
+        desync_mitigation_mode=pulumi.get(__response__, 'desync_mitigation_mode'),
+        dns_name=pulumi.get(__response__, 'dns_name'),
+        dns_record_client_routing_policy=pulumi.get(__response__, 'dns_record_client_routing_policy'),
+        drop_invalid_header_fields=pulumi.get(__response__, 'drop_invalid_header_fields'),
+        enable_cross_zone_load_balancing=pulumi.get(__response__, 'enable_cross_zone_load_balancing'),
+        enable_deletion_protection=pulumi.get(__response__, 'enable_deletion_protection'),
+        enable_http2=pulumi.get(__response__, 'enable_http2'),
+        enable_tls_version_and_cipher_suite_headers=pulumi.get(__response__, 'enable_tls_version_and_cipher_suite_headers'),
+        enable_waf_fail_open=pulumi.get(__response__, 'enable_waf_fail_open'),
+        enable_xff_client_port=pulumi.get(__response__, 'enable_xff_client_port'),
+        enforce_security_group_inbound_rules_on_private_link_traffic=pulumi.get(__response__, 'enforce_security_group_inbound_rules_on_private_link_traffic'),
+        id=pulumi.get(__response__, 'id'),
+        idle_timeout=pulumi.get(__response__, 'idle_timeout'),
+        internal=pulumi.get(__response__, 'internal'),
+        ip_address_type=pulumi.get(__response__, 'ip_address_type'),
+        load_balancer_type=pulumi.get(__response__, 'load_balancer_type'),
+        name=pulumi.get(__response__, 'name'),
+        preserve_host_header=pulumi.get(__response__, 'preserve_host_header'),
+        security_groups=pulumi.get(__response__, 'security_groups'),
+        subnet_mappings=pulumi.get(__response__, 'subnet_mappings'),
+        subnets=pulumi.get(__response__, 'subnets'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_id=pulumi.get(__response__, 'vpc_id'),
+        xff_header_processing_mode=pulumi.get(__response__, 'xff_header_processing_mode'),
+        zone_id=pulumi.get(__response__, 'zone_id')))

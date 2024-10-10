@@ -458,9 +458,6 @@ def get_group(name: Optional[str] = None,
         vpc_zone_identifier=pulumi.get(__ret__, 'vpc_zone_identifier'),
         warm_pool_size=pulumi.get(__ret__, 'warm_pool_size'),
         warm_pools=pulumi.get(__ret__, 'warm_pools'))
-
-
-@_utilities.lift_output_func(get_group)
 def get_group_output(name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
     """
@@ -478,4 +475,39 @@ def get_group_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: Specify the exact name of the desired autoscaling group.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:autoscaling/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult)
+    return __ret__.apply(lambda __response__: GetGroupResult(
+        arn=pulumi.get(__response__, 'arn'),
+        availability_zones=pulumi.get(__response__, 'availability_zones'),
+        default_cooldown=pulumi.get(__response__, 'default_cooldown'),
+        desired_capacity=pulumi.get(__response__, 'desired_capacity'),
+        desired_capacity_type=pulumi.get(__response__, 'desired_capacity_type'),
+        enabled_metrics=pulumi.get(__response__, 'enabled_metrics'),
+        health_check_grace_period=pulumi.get(__response__, 'health_check_grace_period'),
+        health_check_type=pulumi.get(__response__, 'health_check_type'),
+        id=pulumi.get(__response__, 'id'),
+        instance_maintenance_policies=pulumi.get(__response__, 'instance_maintenance_policies'),
+        launch_configuration=pulumi.get(__response__, 'launch_configuration'),
+        launch_templates=pulumi.get(__response__, 'launch_templates'),
+        load_balancers=pulumi.get(__response__, 'load_balancers'),
+        max_instance_lifetime=pulumi.get(__response__, 'max_instance_lifetime'),
+        max_size=pulumi.get(__response__, 'max_size'),
+        min_size=pulumi.get(__response__, 'min_size'),
+        mixed_instances_policies=pulumi.get(__response__, 'mixed_instances_policies'),
+        name=pulumi.get(__response__, 'name'),
+        new_instances_protected_from_scale_in=pulumi.get(__response__, 'new_instances_protected_from_scale_in'),
+        placement_group=pulumi.get(__response__, 'placement_group'),
+        predicted_capacity=pulumi.get(__response__, 'predicted_capacity'),
+        service_linked_role_arn=pulumi.get(__response__, 'service_linked_role_arn'),
+        status=pulumi.get(__response__, 'status'),
+        suspended_processes=pulumi.get(__response__, 'suspended_processes'),
+        tags=pulumi.get(__response__, 'tags'),
+        target_group_arns=pulumi.get(__response__, 'target_group_arns'),
+        termination_policies=pulumi.get(__response__, 'termination_policies'),
+        traffic_sources=pulumi.get(__response__, 'traffic_sources'),
+        vpc_zone_identifier=pulumi.get(__response__, 'vpc_zone_identifier'),
+        warm_pool_size=pulumi.get(__response__, 'warm_pool_size'),
+        warm_pools=pulumi.get(__response__, 'warm_pools')))

@@ -116,9 +116,6 @@ def get_outpost_instance_type(arn: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         instance_type=pulumi.get(__ret__, 'instance_type'),
         preferred_instance_types=pulumi.get(__ret__, 'preferred_instance_types'))
-
-
-@_utilities.lift_output_func(get_outpost_instance_type)
 def get_outpost_instance_type_output(arn: Optional[pulumi.Input[str]] = None,
                                      instance_type: Optional[pulumi.Input[Optional[str]]] = None,
                                      preferred_instance_types: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
@@ -147,4 +144,14 @@ def get_outpost_instance_type_output(arn: Optional[pulumi.Input[str]] = None,
     :param str instance_type: Desired instance type. Conflicts with `preferred_instance_types`.
     :param Sequence[str] preferred_instance_types: Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instance_type`.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    __args__['instanceType'] = instance_type
+    __args__['preferredInstanceTypes'] = preferred_instance_types
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:outposts/getOutpostInstanceType:getOutpostInstanceType', __args__, opts=opts, typ=GetOutpostInstanceTypeResult)
+    return __ret__.apply(lambda __response__: GetOutpostInstanceTypeResult(
+        arn=pulumi.get(__response__, 'arn'),
+        id=pulumi.get(__response__, 'id'),
+        instance_type=pulumi.get(__response__, 'instance_type'),
+        preferred_instance_types=pulumi.get(__response__, 'preferred_instance_types')))

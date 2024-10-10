@@ -83,9 +83,6 @@ def get_rate_based_rule(name: Optional[str] = None,
     return AwaitableGetRateBasedRuleResult(
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
-
-
-@_utilities.lift_output_func(get_rate_based_rule)
 def get_rate_based_rule_output(name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRateBasedRuleResult]:
     """
@@ -103,4 +100,10 @@ def get_rate_based_rule_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: Name of the WAF rate based rule.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:waf/getRateBasedRule:getRateBasedRule', __args__, opts=opts, typ=GetRateBasedRuleResult)
+    return __ret__.apply(lambda __response__: GetRateBasedRuleResult(
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name')))

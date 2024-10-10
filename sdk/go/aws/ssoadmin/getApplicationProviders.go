@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssoadmin.GetApplicationProviders(ctx, nil, nil)
+//			_, err := ssoadmin.GetApplicationProviders(ctx, &ssoadmin.GetApplicationProvidersArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

@@ -98,9 +98,6 @@ def get_access_keys(user: Optional[str] = None,
         access_keys=pulumi.get(__ret__, 'access_keys'),
         id=pulumi.get(__ret__, 'id'),
         user=pulumi.get(__ret__, 'user'))
-
-
-@_utilities.lift_output_func(get_access_keys)
 def get_access_keys_output(user: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessKeysResult]:
     """
@@ -119,4 +116,11 @@ def get_access_keys_output(user: Optional[pulumi.Input[str]] = None,
 
     :param str user: Name of the IAM user associated with the access keys.
     """
-    ...
+    __args__ = dict()
+    __args__['user'] = user
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:iam/getAccessKeys:getAccessKeys', __args__, opts=opts, typ=GetAccessKeysResult)
+    return __ret__.apply(lambda __response__: GetAccessKeysResult(
+        access_keys=pulumi.get(__response__, 'access_keys'),
+        id=pulumi.get(__response__, 'id'),
+        user=pulumi.get(__response__, 'user')))

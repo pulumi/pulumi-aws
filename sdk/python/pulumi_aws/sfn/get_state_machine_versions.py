@@ -98,9 +98,6 @@ def get_state_machine_versions(statemachine_arn: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         statemachine_arn=pulumi.get(__ret__, 'statemachine_arn'),
         statemachine_versions=pulumi.get(__ret__, 'statemachine_versions'))
-
-
-@_utilities.lift_output_func(get_state_machine_versions)
 def get_state_machine_versions_output(statemachine_arn: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStateMachineVersionsResult]:
     """
@@ -120,4 +117,11 @@ def get_state_machine_versions_output(statemachine_arn: Optional[pulumi.Input[st
 
     :param str statemachine_arn: ARN of the State Machine.
     """
-    ...
+    __args__ = dict()
+    __args__['statemachineArn'] = statemachine_arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:sfn/getStateMachineVersions:getStateMachineVersions', __args__, opts=opts, typ=GetStateMachineVersionsResult)
+    return __ret__.apply(lambda __response__: GetStateMachineVersionsResult(
+        id=pulumi.get(__response__, 'id'),
+        statemachine_arn=pulumi.get(__response__, 'statemachine_arn'),
+        statemachine_versions=pulumi.get(__response__, 'statemachine_versions')))

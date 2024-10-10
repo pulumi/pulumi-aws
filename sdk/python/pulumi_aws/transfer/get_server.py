@@ -256,9 +256,6 @@ def get_server(server_id: Optional[str] = None,
         structured_log_destinations=pulumi.get(__ret__, 'structured_log_destinations'),
         tags=pulumi.get(__ret__, 'tags'),
         url=pulumi.get(__ret__, 'url'))
-
-
-@_utilities.lift_output_func(get_server)
 def get_server_output(server_id: Optional[pulumi.Input[str]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
@@ -279,4 +276,24 @@ def get_server_output(server_id: Optional[pulumi.Input[str]] = None,
     :param str server_id: ID for an SFTP server.
     :param Mapping[str, str] tags: Map of tags assigned to the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['serverId'] = server_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:transfer/getServer:getServer', __args__, opts=opts, typ=GetServerResult)
+    return __ret__.apply(lambda __response__: GetServerResult(
+        arn=pulumi.get(__response__, 'arn'),
+        certificate=pulumi.get(__response__, 'certificate'),
+        domain=pulumi.get(__response__, 'domain'),
+        endpoint=pulumi.get(__response__, 'endpoint'),
+        endpoint_type=pulumi.get(__response__, 'endpoint_type'),
+        id=pulumi.get(__response__, 'id'),
+        identity_provider_type=pulumi.get(__response__, 'identity_provider_type'),
+        invocation_role=pulumi.get(__response__, 'invocation_role'),
+        logging_role=pulumi.get(__response__, 'logging_role'),
+        protocols=pulumi.get(__response__, 'protocols'),
+        security_policy_name=pulumi.get(__response__, 'security_policy_name'),
+        server_id=pulumi.get(__response__, 'server_id'),
+        structured_log_destinations=pulumi.get(__response__, 'structured_log_destinations'),
+        tags=pulumi.get(__response__, 'tags'),
+        url=pulumi.get(__response__, 'url')))

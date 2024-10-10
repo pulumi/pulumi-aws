@@ -523,9 +523,6 @@ def get_object(bucket: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         version_id=pulumi.get(__ret__, 'version_id'),
         website_redirect_location=pulumi.get(__ret__, 'website_redirect_location'))
-
-
-@_utilities.lift_output_func(get_object)
 def get_object_output(bucket: Optional[pulumi.Input[str]] = None,
                       checksum_mode: Optional[pulumi.Input[Optional[str]]] = None,
                       key: Optional[pulumi.Input[str]] = None,
@@ -597,4 +594,45 @@ def get_object_output(bucket: Optional[pulumi.Input[str]] = None,
     :param Mapping[str, str] tags: Map of tags assigned to the object.
     :param str version_id: Specific version ID of the object returned (defaults to latest version)
     """
-    ...
+    __args__ = dict()
+    __args__['bucket'] = bucket
+    __args__['checksumMode'] = checksum_mode
+    __args__['key'] = key
+    __args__['range'] = range
+    __args__['tags'] = tags
+    __args__['versionId'] = version_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:s3/getObject:getObject', __args__, opts=opts, typ=GetObjectResult)
+    return __ret__.apply(lambda __response__: GetObjectResult(
+        arn=pulumi.get(__response__, 'arn'),
+        body=pulumi.get(__response__, 'body'),
+        bucket=pulumi.get(__response__, 'bucket'),
+        bucket_key_enabled=pulumi.get(__response__, 'bucket_key_enabled'),
+        cache_control=pulumi.get(__response__, 'cache_control'),
+        checksum_crc32=pulumi.get(__response__, 'checksum_crc32'),
+        checksum_crc32c=pulumi.get(__response__, 'checksum_crc32c'),
+        checksum_mode=pulumi.get(__response__, 'checksum_mode'),
+        checksum_sha1=pulumi.get(__response__, 'checksum_sha1'),
+        checksum_sha256=pulumi.get(__response__, 'checksum_sha256'),
+        content_disposition=pulumi.get(__response__, 'content_disposition'),
+        content_encoding=pulumi.get(__response__, 'content_encoding'),
+        content_language=pulumi.get(__response__, 'content_language'),
+        content_length=pulumi.get(__response__, 'content_length'),
+        content_type=pulumi.get(__response__, 'content_type'),
+        etag=pulumi.get(__response__, 'etag'),
+        expiration=pulumi.get(__response__, 'expiration'),
+        expires=pulumi.get(__response__, 'expires'),
+        id=pulumi.get(__response__, 'id'),
+        key=pulumi.get(__response__, 'key'),
+        last_modified=pulumi.get(__response__, 'last_modified'),
+        metadata=pulumi.get(__response__, 'metadata'),
+        object_lock_legal_hold_status=pulumi.get(__response__, 'object_lock_legal_hold_status'),
+        object_lock_mode=pulumi.get(__response__, 'object_lock_mode'),
+        object_lock_retain_until_date=pulumi.get(__response__, 'object_lock_retain_until_date'),
+        range=pulumi.get(__response__, 'range'),
+        server_side_encryption=pulumi.get(__response__, 'server_side_encryption'),
+        sse_kms_key_id=pulumi.get(__response__, 'sse_kms_key_id'),
+        storage_class=pulumi.get(__response__, 'storage_class'),
+        tags=pulumi.get(__response__, 'tags'),
+        version_id=pulumi.get(__response__, 'version_id'),
+        website_redirect_location=pulumi.get(__response__, 'website_redirect_location')))

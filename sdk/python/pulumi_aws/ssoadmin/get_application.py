@@ -181,9 +181,6 @@ def get_application(application_arn: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         portal_options=pulumi.get(__ret__, 'portal_options'),
         status=pulumi.get(__ret__, 'status'))
-
-
-@_utilities.lift_output_func(get_application)
 def get_application_output(application_arn: Optional[pulumi.Input[str]] = None,
                            portal_options: Optional[pulumi.Input[Optional[Sequence[Union['GetApplicationPortalOptionArgs', 'GetApplicationPortalOptionArgsDict']]]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
@@ -205,4 +202,18 @@ def get_application_output(application_arn: Optional[pulumi.Input[str]] = None,
     :param str application_arn: ARN of the application.
     :param Sequence[Union['GetApplicationPortalOptionArgs', 'GetApplicationPortalOptionArgsDict']] portal_options: Options for the portal associated with an application. See the `ssoadmin.Application` resource documentation. The attributes are the same.
     """
-    ...
+    __args__ = dict()
+    __args__['applicationArn'] = application_arn
+    __args__['portalOptions'] = portal_options
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ssoadmin/getApplication:getApplication', __args__, opts=opts, typ=GetApplicationResult)
+    return __ret__.apply(lambda __response__: GetApplicationResult(
+        application_account=pulumi.get(__response__, 'application_account'),
+        application_arn=pulumi.get(__response__, 'application_arn'),
+        application_provider_arn=pulumi.get(__response__, 'application_provider_arn'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        instance_arn=pulumi.get(__response__, 'instance_arn'),
+        name=pulumi.get(__response__, 'name'),
+        portal_options=pulumi.get(__response__, 'portal_options'),
+        status=pulumi.get(__response__, 'status')))

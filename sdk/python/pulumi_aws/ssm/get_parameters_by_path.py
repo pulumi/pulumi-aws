@@ -151,9 +151,6 @@ def get_parameters_by_path(path: Optional[str] = None,
         types=pulumi.get(__ret__, 'types'),
         values=pulumi.get(__ret__, 'values'),
         with_decryption=pulumi.get(__ret__, 'with_decryption'))
-
-
-@_utilities.lift_output_func(get_parameters_by_path)
 def get_parameters_by_path_output(path: Optional[pulumi.Input[str]] = None,
                                   recursive: Optional[pulumi.Input[Optional[bool]]] = None,
                                   with_decryption: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -165,4 +162,18 @@ def get_parameters_by_path_output(path: Optional[pulumi.Input[str]] = None,
     :param bool recursive: Whether to retrieve all parameters within the hirerachy. Defaults to `false`.
     :param bool with_decryption: Whether to retrieve all parameters in the hierarchy, particularly those of `SecureString` type, with their value decrypted. Defaults to `true`.
     """
-    ...
+    __args__ = dict()
+    __args__['path'] = path
+    __args__['recursive'] = recursive
+    __args__['withDecryption'] = with_decryption
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ssm/getParametersByPath:getParametersByPath', __args__, opts=opts, typ=GetParametersByPathResult)
+    return __ret__.apply(lambda __response__: GetParametersByPathResult(
+        arns=pulumi.get(__response__, 'arns'),
+        id=pulumi.get(__response__, 'id'),
+        names=pulumi.get(__response__, 'names'),
+        path=pulumi.get(__response__, 'path'),
+        recursive=pulumi.get(__response__, 'recursive'),
+        types=pulumi.get(__response__, 'types'),
+        values=pulumi.get(__response__, 'values'),
+        with_decryption=pulumi.get(__response__, 'with_decryption')))

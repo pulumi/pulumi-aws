@@ -124,9 +124,6 @@ def get_local_gateway_virtual_interface_group(filters: Optional[Sequence[Union['
         local_gateway_id=pulumi.get(__ret__, 'local_gateway_id'),
         local_gateway_virtual_interface_ids=pulumi.get(__ret__, 'local_gateway_virtual_interface_ids'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_local_gateway_virtual_interface_group)
 def get_local_gateway_virtual_interface_group_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetLocalGatewayVirtualInterfaceGroupFilterArgs', 'GetLocalGatewayVirtualInterfaceGroupFilterArgsDict']]]]] = None,
                                                      id: Optional[pulumi.Input[Optional[str]]] = None,
                                                      local_gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -150,4 +147,16 @@ def get_local_gateway_virtual_interface_group_output(filters: Optional[pulumi.In
     :param str local_gateway_id: Identifier of EC2 Local Gateway.
     :param Mapping[str, str] tags: Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['id'] = id
+    __args__['localGatewayId'] = local_gateway_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getLocalGatewayVirtualInterfaceGroup:getLocalGatewayVirtualInterfaceGroup', __args__, opts=opts, typ=GetLocalGatewayVirtualInterfaceGroupResult)
+    return __ret__.apply(lambda __response__: GetLocalGatewayVirtualInterfaceGroupResult(
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        local_gateway_id=pulumi.get(__response__, 'local_gateway_id'),
+        local_gateway_virtual_interface_ids=pulumi.get(__response__, 'local_gateway_virtual_interface_ids'),
+        tags=pulumi.get(__response__, 'tags')))

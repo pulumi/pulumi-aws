@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ec2.GetNetworkInterfaces(ctx, nil, nil)
+//			example, err := ec2.GetNetworkInterfaces(ctx, &ec2.GetNetworkInterfacesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

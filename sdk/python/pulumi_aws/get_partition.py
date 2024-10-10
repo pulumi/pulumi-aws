@@ -118,9 +118,6 @@ def get_partition(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         partition=pulumi.get(__ret__, 'partition'),
         reverse_dns_prefix=pulumi.get(__ret__, 'reverse_dns_prefix'))
-
-
-@_utilities.lift_output_func(get_partition)
 def get_partition_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartitionResult]:
     """
@@ -144,4 +141,12 @@ def get_partition_output(id: Optional[pulumi.Input[Optional[str]]] = None,
 
     :param str id: Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
     """
-    ...
+    __args__ = dict()
+    __args__['id'] = id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:index/getPartition:getPartition', __args__, opts=opts, typ=GetPartitionResult)
+    return __ret__.apply(lambda __response__: GetPartitionResult(
+        dns_suffix=pulumi.get(__response__, 'dns_suffix'),
+        id=pulumi.get(__response__, 'id'),
+        partition=pulumi.get(__response__, 'partition'),
+        reverse_dns_prefix=pulumi.get(__response__, 'reverse_dns_prefix')))

@@ -103,9 +103,6 @@ def get_application_assignments(application_arn: Optional[str] = None,
         application_arn=pulumi.get(__ret__, 'application_arn'),
         application_assignments=pulumi.get(__ret__, 'application_assignments'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_application_assignments)
 def get_application_assignments_output(application_arn: Optional[pulumi.Input[str]] = None,
                                        application_assignments: Optional[pulumi.Input[Optional[Sequence[Union['GetApplicationAssignmentsApplicationAssignmentArgs', 'GetApplicationAssignmentsApplicationAssignmentArgsDict']]]]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationAssignmentsResult]:
@@ -127,4 +124,12 @@ def get_application_assignments_output(application_arn: Optional[pulumi.Input[st
     :param str application_arn: ARN of the application.
     :param Sequence[Union['GetApplicationAssignmentsApplicationAssignmentArgs', 'GetApplicationAssignmentsApplicationAssignmentArgsDict']] application_assignments: List of principals assigned to the application. See the `application_assignments` attribute reference below.
     """
-    ...
+    __args__ = dict()
+    __args__['applicationArn'] = application_arn
+    __args__['applicationAssignments'] = application_assignments
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ssoadmin/getApplicationAssignments:getApplicationAssignments', __args__, opts=opts, typ=GetApplicationAssignmentsResult)
+    return __ret__.apply(lambda __response__: GetApplicationAssignmentsResult(
+        application_arn=pulumi.get(__response__, 'application_arn'),
+        application_assignments=pulumi.get(__response__, 'application_assignments'),
+        id=pulumi.get(__response__, 'id')))

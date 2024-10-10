@@ -284,9 +284,6 @@ def get_volume(filters: Optional[Sequence[Union['GetVolumeFilterArgs', 'GetVolum
         throughput=pulumi.get(__ret__, 'throughput'),
         volume_id=pulumi.get(__ret__, 'volume_id'),
         volume_type=pulumi.get(__ret__, 'volume_type'))
-
-
-@_utilities.lift_output_func(get_volume)
 def get_volume_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVolumeFilterArgs', 'GetVolumeFilterArgsDict']]]]] = None,
                       most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -322,4 +319,26 @@ def get_volume_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['Ge
            recent Volume.
     :param Mapping[str, str] tags: Map of tags for the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['mostRecent'] = most_recent
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ebs/getVolume:getVolume', __args__, opts=opts, typ=GetVolumeResult)
+    return __ret__.apply(lambda __response__: GetVolumeResult(
+        arn=pulumi.get(__response__, 'arn'),
+        availability_zone=pulumi.get(__response__, 'availability_zone'),
+        encrypted=pulumi.get(__response__, 'encrypted'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        iops=pulumi.get(__response__, 'iops'),
+        kms_key_id=pulumi.get(__response__, 'kms_key_id'),
+        most_recent=pulumi.get(__response__, 'most_recent'),
+        multi_attach_enabled=pulumi.get(__response__, 'multi_attach_enabled'),
+        outpost_arn=pulumi.get(__response__, 'outpost_arn'),
+        size=pulumi.get(__response__, 'size'),
+        snapshot_id=pulumi.get(__response__, 'snapshot_id'),
+        tags=pulumi.get(__response__, 'tags'),
+        throughput=pulumi.get(__response__, 'throughput'),
+        volume_id=pulumi.get(__response__, 'volume_id'),
+        volume_type=pulumi.get(__response__, 'volume_type')))

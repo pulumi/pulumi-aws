@@ -155,9 +155,6 @@ def get_tags(filter: Optional[Union['GetTagsFilterArgs', 'GetTagsFilterArgsDict'
         tag_key=pulumi.get(__ret__, 'tag_key'),
         tags=pulumi.get(__ret__, 'tags'),
         time_period=pulumi.get(__ret__, 'time_period'))
-
-
-@_utilities.lift_output_func(get_tags)
 def get_tags_output(filter: Optional[pulumi.Input[Optional[Union['GetTagsFilterArgs', 'GetTagsFilterArgsDict']]]] = None,
                     search_string: Optional[pulumi.Input[Optional[str]]] = None,
                     sort_bies: Optional[pulumi.Input[Optional[Sequence[Union['GetTagsSortByArgs', 'GetTagsSortByArgsDict']]]]] = None,
@@ -188,4 +185,19 @@ def get_tags_output(filter: Optional[pulumi.Input[Optional[Union['GetTagsFilterA
            
            The following arguments are optional:
     """
-    ...
+    __args__ = dict()
+    __args__['filter'] = filter
+    __args__['searchString'] = search_string
+    __args__['sortBies'] = sort_bies
+    __args__['tagKey'] = tag_key
+    __args__['timePeriod'] = time_period
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:costexplorer/getTags:getTags', __args__, opts=opts, typ=GetTagsResult)
+    return __ret__.apply(lambda __response__: GetTagsResult(
+        filter=pulumi.get(__response__, 'filter'),
+        id=pulumi.get(__response__, 'id'),
+        search_string=pulumi.get(__response__, 'search_string'),
+        sort_bies=pulumi.get(__response__, 'sort_bies'),
+        tag_key=pulumi.get(__response__, 'tag_key'),
+        tags=pulumi.get(__response__, 'tags'),
+        time_period=pulumi.get(__response__, 'time_period')))

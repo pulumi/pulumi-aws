@@ -220,9 +220,6 @@ def get_queue(instance_id: Optional[str] = None,
         queue_id=pulumi.get(__ret__, 'queue_id'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_queue)
 def get_queue_output(instance_id: Optional[pulumi.Input[str]] = None,
                      name: Optional[pulumi.Input[Optional[str]]] = None,
                      queue_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -259,4 +256,22 @@ def get_queue_output(instance_id: Optional[pulumi.Input[str]] = None,
     :param str queue_id: Returns information on a specific Queue by Queue id
     :param Mapping[str, str] tags: Map of tags assigned to the Queue.
     """
-    ...
+    __args__ = dict()
+    __args__['instanceId'] = instance_id
+    __args__['name'] = name
+    __args__['queueId'] = queue_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:connect/getQueue:getQueue', __args__, opts=opts, typ=GetQueueResult)
+    return __ret__.apply(lambda __response__: GetQueueResult(
+        arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description'),
+        hours_of_operation_id=pulumi.get(__response__, 'hours_of_operation_id'),
+        id=pulumi.get(__response__, 'id'),
+        instance_id=pulumi.get(__response__, 'instance_id'),
+        max_contacts=pulumi.get(__response__, 'max_contacts'),
+        name=pulumi.get(__response__, 'name'),
+        outbound_caller_configs=pulumi.get(__response__, 'outbound_caller_configs'),
+        queue_id=pulumi.get(__response__, 'queue_id'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags')))

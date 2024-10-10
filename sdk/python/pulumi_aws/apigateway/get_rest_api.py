@@ -220,9 +220,6 @@ def get_rest_api(name: Optional[str] = None,
         policy=pulumi.get(__ret__, 'policy'),
         root_resource_id=pulumi.get(__ret__, 'root_resource_id'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_rest_api)
 def get_rest_api_output(name: Optional[pulumi.Input[str]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRestApiResult]:
@@ -245,4 +242,21 @@ def get_rest_api_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
     :param Mapping[str, str] tags: Key-value map of resource tags.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:apigateway/getRestApi:getRestApi', __args__, opts=opts, typ=GetRestApiResult)
+    return __ret__.apply(lambda __response__: GetRestApiResult(
+        api_key_source=pulumi.get(__response__, 'api_key_source'),
+        arn=pulumi.get(__response__, 'arn'),
+        binary_media_types=pulumi.get(__response__, 'binary_media_types'),
+        description=pulumi.get(__response__, 'description'),
+        endpoint_configurations=pulumi.get(__response__, 'endpoint_configurations'),
+        execution_arn=pulumi.get(__response__, 'execution_arn'),
+        id=pulumi.get(__response__, 'id'),
+        minimum_compression_size=pulumi.get(__response__, 'minimum_compression_size'),
+        name=pulumi.get(__response__, 'name'),
+        policy=pulumi.get(__response__, 'policy'),
+        root_resource_id=pulumi.get(__response__, 'root_resource_id'),
+        tags=pulumi.get(__response__, 'tags')))

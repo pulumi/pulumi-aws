@@ -179,9 +179,6 @@ def get_workspace(tags: Optional[Mapping[str, str]] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
-
-
-@_utilities.lift_output_func(get_workspace)
 def get_workspace_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                          workspace_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
@@ -203,4 +200,18 @@ def get_workspace_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]
     :param Mapping[str, str] tags: Tags assigned to the resource.
     :param str workspace_id: Prometheus workspace ID.
     """
-    ...
+    __args__ = dict()
+    __args__['tags'] = tags
+    __args__['workspaceId'] = workspace_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:amp/getWorkspace:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
+    return __ret__.apply(lambda __response__: GetWorkspaceResult(
+        alias=pulumi.get(__response__, 'alias'),
+        arn=pulumi.get(__response__, 'arn'),
+        created_date=pulumi.get(__response__, 'created_date'),
+        id=pulumi.get(__response__, 'id'),
+        kms_key_arn=pulumi.get(__response__, 'kms_key_arn'),
+        prometheus_endpoint=pulumi.get(__response__, 'prometheus_endpoint'),
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags'),
+        workspace_id=pulumi.get(__response__, 'workspace_id')))

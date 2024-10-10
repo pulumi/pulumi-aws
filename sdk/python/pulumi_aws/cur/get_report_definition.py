@@ -233,9 +233,6 @@ def get_report_definition(report_name: Optional[str] = None,
         s3_region=pulumi.get(__ret__, 's3_region'),
         tags=pulumi.get(__ret__, 'tags'),
         time_unit=pulumi.get(__ret__, 'time_unit'))
-
-
-@_utilities.lift_output_func(get_report_definition)
 def get_report_definition_output(report_name: Optional[pulumi.Input[str]] = None,
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReportDefinitionResult]:
@@ -259,4 +256,22 @@ def get_report_definition_output(report_name: Optional[pulumi.Input[str]] = None
     :param str report_name: Name of the report definition to match.
     :param Mapping[str, str] tags: Map of key-value pairs assigned to the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['reportName'] = report_name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:cur/getReportDefinition:getReportDefinition', __args__, opts=opts, typ=GetReportDefinitionResult)
+    return __ret__.apply(lambda __response__: GetReportDefinitionResult(
+        additional_artifacts=pulumi.get(__response__, 'additional_artifacts'),
+        additional_schema_elements=pulumi.get(__response__, 'additional_schema_elements'),
+        compression=pulumi.get(__response__, 'compression'),
+        format=pulumi.get(__response__, 'format'),
+        id=pulumi.get(__response__, 'id'),
+        refresh_closed_reports=pulumi.get(__response__, 'refresh_closed_reports'),
+        report_name=pulumi.get(__response__, 'report_name'),
+        report_versioning=pulumi.get(__response__, 'report_versioning'),
+        s3_bucket=pulumi.get(__response__, 's3_bucket'),
+        s3_prefix=pulumi.get(__response__, 's3_prefix'),
+        s3_region=pulumi.get(__response__, 's3_region'),
+        tags=pulumi.get(__response__, 'tags'),
+        time_unit=pulumi.get(__response__, 'time_unit')))

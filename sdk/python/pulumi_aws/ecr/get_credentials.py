@@ -101,12 +101,18 @@ def get_credentials(registry_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         proxy_endpoint=pulumi.get(__ret__, 'proxy_endpoint'),
         registry_id=pulumi.get(__ret__, 'registry_id'))
-
-
-@_utilities.lift_output_func(get_credentials)
 def get_credentials_output(registry_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCredentialsResult]:
     """
     Use this data source to access information about an existing resource.
     """
-    ...
+    __args__ = dict()
+    __args__['registryId'] = registry_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ecr/getCredentials:getCredentials', __args__, opts=opts, typ=GetCredentialsResult)
+    return __ret__.apply(lambda __response__: GetCredentialsResult(
+        authorization_token=pulumi.get(__response__, 'authorization_token'),
+        expires_at=pulumi.get(__response__, 'expires_at'),
+        id=pulumi.get(__response__, 'id'),
+        proxy_endpoint=pulumi.get(__response__, 'proxy_endpoint'),
+        registry_id=pulumi.get(__response__, 'registry_id')))

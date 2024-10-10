@@ -83,9 +83,6 @@ def get_sinks(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSinksR
     return AwaitableGetSinksResult(
         arns=pulumi.get(__ret__, 'arns'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_sinks)
 def get_sinks_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSinksResult]:
     """
     Data source for managing an AWS CloudWatch Observability Access Manager Sinks.
@@ -101,4 +98,9 @@ def get_sinks_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Outp
     example = aws.oam.get_sinks()
     ```
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:oam/getSinks:getSinks', __args__, opts=opts, typ=GetSinksResult)
+    return __ret__.apply(lambda __response__: GetSinksResult(
+        arns=pulumi.get(__response__, 'arns'),
+        id=pulumi.get(__response__, 'id')))

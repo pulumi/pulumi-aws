@@ -4,15 +4,15 @@ package examples
 
 import (
 	"context"
-	"io/ioutil"
+	"io"
 	"math/rand"
 	"net/http"
 	"os"
 	"testing"
 	"time"
 
+	testreplay "github.com/pulumi/providertest/replay"
 	pfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
-	testutils "github.com/pulumi/pulumi-terraform-bridge/testing/x"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -66,7 +66,7 @@ func validateAPITest(isValid func(body string)) func(t *testing.T, stack integra
 			time.Sleep(10 * time.Second)
 		}
 		defer resp.Body.Close()
-		body, err := ioutil.ReadAll(resp.Body)
+		body, err := io.ReadAll(resp.Body)
 		assert.NoError(t, err)
 		isValid(string(body))
 	}
@@ -90,7 +90,8 @@ func replay(t *testing.T, sequence string) {
 		[]byte("{}"),
 	)(nil)
 	require.NoError(t, err)
-	testutils.ReplaySequence(t, p, sequence)
+
+	testreplay.ReplaySequence(t, p, sequence)
 }
 
 var letterRunes = []rune("1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")

@@ -204,9 +204,6 @@ def get_routing_profile(instance_id: Optional[str] = None,
         queue_configs=pulumi.get(__ret__, 'queue_configs'),
         routing_profile_id=pulumi.get(__ret__, 'routing_profile_id'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_routing_profile)
 def get_routing_profile_output(instance_id: Optional[pulumi.Input[str]] = None,
                                name: Optional[pulumi.Input[Optional[str]]] = None,
                                routing_profile_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -243,4 +240,21 @@ def get_routing_profile_output(instance_id: Optional[pulumi.Input[str]] = None,
     :param str routing_profile_id: Returns information on a specific Routing Profile by Routing Profile id
     :param Mapping[str, str] tags: Map of tags to assign to the Routing Profile.
     """
-    ...
+    __args__ = dict()
+    __args__['instanceId'] = instance_id
+    __args__['name'] = name
+    __args__['routingProfileId'] = routing_profile_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:connect/getRoutingProfile:getRoutingProfile', __args__, opts=opts, typ=GetRoutingProfileResult)
+    return __ret__.apply(lambda __response__: GetRoutingProfileResult(
+        arn=pulumi.get(__response__, 'arn'),
+        default_outbound_queue_id=pulumi.get(__response__, 'default_outbound_queue_id'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        instance_id=pulumi.get(__response__, 'instance_id'),
+        media_concurrencies=pulumi.get(__response__, 'media_concurrencies'),
+        name=pulumi.get(__response__, 'name'),
+        queue_configs=pulumi.get(__response__, 'queue_configs'),
+        routing_profile_id=pulumi.get(__response__, 'routing_profile_id'),
+        tags=pulumi.get(__response__, 'tags')))

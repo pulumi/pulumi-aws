@@ -190,9 +190,6 @@ def get_configuration_set(configuration_set_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tracking_options=pulumi.get(__ret__, 'tracking_options'),
         vdm_options=pulumi.get(__ret__, 'vdm_options'))
-
-
-@_utilities.lift_output_func(get_configuration_set)
 def get_configuration_set_output(configuration_set_name: Optional[pulumi.Input[str]] = None,
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationSetResult]:
@@ -214,4 +211,19 @@ def get_configuration_set_output(configuration_set_name: Optional[pulumi.Input[s
     :param str configuration_set_name: The name of the configuration set.
     :param Mapping[str, str] tags: Key-value map of resource tags for the container recipe.
     """
-    ...
+    __args__ = dict()
+    __args__['configurationSetName'] = configuration_set_name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:sesv2/getConfigurationSet:getConfigurationSet', __args__, opts=opts, typ=GetConfigurationSetResult)
+    return __ret__.apply(lambda __response__: GetConfigurationSetResult(
+        arn=pulumi.get(__response__, 'arn'),
+        configuration_set_name=pulumi.get(__response__, 'configuration_set_name'),
+        delivery_options=pulumi.get(__response__, 'delivery_options'),
+        id=pulumi.get(__response__, 'id'),
+        reputation_options=pulumi.get(__response__, 'reputation_options'),
+        sending_options=pulumi.get(__response__, 'sending_options'),
+        suppression_options=pulumi.get(__response__, 'suppression_options'),
+        tags=pulumi.get(__response__, 'tags'),
+        tracking_options=pulumi.get(__response__, 'tracking_options'),
+        vdm_options=pulumi.get(__response__, 'vdm_options')))

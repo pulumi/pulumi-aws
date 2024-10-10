@@ -114,9 +114,6 @@ def get_image_pipelines(filters: Optional[Sequence[Union['GetImagePipelinesFilte
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'))
-
-
-@_utilities.lift_output_func(get_image_pipelines)
 def get_image_pipelines_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetImagePipelinesFilterArgs', 'GetImagePipelinesFilterArgsDict']]]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImagePipelinesResult]:
     """
@@ -137,4 +134,12 @@ def get_image_pipelines_output(filters: Optional[pulumi.Input[Optional[Sequence[
 
     :param Sequence[Union['GetImagePipelinesFilterArgs', 'GetImagePipelinesFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:imagebuilder/getImagePipelines:getImagePipelines', __args__, opts=opts, typ=GetImagePipelinesResult)
+    return __ret__.apply(lambda __response__: GetImagePipelinesResult(
+        arns=pulumi.get(__response__, 'arns'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        names=pulumi.get(__response__, 'names')))

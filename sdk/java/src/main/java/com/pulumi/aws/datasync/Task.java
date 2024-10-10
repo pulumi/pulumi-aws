@@ -26,6 +26,42 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.datasync.Task;
+ * import com.pulumi.aws.datasync.TaskArgs;
+ * import com.pulumi.aws.datasync.inputs.TaskOptionsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Task("example", TaskArgs.builder()
+ *             .destinationLocationArn(destination.arn())
+ *             .name("example")
+ *             .sourceLocationArn(source.arn())
+ *             .options(TaskOptionsArgs.builder()
+ *                 .bytesPerSecond(-1)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### With Scheduling

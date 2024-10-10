@@ -241,9 +241,6 @@ def get_vpc_dhcp_options(dhcp_options_id: Optional[str] = None,
         ntp_servers=pulumi.get(__ret__, 'ntp_servers'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_vpc_dhcp_options)
 def get_vpc_dhcp_options_output(dhcp_options_id: Optional[pulumi.Input[Optional[str]]] = None,
                                 filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcDhcpOptionsFilterArgs', 'GetVpcDhcpOptionsFilterArgsDict']]]]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -285,4 +282,22 @@ def get_vpc_dhcp_options_output(dhcp_options_id: Optional[pulumi.Input[Optional[
     :param Sequence[Union['GetVpcDhcpOptionsFilterArgs', 'GetVpcDhcpOptionsFilterArgsDict']] filters: List of custom filters as described below.
     :param Mapping[str, str] tags: Map of tags assigned to the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['dhcpOptionsId'] = dhcp_options_id
+    __args__['filters'] = filters
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions', __args__, opts=opts, typ=GetVpcDhcpOptionsResult)
+    return __ret__.apply(lambda __response__: GetVpcDhcpOptionsResult(
+        arn=pulumi.get(__response__, 'arn'),
+        dhcp_options_id=pulumi.get(__response__, 'dhcp_options_id'),
+        domain_name=pulumi.get(__response__, 'domain_name'),
+        domain_name_servers=pulumi.get(__response__, 'domain_name_servers'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        ipv6_address_preferred_lease_time=pulumi.get(__response__, 'ipv6_address_preferred_lease_time'),
+        netbios_name_servers=pulumi.get(__response__, 'netbios_name_servers'),
+        netbios_node_type=pulumi.get(__response__, 'netbios_node_type'),
+        ntp_servers=pulumi.get(__response__, 'ntp_servers'),
+        owner_id=pulumi.get(__response__, 'owner_id'),
+        tags=pulumi.get(__response__, 'tags')))

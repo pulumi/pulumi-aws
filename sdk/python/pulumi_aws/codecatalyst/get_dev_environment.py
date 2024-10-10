@@ -266,9 +266,6 @@ def get_dev_environment(alias: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         status_reason=pulumi.get(__ret__, 'status_reason'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_dev_environment)
 def get_dev_environment_output(alias: Optional[pulumi.Input[Optional[str]]] = None,
                                creator_id: Optional[pulumi.Input[Optional[str]]] = None,
                                env_id: Optional[pulumi.Input[str]] = None,
@@ -301,4 +298,29 @@ def get_dev_environment_output(alias: Optional[pulumi.Input[Optional[str]]] = No
     :param Sequence[Union['GetDevEnvironmentRepositoryArgs', 'GetDevEnvironmentRepositoryArgsDict']] repositories: The source repository that contains the branch to clone into the Dev Environment.
     :param str space_name: The name of the space.
     """
-    ...
+    __args__ = dict()
+    __args__['alias'] = alias
+    __args__['creatorId'] = creator_id
+    __args__['envId'] = env_id
+    __args__['projectName'] = project_name
+    __args__['repositories'] = repositories
+    __args__['spaceName'] = space_name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:codecatalyst/getDevEnvironment:getDevEnvironment', __args__, opts=opts, typ=GetDevEnvironmentResult)
+    return __ret__.apply(lambda __response__: GetDevEnvironmentResult(
+        alias=pulumi.get(__response__, 'alias'),
+        creator_id=pulumi.get(__response__, 'creator_id'),
+        env_id=pulumi.get(__response__, 'env_id'),
+        id=pulumi.get(__response__, 'id'),
+        ides=pulumi.get(__response__, 'ides'),
+        inactivity_timeout_minutes=pulumi.get(__response__, 'inactivity_timeout_minutes'),
+        instance_type=pulumi.get(__response__, 'instance_type'),
+        last_updated_time=pulumi.get(__response__, 'last_updated_time'),
+        persistent_storages=pulumi.get(__response__, 'persistent_storages'),
+        project_name=pulumi.get(__response__, 'project_name'),
+        repositories=pulumi.get(__response__, 'repositories'),
+        space_name=pulumi.get(__response__, 'space_name'),
+        status=pulumi.get(__response__, 'status'),
+        status_reason=pulumi.get(__response__, 'status_reason'),
+        tags=pulumi.get(__response__, 'tags')))

@@ -109,9 +109,6 @@ def get_lifecycle_policy_document(rules: Optional[Sequence[Union['GetLifecyclePo
         id=pulumi.get(__ret__, 'id'),
         json=pulumi.get(__ret__, 'json'),
         rules=pulumi.get(__ret__, 'rules'))
-
-
-@_utilities.lift_output_func(get_lifecycle_policy_document)
 def get_lifecycle_policy_document_output(rules: Optional[pulumi.Input[Optional[Sequence[Union['GetLifecyclePolicyDocumentRuleArgs', 'GetLifecyclePolicyDocumentRuleArgsDict']]]]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLifecyclePolicyDocumentResult]:
     """
@@ -140,4 +137,11 @@ def get_lifecycle_policy_document_output(rules: Optional[pulumi.Input[Optional[S
         policy=example.json)
     ```
     """
-    ...
+    __args__ = dict()
+    __args__['rules'] = rules
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ecr/getLifecyclePolicyDocument:getLifecyclePolicyDocument', __args__, opts=opts, typ=GetLifecyclePolicyDocumentResult)
+    return __ret__.apply(lambda __response__: GetLifecyclePolicyDocumentResult(
+        id=pulumi.get(__response__, 'id'),
+        json=pulumi.get(__response__, 'json'),
+        rules=pulumi.get(__response__, 'rules')))

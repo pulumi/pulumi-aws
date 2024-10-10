@@ -90,7 +90,7 @@ import (
 //				Rules: s3.BucketLifecycleConfigurationV2RuleArray{
 //					&s3.BucketLifecycleConfigurationV2RuleArgs{
 //						Id:     pulumi.String("rule-1"),
-//						Filter: nil,
+//						Filter: &s3.BucketLifecycleConfigurationV2RuleFilterArgs{},
 //						Status: pulumi.String("Enabled"),
 //					},
 //				},

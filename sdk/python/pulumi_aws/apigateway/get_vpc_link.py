@@ -155,9 +155,6 @@ def get_vpc_link(name: Optional[str] = None,
         status_message=pulumi.get(__ret__, 'status_message'),
         tags=pulumi.get(__ret__, 'tags'),
         target_arns=pulumi.get(__ret__, 'target_arns'))
-
-
-@_utilities.lift_output_func(get_vpc_link)
 def get_vpc_link_output(name: Optional[pulumi.Input[str]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcLinkResult]:
@@ -181,4 +178,16 @@ def get_vpc_link_output(name: Optional[pulumi.Input[str]] = None,
            If multiple API Gateway VPC Links are found with this name, an error will be returned.
     :param Mapping[str, str] tags: Key-value map of resource tags
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:apigateway/getVpcLink:getVpcLink', __args__, opts=opts, typ=GetVpcLinkResult)
+    return __ret__.apply(lambda __response__: GetVpcLinkResult(
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        status=pulumi.get(__response__, 'status'),
+        status_message=pulumi.get(__response__, 'status_message'),
+        tags=pulumi.get(__response__, 'tags'),
+        target_arns=pulumi.get(__response__, 'target_arns')))

@@ -106,9 +106,6 @@ def get_coip_pools(filters: Optional[Sequence[Union['GetCoipPoolsFilterArgs', 'G
         id=pulumi.get(__ret__, 'id'),
         pool_ids=pulumi.get(__ret__, 'pool_ids'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_coip_pools)
 def get_coip_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetCoipPoolsFilterArgs', 'GetCoipPoolsFilterArgsDict']]]]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCoipPoolsResult]:
@@ -123,4 +120,13 @@ def get_coip_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[Union
     :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired aws_ec2_coip_pools.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ec2/getCoipPools:getCoipPools', __args__, opts=opts, typ=GetCoipPoolsResult)
+    return __ret__.apply(lambda __response__: GetCoipPoolsResult(
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        pool_ids=pulumi.get(__response__, 'pool_ids'),
+        tags=pulumi.get(__response__, 'tags')))

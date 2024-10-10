@@ -279,9 +279,6 @@ def get_fleet(name: Optional[str] = None,
         statuses=pulumi.get(__ret__, 'statuses'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_configs=pulumi.get(__ret__, 'vpc_configs'))
-
-
-@_utilities.lift_output_func(get_fleet)
 def get_fleet_output(name: Optional[pulumi.Input[str]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFleetResult]:
@@ -324,4 +321,24 @@ def get_fleet_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Fleet name.
     :param Mapping[str, str] tags: Mapping of Key-Value tags for the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:codebuild/getFleet:getFleet', __args__, opts=opts, typ=GetFleetResult)
+    return __ret__.apply(lambda __response__: GetFleetResult(
+        arn=pulumi.get(__response__, 'arn'),
+        base_capacity=pulumi.get(__response__, 'base_capacity'),
+        compute_type=pulumi.get(__response__, 'compute_type'),
+        created=pulumi.get(__response__, 'created'),
+        environment_type=pulumi.get(__response__, 'environment_type'),
+        fleet_service_role=pulumi.get(__response__, 'fleet_service_role'),
+        id=pulumi.get(__response__, 'id'),
+        image_id=pulumi.get(__response__, 'image_id'),
+        last_modified=pulumi.get(__response__, 'last_modified'),
+        name=pulumi.get(__response__, 'name'),
+        overflow_behavior=pulumi.get(__response__, 'overflow_behavior'),
+        scaling_configurations=pulumi.get(__response__, 'scaling_configurations'),
+        statuses=pulumi.get(__response__, 'statuses'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_configs=pulumi.get(__response__, 'vpc_configs')))

@@ -128,9 +128,6 @@ def get_image_recipes(filters: Optional[Sequence[Union['GetImageRecipesFilterArg
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'),
         owner=pulumi.get(__ret__, 'owner'))
-
-
-@_utilities.lift_output_func(get_image_recipes)
 def get_image_recipes_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetImageRecipesFilterArgs', 'GetImageRecipesFilterArgsDict']]]]] = None,
                              owner: Optional[pulumi.Input[Optional[str]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageRecipesResult]:
@@ -154,4 +151,14 @@ def get_image_recipes_output(filters: Optional[pulumi.Input[Optional[Sequence[Un
     :param Sequence[Union['GetImageRecipesFilterArgs', 'GetImageRecipesFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     :param str owner: Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['owner'] = owner
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:imagebuilder/getImageRecipes:getImageRecipes', __args__, opts=opts, typ=GetImageRecipesResult)
+    return __ret__.apply(lambda __response__: GetImageRecipesResult(
+        arns=pulumi.get(__response__, 'arns'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        names=pulumi.get(__response__, 'names'),
+        owner=pulumi.get(__response__, 'owner')))

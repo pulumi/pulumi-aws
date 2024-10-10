@@ -124,9 +124,6 @@ def get_secret_versions(include_deprecated: Optional[bool] = None,
         name=pulumi.get(__ret__, 'name'),
         secret_id=pulumi.get(__ret__, 'secret_id'),
         versions=pulumi.get(__ret__, 'versions'))
-
-
-@_utilities.lift_output_func(get_secret_versions)
 def get_secret_versions_output(include_deprecated: Optional[pulumi.Input[Optional[bool]]] = None,
                                secret_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretVersionsResult]:
@@ -137,4 +134,15 @@ def get_secret_versions_output(include_deprecated: Optional[pulumi.Input[Optiona
            If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
     :param str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
     """
-    ...
+    __args__ = dict()
+    __args__['includeDeprecated'] = include_deprecated
+    __args__['secretId'] = secret_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:secretsmanager/getSecretVersions:getSecretVersions', __args__, opts=opts, typ=GetSecretVersionsResult)
+    return __ret__.apply(lambda __response__: GetSecretVersionsResult(
+        arn=pulumi.get(__response__, 'arn'),
+        id=pulumi.get(__response__, 'id'),
+        include_deprecated=pulumi.get(__response__, 'include_deprecated'),
+        name=pulumi.get(__response__, 'name'),
+        secret_id=pulumi.get(__response__, 'secret_id'),
+        versions=pulumi.get(__response__, 'versions')))

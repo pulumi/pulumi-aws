@@ -62,7 +62,7 @@ func TestRegress3887(t *testing.T) {
 // Make sure that importing an AWS targetGroup succeeds.
 func TestRegress2534(t *testing.T) {
 	ptest := pulumiTest(t, filepath.Join("test-programs", "regress-2534"))
-	upResult := ptest.Up()
+	upResult := ptest.Up(t)
 	targetGroupArn := upResult.Outputs["targetGroupArn"].Value.(string)
 	targetGroupUrn := upResult.Outputs["targetGroupUrn"].Value.(string)
 	workspace := ptest.CurrentStack().Workspace()
@@ -76,7 +76,7 @@ func TestRegress2534(t *testing.T) {
 
 func TestRegress4457(t *testing.T) {
 	ptest := pulumiTest(t, filepath.Join("test-programs", "regress-4457"))
-	upResult := ptest.Up()
+	upResult := ptest.Up(t)
 	autoGroupArn := upResult.Outputs["autoGroupArn"].Value.(string)
 	autoGroupUrn := upResult.Outputs["autoGroupUrn"].Value.(string)
 	autoGroupName := upResult.Outputs["autoGroupName"].Value.(string)
@@ -86,12 +86,12 @@ func TestRegress4457(t *testing.T) {
 	workdir := workspace.WorkDir()
 	t.Logf("workdir = %s", workdir)
 
-	importResult := ptest.Import("aws:autoscaling/group:Group", "newag", autoGroupName, "" /* providerUrn */)
+	importResult := ptest.Import(t, "aws:autoscaling/group:Group", "newag", autoGroupName, "" /* providerUrn */)
 
 	t.Logf("Editing the program to add the code recommended by import")
 	i := strings.Index(importResult.Stdout, "import pulumi")
 	extraCode := importResult.Stdout[i:]
-	mainPy := filepath.Join(ptest.Source(), "__main__.py")
+	mainPy := filepath.Join(ptest.WorkingDir(), "__main__.py")
 	pyBytes, err := os.ReadFile(mainPy)
 	require.NoError(t, err)
 	updatedPyBytes := bytes.ReplaceAll(pyBytes, []byte("# EXTRA CODE HERE"), []byte(extraCode))
@@ -99,7 +99,7 @@ func TestRegress4457(t *testing.T) {
 	require.NoError(t, err)
 
 	t.Logf("Previewing the edited program")
-	previewResult := ptest.Preview(optpreview.ExpectNoChanges())
+	previewResult := ptest.Preview(t, optpreview.ExpectNoChanges())
 	t.Logf("%s", previewResult.StdOut)
 	t.Logf("%s", previewResult.StdErr)
 }

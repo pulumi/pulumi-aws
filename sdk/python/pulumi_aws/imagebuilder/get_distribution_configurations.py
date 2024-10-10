@@ -114,9 +114,6 @@ def get_distribution_configurations(filters: Optional[Sequence[Union['GetDistrib
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'))
-
-
-@_utilities.lift_output_func(get_distribution_configurations)
 def get_distribution_configurations_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetDistributionConfigurationsFilterArgs', 'GetDistributionConfigurationsFilterArgsDict']]]]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDistributionConfigurationsResult]:
     """
@@ -137,4 +134,12 @@ def get_distribution_configurations_output(filters: Optional[pulumi.Input[Option
 
     :param Sequence[Union['GetDistributionConfigurationsFilterArgs', 'GetDistributionConfigurationsFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:imagebuilder/getDistributionConfigurations:getDistributionConfigurations', __args__, opts=opts, typ=GetDistributionConfigurationsResult)
+    return __ret__.apply(lambda __response__: GetDistributionConfigurationsResult(
+        arns=pulumi.get(__response__, 'arns'),
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        names=pulumi.get(__response__, 'names')))

@@ -138,9 +138,6 @@ def get_origin_access_identities(comments: Optional[Sequence[str]] = None,
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
         s3_canonical_user_ids=pulumi.get(__ret__, 's3_canonical_user_ids'))
-
-
-@_utilities.lift_output_func(get_origin_access_identities)
 def get_origin_access_identities_output(comments: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginAccessIdentitiesResult]:
     """
@@ -174,4 +171,13 @@ def get_origin_access_identities_output(comments: Optional[pulumi.Input[Optional
 
     :param Sequence[str] comments: Filter origin access identities by comment.
     """
-    ...
+    __args__ = dict()
+    __args__['comments'] = comments
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:cloudfront/getOriginAccessIdentities:getOriginAccessIdentities', __args__, opts=opts, typ=GetOriginAccessIdentitiesResult)
+    return __ret__.apply(lambda __response__: GetOriginAccessIdentitiesResult(
+        comments=pulumi.get(__response__, 'comments'),
+        iam_arns=pulumi.get(__response__, 'iam_arns'),
+        id=pulumi.get(__response__, 'id'),
+        ids=pulumi.get(__response__, 'ids'),
+        s3_canonical_user_ids=pulumi.get(__response__, 's3_canonical_user_ids')))

@@ -127,9 +127,6 @@ def get_ebs_volumes(filters: Optional[Sequence[Union['GetEbsVolumesFilterArgs', 
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_ebs_volumes)
 def get_ebs_volumes_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetEbsVolumesFilterArgs', 'GetEbsVolumesFilterArgsDict']]]]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEbsVolumesResult]:
@@ -164,4 +161,13 @@ def get_ebs_volumes_output(filters: Optional[pulumi.Input[Optional[Sequence[Unio
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
     """
-    ...
+    __args__ = dict()
+    __args__['filters'] = filters
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ebs/getEbsVolumes:getEbsVolumes', __args__, opts=opts, typ=GetEbsVolumesResult)
+    return __ret__.apply(lambda __response__: GetEbsVolumesResult(
+        filters=pulumi.get(__response__, 'filters'),
+        id=pulumi.get(__response__, 'id'),
+        ids=pulumi.get(__response__, 'ids'),
+        tags=pulumi.get(__response__, 'tags')))

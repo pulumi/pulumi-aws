@@ -148,9 +148,6 @@ def get_outposts(availability_zone: Optional[str] = None,
         ids=pulumi.get(__ret__, 'ids'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
         site_id=pulumi.get(__ret__, 'site_id'))
-
-
-@_utilities.lift_output_func(get_outposts)
 def get_outposts_output(availability_zone: Optional[pulumi.Input[Optional[str]]] = None,
                         availability_zone_id: Optional[pulumi.Input[Optional[str]]] = None,
                         owner_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -174,4 +171,18 @@ def get_outposts_output(availability_zone: Optional[pulumi.Input[Optional[str]]]
     :param str owner_id: AWS Account identifier of the Outpost owner.
     :param str site_id: Site identifier.
     """
-    ...
+    __args__ = dict()
+    __args__['availabilityZone'] = availability_zone
+    __args__['availabilityZoneId'] = availability_zone_id
+    __args__['ownerId'] = owner_id
+    __args__['siteId'] = site_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:outposts/getOutposts:getOutposts', __args__, opts=opts, typ=GetOutpostsResult)
+    return __ret__.apply(lambda __response__: GetOutpostsResult(
+        arns=pulumi.get(__response__, 'arns'),
+        availability_zone=pulumi.get(__response__, 'availability_zone'),
+        availability_zone_id=pulumi.get(__response__, 'availability_zone_id'),
+        id=pulumi.get(__response__, 'id'),
+        ids=pulumi.get(__response__, 'ids'),
+        owner_id=pulumi.get(__response__, 'owner_id'),
+        site_id=pulumi.get(__response__, 'site_id')))

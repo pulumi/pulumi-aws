@@ -163,9 +163,6 @@ def get_export(api_id: Optional[str] = None,
         output_type=pulumi.get(__ret__, 'output_type'),
         specification=pulumi.get(__ret__, 'specification'),
         stage_name=pulumi.get(__ret__, 'stage_name'))
-
-
-@_utilities.lift_output_func(get_export)
 def get_export_output(api_id: Optional[pulumi.Input[str]] = None,
                       export_version: Optional[pulumi.Input[Optional[str]]] = None,
                       include_extensions: Optional[pulumi.Input[Optional[bool]]] = None,
@@ -195,4 +192,21 @@ def get_export_output(api_id: Optional[pulumi.Input[str]] = None,
     :param str specification: Version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
     :param str stage_name: Name of the API stage to export. If you don't specify this property, a representation of the latest API configuration is exported.
     """
-    ...
+    __args__ = dict()
+    __args__['apiId'] = api_id
+    __args__['exportVersion'] = export_version
+    __args__['includeExtensions'] = include_extensions
+    __args__['outputType'] = output_type
+    __args__['specification'] = specification
+    __args__['stageName'] = stage_name
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:apigatewayv2/getExport:getExport', __args__, opts=opts, typ=GetExportResult)
+    return __ret__.apply(lambda __response__: GetExportResult(
+        api_id=pulumi.get(__response__, 'api_id'),
+        body=pulumi.get(__response__, 'body'),
+        export_version=pulumi.get(__response__, 'export_version'),
+        id=pulumi.get(__response__, 'id'),
+        include_extensions=pulumi.get(__response__, 'include_extensions'),
+        output_type=pulumi.get(__response__, 'output_type'),
+        specification=pulumi.get(__response__, 'specification'),
+        stage_name=pulumi.get(__response__, 'stage_name')))

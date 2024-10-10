@@ -217,9 +217,6 @@ def get_configuration_profile(application_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         validators=pulumi.get(__ret__, 'validators'))
-
-
-@_utilities.lift_output_func(get_configuration_profile)
 def get_configuration_profile_output(application_id: Optional[pulumi.Input[str]] = None,
                                      configuration_profile_id: Optional[pulumi.Input[str]] = None,
                                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -244,4 +241,22 @@ def get_configuration_profile_output(application_id: Optional[pulumi.Input[str]]
     :param str configuration_profile_id: ID of the Configuration Profile.
     :param Mapping[str, str] tags: Map of tags for the resource.
     """
-    ...
+    __args__ = dict()
+    __args__['applicationId'] = application_id
+    __args__['configurationProfileId'] = configuration_profile_id
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:appconfig/getConfigurationProfile:getConfigurationProfile', __args__, opts=opts, typ=GetConfigurationProfileResult)
+    return __ret__.apply(lambda __response__: GetConfigurationProfileResult(
+        application_id=pulumi.get(__response__, 'application_id'),
+        arn=pulumi.get(__response__, 'arn'),
+        configuration_profile_id=pulumi.get(__response__, 'configuration_profile_id'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        kms_key_identifier=pulumi.get(__response__, 'kms_key_identifier'),
+        location_uri=pulumi.get(__response__, 'location_uri'),
+        name=pulumi.get(__response__, 'name'),
+        retrieval_role_arn=pulumi.get(__response__, 'retrieval_role_arn'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type'),
+        validators=pulumi.get(__response__, 'validators')))

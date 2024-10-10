@@ -258,16 +258,16 @@ resources:
 				opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")),
 			)
 
-			pt.SetConfig("randSuffix", fmt.Sprintf("%d-x", rand.Intn(1024*1024)))
+			pt.SetConfig(t, "randSuffix", fmt.Sprintf("%d-x", rand.Intn(1024*1024)))
 
 			if tc.applyMethod1 != nil {
-				pt.SetConfig("applyMethod", string(*tc.applyMethod1))
+				pt.SetConfig(t, "applyMethod", string(*tc.applyMethod1))
 			}
-			pt.SetConfig("value", tc.value1)
+			pt.SetConfig(t, "value", tc.value1)
 
-			pt.Up()
+			pt.Up(t)
 
-			assertpreview.HasNoChanges(t, pt.Preview())
+			assertpreview.HasNoChanges(t, pt.Preview(t))
 
 			err = os.WriteFile(filepath.Join(workdir, "Pulumi.yaml"), []byte(tc.file2), 0o600)
 			require.NoError(t, err)
@@ -276,22 +276,22 @@ resources:
 				if tc.file2 == noApplyYaml {
 					t.Errorf("WRONG FILE!")
 				}
-				pt.SetConfig("applyMethod", string(*tc.applyMethod2))
+				pt.SetConfig(t, "applyMethod", string(*tc.applyMethod2))
 			}
-			pt.SetConfig("value", tc.value2)
+			pt.SetConfig(t, "value", tc.value2)
 
 			if tc.expectChanges {
-				pr := pt.Preview()
+				pr := pt.Preview(t)
 				assert.Equal(t, 1, pr.ChangeSummary[apitype.OpUpdate])
 			} else {
-				assertpreview.HasNoChanges(t, pt.Preview())
+				assertpreview.HasNoChanges(t, pt.Preview(t))
 			}
 
-			upr := pt.Up()
+			upr := pt.Up(t)
 			t.Logf("stdout: %s", upr.StdOut)
 			t.Logf("stderr: %s", upr.StdErr)
 
-			assertpreview.HasNoChanges(t, pt.Preview())
+			assertpreview.HasNoChanges(t, pt.Preview(t))
 		})
 	}
 }
@@ -310,10 +310,10 @@ func TestNonIdempotentSnsTopic(t *testing.T) {
 	t.Parallel()
 	ptest := pulumiTest(t, filepath.Join("test-programs", "non-idempotent-sns-topic"), opttest.SkipInstall())
 
-	ptest.InstallStack("test")
+	ptest.InstallStack(t, "test")
 	// generate random name
 	topic_name := randSeq(12)
-	ptest.SetConfig("snsTopicName", topic_name)
+	ptest.SetConfig(t, "snsTopicName", topic_name)
 
 	_, err := ptest.CurrentStack().Up(ptest.Context())
 	require.ErrorContains(t, err, "already exists")
@@ -370,12 +370,12 @@ resources:
 			},
 		})
 
-		res := pulumiTest.Preview()
+		res := pulumiTest.Preview(t)
 		t.Logf("stdout: %s \n", res.StdOut)
 		t.Logf("stderr: %s \n", res.StdErr)
 		assertpreview.HasNoChanges(t, res)
 
-		upResult := pulumiTest.Up()
+		upResult := pulumiTest.Up(t)
 		t.Logf("stdout: %s \n", upResult.StdOut)
 		t.Logf("stderr: %s \n", upResult.StdErr)
 	})
@@ -392,7 +392,7 @@ resources:
 			opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")),
 		)
 
-		pulumiTest.SetConfig("aws:region", "us-east-2")
+		pulumiTest.SetConfig(t, "aws:region", "us-east-2")
 
 		pulumiUpWithSnapshot(t, pulumiTest)
 	})
@@ -402,13 +402,13 @@ resources:
 func TestRegress3674(t *testing.T) {
 	t.Parallel()
 	ptest := pulumiTest(t, filepath.Join("test-programs", "regress-3674"), opttest.SkipInstall())
-	upResult := ptest.Up()
+	upResult := ptest.Up(t)
 	bucketName := upResult.Outputs["bucketName"].Value.(string)
 	deleteBucketTagging(ptest.Context(), bucketName)
-	result := ptest.Refresh()
+	result := ptest.Refresh(t)
 	t.Logf("%s", result.StdOut)
 	require.Equal(t, 1, (*result.Summary.ResourceChanges)["update"])
-	state, err := ptest.ExportStack().Deployment.MarshalJSON()
+	state, err := ptest.ExportStack(t).Deployment.MarshalJSON()
 	require.NoError(t, err)
 	require.NotContainsf(t, string(state), "MyTestTag", "Expected MyTestTag to be removed")
 }
@@ -457,14 +457,14 @@ func TestIMDSAuth(t *testing.T) {
 	t.Run("IDMSv2", func(t *testing.T) {
 		t.Parallel()
 		ptest := pulumiTest(t, filepath.Join("test-programs", "imds-auth", "imds-v2"), opttest.SkipInstall())
-		dir := ptest.Source()
+		dir := ptest.WorkingDir()
 		localLocation := filepath.Join(dir, "pulumi-resource-aws")
 		// need to copy the provider to the local directory for BucketObjectV2 to pick it up
 		// otherwise you get an error `Argument must be a constant or contained in the project dir`
 		err := copyFile(localProviderBuild, localLocation)
 		assert.NoError(t, err)
-		ptest.SetConfig("localProviderBuild", localLocation)
-		result := ptest.Up()
+		ptest.SetConfig(t, "localProviderBuild", localLocation)
+		result := ptest.Up(t)
 		t.Logf("stdout: %s", result.StdOut)
 		t.Logf("stderr: %s", result.StdErr)
 		t.Logf("commandOut: %v", result.Outputs["commandOut"].Value)
@@ -501,7 +501,7 @@ func copyFile(src, dst string) error {
 func TestS3BucketObjectDeprecation(t *testing.T) {
 	t.Parallel()
 	ptest := pulumiTest(t, filepath.Join("test-programs", "regress-2796"), opttest.SkipInstall())
-	result := ptest.Up()
+	result := ptest.Up(t)
 	t.Logf("STDOUT: %v", result.StdOut)
 	t.Logf("STDERR: %v", result.StdErr)
 	require.NotContains(t, result.StdOut+result.StdErr, "aws_s3_object")

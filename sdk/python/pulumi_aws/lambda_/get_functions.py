@@ -94,9 +94,6 @@ def get_functions(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFu
         function_arns=pulumi.get(__ret__, 'function_arns'),
         function_names=pulumi.get(__ret__, 'function_names'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_functions)
 def get_functions_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionsResult]:
     """
     Data resource to get a list of Lambda Functions.
@@ -110,4 +107,10 @@ def get_functions_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.
     all = aws.lambda.get_functions()
     ```
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:lambda/getFunctions:getFunctions', __args__, opts=opts, typ=GetFunctionsResult)
+    return __ret__.apply(lambda __response__: GetFunctionsResult(
+        function_arns=pulumi.get(__response__, 'function_arns'),
+        function_names=pulumi.get(__response__, 'function_names'),
+        id=pulumi.get(__response__, 'id')))

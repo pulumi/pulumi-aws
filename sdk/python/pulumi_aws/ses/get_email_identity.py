@@ -99,9 +99,6 @@ def get_email_identity(email: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         email=pulumi.get(__ret__, 'email'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_email_identity)
 def get_email_identity_output(email: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEmailIdentityResult]:
     """
@@ -119,4 +116,11 @@ def get_email_identity_output(email: Optional[pulumi.Input[str]] = None,
 
     :param str email: Email identity.
     """
-    ...
+    __args__ = dict()
+    __args__['email'] = email
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:ses/getEmailIdentity:getEmailIdentity', __args__, opts=opts, typ=GetEmailIdentityResult)
+    return __ret__.apply(lambda __response__: GetEmailIdentityResult(
+        arn=pulumi.get(__response__, 'arn'),
+        email=pulumi.get(__response__, 'email'),
+        id=pulumi.get(__response__, 'id')))

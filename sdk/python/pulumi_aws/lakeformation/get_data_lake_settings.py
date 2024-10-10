@@ -201,9 +201,6 @@ def get_data_lake_settings(catalog_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         read_only_admins=pulumi.get(__ret__, 'read_only_admins'),
         trusted_resource_owners=pulumi.get(__ret__, 'trusted_resource_owners'))
-
-
-@_utilities.lift_output_func(get_data_lake_settings)
 def get_data_lake_settings_output(catalog_id: Optional[pulumi.Input[Optional[str]]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataLakeSettingsResult]:
     """
@@ -221,4 +218,19 @@ def get_data_lake_settings_output(catalog_id: Optional[pulumi.Input[Optional[str
 
     :param str catalog_id: Identifier for the Data Catalog. By default, the account ID.
     """
-    ...
+    __args__ = dict()
+    __args__['catalogId'] = catalog_id
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:lakeformation/getDataLakeSettings:getDataLakeSettings', __args__, opts=opts, typ=GetDataLakeSettingsResult)
+    return __ret__.apply(lambda __response__: GetDataLakeSettingsResult(
+        admins=pulumi.get(__response__, 'admins'),
+        allow_external_data_filtering=pulumi.get(__response__, 'allow_external_data_filtering'),
+        allow_full_table_external_data_access=pulumi.get(__response__, 'allow_full_table_external_data_access'),
+        authorized_session_tag_value_lists=pulumi.get(__response__, 'authorized_session_tag_value_lists'),
+        catalog_id=pulumi.get(__response__, 'catalog_id'),
+        create_database_default_permissions=pulumi.get(__response__, 'create_database_default_permissions'),
+        create_table_default_permissions=pulumi.get(__response__, 'create_table_default_permissions'),
+        external_data_filtering_allow_lists=pulumi.get(__response__, 'external_data_filtering_allow_lists'),
+        id=pulumi.get(__response__, 'id'),
+        read_only_admins=pulumi.get(__response__, 'read_only_admins'),
+        trusted_resource_owners=pulumi.get(__response__, 'trusted_resource_owners')))

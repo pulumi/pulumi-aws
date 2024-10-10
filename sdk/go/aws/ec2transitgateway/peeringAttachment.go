@@ -30,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			peer, err := aws.GetRegion(ctx, nil, nil)
+//			peer, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

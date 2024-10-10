@@ -456,9 +456,6 @@ def get_domain(domain_name: Optional[str] = None,
         software_update_options=pulumi.get(__ret__, 'software_update_options'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_options=pulumi.get(__ret__, 'vpc_options'))
-
-
-@_utilities.lift_output_func(get_domain)
 def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
                       off_peak_window_options: Optional[pulumi.Input[Optional[Union['GetDomainOffPeakWindowOptionsArgs', 'GetDomainOffPeakWindowOptionsArgsDict']]]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -480,4 +477,40 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
     :param Union['GetDomainOffPeakWindowOptionsArgs', 'GetDomainOffPeakWindowOptionsArgsDict'] off_peak_window_options: Off Peak update options
     :param Mapping[str, str] tags: Tags assigned to the domain.
     """
-    ...
+    __args__ = dict()
+    __args__['domainName'] = domain_name
+    __args__['offPeakWindowOptions'] = off_peak_window_options
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:opensearch/getDomain:getDomain', __args__, opts=opts, typ=GetDomainResult)
+    return __ret__.apply(lambda __response__: GetDomainResult(
+        access_policies=pulumi.get(__response__, 'access_policies'),
+        advanced_options=pulumi.get(__response__, 'advanced_options'),
+        advanced_security_options=pulumi.get(__response__, 'advanced_security_options'),
+        arn=pulumi.get(__response__, 'arn'),
+        auto_tune_options=pulumi.get(__response__, 'auto_tune_options'),
+        cluster_configs=pulumi.get(__response__, 'cluster_configs'),
+        cognito_options=pulumi.get(__response__, 'cognito_options'),
+        created=pulumi.get(__response__, 'created'),
+        dashboard_endpoint=pulumi.get(__response__, 'dashboard_endpoint'),
+        dashboard_endpoint_v2=pulumi.get(__response__, 'dashboard_endpoint_v2'),
+        deleted=pulumi.get(__response__, 'deleted'),
+        domain_endpoint_v2_hosted_zone_id=pulumi.get(__response__, 'domain_endpoint_v2_hosted_zone_id'),
+        domain_id=pulumi.get(__response__, 'domain_id'),
+        domain_name=pulumi.get(__response__, 'domain_name'),
+        ebs_options=pulumi.get(__response__, 'ebs_options'),
+        encryption_at_rests=pulumi.get(__response__, 'encryption_at_rests'),
+        endpoint=pulumi.get(__response__, 'endpoint'),
+        endpoint_v2=pulumi.get(__response__, 'endpoint_v2'),
+        engine_version=pulumi.get(__response__, 'engine_version'),
+        id=pulumi.get(__response__, 'id'),
+        ip_address_type=pulumi.get(__response__, 'ip_address_type'),
+        kibana_endpoint=pulumi.get(__response__, 'kibana_endpoint'),
+        log_publishing_options=pulumi.get(__response__, 'log_publishing_options'),
+        node_to_node_encryptions=pulumi.get(__response__, 'node_to_node_encryptions'),
+        off_peak_window_options=pulumi.get(__response__, 'off_peak_window_options'),
+        processing=pulumi.get(__response__, 'processing'),
+        snapshot_options=pulumi.get(__response__, 'snapshot_options'),
+        software_update_options=pulumi.get(__response__, 'software_update_options'),
+        tags=pulumi.get(__response__, 'tags'),
+        vpc_options=pulumi.get(__response__, 'vpc_options')))
