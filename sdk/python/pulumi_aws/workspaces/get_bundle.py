@@ -183,9 +183,6 @@ def get_bundle(bundle_id: Optional[str] = None,
         owner=pulumi.get(__ret__, 'owner'),
         root_storages=pulumi.get(__ret__, 'root_storages'),
         user_storages=pulumi.get(__ret__, 'user_storages'))
-
-
-@_utilities.lift_output_func(get_bundle)
 def get_bundle_output(bundle_id: Optional[pulumi.Input[Optional[str]]] = None,
                       name: Optional[pulumi.Input[Optional[str]]] = None,
                       owner: Optional[pulumi.Input[Optional[str]]] = None,
@@ -219,4 +216,18 @@ def get_bundle_output(bundle_id: Optional[pulumi.Input[Optional[str]]] = None,
     :param str name: Name of the bundle. You cannot combine this parameter with `bundle_id`.
     :param str owner: Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
     """
-    ...
+    __args__ = dict()
+    __args__['bundleId'] = bundle_id
+    __args__['name'] = name
+    __args__['owner'] = owner
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:workspaces/getBundle:getBundle', __args__, opts=opts, typ=GetBundleResult)
+    return __ret__.apply(lambda __response__: GetBundleResult(
+        bundle_id=pulumi.get(__response__, 'bundle_id'),
+        compute_types=pulumi.get(__response__, 'compute_types'),
+        description=pulumi.get(__response__, 'description'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        owner=pulumi.get(__response__, 'owner'),
+        root_storages=pulumi.get(__response__, 'root_storages'),
+        user_storages=pulumi.get(__response__, 'user_storages')))

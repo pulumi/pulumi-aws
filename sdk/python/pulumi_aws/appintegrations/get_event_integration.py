@@ -152,9 +152,6 @@ def get_event_integration(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-
-
-@_utilities.lift_output_func(get_event_integration)
 def get_event_integration_output(name: Optional[pulumi.Input[str]] = None,
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventIntegrationResult]:
@@ -174,4 +171,16 @@ def get_event_integration_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: The AppIntegrations Event Integration name.
     :param Mapping[str, str] tags: Metadata that you can assign to help organize the report plans you create.
     """
-    ...
+    __args__ = dict()
+    __args__['name'] = name
+    __args__['tags'] = tags
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:appintegrations/getEventIntegration:getEventIntegration', __args__, opts=opts, typ=GetEventIntegrationResult)
+    return __ret__.apply(lambda __response__: GetEventIntegrationResult(
+        arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description'),
+        event_filters=pulumi.get(__response__, 'event_filters'),
+        eventbridge_bus=pulumi.get(__response__, 'eventbridge_bus'),
+        id=pulumi.get(__response__, 'id'),
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags')))

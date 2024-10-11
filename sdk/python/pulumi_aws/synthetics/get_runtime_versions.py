@@ -90,9 +90,6 @@ def get_runtime_versions(runtime_versions: Optional[Sequence[Union['GetRuntimeVe
     return AwaitableGetRuntimeVersionsResult(
         id=pulumi.get(__ret__, 'id'),
         runtime_versions=pulumi.get(__ret__, 'runtime_versions'))
-
-
-@_utilities.lift_output_func(get_runtime_versions)
 def get_runtime_versions_output(runtime_versions: Optional[pulumi.Input[Optional[Sequence[Union['GetRuntimeVersionsRuntimeVersionArgs', 'GetRuntimeVersionsRuntimeVersionArgsDict']]]]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuntimeVersionsResult]:
     """
@@ -112,4 +109,10 @@ def get_runtime_versions_output(runtime_versions: Optional[pulumi.Input[Optional
 
     :param Sequence[Union['GetRuntimeVersionsRuntimeVersionArgs', 'GetRuntimeVersionsRuntimeVersionArgsDict']] runtime_versions: List of runtime versions. See `runtime_versions` attribute reference.
     """
-    ...
+    __args__ = dict()
+    __args__['runtimeVersions'] = runtime_versions
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:synthetics/getRuntimeVersions:getRuntimeVersions', __args__, opts=opts, typ=GetRuntimeVersionsResult)
+    return __ret__.apply(lambda __response__: GetRuntimeVersionsResult(
+        id=pulumi.get(__response__, 'id'),
+        runtime_versions=pulumi.get(__response__, 'runtime_versions')))

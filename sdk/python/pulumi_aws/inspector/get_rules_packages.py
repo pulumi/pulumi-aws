@@ -96,9 +96,6 @@ def get_rules_packages(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitable
     return AwaitableGetRulesPackagesResult(
         arns=pulumi.get(__ret__, 'arns'),
         id=pulumi.get(__ret__, 'id'))
-
-
-@_utilities.lift_output_func(get_rules_packages)
 def get_rules_packages_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRulesPackagesResult]:
     """
     The Amazon Inspector Classic Rules Packages data source allows access to the list of AWS
@@ -127,4 +124,9 @@ def get_rules_packages_output(opts: Optional[pulumi.InvokeOptions] = None) -> pu
         rules_package_arns=rules.arns)
     ```
     """
-    ...
+    __args__ = dict()
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:inspector/getRulesPackages:getRulesPackages', __args__, opts=opts, typ=GetRulesPackagesResult)
+    return __ret__.apply(lambda __response__: GetRulesPackagesResult(
+        arns=pulumi.get(__response__, 'arns'),
+        id=pulumi.get(__response__, 'id')))
