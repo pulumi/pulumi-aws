@@ -97,11 +97,11 @@ func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOpti
 	}
 	test := pulumitest.NewPulumiTest(t, dir, options...)
 	if opts != nil && opts.setEnvRegion {
-		test.SetConfig("aws:region", "INVALID_REGION")
-		test.SetConfig("aws:envRegion", getEnvRegion(t))
+		test.SetConfig(t, "aws:region", "INVALID_REGION")
+		test.SetConfig(t, "aws:envRegion", getEnvRegion(t))
 	}
 	if opts != nil && opts.region != "" {
-		test.SetConfig("aws:region", opts.region)
+		test.SetConfig(t, "aws:region", opts.region)
 	}
 	result := providertest.PreviewProviderUpgrade(t, test, providerName, baselineVersion,
 		optproviderupgrade.DisableAttach())
@@ -145,18 +145,18 @@ func testProviderCodeChanges(t *testing.T, opts *testProviderCodeChangesOptions)
 	if opts != nil && opts.region != "" {
 		region = opts.region
 	}
-	pt.SetConfig("aws:region", region)
+	pt.SetConfig(t, "aws:region", region)
 
 	var export *apitype.UntypedDeployment
 	export, err = tryReadStackExport(stackExportFile)
 	if err != nil {
-		pt.Up()
-		grptLog := pt.GrpcLog()
+		pt.Up(t)
+		grptLog := pt.GrpcLog(t)
 		grpcLogPath := filepath.Join(cacheDir, "grpc.json")
 		t.Logf("writing grpc log to %s", grpcLogPath)
 		grptLog.WriteTo(grpcLogPath)
 
-		e := pt.ExportStack()
+		e := pt.ExportStack(t)
 		export = &e
 		err = writeStackExport(stackExportFile, export, true)
 		assert.NoError(t, err)
@@ -172,8 +172,8 @@ func testProviderCodeChanges(t *testing.T, opts *testProviderCodeChangesOptions)
 	err = os.WriteFile(filepath.Join(workdir, "Pulumi.yaml"), opts.secondProgram, 0o600)
 	require.NoError(t, err)
 	secondTest := pulumitest.NewPulumiTest(t, workdir, secondOptions...)
-	secondTest.SetConfig("aws:region", region)
-	secondTest.ImportStack(*export)
+	secondTest.SetConfig(t, "aws:region", region)
+	secondTest.ImportStack(t, *export)
 
 	return secondTest
 }
@@ -195,7 +195,7 @@ func pulumiUpWithSnapshot(t *testing.T, pulumiTest *pulumitest.PulumiTest) {
 		assert.NoError(t, err)
 		tmpPlanFile := filepath.Join(workdir, "plan.json")
 
-		pulumiTest.Preview(optpreview.Plan(tmpPlanFile))
+		pulumiTest.Preview(t, optpreview.Plan(tmpPlanFile))
 
 		if equal := planEqual(t, planFile, tmpPlanFile); equal {
 			return
@@ -203,8 +203,8 @@ func pulumiUpWithSnapshot(t *testing.T, pulumiTest *pulumitest.PulumiTest) {
 
 		t.Log("Plan is not equal, re-running up")
 	}
-	pulumiTest.Preview(optpreview.Plan(planFile))
-	upResult := pulumiTest.Up(optup.Plan(planFile))
+	pulumiTest.Preview(t, optpreview.Plan(planFile))
+	upResult := pulumiTest.Up(t, optup.Plan(planFile))
 	t.Logf("stdout: %s \n", upResult.StdOut)
 	t.Logf("stderr: %s \n", upResult.StdErr)
 }

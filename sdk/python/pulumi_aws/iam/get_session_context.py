@@ -153,9 +153,6 @@ def get_session_context(arn: Optional[str] = None,
         issuer_id=pulumi.get(__ret__, 'issuer_id'),
         issuer_name=pulumi.get(__ret__, 'issuer_name'),
         session_name=pulumi.get(__ret__, 'session_name'))
-
-
-@_utilities.lift_output_func(get_session_context)
 def get_session_context_output(arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSessionContextResult]:
     """
@@ -191,4 +188,14 @@ def get_session_context_output(arn: Optional[pulumi.Input[str]] = None,
            
            > If `arn` is a non-role ARN, Pulumi gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, Pulumi gives an error if the identified IAM role does not exist.
     """
-    ...
+    __args__ = dict()
+    __args__['arn'] = arn
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:iam/getSessionContext:getSessionContext', __args__, opts=opts, typ=GetSessionContextResult)
+    return __ret__.apply(lambda __response__: GetSessionContextResult(
+        arn=pulumi.get(__response__, 'arn'),
+        id=pulumi.get(__response__, 'id'),
+        issuer_arn=pulumi.get(__response__, 'issuer_arn'),
+        issuer_id=pulumi.get(__response__, 'issuer_id'),
+        issuer_name=pulumi.get(__response__, 'issuer_name'),
+        session_name=pulumi.get(__response__, 'session_name')))

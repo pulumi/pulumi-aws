@@ -138,9 +138,6 @@ def get_instance_type_offerings(engine_type: Optional[str] = None,
         host_instance_type=pulumi.get(__ret__, 'host_instance_type'),
         id=pulumi.get(__ret__, 'id'),
         storage_type=pulumi.get(__ret__, 'storage_type'))
-
-
-@_utilities.lift_output_func(get_instance_type_offerings)
 def get_instance_type_offerings_output(engine_type: Optional[pulumi.Input[Optional[str]]] = None,
                                        host_instance_type: Optional[pulumi.Input[Optional[str]]] = None,
                                        storage_type: Optional[pulumi.Input[Optional[str]]] = None,
@@ -168,4 +165,15 @@ def get_instance_type_offerings_output(engine_type: Optional[pulumi.Input[Option
     :param str host_instance_type: Filter response by host instance type.
     :param str storage_type: Filter response by storage type.
     """
-    ...
+    __args__ = dict()
+    __args__['engineType'] = engine_type
+    __args__['hostInstanceType'] = host_instance_type
+    __args__['storageType'] = storage_type
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings', __args__, opts=opts, typ=GetInstanceTypeOfferingsResult)
+    return __ret__.apply(lambda __response__: GetInstanceTypeOfferingsResult(
+        broker_instance_options=pulumi.get(__response__, 'broker_instance_options'),
+        engine_type=pulumi.get(__response__, 'engine_type'),
+        host_instance_type=pulumi.get(__response__, 'host_instance_type'),
+        id=pulumi.get(__response__, 'id'),
+        storage_type=pulumi.get(__response__, 'storage_type')))
