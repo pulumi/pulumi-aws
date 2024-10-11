@@ -214,7 +214,7 @@ class AnalyticsConfiguration(pulumi.CustomResource):
                 "prefix": "documents/",
                 "tags": {
                     "priority": "high",
-                    "class_": "blue",
+                    "class": "blue",
                 },
             })
         ```
@@ -283,7 +283,7 @@ class AnalyticsConfiguration(pulumi.CustomResource):
                 "prefix": "documents/",
                 "tags": {
                     "priority": "high",
-                    "class_": "blue",
+                    "class": "blue",
                 },
             })
         ```
