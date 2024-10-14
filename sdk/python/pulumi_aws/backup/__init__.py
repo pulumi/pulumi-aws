@@ -16,6 +16,8 @@ from .logically_air_gapped_vault import *
 from .plan import *
 from .region_settings import *
 from .report_plan import *
+from .restore_testing_plan import *
+from .restore_testing_selection import *
 from .selection import *
 from .vault import *
 from .vault_lock_configuration import *

@@ -1220,6 +1220,8 @@ type ProviderEndpoint struct {
 	// Use this to override the default service endpoint URL
 	Ssmincidents *string `pulumi:"ssmincidents"`
 	// Use this to override the default service endpoint URL
+	Ssmquicksetup *string `pulumi:"ssmquicksetup"`
+	// Use this to override the default service endpoint URL
 	Ssmsap *string `pulumi:"ssmsap"`
 	// Use this to override the default service endpoint URL
 	Sso *string `pulumi:"sso"`
@@ -1815,6 +1817,8 @@ type ProviderEndpointArgs struct {
 	Ssmcontacts pulumi.StringPtrInput `pulumi:"ssmcontacts"`
 	// Use this to override the default service endpoint URL
 	Ssmincidents pulumi.StringPtrInput `pulumi:"ssmincidents"`
+	// Use this to override the default service endpoint URL
+	Ssmquicksetup pulumi.StringPtrInput `pulumi:"ssmquicksetup"`
 	// Use this to override the default service endpoint URL
 	Ssmsap pulumi.StringPtrInput `pulumi:"ssmsap"`
 	// Use this to override the default service endpoint URL
@@ -3252,6 +3256,11 @@ func (o ProviderEndpointOutput) Ssmcontacts() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Ssmincidents() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Ssmincidents }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o ProviderEndpointOutput) Ssmquicksetup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Ssmquicksetup }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

@@ -5,7 +5,6 @@ package com.pulumi.aws.route53.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -21,26 +20,41 @@ public final class ResolverRuleTargetIpArgs extends com.pulumi.resources.Resourc
      * One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
      * 
      */
-    @Import(name="ip", required=true)
-    private Output<String> ip;
+    @Import(name="ip")
+    private @Nullable Output<String> ip;
 
     /**
      * @return One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
      * 
      */
-    public Output<String> ip() {
-        return this.ip;
+    public Optional<Output<String>> ip() {
+        return Optional.ofNullable(this.ip);
     }
 
     /**
-     * The port at `ip` that you want to forward DNS queries to. Default value is `53`.
+     * One IPv6 address that you want to forward DNS queries to.
+     * 
+     */
+    @Import(name="ipv6")
+    private @Nullable Output<String> ipv6;
+
+    /**
+     * @return One IPv6 address that you want to forward DNS queries to.
+     * 
+     */
+    public Optional<Output<String>> ipv6() {
+        return Optional.ofNullable(this.ipv6);
+    }
+
+    /**
+     * Port at `ip` that you want to forward DNS queries to. Default value is `53`.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return The port at `ip` that you want to forward DNS queries to. Default value is `53`.
+     * @return Port at `ip` that you want to forward DNS queries to. Default value is `53`.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -48,14 +62,14 @@ public final class ResolverRuleTargetIpArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
+     * Protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
      * 
      */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
     /**
-     * @return The protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
+     * @return Protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
      * 
      */
     public Optional<Output<String>> protocol() {
@@ -66,6 +80,7 @@ public final class ResolverRuleTargetIpArgs extends com.pulumi.resources.Resourc
 
     private ResolverRuleTargetIpArgs(ResolverRuleTargetIpArgs $) {
         this.ip = $.ip;
+        this.ipv6 = $.ipv6;
         this.port = $.port;
         this.protocol = $.protocol;
     }
@@ -94,7 +109,7 @@ public final class ResolverRuleTargetIpArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder ip(Output<String> ip) {
+        public Builder ip(@Nullable Output<String> ip) {
             $.ip = ip;
             return this;
         }
@@ -110,7 +125,28 @@ public final class ResolverRuleTargetIpArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param port The port at `ip` that you want to forward DNS queries to. Default value is `53`.
+         * @param ipv6 One IPv6 address that you want to forward DNS queries to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv6(@Nullable Output<String> ipv6) {
+            $.ipv6 = ipv6;
+            return this;
+        }
+
+        /**
+         * @param ipv6 One IPv6 address that you want to forward DNS queries to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv6(String ipv6) {
+            return ipv6(Output.of(ipv6));
+        }
+
+        /**
+         * @param port Port at `ip` that you want to forward DNS queries to. Default value is `53`.
          * 
          * @return builder
          * 
@@ -121,7 +157,7 @@ public final class ResolverRuleTargetIpArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param port The port at `ip` that you want to forward DNS queries to. Default value is `53`.
+         * @param port Port at `ip` that you want to forward DNS queries to. Default value is `53`.
          * 
          * @return builder
          * 
@@ -131,7 +167,7 @@ public final class ResolverRuleTargetIpArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param protocol The protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
+         * @param protocol Protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
          * 
          * @return builder
          * 
@@ -142,7 +178,7 @@ public final class ResolverRuleTargetIpArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param protocol The protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
+         * @param protocol Protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
          * 
          * @return builder
          * 
@@ -152,9 +188,6 @@ public final class ResolverRuleTargetIpArgs extends com.pulumi.resources.Resourc
         }
 
         public ResolverRuleTargetIpArgs build() {
-            if ($.ip == null) {
-                throw new MissingRequiredPropertyException("ResolverRuleTargetIpArgs", "ip");
-            }
             return $;
         }
     }

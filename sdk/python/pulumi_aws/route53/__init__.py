@@ -10,6 +10,7 @@ from .cidr_collection import *
 from .cidr_location import *
 from .delegation_set import *
 from .get_delegation_set import *
+from .get_profiles_profiles import *
 from .get_query_log_config import *
 from .get_resolver_endpoint import *
 from .get_resolver_firewall_config import *
@@ -25,6 +26,9 @@ from .get_zones import *
 from .health_check import *
 from .hosted_zone_dns_sec import *
 from .key_signing_key import *
+from .profiles_association import *
+from .profiles_profile import *
+from .profiles_resource_association import *
 from .query_log import *
 from .record import *
 from .resolver_config import *

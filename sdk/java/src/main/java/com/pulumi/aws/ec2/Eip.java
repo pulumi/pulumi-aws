@@ -221,6 +221,42 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Allocating EIP from the IPAM Pool
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Eip;
+ * import com.pulumi.aws.ec2.EipArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var ipam_ip = new Eip("ipam-ip", EipArgs.builder()
+ *             .domain("vpc")
+ *             .ipamPoolId("ipam-pool-07ccc86aa41bef7ce")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import EIPs in a VPC using their Allocation ID. For example:
@@ -363,6 +399,20 @@ public class Eip extends com.pulumi.resources.CustomResource {
      */
     public Output<String> instance() {
         return this.instance;
+    }
+    /**
+     * The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
+     * 
+     */
+    @Export(name="ipamPoolId", refs={String.class}, tree="[0]")
+    private Output<String> ipamPoolId;
+
+    /**
+     * @return The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
+     * 
+     */
+    public Output<String> ipamPoolId() {
+        return this.ipamPoolId;
     }
     /**
      * Location from which the IP address is advertised. Use this parameter to limit the address to this location.

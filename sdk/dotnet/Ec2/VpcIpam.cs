@@ -89,6 +89,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
+        /// </summary>
+        [Output("enablePrivateGua")]
+        public Output<bool?> EnablePrivateGua { get; private set; } = null!;
+
+        /// <summary>
         /// Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
         /// </summary>
         [Output("operatingRegions")]
@@ -189,6 +195,12 @@ namespace Pulumi.Aws.Ec2
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
+        /// </summary>
+        [Input("enablePrivateGua")]
+        public Input<bool>? EnablePrivateGua { get; set; }
+
         [Input("operatingRegions", required: true)]
         private InputList<Inputs.VpcIpamOperatingRegionArgs>? _operatingRegions;
 
@@ -256,6 +268,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
+        /// </summary>
+        [Input("enablePrivateGua")]
+        public Input<bool>? EnablePrivateGua { get; set; }
 
         [Input("operatingRegions")]
         private InputList<Inputs.VpcIpamOperatingRegionGetArgs>? _operatingRegions;

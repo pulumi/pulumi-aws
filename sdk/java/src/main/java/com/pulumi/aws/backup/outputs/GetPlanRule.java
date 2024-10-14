@@ -24,6 +24,7 @@ public final class GetPlanRule {
     private @Nullable Map<String,String> recoveryPointTags;
     private String ruleName;
     private String schedule;
+    private String scheduleExpressionTimezone;
     private Integer startWindow;
     private String targetVaultName;
 
@@ -49,6 +50,9 @@ public final class GetPlanRule {
     public String schedule() {
         return this.schedule;
     }
+    public String scheduleExpressionTimezone() {
+        return this.scheduleExpressionTimezone;
+    }
     public Integer startWindow() {
         return this.startWindow;
     }
@@ -72,6 +76,7 @@ public final class GetPlanRule {
         private @Nullable Map<String,String> recoveryPointTags;
         private String ruleName;
         private String schedule;
+        private String scheduleExpressionTimezone;
         private Integer startWindow;
         private String targetVaultName;
         public Builder() {}
@@ -84,6 +89,7 @@ public final class GetPlanRule {
     	      this.recoveryPointTags = defaults.recoveryPointTags;
     	      this.ruleName = defaults.ruleName;
     	      this.schedule = defaults.schedule;
+    	      this.scheduleExpressionTimezone = defaults.scheduleExpressionTimezone;
     	      this.startWindow = defaults.startWindow;
     	      this.targetVaultName = defaults.targetVaultName;
         }
@@ -149,6 +155,14 @@ public final class GetPlanRule {
             return this;
         }
         @CustomType.Setter
+        public Builder scheduleExpressionTimezone(String scheduleExpressionTimezone) {
+            if (scheduleExpressionTimezone == null) {
+              throw new MissingRequiredPropertyException("GetPlanRule", "scheduleExpressionTimezone");
+            }
+            this.scheduleExpressionTimezone = scheduleExpressionTimezone;
+            return this;
+        }
+        @CustomType.Setter
         public Builder startWindow(Integer startWindow) {
             if (startWindow == null) {
               throw new MissingRequiredPropertyException("GetPlanRule", "startWindow");
@@ -173,6 +187,7 @@ public final class GetPlanRule {
             _resultValue.recoveryPointTags = recoveryPointTags;
             _resultValue.ruleName = ruleName;
             _resultValue.schedule = schedule;
+            _resultValue.scheduleExpressionTimezone = scheduleExpressionTimezone;
             _resultValue.startWindow = startWindow;
             _resultValue.targetVaultName = targetVaultName;
             return _resultValue;

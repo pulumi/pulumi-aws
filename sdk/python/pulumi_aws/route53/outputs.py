@@ -17,6 +17,9 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ProfilesAssociationTimeouts',
+    'ProfilesProfileTimeouts',
+    'ProfilesResourceAssociationTimeouts',
     'RecordAlias',
     'RecordCidrRoutingPolicy',
     'RecordFailoverRoutingPolicy',
@@ -28,6 +31,7 @@ __all__ = [
     'ResolverEndpointIpAddress',
     'ResolverRuleTargetIp',
     'ZoneVpc',
+    'GetProfilesProfilesProfileResult',
     'GetQueryLogConfigFilterResult',
     'GetResolverEndpointFilterResult',
     'GetResolverFirewallRulesFirewallRuleResult',
@@ -40,6 +44,135 @@ __all__ = [
     'GetTrafficPolicyDocumentRuleRegionResult',
     'GetTrafficPolicyDocumentRuleSecondaryResult',
 ]
+
+@pulumi.output_type
+class ProfilesAssociationTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None,
+                 read: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param str read: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if read is not None:
+            pulumi.set(__self__, "read", read)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @property
+    @pulumi.getter
+    def read(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+        """
+        return pulumi.get(self, "read")
+
+
+@pulumi.output_type
+class ProfilesProfileTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None,
+                 read: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param str read: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if read is not None:
+            pulumi.set(__self__, "read", read)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @property
+    @pulumi.getter
+    def read(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+        """
+        return pulumi.get(self, "read")
+
+
+@pulumi.output_type
+class ProfilesResourceAssociationTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None,
+                 read: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param str read: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if read is not None:
+            pulumi.set(__self__, "read", read)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @property
+    @pulumi.getter
+    def read(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+        """
+        return pulumi.get(self, "read")
+
 
 @pulumi.output_type
 class RecordAlias(dict):
@@ -362,22 +495,26 @@ class ResolverEndpointIpAddress(dict):
     def __init__(__self__, *,
                  subnet_id: str,
                  ip: Optional[str] = None,
-                 ip_id: Optional[str] = None):
+                 ip_id: Optional[str] = None,
+                 ipv6: Optional[str] = None):
         """
-        :param str subnet_id: The ID of the subnet that contains the IP address.
-        :param str ip: The IP address in the subnet that you want to use for DNS queries.
+        :param str subnet_id: ID of the subnet that contains the IP address.
+        :param str ip: IPv4 address in the subnet that you want to use for DNS queries.
+        :param str ipv6: IPv6 address in the subnet that you want to use for DNS queries.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         if ip is not None:
             pulumi.set(__self__, "ip", ip)
         if ip_id is not None:
             pulumi.set(__self__, "ip_id", ip_id)
+        if ipv6 is not None:
+            pulumi.set(__self__, "ipv6", ipv6)
 
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> str:
         """
-        The ID of the subnet that contains the IP address.
+        ID of the subnet that contains the IP address.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -385,7 +522,7 @@ class ResolverEndpointIpAddress(dict):
     @pulumi.getter
     def ip(self) -> Optional[str]:
         """
-        The IP address in the subnet that you want to use for DNS queries.
+        IPv4 address in the subnet that you want to use for DNS queries.
         """
         return pulumi.get(self, "ip")
 
@@ -394,19 +531,32 @@ class ResolverEndpointIpAddress(dict):
     def ip_id(self) -> Optional[str]:
         return pulumi.get(self, "ip_id")
 
+    @property
+    @pulumi.getter
+    def ipv6(self) -> Optional[str]:
+        """
+        IPv6 address in the subnet that you want to use for DNS queries.
+        """
+        return pulumi.get(self, "ipv6")
+
 
 @pulumi.output_type
 class ResolverRuleTargetIp(dict):
     def __init__(__self__, *,
-                 ip: str,
+                 ip: Optional[str] = None,
+                 ipv6: Optional[str] = None,
                  port: Optional[int] = None,
                  protocol: Optional[str] = None):
         """
         :param str ip: One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
-        :param int port: The port at `ip` that you want to forward DNS queries to. Default value is `53`.
-        :param str protocol: The protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
+        :param str ipv6: One IPv6 address that you want to forward DNS queries to.
+        :param int port: Port at `ip` that you want to forward DNS queries to. Default value is `53`.
+        :param str protocol: Protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
         """
-        pulumi.set(__self__, "ip", ip)
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+        if ipv6 is not None:
+            pulumi.set(__self__, "ipv6", ipv6)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if protocol is not None:
@@ -414,7 +564,7 @@ class ResolverRuleTargetIp(dict):
 
     @property
     @pulumi.getter
-    def ip(self) -> str:
+    def ip(self) -> Optional[str]:
         """
         One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
         """
@@ -422,9 +572,17 @@ class ResolverRuleTargetIp(dict):
 
     @property
     @pulumi.getter
+    def ipv6(self) -> Optional[str]:
+        """
+        One IPv6 address that you want to forward DNS queries to.
+        """
+        return pulumi.get(self, "ipv6")
+
+    @property
+    @pulumi.getter
     def port(self) -> Optional[int]:
         """
-        The port at `ip` that you want to forward DNS queries to. Default value is `53`.
+        Port at `ip` that you want to forward DNS queries to. Default value is `53`.
         """
         return pulumi.get(self, "port")
 
@@ -432,7 +590,7 @@ class ResolverRuleTargetIp(dict):
     @pulumi.getter
     def protocol(self) -> Optional[str]:
         """
-        The protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
+        Protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
         """
         return pulumi.get(self, "protocol")
 
@@ -484,6 +642,57 @@ class ZoneVpc(dict):
         Region of the VPC to associate. Defaults to AWS provider region.
         """
         return pulumi.get(self, "vpc_region")
+
+
+@pulumi.output_type
+class GetProfilesProfilesProfileResult(dict):
+    def __init__(__self__, *,
+                 arn: str,
+                 id: str,
+                 name: str,
+                 share_status: str):
+        """
+        :param str arn: ARN of the Profile.
+        :param str id: ID of the Profile.
+        :param str name: Name of the Profile.
+        :param str share_status: Share status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "share_status", share_status)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        ARN of the Profile.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        ID of the Profile.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the Profile.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="shareStatus")
+    def share_status(self) -> str:
+        """
+        Share status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+        """
+        return pulumi.get(self, "share_status")
 
 
 @pulumi.output_type

@@ -49,6 +49,7 @@ import javax.annotation.Nullable;
  *         var foo = new ResolverEndpoint("foo", ResolverEndpointArgs.builder()
  *             .name("foo")
  *             .direction("INBOUND")
+ *             .resolverEndpointType("IPV4")
  *             .securityGroupIds(            
  *                 sg1.id(),
  *                 sg2.id())
@@ -84,21 +85,21 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:route53/resolverEndpoint:ResolverEndpoint")
 public class ResolverEndpoint extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the Route 53 Resolver endpoint.
+     * ARN of the Route 53 Resolver endpoint.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the Route 53 Resolver endpoint.
+     * @return ARN of the Route 53 Resolver endpoint.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The direction of DNS queries to or from the Route 53 Resolver endpoint.
+     * Direction of DNS queries to or from the Route 53 Resolver endpoint.
      * Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
      * or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
      * 
@@ -107,7 +108,7 @@ public class ResolverEndpoint extends com.pulumi.resources.CustomResource {
     private Output<String> direction;
 
     /**
-     * @return The direction of DNS queries to or from the Route 53 Resolver endpoint.
+     * @return Direction of DNS queries to or from the Route 53 Resolver endpoint.
      * Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
      * or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
      * 
@@ -116,21 +117,21 @@ public class ResolverEndpoint extends com.pulumi.resources.CustomResource {
         return this.direction;
     }
     /**
-     * The ID of the VPC that you want to create the resolver endpoint in.
+     * ID of the VPC that you want to create the resolver endpoint in.
      * 
      */
     @Export(name="hostVpcId", refs={String.class}, tree="[0]")
     private Output<String> hostVpcId;
 
     /**
-     * @return The ID of the VPC that you want to create the resolver endpoint in.
+     * @return ID of the VPC that you want to create the resolver endpoint in.
      * 
      */
     public Output<String> hostVpcId() {
         return this.hostVpcId;
     }
     /**
-     * The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+     * Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
      * to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
      * 
      */
@@ -138,7 +139,7 @@ public class ResolverEndpoint extends com.pulumi.resources.CustomResource {
     private Output<List<ResolverEndpointIpAddress>> ipAddresses;
 
     /**
-     * @return The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+     * @return Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
      * to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
      * 
      */
@@ -146,77 +147,77 @@ public class ResolverEndpoint extends com.pulumi.resources.CustomResource {
         return this.ipAddresses;
     }
     /**
-     * The friendly name of the Route 53 Resolver endpoint.
+     * Friendly name of the Route 53 Resolver endpoint.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The friendly name of the Route 53 Resolver endpoint.
+     * @return Friendly name of the Route 53 Resolver endpoint.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+     * Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
      * 
      */
     @Export(name="protocols", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> protocols;
 
     /**
-     * @return The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+     * @return Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
      * 
      */
     public Output<List<String>> protocols() {
         return this.protocols;
     }
     /**
-     * The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+     * Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
      * 
      */
     @Export(name="resolverEndpointType", refs={String.class}, tree="[0]")
     private Output<String> resolverEndpointType;
 
     /**
-     * @return The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+     * @return Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
      * 
      */
     public Output<String> resolverEndpointType() {
         return this.resolverEndpointType;
     }
     /**
-     * The ID of one or more security groups that you want to use to control access to this VPC.
+     * ID of one or more security groups that you want to use to control access to this VPC.
      * 
      */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupIds;
 
     /**
-     * @return The ID of one or more security groups that you want to use to control access to this VPC.
+     * @return ID of one or more security groups that you want to use to control access to this VPC.
      * 
      */
     public Output<List<String>> securityGroupIds() {
         return this.securityGroupIds;
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      * @deprecated
      * Please use `tags` instead.
@@ -227,7 +228,7 @@ public class ResolverEndpoint extends com.pulumi.resources.CustomResource {
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

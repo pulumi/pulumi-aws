@@ -20,7 +20,7 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
     public static final ResolverEndpointArgs Empty = new ResolverEndpointArgs();
 
     /**
-     * The direction of DNS queries to or from the Route 53 Resolver endpoint.
+     * Direction of DNS queries to or from the Route 53 Resolver endpoint.
      * Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
      * or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
      * 
@@ -29,7 +29,7 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
     private Output<String> direction;
 
     /**
-     * @return The direction of DNS queries to or from the Route 53 Resolver endpoint.
+     * @return Direction of DNS queries to or from the Route 53 Resolver endpoint.
      * Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
      * or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
      * 
@@ -39,7 +39,7 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+     * Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
      * to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
      * 
      */
@@ -47,7 +47,7 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
     private Output<List<ResolverEndpointIpAddressArgs>> ipAddresses;
 
     /**
-     * @return The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+     * @return Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
      * to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
      * 
      */
@@ -56,14 +56,14 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The friendly name of the Route 53 Resolver endpoint.
+     * Friendly name of the Route 53 Resolver endpoint.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The friendly name of the Route 53 Resolver endpoint.
+     * @return Friendly name of the Route 53 Resolver endpoint.
      * 
      */
     public Optional<Output<String>> name() {
@@ -71,14 +71,14 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+     * Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
      * 
      */
     @Import(name="protocols")
     private @Nullable Output<List<String>> protocols;
 
     /**
-     * @return The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+     * @return Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
      * 
      */
     public Optional<Output<List<String>>> protocols() {
@@ -86,14 +86,14 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+     * Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
      * 
      */
     @Import(name="resolverEndpointType")
     private @Nullable Output<String> resolverEndpointType;
 
     /**
-     * @return The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+     * @return Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
      * 
      */
     public Optional<Output<String>> resolverEndpointType() {
@@ -101,14 +101,14 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The ID of one or more security groups that you want to use to control access to this VPC.
+     * ID of one or more security groups that you want to use to control access to this VPC.
      * 
      */
     @Import(name="securityGroupIds", required=true)
     private Output<List<String>> securityGroupIds;
 
     /**
-     * @return The ID of one or more security groups that you want to use to control access to this VPC.
+     * @return ID of one or more security groups that you want to use to control access to this VPC.
      * 
      */
     public Output<List<String>> securityGroupIds() {
@@ -116,14 +116,14 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -161,7 +161,7 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param direction The direction of DNS queries to or from the Route 53 Resolver endpoint.
+         * @param direction Direction of DNS queries to or from the Route 53 Resolver endpoint.
          * Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
          * or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
          * 
@@ -174,7 +174,7 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param direction The direction of DNS queries to or from the Route 53 Resolver endpoint.
+         * @param direction Direction of DNS queries to or from the Route 53 Resolver endpoint.
          * Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
          * or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
          * 
@@ -186,7 +186,7 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param ipAddresses The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+         * @param ipAddresses Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
          * to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
          * 
          * @return builder
@@ -198,7 +198,7 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param ipAddresses The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+         * @param ipAddresses Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
          * to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
          * 
          * @return builder
@@ -209,7 +209,7 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param ipAddresses The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+         * @param ipAddresses Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
          * to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
          * 
          * @return builder
@@ -220,7 +220,7 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The friendly name of the Route 53 Resolver endpoint.
+         * @param name Friendly name of the Route 53 Resolver endpoint.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The friendly name of the Route 53 Resolver endpoint.
+         * @param name Friendly name of the Route 53 Resolver endpoint.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param protocols The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+         * @param protocols Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param protocols The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+         * @param protocols Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param protocols The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+         * @param protocols Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
          * 
          * @return builder
          * 
@@ -272,7 +272,7 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param resolverEndpointType The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+         * @param resolverEndpointType Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param resolverEndpointType The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+         * @param resolverEndpointType Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
          * 
          * @return builder
          * 
@@ -293,7 +293,7 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param securityGroupIds The ID of one or more security groups that you want to use to control access to this VPC.
+         * @param securityGroupIds ID of one or more security groups that you want to use to control access to this VPC.
          * 
          * @return builder
          * 
@@ -304,7 +304,7 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param securityGroupIds The ID of one or more security groups that you want to use to control access to this VPC.
+         * @param securityGroupIds ID of one or more security groups that you want to use to control access to this VPC.
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param securityGroupIds The ID of one or more security groups that you want to use to control access to this VPC.
+         * @param securityGroupIds ID of one or more security groups that you want to use to control access to this VPC.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -335,7 +335,7 @@ public final class ResolverEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

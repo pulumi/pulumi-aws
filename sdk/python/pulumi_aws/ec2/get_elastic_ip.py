@@ -28,7 +28,7 @@ class GetElasticIpResult:
     """
     A collection of values returned by getElasticIp.
     """
-    def __init__(__self__, arn=None, association_id=None, carrier_ip=None, customer_owned_ip=None, customer_owned_ipv4_pool=None, domain=None, filters=None, id=None, instance_id=None, network_interface_id=None, network_interface_owner_id=None, private_dns=None, private_ip=None, ptr_record=None, public_dns=None, public_ip=None, public_ipv4_pool=None, tags=None):
+    def __init__(__self__, arn=None, association_id=None, carrier_ip=None, customer_owned_ip=None, customer_owned_ipv4_pool=None, domain=None, filters=None, id=None, instance_id=None, ipam_pool_id=None, network_interface_id=None, network_interface_owner_id=None, private_dns=None, private_ip=None, ptr_record=None, public_dns=None, public_ip=None, public_ipv4_pool=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -56,6 +56,9 @@ class GetElasticIpResult:
         if instance_id and not isinstance(instance_id, str):
             raise TypeError("Expected argument 'instance_id' to be a str")
         pulumi.set(__self__, "instance_id", instance_id)
+        if ipam_pool_id and not isinstance(ipam_pool_id, str):
+            raise TypeError("Expected argument 'ipam_pool_id' to be a str")
+        pulumi.set(__self__, "ipam_pool_id", ipam_pool_id)
         if network_interface_id and not isinstance(network_interface_id, str):
             raise TypeError("Expected argument 'network_interface_id' to be a str")
         pulumi.set(__self__, "network_interface_id", network_interface_id)
@@ -151,6 +154,14 @@ class GetElasticIpResult:
         return pulumi.get(self, "instance_id")
 
     @property
+    @pulumi.getter(name="ipamPoolId")
+    def ipam_pool_id(self) -> str:
+        """
+        The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
+        """
+        return pulumi.get(self, "ipam_pool_id")
+
+    @property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> str:
         """
@@ -238,6 +249,7 @@ class AwaitableGetElasticIpResult(GetElasticIpResult):
             filters=self.filters,
             id=self.id,
             instance_id=self.instance_id,
+            ipam_pool_id=self.ipam_pool_id,
             network_interface_id=self.network_interface_id,
             network_interface_owner_id=self.network_interface_owner_id,
             private_dns=self.private_dns,
@@ -324,6 +336,7 @@ def get_elastic_ip(filters: Optional[Sequence[Union['GetElasticIpFilterArgs', 'G
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         instance_id=pulumi.get(__ret__, 'instance_id'),
+        ipam_pool_id=pulumi.get(__ret__, 'ipam_pool_id'),
         network_interface_id=pulumi.get(__ret__, 'network_interface_id'),
         network_interface_owner_id=pulumi.get(__ret__, 'network_interface_owner_id'),
         private_dns=pulumi.get(__ret__, 'private_dns'),
@@ -407,6 +420,7 @@ def get_elastic_ip_output(filters: Optional[pulumi.Input[Optional[Sequence[Union
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
         instance_id=pulumi.get(__response__, 'instance_id'),
+        ipam_pool_id=pulumi.get(__response__, 'ipam_pool_id'),
         network_interface_id=pulumi.get(__response__, 'network_interface_id'),
         network_interface_owner_id=pulumi.get(__response__, 'network_interface_owner_id'),
         private_dns=pulumi.get(__response__, 'private_dns'),

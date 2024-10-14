@@ -128,6 +128,21 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The timezone in which the schedule expression is set. Default value: `&#34;Etc/UTC&#34;`.
+     * 
+     */
+    @Import(name="scheduleExpressionTimezone")
+    private @Nullable Output<String> scheduleExpressionTimezone;
+
+    /**
+     * @return The timezone in which the schedule expression is set. Default value: `&#34;Etc/UTC&#34;`.
+     * 
+     */
+    public Optional<Output<String>> scheduleExpressionTimezone() {
+        return Optional.ofNullable(this.scheduleExpressionTimezone);
+    }
+
+    /**
      * The amount of time in minutes before beginning a backup.
      * 
      */
@@ -167,6 +182,7 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
         this.recoveryPointTags = $.recoveryPointTags;
         this.ruleName = $.ruleName;
         this.schedule = $.schedule;
+        this.scheduleExpressionTimezone = $.scheduleExpressionTimezone;
         this.startWindow = $.startWindow;
         this.targetVaultName = $.targetVaultName;
     }
@@ -344,6 +360,27 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder schedule(String schedule) {
             return schedule(Output.of(schedule));
+        }
+
+        /**
+         * @param scheduleExpressionTimezone The timezone in which the schedule expression is set. Default value: `&#34;Etc/UTC&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scheduleExpressionTimezone(@Nullable Output<String> scheduleExpressionTimezone) {
+            $.scheduleExpressionTimezone = scheduleExpressionTimezone;
+            return this;
+        }
+
+        /**
+         * @param scheduleExpressionTimezone The timezone in which the schedule expression is set. Default value: `&#34;Etc/UTC&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scheduleExpressionTimezone(String scheduleExpressionTimezone) {
+            return scheduleExpressionTimezone(Output.of(scheduleExpressionTimezone));
         }
 
         /**

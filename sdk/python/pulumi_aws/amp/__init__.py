@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .alert_manager_definition import *
+from .get_default_scraper_configuration import *
 from .get_workspace import *
 from .get_workspaces import *
 from .rule_group_namespace import *

@@ -35,14 +35,14 @@ public final class ResolverRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
+     * Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
+     * @return Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
      * 
      */
     public Optional<Output<String>> name() {
@@ -50,7 +50,7 @@ public final class ResolverRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
+     * ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
      * This argument should only be specified for `FORWARD` type rules.
      * 
      */
@@ -58,7 +58,7 @@ public final class ResolverRuleArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> resolverEndpointId;
 
     /**
-     * @return The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
+     * @return ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
      * This argument should only be specified for `FORWARD` type rules.
      * 
      */
@@ -67,14 +67,14 @@ public final class ResolverRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+     * Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
      * 
      */
     @Import(name="ruleType", required=true)
     private Output<String> ruleType;
 
     /**
-     * @return The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+     * @return Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
      * 
      */
     public Output<String> ruleType() {
@@ -82,14 +82,14 @@ public final class ResolverRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -164,7 +164,7 @@ public final class ResolverRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
+         * @param name Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class ResolverRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
+         * @param name Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class ResolverRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resolverEndpointId The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
+         * @param resolverEndpointId ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
          * This argument should only be specified for `FORWARD` type rules.
          * 
          * @return builder
@@ -197,7 +197,7 @@ public final class ResolverRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resolverEndpointId The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
+         * @param resolverEndpointId ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
          * This argument should only be specified for `FORWARD` type rules.
          * 
          * @return builder
@@ -208,7 +208,7 @@ public final class ResolverRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ruleType The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+         * @param ruleType Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class ResolverRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ruleType The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+         * @param ruleType Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class ResolverRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class ResolverRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

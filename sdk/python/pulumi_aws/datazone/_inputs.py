@@ -49,6 +49,14 @@ __all__ = [
     'ProjectFailureReasonArgsDict',
     'ProjectTimeoutsArgs',
     'ProjectTimeoutsArgsDict',
+    'UserProfileDetailArgs',
+    'UserProfileDetailArgsDict',
+    'UserProfileDetailIamArgs',
+    'UserProfileDetailIamArgsDict',
+    'UserProfileDetailSsoArgs',
+    'UserProfileDetailSsoArgsDict',
+    'UserProfileTimeoutsArgs',
+    'UserProfileTimeoutsArgsDict',
 ]
 
 MYPY = False
@@ -878,5 +886,159 @@ class ProjectTimeoutsArgs:
     @delete.setter
     def delete(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "delete", value)
+
+
+if not MYPY:
+    class UserProfileDetailArgsDict(TypedDict):
+        iams: pulumi.Input[Sequence[pulumi.Input['UserProfileDetailIamArgsDict']]]
+        ssos: pulumi.Input[Sequence[pulumi.Input['UserProfileDetailSsoArgsDict']]]
+elif False:
+    UserProfileDetailArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserProfileDetailArgs:
+    def __init__(__self__, *,
+                 iams: pulumi.Input[Sequence[pulumi.Input['UserProfileDetailIamArgs']]],
+                 ssos: pulumi.Input[Sequence[pulumi.Input['UserProfileDetailSsoArgs']]]):
+        pulumi.set(__self__, "iams", iams)
+        pulumi.set(__self__, "ssos", ssos)
+
+    @property
+    @pulumi.getter
+    def iams(self) -> pulumi.Input[Sequence[pulumi.Input['UserProfileDetailIamArgs']]]:
+        return pulumi.get(self, "iams")
+
+    @iams.setter
+    def iams(self, value: pulumi.Input[Sequence[pulumi.Input['UserProfileDetailIamArgs']]]):
+        pulumi.set(self, "iams", value)
+
+    @property
+    @pulumi.getter
+    def ssos(self) -> pulumi.Input[Sequence[pulumi.Input['UserProfileDetailSsoArgs']]]:
+        return pulumi.get(self, "ssos")
+
+    @ssos.setter
+    def ssos(self, value: pulumi.Input[Sequence[pulumi.Input['UserProfileDetailSsoArgs']]]):
+        pulumi.set(self, "ssos", value)
+
+
+if not MYPY:
+    class UserProfileDetailIamArgsDict(TypedDict):
+        arn: pulumi.Input[str]
+elif False:
+    UserProfileDetailIamArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserProfileDetailIamArgs:
+    def __init__(__self__, *,
+                 arn: pulumi.Input[str]):
+        pulumi.set(__self__, "arn", arn)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "arn", value)
+
+
+if not MYPY:
+    class UserProfileDetailSsoArgsDict(TypedDict):
+        first_name: pulumi.Input[str]
+        last_name: pulumi.Input[str]
+        user_name: pulumi.Input[str]
+elif False:
+    UserProfileDetailSsoArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserProfileDetailSsoArgs:
+    def __init__(__self__, *,
+                 first_name: pulumi.Input[str],
+                 last_name: pulumi.Input[str],
+                 user_name: pulumi.Input[str]):
+        pulumi.set(__self__, "first_name", first_name)
+        pulumi.set(__self__, "last_name", last_name)
+        pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="firstName")
+    def first_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "first_name")
+
+    @first_name.setter
+    def first_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "first_name", value)
+
+    @property
+    @pulumi.getter(name="lastName")
+    def last_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "last_name")
+
+    @last_name.setter
+    def last_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "last_name", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user_name", value)
+
+
+if not MYPY:
+    class UserProfileTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        update: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    UserProfileTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserProfileTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 update: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update", value)
 
 

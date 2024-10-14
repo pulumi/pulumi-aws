@@ -135,6 +135,10 @@ export interface GetVpcEndpointServiceResult {
      * Private DNS name for the service.
      */
     readonly privateDnsName: string;
+    /**
+     * Private DNS names assigned to the VPC endpoint service.
+     */
+    readonly privateDnsNames: string[];
     readonly service?: string;
     /**
      * ID of the endpoint service.

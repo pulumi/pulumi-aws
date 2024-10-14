@@ -13,6 +13,531 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ProfilesAssociationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+	Read *string `pulumi:"read"`
+}
+
+// ProfilesAssociationTimeoutsInput is an input type that accepts ProfilesAssociationTimeoutsArgs and ProfilesAssociationTimeoutsOutput values.
+// You can construct a concrete instance of `ProfilesAssociationTimeoutsInput` via:
+//
+//	ProfilesAssociationTimeoutsArgs{...}
+type ProfilesAssociationTimeoutsInput interface {
+	pulumi.Input
+
+	ToProfilesAssociationTimeoutsOutput() ProfilesAssociationTimeoutsOutput
+	ToProfilesAssociationTimeoutsOutputWithContext(context.Context) ProfilesAssociationTimeoutsOutput
+}
+
+type ProfilesAssociationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+	Read pulumi.StringPtrInput `pulumi:"read"`
+}
+
+func (ProfilesAssociationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfilesAssociationTimeouts)(nil)).Elem()
+}
+
+func (i ProfilesAssociationTimeoutsArgs) ToProfilesAssociationTimeoutsOutput() ProfilesAssociationTimeoutsOutput {
+	return i.ToProfilesAssociationTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ProfilesAssociationTimeoutsArgs) ToProfilesAssociationTimeoutsOutputWithContext(ctx context.Context) ProfilesAssociationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfilesAssociationTimeoutsOutput)
+}
+
+func (i ProfilesAssociationTimeoutsArgs) ToProfilesAssociationTimeoutsPtrOutput() ProfilesAssociationTimeoutsPtrOutput {
+	return i.ToProfilesAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ProfilesAssociationTimeoutsArgs) ToProfilesAssociationTimeoutsPtrOutputWithContext(ctx context.Context) ProfilesAssociationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfilesAssociationTimeoutsOutput).ToProfilesAssociationTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ProfilesAssociationTimeoutsPtrInput is an input type that accepts ProfilesAssociationTimeoutsArgs, ProfilesAssociationTimeoutsPtr and ProfilesAssociationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ProfilesAssociationTimeoutsPtrInput` via:
+//
+//	        ProfilesAssociationTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProfilesAssociationTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToProfilesAssociationTimeoutsPtrOutput() ProfilesAssociationTimeoutsPtrOutput
+	ToProfilesAssociationTimeoutsPtrOutputWithContext(context.Context) ProfilesAssociationTimeoutsPtrOutput
+}
+
+type profilesAssociationTimeoutsPtrType ProfilesAssociationTimeoutsArgs
+
+func ProfilesAssociationTimeoutsPtr(v *ProfilesAssociationTimeoutsArgs) ProfilesAssociationTimeoutsPtrInput {
+	return (*profilesAssociationTimeoutsPtrType)(v)
+}
+
+func (*profilesAssociationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProfilesAssociationTimeouts)(nil)).Elem()
+}
+
+func (i *profilesAssociationTimeoutsPtrType) ToProfilesAssociationTimeoutsPtrOutput() ProfilesAssociationTimeoutsPtrOutput {
+	return i.ToProfilesAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *profilesAssociationTimeoutsPtrType) ToProfilesAssociationTimeoutsPtrOutputWithContext(ctx context.Context) ProfilesAssociationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfilesAssociationTimeoutsPtrOutput)
+}
+
+type ProfilesAssociationTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ProfilesAssociationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfilesAssociationTimeouts)(nil)).Elem()
+}
+
+func (o ProfilesAssociationTimeoutsOutput) ToProfilesAssociationTimeoutsOutput() ProfilesAssociationTimeoutsOutput {
+	return o
+}
+
+func (o ProfilesAssociationTimeoutsOutput) ToProfilesAssociationTimeoutsOutputWithContext(ctx context.Context) ProfilesAssociationTimeoutsOutput {
+	return o
+}
+
+func (o ProfilesAssociationTimeoutsOutput) ToProfilesAssociationTimeoutsPtrOutput() ProfilesAssociationTimeoutsPtrOutput {
+	return o.ToProfilesAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ProfilesAssociationTimeoutsOutput) ToProfilesAssociationTimeoutsPtrOutputWithContext(ctx context.Context) ProfilesAssociationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProfilesAssociationTimeouts) *ProfilesAssociationTimeouts {
+		return &v
+	}).(ProfilesAssociationTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ProfilesAssociationTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProfilesAssociationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ProfilesAssociationTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProfilesAssociationTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+func (o ProfilesAssociationTimeoutsOutput) Read() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProfilesAssociationTimeouts) *string { return v.Read }).(pulumi.StringPtrOutput)
+}
+
+type ProfilesAssociationTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ProfilesAssociationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProfilesAssociationTimeouts)(nil)).Elem()
+}
+
+func (o ProfilesAssociationTimeoutsPtrOutput) ToProfilesAssociationTimeoutsPtrOutput() ProfilesAssociationTimeoutsPtrOutput {
+	return o
+}
+
+func (o ProfilesAssociationTimeoutsPtrOutput) ToProfilesAssociationTimeoutsPtrOutputWithContext(ctx context.Context) ProfilesAssociationTimeoutsPtrOutput {
+	return o
+}
+
+func (o ProfilesAssociationTimeoutsPtrOutput) Elem() ProfilesAssociationTimeoutsOutput {
+	return o.ApplyT(func(v *ProfilesAssociationTimeouts) ProfilesAssociationTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ProfilesAssociationTimeouts
+		return ret
+	}).(ProfilesAssociationTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ProfilesAssociationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfilesAssociationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ProfilesAssociationTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfilesAssociationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+func (o ProfilesAssociationTimeoutsPtrOutput) Read() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfilesAssociationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Read
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProfilesProfileTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+	Read *string `pulumi:"read"`
+}
+
+// ProfilesProfileTimeoutsInput is an input type that accepts ProfilesProfileTimeoutsArgs and ProfilesProfileTimeoutsOutput values.
+// You can construct a concrete instance of `ProfilesProfileTimeoutsInput` via:
+//
+//	ProfilesProfileTimeoutsArgs{...}
+type ProfilesProfileTimeoutsInput interface {
+	pulumi.Input
+
+	ToProfilesProfileTimeoutsOutput() ProfilesProfileTimeoutsOutput
+	ToProfilesProfileTimeoutsOutputWithContext(context.Context) ProfilesProfileTimeoutsOutput
+}
+
+type ProfilesProfileTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+	Read pulumi.StringPtrInput `pulumi:"read"`
+}
+
+func (ProfilesProfileTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfilesProfileTimeouts)(nil)).Elem()
+}
+
+func (i ProfilesProfileTimeoutsArgs) ToProfilesProfileTimeoutsOutput() ProfilesProfileTimeoutsOutput {
+	return i.ToProfilesProfileTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ProfilesProfileTimeoutsArgs) ToProfilesProfileTimeoutsOutputWithContext(ctx context.Context) ProfilesProfileTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfilesProfileTimeoutsOutput)
+}
+
+func (i ProfilesProfileTimeoutsArgs) ToProfilesProfileTimeoutsPtrOutput() ProfilesProfileTimeoutsPtrOutput {
+	return i.ToProfilesProfileTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ProfilesProfileTimeoutsArgs) ToProfilesProfileTimeoutsPtrOutputWithContext(ctx context.Context) ProfilesProfileTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfilesProfileTimeoutsOutput).ToProfilesProfileTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ProfilesProfileTimeoutsPtrInput is an input type that accepts ProfilesProfileTimeoutsArgs, ProfilesProfileTimeoutsPtr and ProfilesProfileTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ProfilesProfileTimeoutsPtrInput` via:
+//
+//	        ProfilesProfileTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProfilesProfileTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToProfilesProfileTimeoutsPtrOutput() ProfilesProfileTimeoutsPtrOutput
+	ToProfilesProfileTimeoutsPtrOutputWithContext(context.Context) ProfilesProfileTimeoutsPtrOutput
+}
+
+type profilesProfileTimeoutsPtrType ProfilesProfileTimeoutsArgs
+
+func ProfilesProfileTimeoutsPtr(v *ProfilesProfileTimeoutsArgs) ProfilesProfileTimeoutsPtrInput {
+	return (*profilesProfileTimeoutsPtrType)(v)
+}
+
+func (*profilesProfileTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProfilesProfileTimeouts)(nil)).Elem()
+}
+
+func (i *profilesProfileTimeoutsPtrType) ToProfilesProfileTimeoutsPtrOutput() ProfilesProfileTimeoutsPtrOutput {
+	return i.ToProfilesProfileTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *profilesProfileTimeoutsPtrType) ToProfilesProfileTimeoutsPtrOutputWithContext(ctx context.Context) ProfilesProfileTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfilesProfileTimeoutsPtrOutput)
+}
+
+type ProfilesProfileTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ProfilesProfileTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfilesProfileTimeouts)(nil)).Elem()
+}
+
+func (o ProfilesProfileTimeoutsOutput) ToProfilesProfileTimeoutsOutput() ProfilesProfileTimeoutsOutput {
+	return o
+}
+
+func (o ProfilesProfileTimeoutsOutput) ToProfilesProfileTimeoutsOutputWithContext(ctx context.Context) ProfilesProfileTimeoutsOutput {
+	return o
+}
+
+func (o ProfilesProfileTimeoutsOutput) ToProfilesProfileTimeoutsPtrOutput() ProfilesProfileTimeoutsPtrOutput {
+	return o.ToProfilesProfileTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ProfilesProfileTimeoutsOutput) ToProfilesProfileTimeoutsPtrOutputWithContext(ctx context.Context) ProfilesProfileTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProfilesProfileTimeouts) *ProfilesProfileTimeouts {
+		return &v
+	}).(ProfilesProfileTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ProfilesProfileTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProfilesProfileTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ProfilesProfileTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProfilesProfileTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+func (o ProfilesProfileTimeoutsOutput) Read() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProfilesProfileTimeouts) *string { return v.Read }).(pulumi.StringPtrOutput)
+}
+
+type ProfilesProfileTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ProfilesProfileTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProfilesProfileTimeouts)(nil)).Elem()
+}
+
+func (o ProfilesProfileTimeoutsPtrOutput) ToProfilesProfileTimeoutsPtrOutput() ProfilesProfileTimeoutsPtrOutput {
+	return o
+}
+
+func (o ProfilesProfileTimeoutsPtrOutput) ToProfilesProfileTimeoutsPtrOutputWithContext(ctx context.Context) ProfilesProfileTimeoutsPtrOutput {
+	return o
+}
+
+func (o ProfilesProfileTimeoutsPtrOutput) Elem() ProfilesProfileTimeoutsOutput {
+	return o.ApplyT(func(v *ProfilesProfileTimeouts) ProfilesProfileTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ProfilesProfileTimeouts
+		return ret
+	}).(ProfilesProfileTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ProfilesProfileTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfilesProfileTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ProfilesProfileTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfilesProfileTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+func (o ProfilesProfileTimeoutsPtrOutput) Read() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfilesProfileTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Read
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProfilesResourceAssociationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+	Read *string `pulumi:"read"`
+}
+
+// ProfilesResourceAssociationTimeoutsInput is an input type that accepts ProfilesResourceAssociationTimeoutsArgs and ProfilesResourceAssociationTimeoutsOutput values.
+// You can construct a concrete instance of `ProfilesResourceAssociationTimeoutsInput` via:
+//
+//	ProfilesResourceAssociationTimeoutsArgs{...}
+type ProfilesResourceAssociationTimeoutsInput interface {
+	pulumi.Input
+
+	ToProfilesResourceAssociationTimeoutsOutput() ProfilesResourceAssociationTimeoutsOutput
+	ToProfilesResourceAssociationTimeoutsOutputWithContext(context.Context) ProfilesResourceAssociationTimeoutsOutput
+}
+
+type ProfilesResourceAssociationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+	Read pulumi.StringPtrInput `pulumi:"read"`
+}
+
+func (ProfilesResourceAssociationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfilesResourceAssociationTimeouts)(nil)).Elem()
+}
+
+func (i ProfilesResourceAssociationTimeoutsArgs) ToProfilesResourceAssociationTimeoutsOutput() ProfilesResourceAssociationTimeoutsOutput {
+	return i.ToProfilesResourceAssociationTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ProfilesResourceAssociationTimeoutsArgs) ToProfilesResourceAssociationTimeoutsOutputWithContext(ctx context.Context) ProfilesResourceAssociationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfilesResourceAssociationTimeoutsOutput)
+}
+
+func (i ProfilesResourceAssociationTimeoutsArgs) ToProfilesResourceAssociationTimeoutsPtrOutput() ProfilesResourceAssociationTimeoutsPtrOutput {
+	return i.ToProfilesResourceAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ProfilesResourceAssociationTimeoutsArgs) ToProfilesResourceAssociationTimeoutsPtrOutputWithContext(ctx context.Context) ProfilesResourceAssociationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfilesResourceAssociationTimeoutsOutput).ToProfilesResourceAssociationTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ProfilesResourceAssociationTimeoutsPtrInput is an input type that accepts ProfilesResourceAssociationTimeoutsArgs, ProfilesResourceAssociationTimeoutsPtr and ProfilesResourceAssociationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ProfilesResourceAssociationTimeoutsPtrInput` via:
+//
+//	        ProfilesResourceAssociationTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProfilesResourceAssociationTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToProfilesResourceAssociationTimeoutsPtrOutput() ProfilesResourceAssociationTimeoutsPtrOutput
+	ToProfilesResourceAssociationTimeoutsPtrOutputWithContext(context.Context) ProfilesResourceAssociationTimeoutsPtrOutput
+}
+
+type profilesResourceAssociationTimeoutsPtrType ProfilesResourceAssociationTimeoutsArgs
+
+func ProfilesResourceAssociationTimeoutsPtr(v *ProfilesResourceAssociationTimeoutsArgs) ProfilesResourceAssociationTimeoutsPtrInput {
+	return (*profilesResourceAssociationTimeoutsPtrType)(v)
+}
+
+func (*profilesResourceAssociationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProfilesResourceAssociationTimeouts)(nil)).Elem()
+}
+
+func (i *profilesResourceAssociationTimeoutsPtrType) ToProfilesResourceAssociationTimeoutsPtrOutput() ProfilesResourceAssociationTimeoutsPtrOutput {
+	return i.ToProfilesResourceAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *profilesResourceAssociationTimeoutsPtrType) ToProfilesResourceAssociationTimeoutsPtrOutputWithContext(ctx context.Context) ProfilesResourceAssociationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfilesResourceAssociationTimeoutsPtrOutput)
+}
+
+type ProfilesResourceAssociationTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ProfilesResourceAssociationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfilesResourceAssociationTimeouts)(nil)).Elem()
+}
+
+func (o ProfilesResourceAssociationTimeoutsOutput) ToProfilesResourceAssociationTimeoutsOutput() ProfilesResourceAssociationTimeoutsOutput {
+	return o
+}
+
+func (o ProfilesResourceAssociationTimeoutsOutput) ToProfilesResourceAssociationTimeoutsOutputWithContext(ctx context.Context) ProfilesResourceAssociationTimeoutsOutput {
+	return o
+}
+
+func (o ProfilesResourceAssociationTimeoutsOutput) ToProfilesResourceAssociationTimeoutsPtrOutput() ProfilesResourceAssociationTimeoutsPtrOutput {
+	return o.ToProfilesResourceAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ProfilesResourceAssociationTimeoutsOutput) ToProfilesResourceAssociationTimeoutsPtrOutputWithContext(ctx context.Context) ProfilesResourceAssociationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProfilesResourceAssociationTimeouts) *ProfilesResourceAssociationTimeouts {
+		return &v
+	}).(ProfilesResourceAssociationTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ProfilesResourceAssociationTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProfilesResourceAssociationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ProfilesResourceAssociationTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProfilesResourceAssociationTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+func (o ProfilesResourceAssociationTimeoutsOutput) Read() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProfilesResourceAssociationTimeouts) *string { return v.Read }).(pulumi.StringPtrOutput)
+}
+
+type ProfilesResourceAssociationTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ProfilesResourceAssociationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProfilesResourceAssociationTimeouts)(nil)).Elem()
+}
+
+func (o ProfilesResourceAssociationTimeoutsPtrOutput) ToProfilesResourceAssociationTimeoutsPtrOutput() ProfilesResourceAssociationTimeoutsPtrOutput {
+	return o
+}
+
+func (o ProfilesResourceAssociationTimeoutsPtrOutput) ToProfilesResourceAssociationTimeoutsPtrOutputWithContext(ctx context.Context) ProfilesResourceAssociationTimeoutsPtrOutput {
+	return o
+}
+
+func (o ProfilesResourceAssociationTimeoutsPtrOutput) Elem() ProfilesResourceAssociationTimeoutsOutput {
+	return o.ApplyT(func(v *ProfilesResourceAssociationTimeouts) ProfilesResourceAssociationTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ProfilesResourceAssociationTimeouts
+		return ret
+	}).(ProfilesResourceAssociationTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ProfilesResourceAssociationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfilesResourceAssociationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ProfilesResourceAssociationTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfilesResourceAssociationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+func (o ProfilesResourceAssociationTimeoutsPtrOutput) Read() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfilesResourceAssociationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Read
+	}).(pulumi.StringPtrOutput)
+}
+
 type RecordAlias struct {
 	// Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [related part of documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health).
 	EvaluateTargetHealth bool `pulumi:"evaluateTargetHealth"`
@@ -987,10 +1512,12 @@ func (o RecordWeightedRoutingPolicyArrayOutput) Index(i pulumi.IntInput) RecordW
 }
 
 type ResolverEndpointIpAddress struct {
-	// The IP address in the subnet that you want to use for DNS queries.
+	// IPv4 address in the subnet that you want to use for DNS queries.
 	Ip   *string `pulumi:"ip"`
 	IpId *string `pulumi:"ipId"`
-	// The ID of the subnet that contains the IP address.
+	// IPv6 address in the subnet that you want to use for DNS queries.
+	Ipv6 *string `pulumi:"ipv6"`
+	// ID of the subnet that contains the IP address.
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -1006,10 +1533,12 @@ type ResolverEndpointIpAddressInput interface {
 }
 
 type ResolverEndpointIpAddressArgs struct {
-	// The IP address in the subnet that you want to use for DNS queries.
+	// IPv4 address in the subnet that you want to use for DNS queries.
 	Ip   pulumi.StringPtrInput `pulumi:"ip"`
 	IpId pulumi.StringPtrInput `pulumi:"ipId"`
-	// The ID of the subnet that contains the IP address.
+	// IPv6 address in the subnet that you want to use for DNS queries.
+	Ipv6 pulumi.StringPtrInput `pulumi:"ipv6"`
+	// ID of the subnet that contains the IP address.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -1064,7 +1593,7 @@ func (o ResolverEndpointIpAddressOutput) ToResolverEndpointIpAddressOutputWithCo
 	return o
 }
 
-// The IP address in the subnet that you want to use for DNS queries.
+// IPv4 address in the subnet that you want to use for DNS queries.
 func (o ResolverEndpointIpAddressOutput) Ip() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResolverEndpointIpAddress) *string { return v.Ip }).(pulumi.StringPtrOutput)
 }
@@ -1073,7 +1602,12 @@ func (o ResolverEndpointIpAddressOutput) IpId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResolverEndpointIpAddress) *string { return v.IpId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the subnet that contains the IP address.
+// IPv6 address in the subnet that you want to use for DNS queries.
+func (o ResolverEndpointIpAddressOutput) Ipv6() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResolverEndpointIpAddress) *string { return v.Ipv6 }).(pulumi.StringPtrOutput)
+}
+
+// ID of the subnet that contains the IP address.
 func (o ResolverEndpointIpAddressOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v ResolverEndpointIpAddress) string { return v.SubnetId }).(pulumi.StringOutput)
 }
@@ -1100,10 +1634,12 @@ func (o ResolverEndpointIpAddressArrayOutput) Index(i pulumi.IntInput) ResolverE
 
 type ResolverRuleTargetIp struct {
 	// One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
-	Ip string `pulumi:"ip"`
-	// The port at `ip` that you want to forward DNS queries to. Default value is `53`.
+	Ip *string `pulumi:"ip"`
+	// One IPv6 address that you want to forward DNS queries to.
+	Ipv6 *string `pulumi:"ipv6"`
+	// Port at `ip` that you want to forward DNS queries to. Default value is `53`.
 	Port *int `pulumi:"port"`
-	// The protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
+	// Protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
 	Protocol *string `pulumi:"protocol"`
 }
 
@@ -1120,10 +1656,12 @@ type ResolverRuleTargetIpInput interface {
 
 type ResolverRuleTargetIpArgs struct {
 	// One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
-	Ip pulumi.StringInput `pulumi:"ip"`
-	// The port at `ip` that you want to forward DNS queries to. Default value is `53`.
+	Ip pulumi.StringPtrInput `pulumi:"ip"`
+	// One IPv6 address that you want to forward DNS queries to.
+	Ipv6 pulumi.StringPtrInput `pulumi:"ipv6"`
+	// Port at `ip` that you want to forward DNS queries to. Default value is `53`.
 	Port pulumi.IntPtrInput `pulumi:"port"`
-	// The protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
+	// Protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 }
 
@@ -1179,16 +1717,21 @@ func (o ResolverRuleTargetIpOutput) ToResolverRuleTargetIpOutputWithContext(ctx 
 }
 
 // One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
-func (o ResolverRuleTargetIpOutput) Ip() pulumi.StringOutput {
-	return o.ApplyT(func(v ResolverRuleTargetIp) string { return v.Ip }).(pulumi.StringOutput)
+func (o ResolverRuleTargetIpOutput) Ip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResolverRuleTargetIp) *string { return v.Ip }).(pulumi.StringPtrOutput)
 }
 
-// The port at `ip` that you want to forward DNS queries to. Default value is `53`.
+// One IPv6 address that you want to forward DNS queries to.
+func (o ResolverRuleTargetIpOutput) Ipv6() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResolverRuleTargetIp) *string { return v.Ipv6 }).(pulumi.StringPtrOutput)
+}
+
+// Port at `ip` that you want to forward DNS queries to. Default value is `53`.
 func (o ResolverRuleTargetIpOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ResolverRuleTargetIp) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// The protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
+// Protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
 func (o ResolverRuleTargetIpOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResolverRuleTargetIp) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
@@ -1317,6 +1860,130 @@ func (o ZoneVpcArrayOutput) Index(i pulumi.IntInput) ZoneVpcOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ZoneVpc {
 		return vs[0].([]ZoneVpc)[vs[1].(int)]
 	}).(ZoneVpcOutput)
+}
+
+type GetProfilesProfilesProfile struct {
+	// ARN of the Profile.
+	Arn string `pulumi:"arn"`
+	// ID of the Profile.
+	Id string `pulumi:"id"`
+	// Name of the Profile.
+	Name string `pulumi:"name"`
+	// Share status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+	ShareStatus string `pulumi:"shareStatus"`
+}
+
+// GetProfilesProfilesProfileInput is an input type that accepts GetProfilesProfilesProfileArgs and GetProfilesProfilesProfileOutput values.
+// You can construct a concrete instance of `GetProfilesProfilesProfileInput` via:
+//
+//	GetProfilesProfilesProfileArgs{...}
+type GetProfilesProfilesProfileInput interface {
+	pulumi.Input
+
+	ToGetProfilesProfilesProfileOutput() GetProfilesProfilesProfileOutput
+	ToGetProfilesProfilesProfileOutputWithContext(context.Context) GetProfilesProfilesProfileOutput
+}
+
+type GetProfilesProfilesProfileArgs struct {
+	// ARN of the Profile.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// ID of the Profile.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the Profile.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Share status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+	ShareStatus pulumi.StringInput `pulumi:"shareStatus"`
+}
+
+func (GetProfilesProfilesProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProfilesProfilesProfile)(nil)).Elem()
+}
+
+func (i GetProfilesProfilesProfileArgs) ToGetProfilesProfilesProfileOutput() GetProfilesProfilesProfileOutput {
+	return i.ToGetProfilesProfilesProfileOutputWithContext(context.Background())
+}
+
+func (i GetProfilesProfilesProfileArgs) ToGetProfilesProfilesProfileOutputWithContext(ctx context.Context) GetProfilesProfilesProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProfilesProfilesProfileOutput)
+}
+
+// GetProfilesProfilesProfileArrayInput is an input type that accepts GetProfilesProfilesProfileArray and GetProfilesProfilesProfileArrayOutput values.
+// You can construct a concrete instance of `GetProfilesProfilesProfileArrayInput` via:
+//
+//	GetProfilesProfilesProfileArray{ GetProfilesProfilesProfileArgs{...} }
+type GetProfilesProfilesProfileArrayInput interface {
+	pulumi.Input
+
+	ToGetProfilesProfilesProfileArrayOutput() GetProfilesProfilesProfileArrayOutput
+	ToGetProfilesProfilesProfileArrayOutputWithContext(context.Context) GetProfilesProfilesProfileArrayOutput
+}
+
+type GetProfilesProfilesProfileArray []GetProfilesProfilesProfileInput
+
+func (GetProfilesProfilesProfileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetProfilesProfilesProfile)(nil)).Elem()
+}
+
+func (i GetProfilesProfilesProfileArray) ToGetProfilesProfilesProfileArrayOutput() GetProfilesProfilesProfileArrayOutput {
+	return i.ToGetProfilesProfilesProfileArrayOutputWithContext(context.Background())
+}
+
+func (i GetProfilesProfilesProfileArray) ToGetProfilesProfilesProfileArrayOutputWithContext(ctx context.Context) GetProfilesProfilesProfileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProfilesProfilesProfileArrayOutput)
+}
+
+type GetProfilesProfilesProfileOutput struct{ *pulumi.OutputState }
+
+func (GetProfilesProfilesProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProfilesProfilesProfile)(nil)).Elem()
+}
+
+func (o GetProfilesProfilesProfileOutput) ToGetProfilesProfilesProfileOutput() GetProfilesProfilesProfileOutput {
+	return o
+}
+
+func (o GetProfilesProfilesProfileOutput) ToGetProfilesProfilesProfileOutputWithContext(ctx context.Context) GetProfilesProfilesProfileOutput {
+	return o
+}
+
+// ARN of the Profile.
+func (o GetProfilesProfilesProfileOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProfilesProfilesProfile) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// ID of the Profile.
+func (o GetProfilesProfilesProfileOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProfilesProfilesProfile) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Name of the Profile.
+func (o GetProfilesProfilesProfileOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProfilesProfilesProfile) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Share status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+func (o GetProfilesProfilesProfileOutput) ShareStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProfilesProfilesProfile) string { return v.ShareStatus }).(pulumi.StringOutput)
+}
+
+type GetProfilesProfilesProfileArrayOutput struct{ *pulumi.OutputState }
+
+func (GetProfilesProfilesProfileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetProfilesProfilesProfile)(nil)).Elem()
+}
+
+func (o GetProfilesProfilesProfileArrayOutput) ToGetProfilesProfilesProfileArrayOutput() GetProfilesProfilesProfileArrayOutput {
+	return o
+}
+
+func (o GetProfilesProfilesProfileArrayOutput) ToGetProfilesProfilesProfileArrayOutputWithContext(ctx context.Context) GetProfilesProfilesProfileArrayOutput {
+	return o
+}
+
+func (o GetProfilesProfilesProfileArrayOutput) Index(i pulumi.IntInput) GetProfilesProfilesProfileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetProfilesProfilesProfile {
+		return vs[0].([]GetProfilesProfilesProfile)[vs[1].(int)]
+	}).(GetProfilesProfilesProfileOutput)
 }
 
 type GetQueryLogConfigFilter struct {
@@ -2927,6 +3594,12 @@ func (o GetTrafficPolicyDocumentRuleSecondaryPtrOutput) RuleReference() pulumi.S
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfilesAssociationTimeoutsInput)(nil)).Elem(), ProfilesAssociationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfilesAssociationTimeoutsPtrInput)(nil)).Elem(), ProfilesAssociationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfilesProfileTimeoutsInput)(nil)).Elem(), ProfilesProfileTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfilesProfileTimeoutsPtrInput)(nil)).Elem(), ProfilesProfileTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfilesResourceAssociationTimeoutsInput)(nil)).Elem(), ProfilesResourceAssociationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfilesResourceAssociationTimeoutsPtrInput)(nil)).Elem(), ProfilesResourceAssociationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordAliasInput)(nil)).Elem(), RecordAliasArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordAliasArrayInput)(nil)).Elem(), RecordAliasArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordCidrRoutingPolicyInput)(nil)).Elem(), RecordCidrRoutingPolicyArgs{})
@@ -2949,6 +3622,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleTargetIpArrayInput)(nil)).Elem(), ResolverRuleTargetIpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ZoneVpcInput)(nil)).Elem(), ZoneVpcArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ZoneVpcArrayInput)(nil)).Elem(), ZoneVpcArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProfilesProfilesProfileInput)(nil)).Elem(), GetProfilesProfilesProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProfilesProfilesProfileArrayInput)(nil)).Elem(), GetProfilesProfilesProfileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetQueryLogConfigFilterInput)(nil)).Elem(), GetQueryLogConfigFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetQueryLogConfigFilterArrayInput)(nil)).Elem(), GetQueryLogConfigFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResolverEndpointFilterInput)(nil)).Elem(), GetResolverEndpointFilterArgs{})
@@ -2971,6 +3646,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficPolicyDocumentRuleRegionArrayInput)(nil)).Elem(), GetTrafficPolicyDocumentRuleRegionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficPolicyDocumentRuleSecondaryInput)(nil)).Elem(), GetTrafficPolicyDocumentRuleSecondaryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficPolicyDocumentRuleSecondaryPtrInput)(nil)).Elem(), GetTrafficPolicyDocumentRuleSecondaryArgs{})
+	pulumi.RegisterOutputType(ProfilesAssociationTimeoutsOutput{})
+	pulumi.RegisterOutputType(ProfilesAssociationTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(ProfilesProfileTimeoutsOutput{})
+	pulumi.RegisterOutputType(ProfilesProfileTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(ProfilesResourceAssociationTimeoutsOutput{})
+	pulumi.RegisterOutputType(ProfilesResourceAssociationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(RecordAliasOutput{})
 	pulumi.RegisterOutputType(RecordAliasArrayOutput{})
 	pulumi.RegisterOutputType(RecordCidrRoutingPolicyOutput{})
@@ -2993,6 +3674,8 @@ func init() {
 	pulumi.RegisterOutputType(ResolverRuleTargetIpArrayOutput{})
 	pulumi.RegisterOutputType(ZoneVpcOutput{})
 	pulumi.RegisterOutputType(ZoneVpcArrayOutput{})
+	pulumi.RegisterOutputType(GetProfilesProfilesProfileOutput{})
+	pulumi.RegisterOutputType(GetProfilesProfilesProfileArrayOutput{})
 	pulumi.RegisterOutputType(GetQueryLogConfigFilterOutput{})
 	pulumi.RegisterOutputType(GetQueryLogConfigFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetResolverEndpointFilterOutput{})

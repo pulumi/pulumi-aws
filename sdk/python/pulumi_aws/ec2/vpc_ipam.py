@@ -24,6 +24,7 @@ class VpcIpamArgs:
                  operating_regions: pulumi.Input[Sequence[pulumi.Input['VpcIpamOperatingRegionArgs']]],
                  cascade: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 enable_private_gua: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[str]] = None):
         """
@@ -31,6 +32,7 @@ class VpcIpamArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VpcIpamOperatingRegionArgs']]] operating_regions: Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
         :param pulumi.Input[bool] cascade: Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
         :param pulumi.Input[str] description: A description for the IPAM.
+        :param pulumi.Input[bool] enable_private_gua: Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] tier: specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
         """
@@ -39,6 +41,8 @@ class VpcIpamArgs:
             pulumi.set(__self__, "cascade", cascade)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if enable_private_gua is not None:
+            pulumi.set(__self__, "enable_private_gua", enable_private_gua)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tier is not None:
@@ -81,6 +85,18 @@ class VpcIpamArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="enablePrivateGua")
+    def enable_private_gua(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
+        """
+        return pulumi.get(self, "enable_private_gua")
+
+    @enable_private_gua.setter
+    def enable_private_gua(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_private_gua", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -113,6 +129,7 @@ class _VpcIpamState:
                  default_resource_discovery_association_id: Optional[pulumi.Input[str]] = None,
                  default_resource_discovery_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 enable_private_gua: Optional[pulumi.Input[bool]] = None,
                  operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input['VpcIpamOperatingRegionArgs']]]] = None,
                  private_default_scope_id: Optional[pulumi.Input[str]] = None,
                  public_default_scope_id: Optional[pulumi.Input[str]] = None,
@@ -127,6 +144,7 @@ class _VpcIpamState:
         :param pulumi.Input[str] default_resource_discovery_association_id: The IPAM's default resource discovery association ID.
         :param pulumi.Input[str] default_resource_discovery_id: The IPAM's default resource discovery ID.
         :param pulumi.Input[str] description: A description for the IPAM.
+        :param pulumi.Input[bool] enable_private_gua: Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
         :param pulumi.Input[Sequence[pulumi.Input['VpcIpamOperatingRegionArgs']]] operating_regions: Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
         :param pulumi.Input[str] private_default_scope_id: The ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
         :param pulumi.Input[str] public_default_scope_id: The ID of the IPAM's public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
@@ -146,6 +164,8 @@ class _VpcIpamState:
             pulumi.set(__self__, "default_resource_discovery_id", default_resource_discovery_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if enable_private_gua is not None:
+            pulumi.set(__self__, "enable_private_gua", enable_private_gua)
         if operating_regions is not None:
             pulumi.set(__self__, "operating_regions", operating_regions)
         if private_default_scope_id is not None:
@@ -223,6 +243,18 @@ class _VpcIpamState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="enablePrivateGua")
+    def enable_private_gua(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
+        """
+        return pulumi.get(self, "enable_private_gua")
+
+    @enable_private_gua.setter
+    def enable_private_gua(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_private_gua", value)
 
     @property
     @pulumi.getter(name="operatingRegions")
@@ -318,6 +350,7 @@ class VpcIpam(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cascade: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 enable_private_gua: Optional[pulumi.Input[bool]] = None,
                  operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpcIpamOperatingRegionArgs', 'VpcIpamOperatingRegionArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
@@ -358,6 +391,7 @@ class VpcIpam(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] cascade: Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
         :param pulumi.Input[str] description: A description for the IPAM.
+        :param pulumi.Input[bool] enable_private_gua: Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VpcIpamOperatingRegionArgs', 'VpcIpamOperatingRegionArgsDict']]]] operating_regions: Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] tier: specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
@@ -417,6 +451,7 @@ class VpcIpam(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cascade: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 enable_private_gua: Optional[pulumi.Input[bool]] = None,
                  operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpcIpamOperatingRegionArgs', 'VpcIpamOperatingRegionArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
@@ -431,6 +466,7 @@ class VpcIpam(pulumi.CustomResource):
 
             __props__.__dict__["cascade"] = cascade
             __props__.__dict__["description"] = description
+            __props__.__dict__["enable_private_gua"] = enable_private_gua
             if operating_regions is None and not opts.urn:
                 raise TypeError("Missing required property 'operating_regions'")
             __props__.__dict__["operating_regions"] = operating_regions
@@ -458,6 +494,7 @@ class VpcIpam(pulumi.CustomResource):
             default_resource_discovery_association_id: Optional[pulumi.Input[str]] = None,
             default_resource_discovery_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            enable_private_gua: Optional[pulumi.Input[bool]] = None,
             operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpcIpamOperatingRegionArgs', 'VpcIpamOperatingRegionArgsDict']]]]] = None,
             private_default_scope_id: Optional[pulumi.Input[str]] = None,
             public_default_scope_id: Optional[pulumi.Input[str]] = None,
@@ -477,6 +514,7 @@ class VpcIpam(pulumi.CustomResource):
         :param pulumi.Input[str] default_resource_discovery_association_id: The IPAM's default resource discovery association ID.
         :param pulumi.Input[str] default_resource_discovery_id: The IPAM's default resource discovery ID.
         :param pulumi.Input[str] description: A description for the IPAM.
+        :param pulumi.Input[bool] enable_private_gua: Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VpcIpamOperatingRegionArgs', 'VpcIpamOperatingRegionArgsDict']]]] operating_regions: Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
         :param pulumi.Input[str] private_default_scope_id: The ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
         :param pulumi.Input[str] public_default_scope_id: The ID of the IPAM's public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
@@ -495,6 +533,7 @@ class VpcIpam(pulumi.CustomResource):
         __props__.__dict__["default_resource_discovery_association_id"] = default_resource_discovery_association_id
         __props__.__dict__["default_resource_discovery_id"] = default_resource_discovery_id
         __props__.__dict__["description"] = description
+        __props__.__dict__["enable_private_gua"] = enable_private_gua
         __props__.__dict__["operating_regions"] = operating_regions
         __props__.__dict__["private_default_scope_id"] = private_default_scope_id
         __props__.__dict__["public_default_scope_id"] = public_default_scope_id
@@ -543,6 +582,14 @@ class VpcIpam(pulumi.CustomResource):
         A description for the IPAM.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="enablePrivateGua")
+    def enable_private_gua(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
+        """
+        return pulumi.get(self, "enable_private_gua")
 
     @property
     @pulumi.getter(name="operatingRegions")

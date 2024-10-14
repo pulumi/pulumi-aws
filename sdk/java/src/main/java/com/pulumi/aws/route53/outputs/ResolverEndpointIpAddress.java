@@ -13,20 +13,25 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ResolverEndpointIpAddress {
     /**
-     * @return The IP address in the subnet that you want to use for DNS queries.
+     * @return IPv4 address in the subnet that you want to use for DNS queries.
      * 
      */
     private @Nullable String ip;
     private @Nullable String ipId;
     /**
-     * @return The ID of the subnet that contains the IP address.
+     * @return IPv6 address in the subnet that you want to use for DNS queries.
+     * 
+     */
+    private @Nullable String ipv6;
+    /**
+     * @return ID of the subnet that contains the IP address.
      * 
      */
     private String subnetId;
 
     private ResolverEndpointIpAddress() {}
     /**
-     * @return The IP address in the subnet that you want to use for DNS queries.
+     * @return IPv4 address in the subnet that you want to use for DNS queries.
      * 
      */
     public Optional<String> ip() {
@@ -36,7 +41,14 @@ public final class ResolverEndpointIpAddress {
         return Optional.ofNullable(this.ipId);
     }
     /**
-     * @return The ID of the subnet that contains the IP address.
+     * @return IPv6 address in the subnet that you want to use for DNS queries.
+     * 
+     */
+    public Optional<String> ipv6() {
+        return Optional.ofNullable(this.ipv6);
+    }
+    /**
+     * @return ID of the subnet that contains the IP address.
      * 
      */
     public String subnetId() {
@@ -54,12 +66,14 @@ public final class ResolverEndpointIpAddress {
     public static final class Builder {
         private @Nullable String ip;
         private @Nullable String ipId;
+        private @Nullable String ipv6;
         private String subnetId;
         public Builder() {}
         public Builder(ResolverEndpointIpAddress defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ip = defaults.ip;
     	      this.ipId = defaults.ipId;
+    	      this.ipv6 = defaults.ipv6;
     	      this.subnetId = defaults.subnetId;
         }
 
@@ -76,6 +90,12 @@ public final class ResolverEndpointIpAddress {
             return this;
         }
         @CustomType.Setter
+        public Builder ipv6(@Nullable String ipv6) {
+
+            this.ipv6 = ipv6;
+            return this;
+        }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             if (subnetId == null) {
               throw new MissingRequiredPropertyException("ResolverEndpointIpAddress", "subnetId");
@@ -87,6 +107,7 @@ public final class ResolverEndpointIpAddress {
             final var _resultValue = new ResolverEndpointIpAddress();
             _resultValue.ip = ip;
             _resultValue.ipId = ipId;
+            _resultValue.ipv6 = ipv6;
             _resultValue.subnetId = subnetId;
             return _resultValue;
         }

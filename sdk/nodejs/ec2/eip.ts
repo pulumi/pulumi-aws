@@ -95,6 +95,18 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Allocating EIP from the IPAM Pool
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const ipam_ip = new aws.ec2.Eip("ipam-ip", {
+ *     domain: "vpc",
+ *     ipamPoolId: "ipam-pool-07ccc86aa41bef7ce",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import EIPs in a VPC using their Allocation ID. For example:
@@ -168,6 +180,10 @@ export class Eip extends pulumi.CustomResource {
      * EC2 instance ID.
      */
     public readonly instance!: pulumi.Output<string>;
+    /**
+     * The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
+     */
+    public readonly ipamPoolId!: pulumi.Output<string>;
     /**
      * Location from which the IP address is advertised. Use this parameter to limit the address to this location.
      */
@@ -247,6 +263,7 @@ export class Eip extends pulumi.CustomResource {
             resourceInputs["customerOwnedIpv4Pool"] = state ? state.customerOwnedIpv4Pool : undefined;
             resourceInputs["domain"] = state ? state.domain : undefined;
             resourceInputs["instance"] = state ? state.instance : undefined;
+            resourceInputs["ipamPoolId"] = state ? state.ipamPoolId : undefined;
             resourceInputs["networkBorderGroup"] = state ? state.networkBorderGroup : undefined;
             resourceInputs["networkInterface"] = state ? state.networkInterface : undefined;
             resourceInputs["privateDns"] = state ? state.privateDns : undefined;
@@ -265,6 +282,7 @@ export class Eip extends pulumi.CustomResource {
             resourceInputs["customerOwnedIpv4Pool"] = args ? args.customerOwnedIpv4Pool : undefined;
             resourceInputs["domain"] = args ? args.domain : undefined;
             resourceInputs["instance"] = args ? args.instance : undefined;
+            resourceInputs["ipamPoolId"] = args ? args.ipamPoolId : undefined;
             resourceInputs["networkBorderGroup"] = args ? args.networkBorderGroup : undefined;
             resourceInputs["networkInterface"] = args ? args.networkInterface : undefined;
             resourceInputs["publicIpv4Pool"] = args ? args.publicIpv4Pool : undefined;
@@ -328,6 +346,10 @@ export interface EipState {
      * EC2 instance ID.
      */
     instance?: pulumi.Input<string>;
+    /**
+     * The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
+     */
+    ipamPoolId?: pulumi.Input<string>;
     /**
      * Location from which the IP address is advertised. Use this parameter to limit the address to this location.
      */
@@ -409,6 +431,10 @@ export interface EipArgs {
      * EC2 instance ID.
      */
     instance?: pulumi.Input<string>;
+    /**
+     * The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
+     */
+    ipamPoolId?: pulumi.Input<string>;
     /**
      * Location from which the IP address is advertised. Use this parameter to limit the address to this location.
      */

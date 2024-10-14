@@ -1623,6 +1623,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("ssmquicksetup")]
+        public Input<string>? Ssmquicksetup { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("ssmsap")]
         public Input<string>? Ssmsap { get; set; }
 

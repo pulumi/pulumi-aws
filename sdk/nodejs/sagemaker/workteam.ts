@@ -123,7 +123,7 @@ export class Workteam extends pulumi.CustomResource {
     /**
      * The name of the workforce.
      */
-    public readonly workforceName!: pulumi.Output<string>;
+    public readonly workforceName!: pulumi.Output<string | undefined>;
     /**
      * The name of the Workteam (must be unique).
      */
@@ -159,9 +159,6 @@ export class Workteam extends pulumi.CustomResource {
             }
             if ((!args || args.memberDefinitions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'memberDefinitions'");
-            }
-            if ((!args || args.workforceName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'workforceName'");
             }
             if ((!args || args.workteamName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workteamName'");
@@ -257,7 +254,7 @@ export interface WorkteamArgs {
     /**
      * The name of the workforce.
      */
-    workforceName: pulumi.Input<string>;
+    workforceName?: pulumi.Input<string>;
     /**
      * The name of the Workteam (must be unique).
      */

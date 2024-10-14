@@ -25,6 +25,11 @@ export const getDelegationSet: typeof import("./getDelegationSet").getDelegation
 export const getDelegationSetOutput: typeof import("./getDelegationSet").getDelegationSetOutput = null as any;
 utilities.lazyLoad(exports, ["getDelegationSet","getDelegationSetOutput"], () => require("./getDelegationSet"));
 
+export { GetProfilesProfilesResult } from "./getProfilesProfiles";
+export const getProfilesProfiles: typeof import("./getProfilesProfiles").getProfilesProfiles = null as any;
+export const getProfilesProfilesOutput: typeof import("./getProfilesProfiles").getProfilesProfilesOutput = null as any;
+utilities.lazyLoad(exports, ["getProfilesProfiles","getProfilesProfilesOutput"], () => require("./getProfilesProfiles"));
+
 export { GetQueryLogConfigArgs, GetQueryLogConfigResult, GetQueryLogConfigOutputArgs } from "./getQueryLogConfig";
 export const getQueryLogConfig: typeof import("./getQueryLogConfig").getQueryLogConfig = null as any;
 export const getQueryLogConfigOutput: typeof import("./getQueryLogConfig").getQueryLogConfigOutput = null as any;
@@ -99,6 +104,21 @@ export { KeySigningKeyArgs, KeySigningKeyState } from "./keySigningKey";
 export type KeySigningKey = import("./keySigningKey").KeySigningKey;
 export const KeySigningKey: typeof import("./keySigningKey").KeySigningKey = null as any;
 utilities.lazyLoad(exports, ["KeySigningKey"], () => require("./keySigningKey"));
+
+export { ProfilesAssociationArgs, ProfilesAssociationState } from "./profilesAssociation";
+export type ProfilesAssociation = import("./profilesAssociation").ProfilesAssociation;
+export const ProfilesAssociation: typeof import("./profilesAssociation").ProfilesAssociation = null as any;
+utilities.lazyLoad(exports, ["ProfilesAssociation"], () => require("./profilesAssociation"));
+
+export { ProfilesProfileArgs, ProfilesProfileState } from "./profilesProfile";
+export type ProfilesProfile = import("./profilesProfile").ProfilesProfile;
+export const ProfilesProfile: typeof import("./profilesProfile").ProfilesProfile = null as any;
+utilities.lazyLoad(exports, ["ProfilesProfile"], () => require("./profilesProfile"));
+
+export { ProfilesResourceAssociationArgs, ProfilesResourceAssociationState } from "./profilesResourceAssociation";
+export type ProfilesResourceAssociation = import("./profilesResourceAssociation").ProfilesResourceAssociation;
+export const ProfilesResourceAssociation: typeof import("./profilesResourceAssociation").ProfilesResourceAssociation = null as any;
+utilities.lazyLoad(exports, ["ProfilesResourceAssociation"], () => require("./profilesResourceAssociation"));
 
 export { QueryLogArgs, QueryLogState } from "./queryLog";
 export type QueryLog = import("./queryLog").QueryLog;
@@ -216,6 +236,12 @@ const _module = {
                 return new HostedZoneDnsSec(name, <any>undefined, { urn })
             case "aws:route53/keySigningKey:KeySigningKey":
                 return new KeySigningKey(name, <any>undefined, { urn })
+            case "aws:route53/profilesAssociation:ProfilesAssociation":
+                return new ProfilesAssociation(name, <any>undefined, { urn })
+            case "aws:route53/profilesProfile:ProfilesProfile":
+                return new ProfilesProfile(name, <any>undefined, { urn })
+            case "aws:route53/profilesResourceAssociation:ProfilesResourceAssociation":
+                return new ProfilesResourceAssociation(name, <any>undefined, { urn })
             case "aws:route53/queryLog:QueryLog":
                 return new QueryLog(name, <any>undefined, { urn })
             case "aws:route53/record:Record":
@@ -265,6 +291,9 @@ pulumi.runtime.registerResourceModule("aws", "route53/delegationSet", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/healthCheck", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/hostedZoneDnsSec", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/keySigningKey", _module)
+pulumi.runtime.registerResourceModule("aws", "route53/profilesAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "route53/profilesProfile", _module)
+pulumi.runtime.registerResourceModule("aws", "route53/profilesResourceAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/queryLog", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/record", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/resolverConfig", _module)

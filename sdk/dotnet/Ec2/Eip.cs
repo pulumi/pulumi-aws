@@ -151,6 +151,25 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// 
+    /// ### Allocating EIP from the IPAM Pool
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ipam_ip = new Aws.Ec2.Eip("ipam-ip", new()
+    ///     {
+    ///         Domain = "vpc",
+    ///         IpamPoolId = "ipam-pool-07ccc86aa41bef7ce",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EIPs in a VPC using their Allocation ID. For example:
@@ -218,6 +237,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("instance")]
         public Output<string> Instance { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
+        /// </summary>
+        [Output("ipamPoolId")]
+        public Output<string> IpamPoolId { get; private set; } = null!;
 
         /// <summary>
         /// Location from which the IP address is advertised. Use this parameter to limit the address to this location.
@@ -369,6 +394,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Instance { get; set; }
 
         /// <summary>
+        /// The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
+        /// </summary>
+        [Input("ipamPoolId")]
+        public Input<string>? IpamPoolId { get; set; }
+
+        /// <summary>
         /// Location from which the IP address is advertised. Use this parameter to limit the address to this location.
         /// </summary>
         [Input("networkBorderGroup")]
@@ -475,6 +506,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("instance")]
         public Input<string>? Instance { get; set; }
+
+        /// <summary>
+        /// The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
+        /// </summary>
+        [Input("ipamPoolId")]
+        public Input<string>? IpamPoolId { get; set; }
 
         /// <summary>
         /// Location from which the IP address is advertised. Use this parameter to limit the address to this location.

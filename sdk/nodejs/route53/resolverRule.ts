@@ -44,6 +44,26 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### IPv6 Forward rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const fwd = new aws.route53.ResolverRule("fwd", {
+ *     domainName: "example.com",
+ *     name: "example",
+ *     ruleType: "FORWARD",
+ *     resolverEndpointId: foo.id,
+ *     targetIps: [{
+ *         ipv6: "2600:1f18:1686:2000:4e60:6e3e:258:da36",
+ *     }],
+ *     tags: {
+ *         Environment: "Prod",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Route53 Resolver rules using the `id`. For example:
@@ -81,7 +101,7 @@ export class ResolverRule extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN (Amazon Resource Name) for the resolver rule.
+     * ARN (Amazon Resource Name) for the resolver rule.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -89,7 +109,7 @@ export class ResolverRule extends pulumi.CustomResource {
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
-     * A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
+     * Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -97,12 +117,12 @@ export class ResolverRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
-     * The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
+     * ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
      * This argument should only be specified for `FORWARD` type rules.
      */
     public readonly resolverEndpointId!: pulumi.Output<string | undefined>;
     /**
-     * The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+     * Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
      */
     public readonly ruleType!: pulumi.Output<string>;
     /**
@@ -111,11 +131,11 @@ export class ResolverRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly shareStatus!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      *
      * @deprecated Please use `tags` instead.
      */
@@ -178,7 +198,7 @@ export class ResolverRule extends pulumi.CustomResource {
  */
 export interface ResolverRuleState {
     /**
-     * The ARN (Amazon Resource Name) for the resolver rule.
+     * ARN (Amazon Resource Name) for the resolver rule.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -186,7 +206,7 @@ export interface ResolverRuleState {
      */
     domainName?: pulumi.Input<string>;
     /**
-     * A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
+     * Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
      */
     name?: pulumi.Input<string>;
     /**
@@ -194,12 +214,12 @@ export interface ResolverRuleState {
      */
     ownerId?: pulumi.Input<string>;
     /**
-     * The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
+     * ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
      * This argument should only be specified for `FORWARD` type rules.
      */
     resolverEndpointId?: pulumi.Input<string>;
     /**
-     * The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+     * Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
      */
     ruleType?: pulumi.Input<string>;
     /**
@@ -208,11 +228,11 @@ export interface ResolverRuleState {
      */
     shareStatus?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      *
      * @deprecated Please use `tags` instead.
      */
@@ -233,20 +253,20 @@ export interface ResolverRuleArgs {
      */
     domainName: pulumi.Input<string>;
     /**
-     * A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
+     * Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
+     * ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
      * This argument should only be specified for `FORWARD` type rules.
      */
     resolverEndpointId?: pulumi.Input<string>;
     /**
-     * The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+     * Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
      */
     ruleType: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

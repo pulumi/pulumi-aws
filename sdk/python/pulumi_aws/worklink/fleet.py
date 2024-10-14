@@ -352,6 +352,10 @@ class Fleet(pulumi.CustomResource):
                  optimize_for_end_user_location: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
+        Provides a AWS WorkLink Fleet resource.
+
+        !> **WARNING:** The `worklink.Fleet` resource has been deprecated and will be removed in a future version. Use Amazon WorkSpaces Secure Browser instead.
+
         ## Example Usage
 
         Basic usage:
@@ -422,6 +426,10 @@ class Fleet(pulumi.CustomResource):
                  args: Optional[FleetArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides a AWS WorkLink Fleet resource.
+
+        !> **WARNING:** The `worklink.Fleet` resource has been deprecated and will be removed in a future version. Use Amazon WorkSpaces Secure Browser instead.
+
         ## Example Usage
 
         Basic usage:

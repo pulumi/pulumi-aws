@@ -65,6 +65,38 @@ namespace Pulumi.Aws.Route53
     /// });
     /// ```
     /// 
+    /// ### IPv6 Forward rule
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fwd = new Aws.Route53.ResolverRule("fwd", new()
+    ///     {
+    ///         DomainName = "example.com",
+    ///         Name = "example",
+    ///         RuleType = "FORWARD",
+    ///         ResolverEndpointId = foo.Id,
+    ///         TargetIps = new[]
+    ///         {
+    ///             new Aws.Route53.Inputs.ResolverRuleTargetIpArgs
+    ///             {
+    ///                 Ipv6 = "2600:1f18:1686:2000:4e60:6e3e:258:da36",
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "Prod" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Route53 Resolver rules using the `id`. For example:
@@ -77,7 +109,7 @@ namespace Pulumi.Aws.Route53
     public partial class ResolverRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN (Amazon Resource Name) for the resolver rule.
+        /// ARN (Amazon Resource Name) for the resolver rule.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -89,7 +121,7 @@ namespace Pulumi.Aws.Route53
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
+        /// Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -101,14 +133,14 @@ namespace Pulumi.Aws.Route53
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
+        /// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
         /// This argument should only be specified for `FORWARD` type rules.
         /// </summary>
         [Output("resolverEndpointId")]
         public Output<string?> ResolverEndpointId { get; private set; } = null!;
 
         /// <summary>
-        /// The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+        /// Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
         /// </summary>
         [Output("ruleType")]
         public Output<string> RuleType { get; private set; } = null!;
@@ -121,13 +153,13 @@ namespace Pulumi.Aws.Route53
         public Output<string> ShareStatus { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -192,20 +224,20 @@ namespace Pulumi.Aws.Route53
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
-        /// A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
+        /// Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
+        /// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
         /// This argument should only be specified for `FORWARD` type rules.
         /// </summary>
         [Input("resolverEndpointId")]
         public Input<string>? ResolverEndpointId { get; set; }
 
         /// <summary>
-        /// The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+        /// Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
         /// </summary>
         [Input("ruleType", required: true)]
         public Input<string> RuleType { get; set; } = null!;
@@ -214,7 +246,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -244,7 +276,7 @@ namespace Pulumi.Aws.Route53
     public sealed class ResolverRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN (Amazon Resource Name) for the resolver rule.
+        /// ARN (Amazon Resource Name) for the resolver rule.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -256,7 +288,7 @@ namespace Pulumi.Aws.Route53
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
-        /// A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
+        /// Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -268,14 +300,14 @@ namespace Pulumi.Aws.Route53
         public Input<string>? OwnerId { get; set; }
 
         /// <summary>
-        /// The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
+        /// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
         /// This argument should only be specified for `FORWARD` type rules.
         /// </summary>
         [Input("resolverEndpointId")]
         public Input<string>? ResolverEndpointId { get; set; }
 
         /// <summary>
-        /// The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+        /// Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
         /// </summary>
         [Input("ruleType")]
         public Input<string>? RuleType { get; set; }
@@ -291,7 +323,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -303,7 +335,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll

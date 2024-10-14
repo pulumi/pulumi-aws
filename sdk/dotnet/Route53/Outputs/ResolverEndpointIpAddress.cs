@@ -14,12 +14,16 @@ namespace Pulumi.Aws.Route53.Outputs
     public sealed class ResolverEndpointIpAddress
     {
         /// <summary>
-        /// The IP address in the subnet that you want to use for DNS queries.
+        /// IPv4 address in the subnet that you want to use for DNS queries.
         /// </summary>
         public readonly string? Ip;
         public readonly string? IpId;
         /// <summary>
-        /// The ID of the subnet that contains the IP address.
+        /// IPv6 address in the subnet that you want to use for DNS queries.
+        /// </summary>
+        public readonly string? Ipv6;
+        /// <summary>
+        /// ID of the subnet that contains the IP address.
         /// </summary>
         public readonly string SubnetId;
 
@@ -29,10 +33,13 @@ namespace Pulumi.Aws.Route53.Outputs
 
             string? ipId,
 
+            string? ipv6,
+
             string subnetId)
         {
             Ip = ip;
             IpId = ipId;
+            Ipv6 = ipv6;
             SubnetId = subnetId;
         }
     }

@@ -8,15 +8,251 @@ import com.pulumi.aws.amp.inputs.GetWorkspaceArgs;
 import com.pulumi.aws.amp.inputs.GetWorkspacePlainArgs;
 import com.pulumi.aws.amp.inputs.GetWorkspacesArgs;
 import com.pulumi.aws.amp.inputs.GetWorkspacesPlainArgs;
+import com.pulumi.aws.amp.outputs.GetDefaultScraperConfigurationResult;
 import com.pulumi.aws.amp.outputs.GetWorkspaceResult;
 import com.pulumi.aws.amp.outputs.GetWorkspacesResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class AmpFunctions {
+    /**
+     * Returns the default scraper configuration used when Amazon EKS creates a scraper for you.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.amp.AmpFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AmpFunctions.getDefaultScraperConfiguration();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetDefaultScraperConfigurationResult> getDefaultScraperConfiguration() {
+        return getDefaultScraperConfiguration(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Returns the default scraper configuration used when Amazon EKS creates a scraper for you.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.amp.AmpFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AmpFunctions.getDefaultScraperConfiguration();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetDefaultScraperConfigurationResult> getDefaultScraperConfigurationPlain() {
+        return getDefaultScraperConfigurationPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Returns the default scraper configuration used when Amazon EKS creates a scraper for you.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.amp.AmpFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AmpFunctions.getDefaultScraperConfiguration();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetDefaultScraperConfigurationResult> getDefaultScraperConfiguration(InvokeArgs args) {
+        return getDefaultScraperConfiguration(args, InvokeOptions.Empty);
+    }
+    /**
+     * Returns the default scraper configuration used when Amazon EKS creates a scraper for you.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.amp.AmpFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AmpFunctions.getDefaultScraperConfiguration();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetDefaultScraperConfigurationResult> getDefaultScraperConfigurationPlain(InvokeArgs args) {
+        return getDefaultScraperConfigurationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Returns the default scraper configuration used when Amazon EKS creates a scraper for you.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.amp.AmpFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AmpFunctions.getDefaultScraperConfiguration();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetDefaultScraperConfigurationResult> getDefaultScraperConfiguration(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:amp/getDefaultScraperConfiguration:getDefaultScraperConfiguration", TypeShape.of(GetDefaultScraperConfigurationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Returns the default scraper configuration used when Amazon EKS creates a scraper for you.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.amp.AmpFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AmpFunctions.getDefaultScraperConfiguration();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetDefaultScraperConfigurationResult> getDefaultScraperConfigurationPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:amp/getDefaultScraperConfiguration:getDefaultScraperConfiguration", TypeShape.of(GetDefaultScraperConfigurationResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Provides an Amazon Managed Prometheus workspace data source.
      * 

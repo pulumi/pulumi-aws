@@ -28,7 +28,7 @@ class GetVpcEndpointServiceResult:
     """
     A collection of values returned by getVpcEndpointService.
     """
-    def __init__(__self__, acceptance_required=None, arn=None, availability_zones=None, base_endpoint_dns_names=None, filters=None, id=None, manages_vpc_endpoints=None, owner=None, private_dns_name=None, service=None, service_id=None, service_name=None, service_type=None, supported_ip_address_types=None, tags=None, vpc_endpoint_policy_supported=None):
+    def __init__(__self__, acceptance_required=None, arn=None, availability_zones=None, base_endpoint_dns_names=None, filters=None, id=None, manages_vpc_endpoints=None, owner=None, private_dns_name=None, private_dns_names=None, service=None, service_id=None, service_name=None, service_type=None, supported_ip_address_types=None, tags=None, vpc_endpoint_policy_supported=None):
         if acceptance_required and not isinstance(acceptance_required, bool):
             raise TypeError("Expected argument 'acceptance_required' to be a bool")
         pulumi.set(__self__, "acceptance_required", acceptance_required)
@@ -56,6 +56,9 @@ class GetVpcEndpointServiceResult:
         if private_dns_name and not isinstance(private_dns_name, str):
             raise TypeError("Expected argument 'private_dns_name' to be a str")
         pulumi.set(__self__, "private_dns_name", private_dns_name)
+        if private_dns_names and not isinstance(private_dns_names, list):
+            raise TypeError("Expected argument 'private_dns_names' to be a list")
+        pulumi.set(__self__, "private_dns_names", private_dns_names)
         if service and not isinstance(service, str):
             raise TypeError("Expected argument 'service' to be a str")
         pulumi.set(__self__, "service", service)
@@ -148,6 +151,14 @@ class GetVpcEndpointServiceResult:
         return pulumi.get(self, "private_dns_name")
 
     @property
+    @pulumi.getter(name="privateDnsNames")
+    def private_dns_names(self) -> Sequence[str]:
+        """
+        Private DNS names assigned to the VPC endpoint service.
+        """
+        return pulumi.get(self, "private_dns_names")
+
+    @property
     @pulumi.getter
     def service(self) -> Optional[str]:
         return pulumi.get(self, "service")
@@ -210,6 +221,7 @@ class AwaitableGetVpcEndpointServiceResult(GetVpcEndpointServiceResult):
             manages_vpc_endpoints=self.manages_vpc_endpoints,
             owner=self.owner,
             private_dns_name=self.private_dns_name,
+            private_dns_names=self.private_dns_names,
             service=self.service,
             service_id=self.service_id,
             service_name=self.service_name,
@@ -297,6 +309,7 @@ def get_vpc_endpoint_service(filters: Optional[Sequence[Union['GetVpcEndpointSer
         manages_vpc_endpoints=pulumi.get(__ret__, 'manages_vpc_endpoints'),
         owner=pulumi.get(__ret__, 'owner'),
         private_dns_name=pulumi.get(__ret__, 'private_dns_name'),
+        private_dns_names=pulumi.get(__ret__, 'private_dns_names'),
         service=pulumi.get(__ret__, 'service'),
         service_id=pulumi.get(__ret__, 'service_id'),
         service_name=pulumi.get(__ret__, 'service_name'),
@@ -381,6 +394,7 @@ def get_vpc_endpoint_service_output(filters: Optional[pulumi.Input[Optional[Sequ
         manages_vpc_endpoints=pulumi.get(__response__, 'manages_vpc_endpoints'),
         owner=pulumi.get(__response__, 'owner'),
         private_dns_name=pulumi.get(__response__, 'private_dns_name'),
+        private_dns_names=pulumi.get(__response__, 'private_dns_names'),
         service=pulumi.get(__response__, 'service'),
         service_id=pulumi.get(__response__, 'service_id'),
         service_name=pulumi.get(__response__, 'service_name'),

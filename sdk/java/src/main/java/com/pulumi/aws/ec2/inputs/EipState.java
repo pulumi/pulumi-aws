@@ -160,6 +160,21 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
+     * 
+     */
+    @Import(name="ipamPoolId")
+    private @Nullable Output<String> ipamPoolId;
+
+    /**
+     * @return The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
+     * 
+     */
+    public Optional<Output<String>> ipamPoolId() {
+        return Optional.ofNullable(this.ipamPoolId);
+    }
+
+    /**
      * Location from which the IP address is advertised. Use this parameter to limit the address to this location.
      * 
      */
@@ -367,6 +382,7 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
         this.customerOwnedIpv4Pool = $.customerOwnedIpv4Pool;
         this.domain = $.domain;
         this.instance = $.instance;
+        this.ipamPoolId = $.ipamPoolId;
         this.networkBorderGroup = $.networkBorderGroup;
         this.networkInterface = $.networkInterface;
         this.privateDns = $.privateDns;
@@ -594,6 +610,27 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder instance(String instance) {
             return instance(Output.of(instance));
+        }
+
+        /**
+         * @param ipamPoolId The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipamPoolId(@Nullable Output<String> ipamPoolId) {
+            $.ipamPoolId = ipamPoolId;
+            return this;
+        }
+
+        /**
+         * @param ipamPoolId The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipamPoolId(String ipamPoolId) {
+            return ipamPoolId(Output.of(ipamPoolId));
         }
 
         /**

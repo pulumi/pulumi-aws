@@ -10,7 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.SimpleDB
 {
     /// <summary>
-    /// Provides a SimpleDB domain resource
+    /// Provides a SimpleDB domain resource.
+    /// 
+    /// !&gt; **WARNING:** The `aws.simpledb.Domain` resource has been deprecated and will be removed in a future version. Use Amazon DynamoDB instead.
     /// 
     /// ## Example Usage
     /// 

@@ -89,6 +89,10 @@ export class VpcIpam extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
+     */
+    public readonly enablePrivateGua!: pulumi.Output<boolean | undefined>;
+    /**
      * Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
      */
     public readonly operatingRegions!: pulumi.Output<outputs.ec2.VpcIpamOperatingRegion[]>;
@@ -138,6 +142,7 @@ export class VpcIpam extends pulumi.CustomResource {
             resourceInputs["defaultResourceDiscoveryAssociationId"] = state ? state.defaultResourceDiscoveryAssociationId : undefined;
             resourceInputs["defaultResourceDiscoveryId"] = state ? state.defaultResourceDiscoveryId : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enablePrivateGua"] = state ? state.enablePrivateGua : undefined;
             resourceInputs["operatingRegions"] = state ? state.operatingRegions : undefined;
             resourceInputs["privateDefaultScopeId"] = state ? state.privateDefaultScopeId : undefined;
             resourceInputs["publicDefaultScopeId"] = state ? state.publicDefaultScopeId : undefined;
@@ -152,6 +157,7 @@ export class VpcIpam extends pulumi.CustomResource {
             }
             resourceInputs["cascade"] = args ? args.cascade : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enablePrivateGua"] = args ? args.enablePrivateGua : undefined;
             resourceInputs["operatingRegions"] = args ? args.operatingRegions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tier"] = args ? args.tier : undefined;
@@ -192,6 +198,10 @@ export interface VpcIpamState {
      * A description for the IPAM.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
+     */
+    enablePrivateGua?: pulumi.Input<boolean>;
     /**
      * Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
      */
@@ -237,6 +247,10 @@ export interface VpcIpamArgs {
      * A description for the IPAM.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
+     */
+    enablePrivateGua?: pulumi.Input<boolean>;
     /**
      * Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
      */

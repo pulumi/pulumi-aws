@@ -11,6 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a AWS WorkLink Fleet resource.
+//
+// !> **WARNING:** The `worklink.Fleet` resource has been deprecated and will be removed in a future version. Use Amazon WorkSpaces Secure Browser instead.
+//
 // ## Example Usage
 //
 // Basic usage:

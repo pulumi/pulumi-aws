@@ -63,6 +63,14 @@ export class VpcIpv6CidrBlockAssociation extends pulumi.CustomResource {
      */
     public readonly assignGeneratedIpv6CidrBlock!: pulumi.Output<boolean>;
     /**
+     * The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
+     */
+    public /*out*/ readonly ipSource!: pulumi.Output<string>;
+    /**
+     * Public IPv6 addresses are those advertised on the internet from AWS. Private IP addresses are not and cannot be advertised on the internet from AWS. Values: `public`, `private`.
+     */
+    public /*out*/ readonly ipv6AddressAttribute!: pulumi.Output<string>;
+    /**
      * The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6NetmaskLength`. This parameter is required if `ipv6NetmaskLength` is not set and the IPAM pool does not have `allocationDefaultNetmask` set. Conflicts with `assignGeneratedIpv6CidrBlock`.
      */
     public readonly ipv6CidrBlock!: pulumi.Output<string>;
@@ -97,6 +105,8 @@ export class VpcIpv6CidrBlockAssociation extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as VpcIpv6CidrBlockAssociationState | undefined;
             resourceInputs["assignGeneratedIpv6CidrBlock"] = state ? state.assignGeneratedIpv6CidrBlock : undefined;
+            resourceInputs["ipSource"] = state ? state.ipSource : undefined;
+            resourceInputs["ipv6AddressAttribute"] = state ? state.ipv6AddressAttribute : undefined;
             resourceInputs["ipv6CidrBlock"] = state ? state.ipv6CidrBlock : undefined;
             resourceInputs["ipv6IpamPoolId"] = state ? state.ipv6IpamPoolId : undefined;
             resourceInputs["ipv6NetmaskLength"] = state ? state.ipv6NetmaskLength : undefined;
@@ -113,6 +123,8 @@ export class VpcIpv6CidrBlockAssociation extends pulumi.CustomResource {
             resourceInputs["ipv6NetmaskLength"] = args ? args.ipv6NetmaskLength : undefined;
             resourceInputs["ipv6Pool"] = args ? args.ipv6Pool : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["ipSource"] = undefined /*out*/;
+            resourceInputs["ipv6AddressAttribute"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VpcIpv6CidrBlockAssociation.__pulumiType, name, resourceInputs, opts);
@@ -127,6 +139,14 @@ export interface VpcIpv6CidrBlockAssociationState {
      * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6PamPoolId`, `ipv6Pool`, `ipv6CidrBlock` and `ipv6NetmaskLength`.
      */
     assignGeneratedIpv6CidrBlock?: pulumi.Input<boolean>;
+    /**
+     * The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
+     */
+    ipSource?: pulumi.Input<string>;
+    /**
+     * Public IPv6 addresses are those advertised on the internet from AWS. Private IP addresses are not and cannot be advertised on the internet from AWS. Values: `public`, `private`.
+     */
+    ipv6AddressAttribute?: pulumi.Input<string>;
     /**
      * The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6NetmaskLength`. This parameter is required if `ipv6NetmaskLength` is not set and the IPAM pool does not have `allocationDefaultNetmask` set. Conflicts with `assignGeneratedIpv6CidrBlock`.
      */

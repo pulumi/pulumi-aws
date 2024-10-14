@@ -152,6 +152,10 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
                  fleet_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Provides a AWS WorkLink Website Certificate Authority Association resource.
+
+        !> **WARNING:** The `worklink.WebsiteCertificateAuthorityAssociation` resource has been deprecated and will be removed in a future version. Use Amazon WorkSpaces Secure Browser instead.
+
         ## Example Usage
 
         ```python
@@ -186,6 +190,10 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
                  args: WebsiteCertificateAuthorityAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides a AWS WorkLink Website Certificate Authority Association resource.
+
+        !> **WARNING:** The `worklink.WebsiteCertificateAuthorityAssociation` resource has been deprecated and will be removed in a future version. Use Amazon WorkSpaces Secure Browser instead.
+
         ## Example Usage
 
         ```python

@@ -1472,6 +1472,10 @@ if not MYPY:
         """
         Use this to override the default service endpoint URL
         """
+        ssmquicksetup: NotRequired[pulumi.Input[str]]
+        """
+        Use this to override the default service endpoint URL
+        """
         ssmsap: NotRequired[pulumi.Input[str]]
         """
         Use this to override the default service endpoint URL
@@ -1838,6 +1842,7 @@ class ProviderEndpointArgs:
                  ssm: Optional[pulumi.Input[str]] = None,
                  ssmcontacts: Optional[pulumi.Input[str]] = None,
                  ssmincidents: Optional[pulumi.Input[str]] = None,
+                 ssmquicksetup: Optional[pulumi.Input[str]] = None,
                  ssmsap: Optional[pulumi.Input[str]] = None,
                  sso: Optional[pulumi.Input[str]] = None,
                  ssoadmin: Optional[pulumi.Input[str]] = None,
@@ -2130,6 +2135,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[str] ssm: Use this to override the default service endpoint URL
         :param pulumi.Input[str] ssmcontacts: Use this to override the default service endpoint URL
         :param pulumi.Input[str] ssmincidents: Use this to override the default service endpoint URL
+        :param pulumi.Input[str] ssmquicksetup: Use this to override the default service endpoint URL
         :param pulumi.Input[str] ssmsap: Use this to override the default service endpoint URL
         :param pulumi.Input[str] sso: Use this to override the default service endpoint URL
         :param pulumi.Input[str] ssoadmin: Use this to override the default service endpoint URL
@@ -2690,6 +2696,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "ssmcontacts", ssmcontacts)
         if ssmincidents is not None:
             pulumi.set(__self__, "ssmincidents", ssmincidents)
+        if ssmquicksetup is not None:
+            pulumi.set(__self__, "ssmquicksetup", ssmquicksetup)
         if ssmsap is not None:
             pulumi.set(__self__, "ssmsap", ssmsap)
         if sso is not None:
@@ -5952,6 +5960,18 @@ class ProviderEndpointArgs:
     @ssmincidents.setter
     def ssmincidents(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ssmincidents", value)
+
+    @property
+    @pulumi.getter
+    def ssmquicksetup(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "ssmquicksetup")
+
+    @ssmquicksetup.setter
+    def ssmquicksetup(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssmquicksetup", value)
 
     @property
     @pulumi.getter

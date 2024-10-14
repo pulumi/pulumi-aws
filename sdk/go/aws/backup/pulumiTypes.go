@@ -667,6 +667,8 @@ type PlanRule struct {
 	RuleName string `pulumi:"ruleName"`
 	// A CRON expression specifying when AWS Backup initiates a backup job.
 	Schedule *string `pulumi:"schedule"`
+	// The timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
+	ScheduleExpressionTimezone *string `pulumi:"scheduleExpressionTimezone"`
 	// The amount of time in minutes before beginning a backup.
 	StartWindow *int `pulumi:"startWindow"`
 	// The name of a logical container where backups are stored.
@@ -699,6 +701,8 @@ type PlanRuleArgs struct {
 	RuleName pulumi.StringInput `pulumi:"ruleName"`
 	// A CRON expression specifying when AWS Backup initiates a backup job.
 	Schedule pulumi.StringPtrInput `pulumi:"schedule"`
+	// The timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
+	ScheduleExpressionTimezone pulumi.StringPtrInput `pulumi:"scheduleExpressionTimezone"`
 	// The amount of time in minutes before beginning a backup.
 	StartWindow pulumi.IntPtrInput `pulumi:"startWindow"`
 	// The name of a logical container where backups are stored.
@@ -789,6 +793,11 @@ func (o PlanRuleOutput) RuleName() pulumi.StringOutput {
 // A CRON expression specifying when AWS Backup initiates a backup job.
 func (o PlanRuleOutput) Schedule() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlanRule) *string { return v.Schedule }).(pulumi.StringPtrOutput)
+}
+
+// The timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
+func (o PlanRuleOutput) ScheduleExpressionTimezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanRule) *string { return v.ScheduleExpressionTimezone }).(pulumi.StringPtrOutput)
 }
 
 // The amount of time in minutes before beginning a backup.
@@ -1682,6 +1691,591 @@ func (o ReportPlanReportSettingPtrOutput) ReportTemplate() pulumi.StringPtrOutpu
 		}
 		return &v.ReportTemplate
 	}).(pulumi.StringPtrOutput)
+}
+
+type RestoreTestingPlanRecoveryPointSelection struct {
+	// Specifies the algorithm used for selecting recovery points. Valid values are "RANDOM_WITHIN_WINDOW" and "LATEST_WITHIN_WINDOW".
+	Algorithm string `pulumi:"algorithm"`
+	// Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to exclude all backup vaults.
+	ExcludeVaults []string `pulumi:"excludeVaults"`
+	// Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to include all backup vaults.
+	IncludeVaults []string `pulumi:"includeVaults"`
+	// Specifies the types of recovery points to include in the selection. Valid values are "CONTINUOUS" and "SNAPSHOT".
+	RecoveryPointTypes []string `pulumi:"recoveryPointTypes"`
+	// Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
+	SelectionWindowDays *int `pulumi:"selectionWindowDays"`
+}
+
+// RestoreTestingPlanRecoveryPointSelectionInput is an input type that accepts RestoreTestingPlanRecoveryPointSelectionArgs and RestoreTestingPlanRecoveryPointSelectionOutput values.
+// You can construct a concrete instance of `RestoreTestingPlanRecoveryPointSelectionInput` via:
+//
+//	RestoreTestingPlanRecoveryPointSelectionArgs{...}
+type RestoreTestingPlanRecoveryPointSelectionInput interface {
+	pulumi.Input
+
+	ToRestoreTestingPlanRecoveryPointSelectionOutput() RestoreTestingPlanRecoveryPointSelectionOutput
+	ToRestoreTestingPlanRecoveryPointSelectionOutputWithContext(context.Context) RestoreTestingPlanRecoveryPointSelectionOutput
+}
+
+type RestoreTestingPlanRecoveryPointSelectionArgs struct {
+	// Specifies the algorithm used for selecting recovery points. Valid values are "RANDOM_WITHIN_WINDOW" and "LATEST_WITHIN_WINDOW".
+	Algorithm pulumi.StringInput `pulumi:"algorithm"`
+	// Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to exclude all backup vaults.
+	ExcludeVaults pulumi.StringArrayInput `pulumi:"excludeVaults"`
+	// Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to include all backup vaults.
+	IncludeVaults pulumi.StringArrayInput `pulumi:"includeVaults"`
+	// Specifies the types of recovery points to include in the selection. Valid values are "CONTINUOUS" and "SNAPSHOT".
+	RecoveryPointTypes pulumi.StringArrayInput `pulumi:"recoveryPointTypes"`
+	// Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
+	SelectionWindowDays pulumi.IntPtrInput `pulumi:"selectionWindowDays"`
+}
+
+func (RestoreTestingPlanRecoveryPointSelectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestoreTestingPlanRecoveryPointSelection)(nil)).Elem()
+}
+
+func (i RestoreTestingPlanRecoveryPointSelectionArgs) ToRestoreTestingPlanRecoveryPointSelectionOutput() RestoreTestingPlanRecoveryPointSelectionOutput {
+	return i.ToRestoreTestingPlanRecoveryPointSelectionOutputWithContext(context.Background())
+}
+
+func (i RestoreTestingPlanRecoveryPointSelectionArgs) ToRestoreTestingPlanRecoveryPointSelectionOutputWithContext(ctx context.Context) RestoreTestingPlanRecoveryPointSelectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingPlanRecoveryPointSelectionOutput)
+}
+
+func (i RestoreTestingPlanRecoveryPointSelectionArgs) ToRestoreTestingPlanRecoveryPointSelectionPtrOutput() RestoreTestingPlanRecoveryPointSelectionPtrOutput {
+	return i.ToRestoreTestingPlanRecoveryPointSelectionPtrOutputWithContext(context.Background())
+}
+
+func (i RestoreTestingPlanRecoveryPointSelectionArgs) ToRestoreTestingPlanRecoveryPointSelectionPtrOutputWithContext(ctx context.Context) RestoreTestingPlanRecoveryPointSelectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingPlanRecoveryPointSelectionOutput).ToRestoreTestingPlanRecoveryPointSelectionPtrOutputWithContext(ctx)
+}
+
+// RestoreTestingPlanRecoveryPointSelectionPtrInput is an input type that accepts RestoreTestingPlanRecoveryPointSelectionArgs, RestoreTestingPlanRecoveryPointSelectionPtr and RestoreTestingPlanRecoveryPointSelectionPtrOutput values.
+// You can construct a concrete instance of `RestoreTestingPlanRecoveryPointSelectionPtrInput` via:
+//
+//	        RestoreTestingPlanRecoveryPointSelectionArgs{...}
+//
+//	or:
+//
+//	        nil
+type RestoreTestingPlanRecoveryPointSelectionPtrInput interface {
+	pulumi.Input
+
+	ToRestoreTestingPlanRecoveryPointSelectionPtrOutput() RestoreTestingPlanRecoveryPointSelectionPtrOutput
+	ToRestoreTestingPlanRecoveryPointSelectionPtrOutputWithContext(context.Context) RestoreTestingPlanRecoveryPointSelectionPtrOutput
+}
+
+type restoreTestingPlanRecoveryPointSelectionPtrType RestoreTestingPlanRecoveryPointSelectionArgs
+
+func RestoreTestingPlanRecoveryPointSelectionPtr(v *RestoreTestingPlanRecoveryPointSelectionArgs) RestoreTestingPlanRecoveryPointSelectionPtrInput {
+	return (*restoreTestingPlanRecoveryPointSelectionPtrType)(v)
+}
+
+func (*restoreTestingPlanRecoveryPointSelectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestoreTestingPlanRecoveryPointSelection)(nil)).Elem()
+}
+
+func (i *restoreTestingPlanRecoveryPointSelectionPtrType) ToRestoreTestingPlanRecoveryPointSelectionPtrOutput() RestoreTestingPlanRecoveryPointSelectionPtrOutput {
+	return i.ToRestoreTestingPlanRecoveryPointSelectionPtrOutputWithContext(context.Background())
+}
+
+func (i *restoreTestingPlanRecoveryPointSelectionPtrType) ToRestoreTestingPlanRecoveryPointSelectionPtrOutputWithContext(ctx context.Context) RestoreTestingPlanRecoveryPointSelectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingPlanRecoveryPointSelectionPtrOutput)
+}
+
+type RestoreTestingPlanRecoveryPointSelectionOutput struct{ *pulumi.OutputState }
+
+func (RestoreTestingPlanRecoveryPointSelectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestoreTestingPlanRecoveryPointSelection)(nil)).Elem()
+}
+
+func (o RestoreTestingPlanRecoveryPointSelectionOutput) ToRestoreTestingPlanRecoveryPointSelectionOutput() RestoreTestingPlanRecoveryPointSelectionOutput {
+	return o
+}
+
+func (o RestoreTestingPlanRecoveryPointSelectionOutput) ToRestoreTestingPlanRecoveryPointSelectionOutputWithContext(ctx context.Context) RestoreTestingPlanRecoveryPointSelectionOutput {
+	return o
+}
+
+func (o RestoreTestingPlanRecoveryPointSelectionOutput) ToRestoreTestingPlanRecoveryPointSelectionPtrOutput() RestoreTestingPlanRecoveryPointSelectionPtrOutput {
+	return o.ToRestoreTestingPlanRecoveryPointSelectionPtrOutputWithContext(context.Background())
+}
+
+func (o RestoreTestingPlanRecoveryPointSelectionOutput) ToRestoreTestingPlanRecoveryPointSelectionPtrOutputWithContext(ctx context.Context) RestoreTestingPlanRecoveryPointSelectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RestoreTestingPlanRecoveryPointSelection) *RestoreTestingPlanRecoveryPointSelection {
+		return &v
+	}).(RestoreTestingPlanRecoveryPointSelectionPtrOutput)
+}
+
+// Specifies the algorithm used for selecting recovery points. Valid values are "RANDOM_WITHIN_WINDOW" and "LATEST_WITHIN_WINDOW".
+func (o RestoreTestingPlanRecoveryPointSelectionOutput) Algorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v RestoreTestingPlanRecoveryPointSelection) string { return v.Algorithm }).(pulumi.StringOutput)
+}
+
+// Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to exclude all backup vaults.
+func (o RestoreTestingPlanRecoveryPointSelectionOutput) ExcludeVaults() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RestoreTestingPlanRecoveryPointSelection) []string { return v.ExcludeVaults }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to include all backup vaults.
+func (o RestoreTestingPlanRecoveryPointSelectionOutput) IncludeVaults() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RestoreTestingPlanRecoveryPointSelection) []string { return v.IncludeVaults }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the types of recovery points to include in the selection. Valid values are "CONTINUOUS" and "SNAPSHOT".
+func (o RestoreTestingPlanRecoveryPointSelectionOutput) RecoveryPointTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RestoreTestingPlanRecoveryPointSelection) []string { return v.RecoveryPointTypes }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
+func (o RestoreTestingPlanRecoveryPointSelectionOutput) SelectionWindowDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RestoreTestingPlanRecoveryPointSelection) *int { return v.SelectionWindowDays }).(pulumi.IntPtrOutput)
+}
+
+type RestoreTestingPlanRecoveryPointSelectionPtrOutput struct{ *pulumi.OutputState }
+
+func (RestoreTestingPlanRecoveryPointSelectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestoreTestingPlanRecoveryPointSelection)(nil)).Elem()
+}
+
+func (o RestoreTestingPlanRecoveryPointSelectionPtrOutput) ToRestoreTestingPlanRecoveryPointSelectionPtrOutput() RestoreTestingPlanRecoveryPointSelectionPtrOutput {
+	return o
+}
+
+func (o RestoreTestingPlanRecoveryPointSelectionPtrOutput) ToRestoreTestingPlanRecoveryPointSelectionPtrOutputWithContext(ctx context.Context) RestoreTestingPlanRecoveryPointSelectionPtrOutput {
+	return o
+}
+
+func (o RestoreTestingPlanRecoveryPointSelectionPtrOutput) Elem() RestoreTestingPlanRecoveryPointSelectionOutput {
+	return o.ApplyT(func(v *RestoreTestingPlanRecoveryPointSelection) RestoreTestingPlanRecoveryPointSelection {
+		if v != nil {
+			return *v
+		}
+		var ret RestoreTestingPlanRecoveryPointSelection
+		return ret
+	}).(RestoreTestingPlanRecoveryPointSelectionOutput)
+}
+
+// Specifies the algorithm used for selecting recovery points. Valid values are "RANDOM_WITHIN_WINDOW" and "LATEST_WITHIN_WINDOW".
+func (o RestoreTestingPlanRecoveryPointSelectionPtrOutput) Algorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestoreTestingPlanRecoveryPointSelection) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Algorithm
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to exclude all backup vaults.
+func (o RestoreTestingPlanRecoveryPointSelectionPtrOutput) ExcludeVaults() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RestoreTestingPlanRecoveryPointSelection) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludeVaults
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to include all backup vaults.
+func (o RestoreTestingPlanRecoveryPointSelectionPtrOutput) IncludeVaults() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RestoreTestingPlanRecoveryPointSelection) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeVaults
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the types of recovery points to include in the selection. Valid values are "CONTINUOUS" and "SNAPSHOT".
+func (o RestoreTestingPlanRecoveryPointSelectionPtrOutput) RecoveryPointTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RestoreTestingPlanRecoveryPointSelection) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RecoveryPointTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
+func (o RestoreTestingPlanRecoveryPointSelectionPtrOutput) SelectionWindowDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RestoreTestingPlanRecoveryPointSelection) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SelectionWindowDays
+	}).(pulumi.IntPtrOutput)
+}
+
+type RestoreTestingSelectionProtectedResourceConditions struct {
+	// The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching.". See the structure for details
+	StringEquals []RestoreTestingSelectionProtectedResourceConditionsStringEqual `pulumi:"stringEquals"`
+	// The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching.". See the structure for details
+	StringNotEquals []RestoreTestingSelectionProtectedResourceConditionsStringNotEqual `pulumi:"stringNotEquals"`
+}
+
+// RestoreTestingSelectionProtectedResourceConditionsInput is an input type that accepts RestoreTestingSelectionProtectedResourceConditionsArgs and RestoreTestingSelectionProtectedResourceConditionsOutput values.
+// You can construct a concrete instance of `RestoreTestingSelectionProtectedResourceConditionsInput` via:
+//
+//	RestoreTestingSelectionProtectedResourceConditionsArgs{...}
+type RestoreTestingSelectionProtectedResourceConditionsInput interface {
+	pulumi.Input
+
+	ToRestoreTestingSelectionProtectedResourceConditionsOutput() RestoreTestingSelectionProtectedResourceConditionsOutput
+	ToRestoreTestingSelectionProtectedResourceConditionsOutputWithContext(context.Context) RestoreTestingSelectionProtectedResourceConditionsOutput
+}
+
+type RestoreTestingSelectionProtectedResourceConditionsArgs struct {
+	// The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching.". See the structure for details
+	StringEquals RestoreTestingSelectionProtectedResourceConditionsStringEqualArrayInput `pulumi:"stringEquals"`
+	// The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching.". See the structure for details
+	StringNotEquals RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayInput `pulumi:"stringNotEquals"`
+}
+
+func (RestoreTestingSelectionProtectedResourceConditionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestoreTestingSelectionProtectedResourceConditions)(nil)).Elem()
+}
+
+func (i RestoreTestingSelectionProtectedResourceConditionsArgs) ToRestoreTestingSelectionProtectedResourceConditionsOutput() RestoreTestingSelectionProtectedResourceConditionsOutput {
+	return i.ToRestoreTestingSelectionProtectedResourceConditionsOutputWithContext(context.Background())
+}
+
+func (i RestoreTestingSelectionProtectedResourceConditionsArgs) ToRestoreTestingSelectionProtectedResourceConditionsOutputWithContext(ctx context.Context) RestoreTestingSelectionProtectedResourceConditionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingSelectionProtectedResourceConditionsOutput)
+}
+
+func (i RestoreTestingSelectionProtectedResourceConditionsArgs) ToRestoreTestingSelectionProtectedResourceConditionsPtrOutput() RestoreTestingSelectionProtectedResourceConditionsPtrOutput {
+	return i.ToRestoreTestingSelectionProtectedResourceConditionsPtrOutputWithContext(context.Background())
+}
+
+func (i RestoreTestingSelectionProtectedResourceConditionsArgs) ToRestoreTestingSelectionProtectedResourceConditionsPtrOutputWithContext(ctx context.Context) RestoreTestingSelectionProtectedResourceConditionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingSelectionProtectedResourceConditionsOutput).ToRestoreTestingSelectionProtectedResourceConditionsPtrOutputWithContext(ctx)
+}
+
+// RestoreTestingSelectionProtectedResourceConditionsPtrInput is an input type that accepts RestoreTestingSelectionProtectedResourceConditionsArgs, RestoreTestingSelectionProtectedResourceConditionsPtr and RestoreTestingSelectionProtectedResourceConditionsPtrOutput values.
+// You can construct a concrete instance of `RestoreTestingSelectionProtectedResourceConditionsPtrInput` via:
+//
+//	        RestoreTestingSelectionProtectedResourceConditionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RestoreTestingSelectionProtectedResourceConditionsPtrInput interface {
+	pulumi.Input
+
+	ToRestoreTestingSelectionProtectedResourceConditionsPtrOutput() RestoreTestingSelectionProtectedResourceConditionsPtrOutput
+	ToRestoreTestingSelectionProtectedResourceConditionsPtrOutputWithContext(context.Context) RestoreTestingSelectionProtectedResourceConditionsPtrOutput
+}
+
+type restoreTestingSelectionProtectedResourceConditionsPtrType RestoreTestingSelectionProtectedResourceConditionsArgs
+
+func RestoreTestingSelectionProtectedResourceConditionsPtr(v *RestoreTestingSelectionProtectedResourceConditionsArgs) RestoreTestingSelectionProtectedResourceConditionsPtrInput {
+	return (*restoreTestingSelectionProtectedResourceConditionsPtrType)(v)
+}
+
+func (*restoreTestingSelectionProtectedResourceConditionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestoreTestingSelectionProtectedResourceConditions)(nil)).Elem()
+}
+
+func (i *restoreTestingSelectionProtectedResourceConditionsPtrType) ToRestoreTestingSelectionProtectedResourceConditionsPtrOutput() RestoreTestingSelectionProtectedResourceConditionsPtrOutput {
+	return i.ToRestoreTestingSelectionProtectedResourceConditionsPtrOutputWithContext(context.Background())
+}
+
+func (i *restoreTestingSelectionProtectedResourceConditionsPtrType) ToRestoreTestingSelectionProtectedResourceConditionsPtrOutputWithContext(ctx context.Context) RestoreTestingSelectionProtectedResourceConditionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingSelectionProtectedResourceConditionsPtrOutput)
+}
+
+type RestoreTestingSelectionProtectedResourceConditionsOutput struct{ *pulumi.OutputState }
+
+func (RestoreTestingSelectionProtectedResourceConditionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestoreTestingSelectionProtectedResourceConditions)(nil)).Elem()
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsOutput) ToRestoreTestingSelectionProtectedResourceConditionsOutput() RestoreTestingSelectionProtectedResourceConditionsOutput {
+	return o
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsOutput) ToRestoreTestingSelectionProtectedResourceConditionsOutputWithContext(ctx context.Context) RestoreTestingSelectionProtectedResourceConditionsOutput {
+	return o
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsOutput) ToRestoreTestingSelectionProtectedResourceConditionsPtrOutput() RestoreTestingSelectionProtectedResourceConditionsPtrOutput {
+	return o.ToRestoreTestingSelectionProtectedResourceConditionsPtrOutputWithContext(context.Background())
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsOutput) ToRestoreTestingSelectionProtectedResourceConditionsPtrOutputWithContext(ctx context.Context) RestoreTestingSelectionProtectedResourceConditionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RestoreTestingSelectionProtectedResourceConditions) *RestoreTestingSelectionProtectedResourceConditions {
+		return &v
+	}).(RestoreTestingSelectionProtectedResourceConditionsPtrOutput)
+}
+
+// The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching.". See the structure for details
+func (o RestoreTestingSelectionProtectedResourceConditionsOutput) StringEquals() RestoreTestingSelectionProtectedResourceConditionsStringEqualArrayOutput {
+	return o.ApplyT(func(v RestoreTestingSelectionProtectedResourceConditions) []RestoreTestingSelectionProtectedResourceConditionsStringEqual {
+		return v.StringEquals
+	}).(RestoreTestingSelectionProtectedResourceConditionsStringEqualArrayOutput)
+}
+
+// The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching.". See the structure for details
+func (o RestoreTestingSelectionProtectedResourceConditionsOutput) StringNotEquals() RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayOutput {
+	return o.ApplyT(func(v RestoreTestingSelectionProtectedResourceConditions) []RestoreTestingSelectionProtectedResourceConditionsStringNotEqual {
+		return v.StringNotEquals
+	}).(RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayOutput)
+}
+
+type RestoreTestingSelectionProtectedResourceConditionsPtrOutput struct{ *pulumi.OutputState }
+
+func (RestoreTestingSelectionProtectedResourceConditionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestoreTestingSelectionProtectedResourceConditions)(nil)).Elem()
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsPtrOutput) ToRestoreTestingSelectionProtectedResourceConditionsPtrOutput() RestoreTestingSelectionProtectedResourceConditionsPtrOutput {
+	return o
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsPtrOutput) ToRestoreTestingSelectionProtectedResourceConditionsPtrOutputWithContext(ctx context.Context) RestoreTestingSelectionProtectedResourceConditionsPtrOutput {
+	return o
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsPtrOutput) Elem() RestoreTestingSelectionProtectedResourceConditionsOutput {
+	return o.ApplyT(func(v *RestoreTestingSelectionProtectedResourceConditions) RestoreTestingSelectionProtectedResourceConditions {
+		if v != nil {
+			return *v
+		}
+		var ret RestoreTestingSelectionProtectedResourceConditions
+		return ret
+	}).(RestoreTestingSelectionProtectedResourceConditionsOutput)
+}
+
+// The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching.". See the structure for details
+func (o RestoreTestingSelectionProtectedResourceConditionsPtrOutput) StringEquals() RestoreTestingSelectionProtectedResourceConditionsStringEqualArrayOutput {
+	return o.ApplyT(func(v *RestoreTestingSelectionProtectedResourceConditions) []RestoreTestingSelectionProtectedResourceConditionsStringEqual {
+		if v == nil {
+			return nil
+		}
+		return v.StringEquals
+	}).(RestoreTestingSelectionProtectedResourceConditionsStringEqualArrayOutput)
+}
+
+// The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching.". See the structure for details
+func (o RestoreTestingSelectionProtectedResourceConditionsPtrOutput) StringNotEquals() RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayOutput {
+	return o.ApplyT(func(v *RestoreTestingSelectionProtectedResourceConditions) []RestoreTestingSelectionProtectedResourceConditionsStringNotEqual {
+		if v == nil {
+			return nil
+		}
+		return v.StringNotEquals
+	}).(RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayOutput)
+}
+
+type RestoreTestingSelectionProtectedResourceConditionsStringEqual struct {
+	// The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+	Key string `pulumi:"key"`
+	// The value of the Tag. Maximum length of 256.
+	Value string `pulumi:"value"`
+}
+
+// RestoreTestingSelectionProtectedResourceConditionsStringEqualInput is an input type that accepts RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs and RestoreTestingSelectionProtectedResourceConditionsStringEqualOutput values.
+// You can construct a concrete instance of `RestoreTestingSelectionProtectedResourceConditionsStringEqualInput` via:
+//
+//	RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs{...}
+type RestoreTestingSelectionProtectedResourceConditionsStringEqualInput interface {
+	pulumi.Input
+
+	ToRestoreTestingSelectionProtectedResourceConditionsStringEqualOutput() RestoreTestingSelectionProtectedResourceConditionsStringEqualOutput
+	ToRestoreTestingSelectionProtectedResourceConditionsStringEqualOutputWithContext(context.Context) RestoreTestingSelectionProtectedResourceConditionsStringEqualOutput
+}
+
+type RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs struct {
+	// The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of the Tag. Maximum length of 256.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestoreTestingSelectionProtectedResourceConditionsStringEqual)(nil)).Elem()
+}
+
+func (i RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs) ToRestoreTestingSelectionProtectedResourceConditionsStringEqualOutput() RestoreTestingSelectionProtectedResourceConditionsStringEqualOutput {
+	return i.ToRestoreTestingSelectionProtectedResourceConditionsStringEqualOutputWithContext(context.Background())
+}
+
+func (i RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs) ToRestoreTestingSelectionProtectedResourceConditionsStringEqualOutputWithContext(ctx context.Context) RestoreTestingSelectionProtectedResourceConditionsStringEqualOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingSelectionProtectedResourceConditionsStringEqualOutput)
+}
+
+// RestoreTestingSelectionProtectedResourceConditionsStringEqualArrayInput is an input type that accepts RestoreTestingSelectionProtectedResourceConditionsStringEqualArray and RestoreTestingSelectionProtectedResourceConditionsStringEqualArrayOutput values.
+// You can construct a concrete instance of `RestoreTestingSelectionProtectedResourceConditionsStringEqualArrayInput` via:
+//
+//	RestoreTestingSelectionProtectedResourceConditionsStringEqualArray{ RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs{...} }
+type RestoreTestingSelectionProtectedResourceConditionsStringEqualArrayInput interface {
+	pulumi.Input
+
+	ToRestoreTestingSelectionProtectedResourceConditionsStringEqualArrayOutput() RestoreTestingSelectionProtectedResourceConditionsStringEqualArrayOutput
+	ToRestoreTestingSelectionProtectedResourceConditionsStringEqualArrayOutputWithContext(context.Context) RestoreTestingSelectionProtectedResourceConditionsStringEqualArrayOutput
+}
+
+type RestoreTestingSelectionProtectedResourceConditionsStringEqualArray []RestoreTestingSelectionProtectedResourceConditionsStringEqualInput
+
+func (RestoreTestingSelectionProtectedResourceConditionsStringEqualArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RestoreTestingSelectionProtectedResourceConditionsStringEqual)(nil)).Elem()
+}
+
+func (i RestoreTestingSelectionProtectedResourceConditionsStringEqualArray) ToRestoreTestingSelectionProtectedResourceConditionsStringEqualArrayOutput() RestoreTestingSelectionProtectedResourceConditionsStringEqualArrayOutput {
+	return i.ToRestoreTestingSelectionProtectedResourceConditionsStringEqualArrayOutputWithContext(context.Background())
+}
+
+func (i RestoreTestingSelectionProtectedResourceConditionsStringEqualArray) ToRestoreTestingSelectionProtectedResourceConditionsStringEqualArrayOutputWithContext(ctx context.Context) RestoreTestingSelectionProtectedResourceConditionsStringEqualArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingSelectionProtectedResourceConditionsStringEqualArrayOutput)
+}
+
+type RestoreTestingSelectionProtectedResourceConditionsStringEqualOutput struct{ *pulumi.OutputState }
+
+func (RestoreTestingSelectionProtectedResourceConditionsStringEqualOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestoreTestingSelectionProtectedResourceConditionsStringEqual)(nil)).Elem()
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsStringEqualOutput) ToRestoreTestingSelectionProtectedResourceConditionsStringEqualOutput() RestoreTestingSelectionProtectedResourceConditionsStringEqualOutput {
+	return o
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsStringEqualOutput) ToRestoreTestingSelectionProtectedResourceConditionsStringEqualOutputWithContext(ctx context.Context) RestoreTestingSelectionProtectedResourceConditionsStringEqualOutput {
+	return o
+}
+
+// The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+func (o RestoreTestingSelectionProtectedResourceConditionsStringEqualOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v RestoreTestingSelectionProtectedResourceConditionsStringEqual) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value of the Tag. Maximum length of 256.
+func (o RestoreTestingSelectionProtectedResourceConditionsStringEqualOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RestoreTestingSelectionProtectedResourceConditionsStringEqual) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type RestoreTestingSelectionProtectedResourceConditionsStringEqualArrayOutput struct{ *pulumi.OutputState }
+
+func (RestoreTestingSelectionProtectedResourceConditionsStringEqualArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RestoreTestingSelectionProtectedResourceConditionsStringEqual)(nil)).Elem()
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsStringEqualArrayOutput) ToRestoreTestingSelectionProtectedResourceConditionsStringEqualArrayOutput() RestoreTestingSelectionProtectedResourceConditionsStringEqualArrayOutput {
+	return o
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsStringEqualArrayOutput) ToRestoreTestingSelectionProtectedResourceConditionsStringEqualArrayOutputWithContext(ctx context.Context) RestoreTestingSelectionProtectedResourceConditionsStringEqualArrayOutput {
+	return o
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsStringEqualArrayOutput) Index(i pulumi.IntInput) RestoreTestingSelectionProtectedResourceConditionsStringEqualOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RestoreTestingSelectionProtectedResourceConditionsStringEqual {
+		return vs[0].([]RestoreTestingSelectionProtectedResourceConditionsStringEqual)[vs[1].(int)]
+	}).(RestoreTestingSelectionProtectedResourceConditionsStringEqualOutput)
+}
+
+type RestoreTestingSelectionProtectedResourceConditionsStringNotEqual struct {
+	// The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+	Key string `pulumi:"key"`
+	// The value of the Tag. Maximum length of 256.
+	Value string `pulumi:"value"`
+}
+
+// RestoreTestingSelectionProtectedResourceConditionsStringNotEqualInput is an input type that accepts RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs and RestoreTestingSelectionProtectedResourceConditionsStringNotEqualOutput values.
+// You can construct a concrete instance of `RestoreTestingSelectionProtectedResourceConditionsStringNotEqualInput` via:
+//
+//	RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs{...}
+type RestoreTestingSelectionProtectedResourceConditionsStringNotEqualInput interface {
+	pulumi.Input
+
+	ToRestoreTestingSelectionProtectedResourceConditionsStringNotEqualOutput() RestoreTestingSelectionProtectedResourceConditionsStringNotEqualOutput
+	ToRestoreTestingSelectionProtectedResourceConditionsStringNotEqualOutputWithContext(context.Context) RestoreTestingSelectionProtectedResourceConditionsStringNotEqualOutput
+}
+
+type RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs struct {
+	// The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of the Tag. Maximum length of 256.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestoreTestingSelectionProtectedResourceConditionsStringNotEqual)(nil)).Elem()
+}
+
+func (i RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs) ToRestoreTestingSelectionProtectedResourceConditionsStringNotEqualOutput() RestoreTestingSelectionProtectedResourceConditionsStringNotEqualOutput {
+	return i.ToRestoreTestingSelectionProtectedResourceConditionsStringNotEqualOutputWithContext(context.Background())
+}
+
+func (i RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs) ToRestoreTestingSelectionProtectedResourceConditionsStringNotEqualOutputWithContext(ctx context.Context) RestoreTestingSelectionProtectedResourceConditionsStringNotEqualOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingSelectionProtectedResourceConditionsStringNotEqualOutput)
+}
+
+// RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayInput is an input type that accepts RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArray and RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayOutput values.
+// You can construct a concrete instance of `RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayInput` via:
+//
+//	RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArray{ RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs{...} }
+type RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayInput interface {
+	pulumi.Input
+
+	ToRestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayOutput() RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayOutput
+	ToRestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayOutputWithContext(context.Context) RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayOutput
+}
+
+type RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArray []RestoreTestingSelectionProtectedResourceConditionsStringNotEqualInput
+
+func (RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RestoreTestingSelectionProtectedResourceConditionsStringNotEqual)(nil)).Elem()
+}
+
+func (i RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArray) ToRestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayOutput() RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayOutput {
+	return i.ToRestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayOutputWithContext(context.Background())
+}
+
+func (i RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArray) ToRestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayOutputWithContext(ctx context.Context) RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayOutput)
+}
+
+type RestoreTestingSelectionProtectedResourceConditionsStringNotEqualOutput struct{ *pulumi.OutputState }
+
+func (RestoreTestingSelectionProtectedResourceConditionsStringNotEqualOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestoreTestingSelectionProtectedResourceConditionsStringNotEqual)(nil)).Elem()
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsStringNotEqualOutput) ToRestoreTestingSelectionProtectedResourceConditionsStringNotEqualOutput() RestoreTestingSelectionProtectedResourceConditionsStringNotEqualOutput {
+	return o
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsStringNotEqualOutput) ToRestoreTestingSelectionProtectedResourceConditionsStringNotEqualOutputWithContext(ctx context.Context) RestoreTestingSelectionProtectedResourceConditionsStringNotEqualOutput {
+	return o
+}
+
+// The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+func (o RestoreTestingSelectionProtectedResourceConditionsStringNotEqualOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v RestoreTestingSelectionProtectedResourceConditionsStringNotEqual) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value of the Tag. Maximum length of 256.
+func (o RestoreTestingSelectionProtectedResourceConditionsStringNotEqualOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RestoreTestingSelectionProtectedResourceConditionsStringNotEqual) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayOutput struct{ *pulumi.OutputState }
+
+func (RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RestoreTestingSelectionProtectedResourceConditionsStringNotEqual)(nil)).Elem()
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayOutput) ToRestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayOutput() RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayOutput {
+	return o
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayOutput) ToRestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayOutputWithContext(ctx context.Context) RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayOutput {
+	return o
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayOutput) Index(i pulumi.IntInput) RestoreTestingSelectionProtectedResourceConditionsStringNotEqualOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RestoreTestingSelectionProtectedResourceConditionsStringNotEqual {
+		return vs[0].([]RestoreTestingSelectionProtectedResourceConditionsStringNotEqual)[vs[1].(int)]
+	}).(RestoreTestingSelectionProtectedResourceConditionsStringNotEqualOutput)
 }
 
 type SelectionCondition struct {
@@ -2672,15 +3266,16 @@ func (o GetFrameworkControlScopeArrayOutput) Index(i pulumi.IntInput) GetFramewo
 }
 
 type GetPlanRule struct {
-	CompletionWindow       int                     `pulumi:"completionWindow"`
-	CopyActions            []GetPlanRuleCopyAction `pulumi:"copyActions"`
-	EnableContinuousBackup bool                    `pulumi:"enableContinuousBackup"`
-	Lifecycles             []GetPlanRuleLifecycle  `pulumi:"lifecycles"`
-	RecoveryPointTags      map[string]string       `pulumi:"recoveryPointTags"`
-	RuleName               string                  `pulumi:"ruleName"`
-	Schedule               string                  `pulumi:"schedule"`
-	StartWindow            int                     `pulumi:"startWindow"`
-	TargetVaultName        string                  `pulumi:"targetVaultName"`
+	CompletionWindow           int                     `pulumi:"completionWindow"`
+	CopyActions                []GetPlanRuleCopyAction `pulumi:"copyActions"`
+	EnableContinuousBackup     bool                    `pulumi:"enableContinuousBackup"`
+	Lifecycles                 []GetPlanRuleLifecycle  `pulumi:"lifecycles"`
+	RecoveryPointTags          map[string]string       `pulumi:"recoveryPointTags"`
+	RuleName                   string                  `pulumi:"ruleName"`
+	Schedule                   string                  `pulumi:"schedule"`
+	ScheduleExpressionTimezone string                  `pulumi:"scheduleExpressionTimezone"`
+	StartWindow                int                     `pulumi:"startWindow"`
+	TargetVaultName            string                  `pulumi:"targetVaultName"`
 }
 
 // GetPlanRuleInput is an input type that accepts GetPlanRuleArgs and GetPlanRuleOutput values.
@@ -2695,15 +3290,16 @@ type GetPlanRuleInput interface {
 }
 
 type GetPlanRuleArgs struct {
-	CompletionWindow       pulumi.IntInput                 `pulumi:"completionWindow"`
-	CopyActions            GetPlanRuleCopyActionArrayInput `pulumi:"copyActions"`
-	EnableContinuousBackup pulumi.BoolInput                `pulumi:"enableContinuousBackup"`
-	Lifecycles             GetPlanRuleLifecycleArrayInput  `pulumi:"lifecycles"`
-	RecoveryPointTags      pulumi.StringMapInput           `pulumi:"recoveryPointTags"`
-	RuleName               pulumi.StringInput              `pulumi:"ruleName"`
-	Schedule               pulumi.StringInput              `pulumi:"schedule"`
-	StartWindow            pulumi.IntInput                 `pulumi:"startWindow"`
-	TargetVaultName        pulumi.StringInput              `pulumi:"targetVaultName"`
+	CompletionWindow           pulumi.IntInput                 `pulumi:"completionWindow"`
+	CopyActions                GetPlanRuleCopyActionArrayInput `pulumi:"copyActions"`
+	EnableContinuousBackup     pulumi.BoolInput                `pulumi:"enableContinuousBackup"`
+	Lifecycles                 GetPlanRuleLifecycleArrayInput  `pulumi:"lifecycles"`
+	RecoveryPointTags          pulumi.StringMapInput           `pulumi:"recoveryPointTags"`
+	RuleName                   pulumi.StringInput              `pulumi:"ruleName"`
+	Schedule                   pulumi.StringInput              `pulumi:"schedule"`
+	ScheduleExpressionTimezone pulumi.StringInput              `pulumi:"scheduleExpressionTimezone"`
+	StartWindow                pulumi.IntInput                 `pulumi:"startWindow"`
+	TargetVaultName            pulumi.StringInput              `pulumi:"targetVaultName"`
 }
 
 func (GetPlanRuleArgs) ElementType() reflect.Type {
@@ -2783,6 +3379,10 @@ func (o GetPlanRuleOutput) RuleName() pulumi.StringOutput {
 
 func (o GetPlanRuleOutput) Schedule() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPlanRule) string { return v.Schedule }).(pulumi.StringOutput)
+}
+
+func (o GetPlanRuleOutput) ScheduleExpressionTimezone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPlanRule) string { return v.ScheduleExpressionTimezone }).(pulumi.StringOutput)
 }
 
 func (o GetPlanRuleOutput) StartWindow() pulumi.IntOutput {
@@ -3405,6 +4005,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportPlanReportDeliveryChannelPtrInput)(nil)).Elem(), ReportPlanReportDeliveryChannelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportPlanReportSettingInput)(nil)).Elem(), ReportPlanReportSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportPlanReportSettingPtrInput)(nil)).Elem(), ReportPlanReportSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingPlanRecoveryPointSelectionInput)(nil)).Elem(), RestoreTestingPlanRecoveryPointSelectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingPlanRecoveryPointSelectionPtrInput)(nil)).Elem(), RestoreTestingPlanRecoveryPointSelectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingSelectionProtectedResourceConditionsInput)(nil)).Elem(), RestoreTestingSelectionProtectedResourceConditionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingSelectionProtectedResourceConditionsPtrInput)(nil)).Elem(), RestoreTestingSelectionProtectedResourceConditionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingSelectionProtectedResourceConditionsStringEqualInput)(nil)).Elem(), RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingSelectionProtectedResourceConditionsStringEqualArrayInput)(nil)).Elem(), RestoreTestingSelectionProtectedResourceConditionsStringEqualArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingSelectionProtectedResourceConditionsStringNotEqualInput)(nil)).Elem(), RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayInput)(nil)).Elem(), RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SelectionConditionInput)(nil)).Elem(), SelectionConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SelectionConditionArrayInput)(nil)).Elem(), SelectionConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SelectionConditionStringEqualInput)(nil)).Elem(), SelectionConditionStringEqualArgs{})
@@ -3457,6 +4065,14 @@ func init() {
 	pulumi.RegisterOutputType(ReportPlanReportDeliveryChannelPtrOutput{})
 	pulumi.RegisterOutputType(ReportPlanReportSettingOutput{})
 	pulumi.RegisterOutputType(ReportPlanReportSettingPtrOutput{})
+	pulumi.RegisterOutputType(RestoreTestingPlanRecoveryPointSelectionOutput{})
+	pulumi.RegisterOutputType(RestoreTestingPlanRecoveryPointSelectionPtrOutput{})
+	pulumi.RegisterOutputType(RestoreTestingSelectionProtectedResourceConditionsOutput{})
+	pulumi.RegisterOutputType(RestoreTestingSelectionProtectedResourceConditionsPtrOutput{})
+	pulumi.RegisterOutputType(RestoreTestingSelectionProtectedResourceConditionsStringEqualOutput{})
+	pulumi.RegisterOutputType(RestoreTestingSelectionProtectedResourceConditionsStringEqualArrayOutput{})
+	pulumi.RegisterOutputType(RestoreTestingSelectionProtectedResourceConditionsStringNotEqualOutput{})
+	pulumi.RegisterOutputType(RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArrayOutput{})
 	pulumi.RegisterOutputType(SelectionConditionOutput{})
 	pulumi.RegisterOutputType(SelectionConditionArrayOutput{})
 	pulumi.RegisterOutputType(SelectionConditionStringEqualOutput{})

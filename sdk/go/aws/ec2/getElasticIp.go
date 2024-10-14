@@ -167,6 +167,8 @@ type GetElasticIpResult struct {
 	Id string `pulumi:"id"`
 	// ID of the instance that the address is associated with (if any).
 	InstanceId string `pulumi:"instanceId"`
+	// The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
+	IpamPoolId string `pulumi:"ipamPoolId"`
 	// The ID of the network interface.
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 	// The ID of the AWS account that owns the network interface.
@@ -278,6 +280,11 @@ func (o GetElasticIpResultOutput) Id() pulumi.StringOutput {
 // ID of the instance that the address is associated with (if any).
 func (o GetElasticIpResultOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetElasticIpResult) string { return v.InstanceId }).(pulumi.StringOutput)
+}
+
+// The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
+func (o GetElasticIpResultOutput) IpamPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetElasticIpResult) string { return v.IpamPoolId }).(pulumi.StringOutput)
 }
 
 // The ID of the network interface.

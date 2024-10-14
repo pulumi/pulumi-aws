@@ -42,6 +42,10 @@ namespace Pulumi.Aws.Backup.Outputs
         /// </summary>
         public readonly string? Schedule;
         /// <summary>
+        /// The timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
+        /// </summary>
+        public readonly string? ScheduleExpressionTimezone;
+        /// <summary>
         /// The amount of time in minutes before beginning a backup.
         /// </summary>
         public readonly int? StartWindow;
@@ -66,6 +70,8 @@ namespace Pulumi.Aws.Backup.Outputs
 
             string? schedule,
 
+            string? scheduleExpressionTimezone,
+
             int? startWindow,
 
             string targetVaultName)
@@ -77,6 +83,7 @@ namespace Pulumi.Aws.Backup.Outputs
             RecoveryPointTags = recoveryPointTags;
             RuleName = ruleName;
             Schedule = schedule;
+            ScheduleExpressionTimezone = scheduleExpressionTimezone;
             StartWindow = startWindow;
             TargetVaultName = targetVaultName;
         }

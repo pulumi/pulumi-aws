@@ -100,15 +100,15 @@ public final class WorkteamArgs extends com.pulumi.resources.ResourceArgs {
      * The name of the workforce.
      * 
      */
-    @Import(name="workforceName", required=true)
-    private Output<String> workforceName;
+    @Import(name="workforceName")
+    private @Nullable Output<String> workforceName;
 
     /**
      * @return The name of the workforce.
      * 
      */
-    public Output<String> workforceName() {
-        return this.workforceName;
+    public Optional<Output<String>> workforceName() {
+        return Optional.ofNullable(this.workforceName);
     }
 
     /**
@@ -277,7 +277,7 @@ public final class WorkteamArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder workforceName(Output<String> workforceName) {
+        public Builder workforceName(@Nullable Output<String> workforceName) {
             $.workforceName = workforceName;
             return this;
         }
@@ -319,9 +319,6 @@ public final class WorkteamArgs extends com.pulumi.resources.ResourceArgs {
             }
             if ($.memberDefinitions == null) {
                 throw new MissingRequiredPropertyException("WorkteamArgs", "memberDefinitions");
-            }
-            if ($.workforceName == null) {
-                throw new MissingRequiredPropertyException("WorkteamArgs", "workforceName");
             }
             if ($.workteamName == null) {
                 throw new MissingRequiredPropertyException("WorkteamArgs", "workteamName");

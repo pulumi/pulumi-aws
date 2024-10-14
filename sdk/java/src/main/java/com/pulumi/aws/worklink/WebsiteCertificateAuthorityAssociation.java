@@ -15,6 +15,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides a AWS WorkLink Website Certificate Authority Association resource.
+ * 
+ * !&gt; **WARNING:** The `aws.worklink.WebsiteCertificateAuthorityAssociation` resource has been deprecated and will be removed in a future version. Use Amazon WorkSpaces Secure Browser instead.
+ * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;

@@ -4039,6 +4039,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="ssmquicksetup")
+    private @Nullable Output<String> ssmquicksetup;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> ssmquicksetup() {
+        return Optional.ofNullable(this.ssmquicksetup);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="ssmsap")
     private @Nullable Output<String> ssmsap;
 
@@ -4651,6 +4666,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.ssm = $.ssm;
         this.ssmcontacts = $.ssmcontacts;
         this.ssmincidents = $.ssmincidents;
+        this.ssmquicksetup = $.ssmquicksetup;
         this.ssmsap = $.ssmsap;
         this.sso = $.sso;
         this.ssoadmin = $.ssoadmin;
@@ -10320,6 +10336,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder ssmincidents(String ssmincidents) {
             return ssmincidents(Output.of(ssmincidents));
+        }
+
+        /**
+         * @param ssmquicksetup Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ssmquicksetup(@Nullable Output<String> ssmquicksetup) {
+            $.ssmquicksetup = ssmquicksetup;
+            return this;
+        }
+
+        /**
+         * @param ssmquicksetup Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ssmquicksetup(String ssmquicksetup) {
+            return ssmquicksetup(Output.of(ssmquicksetup));
         }
 
         /**

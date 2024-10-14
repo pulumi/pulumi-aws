@@ -33,6 +33,36 @@ public final class VpcIpv6CidrBlockAssociationState extends com.pulumi.resources
     }
 
     /**
+     * The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
+     * 
+     */
+    @Import(name="ipSource")
+    private @Nullable Output<String> ipSource;
+
+    /**
+     * @return The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
+     * 
+     */
+    public Optional<Output<String>> ipSource() {
+        return Optional.ofNullable(this.ipSource);
+    }
+
+    /**
+     * Public IPv6 addresses are those advertised on the internet from AWS. Private IP addresses are not and cannot be advertised on the internet from AWS. Values: `public`, `private`.
+     * 
+     */
+    @Import(name="ipv6AddressAttribute")
+    private @Nullable Output<String> ipv6AddressAttribute;
+
+    /**
+     * @return Public IPv6 addresses are those advertised on the internet from AWS. Private IP addresses are not and cannot be advertised on the internet from AWS. Values: `public`, `private`.
+     * 
+     */
+    public Optional<Output<String>> ipv6AddressAttribute() {
+        return Optional.ofNullable(this.ipv6AddressAttribute);
+    }
+
+    /**
      * The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6_netmask_length`. This parameter is required if `ipv6_netmask_length` is not set and the IPAM pool does not have `allocation_default_netmask` set. Conflicts with `assign_generated_ipv6_cidr_block`.
      * 
      */
@@ -111,6 +141,8 @@ public final class VpcIpv6CidrBlockAssociationState extends com.pulumi.resources
 
     private VpcIpv6CidrBlockAssociationState(VpcIpv6CidrBlockAssociationState $) {
         this.assignGeneratedIpv6CidrBlock = $.assignGeneratedIpv6CidrBlock;
+        this.ipSource = $.ipSource;
+        this.ipv6AddressAttribute = $.ipv6AddressAttribute;
         this.ipv6CidrBlock = $.ipv6CidrBlock;
         this.ipv6IpamPoolId = $.ipv6IpamPoolId;
         this.ipv6NetmaskLength = $.ipv6NetmaskLength;
@@ -155,6 +187,48 @@ public final class VpcIpv6CidrBlockAssociationState extends com.pulumi.resources
          */
         public Builder assignGeneratedIpv6CidrBlock(Boolean assignGeneratedIpv6CidrBlock) {
             return assignGeneratedIpv6CidrBlock(Output.of(assignGeneratedIpv6CidrBlock));
+        }
+
+        /**
+         * @param ipSource The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipSource(@Nullable Output<String> ipSource) {
+            $.ipSource = ipSource;
+            return this;
+        }
+
+        /**
+         * @param ipSource The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipSource(String ipSource) {
+            return ipSource(Output.of(ipSource));
+        }
+
+        /**
+         * @param ipv6AddressAttribute Public IPv6 addresses are those advertised on the internet from AWS. Private IP addresses are not and cannot be advertised on the internet from AWS. Values: `public`, `private`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv6AddressAttribute(@Nullable Output<String> ipv6AddressAttribute) {
+            $.ipv6AddressAttribute = ipv6AddressAttribute;
+            return this;
+        }
+
+        /**
+         * @param ipv6AddressAttribute Public IPv6 addresses are those advertised on the internet from AWS. Private IP addresses are not and cannot be advertised on the internet from AWS. Values: `public`, `private`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv6AddressAttribute(String ipv6AddressAttribute) {
+            return ipv6AddressAttribute(Output.of(ipv6AddressAttribute));
         }
 
         /**

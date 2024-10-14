@@ -1514,6 +1514,10 @@ namespace Pulumi.Aws
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>
+                public string? Ssmquicksetup { get; set; } = null!;
+            /// <summary>
+            /// Use this to override the default service endpoint URL
+            /// </summary>
                 public string? Ssmsap { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL

@@ -29,6 +29,7 @@ import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentPlainArgs;
 import com.pulumi.aws.route53.inputs.GetZoneArgs;
 import com.pulumi.aws.route53.inputs.GetZonePlainArgs;
 import com.pulumi.aws.route53.outputs.GetDelegationSetResult;
+import com.pulumi.aws.route53.outputs.GetProfilesProfilesResult;
 import com.pulumi.aws.route53.outputs.GetQueryLogConfigResult;
 import com.pulumi.aws.route53.outputs.GetResolverEndpointResult;
 import com.pulumi.aws.route53.outputs.GetResolverFirewallConfigResult;
@@ -232,6 +233,252 @@ public final class Route53Functions {
      */
     public static CompletableFuture<GetDelegationSetResult> getDelegationSetPlain(GetDelegationSetPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:route53/getDelegationSet:getDelegationSet", TypeShape.of(GetDelegationSetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Route 53 Profiles.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getProfilesProfiles();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetProfilesProfilesResult> getProfilesProfiles() {
+        return getProfilesProfiles(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS Route 53 Profiles.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getProfilesProfiles();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetProfilesProfilesResult> getProfilesProfilesPlain() {
+        return getProfilesProfilesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS Route 53 Profiles.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getProfilesProfiles();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetProfilesProfilesResult> getProfilesProfiles(InvokeArgs args) {
+        return getProfilesProfiles(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS Route 53 Profiles.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getProfilesProfiles();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetProfilesProfilesResult> getProfilesProfilesPlain(InvokeArgs args) {
+        return getProfilesProfilesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS Route 53 Profiles.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getProfilesProfiles();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetProfilesProfilesResult> getProfilesProfiles(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:route53/getProfilesProfiles:getProfilesProfiles", TypeShape.of(GetProfilesProfilesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Route 53 Profiles.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Route53Functions.getProfilesProfiles();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetProfilesProfilesResult> getProfilesProfilesPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:route53/getProfilesProfiles:getProfilesProfiles", TypeShape.of(GetProfilesProfilesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * `aws.route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
