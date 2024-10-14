@@ -10,6 +10,7 @@ on:
 
 jobs:
   check_minimal_schema:
+    runs-on: unbuntu-latest
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
