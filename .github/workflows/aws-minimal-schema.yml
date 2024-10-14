@@ -7,21 +7,10 @@ on:
   pull_request:
     paths-ignore:
     - CHANGELOG.md
-  workflow_dispatch: {}
-  push:
-    branches:
-    # check integration branch
-    - master
-    paths-ignore:
-    - "**.md"
-    # check releases and pre-releases
-    tags-ignore:
-    - sdk/*
-
 
 jobs:
   check_minimal_schema:
-    runs-on: ubuntu-latest
+    runs-on: unbuntu-latest
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
