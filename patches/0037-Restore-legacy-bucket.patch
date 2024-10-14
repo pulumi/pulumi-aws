@@ -20,10 +20,10 @@ index c98bc7fc2f..b9d46d6765 100644
  	config := client.S3Conn(ctx).Config
  	config.DisableRestProtocolURICleaning = aws_sdkv2.Bool(true)
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index e49e7ea69d..33d7ccbc3c 100644
+index 4221a35f24..af988348da 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
-@@ -16,7 +16,6 @@ import (
+@@ -17,7 +17,6 @@ import (
  
  	"github.com/hashicorp/terraform-provider-aws/internal/service/ecr"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/gamelift"
@@ -31,7 +31,7 @@ index e49e7ea69d..33d7ccbc3c 100644
  
  	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
  	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
-@@ -267,8 +266,6 @@ func New(ctx context.Context) (*schema.Provider, error) {
+@@ -270,8 +269,6 @@ func New(ctx context.Context) (*schema.Provider, error) {
  		},
  
  		ResourcesMap: map[string]*schema.Resource{
@@ -40,7 +40,7 @@ index e49e7ea69d..33d7ccbc3c 100644
  			"aws_gamelift_matchmaking_configuration": gamelift.ResourceMatchMakingConfiguration(),
  			"aws_gamelift_matchmaking_rule_set":      gamelift.ResourceMatchmakingRuleSet(),
  		},
-@@ -281,7 +278,7 @@ func New(ctx context.Context) (*schema.Provider, error) {
+@@ -284,7 +281,7 @@ func New(ctx context.Context) (*schema.Provider, error) {
  	var errs []error
  	servicePackageMap := make(map[string]conns.ServicePackage)
  

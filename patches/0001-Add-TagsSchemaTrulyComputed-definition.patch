@@ -5,13 +5,13 @@ Subject: [PATCH] Add TagsSchemaTrulyComputed definition
 
 
 diff --git a/internal/tags/tags.go b/internal/tags/tags.go
-index 12d3b9013e..bc9e14fc19 100644
+index 40c06bb057..247a01bba3 100644
 --- a/internal/tags/tags.go
 +++ b/internal/tags/tags.go
-@@ -33,3 +33,11 @@ func TagsSchemaForceNew() *schema.Schema {
+@@ -37,3 +37,11 @@ var TagsSchemaForceNew = sync.OnceValue(func() *schema.Schema {
  		Elem:     &schema.Schema{Type: schema.TypeString},
  	}
- }
+ })
 +
 +func TagsSchemaTrulyComputed() *schema.Schema {
 +	return &schema.Schema{
