@@ -5793,7 +5793,7 @@ func hasNonComputedTagsAndTagsAll(tfResourceName string, res shim.Resource) bool
 }
 
 func setupComputedIDs(prov *tfbridge.ProviderInfo) {
-	attr := func(state resource.PropertyMap, attrs ...resource.PropertyKey) resource.ID {
+	attrWithSeparator := func(state resource.PropertyMap, sep string, attrs ...resource.PropertyKey) resource.ID {
 		parts := []string{}
 		for _, a := range attrs {
 			if v, ok := state[a]; ok {
@@ -5802,11 +5802,14 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 				}
 			}
 		}
-		s := strings.Join(parts, "__")
+		s := strings.Join(parts, sep)
 		if s == "" {
 			s = "id"
 		}
 		return resource.ID(s)
+	}
+	attr := func(state resource.PropertyMap, attrs ...resource.PropertyKey) resource.ID {
+		return attrWithSeparator(state, "__", attrs...)
 	}
 	prov.Resources["aws_lambda_runtime_management_config"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
 		return attr(state, "functionName", "qualifier"), nil
@@ -5865,7 +5868,11 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	prov.Resources["aws_backup_restore_testing_plan"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
 		return attr(state, "name"), nil
 	}
-	prov.Resources["aws_backup_restore_testing_selection"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
-		return attr(state, "restoreTestingPlanName", "name"), nil
+	prov.Resources["aws_backup_restore_testing_selection"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		// The ${name}:${restoreTestingPlanName} is the format used by TF import, so we are going to use it for
+		// the Pulumi ID as well.
+		return attrWithSeparator(state, ":", "name", "restoreTestingPlanName"), nil
 	}
 }
