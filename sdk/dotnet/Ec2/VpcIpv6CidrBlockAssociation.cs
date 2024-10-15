@@ -56,6 +56,18 @@ namespace Pulumi.Aws.Ec2
         public Output<bool> AssignGeneratedIpv6CidrBlock { get; private set; } = null!;
 
         /// <summary>
+        /// The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
+        /// </summary>
+        [Output("ipSource")]
+        public Output<string> IpSource { get; private set; } = null!;
+
+        /// <summary>
+        /// Public IPv6 addresses are those advertised on the internet from AWS. Private IP addresses are not and cannot be advertised on the internet from AWS. Values: `public`, `private`.
+        /// </summary>
+        [Output("ipv6AddressAttribute")]
+        public Output<string> Ipv6AddressAttribute { get; private set; } = null!;
+
+        /// <summary>
         /// The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6_netmask_length`. This parameter is required if `ipv6_netmask_length` is not set and the IPAM pool does not have `allocation_default_netmask` set. Conflicts with `assign_generated_ipv6_cidr_block`.
         /// </summary>
         [Output("ipv6CidrBlock")]
@@ -180,6 +192,18 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("assignGeneratedIpv6CidrBlock")]
         public Input<bool>? AssignGeneratedIpv6CidrBlock { get; set; }
+
+        /// <summary>
+        /// The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
+        /// </summary>
+        [Input("ipSource")]
+        public Input<string>? IpSource { get; set; }
+
+        /// <summary>
+        /// Public IPv6 addresses are those advertised on the internet from AWS. Private IP addresses are not and cannot be advertised on the internet from AWS. Values: `public`, `private`.
+        /// </summary>
+        [Input("ipv6AddressAttribute")]
+        public Input<string>? Ipv6AddressAttribute { get; set; }
 
         /// <summary>
         /// The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6_netmask_length`. This parameter is required if `ipv6_netmask_length` is not set and the IPAM pool does not have `allocation_default_netmask` set. Conflicts with `assign_generated_ipv6_cidr_block`.

@@ -18,18 +18,18 @@ index b6d8c71ef7..f78c4502b0 100644
  		Blocks: map[string]schema.Block{
  			names.AttrDestination: schema.ListNestedBlock{
 diff --git a/internal/service/bedrock/custom_model.go b/internal/service/bedrock/custom_model.go
-index e0606306fd..61981ae7fb 100644
+index daba31c85d..8ce47d7720 100644
 --- a/internal/service/bedrock/custom_model.go
 +++ b/internal/service/bedrock/custom_model.go
-@@ -137,7 +137,7 @@ func (r *customModelResource) Schema(ctx context.Context, request resource.Schem
+@@ -136,7 +136,7 @@ func (r *customModelResource) Schema(ctx context.Context, request resource.Schem
  				},
  			},
- 			names.AttrTags:    tftags.TagsAttribute(),
--			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
-+			names.AttrTagsAll: tftags.TagsAttribute(),
- 			"training_metrics": schema.ListAttribute{
- 				CustomType: fwtypes.NewListNestedObjectTypeOf[customModelTrainingMetricsModel](ctx),
- 				Computed:   true,
+ 			names.AttrTags:       tftags.TagsAttribute(),
+-			names.AttrTagsAll:    tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll:    tftags.TagsAttribute(),
+ 			"training_metrics":   framework.ResourceComputedListOfObjectAttribute[trainingMetricsModel](ctx),
+ 			"validation_metrics": framework.ResourceComputedListOfObjectAttribute[validatorMetricModel](ctx),
+ 		},
 diff --git a/internal/service/codeguruprofiler/profiling_group.go b/internal/service/codeguruprofiler/profiling_group.go
 index 6e8d8de302..af48127242 100644
 --- a/internal/service/codeguruprofiler/profiling_group.go
@@ -70,10 +70,10 @@ index a9bb3bb327..9f68386f3a 100644
  	}
  
 diff --git a/internal/service/securityhub/automation_rule.go b/internal/service/securityhub/automation_rule.go
-index cc5317b08a..b8739c1bcb 100644
+index 979de8b5bd..4c1f5dc706 100644
 --- a/internal/service/securityhub/automation_rule.go
 +++ b/internal/service/securityhub/automation_rule.go
-@@ -75,7 +75,7 @@ func (r *automationRuleResource) Schema(ctx context.Context, request resource.Sc
+@@ -78,7 +78,7 @@ func (r *automationRuleResource) Schema(ctx context.Context, request resource.Sc
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),

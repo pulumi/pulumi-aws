@@ -20,6 +20,7 @@ namespace Pulumi.Aws.Backup.Outputs
         public readonly ImmutableDictionary<string, string>? RecoveryPointTags;
         public readonly string RuleName;
         public readonly string Schedule;
+        public readonly string ScheduleExpressionTimezone;
         public readonly int StartWindow;
         public readonly string TargetVaultName;
 
@@ -39,6 +40,8 @@ namespace Pulumi.Aws.Backup.Outputs
 
             string schedule,
 
+            string scheduleExpressionTimezone,
+
             int startWindow,
 
             string targetVaultName)
@@ -50,6 +53,7 @@ namespace Pulumi.Aws.Backup.Outputs
             RecoveryPointTags = recoveryPointTags;
             RuleName = ruleName;
             Schedule = schedule;
+            ScheduleExpressionTimezone = scheduleExpressionTimezone;
             StartWindow = startWindow;
             TargetVaultName = targetVaultName;
         }

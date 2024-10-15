@@ -181,6 +181,33 @@ import (
 //
 // ```
 //
+// ### Allocating EIP from the IPAM Pool
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewEip(ctx, "ipam-ip", &ec2.EipArgs{
+//				Domain:     pulumi.String("vpc"),
+//				IpamPoolId: pulumi.String("ipam-pool-07ccc86aa41bef7ce"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import EIPs in a VPC using their Allocation ID. For example:
@@ -210,6 +237,8 @@ type Eip struct {
 	Domain pulumi.StringOutput `pulumi:"domain"`
 	// EC2 instance ID.
 	Instance pulumi.StringOutput `pulumi:"instance"`
+	// The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
+	IpamPoolId pulumi.StringOutput `pulumi:"ipamPoolId"`
 	// Location from which the IP address is advertised. Use this parameter to limit the address to this location.
 	NetworkBorderGroup pulumi.StringOutput `pulumi:"networkBorderGroup"`
 	// Network interface ID to associate with.
@@ -294,6 +323,8 @@ type eipState struct {
 	Domain *string `pulumi:"domain"`
 	// EC2 instance ID.
 	Instance *string `pulumi:"instance"`
+	// The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
+	IpamPoolId *string `pulumi:"ipamPoolId"`
 	// Location from which the IP address is advertised. Use this parameter to limit the address to this location.
 	NetworkBorderGroup *string `pulumi:"networkBorderGroup"`
 	// Network interface ID to associate with.
@@ -349,6 +380,8 @@ type EipState struct {
 	Domain pulumi.StringPtrInput
 	// EC2 instance ID.
 	Instance pulumi.StringPtrInput
+	// The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
+	IpamPoolId pulumi.StringPtrInput
 	// Location from which the IP address is advertised. Use this parameter to limit the address to this location.
 	NetworkBorderGroup pulumi.StringPtrInput
 	// Network interface ID to associate with.
@@ -399,6 +432,8 @@ type eipArgs struct {
 	Domain *string `pulumi:"domain"`
 	// EC2 instance ID.
 	Instance *string `pulumi:"instance"`
+	// The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
+	IpamPoolId *string `pulumi:"ipamPoolId"`
 	// Location from which the IP address is advertised. Use this parameter to limit the address to this location.
 	NetworkBorderGroup *string `pulumi:"networkBorderGroup"`
 	// Network interface ID to associate with.
@@ -432,6 +467,8 @@ type EipArgs struct {
 	Domain pulumi.StringPtrInput
 	// EC2 instance ID.
 	Instance pulumi.StringPtrInput
+	// The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
+	IpamPoolId pulumi.StringPtrInput
 	// Location from which the IP address is advertised. Use this parameter to limit the address to this location.
 	NetworkBorderGroup pulumi.StringPtrInput
 	// Network interface ID to associate with.
@@ -587,6 +624,11 @@ func (o EipOutput) Domain() pulumi.StringOutput {
 // EC2 instance ID.
 func (o EipOutput) Instance() pulumi.StringOutput {
 	return o.ApplyT(func(v *Eip) pulumi.StringOutput { return v.Instance }).(pulumi.StringOutput)
+}
+
+// The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
+func (o EipOutput) IpamPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Eip) pulumi.StringOutput { return v.IpamPoolId }).(pulumi.StringOutput)
 }
 
 // Location from which the IP address is advertised. Use this parameter to limit the address to this location.

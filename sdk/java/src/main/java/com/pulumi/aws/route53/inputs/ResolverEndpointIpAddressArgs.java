@@ -17,14 +17,14 @@ public final class ResolverEndpointIpAddressArgs extends com.pulumi.resources.Re
     public static final ResolverEndpointIpAddressArgs Empty = new ResolverEndpointIpAddressArgs();
 
     /**
-     * The IP address in the subnet that you want to use for DNS queries.
+     * IPv4 address in the subnet that you want to use for DNS queries.
      * 
      */
     @Import(name="ip")
     private @Nullable Output<String> ip;
 
     /**
-     * @return The IP address in the subnet that you want to use for DNS queries.
+     * @return IPv4 address in the subnet that you want to use for DNS queries.
      * 
      */
     public Optional<Output<String>> ip() {
@@ -39,14 +39,29 @@ public final class ResolverEndpointIpAddressArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The ID of the subnet that contains the IP address.
+     * IPv6 address in the subnet that you want to use for DNS queries.
+     * 
+     */
+    @Import(name="ipv6")
+    private @Nullable Output<String> ipv6;
+
+    /**
+     * @return IPv6 address in the subnet that you want to use for DNS queries.
+     * 
+     */
+    public Optional<Output<String>> ipv6() {
+        return Optional.ofNullable(this.ipv6);
+    }
+
+    /**
+     * ID of the subnet that contains the IP address.
      * 
      */
     @Import(name="subnetId", required=true)
     private Output<String> subnetId;
 
     /**
-     * @return The ID of the subnet that contains the IP address.
+     * @return ID of the subnet that contains the IP address.
      * 
      */
     public Output<String> subnetId() {
@@ -58,6 +73,7 @@ public final class ResolverEndpointIpAddressArgs extends com.pulumi.resources.Re
     private ResolverEndpointIpAddressArgs(ResolverEndpointIpAddressArgs $) {
         this.ip = $.ip;
         this.ipId = $.ipId;
+        this.ipv6 = $.ipv6;
         this.subnetId = $.subnetId;
     }
 
@@ -80,7 +96,7 @@ public final class ResolverEndpointIpAddressArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ip The IP address in the subnet that you want to use for DNS queries.
+         * @param ip IPv4 address in the subnet that you want to use for DNS queries.
          * 
          * @return builder
          * 
@@ -91,7 +107,7 @@ public final class ResolverEndpointIpAddressArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ip The IP address in the subnet that you want to use for DNS queries.
+         * @param ip IPv4 address in the subnet that you want to use for DNS queries.
          * 
          * @return builder
          * 
@@ -110,7 +126,28 @@ public final class ResolverEndpointIpAddressArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param subnetId The ID of the subnet that contains the IP address.
+         * @param ipv6 IPv6 address in the subnet that you want to use for DNS queries.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv6(@Nullable Output<String> ipv6) {
+            $.ipv6 = ipv6;
+            return this;
+        }
+
+        /**
+         * @param ipv6 IPv6 address in the subnet that you want to use for DNS queries.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv6(String ipv6) {
+            return ipv6(Output.of(ipv6));
+        }
+
+        /**
+         * @param subnetId ID of the subnet that contains the IP address.
          * 
          * @return builder
          * 
@@ -121,7 +158,7 @@ public final class ResolverEndpointIpAddressArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param subnetId The ID of the subnet that contains the IP address.
+         * @param subnetId ID of the subnet that contains the IP address.
          * 
          * @return builder
          * 

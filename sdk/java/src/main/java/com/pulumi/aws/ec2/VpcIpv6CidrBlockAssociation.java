@@ -89,6 +89,34 @@ public class VpcIpv6CidrBlockAssociation extends com.pulumi.resources.CustomReso
         return this.assignGeneratedIpv6CidrBlock;
     }
     /**
+     * The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
+     * 
+     */
+    @Export(name="ipSource", refs={String.class}, tree="[0]")
+    private Output<String> ipSource;
+
+    /**
+     * @return The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
+     * 
+     */
+    public Output<String> ipSource() {
+        return this.ipSource;
+    }
+    /**
+     * Public IPv6 addresses are those advertised on the internet from AWS. Private IP addresses are not and cannot be advertised on the internet from AWS. Values: `public`, `private`.
+     * 
+     */
+    @Export(name="ipv6AddressAttribute", refs={String.class}, tree="[0]")
+    private Output<String> ipv6AddressAttribute;
+
+    /**
+     * @return Public IPv6 addresses are those advertised on the internet from AWS. Private IP addresses are not and cannot be advertised on the internet from AWS. Values: `public`, `private`.
+     * 
+     */
+    public Output<String> ipv6AddressAttribute() {
+        return this.ipv6AddressAttribute;
+    }
+    /**
      * The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6_netmask_length`. This parameter is required if `ipv6_netmask_length` is not set and the IPAM pool does not have `allocation_default_netmask` set. Conflicts with `assign_generated_ipv6_cidr_block`.
      * 
      */

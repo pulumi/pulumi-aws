@@ -15,6 +15,8 @@ from .custom_model import *
 from .get_agent_agent_versions import *
 from .get_custom_model import *
 from .get_custom_models import *
+from .get_inference_profile import *
+from .get_inference_profiles import *
 from .guardrail import *
 from .guardrail_version import *
 from .provisioned_model_throughput import *

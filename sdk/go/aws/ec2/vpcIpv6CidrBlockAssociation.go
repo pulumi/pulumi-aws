@@ -61,6 +61,10 @@ type VpcIpv6CidrBlockAssociation struct {
 
 	// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6PamPoolId`, `ipv6Pool`, `ipv6CidrBlock` and `ipv6NetmaskLength`.
 	AssignGeneratedIpv6CidrBlock pulumi.BoolOutput `pulumi:"assignGeneratedIpv6CidrBlock"`
+	// The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
+	IpSource pulumi.StringOutput `pulumi:"ipSource"`
+	// Public IPv6 addresses are those advertised on the internet from AWS. Private IP addresses are not and cannot be advertised on the internet from AWS. Values: `public`, `private`.
+	Ipv6AddressAttribute pulumi.StringOutput `pulumi:"ipv6AddressAttribute"`
 	// The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6NetmaskLength`. This parameter is required if `ipv6NetmaskLength` is not set and the IPAM pool does not have `allocationDefaultNetmask` set. Conflicts with `assignGeneratedIpv6CidrBlock`.
 	Ipv6CidrBlock pulumi.StringOutput `pulumi:"ipv6CidrBlock"`
 	// - (Optional) The ID of an IPv6 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Conflict with `assignGeneratedIpv6CidrBlock` and `ipv6IpamPoolId`.
@@ -108,6 +112,10 @@ func GetVpcIpv6CidrBlockAssociation(ctx *pulumi.Context,
 type vpcIpv6CidrBlockAssociationState struct {
 	// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6PamPoolId`, `ipv6Pool`, `ipv6CidrBlock` and `ipv6NetmaskLength`.
 	AssignGeneratedIpv6CidrBlock *bool `pulumi:"assignGeneratedIpv6CidrBlock"`
+	// The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
+	IpSource *string `pulumi:"ipSource"`
+	// Public IPv6 addresses are those advertised on the internet from AWS. Private IP addresses are not and cannot be advertised on the internet from AWS. Values: `public`, `private`.
+	Ipv6AddressAttribute *string `pulumi:"ipv6AddressAttribute"`
 	// The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6NetmaskLength`. This parameter is required if `ipv6NetmaskLength` is not set and the IPAM pool does not have `allocationDefaultNetmask` set. Conflicts with `assignGeneratedIpv6CidrBlock`.
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
 	// - (Optional) The ID of an IPv6 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Conflict with `assignGeneratedIpv6CidrBlock` and `ipv6IpamPoolId`.
@@ -123,6 +131,10 @@ type vpcIpv6CidrBlockAssociationState struct {
 type VpcIpv6CidrBlockAssociationState struct {
 	// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6PamPoolId`, `ipv6Pool`, `ipv6CidrBlock` and `ipv6NetmaskLength`.
 	AssignGeneratedIpv6CidrBlock pulumi.BoolPtrInput
+	// The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
+	IpSource pulumi.StringPtrInput
+	// Public IPv6 addresses are those advertised on the internet from AWS. Private IP addresses are not and cannot be advertised on the internet from AWS. Values: `public`, `private`.
+	Ipv6AddressAttribute pulumi.StringPtrInput
 	// The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6NetmaskLength`. This parameter is required if `ipv6NetmaskLength` is not set and the IPAM pool does not have `allocationDefaultNetmask` set. Conflicts with `assignGeneratedIpv6CidrBlock`.
 	Ipv6CidrBlock pulumi.StringPtrInput
 	// - (Optional) The ID of an IPv6 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Conflict with `assignGeneratedIpv6CidrBlock` and `ipv6IpamPoolId`.
@@ -260,6 +272,16 @@ func (o VpcIpv6CidrBlockAssociationOutput) ToVpcIpv6CidrBlockAssociationOutputWi
 // Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6PamPoolId`, `ipv6Pool`, `ipv6CidrBlock` and `ipv6NetmaskLength`.
 func (o VpcIpv6CidrBlockAssociationOutput) AssignGeneratedIpv6CidrBlock() pulumi.BoolOutput {
 	return o.ApplyT(func(v *VpcIpv6CidrBlockAssociation) pulumi.BoolOutput { return v.AssignGeneratedIpv6CidrBlock }).(pulumi.BoolOutput)
+}
+
+// The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
+func (o VpcIpv6CidrBlockAssociationOutput) IpSource() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcIpv6CidrBlockAssociation) pulumi.StringOutput { return v.IpSource }).(pulumi.StringOutput)
+}
+
+// Public IPv6 addresses are those advertised on the internet from AWS. Private IP addresses are not and cannot be advertised on the internet from AWS. Values: `public`, `private`.
+func (o VpcIpv6CidrBlockAssociationOutput) Ipv6AddressAttribute() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcIpv6CidrBlockAssociation) pulumi.StringOutput { return v.Ipv6AddressAttribute }).(pulumi.StringOutput)
 }
 
 // The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6NetmaskLength`. This parameter is required if `ipv6NetmaskLength` is not set and the IPAM pool does not have `allocationDefaultNetmask` set. Conflicts with `assignGeneratedIpv6CidrBlock`.

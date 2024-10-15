@@ -65,6 +65,11 @@ export type SmsChannel = import("./smsChannel").SmsChannel;
 export const SmsChannel: typeof import("./smsChannel").SmsChannel = null as any;
 utilities.lazyLoad(exports, ["SmsChannel"], () => require("./smsChannel"));
 
+export { Smsvoicev2ConfigurationSetArgs, Smsvoicev2ConfigurationSetState } from "./smsvoicev2ConfigurationSet";
+export type Smsvoicev2ConfigurationSet = import("./smsvoicev2ConfigurationSet").Smsvoicev2ConfigurationSet;
+export const Smsvoicev2ConfigurationSet: typeof import("./smsvoicev2ConfigurationSet").Smsvoicev2ConfigurationSet = null as any;
+utilities.lazyLoad(exports, ["Smsvoicev2ConfigurationSet"], () => require("./smsvoicev2ConfigurationSet"));
+
 export { Smsvoicev2OptOutListArgs, Smsvoicev2OptOutListState } from "./smsvoicev2OptOutList";
 export type Smsvoicev2OptOutList = import("./smsvoicev2OptOutList").Smsvoicev2OptOutList;
 export const Smsvoicev2OptOutList: typeof import("./smsvoicev2OptOutList").Smsvoicev2OptOutList = null as any;
@@ -104,6 +109,8 @@ const _module = {
                 return new GcmChannel(name, <any>undefined, { urn })
             case "aws:pinpoint/smsChannel:SmsChannel":
                 return new SmsChannel(name, <any>undefined, { urn })
+            case "aws:pinpoint/smsvoicev2ConfigurationSet:Smsvoicev2ConfigurationSet":
+                return new Smsvoicev2ConfigurationSet(name, <any>undefined, { urn })
             case "aws:pinpoint/smsvoicev2OptOutList:Smsvoicev2OptOutList":
                 return new Smsvoicev2OptOutList(name, <any>undefined, { urn })
             case "aws:pinpoint/smsvoicev2PhoneNumber:Smsvoicev2PhoneNumber":
@@ -125,5 +132,6 @@ pulumi.runtime.registerResourceModule("aws", "pinpoint/emailTemplate", _module)
 pulumi.runtime.registerResourceModule("aws", "pinpoint/eventStream", _module)
 pulumi.runtime.registerResourceModule("aws", "pinpoint/gcmChannel", _module)
 pulumi.runtime.registerResourceModule("aws", "pinpoint/smsChannel", _module)
+pulumi.runtime.registerResourceModule("aws", "pinpoint/smsvoicev2ConfigurationSet", _module)
 pulumi.runtime.registerResourceModule("aws", "pinpoint/smsvoicev2OptOutList", _module)
 pulumi.runtime.registerResourceModule("aws", "pinpoint/smsvoicev2PhoneNumber", _module)

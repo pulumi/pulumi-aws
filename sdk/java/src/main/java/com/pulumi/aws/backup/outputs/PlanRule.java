@@ -54,6 +54,11 @@ public final class PlanRule {
      */
     private @Nullable String schedule;
     /**
+     * @return The timezone in which the schedule expression is set. Default value: `&#34;Etc/UTC&#34;`.
+     * 
+     */
+    private @Nullable String scheduleExpressionTimezone;
+    /**
      * @return The amount of time in minutes before beginning a backup.
      * 
      */
@@ -115,6 +120,13 @@ public final class PlanRule {
         return Optional.ofNullable(this.schedule);
     }
     /**
+     * @return The timezone in which the schedule expression is set. Default value: `&#34;Etc/UTC&#34;`.
+     * 
+     */
+    public Optional<String> scheduleExpressionTimezone() {
+        return Optional.ofNullable(this.scheduleExpressionTimezone);
+    }
+    /**
      * @return The amount of time in minutes before beginning a backup.
      * 
      */
@@ -145,6 +157,7 @@ public final class PlanRule {
         private @Nullable Map<String,String> recoveryPointTags;
         private String ruleName;
         private @Nullable String schedule;
+        private @Nullable String scheduleExpressionTimezone;
         private @Nullable Integer startWindow;
         private String targetVaultName;
         public Builder() {}
@@ -157,6 +170,7 @@ public final class PlanRule {
     	      this.recoveryPointTags = defaults.recoveryPointTags;
     	      this.ruleName = defaults.ruleName;
     	      this.schedule = defaults.schedule;
+    	      this.scheduleExpressionTimezone = defaults.scheduleExpressionTimezone;
     	      this.startWindow = defaults.startWindow;
     	      this.targetVaultName = defaults.targetVaultName;
         }
@@ -209,6 +223,12 @@ public final class PlanRule {
             return this;
         }
         @CustomType.Setter
+        public Builder scheduleExpressionTimezone(@Nullable String scheduleExpressionTimezone) {
+
+            this.scheduleExpressionTimezone = scheduleExpressionTimezone;
+            return this;
+        }
+        @CustomType.Setter
         public Builder startWindow(@Nullable Integer startWindow) {
 
             this.startWindow = startWindow;
@@ -231,6 +251,7 @@ public final class PlanRule {
             _resultValue.recoveryPointTags = recoveryPointTags;
             _resultValue.ruleName = ruleName;
             _resultValue.schedule = schedule;
+            _resultValue.scheduleExpressionTimezone = scheduleExpressionTimezone;
             _resultValue.startWindow = startWindow;
             _resultValue.targetVaultName = targetVaultName;
             return _resultValue;

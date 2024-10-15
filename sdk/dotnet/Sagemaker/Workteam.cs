@@ -142,7 +142,7 @@ namespace Pulumi.Aws.Sagemaker
         /// The name of the workforce.
         /// </summary>
         [Output("workforceName")]
-        public Output<string> WorkforceName { get; private set; } = null!;
+        public Output<string?> WorkforceName { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Workteam (must be unique).
@@ -241,8 +241,8 @@ namespace Pulumi.Aws.Sagemaker
         /// <summary>
         /// The name of the workforce.
         /// </summary>
-        [Input("workforceName", required: true)]
-        public Input<string> WorkforceName { get; set; } = null!;
+        [Input("workforceName")]
+        public Input<string>? WorkforceName { get; set; }
 
         /// <summary>
         /// The name of the Workteam (must be unique).

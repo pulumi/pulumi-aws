@@ -15,5 +15,6 @@ from .get_environment_blueprint import *
 from .glossary import *
 from .glossary_term import *
 from .project import *
+from .user_profile import *
 from ._inputs import *
 from . import outputs

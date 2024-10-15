@@ -330,6 +330,10 @@ namespace Pulumi.Aws.Ec2
         /// Private DNS name for the service.
         /// </summary>
         public readonly string PrivateDnsName;
+        /// <summary>
+        /// Private DNS names assigned to the VPC endpoint service.
+        /// </summary>
+        public readonly ImmutableArray<string> PrivateDnsNames;
         public readonly string? Service;
         /// <summary>
         /// ID of the endpoint service.
@@ -370,6 +374,8 @@ namespace Pulumi.Aws.Ec2
 
             string privateDnsName,
 
+            ImmutableArray<string> privateDnsNames,
+
             string? service,
 
             string serviceId,
@@ -393,6 +399,7 @@ namespace Pulumi.Aws.Ec2
             ManagesVpcEndpoints = managesVpcEndpoints;
             Owner = owner;
             PrivateDnsName = privateDnsName;
+            PrivateDnsNames = privateDnsNames;
             Service = service;
             ServiceId = serviceId;
             ServiceName = serviceName;

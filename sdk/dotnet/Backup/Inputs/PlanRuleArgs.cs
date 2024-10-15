@@ -67,6 +67,12 @@ namespace Pulumi.Aws.Backup.Inputs
         public Input<string>? Schedule { get; set; }
 
         /// <summary>
+        /// The timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
+        /// </summary>
+        [Input("scheduleExpressionTimezone")]
+        public Input<string>? ScheduleExpressionTimezone { get; set; }
+
+        /// <summary>
         /// The amount of time in minutes before beginning a backup.
         /// </summary>
         [Input("startWindow")]

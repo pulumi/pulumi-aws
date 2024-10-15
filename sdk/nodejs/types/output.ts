@@ -9829,6 +9829,7 @@ export namespace backup {
         recoveryPointTags?: {[key: string]: string};
         ruleName: string;
         schedule: string;
+        scheduleExpressionTimezone: string;
         startWindow: number;
         targetVaultName: string;
     }
@@ -9940,6 +9941,10 @@ export namespace backup {
          */
         schedule?: string;
         /**
+         * The timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
+         */
+        scheduleExpressionTimezone?: string;
+        /**
          * The amount of time in minutes before beginning a backup.
          */
         startWindow?: number;
@@ -10030,6 +10035,62 @@ export namespace backup {
          * Identifies the report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
          */
         reportTemplate: string;
+    }
+
+    export interface RestoreTestingPlanRecoveryPointSelection {
+        /**
+         * Specifies the algorithm used for selecting recovery points. Valid values are "RANDOM_WITHIN_WINDOW" and "LATEST_WITHIN_WINDOW".
+         */
+        algorithm: string;
+        /**
+         * Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to exclude all backup vaults.
+         */
+        excludeVaults: string[];
+        /**
+         * Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to include all backup vaults.
+         */
+        includeVaults: string[];
+        /**
+         * Specifies the types of recovery points to include in the selection. Valid values are "CONTINUOUS" and "SNAPSHOT".
+         */
+        recoveryPointTypes: string[];
+        /**
+         * Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
+         */
+        selectionWindowDays: number;
+    }
+
+    export interface RestoreTestingSelectionProtectedResourceConditions {
+        /**
+         * The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching.". See the structure for details
+         */
+        stringEquals?: outputs.backup.RestoreTestingSelectionProtectedResourceConditionsStringEqual[];
+        /**
+         * The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching.". See the structure for details
+         */
+        stringNotEquals?: outputs.backup.RestoreTestingSelectionProtectedResourceConditionsStringNotEqual[];
+    }
+
+    export interface RestoreTestingSelectionProtectedResourceConditionsStringEqual {
+        /**
+         * The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+         */
+        key: string;
+        /**
+         * The value of the Tag. Maximum length of 256.
+         */
+        value: string;
+    }
+
+    export interface RestoreTestingSelectionProtectedResourceConditionsStringNotEqual {
+        /**
+         * The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+         */
+        key: string;
+        /**
+         * The value of the Tag. Maximum length of 256.
+         */
+        value: string;
     }
 
     export interface SelectionCondition {
@@ -11966,6 +12027,59 @@ export namespace bedrock {
          * The name of the custom model.
          */
         modelName: string;
+    }
+
+    export interface GetInferenceProfileModel {
+        /**
+         * The Amazon Resource Name (ARN) of the model.
+         */
+        modelArn: string;
+    }
+
+    export interface GetInferenceProfilesInferenceProfileSummary {
+        /**
+         * The time at which the inference profile was created.
+         */
+        createdAt: string;
+        /**
+         * The description of the inference profile.
+         */
+        description: string;
+        /**
+         * The Amazon Resource Name (ARN) of the inference profile.
+         */
+        inferenceProfileArn: string;
+        /**
+         * The unique identifier of the inference profile.
+         */
+        inferenceProfileId: string;
+        /**
+         * The name of the inference profile.
+         */
+        inferenceProfileName: string;
+        /**
+         * A list of information about each model in the inference profile. See `models`.
+         */
+        models: outputs.bedrock.GetInferenceProfilesInferenceProfileSummaryModel[];
+        /**
+         * The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
+         */
+        status: string;
+        /**
+         * The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock.
+         */
+        type: string;
+        /**
+         * The time at which the inference profile was last updated.
+         */
+        updatedAt: string;
+    }
+
+    export interface GetInferenceProfilesInferenceProfileSummaryModel {
+        /**
+         * The Amazon Resource Name (ARN) of the model.
+         */
+        modelArn: string;
     }
 
     export interface GuardrailContentPolicyConfig {
@@ -19504,6 +19618,10 @@ export namespace config {
         /**
          * Use this to override the default service endpoint URL
          */
+        ssmquicksetup?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         ssmsap?: string;
         /**
          * Use this to override the default service endpoint URL
@@ -23765,6 +23883,32 @@ export namespace datazone {
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
          */
         delete?: string;
+    }
+
+    export interface UserProfileDetail {
+        iams: outputs.datazone.UserProfileDetailIam[];
+        ssos: outputs.datazone.UserProfileDetailSso[];
+    }
+
+    export interface UserProfileDetailIam {
+        arn: string;
+    }
+
+    export interface UserProfileDetailSso {
+        firstName: string;
+        lastName: string;
+        userName: string;
+    }
+
+    export interface UserProfileTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
     }
 
 }
@@ -33615,6 +33759,65 @@ export namespace elasticache {
         destinationType: string;
         logFormat: string;
         logType: string;
+    }
+
+    export interface GetServerlessCacheCacheUsageLimits {
+        /**
+         * The maximum data storage limit in the cache, expressed in Gigabytes. See `dataStorage` Block for details.
+         */
+        dataStorage: outputs.elasticache.GetServerlessCacheCacheUsageLimitsDataStorage;
+        /**
+         * The configured number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpuPerSecond` Block for details.
+         */
+        ecpuPerSecond: outputs.elasticache.GetServerlessCacheCacheUsageLimitsEcpuPerSecond;
+    }
+
+    export interface GetServerlessCacheCacheUsageLimitsDataStorage {
+        /**
+         * The maximum number of ECPUs the cache can consume per second.
+         */
+        maximum: number;
+        /**
+         * The minimum number of ECPUs the cache can consume per second.
+         */
+        minimum: number;
+        /**
+         * The unit that the storage is measured in.
+         */
+        unit: string;
+    }
+
+    export interface GetServerlessCacheCacheUsageLimitsEcpuPerSecond {
+        /**
+         * The maximum number of ECPUs the cache can consume per second.
+         */
+        maximum: number;
+        /**
+         * The minimum number of ECPUs the cache can consume per second.
+         */
+        minimum: number;
+    }
+
+    export interface GetServerlessCacheEndpoint {
+        /**
+         * The DNS hostname of the cache node.
+         */
+        address: string;
+        /**
+         * The port number that the cache engine is listening on. Set as integer.
+         */
+        port: number;
+    }
+
+    export interface GetServerlessCacheReaderEndpoint {
+        /**
+         * The DNS hostname of the cache node.
+         */
+        address: string;
+        /**
+         * The port number that the cache engine is listening on. Set as integer.
+         */
+        port: number;
     }
 
     export interface GetUserAuthenticationMode {
@@ -72479,6 +72682,25 @@ export namespace rolesanywhere {
 }
 
 export namespace route53 {
+    export interface GetProfilesProfilesProfile {
+        /**
+         * ARN of the Profile.
+         */
+        arn: string;
+        /**
+         * ID of the Profile.
+         */
+        id: string;
+        /**
+         * Name of the Profile.
+         */
+        name: string;
+        /**
+         * Share status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+         */
+        shareStatus: string;
+    }
+
     export interface GetQueryLogConfigFilter {
         /**
          * The name of the query logging configuration.
@@ -72718,6 +72940,51 @@ export namespace route53 {
         ruleReference?: string;
     }
 
+    export interface ProfilesAssociationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+         */
+        read?: string;
+    }
+
+    export interface ProfilesProfileTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+         */
+        read?: string;
+    }
+
+    export interface ProfilesResourceAssociationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+         */
+        read?: string;
+    }
+
     export interface RecordAlias {
         /**
          * Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [related part of documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health).
@@ -72806,12 +73073,16 @@ export namespace route53 {
 
     export interface ResolverEndpointIpAddress {
         /**
-         * The IP address in the subnet that you want to use for DNS queries.
+         * IPv4 address in the subnet that you want to use for DNS queries.
          */
         ip: string;
         ipId: string;
         /**
-         * The ID of the subnet that contains the IP address.
+         * IPv6 address in the subnet that you want to use for DNS queries.
+         */
+        ipv6: string;
+        /**
+         * ID of the subnet that contains the IP address.
          */
         subnetId: string;
     }
@@ -72820,13 +73091,17 @@ export namespace route53 {
         /**
          * One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
          */
-        ip: string;
+        ip?: string;
         /**
-         * The port at `ip` that you want to forward DNS queries to. Default value is `53`.
+         * One IPv6 address that you want to forward DNS queries to.
+         */
+        ipv6?: string;
+        /**
+         * Port at `ip` that you want to forward DNS queries to. Default value is `53`.
          */
         port?: number;
         /**
-         * The protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
+         * Protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
          */
         protocol?: string;
     }

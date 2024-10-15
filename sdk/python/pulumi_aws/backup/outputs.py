@@ -27,6 +27,10 @@ __all__ = [
     'PlanRuleLifecycle',
     'ReportPlanReportDeliveryChannel',
     'ReportPlanReportSetting',
+    'RestoreTestingPlanRecoveryPointSelection',
+    'RestoreTestingSelectionProtectedResourceConditions',
+    'RestoreTestingSelectionProtectedResourceConditionsStringEqual',
+    'RestoreTestingSelectionProtectedResourceConditionsStringNotEqual',
     'SelectionCondition',
     'SelectionConditionStringEqual',
     'SelectionConditionStringLike',
@@ -280,6 +284,8 @@ class PlanRule(dict):
             suggest = "enable_continuous_backup"
         elif key == "recoveryPointTags":
             suggest = "recovery_point_tags"
+        elif key == "scheduleExpressionTimezone":
+            suggest = "schedule_expression_timezone"
         elif key == "startWindow":
             suggest = "start_window"
 
@@ -303,6 +309,7 @@ class PlanRule(dict):
                  lifecycle: Optional['outputs.PlanRuleLifecycle'] = None,
                  recovery_point_tags: Optional[Mapping[str, str]] = None,
                  schedule: Optional[str] = None,
+                 schedule_expression_timezone: Optional[str] = None,
                  start_window: Optional[int] = None):
         """
         :param str rule_name: An display name for a backup rule.
@@ -313,6 +320,7 @@ class PlanRule(dict):
         :param 'PlanRuleLifecycleArgs' lifecycle: The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
         :param Mapping[str, str] recovery_point_tags: Metadata that you can assign to help organize the resources that you create.
         :param str schedule: A CRON expression specifying when AWS Backup initiates a backup job.
+        :param str schedule_expression_timezone: The timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
         :param int start_window: The amount of time in minutes before beginning a backup.
         """
         pulumi.set(__self__, "rule_name", rule_name)
@@ -329,6 +337,8 @@ class PlanRule(dict):
             pulumi.set(__self__, "recovery_point_tags", recovery_point_tags)
         if schedule is not None:
             pulumi.set(__self__, "schedule", schedule)
+        if schedule_expression_timezone is not None:
+            pulumi.set(__self__, "schedule_expression_timezone", schedule_expression_timezone)
         if start_window is not None:
             pulumi.set(__self__, "start_window", start_window)
 
@@ -395,6 +405,14 @@ class PlanRule(dict):
         A CRON expression specifying when AWS Backup initiates a backup job.
         """
         return pulumi.get(self, "schedule")
+
+    @property
+    @pulumi.getter(name="scheduleExpressionTimezone")
+    def schedule_expression_timezone(self) -> Optional[str]:
+        """
+        The timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
+        """
+        return pulumi.get(self, "schedule_expression_timezone")
 
     @property
     @pulumi.getter(name="startWindow")
@@ -743,6 +761,201 @@ class ReportPlanReportSetting(dict):
 
 
 @pulumi.output_type
+class RestoreTestingPlanRecoveryPointSelection(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeVaults":
+            suggest = "include_vaults"
+        elif key == "recoveryPointTypes":
+            suggest = "recovery_point_types"
+        elif key == "excludeVaults":
+            suggest = "exclude_vaults"
+        elif key == "selectionWindowDays":
+            suggest = "selection_window_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RestoreTestingPlanRecoveryPointSelection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RestoreTestingPlanRecoveryPointSelection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RestoreTestingPlanRecoveryPointSelection.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 algorithm: str,
+                 include_vaults: Sequence[str],
+                 recovery_point_types: Sequence[str],
+                 exclude_vaults: Optional[Sequence[str]] = None,
+                 selection_window_days: Optional[int] = None):
+        """
+        :param str algorithm: Specifies the algorithm used for selecting recovery points. Valid values are "RANDOM_WITHIN_WINDOW" and "LATEST_WITHIN_WINDOW".
+        :param Sequence[str] include_vaults: Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to include all backup vaults.
+        :param Sequence[str] recovery_point_types: Specifies the types of recovery points to include in the selection. Valid values are "CONTINUOUS" and "SNAPSHOT".
+        :param Sequence[str] exclude_vaults: Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to exclude all backup vaults.
+        :param int selection_window_days: Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
+        """
+        pulumi.set(__self__, "algorithm", algorithm)
+        pulumi.set(__self__, "include_vaults", include_vaults)
+        pulumi.set(__self__, "recovery_point_types", recovery_point_types)
+        if exclude_vaults is not None:
+            pulumi.set(__self__, "exclude_vaults", exclude_vaults)
+        if selection_window_days is not None:
+            pulumi.set(__self__, "selection_window_days", selection_window_days)
+
+    @property
+    @pulumi.getter
+    def algorithm(self) -> str:
+        """
+        Specifies the algorithm used for selecting recovery points. Valid values are "RANDOM_WITHIN_WINDOW" and "LATEST_WITHIN_WINDOW".
+        """
+        return pulumi.get(self, "algorithm")
+
+    @property
+    @pulumi.getter(name="includeVaults")
+    def include_vaults(self) -> Sequence[str]:
+        """
+        Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to include all backup vaults.
+        """
+        return pulumi.get(self, "include_vaults")
+
+    @property
+    @pulumi.getter(name="recoveryPointTypes")
+    def recovery_point_types(self) -> Sequence[str]:
+        """
+        Specifies the types of recovery points to include in the selection. Valid values are "CONTINUOUS" and "SNAPSHOT".
+        """
+        return pulumi.get(self, "recovery_point_types")
+
+    @property
+    @pulumi.getter(name="excludeVaults")
+    def exclude_vaults(self) -> Optional[Sequence[str]]:
+        """
+        Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to exclude all backup vaults.
+        """
+        return pulumi.get(self, "exclude_vaults")
+
+    @property
+    @pulumi.getter(name="selectionWindowDays")
+    def selection_window_days(self) -> Optional[int]:
+        """
+        Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
+        """
+        return pulumi.get(self, "selection_window_days")
+
+
+@pulumi.output_type
+class RestoreTestingSelectionProtectedResourceConditions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "stringEquals":
+            suggest = "string_equals"
+        elif key == "stringNotEquals":
+            suggest = "string_not_equals"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RestoreTestingSelectionProtectedResourceConditions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RestoreTestingSelectionProtectedResourceConditions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RestoreTestingSelectionProtectedResourceConditions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 string_equals: Optional[Sequence['outputs.RestoreTestingSelectionProtectedResourceConditionsStringEqual']] = None,
+                 string_not_equals: Optional[Sequence['outputs.RestoreTestingSelectionProtectedResourceConditionsStringNotEqual']] = None):
+        """
+        :param Sequence['RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs'] string_equals: The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching.". See the structure for details
+        :param Sequence['RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs'] string_not_equals: The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching.". See the structure for details
+        """
+        if string_equals is not None:
+            pulumi.set(__self__, "string_equals", string_equals)
+        if string_not_equals is not None:
+            pulumi.set(__self__, "string_not_equals", string_not_equals)
+
+    @property
+    @pulumi.getter(name="stringEquals")
+    def string_equals(self) -> Optional[Sequence['outputs.RestoreTestingSelectionProtectedResourceConditionsStringEqual']]:
+        """
+        The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching.". See the structure for details
+        """
+        return pulumi.get(self, "string_equals")
+
+    @property
+    @pulumi.getter(name="stringNotEquals")
+    def string_not_equals(self) -> Optional[Sequence['outputs.RestoreTestingSelectionProtectedResourceConditionsStringNotEqual']]:
+        """
+        The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching.". See the structure for details
+        """
+        return pulumi.get(self, "string_not_equals")
+
+
+@pulumi.output_type
+class RestoreTestingSelectionProtectedResourceConditionsStringEqual(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        :param str key: The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+        :param str value: The value of the Tag. Maximum length of 256.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the Tag. Maximum length of 256.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class RestoreTestingSelectionProtectedResourceConditionsStringNotEqual(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        :param str key: The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+        :param str value: The value of the Tag. Maximum length of 256.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the Tag. Maximum length of 256.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class SelectionCondition(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1076,6 +1289,7 @@ class GetPlanRuleResult(dict):
                  lifecycles: Sequence['outputs.GetPlanRuleLifecycleResult'],
                  rule_name: str,
                  schedule: str,
+                 schedule_expression_timezone: str,
                  start_window: int,
                  target_vault_name: str,
                  recovery_point_tags: Optional[Mapping[str, str]] = None):
@@ -1085,6 +1299,7 @@ class GetPlanRuleResult(dict):
         pulumi.set(__self__, "lifecycles", lifecycles)
         pulumi.set(__self__, "rule_name", rule_name)
         pulumi.set(__self__, "schedule", schedule)
+        pulumi.set(__self__, "schedule_expression_timezone", schedule_expression_timezone)
         pulumi.set(__self__, "start_window", start_window)
         pulumi.set(__self__, "target_vault_name", target_vault_name)
         if recovery_point_tags is not None:
@@ -1119,6 +1334,11 @@ class GetPlanRuleResult(dict):
     @pulumi.getter
     def schedule(self) -> str:
         return pulumi.get(self, "schedule")
+
+    @property
+    @pulumi.getter(name="scheduleExpressionTimezone")
+    def schedule_expression_timezone(self) -> str:
+        return pulumi.get(self, "schedule_expression_timezone")
 
     @property
     @pulumi.getter(name="startWindow")

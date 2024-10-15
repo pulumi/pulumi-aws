@@ -52,6 +52,11 @@ public final class GetElasticIpResult {
      */
     private String instanceId;
     /**
+     * @return The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
+     * 
+     */
+    private String ipamPoolId;
+    /**
      * @return The ID of the network interface.
      * 
      */
@@ -154,6 +159,13 @@ public final class GetElasticIpResult {
         return this.instanceId;
     }
     /**
+     * @return The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
+     * 
+     */
+    public String ipamPoolId() {
+        return this.ipamPoolId;
+    }
+    /**
      * @return The ID of the network interface.
      * 
      */
@@ -235,6 +247,7 @@ public final class GetElasticIpResult {
         private @Nullable List<GetElasticIpFilter> filters;
         private String id;
         private String instanceId;
+        private String ipamPoolId;
         private String networkInterfaceId;
         private String networkInterfaceOwnerId;
         private String privateDns;
@@ -256,6 +269,7 @@ public final class GetElasticIpResult {
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.instanceId = defaults.instanceId;
+    	      this.ipamPoolId = defaults.ipamPoolId;
     	      this.networkInterfaceId = defaults.networkInterfaceId;
     	      this.networkInterfaceOwnerId = defaults.networkInterfaceOwnerId;
     	      this.privateDns = defaults.privateDns;
@@ -341,6 +355,14 @@ public final class GetElasticIpResult {
             return this;
         }
         @CustomType.Setter
+        public Builder ipamPoolId(String ipamPoolId) {
+            if (ipamPoolId == null) {
+              throw new MissingRequiredPropertyException("GetElasticIpResult", "ipamPoolId");
+            }
+            this.ipamPoolId = ipamPoolId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder networkInterfaceId(String networkInterfaceId) {
             if (networkInterfaceId == null) {
               throw new MissingRequiredPropertyException("GetElasticIpResult", "networkInterfaceId");
@@ -423,6 +445,7 @@ public final class GetElasticIpResult {
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.instanceId = instanceId;
+            _resultValue.ipamPoolId = ipamPoolId;
             _resultValue.networkInterfaceId = networkInterfaceId;
             _resultValue.networkInterfaceOwnerId = networkInterfaceOwnerId;
             _resultValue.privateDns = privateDns;

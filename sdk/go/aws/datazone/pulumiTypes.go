@@ -2228,6 +2228,462 @@ func (o ProjectTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type UserProfileDetail struct {
+	Iams []UserProfileDetailIam `pulumi:"iams"`
+	Ssos []UserProfileDetailSso `pulumi:"ssos"`
+}
+
+// UserProfileDetailInput is an input type that accepts UserProfileDetailArgs and UserProfileDetailOutput values.
+// You can construct a concrete instance of `UserProfileDetailInput` via:
+//
+//	UserProfileDetailArgs{...}
+type UserProfileDetailInput interface {
+	pulumi.Input
+
+	ToUserProfileDetailOutput() UserProfileDetailOutput
+	ToUserProfileDetailOutputWithContext(context.Context) UserProfileDetailOutput
+}
+
+type UserProfileDetailArgs struct {
+	Iams UserProfileDetailIamArrayInput `pulumi:"iams"`
+	Ssos UserProfileDetailSsoArrayInput `pulumi:"ssos"`
+}
+
+func (UserProfileDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileDetail)(nil)).Elem()
+}
+
+func (i UserProfileDetailArgs) ToUserProfileDetailOutput() UserProfileDetailOutput {
+	return i.ToUserProfileDetailOutputWithContext(context.Background())
+}
+
+func (i UserProfileDetailArgs) ToUserProfileDetailOutputWithContext(ctx context.Context) UserProfileDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileDetailOutput)
+}
+
+// UserProfileDetailArrayInput is an input type that accepts UserProfileDetailArray and UserProfileDetailArrayOutput values.
+// You can construct a concrete instance of `UserProfileDetailArrayInput` via:
+//
+//	UserProfileDetailArray{ UserProfileDetailArgs{...} }
+type UserProfileDetailArrayInput interface {
+	pulumi.Input
+
+	ToUserProfileDetailArrayOutput() UserProfileDetailArrayOutput
+	ToUserProfileDetailArrayOutputWithContext(context.Context) UserProfileDetailArrayOutput
+}
+
+type UserProfileDetailArray []UserProfileDetailInput
+
+func (UserProfileDetailArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileDetail)(nil)).Elem()
+}
+
+func (i UserProfileDetailArray) ToUserProfileDetailArrayOutput() UserProfileDetailArrayOutput {
+	return i.ToUserProfileDetailArrayOutputWithContext(context.Background())
+}
+
+func (i UserProfileDetailArray) ToUserProfileDetailArrayOutputWithContext(ctx context.Context) UserProfileDetailArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileDetailArrayOutput)
+}
+
+type UserProfileDetailOutput struct{ *pulumi.OutputState }
+
+func (UserProfileDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileDetail)(nil)).Elem()
+}
+
+func (o UserProfileDetailOutput) ToUserProfileDetailOutput() UserProfileDetailOutput {
+	return o
+}
+
+func (o UserProfileDetailOutput) ToUserProfileDetailOutputWithContext(ctx context.Context) UserProfileDetailOutput {
+	return o
+}
+
+func (o UserProfileDetailOutput) Iams() UserProfileDetailIamArrayOutput {
+	return o.ApplyT(func(v UserProfileDetail) []UserProfileDetailIam { return v.Iams }).(UserProfileDetailIamArrayOutput)
+}
+
+func (o UserProfileDetailOutput) Ssos() UserProfileDetailSsoArrayOutput {
+	return o.ApplyT(func(v UserProfileDetail) []UserProfileDetailSso { return v.Ssos }).(UserProfileDetailSsoArrayOutput)
+}
+
+type UserProfileDetailArrayOutput struct{ *pulumi.OutputState }
+
+func (UserProfileDetailArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileDetail)(nil)).Elem()
+}
+
+func (o UserProfileDetailArrayOutput) ToUserProfileDetailArrayOutput() UserProfileDetailArrayOutput {
+	return o
+}
+
+func (o UserProfileDetailArrayOutput) ToUserProfileDetailArrayOutputWithContext(ctx context.Context) UserProfileDetailArrayOutput {
+	return o
+}
+
+func (o UserProfileDetailArrayOutput) Index(i pulumi.IntInput) UserProfileDetailOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserProfileDetail {
+		return vs[0].([]UserProfileDetail)[vs[1].(int)]
+	}).(UserProfileDetailOutput)
+}
+
+type UserProfileDetailIam struct {
+	Arn string `pulumi:"arn"`
+}
+
+// UserProfileDetailIamInput is an input type that accepts UserProfileDetailIamArgs and UserProfileDetailIamOutput values.
+// You can construct a concrete instance of `UserProfileDetailIamInput` via:
+//
+//	UserProfileDetailIamArgs{...}
+type UserProfileDetailIamInput interface {
+	pulumi.Input
+
+	ToUserProfileDetailIamOutput() UserProfileDetailIamOutput
+	ToUserProfileDetailIamOutputWithContext(context.Context) UserProfileDetailIamOutput
+}
+
+type UserProfileDetailIamArgs struct {
+	Arn pulumi.StringInput `pulumi:"arn"`
+}
+
+func (UserProfileDetailIamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileDetailIam)(nil)).Elem()
+}
+
+func (i UserProfileDetailIamArgs) ToUserProfileDetailIamOutput() UserProfileDetailIamOutput {
+	return i.ToUserProfileDetailIamOutputWithContext(context.Background())
+}
+
+func (i UserProfileDetailIamArgs) ToUserProfileDetailIamOutputWithContext(ctx context.Context) UserProfileDetailIamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileDetailIamOutput)
+}
+
+// UserProfileDetailIamArrayInput is an input type that accepts UserProfileDetailIamArray and UserProfileDetailIamArrayOutput values.
+// You can construct a concrete instance of `UserProfileDetailIamArrayInput` via:
+//
+//	UserProfileDetailIamArray{ UserProfileDetailIamArgs{...} }
+type UserProfileDetailIamArrayInput interface {
+	pulumi.Input
+
+	ToUserProfileDetailIamArrayOutput() UserProfileDetailIamArrayOutput
+	ToUserProfileDetailIamArrayOutputWithContext(context.Context) UserProfileDetailIamArrayOutput
+}
+
+type UserProfileDetailIamArray []UserProfileDetailIamInput
+
+func (UserProfileDetailIamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileDetailIam)(nil)).Elem()
+}
+
+func (i UserProfileDetailIamArray) ToUserProfileDetailIamArrayOutput() UserProfileDetailIamArrayOutput {
+	return i.ToUserProfileDetailIamArrayOutputWithContext(context.Background())
+}
+
+func (i UserProfileDetailIamArray) ToUserProfileDetailIamArrayOutputWithContext(ctx context.Context) UserProfileDetailIamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileDetailIamArrayOutput)
+}
+
+type UserProfileDetailIamOutput struct{ *pulumi.OutputState }
+
+func (UserProfileDetailIamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileDetailIam)(nil)).Elem()
+}
+
+func (o UserProfileDetailIamOutput) ToUserProfileDetailIamOutput() UserProfileDetailIamOutput {
+	return o
+}
+
+func (o UserProfileDetailIamOutput) ToUserProfileDetailIamOutputWithContext(ctx context.Context) UserProfileDetailIamOutput {
+	return o
+}
+
+func (o UserProfileDetailIamOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v UserProfileDetailIam) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+type UserProfileDetailIamArrayOutput struct{ *pulumi.OutputState }
+
+func (UserProfileDetailIamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileDetailIam)(nil)).Elem()
+}
+
+func (o UserProfileDetailIamArrayOutput) ToUserProfileDetailIamArrayOutput() UserProfileDetailIamArrayOutput {
+	return o
+}
+
+func (o UserProfileDetailIamArrayOutput) ToUserProfileDetailIamArrayOutputWithContext(ctx context.Context) UserProfileDetailIamArrayOutput {
+	return o
+}
+
+func (o UserProfileDetailIamArrayOutput) Index(i pulumi.IntInput) UserProfileDetailIamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserProfileDetailIam {
+		return vs[0].([]UserProfileDetailIam)[vs[1].(int)]
+	}).(UserProfileDetailIamOutput)
+}
+
+type UserProfileDetailSso struct {
+	FirstName string `pulumi:"firstName"`
+	LastName  string `pulumi:"lastName"`
+	UserName  string `pulumi:"userName"`
+}
+
+// UserProfileDetailSsoInput is an input type that accepts UserProfileDetailSsoArgs and UserProfileDetailSsoOutput values.
+// You can construct a concrete instance of `UserProfileDetailSsoInput` via:
+//
+//	UserProfileDetailSsoArgs{...}
+type UserProfileDetailSsoInput interface {
+	pulumi.Input
+
+	ToUserProfileDetailSsoOutput() UserProfileDetailSsoOutput
+	ToUserProfileDetailSsoOutputWithContext(context.Context) UserProfileDetailSsoOutput
+}
+
+type UserProfileDetailSsoArgs struct {
+	FirstName pulumi.StringInput `pulumi:"firstName"`
+	LastName  pulumi.StringInput `pulumi:"lastName"`
+	UserName  pulumi.StringInput `pulumi:"userName"`
+}
+
+func (UserProfileDetailSsoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileDetailSso)(nil)).Elem()
+}
+
+func (i UserProfileDetailSsoArgs) ToUserProfileDetailSsoOutput() UserProfileDetailSsoOutput {
+	return i.ToUserProfileDetailSsoOutputWithContext(context.Background())
+}
+
+func (i UserProfileDetailSsoArgs) ToUserProfileDetailSsoOutputWithContext(ctx context.Context) UserProfileDetailSsoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileDetailSsoOutput)
+}
+
+// UserProfileDetailSsoArrayInput is an input type that accepts UserProfileDetailSsoArray and UserProfileDetailSsoArrayOutput values.
+// You can construct a concrete instance of `UserProfileDetailSsoArrayInput` via:
+//
+//	UserProfileDetailSsoArray{ UserProfileDetailSsoArgs{...} }
+type UserProfileDetailSsoArrayInput interface {
+	pulumi.Input
+
+	ToUserProfileDetailSsoArrayOutput() UserProfileDetailSsoArrayOutput
+	ToUserProfileDetailSsoArrayOutputWithContext(context.Context) UserProfileDetailSsoArrayOutput
+}
+
+type UserProfileDetailSsoArray []UserProfileDetailSsoInput
+
+func (UserProfileDetailSsoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileDetailSso)(nil)).Elem()
+}
+
+func (i UserProfileDetailSsoArray) ToUserProfileDetailSsoArrayOutput() UserProfileDetailSsoArrayOutput {
+	return i.ToUserProfileDetailSsoArrayOutputWithContext(context.Background())
+}
+
+func (i UserProfileDetailSsoArray) ToUserProfileDetailSsoArrayOutputWithContext(ctx context.Context) UserProfileDetailSsoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileDetailSsoArrayOutput)
+}
+
+type UserProfileDetailSsoOutput struct{ *pulumi.OutputState }
+
+func (UserProfileDetailSsoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileDetailSso)(nil)).Elem()
+}
+
+func (o UserProfileDetailSsoOutput) ToUserProfileDetailSsoOutput() UserProfileDetailSsoOutput {
+	return o
+}
+
+func (o UserProfileDetailSsoOutput) ToUserProfileDetailSsoOutputWithContext(ctx context.Context) UserProfileDetailSsoOutput {
+	return o
+}
+
+func (o UserProfileDetailSsoOutput) FirstName() pulumi.StringOutput {
+	return o.ApplyT(func(v UserProfileDetailSso) string { return v.FirstName }).(pulumi.StringOutput)
+}
+
+func (o UserProfileDetailSsoOutput) LastName() pulumi.StringOutput {
+	return o.ApplyT(func(v UserProfileDetailSso) string { return v.LastName }).(pulumi.StringOutput)
+}
+
+func (o UserProfileDetailSsoOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v UserProfileDetailSso) string { return v.UserName }).(pulumi.StringOutput)
+}
+
+type UserProfileDetailSsoArrayOutput struct{ *pulumi.OutputState }
+
+func (UserProfileDetailSsoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileDetailSso)(nil)).Elem()
+}
+
+func (o UserProfileDetailSsoArrayOutput) ToUserProfileDetailSsoArrayOutput() UserProfileDetailSsoArrayOutput {
+	return o
+}
+
+func (o UserProfileDetailSsoArrayOutput) ToUserProfileDetailSsoArrayOutputWithContext(ctx context.Context) UserProfileDetailSsoArrayOutput {
+	return o
+}
+
+func (o UserProfileDetailSsoArrayOutput) Index(i pulumi.IntInput) UserProfileDetailSsoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserProfileDetailSso {
+		return vs[0].([]UserProfileDetailSso)[vs[1].(int)]
+	}).(UserProfileDetailSsoOutput)
+}
+
+type UserProfileTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// UserProfileTimeoutsInput is an input type that accepts UserProfileTimeoutsArgs and UserProfileTimeoutsOutput values.
+// You can construct a concrete instance of `UserProfileTimeoutsInput` via:
+//
+//	UserProfileTimeoutsArgs{...}
+type UserProfileTimeoutsInput interface {
+	pulumi.Input
+
+	ToUserProfileTimeoutsOutput() UserProfileTimeoutsOutput
+	ToUserProfileTimeoutsOutputWithContext(context.Context) UserProfileTimeoutsOutput
+}
+
+type UserProfileTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (UserProfileTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileTimeouts)(nil)).Elem()
+}
+
+func (i UserProfileTimeoutsArgs) ToUserProfileTimeoutsOutput() UserProfileTimeoutsOutput {
+	return i.ToUserProfileTimeoutsOutputWithContext(context.Background())
+}
+
+func (i UserProfileTimeoutsArgs) ToUserProfileTimeoutsOutputWithContext(ctx context.Context) UserProfileTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileTimeoutsOutput)
+}
+
+func (i UserProfileTimeoutsArgs) ToUserProfileTimeoutsPtrOutput() UserProfileTimeoutsPtrOutput {
+	return i.ToUserProfileTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileTimeoutsArgs) ToUserProfileTimeoutsPtrOutputWithContext(ctx context.Context) UserProfileTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileTimeoutsOutput).ToUserProfileTimeoutsPtrOutputWithContext(ctx)
+}
+
+// UserProfileTimeoutsPtrInput is an input type that accepts UserProfileTimeoutsArgs, UserProfileTimeoutsPtr and UserProfileTimeoutsPtrOutput values.
+// You can construct a concrete instance of `UserProfileTimeoutsPtrInput` via:
+//
+//	        UserProfileTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserProfileTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileTimeoutsPtrOutput() UserProfileTimeoutsPtrOutput
+	ToUserProfileTimeoutsPtrOutputWithContext(context.Context) UserProfileTimeoutsPtrOutput
+}
+
+type userProfileTimeoutsPtrType UserProfileTimeoutsArgs
+
+func UserProfileTimeoutsPtr(v *UserProfileTimeoutsArgs) UserProfileTimeoutsPtrInput {
+	return (*userProfileTimeoutsPtrType)(v)
+}
+
+func (*userProfileTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileTimeouts)(nil)).Elem()
+}
+
+func (i *userProfileTimeoutsPtrType) ToUserProfileTimeoutsPtrOutput() UserProfileTimeoutsPtrOutput {
+	return i.ToUserProfileTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileTimeoutsPtrType) ToUserProfileTimeoutsPtrOutputWithContext(ctx context.Context) UserProfileTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileTimeoutsPtrOutput)
+}
+
+type UserProfileTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileTimeouts)(nil)).Elem()
+}
+
+func (o UserProfileTimeoutsOutput) ToUserProfileTimeoutsOutput() UserProfileTimeoutsOutput {
+	return o
+}
+
+func (o UserProfileTimeoutsOutput) ToUserProfileTimeoutsOutputWithContext(ctx context.Context) UserProfileTimeoutsOutput {
+	return o
+}
+
+func (o UserProfileTimeoutsOutput) ToUserProfileTimeoutsPtrOutput() UserProfileTimeoutsPtrOutput {
+	return o.ToUserProfileTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileTimeoutsOutput) ToUserProfileTimeoutsPtrOutputWithContext(ctx context.Context) UserProfileTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileTimeouts) *UserProfileTimeouts {
+		return &v
+	}).(UserProfileTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o UserProfileTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o UserProfileTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type UserProfileTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileTimeouts)(nil)).Elem()
+}
+
+func (o UserProfileTimeoutsPtrOutput) ToUserProfileTimeoutsPtrOutput() UserProfileTimeoutsPtrOutput {
+	return o
+}
+
+func (o UserProfileTimeoutsPtrOutput) ToUserProfileTimeoutsPtrOutputWithContext(ctx context.Context) UserProfileTimeoutsPtrOutput {
+	return o
+}
+
+func (o UserProfileTimeoutsPtrOutput) Elem() UserProfileTimeoutsOutput {
+	return o.ApplyT(func(v *UserProfileTimeouts) UserProfileTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileTimeouts
+		return ret
+	}).(UserProfileTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o UserProfileTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o UserProfileTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetTypeFormsInputInput)(nil)).Elem(), AssetTypeFormsInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetTypeFormsInputArrayInput)(nil)).Elem(), AssetTypeFormsInputArray{})
@@ -2263,6 +2719,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectFailureReasonArrayInput)(nil)).Elem(), ProjectFailureReasonArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTimeoutsInput)(nil)).Elem(), ProjectTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTimeoutsPtrInput)(nil)).Elem(), ProjectTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileDetailInput)(nil)).Elem(), UserProfileDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileDetailArrayInput)(nil)).Elem(), UserProfileDetailArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileDetailIamInput)(nil)).Elem(), UserProfileDetailIamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileDetailIamArrayInput)(nil)).Elem(), UserProfileDetailIamArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileDetailSsoInput)(nil)).Elem(), UserProfileDetailSsoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileDetailSsoArrayInput)(nil)).Elem(), UserProfileDetailSsoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileTimeoutsInput)(nil)).Elem(), UserProfileTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileTimeoutsPtrInput)(nil)).Elem(), UserProfileTimeoutsArgs{})
 	pulumi.RegisterOutputType(AssetTypeFormsInputOutput{})
 	pulumi.RegisterOutputType(AssetTypeFormsInputArrayOutput{})
 	pulumi.RegisterOutputType(AssetTypeTimeoutsOutput{})
@@ -2297,4 +2761,12 @@ func init() {
 	pulumi.RegisterOutputType(ProjectFailureReasonArrayOutput{})
 	pulumi.RegisterOutputType(ProjectTimeoutsOutput{})
 	pulumi.RegisterOutputType(ProjectTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileDetailOutput{})
+	pulumi.RegisterOutputType(UserProfileDetailArrayOutput{})
+	pulumi.RegisterOutputType(UserProfileDetailIamOutput{})
+	pulumi.RegisterOutputType(UserProfileDetailIamArrayOutput{})
+	pulumi.RegisterOutputType(UserProfileDetailSsoOutput{})
+	pulumi.RegisterOutputType(UserProfileDetailSsoArrayOutput{})
+	pulumi.RegisterOutputType(UserProfileTimeoutsOutput{})
+	pulumi.RegisterOutputType(UserProfileTimeoutsPtrOutput{})
 }

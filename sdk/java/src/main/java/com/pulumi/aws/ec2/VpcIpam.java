@@ -152,6 +152,20 @@ public class VpcIpam extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
+     * Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
+     * 
+     */
+    @Export(name="enablePrivateGua", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> enablePrivateGua;
+
+    /**
+     * @return Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> enablePrivateGua() {
+        return Codegen.optional(this.enablePrivateGua);
+    }
+    /**
      * Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
      * 
      */

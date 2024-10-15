@@ -129,6 +129,10 @@ export interface GetElasticIpResult {
      */
     readonly instanceId: string;
     /**
+     * The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
+     */
+    readonly ipamPoolId: string;
+    /**
      * The ID of the network interface.
      */
     readonly networkInterfaceId: string;

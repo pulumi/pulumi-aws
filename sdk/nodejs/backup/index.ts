@@ -60,6 +60,16 @@ export type ReportPlan = import("./reportPlan").ReportPlan;
 export const ReportPlan: typeof import("./reportPlan").ReportPlan = null as any;
 utilities.lazyLoad(exports, ["ReportPlan"], () => require("./reportPlan"));
 
+export { RestoreTestingPlanArgs, RestoreTestingPlanState } from "./restoreTestingPlan";
+export type RestoreTestingPlan = import("./restoreTestingPlan").RestoreTestingPlan;
+export const RestoreTestingPlan: typeof import("./restoreTestingPlan").RestoreTestingPlan = null as any;
+utilities.lazyLoad(exports, ["RestoreTestingPlan"], () => require("./restoreTestingPlan"));
+
+export { RestoreTestingSelectionArgs, RestoreTestingSelectionState } from "./restoreTestingSelection";
+export type RestoreTestingSelection = import("./restoreTestingSelection").RestoreTestingSelection;
+export const RestoreTestingSelection: typeof import("./restoreTestingSelection").RestoreTestingSelection = null as any;
+utilities.lazyLoad(exports, ["RestoreTestingSelection"], () => require("./restoreTestingSelection"));
+
 export { SelectionArgs, SelectionState } from "./selection";
 export type Selection = import("./selection").Selection;
 export const Selection: typeof import("./selection").Selection = null as any;
@@ -102,6 +112,10 @@ const _module = {
                 return new RegionSettings(name, <any>undefined, { urn })
             case "aws:backup/reportPlan:ReportPlan":
                 return new ReportPlan(name, <any>undefined, { urn })
+            case "aws:backup/restoreTestingPlan:RestoreTestingPlan":
+                return new RestoreTestingPlan(name, <any>undefined, { urn })
+            case "aws:backup/restoreTestingSelection:RestoreTestingSelection":
+                return new RestoreTestingSelection(name, <any>undefined, { urn })
             case "aws:backup/selection:Selection":
                 return new Selection(name, <any>undefined, { urn })
             case "aws:backup/vault:Vault":
@@ -123,6 +137,8 @@ pulumi.runtime.registerResourceModule("aws", "backup/logicallyAirGappedVault", _
 pulumi.runtime.registerResourceModule("aws", "backup/plan", _module)
 pulumi.runtime.registerResourceModule("aws", "backup/regionSettings", _module)
 pulumi.runtime.registerResourceModule("aws", "backup/reportPlan", _module)
+pulumi.runtime.registerResourceModule("aws", "backup/restoreTestingPlan", _module)
+pulumi.runtime.registerResourceModule("aws", "backup/restoreTestingSelection", _module)
 pulumi.runtime.registerResourceModule("aws", "backup/selection", _module)
 pulumi.runtime.registerResourceModule("aws", "backup/vault", _module)
 pulumi.runtime.registerResourceModule("aws", "backup/vaultLockConfiguration", _module)

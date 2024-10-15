@@ -101,6 +101,49 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### IPv6 Forward rule
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.route53.ResolverRule;
+ * import com.pulumi.aws.route53.ResolverRuleArgs;
+ * import com.pulumi.aws.route53.inputs.ResolverRuleTargetIpArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var fwd = new ResolverRule("fwd", ResolverRuleArgs.builder()
+ *             .domainName("example.com")
+ *             .name("example")
+ *             .ruleType("FORWARD")
+ *             .resolverEndpointId(foo.id())
+ *             .targetIps(ResolverRuleTargetIpArgs.builder()
+ *                 .ipv6("2600:1f18:1686:2000:4e60:6e3e:258:da36")
+ *                 .build())
+ *             .tags(Map.of("Environment", "Prod"))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Route53 Resolver rules using the `id`. For example:
@@ -113,14 +156,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:route53/resolverRule:ResolverRule")
 public class ResolverRule extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN (Amazon Resource Name) for the resolver rule.
+     * ARN (Amazon Resource Name) for the resolver rule.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN (Amazon Resource Name) for the resolver rule.
+     * @return ARN (Amazon Resource Name) for the resolver rule.
      * 
      */
     public Output<String> arn() {
@@ -141,14 +184,14 @@ public class ResolverRule extends com.pulumi.resources.CustomResource {
         return this.domainName;
     }
     /**
-     * A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
+     * Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
+     * @return Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
      * 
      */
     public Output<String> name() {
@@ -169,7 +212,7 @@ public class ResolverRule extends com.pulumi.resources.CustomResource {
         return this.ownerId;
     }
     /**
-     * The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
+     * ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
      * This argument should only be specified for `FORWARD` type rules.
      * 
      */
@@ -177,7 +220,7 @@ public class ResolverRule extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> resolverEndpointId;
 
     /**
-     * @return The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
+     * @return ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
      * This argument should only be specified for `FORWARD` type rules.
      * 
      */
@@ -185,14 +228,14 @@ public class ResolverRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.resolverEndpointId);
     }
     /**
-     * The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+     * Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
      * 
      */
     @Export(name="ruleType", refs={String.class}, tree="[0]")
     private Output<String> ruleType;
 
     /**
-     * @return The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+     * @return Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
      * 
      */
     public Output<String> ruleType() {
@@ -215,21 +258,21 @@ public class ResolverRule extends com.pulumi.resources.CustomResource {
         return this.shareStatus;
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      * @deprecated
      * Please use `tags` instead.
@@ -240,7 +283,7 @@ public class ResolverRule extends com.pulumi.resources.CustomResource {
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

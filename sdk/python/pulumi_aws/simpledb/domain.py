@@ -72,7 +72,9 @@ class Domain(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a SimpleDB domain resource
+        Provides a SimpleDB domain resource.
+
+        !> **WARNING:** The `simpledb.Domain` resource has been deprecated and will be removed in a future version. Use Amazon DynamoDB instead.
 
         ## Example Usage
 
@@ -102,7 +104,9 @@ class Domain(pulumi.CustomResource):
                  args: Optional[DomainArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SimpleDB domain resource
+        Provides a SimpleDB domain resource.
+
+        !> **WARNING:** The `simpledb.Domain` resource has been deprecated and will be removed in a future version. Use Amazon DynamoDB instead.
 
         ## Example Usage
 

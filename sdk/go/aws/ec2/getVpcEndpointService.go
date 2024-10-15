@@ -161,8 +161,10 @@ type LookupVpcEndpointServiceResult struct {
 	// AWS account ID of the service owner or `amazon`.
 	Owner string `pulumi:"owner"`
 	// Private DNS name for the service.
-	PrivateDnsName string  `pulumi:"privateDnsName"`
-	Service        *string `pulumi:"service"`
+	PrivateDnsName string `pulumi:"privateDnsName"`
+	// Private DNS names assigned to the VPC endpoint service.
+	PrivateDnsNames []string `pulumi:"privateDnsNames"`
+	Service         *string  `pulumi:"service"`
 	// ID of the endpoint service.
 	ServiceId   string `pulumi:"serviceId"`
 	ServiceName string `pulumi:"serviceName"`
@@ -271,6 +273,11 @@ func (o LookupVpcEndpointServiceResultOutput) Owner() pulumi.StringOutput {
 // Private DNS name for the service.
 func (o LookupVpcEndpointServiceResultOutput) PrivateDnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcEndpointServiceResult) string { return v.PrivateDnsName }).(pulumi.StringOutput)
+}
+
+// Private DNS names assigned to the VPC endpoint service.
+func (o LookupVpcEndpointServiceResultOutput) PrivateDnsNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupVpcEndpointServiceResult) []string { return v.PrivateDnsNames }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupVpcEndpointServiceResultOutput) Service() pulumi.StringPtrOutput {

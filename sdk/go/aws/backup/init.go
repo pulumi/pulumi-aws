@@ -33,6 +33,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RegionSettings{}
 	case "aws:backup/reportPlan:ReportPlan":
 		r = &ReportPlan{}
+	case "aws:backup/restoreTestingPlan:RestoreTestingPlan":
+		r = &RestoreTestingPlan{}
+	case "aws:backup/restoreTestingSelection:RestoreTestingSelection":
+		r = &RestoreTestingSelection{}
 	case "aws:backup/selection:Selection":
 		r = &Selection{}
 	case "aws:backup/vault:Vault":
@@ -84,6 +88,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"backup/reportPlan",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"backup/restoreTestingPlan",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"backup/restoreTestingSelection",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

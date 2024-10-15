@@ -322,6 +322,10 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string InstanceId;
         /// <summary>
+        /// The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
+        /// </summary>
+        public readonly string IpamPoolId;
+        /// <summary>
         /// The ID of the network interface.
         /// </summary>
         public readonly string NetworkInterfaceId;
@@ -378,6 +382,8 @@ namespace Pulumi.Aws.Ec2
 
             string instanceId,
 
+            string ipamPoolId,
+
             string networkInterfaceId,
 
             string networkInterfaceOwnerId,
@@ -405,6 +411,7 @@ namespace Pulumi.Aws.Ec2
             Filters = filters;
             Id = id;
             InstanceId = instanceId;
+            IpamPoolId = ipamPoolId;
             NetworkInterfaceId = networkInterfaceId;
             NetworkInterfaceOwnerId = networkInterfaceOwnerId;
             PrivateDns = privateDns;

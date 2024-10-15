@@ -33,6 +33,10 @@ __all__ = [
     'GlossaryTermTimeouts',
     'ProjectFailureReason',
     'ProjectTimeouts',
+    'UserProfileDetail',
+    'UserProfileDetailIam',
+    'UserProfileDetailSso',
+    'UserProfileTimeouts',
 ]
 
 @pulumi.output_type
@@ -598,5 +602,114 @@ class ProjectTimeouts(dict):
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
+
+
+@pulumi.output_type
+class UserProfileDetail(dict):
+    def __init__(__self__, *,
+                 iams: Sequence['outputs.UserProfileDetailIam'],
+                 ssos: Sequence['outputs.UserProfileDetailSso']):
+        pulumi.set(__self__, "iams", iams)
+        pulumi.set(__self__, "ssos", ssos)
+
+    @property
+    @pulumi.getter
+    def iams(self) -> Sequence['outputs.UserProfileDetailIam']:
+        return pulumi.get(self, "iams")
+
+    @property
+    @pulumi.getter
+    def ssos(self) -> Sequence['outputs.UserProfileDetailSso']:
+        return pulumi.get(self, "ssos")
+
+
+@pulumi.output_type
+class UserProfileDetailIam(dict):
+    def __init__(__self__, *,
+                 arn: str):
+        pulumi.set(__self__, "arn", arn)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        return pulumi.get(self, "arn")
+
+
+@pulumi.output_type
+class UserProfileDetailSso(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "firstName":
+            suggest = "first_name"
+        elif key == "lastName":
+            suggest = "last_name"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserProfileDetailSso. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserProfileDetailSso.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserProfileDetailSso.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 first_name: str,
+                 last_name: str,
+                 user_name: str):
+        pulumi.set(__self__, "first_name", first_name)
+        pulumi.set(__self__, "last_name", last_name)
+        pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="firstName")
+    def first_name(self) -> str:
+        return pulumi.get(self, "first_name")
+
+    @property
+    @pulumi.getter(name="lastName")
+    def last_name(self) -> str:
+        return pulumi.get(self, "last_name")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> str:
+        return pulumi.get(self, "user_name")
+
+
+@pulumi.output_type
+class UserProfileTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 update: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
 
 

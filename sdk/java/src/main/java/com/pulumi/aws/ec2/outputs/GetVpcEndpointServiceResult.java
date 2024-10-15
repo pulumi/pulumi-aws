@@ -57,6 +57,11 @@ public final class GetVpcEndpointServiceResult {
      * 
      */
     private String privateDnsName;
+    /**
+     * @return Private DNS names assigned to the VPC endpoint service.
+     * 
+     */
+    private List<String> privateDnsNames;
     private @Nullable String service;
     /**
      * @return ID of the endpoint service.
@@ -141,6 +146,13 @@ public final class GetVpcEndpointServiceResult {
     public String privateDnsName() {
         return this.privateDnsName;
     }
+    /**
+     * @return Private DNS names assigned to the VPC endpoint service.
+     * 
+     */
+    public List<String> privateDnsNames() {
+        return this.privateDnsNames;
+    }
     public Optional<String> service() {
         return Optional.ofNullable(this.service);
     }
@@ -197,6 +209,7 @@ public final class GetVpcEndpointServiceResult {
         private Boolean managesVpcEndpoints;
         private String owner;
         private String privateDnsName;
+        private List<String> privateDnsNames;
         private @Nullable String service;
         private String serviceId;
         private String serviceName;
@@ -216,6 +229,7 @@ public final class GetVpcEndpointServiceResult {
     	      this.managesVpcEndpoints = defaults.managesVpcEndpoints;
     	      this.owner = defaults.owner;
     	      this.privateDnsName = defaults.privateDnsName;
+    	      this.privateDnsNames = defaults.privateDnsNames;
     	      this.service = defaults.service;
     	      this.serviceId = defaults.serviceId;
     	      this.serviceName = defaults.serviceName;
@@ -305,6 +319,17 @@ public final class GetVpcEndpointServiceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder privateDnsNames(List<String> privateDnsNames) {
+            if (privateDnsNames == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointServiceResult", "privateDnsNames");
+            }
+            this.privateDnsNames = privateDnsNames;
+            return this;
+        }
+        public Builder privateDnsNames(String... privateDnsNames) {
+            return privateDnsNames(List.of(privateDnsNames));
+        }
+        @CustomType.Setter
         public Builder service(@Nullable String service) {
 
             this.service = service;
@@ -372,6 +397,7 @@ public final class GetVpcEndpointServiceResult {
             _resultValue.managesVpcEndpoints = managesVpcEndpoints;
             _resultValue.owner = owner;
             _resultValue.privateDnsName = privateDnsName;
+            _resultValue.privateDnsNames = privateDnsNames;
             _resultValue.service = service;
             _resultValue.serviceId = serviceId;
             _resultValue.serviceName = serviceName;

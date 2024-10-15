@@ -1355,6 +1355,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String ssmquicksetup;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String ssmsap;
     /**
      * @return Use this to override the default service endpoint URL
@@ -3348,6 +3353,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> ssmquicksetup() {
+        return Optional.ofNullable(this.ssmquicksetup);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> ssmsap() {
         return Optional.ofNullable(this.ssmsap);
     }
@@ -3783,6 +3795,7 @@ public final class Endpoints {
         private @Nullable String ssm;
         private @Nullable String ssmcontacts;
         private @Nullable String ssmincidents;
+        private @Nullable String ssmquicksetup;
         private @Nullable String ssmsap;
         private @Nullable String sso;
         private @Nullable String ssoadmin;
@@ -4077,6 +4090,7 @@ public final class Endpoints {
     	      this.ssm = defaults.ssm;
     	      this.ssmcontacts = defaults.ssmcontacts;
     	      this.ssmincidents = defaults.ssmincidents;
+    	      this.ssmquicksetup = defaults.ssmquicksetup;
     	      this.ssmsap = defaults.ssmsap;
     	      this.sso = defaults.sso;
     	      this.ssoadmin = defaults.ssoadmin;
@@ -5711,6 +5725,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder ssmquicksetup(@Nullable String ssmquicksetup) {
+
+            this.ssmquicksetup = ssmquicksetup;
+            return this;
+        }
+        @CustomType.Setter
         public Builder ssmsap(@Nullable String ssmsap) {
 
             this.ssmsap = ssmsap;
@@ -6118,6 +6138,7 @@ public final class Endpoints {
             _resultValue.ssm = ssm;
             _resultValue.ssmcontacts = ssmcontacts;
             _resultValue.ssmincidents = ssmincidents;
+            _resultValue.ssmquicksetup = ssmquicksetup;
             _resultValue.ssmsap = ssmsap;
             _resultValue.sso = sso;
             _resultValue.ssoadmin = ssoadmin;

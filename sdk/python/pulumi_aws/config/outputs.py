@@ -510,6 +510,7 @@ class Endpoints(dict):
                  ssm: Optional[str] = None,
                  ssmcontacts: Optional[str] = None,
                  ssmincidents: Optional[str] = None,
+                 ssmquicksetup: Optional[str] = None,
                  ssmsap: Optional[str] = None,
                  sso: Optional[str] = None,
                  ssoadmin: Optional[str] = None,
@@ -802,6 +803,7 @@ class Endpoints(dict):
         :param str ssm: Use this to override the default service endpoint URL
         :param str ssmcontacts: Use this to override the default service endpoint URL
         :param str ssmincidents: Use this to override the default service endpoint URL
+        :param str ssmquicksetup: Use this to override the default service endpoint URL
         :param str ssmsap: Use this to override the default service endpoint URL
         :param str sso: Use this to override the default service endpoint URL
         :param str ssoadmin: Use this to override the default service endpoint URL
@@ -1362,6 +1364,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "ssmcontacts", ssmcontacts)
         if ssmincidents is not None:
             pulumi.set(__self__, "ssmincidents", ssmincidents)
+        if ssmquicksetup is not None:
+            pulumi.set(__self__, "ssmquicksetup", ssmquicksetup)
         if ssmsap is not None:
             pulumi.set(__self__, "ssmsap", ssmsap)
         if sso is not None:
@@ -3552,6 +3556,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "ssmincidents")
+
+    @property
+    @pulumi.getter
+    def ssmquicksetup(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "ssmquicksetup")
 
     @property
     @pulumi.getter

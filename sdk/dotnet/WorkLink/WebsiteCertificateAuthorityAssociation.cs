@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.WorkLink
 {
     /// <summary>
+    /// Provides a AWS WorkLink Website Certificate Authority Association resource.
+    /// 
+    /// !&gt; **WARNING:** The `aws.worklink.WebsiteCertificateAuthorityAssociation` resource has been deprecated and will be removed in a future version. Use Amazon WorkSpaces Secure Browser instead.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

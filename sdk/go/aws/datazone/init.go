@@ -39,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GlossaryTerm{}
 	case "aws:datazone/project:Project":
 		r = &Project{}
+	case "aws:datazone/userProfile:UserProfile":
+		r = &UserProfile{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -95,6 +97,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"datazone/project",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"datazone/userProfile",
 		&module{version},
 	)
 }

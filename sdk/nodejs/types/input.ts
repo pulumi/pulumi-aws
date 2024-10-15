@@ -1223,6 +1223,10 @@ export interface ProviderEndpoint {
     /**
      * Use this to override the default service endpoint URL
      */
+    ssmquicksetup?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     ssmsap?: pulumi.Input<string>;
     /**
      * Use this to override the default service endpoint URL
@@ -9362,6 +9366,10 @@ export namespace backup {
          */
         schedule?: pulumi.Input<string>;
         /**
+         * The timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
+         */
+        scheduleExpressionTimezone?: pulumi.Input<string>;
+        /**
          * The amount of time in minutes before beginning a backup.
          */
         startWindow?: pulumi.Input<number>;
@@ -9452,6 +9460,62 @@ export namespace backup {
          * Identifies the report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
          */
         reportTemplate: pulumi.Input<string>;
+    }
+
+    export interface RestoreTestingPlanRecoveryPointSelection {
+        /**
+         * Specifies the algorithm used for selecting recovery points. Valid values are "RANDOM_WITHIN_WINDOW" and "LATEST_WITHIN_WINDOW".
+         */
+        algorithm: pulumi.Input<string>;
+        /**
+         * Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to exclude all backup vaults.
+         */
+        excludeVaults?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to include all backup vaults.
+         */
+        includeVaults: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the types of recovery points to include in the selection. Valid values are "CONTINUOUS" and "SNAPSHOT".
+         */
+        recoveryPointTypes: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
+         */
+        selectionWindowDays?: pulumi.Input<number>;
+    }
+
+    export interface RestoreTestingSelectionProtectedResourceConditions {
+        /**
+         * The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching.". See the structure for details
+         */
+        stringEquals?: pulumi.Input<pulumi.Input<inputs.backup.RestoreTestingSelectionProtectedResourceConditionsStringEqual>[]>;
+        /**
+         * The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching.". See the structure for details
+         */
+        stringNotEquals?: pulumi.Input<pulumi.Input<inputs.backup.RestoreTestingSelectionProtectedResourceConditionsStringNotEqual>[]>;
+    }
+
+    export interface RestoreTestingSelectionProtectedResourceConditionsStringEqual {
+        /**
+         * The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value of the Tag. Maximum length of 256.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface RestoreTestingSelectionProtectedResourceConditionsStringNotEqual {
+        /**
+         * The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value of the Tag. Maximum length of 256.
+         */
+        value: pulumi.Input<string>;
     }
 
     export interface SelectionCondition {
@@ -19369,6 +19433,32 @@ export namespace datazone {
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
          */
         delete?: pulumi.Input<string>;
+    }
+
+    export interface UserProfileDetail {
+        iams: pulumi.Input<pulumi.Input<inputs.datazone.UserProfileDetailIam>[]>;
+        ssos: pulumi.Input<pulumi.Input<inputs.datazone.UserProfileDetailSso>[]>;
+    }
+
+    export interface UserProfileDetailIam {
+        arn: pulumi.Input<string>;
+    }
+
+    export interface UserProfileDetailSso {
+        firstName: pulumi.Input<string>;
+        lastName: pulumi.Input<string>;
+        userName: pulumi.Input<string>;
+    }
+
+    export interface UserProfileTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string>;
     }
 }
 
@@ -64538,6 +64628,51 @@ export namespace route53 {
         ruleReference?: pulumi.Input<string>;
     }
 
+    export interface ProfilesAssociationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+         */
+        read?: pulumi.Input<string>;
+    }
+
+    export interface ProfilesProfileTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+         */
+        read?: pulumi.Input<string>;
+    }
+
+    export interface ProfilesResourceAssociationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+         */
+        read?: pulumi.Input<string>;
+    }
+
     export interface RecordAlias {
         /**
          * Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [related part of documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health).
@@ -64626,12 +64761,16 @@ export namespace route53 {
 
     export interface ResolverEndpointIpAddress {
         /**
-         * The IP address in the subnet that you want to use for DNS queries.
+         * IPv4 address in the subnet that you want to use for DNS queries.
          */
         ip?: pulumi.Input<string>;
         ipId?: pulumi.Input<string>;
         /**
-         * The ID of the subnet that contains the IP address.
+         * IPv6 address in the subnet that you want to use for DNS queries.
+         */
+        ipv6?: pulumi.Input<string>;
+        /**
+         * ID of the subnet that contains the IP address.
          */
         subnetId: pulumi.Input<string>;
     }
@@ -64640,13 +64779,17 @@ export namespace route53 {
         /**
          * One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
          */
-        ip: pulumi.Input<string>;
+        ip?: pulumi.Input<string>;
         /**
-         * The port at `ip` that you want to forward DNS queries to. Default value is `53`.
+         * One IPv6 address that you want to forward DNS queries to.
+         */
+        ipv6?: pulumi.Input<string>;
+        /**
+         * Port at `ip` that you want to forward DNS queries to. Default value is `53`.
          */
         port?: pulumi.Input<number>;
         /**
-         * The protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
+         * Protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
          */
         protocol?: pulumi.Input<string>;
     }

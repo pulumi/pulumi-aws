@@ -8,6 +8,10 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Provides a AWS WorkLink Fleet resource.
+ *
+ * !> **WARNING:** The `aws.worklink.Fleet` resource has been deprecated and will be removed in a future version. Use Amazon WorkSpaces Secure Browser instead.
+ *
  * ## Example Usage
  *
  * Basic usage:

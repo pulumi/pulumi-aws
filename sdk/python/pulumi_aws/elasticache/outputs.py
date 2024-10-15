@@ -33,6 +33,11 @@ __all__ = [
     'GetClusterCacheNodeResult',
     'GetClusterLogDeliveryConfigurationResult',
     'GetReplicationGroupLogDeliveryConfigurationResult',
+    'GetServerlessCacheCacheUsageLimitsResult',
+    'GetServerlessCacheCacheUsageLimitsDataStorageResult',
+    'GetServerlessCacheCacheUsageLimitsEcpuPerSecondResult',
+    'GetServerlessCacheEndpointResult',
+    'GetServerlessCacheReaderEndpointResult',
     'GetUserAuthenticationModeResult',
 ]
 
@@ -807,6 +812,162 @@ class GetReplicationGroupLogDeliveryConfigurationResult(dict):
     @pulumi.getter(name="logType")
     def log_type(self) -> str:
         return pulumi.get(self, "log_type")
+
+
+@pulumi.output_type
+class GetServerlessCacheCacheUsageLimitsResult(dict):
+    def __init__(__self__, *,
+                 data_storage: 'outputs.GetServerlessCacheCacheUsageLimitsDataStorageResult',
+                 ecpu_per_second: 'outputs.GetServerlessCacheCacheUsageLimitsEcpuPerSecondResult'):
+        """
+        :param 'GetServerlessCacheCacheUsageLimitsDataStorageArgs' data_storage: The maximum data storage limit in the cache, expressed in Gigabytes. See `data_storage` Block for details.
+        :param 'GetServerlessCacheCacheUsageLimitsEcpuPerSecondArgs' ecpu_per_second: The configured number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpu_per_second` Block for details.
+        """
+        pulumi.set(__self__, "data_storage", data_storage)
+        pulumi.set(__self__, "ecpu_per_second", ecpu_per_second)
+
+    @property
+    @pulumi.getter(name="dataStorage")
+    def data_storage(self) -> 'outputs.GetServerlessCacheCacheUsageLimitsDataStorageResult':
+        """
+        The maximum data storage limit in the cache, expressed in Gigabytes. See `data_storage` Block for details.
+        """
+        return pulumi.get(self, "data_storage")
+
+    @property
+    @pulumi.getter(name="ecpuPerSecond")
+    def ecpu_per_second(self) -> 'outputs.GetServerlessCacheCacheUsageLimitsEcpuPerSecondResult':
+        """
+        The configured number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpu_per_second` Block for details.
+        """
+        return pulumi.get(self, "ecpu_per_second")
+
+
+@pulumi.output_type
+class GetServerlessCacheCacheUsageLimitsDataStorageResult(dict):
+    def __init__(__self__, *,
+                 maximum: int,
+                 minimum: int,
+                 unit: str):
+        """
+        :param int maximum: The maximum number of ECPUs the cache can consume per second.
+        :param int minimum: The minimum number of ECPUs the cache can consume per second.
+        :param str unit: The unit that the storage is measured in.
+        """
+        pulumi.set(__self__, "maximum", maximum)
+        pulumi.set(__self__, "minimum", minimum)
+        pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter
+    def maximum(self) -> int:
+        """
+        The maximum number of ECPUs the cache can consume per second.
+        """
+        return pulumi.get(self, "maximum")
+
+    @property
+    @pulumi.getter
+    def minimum(self) -> int:
+        """
+        The minimum number of ECPUs the cache can consume per second.
+        """
+        return pulumi.get(self, "minimum")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        The unit that the storage is measured in.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class GetServerlessCacheCacheUsageLimitsEcpuPerSecondResult(dict):
+    def __init__(__self__, *,
+                 maximum: int,
+                 minimum: int):
+        """
+        :param int maximum: The maximum number of ECPUs the cache can consume per second.
+        :param int minimum: The minimum number of ECPUs the cache can consume per second.
+        """
+        pulumi.set(__self__, "maximum", maximum)
+        pulumi.set(__self__, "minimum", minimum)
+
+    @property
+    @pulumi.getter
+    def maximum(self) -> int:
+        """
+        The maximum number of ECPUs the cache can consume per second.
+        """
+        return pulumi.get(self, "maximum")
+
+    @property
+    @pulumi.getter
+    def minimum(self) -> int:
+        """
+        The minimum number of ECPUs the cache can consume per second.
+        """
+        return pulumi.get(self, "minimum")
+
+
+@pulumi.output_type
+class GetServerlessCacheEndpointResult(dict):
+    def __init__(__self__, *,
+                 address: str,
+                 port: int):
+        """
+        :param str address: The DNS hostname of the cache node.
+        :param int port: The port number that the cache engine is listening on. Set as integer.
+        """
+        pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def address(self) -> str:
+        """
+        The DNS hostname of the cache node.
+        """
+        return pulumi.get(self, "address")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        The port number that the cache engine is listening on. Set as integer.
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class GetServerlessCacheReaderEndpointResult(dict):
+    def __init__(__self__, *,
+                 address: str,
+                 port: int):
+        """
+        :param str address: The DNS hostname of the cache node.
+        :param int port: The port number that the cache engine is listening on. Set as integer.
+        """
+        pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def address(self) -> str:
+        """
+        The DNS hostname of the cache node.
+        """
+        return pulumi.get(self, "address")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        The port number that the cache engine is listening on. Set as integer.
+        """
+        return pulumi.get(self, "port")
 
 
 @pulumi.output_type

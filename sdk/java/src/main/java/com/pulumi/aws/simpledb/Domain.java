@@ -14,7 +14,9 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Provides a SimpleDB domain resource
+ * Provides a SimpleDB domain resource.
+ * 
+ * !&gt; **WARNING:** The `aws.simpledb.Domain` resource has been deprecated and will be removed in a future version. Use Amazon DynamoDB instead.
  * 
  * ## Example Usage
  * 

@@ -95,6 +95,9 @@ __all__ = [
     'GetCustomModelValidationDataConfigValidatorResult',
     'GetCustomModelValidationMetricResult',
     'GetCustomModelsModelSummaryResult',
+    'GetInferenceProfileModelResult',
+    'GetInferenceProfilesInferenceProfileSummaryResult',
+    'GetInferenceProfilesInferenceProfileSummaryModelResult',
 ]
 
 @pulumi.output_type
@@ -3599,5 +3602,147 @@ class GetCustomModelsModelSummaryResult(dict):
         The name of the custom model.
         """
         return pulumi.get(self, "model_name")
+
+
+@pulumi.output_type
+class GetInferenceProfileModelResult(dict):
+    def __init__(__self__, *,
+                 model_arn: str):
+        """
+        :param str model_arn: The Amazon Resource Name (ARN) of the model.
+        """
+        pulumi.set(__self__, "model_arn", model_arn)
+
+    @property
+    @pulumi.getter(name="modelArn")
+    def model_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the model.
+        """
+        return pulumi.get(self, "model_arn")
+
+
+@pulumi.output_type
+class GetInferenceProfilesInferenceProfileSummaryResult(dict):
+    def __init__(__self__, *,
+                 created_at: str,
+                 description: str,
+                 inference_profile_arn: str,
+                 inference_profile_id: str,
+                 inference_profile_name: str,
+                 models: Sequence['outputs.GetInferenceProfilesInferenceProfileSummaryModelResult'],
+                 status: str,
+                 type: str,
+                 updated_at: str):
+        """
+        :param str created_at: The time at which the inference profile was created.
+        :param str description: The description of the inference profile.
+        :param str inference_profile_arn: The Amazon Resource Name (ARN) of the inference profile.
+        :param str inference_profile_id: The unique identifier of the inference profile.
+        :param str inference_profile_name: The name of the inference profile.
+        :param Sequence['GetInferenceProfilesInferenceProfileSummaryModelArgs'] models: A list of information about each model in the inference profile. See `models`.
+        :param str status: The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
+        :param str type: The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock.
+        :param str updated_at: The time at which the inference profile was last updated.
+        """
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "inference_profile_arn", inference_profile_arn)
+        pulumi.set(__self__, "inference_profile_id", inference_profile_id)
+        pulumi.set(__self__, "inference_profile_name", inference_profile_name)
+        pulumi.set(__self__, "models", models)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "updated_at", updated_at)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> str:
+        """
+        The time at which the inference profile was created.
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The description of the inference profile.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="inferenceProfileArn")
+    def inference_profile_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the inference profile.
+        """
+        return pulumi.get(self, "inference_profile_arn")
+
+    @property
+    @pulumi.getter(name="inferenceProfileId")
+    def inference_profile_id(self) -> str:
+        """
+        The unique identifier of the inference profile.
+        """
+        return pulumi.get(self, "inference_profile_id")
+
+    @property
+    @pulumi.getter(name="inferenceProfileName")
+    def inference_profile_name(self) -> str:
+        """
+        The name of the inference profile.
+        """
+        return pulumi.get(self, "inference_profile_name")
+
+    @property
+    @pulumi.getter
+    def models(self) -> Sequence['outputs.GetInferenceProfilesInferenceProfileSummaryModelResult']:
+        """
+        A list of information about each model in the inference profile. See `models`.
+        """
+        return pulumi.get(self, "models")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> str:
+        """
+        The time at which the inference profile was last updated.
+        """
+        return pulumi.get(self, "updated_at")
+
+
+@pulumi.output_type
+class GetInferenceProfilesInferenceProfileSummaryModelResult(dict):
+    def __init__(__self__, *,
+                 model_arn: str):
+        """
+        :param str model_arn: The Amazon Resource Name (ARN) of the model.
+        """
+        pulumi.set(__self__, "model_arn", model_arn)
+
+    @property
+    @pulumi.getter(name="modelArn")
+    def model_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the model.
+        """
+        return pulumi.get(self, "model_arn")
 
 

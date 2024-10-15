@@ -1833,6 +1833,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "backup/restoreTestingPlan",
+  "fqn": "pulumi_aws.backup",
+  "classes": {
+   "aws:backup/restoreTestingPlan:RestoreTestingPlan": "RestoreTestingPlan"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "backup/restoreTestingSelection",
+  "fqn": "pulumi_aws.backup",
+  "classes": {
+   "aws:backup/restoreTestingSelection:RestoreTestingSelection": "RestoreTestingSelection"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "backup/selection",
   "fqn": "pulumi_aws.backup",
   "classes": {
@@ -3477,6 +3493,14 @@ _utilities.register(
   "fqn": "pulumi_aws.datazone",
   "classes": {
    "aws:datazone/project:Project": "Project"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "datazone/userProfile",
+  "fqn": "pulumi_aws.datazone",
+  "classes": {
+   "aws:datazone/userProfile:UserProfile": "UserProfile"
   }
  },
  {
@@ -8705,6 +8729,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "pinpoint/smsvoicev2ConfigurationSet",
+  "fqn": "pulumi_aws.pinpoint",
+  "classes": {
+   "aws:pinpoint/smsvoicev2ConfigurationSet:Smsvoicev2ConfigurationSet": "Smsvoicev2ConfigurationSet"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "pinpoint/smsvoicev2OptOutList",
   "fqn": "pulumi_aws.pinpoint",
   "classes": {
@@ -9501,6 +9533,30 @@ _utilities.register(
   "fqn": "pulumi_aws.route53",
   "classes": {
    "aws:route53/keySigningKey:KeySigningKey": "KeySigningKey"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "route53/profilesAssociation",
+  "fqn": "pulumi_aws.route53",
+  "classes": {
+   "aws:route53/profilesAssociation:ProfilesAssociation": "ProfilesAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "route53/profilesProfile",
+  "fqn": "pulumi_aws.route53",
+  "classes": {
+   "aws:route53/profilesProfile:ProfilesProfile": "ProfilesProfile"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "route53/profilesResourceAssociation",
+  "fqn": "pulumi_aws.route53",
+  "classes": {
+   "aws:route53/profilesResourceAssociation:ProfilesResourceAssociation": "ProfilesResourceAssociation"
   }
  },
  {

@@ -37,6 +37,14 @@ __all__ = [
     'ReportPlanReportDeliveryChannelArgsDict',
     'ReportPlanReportSettingArgs',
     'ReportPlanReportSettingArgsDict',
+    'RestoreTestingPlanRecoveryPointSelectionArgs',
+    'RestoreTestingPlanRecoveryPointSelectionArgsDict',
+    'RestoreTestingSelectionProtectedResourceConditionsArgs',
+    'RestoreTestingSelectionProtectedResourceConditionsArgsDict',
+    'RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs',
+    'RestoreTestingSelectionProtectedResourceConditionsStringEqualArgsDict',
+    'RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs',
+    'RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgsDict',
     'SelectionConditionArgs',
     'SelectionConditionArgsDict',
     'SelectionConditionStringEqualArgs',
@@ -364,6 +372,10 @@ if not MYPY:
         """
         A CRON expression specifying when AWS Backup initiates a backup job.
         """
+        schedule_expression_timezone: NotRequired[pulumi.Input[str]]
+        """
+        The timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
+        """
         start_window: NotRequired[pulumi.Input[int]]
         """
         The amount of time in minutes before beginning a backup.
@@ -382,6 +394,7 @@ class PlanRuleArgs:
                  lifecycle: Optional[pulumi.Input['PlanRuleLifecycleArgs']] = None,
                  recovery_point_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
+                 schedule_expression_timezone: Optional[pulumi.Input[str]] = None,
                  start_window: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] rule_name: An display name for a backup rule.
@@ -392,6 +405,7 @@ class PlanRuleArgs:
         :param pulumi.Input['PlanRuleLifecycleArgs'] lifecycle: The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] recovery_point_tags: Metadata that you can assign to help organize the resources that you create.
         :param pulumi.Input[str] schedule: A CRON expression specifying when AWS Backup initiates a backup job.
+        :param pulumi.Input[str] schedule_expression_timezone: The timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
         :param pulumi.Input[int] start_window: The amount of time in minutes before beginning a backup.
         """
         pulumi.set(__self__, "rule_name", rule_name)
@@ -408,6 +422,8 @@ class PlanRuleArgs:
             pulumi.set(__self__, "recovery_point_tags", recovery_point_tags)
         if schedule is not None:
             pulumi.set(__self__, "schedule", schedule)
+        if schedule_expression_timezone is not None:
+            pulumi.set(__self__, "schedule_expression_timezone", schedule_expression_timezone)
         if start_window is not None:
             pulumi.set(__self__, "start_window", start_window)
 
@@ -506,6 +522,18 @@ class PlanRuleArgs:
     @schedule.setter
     def schedule(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "schedule", value)
+
+    @property
+    @pulumi.getter(name="scheduleExpressionTimezone")
+    def schedule_expression_timezone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The timezone in which the schedule expression is set. Default value: `"Etc/UTC"`.
+        """
+        return pulumi.get(self, "schedule_expression_timezone")
+
+    @schedule_expression_timezone.setter
+    def schedule_expression_timezone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schedule_expression_timezone", value)
 
     @property
     @pulumi.getter(name="startWindow")
@@ -915,6 +943,267 @@ class ReportPlanReportSettingArgs:
     @regions.setter
     def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "regions", value)
+
+
+if not MYPY:
+    class RestoreTestingPlanRecoveryPointSelectionArgsDict(TypedDict):
+        algorithm: pulumi.Input[str]
+        """
+        Specifies the algorithm used for selecting recovery points. Valid values are "RANDOM_WITHIN_WINDOW" and "LATEST_WITHIN_WINDOW".
+        """
+        include_vaults: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to include all backup vaults.
+        """
+        recovery_point_types: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies the types of recovery points to include in the selection. Valid values are "CONTINUOUS" and "SNAPSHOT".
+        """
+        exclude_vaults: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to exclude all backup vaults.
+        """
+        selection_window_days: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
+        """
+elif False:
+    RestoreTestingPlanRecoveryPointSelectionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RestoreTestingPlanRecoveryPointSelectionArgs:
+    def __init__(__self__, *,
+                 algorithm: pulumi.Input[str],
+                 include_vaults: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 recovery_point_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 exclude_vaults: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 selection_window_days: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] algorithm: Specifies the algorithm used for selecting recovery points. Valid values are "RANDOM_WITHIN_WINDOW" and "LATEST_WITHIN_WINDOW".
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] include_vaults: Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to include all backup vaults.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] recovery_point_types: Specifies the types of recovery points to include in the selection. Valid values are "CONTINUOUS" and "SNAPSHOT".
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclude_vaults: Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to exclude all backup vaults.
+        :param pulumi.Input[int] selection_window_days: Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
+        """
+        pulumi.set(__self__, "algorithm", algorithm)
+        pulumi.set(__self__, "include_vaults", include_vaults)
+        pulumi.set(__self__, "recovery_point_types", recovery_point_types)
+        if exclude_vaults is not None:
+            pulumi.set(__self__, "exclude_vaults", exclude_vaults)
+        if selection_window_days is not None:
+            pulumi.set(__self__, "selection_window_days", selection_window_days)
+
+    @property
+    @pulumi.getter
+    def algorithm(self) -> pulumi.Input[str]:
+        """
+        Specifies the algorithm used for selecting recovery points. Valid values are "RANDOM_WITHIN_WINDOW" and "LATEST_WITHIN_WINDOW".
+        """
+        return pulumi.get(self, "algorithm")
+
+    @algorithm.setter
+    def algorithm(self, value: pulumi.Input[str]):
+        pulumi.set(self, "algorithm", value)
+
+    @property
+    @pulumi.getter(name="includeVaults")
+    def include_vaults(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to include all backup vaults.
+        """
+        return pulumi.get(self, "include_vaults")
+
+    @include_vaults.setter
+    def include_vaults(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "include_vaults", value)
+
+    @property
+    @pulumi.getter(name="recoveryPointTypes")
+    def recovery_point_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies the types of recovery points to include in the selection. Valid values are "CONTINUOUS" and "SNAPSHOT".
+        """
+        return pulumi.get(self, "recovery_point_types")
+
+    @recovery_point_types.setter
+    def recovery_point_types(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "recovery_point_types", value)
+
+    @property
+    @pulumi.getter(name="excludeVaults")
+    def exclude_vaults(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or "*" to exclude all backup vaults.
+        """
+        return pulumi.get(self, "exclude_vaults")
+
+    @exclude_vaults.setter
+    def exclude_vaults(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exclude_vaults", value)
+
+    @property
+    @pulumi.getter(name="selectionWindowDays")
+    def selection_window_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
+        """
+        return pulumi.get(self, "selection_window_days")
+
+    @selection_window_days.setter
+    def selection_window_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "selection_window_days", value)
+
+
+if not MYPY:
+    class RestoreTestingSelectionProtectedResourceConditionsArgsDict(TypedDict):
+        string_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input['RestoreTestingSelectionProtectedResourceConditionsStringEqualArgsDict']]]]
+        """
+        The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching.". See the structure for details
+        """
+        string_not_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input['RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgsDict']]]]
+        """
+        The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching.". See the structure for details
+        """
+elif False:
+    RestoreTestingSelectionProtectedResourceConditionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RestoreTestingSelectionProtectedResourceConditionsArgs:
+    def __init__(__self__, *,
+                 string_equals: Optional[pulumi.Input[Sequence[pulumi.Input['RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs']]]] = None,
+                 string_not_equals: Optional[pulumi.Input[Sequence[pulumi.Input['RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs']]] string_equals: The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching.". See the structure for details
+        :param pulumi.Input[Sequence[pulumi.Input['RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs']]] string_not_equals: The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching.". See the structure for details
+        """
+        if string_equals is not None:
+            pulumi.set(__self__, "string_equals", string_equals)
+        if string_not_equals is not None:
+            pulumi.set(__self__, "string_not_equals", string_not_equals)
+
+    @property
+    @pulumi.getter(name="stringEquals")
+    def string_equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs']]]]:
+        """
+        The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching.". See the structure for details
+        """
+        return pulumi.get(self, "string_equals")
+
+    @string_equals.setter
+    def string_equals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs']]]]):
+        pulumi.set(self, "string_equals", value)
+
+    @property
+    @pulumi.getter(name="stringNotEquals")
+    def string_not_equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs']]]]:
+        """
+        The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching.". See the structure for details
+        """
+        return pulumi.get(self, "string_not_equals")
+
+    @string_not_equals.setter
+    def string_not_equals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs']]]]):
+        pulumi.set(self, "string_not_equals", value)
+
+
+if not MYPY:
+    class RestoreTestingSelectionProtectedResourceConditionsStringEqualArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+        """
+        value: pulumi.Input[str]
+        """
+        The value of the Tag. Maximum length of 256.
+        """
+elif False:
+    RestoreTestingSelectionProtectedResourceConditionsStringEqualArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+        :param pulumi.Input[str] value: The value of the Tag. Maximum length of 256.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value of the Tag. Maximum length of 256.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+        """
+        value: pulumi.Input[str]
+        """
+        The value of the Tag. Maximum length of 256.
+        """
+elif False:
+    RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+        :param pulumi.Input[str] value: The value of the Tag. Maximum length of 256.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value of the Tag. Maximum length of 256.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 if not MYPY:

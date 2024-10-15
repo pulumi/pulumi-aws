@@ -4,7 +4,6 @@
 package com.pulumi.aws.route53.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -17,14 +16,19 @@ public final class ResolverRuleTargetIp {
      * @return One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
      * 
      */
-    private String ip;
+    private @Nullable String ip;
     /**
-     * @return The port at `ip` that you want to forward DNS queries to. Default value is `53`.
+     * @return One IPv6 address that you want to forward DNS queries to.
+     * 
+     */
+    private @Nullable String ipv6;
+    /**
+     * @return Port at `ip` that you want to forward DNS queries to. Default value is `53`.
      * 
      */
     private @Nullable Integer port;
     /**
-     * @return The protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
+     * @return Protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
      * 
      */
     private @Nullable String protocol;
@@ -34,18 +38,25 @@ public final class ResolverRuleTargetIp {
      * @return One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
      * 
      */
-    public String ip() {
-        return this.ip;
+    public Optional<String> ip() {
+        return Optional.ofNullable(this.ip);
     }
     /**
-     * @return The port at `ip` that you want to forward DNS queries to. Default value is `53`.
+     * @return One IPv6 address that you want to forward DNS queries to.
+     * 
+     */
+    public Optional<String> ipv6() {
+        return Optional.ofNullable(this.ipv6);
+    }
+    /**
+     * @return Port at `ip` that you want to forward DNS queries to. Default value is `53`.
      * 
      */
     public Optional<Integer> port() {
         return Optional.ofNullable(this.port);
     }
     /**
-     * @return The protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
+     * @return Protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
      * 
      */
     public Optional<String> protocol() {
@@ -61,23 +72,29 @@ public final class ResolverRuleTargetIp {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String ip;
+        private @Nullable String ip;
+        private @Nullable String ipv6;
         private @Nullable Integer port;
         private @Nullable String protocol;
         public Builder() {}
         public Builder(ResolverRuleTargetIp defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ip = defaults.ip;
+    	      this.ipv6 = defaults.ipv6;
     	      this.port = defaults.port;
     	      this.protocol = defaults.protocol;
         }
 
         @CustomType.Setter
-        public Builder ip(String ip) {
-            if (ip == null) {
-              throw new MissingRequiredPropertyException("ResolverRuleTargetIp", "ip");
-            }
+        public Builder ip(@Nullable String ip) {
+
             this.ip = ip;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ipv6(@Nullable String ipv6) {
+
+            this.ipv6 = ipv6;
             return this;
         }
         @CustomType.Setter
@@ -95,6 +112,7 @@ public final class ResolverRuleTargetIp {
         public ResolverRuleTargetIp build() {
             final var _resultValue = new ResolverRuleTargetIp();
             _resultValue.ip = ip;
+            _resultValue.ipv6 = ipv6;
             _resultValue.port = port;
             _resultValue.protocol = protocol;
             return _resultValue;

@@ -9,6 +9,7 @@ from .cluster import *
 from .get_cluster import *
 from .get_replication_group import *
 from .get_reserved_cache_node_offering import *
+from .get_serverless_cache import *
 from .get_subnet_group import *
 from .get_user import *
 from .global_replication_group import *

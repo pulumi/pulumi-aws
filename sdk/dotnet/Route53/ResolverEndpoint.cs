@@ -26,6 +26,7 @@ namespace Pulumi.Aws.Route53
     ///     {
     ///         Name = "foo",
     ///         Direction = "INBOUND",
+    ///         ResolverEndpointType = "IPV4",
     ///         SecurityGroupIds = new[]
     ///         {
     ///             sg1.Id,
@@ -69,13 +70,13 @@ namespace Pulumi.Aws.Route53
     public partial class ResolverEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the Route 53 Resolver endpoint.
+        /// ARN of the Route 53 Resolver endpoint.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The direction of DNS queries to or from the Route 53 Resolver endpoint.
+        /// Direction of DNS queries to or from the Route 53 Resolver endpoint.
         /// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
         /// or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
         /// </summary>
@@ -83,50 +84,50 @@ namespace Pulumi.Aws.Route53
         public Output<string> Direction { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the VPC that you want to create the resolver endpoint in.
+        /// ID of the VPC that you want to create the resolver endpoint in.
         /// </summary>
         [Output("hostVpcId")]
         public Output<string> HostVpcId { get; private set; } = null!;
 
         /// <summary>
-        /// The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+        /// Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
         /// to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
         /// </summary>
         [Output("ipAddresses")]
         public Output<ImmutableArray<Outputs.ResolverEndpointIpAddress>> IpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// The friendly name of the Route 53 Resolver endpoint.
+        /// Friendly name of the Route 53 Resolver endpoint.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+        /// Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
         /// </summary>
         [Output("protocols")]
         public Output<ImmutableArray<string>> Protocols { get; private set; } = null!;
 
         /// <summary>
-        /// The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+        /// Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
         /// </summary>
         [Output("resolverEndpointType")]
         public Output<string> ResolverEndpointType { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of one or more security groups that you want to use to control access to this VPC.
+        /// ID of one or more security groups that you want to use to control access to this VPC.
         /// </summary>
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -178,7 +179,7 @@ namespace Pulumi.Aws.Route53
     public sealed class ResolverEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The direction of DNS queries to or from the Route 53 Resolver endpoint.
+        /// Direction of DNS queries to or from the Route 53 Resolver endpoint.
         /// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
         /// or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
         /// </summary>
@@ -189,7 +190,7 @@ namespace Pulumi.Aws.Route53
         private InputList<Inputs.ResolverEndpointIpAddressArgs>? _ipAddresses;
 
         /// <summary>
-        /// The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+        /// Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
         /// to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
         /// </summary>
         public InputList<Inputs.ResolverEndpointIpAddressArgs> IpAddresses
@@ -199,7 +200,7 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
-        /// The friendly name of the Route 53 Resolver endpoint.
+        /// Friendly name of the Route 53 Resolver endpoint.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -208,7 +209,7 @@ namespace Pulumi.Aws.Route53
         private InputList<string>? _protocols;
 
         /// <summary>
-        /// The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+        /// Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
         /// </summary>
         public InputList<string> Protocols
         {
@@ -217,7 +218,7 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
-        /// The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+        /// Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
         /// </summary>
         [Input("resolverEndpointType")]
         public Input<string>? ResolverEndpointType { get; set; }
@@ -226,7 +227,7 @@ namespace Pulumi.Aws.Route53
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// The ID of one or more security groups that you want to use to control access to this VPC.
+        /// ID of one or more security groups that you want to use to control access to this VPC.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -238,7 +239,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -255,13 +256,13 @@ namespace Pulumi.Aws.Route53
     public sealed class ResolverEndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the Route 53 Resolver endpoint.
+        /// ARN of the Route 53 Resolver endpoint.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The direction of DNS queries to or from the Route 53 Resolver endpoint.
+        /// Direction of DNS queries to or from the Route 53 Resolver endpoint.
         /// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
         /// or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
         /// </summary>
@@ -269,7 +270,7 @@ namespace Pulumi.Aws.Route53
         public Input<string>? Direction { get; set; }
 
         /// <summary>
-        /// The ID of the VPC that you want to create the resolver endpoint in.
+        /// ID of the VPC that you want to create the resolver endpoint in.
         /// </summary>
         [Input("hostVpcId")]
         public Input<string>? HostVpcId { get; set; }
@@ -278,7 +279,7 @@ namespace Pulumi.Aws.Route53
         private InputList<Inputs.ResolverEndpointIpAddressGetArgs>? _ipAddresses;
 
         /// <summary>
-        /// The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+        /// Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
         /// to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
         /// </summary>
         public InputList<Inputs.ResolverEndpointIpAddressGetArgs> IpAddresses
@@ -288,7 +289,7 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
-        /// The friendly name of the Route 53 Resolver endpoint.
+        /// Friendly name of the Route 53 Resolver endpoint.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -297,7 +298,7 @@ namespace Pulumi.Aws.Route53
         private InputList<string>? _protocols;
 
         /// <summary>
-        /// The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+        /// Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
         /// </summary>
         public InputList<string> Protocols
         {
@@ -306,7 +307,7 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
-        /// The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+        /// Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
         /// </summary>
         [Input("resolverEndpointType")]
         public Input<string>? ResolverEndpointType { get; set; }
@@ -315,7 +316,7 @@ namespace Pulumi.Aws.Route53
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// The ID of one or more security groups that you want to use to control access to this VPC.
+        /// ID of one or more security groups that you want to use to control access to this VPC.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -327,7 +328,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -339,7 +340,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll

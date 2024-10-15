@@ -55,6 +55,11 @@ export type Project = import("./project").Project;
 export const Project: typeof import("./project").Project = null as any;
 utilities.lazyLoad(exports, ["Project"], () => require("./project"));
 
+export { UserProfileArgs, UserProfileState } from "./userProfile";
+export type UserProfile = import("./userProfile").UserProfile;
+export const UserProfile: typeof import("./userProfile").UserProfile = null as any;
+utilities.lazyLoad(exports, ["UserProfile"], () => require("./userProfile"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -78,6 +83,8 @@ const _module = {
                 return new GlossaryTerm(name, <any>undefined, { urn })
             case "aws:datazone/project:Project":
                 return new Project(name, <any>undefined, { urn })
+            case "aws:datazone/userProfile:UserProfile":
+                return new UserProfile(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -92,3 +99,4 @@ pulumi.runtime.registerResourceModule("aws", "datazone/formType", _module)
 pulumi.runtime.registerResourceModule("aws", "datazone/glossary", _module)
 pulumi.runtime.registerResourceModule("aws", "datazone/glossaryTerm", _module)
 pulumi.runtime.registerResourceModule("aws", "datazone/project", _module)
+pulumi.runtime.registerResourceModule("aws", "datazone/userProfile", _module)

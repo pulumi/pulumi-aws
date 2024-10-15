@@ -33,6 +33,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &HostedZoneDnsSec{}
 	case "aws:route53/keySigningKey:KeySigningKey":
 		r = &KeySigningKey{}
+	case "aws:route53/profilesAssociation:ProfilesAssociation":
+		r = &ProfilesAssociation{}
+	case "aws:route53/profilesProfile:ProfilesProfile":
+		r = &ProfilesProfile{}
+	case "aws:route53/profilesResourceAssociation:ProfilesResourceAssociation":
+		r = &ProfilesResourceAssociation{}
 	case "aws:route53/queryLog:QueryLog":
 		r = &QueryLog{}
 	case "aws:route53/record:Record":
@@ -112,6 +118,21 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"route53/keySigningKey",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"route53/profilesAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"route53/profilesProfile",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"route53/profilesResourceAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

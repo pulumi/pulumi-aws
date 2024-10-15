@@ -25,6 +25,11 @@ export const getReservedCacheNodeOffering: typeof import("./getReservedCacheNode
 export const getReservedCacheNodeOfferingOutput: typeof import("./getReservedCacheNodeOffering").getReservedCacheNodeOfferingOutput = null as any;
 utilities.lazyLoad(exports, ["getReservedCacheNodeOffering","getReservedCacheNodeOfferingOutput"], () => require("./getReservedCacheNodeOffering"));
 
+export { GetServerlessCacheArgs, GetServerlessCacheResult, GetServerlessCacheOutputArgs } from "./getServerlessCache";
+export const getServerlessCache: typeof import("./getServerlessCache").getServerlessCache = null as any;
+export const getServerlessCacheOutput: typeof import("./getServerlessCache").getServerlessCacheOutput = null as any;
+utilities.lazyLoad(exports, ["getServerlessCache","getServerlessCacheOutput"], () => require("./getServerlessCache"));
+
 export { GetSubnetGroupArgs, GetSubnetGroupResult, GetSubnetGroupOutputArgs } from "./getSubnetGroup";
 export const getSubnetGroup: typeof import("./getSubnetGroup").getSubnetGroup = null as any;
 export const getSubnetGroupOutput: typeof import("./getSubnetGroup").getSubnetGroupOutput = null as any;

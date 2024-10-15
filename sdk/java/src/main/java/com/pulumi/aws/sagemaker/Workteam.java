@@ -246,14 +246,14 @@ public class Workteam extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="workforceName", refs={String.class}, tree="[0]")
-    private Output<String> workforceName;
+    private Output</* @Nullable */ String> workforceName;
 
     /**
      * @return The name of the workforce.
      * 
      */
-    public Output<String> workforceName() {
-        return this.workforceName;
+    public Output<Optional<String>> workforceName() {
+        return Codegen.optional(this.workforceName);
     }
     /**
      * The name of the Workteam (must be unique).

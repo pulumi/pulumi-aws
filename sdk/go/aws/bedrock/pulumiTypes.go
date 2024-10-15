@@ -11402,6 +11402,371 @@ func (o GetCustomModelsModelSummaryArrayOutput) Index(i pulumi.IntInput) GetCust
 	}).(GetCustomModelsModelSummaryOutput)
 }
 
+type GetInferenceProfileModel struct {
+	// The Amazon Resource Name (ARN) of the model.
+	ModelArn string `pulumi:"modelArn"`
+}
+
+// GetInferenceProfileModelInput is an input type that accepts GetInferenceProfileModelArgs and GetInferenceProfileModelOutput values.
+// You can construct a concrete instance of `GetInferenceProfileModelInput` via:
+//
+//	GetInferenceProfileModelArgs{...}
+type GetInferenceProfileModelInput interface {
+	pulumi.Input
+
+	ToGetInferenceProfileModelOutput() GetInferenceProfileModelOutput
+	ToGetInferenceProfileModelOutputWithContext(context.Context) GetInferenceProfileModelOutput
+}
+
+type GetInferenceProfileModelArgs struct {
+	// The Amazon Resource Name (ARN) of the model.
+	ModelArn pulumi.StringInput `pulumi:"modelArn"`
+}
+
+func (GetInferenceProfileModelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInferenceProfileModel)(nil)).Elem()
+}
+
+func (i GetInferenceProfileModelArgs) ToGetInferenceProfileModelOutput() GetInferenceProfileModelOutput {
+	return i.ToGetInferenceProfileModelOutputWithContext(context.Background())
+}
+
+func (i GetInferenceProfileModelArgs) ToGetInferenceProfileModelOutputWithContext(ctx context.Context) GetInferenceProfileModelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInferenceProfileModelOutput)
+}
+
+// GetInferenceProfileModelArrayInput is an input type that accepts GetInferenceProfileModelArray and GetInferenceProfileModelArrayOutput values.
+// You can construct a concrete instance of `GetInferenceProfileModelArrayInput` via:
+//
+//	GetInferenceProfileModelArray{ GetInferenceProfileModelArgs{...} }
+type GetInferenceProfileModelArrayInput interface {
+	pulumi.Input
+
+	ToGetInferenceProfileModelArrayOutput() GetInferenceProfileModelArrayOutput
+	ToGetInferenceProfileModelArrayOutputWithContext(context.Context) GetInferenceProfileModelArrayOutput
+}
+
+type GetInferenceProfileModelArray []GetInferenceProfileModelInput
+
+func (GetInferenceProfileModelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInferenceProfileModel)(nil)).Elem()
+}
+
+func (i GetInferenceProfileModelArray) ToGetInferenceProfileModelArrayOutput() GetInferenceProfileModelArrayOutput {
+	return i.ToGetInferenceProfileModelArrayOutputWithContext(context.Background())
+}
+
+func (i GetInferenceProfileModelArray) ToGetInferenceProfileModelArrayOutputWithContext(ctx context.Context) GetInferenceProfileModelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInferenceProfileModelArrayOutput)
+}
+
+type GetInferenceProfileModelOutput struct{ *pulumi.OutputState }
+
+func (GetInferenceProfileModelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInferenceProfileModel)(nil)).Elem()
+}
+
+func (o GetInferenceProfileModelOutput) ToGetInferenceProfileModelOutput() GetInferenceProfileModelOutput {
+	return o
+}
+
+func (o GetInferenceProfileModelOutput) ToGetInferenceProfileModelOutputWithContext(ctx context.Context) GetInferenceProfileModelOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the model.
+func (o GetInferenceProfileModelOutput) ModelArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInferenceProfileModel) string { return v.ModelArn }).(pulumi.StringOutput)
+}
+
+type GetInferenceProfileModelArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInferenceProfileModelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInferenceProfileModel)(nil)).Elem()
+}
+
+func (o GetInferenceProfileModelArrayOutput) ToGetInferenceProfileModelArrayOutput() GetInferenceProfileModelArrayOutput {
+	return o
+}
+
+func (o GetInferenceProfileModelArrayOutput) ToGetInferenceProfileModelArrayOutputWithContext(ctx context.Context) GetInferenceProfileModelArrayOutput {
+	return o
+}
+
+func (o GetInferenceProfileModelArrayOutput) Index(i pulumi.IntInput) GetInferenceProfileModelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInferenceProfileModel {
+		return vs[0].([]GetInferenceProfileModel)[vs[1].(int)]
+	}).(GetInferenceProfileModelOutput)
+}
+
+type GetInferenceProfilesInferenceProfileSummary struct {
+	// The time at which the inference profile was created.
+	CreatedAt string `pulumi:"createdAt"`
+	// The description of the inference profile.
+	Description string `pulumi:"description"`
+	// The Amazon Resource Name (ARN) of the inference profile.
+	InferenceProfileArn string `pulumi:"inferenceProfileArn"`
+	// The unique identifier of the inference profile.
+	InferenceProfileId string `pulumi:"inferenceProfileId"`
+	// The name of the inference profile.
+	InferenceProfileName string `pulumi:"inferenceProfileName"`
+	// A list of information about each model in the inference profile. See `models`.
+	Models []GetInferenceProfilesInferenceProfileSummaryModel `pulumi:"models"`
+	// The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
+	Status string `pulumi:"status"`
+	// The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock.
+	Type string `pulumi:"type"`
+	// The time at which the inference profile was last updated.
+	UpdatedAt string `pulumi:"updatedAt"`
+}
+
+// GetInferenceProfilesInferenceProfileSummaryInput is an input type that accepts GetInferenceProfilesInferenceProfileSummaryArgs and GetInferenceProfilesInferenceProfileSummaryOutput values.
+// You can construct a concrete instance of `GetInferenceProfilesInferenceProfileSummaryInput` via:
+//
+//	GetInferenceProfilesInferenceProfileSummaryArgs{...}
+type GetInferenceProfilesInferenceProfileSummaryInput interface {
+	pulumi.Input
+
+	ToGetInferenceProfilesInferenceProfileSummaryOutput() GetInferenceProfilesInferenceProfileSummaryOutput
+	ToGetInferenceProfilesInferenceProfileSummaryOutputWithContext(context.Context) GetInferenceProfilesInferenceProfileSummaryOutput
+}
+
+type GetInferenceProfilesInferenceProfileSummaryArgs struct {
+	// The time at which the inference profile was created.
+	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
+	// The description of the inference profile.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The Amazon Resource Name (ARN) of the inference profile.
+	InferenceProfileArn pulumi.StringInput `pulumi:"inferenceProfileArn"`
+	// The unique identifier of the inference profile.
+	InferenceProfileId pulumi.StringInput `pulumi:"inferenceProfileId"`
+	// The name of the inference profile.
+	InferenceProfileName pulumi.StringInput `pulumi:"inferenceProfileName"`
+	// A list of information about each model in the inference profile. See `models`.
+	Models GetInferenceProfilesInferenceProfileSummaryModelArrayInput `pulumi:"models"`
+	// The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
+	Status pulumi.StringInput `pulumi:"status"`
+	// The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The time at which the inference profile was last updated.
+	UpdatedAt pulumi.StringInput `pulumi:"updatedAt"`
+}
+
+func (GetInferenceProfilesInferenceProfileSummaryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInferenceProfilesInferenceProfileSummary)(nil)).Elem()
+}
+
+func (i GetInferenceProfilesInferenceProfileSummaryArgs) ToGetInferenceProfilesInferenceProfileSummaryOutput() GetInferenceProfilesInferenceProfileSummaryOutput {
+	return i.ToGetInferenceProfilesInferenceProfileSummaryOutputWithContext(context.Background())
+}
+
+func (i GetInferenceProfilesInferenceProfileSummaryArgs) ToGetInferenceProfilesInferenceProfileSummaryOutputWithContext(ctx context.Context) GetInferenceProfilesInferenceProfileSummaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInferenceProfilesInferenceProfileSummaryOutput)
+}
+
+// GetInferenceProfilesInferenceProfileSummaryArrayInput is an input type that accepts GetInferenceProfilesInferenceProfileSummaryArray and GetInferenceProfilesInferenceProfileSummaryArrayOutput values.
+// You can construct a concrete instance of `GetInferenceProfilesInferenceProfileSummaryArrayInput` via:
+//
+//	GetInferenceProfilesInferenceProfileSummaryArray{ GetInferenceProfilesInferenceProfileSummaryArgs{...} }
+type GetInferenceProfilesInferenceProfileSummaryArrayInput interface {
+	pulumi.Input
+
+	ToGetInferenceProfilesInferenceProfileSummaryArrayOutput() GetInferenceProfilesInferenceProfileSummaryArrayOutput
+	ToGetInferenceProfilesInferenceProfileSummaryArrayOutputWithContext(context.Context) GetInferenceProfilesInferenceProfileSummaryArrayOutput
+}
+
+type GetInferenceProfilesInferenceProfileSummaryArray []GetInferenceProfilesInferenceProfileSummaryInput
+
+func (GetInferenceProfilesInferenceProfileSummaryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInferenceProfilesInferenceProfileSummary)(nil)).Elem()
+}
+
+func (i GetInferenceProfilesInferenceProfileSummaryArray) ToGetInferenceProfilesInferenceProfileSummaryArrayOutput() GetInferenceProfilesInferenceProfileSummaryArrayOutput {
+	return i.ToGetInferenceProfilesInferenceProfileSummaryArrayOutputWithContext(context.Background())
+}
+
+func (i GetInferenceProfilesInferenceProfileSummaryArray) ToGetInferenceProfilesInferenceProfileSummaryArrayOutputWithContext(ctx context.Context) GetInferenceProfilesInferenceProfileSummaryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInferenceProfilesInferenceProfileSummaryArrayOutput)
+}
+
+type GetInferenceProfilesInferenceProfileSummaryOutput struct{ *pulumi.OutputState }
+
+func (GetInferenceProfilesInferenceProfileSummaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInferenceProfilesInferenceProfileSummary)(nil)).Elem()
+}
+
+func (o GetInferenceProfilesInferenceProfileSummaryOutput) ToGetInferenceProfilesInferenceProfileSummaryOutput() GetInferenceProfilesInferenceProfileSummaryOutput {
+	return o
+}
+
+func (o GetInferenceProfilesInferenceProfileSummaryOutput) ToGetInferenceProfilesInferenceProfileSummaryOutputWithContext(ctx context.Context) GetInferenceProfilesInferenceProfileSummaryOutput {
+	return o
+}
+
+// The time at which the inference profile was created.
+func (o GetInferenceProfilesInferenceProfileSummaryOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInferenceProfilesInferenceProfileSummary) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// The description of the inference profile.
+func (o GetInferenceProfilesInferenceProfileSummaryOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInferenceProfilesInferenceProfileSummary) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the inference profile.
+func (o GetInferenceProfilesInferenceProfileSummaryOutput) InferenceProfileArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInferenceProfilesInferenceProfileSummary) string { return v.InferenceProfileArn }).(pulumi.StringOutput)
+}
+
+// The unique identifier of the inference profile.
+func (o GetInferenceProfilesInferenceProfileSummaryOutput) InferenceProfileId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInferenceProfilesInferenceProfileSummary) string { return v.InferenceProfileId }).(pulumi.StringOutput)
+}
+
+// The name of the inference profile.
+func (o GetInferenceProfilesInferenceProfileSummaryOutput) InferenceProfileName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInferenceProfilesInferenceProfileSummary) string { return v.InferenceProfileName }).(pulumi.StringOutput)
+}
+
+// A list of information about each model in the inference profile. See `models`.
+func (o GetInferenceProfilesInferenceProfileSummaryOutput) Models() GetInferenceProfilesInferenceProfileSummaryModelArrayOutput {
+	return o.ApplyT(func(v GetInferenceProfilesInferenceProfileSummary) []GetInferenceProfilesInferenceProfileSummaryModel {
+		return v.Models
+	}).(GetInferenceProfilesInferenceProfileSummaryModelArrayOutput)
+}
+
+// The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
+func (o GetInferenceProfilesInferenceProfileSummaryOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInferenceProfilesInferenceProfileSummary) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock.
+func (o GetInferenceProfilesInferenceProfileSummaryOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInferenceProfilesInferenceProfileSummary) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The time at which the inference profile was last updated.
+func (o GetInferenceProfilesInferenceProfileSummaryOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInferenceProfilesInferenceProfileSummary) string { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+type GetInferenceProfilesInferenceProfileSummaryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInferenceProfilesInferenceProfileSummaryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInferenceProfilesInferenceProfileSummary)(nil)).Elem()
+}
+
+func (o GetInferenceProfilesInferenceProfileSummaryArrayOutput) ToGetInferenceProfilesInferenceProfileSummaryArrayOutput() GetInferenceProfilesInferenceProfileSummaryArrayOutput {
+	return o
+}
+
+func (o GetInferenceProfilesInferenceProfileSummaryArrayOutput) ToGetInferenceProfilesInferenceProfileSummaryArrayOutputWithContext(ctx context.Context) GetInferenceProfilesInferenceProfileSummaryArrayOutput {
+	return o
+}
+
+func (o GetInferenceProfilesInferenceProfileSummaryArrayOutput) Index(i pulumi.IntInput) GetInferenceProfilesInferenceProfileSummaryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInferenceProfilesInferenceProfileSummary {
+		return vs[0].([]GetInferenceProfilesInferenceProfileSummary)[vs[1].(int)]
+	}).(GetInferenceProfilesInferenceProfileSummaryOutput)
+}
+
+type GetInferenceProfilesInferenceProfileSummaryModel struct {
+	// The Amazon Resource Name (ARN) of the model.
+	ModelArn string `pulumi:"modelArn"`
+}
+
+// GetInferenceProfilesInferenceProfileSummaryModelInput is an input type that accepts GetInferenceProfilesInferenceProfileSummaryModelArgs and GetInferenceProfilesInferenceProfileSummaryModelOutput values.
+// You can construct a concrete instance of `GetInferenceProfilesInferenceProfileSummaryModelInput` via:
+//
+//	GetInferenceProfilesInferenceProfileSummaryModelArgs{...}
+type GetInferenceProfilesInferenceProfileSummaryModelInput interface {
+	pulumi.Input
+
+	ToGetInferenceProfilesInferenceProfileSummaryModelOutput() GetInferenceProfilesInferenceProfileSummaryModelOutput
+	ToGetInferenceProfilesInferenceProfileSummaryModelOutputWithContext(context.Context) GetInferenceProfilesInferenceProfileSummaryModelOutput
+}
+
+type GetInferenceProfilesInferenceProfileSummaryModelArgs struct {
+	// The Amazon Resource Name (ARN) of the model.
+	ModelArn pulumi.StringInput `pulumi:"modelArn"`
+}
+
+func (GetInferenceProfilesInferenceProfileSummaryModelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInferenceProfilesInferenceProfileSummaryModel)(nil)).Elem()
+}
+
+func (i GetInferenceProfilesInferenceProfileSummaryModelArgs) ToGetInferenceProfilesInferenceProfileSummaryModelOutput() GetInferenceProfilesInferenceProfileSummaryModelOutput {
+	return i.ToGetInferenceProfilesInferenceProfileSummaryModelOutputWithContext(context.Background())
+}
+
+func (i GetInferenceProfilesInferenceProfileSummaryModelArgs) ToGetInferenceProfilesInferenceProfileSummaryModelOutputWithContext(ctx context.Context) GetInferenceProfilesInferenceProfileSummaryModelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInferenceProfilesInferenceProfileSummaryModelOutput)
+}
+
+// GetInferenceProfilesInferenceProfileSummaryModelArrayInput is an input type that accepts GetInferenceProfilesInferenceProfileSummaryModelArray and GetInferenceProfilesInferenceProfileSummaryModelArrayOutput values.
+// You can construct a concrete instance of `GetInferenceProfilesInferenceProfileSummaryModelArrayInput` via:
+//
+//	GetInferenceProfilesInferenceProfileSummaryModelArray{ GetInferenceProfilesInferenceProfileSummaryModelArgs{...} }
+type GetInferenceProfilesInferenceProfileSummaryModelArrayInput interface {
+	pulumi.Input
+
+	ToGetInferenceProfilesInferenceProfileSummaryModelArrayOutput() GetInferenceProfilesInferenceProfileSummaryModelArrayOutput
+	ToGetInferenceProfilesInferenceProfileSummaryModelArrayOutputWithContext(context.Context) GetInferenceProfilesInferenceProfileSummaryModelArrayOutput
+}
+
+type GetInferenceProfilesInferenceProfileSummaryModelArray []GetInferenceProfilesInferenceProfileSummaryModelInput
+
+func (GetInferenceProfilesInferenceProfileSummaryModelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInferenceProfilesInferenceProfileSummaryModel)(nil)).Elem()
+}
+
+func (i GetInferenceProfilesInferenceProfileSummaryModelArray) ToGetInferenceProfilesInferenceProfileSummaryModelArrayOutput() GetInferenceProfilesInferenceProfileSummaryModelArrayOutput {
+	return i.ToGetInferenceProfilesInferenceProfileSummaryModelArrayOutputWithContext(context.Background())
+}
+
+func (i GetInferenceProfilesInferenceProfileSummaryModelArray) ToGetInferenceProfilesInferenceProfileSummaryModelArrayOutputWithContext(ctx context.Context) GetInferenceProfilesInferenceProfileSummaryModelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInferenceProfilesInferenceProfileSummaryModelArrayOutput)
+}
+
+type GetInferenceProfilesInferenceProfileSummaryModelOutput struct{ *pulumi.OutputState }
+
+func (GetInferenceProfilesInferenceProfileSummaryModelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInferenceProfilesInferenceProfileSummaryModel)(nil)).Elem()
+}
+
+func (o GetInferenceProfilesInferenceProfileSummaryModelOutput) ToGetInferenceProfilesInferenceProfileSummaryModelOutput() GetInferenceProfilesInferenceProfileSummaryModelOutput {
+	return o
+}
+
+func (o GetInferenceProfilesInferenceProfileSummaryModelOutput) ToGetInferenceProfilesInferenceProfileSummaryModelOutputWithContext(ctx context.Context) GetInferenceProfilesInferenceProfileSummaryModelOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the model.
+func (o GetInferenceProfilesInferenceProfileSummaryModelOutput) ModelArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInferenceProfilesInferenceProfileSummaryModel) string { return v.ModelArn }).(pulumi.StringOutput)
+}
+
+type GetInferenceProfilesInferenceProfileSummaryModelArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInferenceProfilesInferenceProfileSummaryModelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInferenceProfilesInferenceProfileSummaryModel)(nil)).Elem()
+}
+
+func (o GetInferenceProfilesInferenceProfileSummaryModelArrayOutput) ToGetInferenceProfilesInferenceProfileSummaryModelArrayOutput() GetInferenceProfilesInferenceProfileSummaryModelArrayOutput {
+	return o
+}
+
+func (o GetInferenceProfilesInferenceProfileSummaryModelArrayOutput) ToGetInferenceProfilesInferenceProfileSummaryModelArrayOutputWithContext(ctx context.Context) GetInferenceProfilesInferenceProfileSummaryModelArrayOutput {
+	return o
+}
+
+func (o GetInferenceProfilesInferenceProfileSummaryModelArrayOutput) Index(i pulumi.IntInput) GetInferenceProfilesInferenceProfileSummaryModelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInferenceProfilesInferenceProfileSummaryModel {
+		return vs[0].([]GetInferenceProfilesInferenceProfileSummaryModel)[vs[1].(int)]
+	}).(GetInferenceProfilesInferenceProfileSummaryModelOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupActionGroupExecutorInput)(nil)).Elem(), AgentAgentActionGroupActionGroupExecutorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentActionGroupActionGroupExecutorPtrInput)(nil)).Elem(), AgentAgentActionGroupActionGroupExecutorArgs{})
@@ -11561,6 +11926,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomModelValidationMetricArrayInput)(nil)).Elem(), GetCustomModelValidationMetricArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomModelsModelSummaryInput)(nil)).Elem(), GetCustomModelsModelSummaryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomModelsModelSummaryArrayInput)(nil)).Elem(), GetCustomModelsModelSummaryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInferenceProfileModelInput)(nil)).Elem(), GetInferenceProfileModelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInferenceProfileModelArrayInput)(nil)).Elem(), GetInferenceProfileModelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInferenceProfilesInferenceProfileSummaryInput)(nil)).Elem(), GetInferenceProfilesInferenceProfileSummaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInferenceProfilesInferenceProfileSummaryArrayInput)(nil)).Elem(), GetInferenceProfilesInferenceProfileSummaryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInferenceProfilesInferenceProfileSummaryModelInput)(nil)).Elem(), GetInferenceProfilesInferenceProfileSummaryModelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInferenceProfilesInferenceProfileSummaryModelArrayInput)(nil)).Elem(), GetInferenceProfilesInferenceProfileSummaryModelArray{})
 	pulumi.RegisterOutputType(AgentAgentActionGroupActionGroupExecutorOutput{})
 	pulumi.RegisterOutputType(AgentAgentActionGroupActionGroupExecutorPtrOutput{})
 	pulumi.RegisterOutputType(AgentAgentActionGroupApiSchemaOutput{})
@@ -11719,4 +12090,10 @@ func init() {
 	pulumi.RegisterOutputType(GetCustomModelValidationMetricArrayOutput{})
 	pulumi.RegisterOutputType(GetCustomModelsModelSummaryOutput{})
 	pulumi.RegisterOutputType(GetCustomModelsModelSummaryArrayOutput{})
+	pulumi.RegisterOutputType(GetInferenceProfileModelOutput{})
+	pulumi.RegisterOutputType(GetInferenceProfileModelArrayOutput{})
+	pulumi.RegisterOutputType(GetInferenceProfilesInferenceProfileSummaryOutput{})
+	pulumi.RegisterOutputType(GetInferenceProfilesInferenceProfileSummaryArrayOutput{})
+	pulumi.RegisterOutputType(GetInferenceProfilesInferenceProfileSummaryModelOutput{})
+	pulumi.RegisterOutputType(GetInferenceProfilesInferenceProfileSummaryModelArrayOutput{})
 }

@@ -55,6 +55,16 @@ export const getCustomModels: typeof import("./getCustomModels").getCustomModels
 export const getCustomModelsOutput: typeof import("./getCustomModels").getCustomModelsOutput = null as any;
 utilities.lazyLoad(exports, ["getCustomModels","getCustomModelsOutput"], () => require("./getCustomModels"));
 
+export { GetInferenceProfileArgs, GetInferenceProfileResult, GetInferenceProfileOutputArgs } from "./getInferenceProfile";
+export const getInferenceProfile: typeof import("./getInferenceProfile").getInferenceProfile = null as any;
+export const getInferenceProfileOutput: typeof import("./getInferenceProfile").getInferenceProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getInferenceProfile","getInferenceProfileOutput"], () => require("./getInferenceProfile"));
+
+export { GetInferenceProfilesResult } from "./getInferenceProfiles";
+export const getInferenceProfiles: typeof import("./getInferenceProfiles").getInferenceProfiles = null as any;
+export const getInferenceProfilesOutput: typeof import("./getInferenceProfiles").getInferenceProfilesOutput = null as any;
+utilities.lazyLoad(exports, ["getInferenceProfiles","getInferenceProfilesOutput"], () => require("./getInferenceProfiles"));
+
 export { GuardrailArgs, GuardrailState } from "./guardrail";
 export type Guardrail = import("./guardrail").Guardrail;
 export const Guardrail: typeof import("./guardrail").Guardrail = null as any;

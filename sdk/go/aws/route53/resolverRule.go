@@ -80,6 +80,43 @@ import (
 //
 // ```
 //
+// ### IPv6 Forward rule
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := route53.NewResolverRule(ctx, "fwd", &route53.ResolverRuleArgs{
+//				DomainName:         pulumi.String("example.com"),
+//				Name:               pulumi.String("example"),
+//				RuleType:           pulumi.String("FORWARD"),
+//				ResolverEndpointId: pulumi.Any(foo.Id),
+//				TargetIps: route53.ResolverRuleTargetIpArray{
+//					&route53.ResolverRuleTargetIpArgs{
+//						Ipv6: pulumi.String("2600:1f18:1686:2000:4e60:6e3e:258:da36"),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("Prod"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Route53 Resolver rules using the `id`. For example:
@@ -90,25 +127,25 @@ import (
 type ResolverRule struct {
 	pulumi.CustomResourceState
 
-	// The ARN (Amazon Resource Name) for the resolver rule.
+	// ARN (Amazon Resource Name) for the resolver rule.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
+	// Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
+	// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
 	// This argument should only be specified for `FORWARD` type rules.
 	ResolverEndpointId pulumi.StringPtrOutput `pulumi:"resolverEndpointId"`
-	// The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+	// Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
 	RuleType pulumi.StringOutput `pulumi:"ruleType"`
 	// Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
 	// Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
 	ShareStatus pulumi.StringOutput `pulumi:"shareStatus"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -153,25 +190,25 @@ func GetResolverRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResolverRule resources.
 type resolverRuleState struct {
-	// The ARN (Amazon Resource Name) for the resolver rule.
+	// ARN (Amazon Resource Name) for the resolver rule.
 	Arn *string `pulumi:"arn"`
 	// DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
 	DomainName *string `pulumi:"domainName"`
-	// A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
+	// Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
 	Name *string `pulumi:"name"`
 	// When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
 	OwnerId *string `pulumi:"ownerId"`
-	// The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
+	// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
 	// This argument should only be specified for `FORWARD` type rules.
 	ResolverEndpointId *string `pulumi:"resolverEndpointId"`
-	// The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+	// Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
 	RuleType *string `pulumi:"ruleType"`
 	// Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
 	// Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
 	ShareStatus *string `pulumi:"shareStatus"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -181,25 +218,25 @@ type resolverRuleState struct {
 }
 
 type ResolverRuleState struct {
-	// The ARN (Amazon Resource Name) for the resolver rule.
+	// ARN (Amazon Resource Name) for the resolver rule.
 	Arn pulumi.StringPtrInput
 	// DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
 	DomainName pulumi.StringPtrInput
-	// A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
+	// Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
 	Name pulumi.StringPtrInput
 	// When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
 	OwnerId pulumi.StringPtrInput
-	// The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
+	// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
 	// This argument should only be specified for `FORWARD` type rules.
 	ResolverEndpointId pulumi.StringPtrInput
-	// The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+	// Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
 	RuleType pulumi.StringPtrInput
 	// Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
 	// Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
 	ShareStatus pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
@@ -215,14 +252,14 @@ func (ResolverRuleState) ElementType() reflect.Type {
 type resolverRuleArgs struct {
 	// DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
 	DomainName string `pulumi:"domainName"`
-	// A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
+	// Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
 	Name *string `pulumi:"name"`
-	// The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
+	// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
 	// This argument should only be specified for `FORWARD` type rules.
 	ResolverEndpointId *string `pulumi:"resolverEndpointId"`
-	// The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+	// Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
 	RuleType string `pulumi:"ruleType"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
 	// This argument should only be specified for `FORWARD` type rules.
@@ -233,14 +270,14 @@ type resolverRuleArgs struct {
 type ResolverRuleArgs struct {
 	// DNS queries for this domain name are forwarded to the IP addresses that are specified using `targetIp`.
 	DomainName pulumi.StringInput
-	// A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
+	// Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
 	Name pulumi.StringPtrInput
-	// The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
+	// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
 	// This argument should only be specified for `FORWARD` type rules.
 	ResolverEndpointId pulumi.StringPtrInput
-	// The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+	// Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
 	RuleType pulumi.StringInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
 	// This argument should only be specified for `FORWARD` type rules.
@@ -334,7 +371,7 @@ func (o ResolverRuleOutput) ToResolverRuleOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The ARN (Amazon Resource Name) for the resolver rule.
+// ARN (Amazon Resource Name) for the resolver rule.
 func (o ResolverRuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -344,7 +381,7 @@ func (o ResolverRuleOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverRule) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// A friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
+// Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
 func (o ResolverRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -354,13 +391,13 @@ func (o ResolverRuleOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverRule) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// The ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
+// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `targetIp`.
 // This argument should only be specified for `FORWARD` type rules.
 func (o ResolverRuleOutput) ResolverEndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResolverRule) pulumi.StringPtrOutput { return v.ResolverEndpointId }).(pulumi.StringPtrOutput)
 }
 
-// The rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+// Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
 func (o ResolverRuleOutput) RuleType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverRule) pulumi.StringOutput { return v.RuleType }).(pulumi.StringOutput)
 }
@@ -371,12 +408,12 @@ func (o ResolverRuleOutput) ShareStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverRule) pulumi.StringOutput { return v.ShareStatus }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ResolverRuleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResolverRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 //
 // Deprecated: Please use `tags` instead.
 func (o ResolverRuleOutput) TagsAll() pulumi.StringMapOutput {

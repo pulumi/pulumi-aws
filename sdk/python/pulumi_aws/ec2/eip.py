@@ -24,6 +24,7 @@ class EipArgs:
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  instance: Optional[pulumi.Input[str]] = None,
+                 ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  network_border_group: Optional[pulumi.Input[str]] = None,
                  network_interface: Optional[pulumi.Input[str]] = None,
                  public_ipv4_pool: Optional[pulumi.Input[str]] = None,
@@ -36,6 +37,7 @@ class EipArgs:
         :param pulumi.Input[str] customer_owned_ipv4_pool: ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
         :param pulumi.Input[str] domain: Indicates if this EIP is for use in VPC (`vpc`).
         :param pulumi.Input[str] instance: EC2 instance ID.
+        :param pulumi.Input[str] ipam_pool_id: The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
         :param pulumi.Input[str] network_border_group: Location from which the IP address is advertised. Use this parameter to limit the address to this location.
         :param pulumi.Input[str] network_interface: Network interface ID to associate with.
         :param pulumi.Input[str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`.
@@ -59,6 +61,8 @@ class EipArgs:
             pulumi.set(__self__, "domain", domain)
         if instance is not None:
             pulumi.set(__self__, "instance", instance)
+        if ipam_pool_id is not None:
+            pulumi.set(__self__, "ipam_pool_id", ipam_pool_id)
         if network_border_group is not None:
             pulumi.set(__self__, "network_border_group", network_border_group)
         if network_interface is not None:
@@ -132,6 +136,18 @@ class EipArgs:
     @instance.setter
     def instance(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "instance", value)
+
+    @property
+    @pulumi.getter(name="ipamPoolId")
+    def ipam_pool_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
+        """
+        return pulumi.get(self, "ipam_pool_id")
+
+    @ipam_pool_id.setter
+    def ipam_pool_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipam_pool_id", value)
 
     @property
     @pulumi.getter(name="networkBorderGroup")
@@ -215,6 +231,7 @@ class _EipState:
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  instance: Optional[pulumi.Input[str]] = None,
+                 ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  network_border_group: Optional[pulumi.Input[str]] = None,
                  network_interface: Optional[pulumi.Input[str]] = None,
                  private_dns: Optional[pulumi.Input[str]] = None,
@@ -237,6 +254,7 @@ class _EipState:
         :param pulumi.Input[str] customer_owned_ipv4_pool: ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
         :param pulumi.Input[str] domain: Indicates if this EIP is for use in VPC (`vpc`).
         :param pulumi.Input[str] instance: EC2 instance ID.
+        :param pulumi.Input[str] ipam_pool_id: The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
         :param pulumi.Input[str] network_border_group: Location from which the IP address is advertised. Use this parameter to limit the address to this location.
         :param pulumi.Input[str] network_interface: Network interface ID to associate with.
         :param pulumi.Input[str] private_dns: The Private DNS associated with the Elastic IP address (if in VPC).
@@ -276,6 +294,8 @@ class _EipState:
             pulumi.set(__self__, "domain", domain)
         if instance is not None:
             pulumi.set(__self__, "instance", instance)
+        if ipam_pool_id is not None:
+            pulumi.set(__self__, "ipam_pool_id", ipam_pool_id)
         if network_border_group is not None:
             pulumi.set(__self__, "network_border_group", network_border_group)
         if network_interface is not None:
@@ -421,6 +441,18 @@ class _EipState:
     @instance.setter
     def instance(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "instance", value)
+
+    @property
+    @pulumi.getter(name="ipamPoolId")
+    def ipam_pool_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
+        """
+        return pulumi.get(self, "ipam_pool_id")
+
+    @ipam_pool_id.setter
+    def ipam_pool_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipam_pool_id", value)
 
     @property
     @pulumi.getter(name="networkBorderGroup")
@@ -574,6 +606,7 @@ class Eip(pulumi.CustomResource):
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  instance: Optional[pulumi.Input[str]] = None,
+                 ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  network_border_group: Optional[pulumi.Input[str]] = None,
                  network_interface: Optional[pulumi.Input[str]] = None,
                  public_ipv4_pool: Optional[pulumi.Input[str]] = None,
@@ -660,6 +693,17 @@ class Eip(pulumi.CustomResource):
             public_ipv4_pool="ipv4pool-ec2-012345")
         ```
 
+        ### Allocating EIP from the IPAM Pool
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ipam_ip = aws.ec2.Eip("ipam-ip",
+            domain="vpc",
+            ipam_pool_id="ipam-pool-07ccc86aa41bef7ce")
+        ```
+
         ## Import
 
         Using `pulumi import`, import EIPs in a VPC using their Allocation ID. For example:
@@ -675,6 +719,7 @@ class Eip(pulumi.CustomResource):
         :param pulumi.Input[str] customer_owned_ipv4_pool: ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
         :param pulumi.Input[str] domain: Indicates if this EIP is for use in VPC (`vpc`).
         :param pulumi.Input[str] instance: EC2 instance ID.
+        :param pulumi.Input[str] ipam_pool_id: The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
         :param pulumi.Input[str] network_border_group: Location from which the IP address is advertised. Use this parameter to limit the address to this location.
         :param pulumi.Input[str] network_interface: Network interface ID to associate with.
         :param pulumi.Input[str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`.
@@ -774,6 +819,17 @@ class Eip(pulumi.CustomResource):
             public_ipv4_pool="ipv4pool-ec2-012345")
         ```
 
+        ### Allocating EIP from the IPAM Pool
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ipam_ip = aws.ec2.Eip("ipam-ip",
+            domain="vpc",
+            ipam_pool_id="ipam-pool-07ccc86aa41bef7ce")
+        ```
+
         ## Import
 
         Using `pulumi import`, import EIPs in a VPC using their Allocation ID. For example:
@@ -802,6 +858,7 @@ class Eip(pulumi.CustomResource):
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  instance: Optional[pulumi.Input[str]] = None,
+                 ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  network_border_group: Optional[pulumi.Input[str]] = None,
                  network_interface: Optional[pulumi.Input[str]] = None,
                  public_ipv4_pool: Optional[pulumi.Input[str]] = None,
@@ -821,6 +878,7 @@ class Eip(pulumi.CustomResource):
             __props__.__dict__["customer_owned_ipv4_pool"] = customer_owned_ipv4_pool
             __props__.__dict__["domain"] = domain
             __props__.__dict__["instance"] = instance
+            __props__.__dict__["ipam_pool_id"] = ipam_pool_id
             __props__.__dict__["network_border_group"] = network_border_group
             __props__.__dict__["network_interface"] = network_interface
             __props__.__dict__["public_ipv4_pool"] = public_ipv4_pool
@@ -857,6 +915,7 @@ class Eip(pulumi.CustomResource):
             customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
             domain: Optional[pulumi.Input[str]] = None,
             instance: Optional[pulumi.Input[str]] = None,
+            ipam_pool_id: Optional[pulumi.Input[str]] = None,
             network_border_group: Optional[pulumi.Input[str]] = None,
             network_interface: Optional[pulumi.Input[str]] = None,
             private_dns: Optional[pulumi.Input[str]] = None,
@@ -884,6 +943,7 @@ class Eip(pulumi.CustomResource):
         :param pulumi.Input[str] customer_owned_ipv4_pool: ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
         :param pulumi.Input[str] domain: Indicates if this EIP is for use in VPC (`vpc`).
         :param pulumi.Input[str] instance: EC2 instance ID.
+        :param pulumi.Input[str] ipam_pool_id: The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
         :param pulumi.Input[str] network_border_group: Location from which the IP address is advertised. Use this parameter to limit the address to this location.
         :param pulumi.Input[str] network_interface: Network interface ID to associate with.
         :param pulumi.Input[str] private_dns: The Private DNS associated with the Elastic IP address (if in VPC).
@@ -917,6 +977,7 @@ class Eip(pulumi.CustomResource):
         __props__.__dict__["customer_owned_ipv4_pool"] = customer_owned_ipv4_pool
         __props__.__dict__["domain"] = domain
         __props__.__dict__["instance"] = instance
+        __props__.__dict__["ipam_pool_id"] = ipam_pool_id
         __props__.__dict__["network_border_group"] = network_border_group
         __props__.__dict__["network_interface"] = network_interface
         __props__.__dict__["private_dns"] = private_dns
@@ -1006,6 +1067,14 @@ class Eip(pulumi.CustomResource):
         EC2 instance ID.
         """
         return pulumi.get(self, "instance")
+
+    @property
+    @pulumi.getter(name="ipamPoolId")
+    def ipam_pool_id(self) -> pulumi.Output[str]:
+        """
+        The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
+        """
+        return pulumi.get(self, "ipam_pool_id")
 
     @property
     @pulumi.getter(name="networkBorderGroup")

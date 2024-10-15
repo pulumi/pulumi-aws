@@ -29,8 +29,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := route53.NewResolverEndpoint(ctx, "foo", &route53.ResolverEndpointArgs{
-//				Name:      pulumi.String("foo"),
-//				Direction: pulumi.String("INBOUND"),
+//				Name:                 pulumi.String("foo"),
+//				Direction:            pulumi.String("INBOUND"),
+//				ResolverEndpointType: pulumi.String("IPV4"),
 //				SecurityGroupIds: pulumi.StringArray{
 //					sg1.Id,
 //					sg2.Id,
@@ -71,28 +72,28 @@ import (
 type ResolverEndpoint struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the Route 53 Resolver endpoint.
+	// ARN of the Route 53 Resolver endpoint.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The direction of DNS queries to or from the Route 53 Resolver endpoint.
+	// Direction of DNS queries to or from the Route 53 Resolver endpoint.
 	// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
 	// or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
 	Direction pulumi.StringOutput `pulumi:"direction"`
-	// The ID of the VPC that you want to create the resolver endpoint in.
+	// ID of the VPC that you want to create the resolver endpoint in.
 	HostVpcId pulumi.StringOutput `pulumi:"hostVpcId"`
-	// The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+	// Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
 	// to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
 	IpAddresses ResolverEndpointIpAddressArrayOutput `pulumi:"ipAddresses"`
-	// The friendly name of the Route 53 Resolver endpoint.
+	// Friendly name of the Route 53 Resolver endpoint.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+	// Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
 	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
-	// The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+	// Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
 	ResolverEndpointType pulumi.StringOutput `pulumi:"resolverEndpointType"`
-	// The ID of one or more security groups that you want to use to control access to this VPC.
+	// ID of one or more security groups that you want to use to control access to this VPC.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -137,56 +138,56 @@ func GetResolverEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResolverEndpoint resources.
 type resolverEndpointState struct {
-	// The ARN of the Route 53 Resolver endpoint.
+	// ARN of the Route 53 Resolver endpoint.
 	Arn *string `pulumi:"arn"`
-	// The direction of DNS queries to or from the Route 53 Resolver endpoint.
+	// Direction of DNS queries to or from the Route 53 Resolver endpoint.
 	// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
 	// or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
 	Direction *string `pulumi:"direction"`
-	// The ID of the VPC that you want to create the resolver endpoint in.
+	// ID of the VPC that you want to create the resolver endpoint in.
 	HostVpcId *string `pulumi:"hostVpcId"`
-	// The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+	// Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
 	// to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
 	IpAddresses []ResolverEndpointIpAddress `pulumi:"ipAddresses"`
-	// The friendly name of the Route 53 Resolver endpoint.
+	// Friendly name of the Route 53 Resolver endpoint.
 	Name *string `pulumi:"name"`
-	// The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+	// Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
 	Protocols []string `pulumi:"protocols"`
-	// The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+	// Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
 	ResolverEndpointType *string `pulumi:"resolverEndpointType"`
-	// The ID of one or more security groups that you want to use to control access to this VPC.
+	// ID of one or more security groups that you want to use to control access to this VPC.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ResolverEndpointState struct {
-	// The ARN of the Route 53 Resolver endpoint.
+	// ARN of the Route 53 Resolver endpoint.
 	Arn pulumi.StringPtrInput
-	// The direction of DNS queries to or from the Route 53 Resolver endpoint.
+	// Direction of DNS queries to or from the Route 53 Resolver endpoint.
 	// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
 	// or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
 	Direction pulumi.StringPtrInput
-	// The ID of the VPC that you want to create the resolver endpoint in.
+	// ID of the VPC that you want to create the resolver endpoint in.
 	HostVpcId pulumi.StringPtrInput
-	// The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+	// Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
 	// to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
 	IpAddresses ResolverEndpointIpAddressArrayInput
-	// The friendly name of the Route 53 Resolver endpoint.
+	// Friendly name of the Route 53 Resolver endpoint.
 	Name pulumi.StringPtrInput
-	// The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+	// Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
 	Protocols pulumi.StringArrayInput
-	// The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+	// Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
 	ResolverEndpointType pulumi.StringPtrInput
-	// The ID of one or more security groups that you want to use to control access to this VPC.
+	// ID of one or more security groups that you want to use to control access to this VPC.
 	SecurityGroupIds pulumi.StringArrayInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
@@ -197,43 +198,43 @@ func (ResolverEndpointState) ElementType() reflect.Type {
 }
 
 type resolverEndpointArgs struct {
-	// The direction of DNS queries to or from the Route 53 Resolver endpoint.
+	// Direction of DNS queries to or from the Route 53 Resolver endpoint.
 	// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
 	// or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
 	Direction string `pulumi:"direction"`
-	// The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+	// Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
 	// to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
 	IpAddresses []ResolverEndpointIpAddress `pulumi:"ipAddresses"`
-	// The friendly name of the Route 53 Resolver endpoint.
+	// Friendly name of the Route 53 Resolver endpoint.
 	Name *string `pulumi:"name"`
-	// The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+	// Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
 	Protocols []string `pulumi:"protocols"`
-	// The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+	// Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
 	ResolverEndpointType *string `pulumi:"resolverEndpointType"`
-	// The ID of one or more security groups that you want to use to control access to this VPC.
+	// ID of one or more security groups that you want to use to control access to this VPC.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResolverEndpoint resource.
 type ResolverEndpointArgs struct {
-	// The direction of DNS queries to or from the Route 53 Resolver endpoint.
+	// Direction of DNS queries to or from the Route 53 Resolver endpoint.
 	// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
 	// or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
 	Direction pulumi.StringInput
-	// The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+	// Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
 	// to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
 	IpAddresses ResolverEndpointIpAddressArrayInput
-	// The friendly name of the Route 53 Resolver endpoint.
+	// Friendly name of the Route 53 Resolver endpoint.
 	Name pulumi.StringPtrInput
-	// The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+	// Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
 	Protocols pulumi.StringArrayInput
-	// The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+	// Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
 	ResolverEndpointType pulumi.StringPtrInput
-	// The ID of one or more security groups that you want to use to control access to this VPC.
+	// ID of one or more security groups that you want to use to control access to this VPC.
 	SecurityGroupIds pulumi.StringArrayInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -324,55 +325,55 @@ func (o ResolverEndpointOutput) ToResolverEndpointOutputWithContext(ctx context.
 	return o
 }
 
-// The ARN of the Route 53 Resolver endpoint.
+// ARN of the Route 53 Resolver endpoint.
 func (o ResolverEndpointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The direction of DNS queries to or from the Route 53 Resolver endpoint.
+// Direction of DNS queries to or from the Route 53 Resolver endpoint.
 // Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
 // or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
 func (o ResolverEndpointOutput) Direction() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringOutput { return v.Direction }).(pulumi.StringOutput)
 }
 
-// The ID of the VPC that you want to create the resolver endpoint in.
+// ID of the VPC that you want to create the resolver endpoint in.
 func (o ResolverEndpointOutput) HostVpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringOutput { return v.HostVpcId }).(pulumi.StringOutput)
 }
 
-// The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
+// Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
 // to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
 func (o ResolverEndpointOutput) IpAddresses() ResolverEndpointIpAddressArrayOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) ResolverEndpointIpAddressArrayOutput { return v.IpAddresses }).(ResolverEndpointIpAddressArrayOutput)
 }
 
-// The friendly name of the Route 53 Resolver endpoint.
+// Friendly name of the Route 53 Resolver endpoint.
 func (o ResolverEndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
+// Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
 func (o ResolverEndpointOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringArrayOutput { return v.Protocols }).(pulumi.StringArrayOutput)
 }
 
-// The Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
+// Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
 func (o ResolverEndpointOutput) ResolverEndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringOutput { return v.ResolverEndpointType }).(pulumi.StringOutput)
 }
 
-// The ID of one or more security groups that you want to use to control access to this VPC.
+// ID of one or more security groups that you want to use to control access to this VPC.
 func (o ResolverEndpointOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ResolverEndpointOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 //
 // Deprecated: Please use `tags` instead.
 func (o ResolverEndpointOutput) TagsAll() pulumi.StringMapOutput {
