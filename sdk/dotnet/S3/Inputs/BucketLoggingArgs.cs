@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketLoggingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the bucket that will receive the log objects.
+        /// The name of the bucket that will receive the log objects.
         /// </summary>
         [Input("targetBucket", required: true)]
         public Input<string> TargetBucket { get; set; } = null!;

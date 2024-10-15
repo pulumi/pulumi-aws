@@ -32,14 +32,14 @@ public final class BucketReplicationConfigurationRuleDestinationMetricsArgs exte
     }
 
     /**
-     * Status of replication metrics. Either `Enabled` or `Disabled`.
+     * The status of replication metrics. Either `Enabled` or `Disabled`.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Status of replication metrics. Either `Enabled` or `Disabled`.
+     * @return The status of replication metrics. Either `Enabled` or `Disabled`.
      * 
      */
     public Optional<Output<String>> status() {
@@ -93,7 +93,7 @@ public final class BucketReplicationConfigurationRuleDestinationMetricsArgs exte
         }
 
         /**
-         * @param status Status of replication metrics. Either `Enabled` or `Disabled`.
+         * @param status The status of replication metrics. Either `Enabled` or `Disabled`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class BucketReplicationConfigurationRuleDestinationMetricsArgs exte
         }
 
         /**
-         * @param status Status of replication metrics. Either `Enabled` or `Disabled`.
+         * @param status The status of replication metrics. Either `Enabled` or `Disabled`.
          * 
          * @return builder
          * 

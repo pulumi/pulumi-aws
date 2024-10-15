@@ -55,14 +55,14 @@ public final class BucketLifecycleRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Specifies a period in the object&#39;s expire. See Expiration below for details.
+     * Specifies a period in the object&#39;s expire (documented below).
      * 
      */
     @Import(name="expiration")
     private @Nullable Output<BucketLifecycleRuleExpirationArgs> expiration;
 
     /**
-     * @return Specifies a period in the object&#39;s expire. See Expiration below for details.
+     * @return Specifies a period in the object&#39;s expire (documented below).
      * 
      */
     public Optional<Output<BucketLifecycleRuleExpirationArgs>> expiration() {
@@ -85,14 +85,14 @@ public final class BucketLifecycleRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
+     * Specifies when noncurrent object versions expire (documented below).
      * 
      */
     @Import(name="noncurrentVersionExpiration")
     private @Nullable Output<BucketLifecycleRuleNoncurrentVersionExpirationArgs> noncurrentVersionExpiration;
 
     /**
-     * @return Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
+     * @return Specifies when noncurrent object versions expire (documented below).
      * 
      */
     public Optional<Output<BucketLifecycleRuleNoncurrentVersionExpirationArgs>> noncurrentVersionExpiration() {
@@ -100,14 +100,18 @@ public final class BucketLifecycleRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
+     * Specifies when noncurrent object versions transitions (documented below).
+     * 
+     * At least one of `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, `noncurrent_version_transition` must be specified.
      * 
      */
     @Import(name="noncurrentVersionTransitions")
     private @Nullable Output<List<BucketLifecycleRuleNoncurrentVersionTransitionArgs>> noncurrentVersionTransitions;
 
     /**
-     * @return Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
+     * @return Specifies when noncurrent object versions transitions (documented below).
+     * 
+     * At least one of `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, `noncurrent_version_transition` must be specified.
      * 
      */
     public Optional<Output<List<BucketLifecycleRuleNoncurrentVersionTransitionArgs>>> noncurrentVersionTransitions() {
@@ -145,14 +149,14 @@ public final class BucketLifecycleRuleArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Specifies a period in the object&#39;s transitions. See Transition below for details.
+     * Specifies a period in the object&#39;s transitions (documented below).
      * 
      */
     @Import(name="transitions")
     private @Nullable Output<List<BucketLifecycleRuleTransitionArgs>> transitions;
 
     /**
-     * @return Specifies a period in the object&#39;s transitions. See Transition below for details.
+     * @return Specifies a period in the object&#39;s transitions (documented below).
      * 
      */
     public Optional<Output<List<BucketLifecycleRuleTransitionArgs>>> transitions() {
@@ -234,7 +238,7 @@ public final class BucketLifecycleRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param expiration Specifies a period in the object&#39;s expire. See Expiration below for details.
+         * @param expiration Specifies a period in the object&#39;s expire (documented below).
          * 
          * @return builder
          * 
@@ -245,7 +249,7 @@ public final class BucketLifecycleRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param expiration Specifies a period in the object&#39;s expire. See Expiration below for details.
+         * @param expiration Specifies a period in the object&#39;s expire (documented below).
          * 
          * @return builder
          * 
@@ -276,7 +280,7 @@ public final class BucketLifecycleRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param noncurrentVersionExpiration Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
+         * @param noncurrentVersionExpiration Specifies when noncurrent object versions expire (documented below).
          * 
          * @return builder
          * 
@@ -287,7 +291,7 @@ public final class BucketLifecycleRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param noncurrentVersionExpiration Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
+         * @param noncurrentVersionExpiration Specifies when noncurrent object versions expire (documented below).
          * 
          * @return builder
          * 
@@ -297,7 +301,9 @@ public final class BucketLifecycleRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param noncurrentVersionTransitions Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
+         * @param noncurrentVersionTransitions Specifies when noncurrent object versions transitions (documented below).
+         * 
+         * At least one of `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, `noncurrent_version_transition` must be specified.
          * 
          * @return builder
          * 
@@ -308,7 +314,9 @@ public final class BucketLifecycleRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param noncurrentVersionTransitions Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
+         * @param noncurrentVersionTransitions Specifies when noncurrent object versions transitions (documented below).
+         * 
+         * At least one of `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, `noncurrent_version_transition` must be specified.
          * 
          * @return builder
          * 
@@ -318,7 +326,9 @@ public final class BucketLifecycleRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param noncurrentVersionTransitions Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
+         * @param noncurrentVersionTransitions Specifies when noncurrent object versions transitions (documented below).
+         * 
+         * At least one of `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, `noncurrent_version_transition` must be specified.
          * 
          * @return builder
          * 
@@ -370,7 +380,7 @@ public final class BucketLifecycleRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param transitions Specifies a period in the object&#39;s transitions. See Transition below for details.
+         * @param transitions Specifies a period in the object&#39;s transitions (documented below).
          * 
          * @return builder
          * 
@@ -381,7 +391,7 @@ public final class BucketLifecycleRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param transitions Specifies a period in the object&#39;s transitions. See Transition below for details.
+         * @param transitions Specifies a period in the object&#39;s transitions (documented below).
          * 
          * @return builder
          * 
@@ -391,7 +401,7 @@ public final class BucketLifecycleRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param transitions Specifies a period in the object&#39;s transitions. See Transition below for details.
+         * @param transitions Specifies a period in the object&#39;s transitions (documented below).
          * 
          * @return builder
          * 

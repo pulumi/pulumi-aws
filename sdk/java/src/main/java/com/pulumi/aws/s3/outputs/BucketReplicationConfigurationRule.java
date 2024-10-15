@@ -42,7 +42,7 @@ public final class BucketReplicationConfigurationRule {
      */
     private @Nullable String prefix;
     /**
-     * @return Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+     * @return The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
      * 
      */
     private @Nullable Integer priority;
@@ -52,7 +52,9 @@ public final class BucketReplicationConfigurationRule {
      */
     private @Nullable BucketReplicationConfigurationRuleSourceSelectionCriteria sourceSelectionCriteria;
     /**
-     * @return Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+     * @return The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+     * 
+     * &gt; **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rules` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
      * 
      */
     private String status;
@@ -94,7 +96,7 @@ public final class BucketReplicationConfigurationRule {
         return Optional.ofNullable(this.prefix);
     }
     /**
-     * @return Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+     * @return The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
      * 
      */
     public Optional<Integer> priority() {
@@ -108,7 +110,9 @@ public final class BucketReplicationConfigurationRule {
         return Optional.ofNullable(this.sourceSelectionCriteria);
     }
     /**
-     * @return Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+     * @return The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+     * 
+     * &gt; **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rules` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
      * 
      */
     public String status() {
