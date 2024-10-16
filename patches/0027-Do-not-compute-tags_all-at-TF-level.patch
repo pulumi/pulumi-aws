@@ -5,7 +5,7 @@ Subject: [PATCH] Do not compute tags_all at TF level
 
 
 diff --git a/internal/framework/resource_with_configure.go b/internal/framework/resource_with_configure.go
-index 6e3610bc82..594f516660 100644
+index a415a989a8..9a3f8eea5c 100644
 --- a/internal/framework/resource_with_configure.go
 +++ b/internal/framework/resource_with_configure.go
 @@ -30,6 +30,11 @@ func (r *ResourceWithConfigure) Configure(_ context.Context, request resource.Co
@@ -21,7 +21,7 @@ index 6e3610bc82..594f516660 100644
  	if request.Plan.Raw.IsNull() {
  		return
 diff --git a/internal/provider/fwprovider/provider.go b/internal/provider/fwprovider/provider.go
-index 4a805bf285..3a654af572 100644
+index 95563b9882..5ed49e758f 100644
 --- a/internal/provider/fwprovider/provider.go
 +++ b/internal/provider/fwprovider/provider.go
 @@ -430,8 +430,8 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
@@ -166,10 +166,10 @@ index e2dfcda3c8..e524fcad2d 100644
  				Optional: true,
  				Computed: true,
 diff --git a/internal/service/quicksight/namespace.go b/internal/service/quicksight/namespace.go
-index a3ad529129..8d2e1d913e 100644
+index 4600c7d8bb..d54aa76a29 100644
 --- a/internal/service/quicksight/namespace.go
 +++ b/internal/service/quicksight/namespace.go
-@@ -96,7 +96,7 @@ func (r *namespaceResource) Schema(ctx context.Context, req resource.SchemaReque
+@@ -98,7 +98,7 @@ func (r *namespaceResource) Schema(ctx context.Context, req resource.SchemaReque
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -179,10 +179,10 @@ index a3ad529129..8d2e1d913e 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/quicksight/vpc_connection.go b/internal/service/quicksight/vpc_connection.go
-index 93acb145ca..31e333e700 100644
+index 5db0e656ab..e27aea658b 100644
 --- a/internal/service/quicksight/vpc_connection.go
 +++ b/internal/service/quicksight/vpc_connection.go
-@@ -139,7 +139,7 @@ func (r *vpcConnectionResource) Schema(ctx context.Context, req resource.SchemaR
+@@ -141,7 +141,7 @@ func (r *vpcConnectionResource) Schema(ctx context.Context, req resource.SchemaR
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -218,11 +218,11 @@ index 793580c0ad..5c173c826c 100644
  		Blocks: map[string]schema.Block{
  			"filters": schema.ListNestedBlock{
 diff --git a/internal/service/workspaces/connection_alias.go b/internal/service/workspaces/connection_alias.go
-index caff637895..7567a77160 100644
+index 789e374885..d5a771ce81 100644
 --- a/internal/service/workspaces/connection_alias.go
 +++ b/internal/service/workspaces/connection_alias.go
-@@ -81,7 +81,7 @@ func (r *resourceConnectionAlias) Schema(ctx context.Context, req resource.Schem
- 				},
+@@ -75,7 +75,7 @@ func (r *connectionAliasResource) Schema(ctx context.Context, request resource.S
+ 				Description: "The current state of the connection alias.",
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
 -			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
@@ -231,7 +231,7 @@ index caff637895..7567a77160 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/verify/diff.go b/internal/verify/diff.go
-index 0bc956a747..e0636e99ce 100644
+index 95c63b9f8d..e0636e99ce 100644
 --- a/internal/verify/diff.go
 +++ b/internal/verify/diff.go
 @@ -5,101 +5,12 @@ package verify
@@ -255,7 +255,7 @@ index 0bc956a747..e0636e99ce 100644
 -// after resource READ operations as resource and provider-level tags
 -// will be indistinguishable when returned from an AWS API.
  func SetTagsDiff(ctx context.Context, diff *schema.ResourceDiff, meta interface{}) error {
--	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig
+-	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig(ctx)
 -	ignoreTagsConfig := meta.(*conns.AWSClient).IgnoreTagsConfig
 -
 -	resourceTags := tftags.New(ctx, diff.Get("tags").(map[string]interface{}))
