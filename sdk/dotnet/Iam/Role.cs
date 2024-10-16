@@ -204,6 +204,8 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ### Example of Exclusive Managed Policies
     /// 
+    /// &gt; The `managed_policy_arns` argument is deprecated. Use the `aws.iam.RolePolicyAttachmentsExclusive` resource instead.
+    /// 
     /// This example creates an IAM role and attaches two managed IAM policies. If someone attaches another managed policy out-of-band, on the next apply, this provider will detach that policy. If someone detaches these policies out-of-band, this provider will attach them again.
     /// 
     /// ```csharp
@@ -274,6 +276,8 @@ namespace Pulumi.Aws.Iam
     /// ```
     /// 
     /// ### Example of Removing Managed Policies
+    /// 
+    /// &gt; The `managed_policy_arns` argument is deprecated. Use the `aws.iam.RolePolicyAttachmentsExclusive` resource instead.
     /// 
     /// This example creates an IAM role with an empty `managed_policy_arns` argument. If someone attaches a policy out-of-band, on the next apply, this provider will detach that policy.
     /// 
@@ -480,6 +484,7 @@ namespace Pulumi.Aws.Iam
 
         [Input("managedPolicyArns")]
         private InputList<string>? _managedPolicyArns;
+        [Obsolete(@"The managed_policy_arns argument is deprecated. Use the aws.iam.RolePolicyAttachmentsExclusive resource instead.")]
         public InputList<string> ManagedPolicyArns
         {
             get => _managedPolicyArns ?? (_managedPolicyArns = new InputList<string>());
@@ -585,6 +590,7 @@ namespace Pulumi.Aws.Iam
 
         [Input("managedPolicyArns")]
         private InputList<string>? _managedPolicyArns;
+        [Obsolete(@"The managed_policy_arns argument is deprecated. Use the aws.iam.RolePolicyAttachmentsExclusive resource instead.")]
         public InputList<string> ManagedPolicyArns
         {
             get => _managedPolicyArns ?? (_managedPolicyArns = new InputList<string>());

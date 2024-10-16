@@ -219,6 +219,10 @@ __all__ = [
     'FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgsDict',
     'FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs',
     'FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgsDict',
+    'FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs',
+    'FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgsDict',
+    'FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs',
+    'FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgsDict',
     'FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs',
     'FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgsDict',
     'FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs',
@@ -6555,14 +6559,32 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs:
 if not MYPY:
     class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgsDict(TypedDict):
         object_path: pulumi.Input[str]
+        pagination_config: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgsDict']]
+        """
+        Sets the page size for each concurrent process that transfers OData records from your SAP instance.
+        """
+        parallelism_config: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgsDict']]
+        """
+        Sets the number of concurrent processes that transfers OData records from your SAP instance.
+        """
 elif False:
     FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs:
     def __init__(__self__, *,
-                 object_path: pulumi.Input[str]):
+                 object_path: pulumi.Input[str],
+                 pagination_config: Optional[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs']] = None,
+                 parallelism_config: Optional[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs']] = None):
+        """
+        :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs'] pagination_config: Sets the page size for each concurrent process that transfers OData records from your SAP instance.
+        :param pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs'] parallelism_config: Sets the number of concurrent processes that transfers OData records from your SAP instance.
+        """
         pulumi.set(__self__, "object_path", object_path)
+        if pagination_config is not None:
+            pulumi.set(__self__, "pagination_config", pagination_config)
+        if parallelism_config is not None:
+            pulumi.set(__self__, "parallelism_config", parallelism_config)
 
     @property
     @pulumi.getter(name="objectPath")
@@ -6572,6 +6594,92 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs:
     @object_path.setter
     def object_path(self, value: pulumi.Input[str]):
         pulumi.set(self, "object_path", value)
+
+    @property
+    @pulumi.getter(name="paginationConfig")
+    def pagination_config(self) -> Optional[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs']]:
+        """
+        Sets the page size for each concurrent process that transfers OData records from your SAP instance.
+        """
+        return pulumi.get(self, "pagination_config")
+
+    @pagination_config.setter
+    def pagination_config(self, value: Optional[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs']]):
+        pulumi.set(self, "pagination_config", value)
+
+    @property
+    @pulumi.getter(name="parallelismConfig")
+    def parallelism_config(self) -> Optional[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs']]:
+        """
+        Sets the number of concurrent processes that transfers OData records from your SAP instance.
+        """
+        return pulumi.get(self, "parallelism_config")
+
+    @parallelism_config.setter
+    def parallelism_config(self, value: Optional[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs']]):
+        pulumi.set(self, "parallelism_config", value)
+
+
+if not MYPY:
+    class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgsDict(TypedDict):
+        max_page_size: pulumi.Input[int]
+        """
+        he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
+        """
+elif False:
+    FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs:
+    def __init__(__self__, *,
+                 max_page_size: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] max_page_size: he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
+        """
+        pulumi.set(__self__, "max_page_size", max_page_size)
+
+    @property
+    @pulumi.getter(name="maxPageSize")
+    def max_page_size(self) -> pulumi.Input[int]:
+        """
+        he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
+        """
+        return pulumi.get(self, "max_page_size")
+
+    @max_page_size.setter
+    def max_page_size(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_page_size", value)
+
+
+if not MYPY:
+    class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgsDict(TypedDict):
+        max_page_size: pulumi.Input[int]
+        """
+        he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
+        """
+elif False:
+    FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs:
+    def __init__(__self__, *,
+                 max_page_size: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] max_page_size: he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
+        """
+        pulumi.set(__self__, "max_page_size", max_page_size)
+
+    @property
+    @pulumi.getter(name="maxPageSize")
+    def max_page_size(self) -> pulumi.Input[int]:
+        """
+        he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
+        """
+        return pulumi.get(self, "max_page_size")
+
+    @max_page_size.setter
+    def max_page_size(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_page_size", value)
 
 
 if not MYPY:

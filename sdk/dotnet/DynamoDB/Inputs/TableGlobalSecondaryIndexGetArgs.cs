@@ -37,6 +37,12 @@ namespace Pulumi.Aws.DynamoDB.Inputs
         }
 
         /// <summary>
+        /// Sets the maximum number of read and write units for the specified on-demand table. See below.
+        /// </summary>
+        [Input("onDemandThroughput")]
+        public Input<Inputs.TableGlobalSecondaryIndexOnDemandThroughputGetArgs>? OnDemandThroughput { get; set; }
+
+        /// <summary>
         /// One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
         /// </summary>
         [Input("projectionType", required: true)]

@@ -53,6 +53,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RolePolicy{}
 	case "aws:iam/rolePolicyAttachment:RolePolicyAttachment":
 		r = &RolePolicyAttachment{}
+	case "aws:iam/rolePolicyAttachmentsExclusive:RolePolicyAttachmentsExclusive":
+		r = &RolePolicyAttachmentsExclusive{}
 	case "aws:iam/samlProvider:SamlProvider":
 		r = &SamlProvider{}
 	case "aws:iam/securityTokenServicePreferences:SecurityTokenServicePreferences":
@@ -172,6 +174,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"iam/rolePolicyAttachment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"iam/rolePolicyAttachmentsExclusive",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

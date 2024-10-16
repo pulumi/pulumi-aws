@@ -173,6 +173,11 @@ export type RolePolicyAttachment = import("./rolePolicyAttachment").RolePolicyAt
 export const RolePolicyAttachment: typeof import("./rolePolicyAttachment").RolePolicyAttachment = null as any;
 utilities.lazyLoad(exports, ["RolePolicyAttachment"], () => require("./rolePolicyAttachment"));
 
+export { RolePolicyAttachmentsExclusiveArgs, RolePolicyAttachmentsExclusiveState } from "./rolePolicyAttachmentsExclusive";
+export type RolePolicyAttachmentsExclusive = import("./rolePolicyAttachmentsExclusive").RolePolicyAttachmentsExclusive;
+export const RolePolicyAttachmentsExclusive: typeof import("./rolePolicyAttachmentsExclusive").RolePolicyAttachmentsExclusive = null as any;
+utilities.lazyLoad(exports, ["RolePolicyAttachmentsExclusive"], () => require("./rolePolicyAttachmentsExclusive"));
+
 export { SamlProviderArgs, SamlProviderState } from "./samlProvider";
 export type SamlProvider = import("./samlProvider").SamlProvider;
 export const SamlProvider: typeof import("./samlProvider").SamlProvider = null as any;
@@ -283,6 +288,8 @@ const _module = {
                 return new RolePolicy(name, <any>undefined, { urn })
             case "aws:iam/rolePolicyAttachment:RolePolicyAttachment":
                 return new RolePolicyAttachment(name, <any>undefined, { urn })
+            case "aws:iam/rolePolicyAttachmentsExclusive:RolePolicyAttachmentsExclusive":
+                return new RolePolicyAttachmentsExclusive(name, <any>undefined, { urn })
             case "aws:iam/samlProvider:SamlProvider":
                 return new SamlProvider(name, <any>undefined, { urn })
             case "aws:iam/securityTokenServicePreferences:SecurityTokenServicePreferences":
@@ -332,6 +339,7 @@ pulumi.runtime.registerResourceModule("aws", "iam/role", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/rolePoliciesExclusive", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/rolePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/rolePolicyAttachment", _module)
+pulumi.runtime.registerResourceModule("aws", "iam/rolePolicyAttachmentsExclusive", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/samlProvider", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/securityTokenServicePreferences", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/serverCertificate", _module)

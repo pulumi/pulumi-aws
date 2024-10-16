@@ -255,6 +255,8 @@ type Table struct {
 	//
 	// Optional arguments:
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Sets the maximum number of read and write units for the specified on-demand table. See below.
+	OnDemandThroughput TableOnDemandThroughputPtrOutput `pulumi:"onDemandThroughput"`
 	// Enable point-in-time recovery options. See below.
 	PointInTimeRecovery TablePointInTimeRecoveryOutput `pulumi:"pointInTimeRecovery"`
 	// Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
@@ -347,6 +349,8 @@ type tableState struct {
 	//
 	// Optional arguments:
 	Name *string `pulumi:"name"`
+	// Sets the maximum number of read and write units for the specified on-demand table. See below.
+	OnDemandThroughput *TableOnDemandThroughput `pulumi:"onDemandThroughput"`
 	// Enable point-in-time recovery options. See below.
 	PointInTimeRecovery *TablePointInTimeRecovery `pulumi:"pointInTimeRecovery"`
 	// Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
@@ -410,6 +414,8 @@ type TableState struct {
 	//
 	// Optional arguments:
 	Name pulumi.StringPtrInput
+	// Sets the maximum number of read and write units for the specified on-demand table. See below.
+	OnDemandThroughput TableOnDemandThroughputPtrInput
 	// Enable point-in-time recovery options. See below.
 	PointInTimeRecovery TablePointInTimeRecoveryPtrInput
 	// Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
@@ -475,6 +481,8 @@ type tableArgs struct {
 	//
 	// Optional arguments:
 	Name *string `pulumi:"name"`
+	// Sets the maximum number of read and write units for the specified on-demand table. See below.
+	OnDemandThroughput *TableOnDemandThroughput `pulumi:"onDemandThroughput"`
 	// Enable point-in-time recovery options. See below.
 	PointInTimeRecovery *TablePointInTimeRecovery `pulumi:"pointInTimeRecovery"`
 	// Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
@@ -529,6 +537,8 @@ type TableArgs struct {
 	//
 	// Optional arguments:
 	Name pulumi.StringPtrInput
+	// Sets the maximum number of read and write units for the specified on-demand table. See below.
+	OnDemandThroughput TableOnDemandThroughputPtrInput
 	// Enable point-in-time recovery options. See below.
 	PointInTimeRecovery TablePointInTimeRecoveryPtrInput
 	// Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
@@ -695,6 +705,11 @@ func (o TableOutput) LocalSecondaryIndexes() TableLocalSecondaryIndexArrayOutput
 // Optional arguments:
 func (o TableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Sets the maximum number of read and write units for the specified on-demand table. See below.
+func (o TableOutput) OnDemandThroughput() TableOnDemandThroughputPtrOutput {
+	return o.ApplyT(func(v *Table) TableOnDemandThroughputPtrOutput { return v.OnDemandThroughput }).(TableOnDemandThroughputPtrOutput)
 }
 
 // Enable point-in-time recovery options. See below.

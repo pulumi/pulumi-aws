@@ -404,6 +404,94 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### AppSync Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const invokeAppsyncMutation = new aws.cloudwatch.EventRule("invoke_appsync_mutation", {
+ *     name: "invoke-appsync-mutation",
+ *     description: "schedule_batch_test",
+ *     scheduleExpression: "rate(5 minutes)",
+ * });
+ * const appsyncMutationRoleTrust = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: ["sts:AssumeRole"],
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["events.amazonaws.com"],
+ *         }],
+ *     }],
+ * });
+ * const appsyncMutationRole = new aws.iam.Role("appsync_mutation_role", {
+ *     name: "appsync-mutation-role",
+ *     assumeRolePolicy: appsyncMutationRoleTrust.then(appsyncMutationRoleTrust => appsyncMutationRoleTrust.json),
+ * });
+ * const graphql_api = new aws.appsync.GraphQLApi("graphql-api", {
+ *     name: "api",
+ *     authenticationType: "AWS_IAM",
+ *     schema: `    schema {
+ *       mutation: Mutation
+ *       query: Query
+ *     }
+ *
+ *     type Query {
+ *       testQuery: String
+ *     }
+ *
+ *     type Mutation {
+ *       testMutation(input: MutationInput!): TestMutationResult
+ *     }
+ *
+ *     type TestMutationResult {
+ *       test: String
+ *     }
+ *
+ *     input MutationInput {
+ *       testInput: String
+ *     }
+ * `,
+ * });
+ * const invokeAppsyncMutationEventTarget = new aws.cloudwatch.EventTarget("invoke_appsync_mutation", {
+ *     arn: std.replaceOutput({
+ *         text: graphql_api.arn,
+ *         search: "apis",
+ *         replace: "endpoints/graphql-api",
+ *     }).apply(invoke => invoke.result),
+ *     rule: invokeAppsyncMutation.id,
+ *     roleArn: appsyncMutationRole.arn,
+ *     inputTransformer: {
+ *         inputPaths: {
+ *             input: "$.detail.input",
+ *         },
+ *         inputTemplate: `      {
+ *         "input": <input>
+ *       }
+ * `,
+ *     },
+ *     appsyncTarget: {
+ *         graphqlOperation: "mutation TestMutation($input:MutationInput!){testMutation(input: $input) {test}}",
+ *     },
+ * });
+ * const appsyncMutationRolePolicyDocument = aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         actions: ["appsync:GraphQL"],
+ *         effect: "Allow",
+ *         resources: [graphql_api.arn],
+ *     }],
+ * });
+ * const appsyncMutationRolePolicy = new aws.iam.Policy("appsync_mutation_role_policy", {
+ *     name: "appsync-mutation-role-policy",
+ *     policy: appsyncMutationRolePolicyDocument.apply(appsyncMutationRolePolicyDocument => appsyncMutationRolePolicyDocument.json),
+ * });
+ * const appsyncMutationRoleAttachment = new aws.iam.RolePolicyAttachment("appsync_mutation_role_attachment", {
+ *     policyArn: appsyncMutationRolePolicy.arn,
+ *     role: appsyncMutationRole.name,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import EventBridge Targets using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
@@ -440,6 +528,10 @@ export class EventTarget extends pulumi.CustomResource {
         return obj['__pulumiType'] === EventTarget.__pulumiType;
     }
 
+    /**
+     * Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
+     */
+    public readonly appsyncTarget!: pulumi.Output<outputs.cloudwatch.EventTargetAppsyncTarget | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the target.
      */
@@ -533,6 +625,7 @@ export class EventTarget extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventTargetState | undefined;
+            resourceInputs["appsyncTarget"] = state ? state.appsyncTarget : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["batchTarget"] = state ? state.batchTarget : undefined;
             resourceInputs["deadLetterConfig"] = state ? state.deadLetterConfig : undefined;
@@ -560,6 +653,7 @@ export class EventTarget extends pulumi.CustomResource {
             if ((!args || args.rule === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rule'");
             }
+            resourceInputs["appsyncTarget"] = args ? args.appsyncTarget : undefined;
             resourceInputs["arn"] = args ? args.arn : undefined;
             resourceInputs["batchTarget"] = args ? args.batchTarget : undefined;
             resourceInputs["deadLetterConfig"] = args ? args.deadLetterConfig : undefined;
@@ -589,6 +683,10 @@ export class EventTarget extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EventTarget resources.
  */
 export interface EventTargetState {
+    /**
+     * Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
+     */
+    appsyncTarget?: pulumi.Input<inputs.cloudwatch.EventTargetAppsyncTarget>;
     /**
      * The Amazon Resource Name (ARN) of the target.
      */
@@ -674,6 +772,10 @@ export interface EventTargetState {
  * The set of arguments for constructing a EventTarget resource.
  */
 export interface EventTargetArgs {
+    /**
+     * Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
+     */
+    appsyncTarget?: pulumi.Input<inputs.cloudwatch.EventTargetAppsyncTarget>;
     /**
      * The Amazon Resource Name (ARN) of the target.
      */

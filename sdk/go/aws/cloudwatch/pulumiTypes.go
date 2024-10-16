@@ -3082,6 +3082,143 @@ func (o EventPermissionConditionPtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type EventTargetAppsyncTarget struct {
+	// Contains the GraphQL mutation to be parsed and executed.
+	GraphqlOperation *string `pulumi:"graphqlOperation"`
+}
+
+// EventTargetAppsyncTargetInput is an input type that accepts EventTargetAppsyncTargetArgs and EventTargetAppsyncTargetOutput values.
+// You can construct a concrete instance of `EventTargetAppsyncTargetInput` via:
+//
+//	EventTargetAppsyncTargetArgs{...}
+type EventTargetAppsyncTargetInput interface {
+	pulumi.Input
+
+	ToEventTargetAppsyncTargetOutput() EventTargetAppsyncTargetOutput
+	ToEventTargetAppsyncTargetOutputWithContext(context.Context) EventTargetAppsyncTargetOutput
+}
+
+type EventTargetAppsyncTargetArgs struct {
+	// Contains the GraphQL mutation to be parsed and executed.
+	GraphqlOperation pulumi.StringPtrInput `pulumi:"graphqlOperation"`
+}
+
+func (EventTargetAppsyncTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTargetAppsyncTarget)(nil)).Elem()
+}
+
+func (i EventTargetAppsyncTargetArgs) ToEventTargetAppsyncTargetOutput() EventTargetAppsyncTargetOutput {
+	return i.ToEventTargetAppsyncTargetOutputWithContext(context.Background())
+}
+
+func (i EventTargetAppsyncTargetArgs) ToEventTargetAppsyncTargetOutputWithContext(ctx context.Context) EventTargetAppsyncTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetAppsyncTargetOutput)
+}
+
+func (i EventTargetAppsyncTargetArgs) ToEventTargetAppsyncTargetPtrOutput() EventTargetAppsyncTargetPtrOutput {
+	return i.ToEventTargetAppsyncTargetPtrOutputWithContext(context.Background())
+}
+
+func (i EventTargetAppsyncTargetArgs) ToEventTargetAppsyncTargetPtrOutputWithContext(ctx context.Context) EventTargetAppsyncTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetAppsyncTargetOutput).ToEventTargetAppsyncTargetPtrOutputWithContext(ctx)
+}
+
+// EventTargetAppsyncTargetPtrInput is an input type that accepts EventTargetAppsyncTargetArgs, EventTargetAppsyncTargetPtr and EventTargetAppsyncTargetPtrOutput values.
+// You can construct a concrete instance of `EventTargetAppsyncTargetPtrInput` via:
+//
+//	        EventTargetAppsyncTargetArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventTargetAppsyncTargetPtrInput interface {
+	pulumi.Input
+
+	ToEventTargetAppsyncTargetPtrOutput() EventTargetAppsyncTargetPtrOutput
+	ToEventTargetAppsyncTargetPtrOutputWithContext(context.Context) EventTargetAppsyncTargetPtrOutput
+}
+
+type eventTargetAppsyncTargetPtrType EventTargetAppsyncTargetArgs
+
+func EventTargetAppsyncTargetPtr(v *EventTargetAppsyncTargetArgs) EventTargetAppsyncTargetPtrInput {
+	return (*eventTargetAppsyncTargetPtrType)(v)
+}
+
+func (*eventTargetAppsyncTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventTargetAppsyncTarget)(nil)).Elem()
+}
+
+func (i *eventTargetAppsyncTargetPtrType) ToEventTargetAppsyncTargetPtrOutput() EventTargetAppsyncTargetPtrOutput {
+	return i.ToEventTargetAppsyncTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *eventTargetAppsyncTargetPtrType) ToEventTargetAppsyncTargetPtrOutputWithContext(ctx context.Context) EventTargetAppsyncTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetAppsyncTargetPtrOutput)
+}
+
+type EventTargetAppsyncTargetOutput struct{ *pulumi.OutputState }
+
+func (EventTargetAppsyncTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTargetAppsyncTarget)(nil)).Elem()
+}
+
+func (o EventTargetAppsyncTargetOutput) ToEventTargetAppsyncTargetOutput() EventTargetAppsyncTargetOutput {
+	return o
+}
+
+func (o EventTargetAppsyncTargetOutput) ToEventTargetAppsyncTargetOutputWithContext(ctx context.Context) EventTargetAppsyncTargetOutput {
+	return o
+}
+
+func (o EventTargetAppsyncTargetOutput) ToEventTargetAppsyncTargetPtrOutput() EventTargetAppsyncTargetPtrOutput {
+	return o.ToEventTargetAppsyncTargetPtrOutputWithContext(context.Background())
+}
+
+func (o EventTargetAppsyncTargetOutput) ToEventTargetAppsyncTargetPtrOutputWithContext(ctx context.Context) EventTargetAppsyncTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventTargetAppsyncTarget) *EventTargetAppsyncTarget {
+		return &v
+	}).(EventTargetAppsyncTargetPtrOutput)
+}
+
+// Contains the GraphQL mutation to be parsed and executed.
+func (o EventTargetAppsyncTargetOutput) GraphqlOperation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventTargetAppsyncTarget) *string { return v.GraphqlOperation }).(pulumi.StringPtrOutput)
+}
+
+type EventTargetAppsyncTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (EventTargetAppsyncTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventTargetAppsyncTarget)(nil)).Elem()
+}
+
+func (o EventTargetAppsyncTargetPtrOutput) ToEventTargetAppsyncTargetPtrOutput() EventTargetAppsyncTargetPtrOutput {
+	return o
+}
+
+func (o EventTargetAppsyncTargetPtrOutput) ToEventTargetAppsyncTargetPtrOutputWithContext(ctx context.Context) EventTargetAppsyncTargetPtrOutput {
+	return o
+}
+
+func (o EventTargetAppsyncTargetPtrOutput) Elem() EventTargetAppsyncTargetOutput {
+	return o.ApplyT(func(v *EventTargetAppsyncTarget) EventTargetAppsyncTarget {
+		if v != nil {
+			return *v
+		}
+		var ret EventTargetAppsyncTarget
+		return ret
+	}).(EventTargetAppsyncTargetOutput)
+}
+
+// Contains the GraphQL mutation to be parsed and executed.
+func (o EventTargetAppsyncTargetPtrOutput) GraphqlOperation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventTargetAppsyncTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GraphqlOperation
+	}).(pulumi.StringPtrOutput)
+}
+
 type EventTargetBatchTarget struct {
 	// The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
 	ArraySize *int `pulumi:"arraySize"`
@@ -8397,6 +8534,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventEndpointRoutingConfigFailoverConfigSecondaryPtrInput)(nil)).Elem(), EventEndpointRoutingConfigFailoverConfigSecondaryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventPermissionConditionInput)(nil)).Elem(), EventPermissionConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventPermissionConditionPtrInput)(nil)).Elem(), EventPermissionConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetAppsyncTargetInput)(nil)).Elem(), EventTargetAppsyncTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetAppsyncTargetPtrInput)(nil)).Elem(), EventTargetAppsyncTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetBatchTargetInput)(nil)).Elem(), EventTargetBatchTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetBatchTargetPtrInput)(nil)).Elem(), EventTargetBatchTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetDeadLetterConfigInput)(nil)).Elem(), EventTargetDeadLetterConfigArgs{})
@@ -8508,6 +8647,8 @@ func init() {
 	pulumi.RegisterOutputType(EventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput{})
 	pulumi.RegisterOutputType(EventPermissionConditionOutput{})
 	pulumi.RegisterOutputType(EventPermissionConditionPtrOutput{})
+	pulumi.RegisterOutputType(EventTargetAppsyncTargetOutput{})
+	pulumi.RegisterOutputType(EventTargetAppsyncTargetPtrOutput{})
 	pulumi.RegisterOutputType(EventTargetBatchTargetOutput{})
 	pulumi.RegisterOutputType(EventTargetBatchTargetPtrOutput{})
 	pulumi.RegisterOutputType(EventTargetDeadLetterConfigOutput{})

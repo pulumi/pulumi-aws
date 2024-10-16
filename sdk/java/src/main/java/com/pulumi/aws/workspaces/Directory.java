@@ -6,6 +6,7 @@ package com.pulumi.aws.workspaces;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.workspaces.DirectoryArgs;
 import com.pulumi.aws.workspaces.inputs.DirectoryState;
+import com.pulumi.aws.workspaces.outputs.DirectorySamlProperties;
 import com.pulumi.aws.workspaces.outputs.DirectorySelfServicePermissions;
 import com.pulumi.aws.workspaces.outputs.DirectoryWorkspaceAccessProperties;
 import com.pulumi.aws.workspaces.outputs.DirectoryWorkspaceCreationProperties;
@@ -49,6 +50,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
  * import com.pulumi.aws.workspaces.Directory;
  * import com.pulumi.aws.workspaces.DirectoryArgs;
+ * import com.pulumi.aws.workspaces.inputs.DirectorySamlPropertiesArgs;
  * import com.pulumi.aws.workspaces.inputs.DirectorySelfServicePermissionsArgs;
  * import com.pulumi.aws.workspaces.inputs.DirectoryWorkspaceAccessPropertiesArgs;
  * import com.pulumi.aws.workspaces.inputs.DirectoryWorkspaceCreationPropertiesArgs;
@@ -137,6 +139,10 @@ import javax.annotation.Nullable;
  *                 exampleC.id(),
  *                 exampleD.id())
  *             .tags(Map.of("Example", true))
+ *             .samlProperties(DirectorySamlPropertiesArgs.builder()
+ *                 .userAccessUrl("https://sso.example.com/")
+ *                 .status("ENABLED")
+ *                 .build())
  *             .selfServicePermissions(DirectorySelfServicePermissionsArgs.builder()
  *                 .changeComputeType(true)
  *                 .increaseVolumeSize(true)
@@ -351,6 +357,20 @@ public class Directory extends com.pulumi.resources.CustomResource {
      */
     public Output<String> registrationCode() {
         return this.registrationCode;
+    }
+    /**
+     * Configuration of SAML authentication integration. Defined below.
+     * 
+     */
+    @Export(name="samlProperties", refs={DirectorySamlProperties.class}, tree="[0]")
+    private Output<DirectorySamlProperties> samlProperties;
+
+    /**
+     * @return Configuration of SAML authentication integration. Defined below.
+     * 
+     */
+    public Output<DirectorySamlProperties> samlProperties() {
+        return this.samlProperties;
     }
     /**
      * Permissions to enable or disable self-service capabilities. Defined below.
