@@ -19,14 +19,14 @@ public final class BucketCorsRuleArgs extends com.pulumi.resources.ResourceArgs 
     public static final BucketCorsRuleArgs Empty = new BucketCorsRuleArgs();
 
     /**
-     * List of headers allowed.
+     * Specifies which headers are allowed.
      * 
      */
     @Import(name="allowedHeaders")
     private @Nullable Output<List<String>> allowedHeaders;
 
     /**
-     * @return List of headers allowed.
+     * @return Specifies which headers are allowed.
      * 
      */
     public Optional<Output<List<String>>> allowedHeaders() {
@@ -34,14 +34,14 @@ public final class BucketCorsRuleArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * One or more HTTP methods that you allow the origin to execute. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
+     * Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
      * 
      */
     @Import(name="allowedMethods", required=true)
     private Output<List<String>> allowedMethods;
 
     /**
-     * @return One or more HTTP methods that you allow the origin to execute. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
+     * @return Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
      * 
      */
     public Output<List<String>> allowedMethods() {
@@ -49,14 +49,14 @@ public final class BucketCorsRuleArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * One or more origins you want customers to be able to access the bucket from.
+     * Specifies which origins are allowed.
      * 
      */
     @Import(name="allowedOrigins", required=true)
     private Output<List<String>> allowedOrigins;
 
     /**
-     * @return One or more origins you want customers to be able to access the bucket from.
+     * @return Specifies which origins are allowed.
      * 
      */
     public Output<List<String>> allowedOrigins() {
@@ -64,14 +64,14 @@ public final class BucketCorsRuleArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
+     * Specifies expose header in the response.
      * 
      */
     @Import(name="exposeHeaders")
     private @Nullable Output<List<String>> exposeHeaders;
 
     /**
-     * @return One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
+     * @return Specifies expose header in the response.
      * 
      */
     public Optional<Output<List<String>>> exposeHeaders() {
@@ -122,7 +122,7 @@ public final class BucketCorsRuleArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedHeaders List of headers allowed.
+         * @param allowedHeaders Specifies which headers are allowed.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class BucketCorsRuleArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedHeaders List of headers allowed.
+         * @param allowedHeaders Specifies which headers are allowed.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class BucketCorsRuleArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedHeaders List of headers allowed.
+         * @param allowedHeaders Specifies which headers are allowed.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class BucketCorsRuleArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedMethods One or more HTTP methods that you allow the origin to execute. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
+         * @param allowedMethods Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class BucketCorsRuleArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedMethods One or more HTTP methods that you allow the origin to execute. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
+         * @param allowedMethods Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class BucketCorsRuleArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedMethods One or more HTTP methods that you allow the origin to execute. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
+         * @param allowedMethods Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class BucketCorsRuleArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedOrigins One or more origins you want customers to be able to access the bucket from.
+         * @param allowedOrigins Specifies which origins are allowed.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class BucketCorsRuleArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedOrigins One or more origins you want customers to be able to access the bucket from.
+         * @param allowedOrigins Specifies which origins are allowed.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class BucketCorsRuleArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedOrigins One or more origins you want customers to be able to access the bucket from.
+         * @param allowedOrigins Specifies which origins are allowed.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class BucketCorsRuleArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param exposeHeaders One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
+         * @param exposeHeaders Specifies expose header in the response.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class BucketCorsRuleArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param exposeHeaders One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
+         * @param exposeHeaders Specifies expose header in the response.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class BucketCorsRuleArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param exposeHeaders One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
+         * @param exposeHeaders Specifies expose header in the response.
          * 
          * @return builder
          * 

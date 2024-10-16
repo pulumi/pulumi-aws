@@ -6,13 +6,14 @@ description: |-
 Provides a S3 bucket resource.
 ---
 
-# Resource: aws_s3_bucket
+# Resource: aws.s3.Bucket
 
 Provides a S3 bucket resource.
 
--> This functionality is for managing S3 in an AWS Partition. To manage [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html), see the `aws_s3control_bucket` resource.
-
--> **NOTE:** This resource might not work well if using an alternative s3-compatible provider. Please use `aws.s3.BucketV2` instead.
+-> **NOTE:** Please use [aws.s3.BucketV2](https://www.pulumi.com/registry/packages/aws/api-docs/s3/bucketv2) instead.
+This resource is maintained for backwards compatibility only. Please see [BucketV2 Migration
+Guide](https://www.pulumi.com/registry/packages/aws/how-to-guides/bucketv2-migration/) for instructions on migrating
+existing Bucket resources to BucketV2.
 
 ## Example Usage
 

@@ -34,7 +34,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string? Prefix;
         /// <summary>
-        /// Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+        /// The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
         /// </summary>
         public readonly int? Priority;
         /// <summary>
@@ -42,7 +42,9 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly Outputs.BucketReplicationConfigurationRuleSourceSelectionCriteria? SourceSelectionCriteria;
         /// <summary>
-        /// Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+        /// The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+        /// 
+        /// &gt; **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rules` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
         /// </summary>
         public readonly string Status;
 

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketWebsite
     {
         /// <summary>
-        /// Absolute path to the document to return in case of a 4XX error.
+        /// An absolute path to the document to return in case of a 4XX error.
         /// </summary>
         public readonly string? ErrorDocument;
         /// <summary>
@@ -22,12 +22,14 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string? IndexDocument;
         /// <summary>
-        /// Hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
+        /// A hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
         /// </summary>
         public readonly string? RedirectAllRequestsTo;
         /// <summary>
-        /// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+        /// A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
         /// describing redirect behavior and when redirects are applied.
+        /// 
+        /// The `CORS` object supports the following:
         /// </summary>
         public readonly Union<string, ImmutableArray<string>>? RoutingRules;
 

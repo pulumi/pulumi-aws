@@ -15,14 +15,14 @@ public final class BucketReplicationConfigurationRuleDestinationAccessControlTra
     public static final BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs Empty = new BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs();
 
     /**
-     * Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
+     * The override value for the owner on replicated objects. Currently only `Destination` is supported.
      * 
      */
     @Import(name="owner", required=true)
     private Output<String> owner;
 
     /**
-     * @return Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
+     * @return The override value for the owner on replicated objects. Currently only `Destination` is supported.
      * 
      */
     public Output<String> owner() {
@@ -54,7 +54,7 @@ public final class BucketReplicationConfigurationRuleDestinationAccessControlTra
         }
 
         /**
-         * @param owner Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
+         * @param owner The override value for the owner on replicated objects. Currently only `Destination` is supported.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class BucketReplicationConfigurationRuleDestinationAccessControlTra
         }
 
         /**
-         * @param owner Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
+         * @param owner The override value for the owner on replicated objects. Currently only `Destination` is supported.
          * 
          * @return builder
          * 

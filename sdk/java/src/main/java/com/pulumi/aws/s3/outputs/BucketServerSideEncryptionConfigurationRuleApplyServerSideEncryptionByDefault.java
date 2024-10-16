@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault {
     /**
-     * @return AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
+     * @return The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
      * 
      */
     private @Nullable String kmsMasterKeyId;
     /**
-     * @return Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
+     * @return The server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
      * 
      */
     private String sseAlgorithm;
 
     private BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault() {}
     /**
-     * @return AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
+     * @return The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
      * 
      */
     public Optional<String> kmsMasterKeyId() {
         return Optional.ofNullable(this.kmsMasterKeyId);
     }
     /**
-     * @return Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
+     * @return The server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
      * 
      */
     public String sseAlgorithm() {

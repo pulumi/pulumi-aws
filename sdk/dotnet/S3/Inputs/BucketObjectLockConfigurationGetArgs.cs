@@ -13,13 +13,13 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketObjectLockConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
+        /// Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
         /// </summary>
         [Input("objectLockEnabled", required: true)]
         public Input<string> ObjectLockEnabled { get; set; } = null!;
 
         /// <summary>
-        /// Object Lock rule in place for this bucket (documented below).
+        /// The Object Lock rule in place for this bucket.
         /// </summary>
         [Input("rule")]
         public Input<Inputs.BucketObjectLockConfigurationRuleGetArgs>? Rule { get; set; }
