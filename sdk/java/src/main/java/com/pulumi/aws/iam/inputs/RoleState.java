@@ -127,6 +127,8 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, Pulumi will ignore policy attachments to this resource. When configured, Pulumi will align the role&#39;s managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managed_policy_arns = []`) will cause Pulumi to remove _all_ managed policy attachments.
+     * 
      * @deprecated
      * The managed_policy_arns argument is deprecated. Use the aws.iam.RolePolicyAttachmentsExclusive resource instead.
      * 
@@ -136,6 +138,8 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<String>> managedPolicyArns;
 
     /**
+     * @return Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, Pulumi will ignore policy attachments to this resource. When configured, Pulumi will align the role&#39;s managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managed_policy_arns = []`) will cause Pulumi to remove _all_ managed policy attachments.
+     * 
      * @deprecated
      * The managed_policy_arns argument is deprecated. Use the aws.iam.RolePolicyAttachmentsExclusive resource instead.
      * 
@@ -468,6 +472,8 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param managedPolicyArns Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, Pulumi will ignore policy attachments to this resource. When configured, Pulumi will align the role&#39;s managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managed_policy_arns = []`) will cause Pulumi to remove _all_ managed policy attachments.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -481,6 +487,8 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param managedPolicyArns Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, Pulumi will ignore policy attachments to this resource. When configured, Pulumi will align the role&#39;s managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managed_policy_arns = []`) will cause Pulumi to remove _all_ managed policy attachments.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -493,6 +501,8 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param managedPolicyArns Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, Pulumi will ignore policy attachments to this resource. When configured, Pulumi will align the role&#39;s managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managed_policy_arns = []`) will cause Pulumi to remove _all_ managed policy attachments.
+         * 
          * @return builder
          * 
          * @deprecated

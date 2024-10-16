@@ -463,6 +463,8 @@ public class Role extends com.pulumi.resources.CustomResource {
         return this.inlinePolicies;
     }
     /**
+     * Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, Pulumi will ignore policy attachments to this resource. When configured, Pulumi will align the role&#39;s managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managed_policy_arns = []`) will cause Pulumi to remove _all_ managed policy attachments.
+     * 
      * @deprecated
      * The managed_policy_arns argument is deprecated. Use the aws.iam.RolePolicyAttachmentsExclusive resource instead.
      * 
@@ -471,6 +473,10 @@ public class Role extends com.pulumi.resources.CustomResource {
     @Export(name="managedPolicyArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> managedPolicyArns;
 
+    /**
+     * @return Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, Pulumi will ignore policy attachments to this resource. When configured, Pulumi will align the role&#39;s managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managed_policy_arns = []`) will cause Pulumi to remove _all_ managed policy attachments.
+     * 
+     */
     public Output<List<String>> managedPolicyArns() {
         return this.managedPolicyArns;
     }
