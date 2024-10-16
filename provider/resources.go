@@ -18,6 +18,7 @@ import (
 	"context"
 	_ "embed"
 	"fmt"
+	"io"
 	"log"
 	"os"
 	"path/filepath"
@@ -5875,4 +5876,8 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		// the Pulumi ID as well.
 		return attrWithSeparator(state, ":", "name", "restoreTestingPlanName"), nil
 	}
+}
+
+func init() {
+	log.SetOutput(io.Discard)
 }

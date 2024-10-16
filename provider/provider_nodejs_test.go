@@ -123,6 +123,23 @@ func TestChangingRegion(t *testing.T) {
 	})
 }
 
+func TestNoExtranousLogOutput(t *testing.T) {
+	skipIfShort(t)
+	dir := filepath.Join("test-programs", "bucket-obj")
+	cwd, err := os.Getwd()
+	require.NoError(t, err)
+	providerName := "aws"
+	options := []opttest.Option{
+		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
+	}
+	test := pulumitest.NewPulumiTest(t, dir, options...)
+	result := test.Preview(t)
+	assert.NotContainsf(t, result.StdOut, "Diagnostics:",
+		"No diagnostics should be emitted to stdout for simple programs")
+	assert.NotContainsf(t, result.StdErr, "Diagnostics:",
+		"No diagnostics should be emitted to stderr for simple programs")
+}
+
 func TestRegressAttributeMustBeWholeNumber(t *testing.T) {
 	// pulumi/pulumi-terraform-bridge#1940
 	skipIfShort(t)
