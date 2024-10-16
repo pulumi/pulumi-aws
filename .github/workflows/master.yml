@@ -91,6 +91,8 @@ jobs:
 
   publish:
     name: publish
+    permissions:
+      contents: write
     needs:
       - prerequisites
       - build_provider

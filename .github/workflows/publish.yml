@@ -105,7 +105,7 @@ jobs:
         generate_release_notes: true
         files: dist/*
       env:
-        GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   publish_sdk:
     name: publish_sdk
