@@ -30,6 +30,7 @@ import (
 	"github.com/pulumi/pulumi-aws/provider/v6/pkg/minimalschema"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/cmdutil"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 const (
@@ -65,10 +66,18 @@ func compressAndVersionSchemaFile(opts compressAndVersionSchemaFileOptions) erro
 	if err != nil {
 		log.Fatalf("failed to open file: %s", err)
 	}
-	defer file.Close()
+	defer func() {
+		err := file.Close()
+		contract.AssertNoErrorf(err, "Failed closing file")
+	}()
 	var w io.Writer = file
 	if opts.gzip {
-		w = gzip.NewWriter(file)
+		gzipWriter := gzip.NewWriter(file)
+		w = gzipWriter
+		defer func() {
+			err := gzipWriter.Close()
+			contract.AssertNoErrorf(err, "Failed closing writer")
+		}()
 	}
 	enc := json.NewEncoder(w)
 	err = enc.Encode(packageSpec)

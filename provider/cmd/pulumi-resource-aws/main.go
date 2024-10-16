@@ -40,7 +40,7 @@ var pulumiMinimalSchema []byte
 // slower init for uses of the feature.
 func decompressMinimalSchema() []byte {
 	reader, err := gzip.NewReader(bytes.NewReader(pulumiMinimalSchema))
-	contract.AssertNoErrorf(err, "Failed to read schema-minimal-embed.json")
+	contract.AssertNoErrorf(err, "Failed to open a reader into schema-minimal-embed.json")
 	bytes, err := io.ReadAll(reader)
 	contract.AssertNoErrorf(err, "Failed to read schema-minimal-embed.json")
 	return bytes
