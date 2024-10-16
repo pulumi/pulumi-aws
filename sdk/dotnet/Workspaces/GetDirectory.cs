@@ -154,6 +154,7 @@ namespace Pulumi.Aws.Workspaces
         /// Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
         /// </summary>
         public readonly string RegistrationCode;
+        public readonly ImmutableArray<Outputs.GetDirectorySamlPropertyResult> SamlProperties;
         /// <summary>
         /// The permissions to enable or disable self-service capabilities.
         /// </summary>
@@ -165,7 +166,7 @@ namespace Pulumi.Aws.Workspaces
         /// <summary>
         /// A map of tags assigned to the WorkSpaces directory.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// (Optional) Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
         /// </summary>
@@ -201,11 +202,13 @@ namespace Pulumi.Aws.Workspaces
 
             string registrationCode,
 
+            ImmutableArray<Outputs.GetDirectorySamlPropertyResult> samlProperties,
+
             ImmutableArray<Outputs.GetDirectorySelfServicePermissionResult> selfServicePermissions,
 
             ImmutableArray<string> subnetIds,
 
-            ImmutableDictionary<string, string>? tags,
+            ImmutableDictionary<string, string> tags,
 
             ImmutableArray<Outputs.GetDirectoryWorkspaceAccessPropertyResult> workspaceAccessProperties,
 
@@ -223,6 +226,7 @@ namespace Pulumi.Aws.Workspaces
             Id = id;
             IpGroupIds = ipGroupIds;
             RegistrationCode = registrationCode;
+            SamlProperties = samlProperties;
             SelfServicePermissions = selfServicePermissions;
             SubnetIds = subnetIds;
             Tags = tags;

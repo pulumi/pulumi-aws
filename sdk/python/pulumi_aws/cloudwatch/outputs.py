@@ -37,6 +37,7 @@ __all__ = [
     'EventEndpointRoutingConfigFailoverConfigPrimary',
     'EventEndpointRoutingConfigFailoverConfigSecondary',
     'EventPermissionCondition',
+    'EventTargetAppsyncTarget',
     'EventTargetBatchTarget',
     'EventTargetDeadLetterConfig',
     'EventTargetEcsTarget',
@@ -1079,6 +1080,42 @@ class EventPermissionCondition(dict):
         Value for the key.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class EventTargetAppsyncTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "graphqlOperation":
+            suggest = "graphql_operation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventTargetAppsyncTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventTargetAppsyncTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventTargetAppsyncTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 graphql_operation: Optional[str] = None):
+        """
+        :param str graphql_operation: Contains the GraphQL mutation to be parsed and executed.
+        """
+        if graphql_operation is not None:
+            pulumi.set(__self__, "graphql_operation", graphql_operation)
+
+    @property
+    @pulumi.getter(name="graphqlOperation")
+    def graphql_operation(self) -> Optional[str]:
+        """
+        Contains the GraphQL mutation to be parsed and executed.
+        """
+        return pulumi.get(self, "graphql_operation")
 
 
 @pulumi.output_type

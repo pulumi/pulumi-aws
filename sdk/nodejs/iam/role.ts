@@ -125,6 +125,8 @@ import {PolicyDocument} from "./index";
  *
  * ### Example of Exclusive Managed Policies
  *
+ * > The `managedPolicyArns` argument is deprecated. Use the `aws.iam.RolePolicyAttachmentsExclusive` resource instead.
+ *
  * This example creates an IAM role and attaches two managed IAM policies. If someone attaches another managed policy out-of-band, on the next apply, this provider will detach that policy. If someone detaches these policies out-of-band, this provider will attach them again.
  *
  * ```typescript
@@ -168,6 +170,8 @@ import {PolicyDocument} from "./index";
  * ```
  *
  * ### Example of Removing Managed Policies
+ *
+ * > The `managedPolicyArns` argument is deprecated. Use the `aws.iam.RolePolicyAttachmentsExclusive` resource instead.
  *
  * This example creates an IAM role with an empty `managedPolicyArns` argument. If someone attaches a policy out-of-band, on the next apply, this provider will detach that policy.
  *
@@ -248,6 +252,9 @@ export class Role extends pulumi.CustomResource {
      * @deprecated The inlinePolicy argument is deprecated. Use the aws.iam.RolePolicy resource instead. If Terraform should exclusively manage all inline policy associations (the current behavior of this argument), use the aws.iam.RolePoliciesExclusive resource as well.
      */
     public readonly inlinePolicies!: pulumi.Output<outputs.iam.RoleInlinePolicy[]>;
+    /**
+     * @deprecated The managedPolicyArns argument is deprecated. Use the aws.iam.RolePolicyAttachmentsExclusive resource instead.
+     */
     public readonly managedPolicyArns!: pulumi.Output<string[]>;
     /**
      * Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
@@ -372,6 +379,9 @@ export interface RoleState {
      * @deprecated The inlinePolicy argument is deprecated. Use the aws.iam.RolePolicy resource instead. If Terraform should exclusively manage all inline policy associations (the current behavior of this argument), use the aws.iam.RolePoliciesExclusive resource as well.
      */
     inlinePolicies?: pulumi.Input<pulumi.Input<inputs.iam.RoleInlinePolicy>[]>;
+    /**
+     * @deprecated The managedPolicyArns argument is deprecated. Use the aws.iam.RolePolicyAttachmentsExclusive resource instead.
+     */
     managedPolicyArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
@@ -435,6 +445,9 @@ export interface RoleArgs {
      * @deprecated The inlinePolicy argument is deprecated. Use the aws.iam.RolePolicy resource instead. If Terraform should exclusively manage all inline policy associations (the current behavior of this argument), use the aws.iam.RolePoliciesExclusive resource as well.
      */
     inlinePolicies?: pulumi.Input<pulumi.Input<inputs.iam.RoleInlinePolicy>[]>;
+    /**
+     * @deprecated The managedPolicyArns argument is deprecated. Use the aws.iam.RolePolicyAttachmentsExclusive resource instead.
+     */
     managedPolicyArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.

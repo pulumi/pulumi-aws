@@ -60,6 +60,9 @@ class RoleArgs:
         if inline_policies is not None:
             pulumi.set(__self__, "inline_policies", inline_policies)
         if managed_policy_arns is not None:
+            warnings.warn("""The managed_policy_arns argument is deprecated. Use the iam.RolePolicyAttachmentsExclusive resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""managed_policy_arns is deprecated: The managed_policy_arns argument is deprecated. Use the iam.RolePolicyAttachmentsExclusive resource instead.""")
+        if managed_policy_arns is not None:
             pulumi.set(__self__, "managed_policy_arns", managed_policy_arns)
         if max_session_duration is not None:
             pulumi.set(__self__, "max_session_duration", max_session_duration)
@@ -129,6 +132,7 @@ class RoleArgs:
 
     @property
     @pulumi.getter(name="managedPolicyArns")
+    @_utilities.deprecated("""The managed_policy_arns argument is deprecated. Use the iam.RolePolicyAttachmentsExclusive resource instead.""")
     def managed_policy_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "managed_policy_arns")
 
@@ -264,6 +268,9 @@ class _RoleState:
         if inline_policies is not None:
             pulumi.set(__self__, "inline_policies", inline_policies)
         if managed_policy_arns is not None:
+            warnings.warn("""The managed_policy_arns argument is deprecated. Use the iam.RolePolicyAttachmentsExclusive resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""managed_policy_arns is deprecated: The managed_policy_arns argument is deprecated. Use the iam.RolePolicyAttachmentsExclusive resource instead.""")
+        if managed_policy_arns is not None:
             pulumi.set(__self__, "managed_policy_arns", managed_policy_arns)
         if max_session_duration is not None:
             pulumi.set(__self__, "max_session_duration", max_session_duration)
@@ -364,6 +371,7 @@ class _RoleState:
 
     @property
     @pulumi.getter(name="managedPolicyArns")
+    @_utilities.deprecated("""The managed_policy_arns argument is deprecated. Use the iam.RolePolicyAttachmentsExclusive resource instead.""")
     def managed_policy_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "managed_policy_arns")
 
@@ -596,6 +604,8 @@ class Role(pulumi.CustomResource):
 
         ### Example of Exclusive Managed Policies
 
+        > The `managed_policy_arns` argument is deprecated. Use the `iam.RolePolicyAttachmentsExclusive` resource instead.
+
         This example creates an IAM role and attaches two managed IAM policies. If someone attaches another managed policy out-of-band, on the next apply, this provider will detach that policy. If someone detaches these policies out-of-band, this provider will attach them again.
 
         ```python
@@ -637,6 +647,8 @@ class Role(pulumi.CustomResource):
         ```
 
         ### Example of Removing Managed Policies
+
+        > The `managed_policy_arns` argument is deprecated. Use the `iam.RolePolicyAttachmentsExclusive` resource instead.
 
         This example creates an IAM role with an empty `managed_policy_arns` argument. If someone attaches a policy out-of-band, on the next apply, this provider will detach that policy.
 
@@ -791,6 +803,8 @@ class Role(pulumi.CustomResource):
 
         ### Example of Exclusive Managed Policies
 
+        > The `managed_policy_arns` argument is deprecated. Use the `iam.RolePolicyAttachmentsExclusive` resource instead.
+
         This example creates an IAM role and attaches two managed IAM policies. If someone attaches another managed policy out-of-band, on the next apply, this provider will detach that policy. If someone detaches these policies out-of-band, this provider will attach them again.
 
         ```python
@@ -832,6 +846,8 @@ class Role(pulumi.CustomResource):
         ```
 
         ### Example of Removing Managed Policies
+
+        > The `managed_policy_arns` argument is deprecated. Use the `iam.RolePolicyAttachmentsExclusive` resource instead.
 
         This example creates an IAM role with an empty `managed_policy_arns` argument. If someone attaches a policy out-of-band, on the next apply, this provider will detach that policy.
 
@@ -1032,6 +1048,7 @@ class Role(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedPolicyArns")
+    @_utilities.deprecated("""The managed_policy_arns argument is deprecated. Use the iam.RolePolicyAttachmentsExclusive resource instead.""")
     def managed_policy_arns(self) -> pulumi.Output[Sequence[str]]:
         return pulumi.get(self, "managed_policy_arns")
 

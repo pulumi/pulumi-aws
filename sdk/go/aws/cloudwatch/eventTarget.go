@@ -758,6 +758,146 @@ import (
 //
 // ```
 //
+// ### AppSync Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appsync"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeAppsyncMutation, err := cloudwatch.NewEventRule(ctx, "invoke_appsync_mutation", &cloudwatch.EventRuleArgs{
+//				Name:               pulumi.String("invoke-appsync-mutation"),
+//				Description:        pulumi.String("schedule_batch_test"),
+//				ScheduleExpression: pulumi.String("rate(5 minutes)"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			appsyncMutationRoleTrust, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"events.amazonaws.com",
+//								},
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			appsyncMutationRole, err := iam.NewRole(ctx, "appsync_mutation_role", &iam.RoleArgs{
+//				Name:             pulumi.String("appsync-mutation-role"),
+//				AssumeRolePolicy: pulumi.String(appsyncMutationRoleTrust.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appsync.NewGraphQLApi(ctx, "graphql-api", &appsync.GraphQLApiArgs{
+//				Name:               pulumi.String("api"),
+//				AuthenticationType: pulumi.String("AWS_IAM"),
+//				Schema: pulumi.String(`    schema {
+//	      mutation: Mutation
+//	      query: Query
+//	    }
+//
+//	    type Query {
+//	      testQuery: String
+//	    }
+//
+//	    type Mutation {
+//	      testMutation(input: MutationInput!): TestMutationResult
+//	    }
+//
+//	    type TestMutationResult {
+//	      test: String
+//	    }
+//
+//	    input MutationInput {
+//	      testInput: String
+//	    }
+//
+// `),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudwatch.NewEventTarget(ctx, "invoke_appsync_mutation", &cloudwatch.EventTargetArgs{
+//				Arn: pulumi.String(std.ReplaceOutput(ctx, std.ReplaceOutputArgs{
+//					Text:    graphql_api.Arn,
+//					Search:  pulumi.String("apis"),
+//					Replace: pulumi.String("endpoints/graphql-api"),
+//				}, nil).ApplyT(func(invoke std.ReplaceResult) (*string, error) {
+//					return invoke.Result, nil
+//				}).(pulumi.StringPtrOutput)),
+//				Rule:    invokeAppsyncMutation.ID(),
+//				RoleArn: appsyncMutationRole.Arn,
+//				InputTransformer: &cloudwatch.EventTargetInputTransformerArgs{
+//					InputPaths: pulumi.StringMap{
+//						"input": pulumi.String("$.detail.input"),
+//					},
+//					InputTemplate: pulumi.String("      {\n        \"input\": <input>\n      }\n"),
+//				},
+//				AppsyncTarget: &cloudwatch.EventTargetAppsyncTargetArgs{
+//					GraphqlOperation: pulumi.String("mutation TestMutation($input:MutationInput!){testMutation(input: $input) {test}}"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			appsyncMutationRolePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Actions: pulumi.StringArray{
+//							pulumi.String("appsync:GraphQL"),
+//						},
+//						Effect: pulumi.String("Allow"),
+//						Resources: pulumi.StringArray{
+//							graphql_api.Arn,
+//						},
+//					},
+//				},
+//			}, nil)
+//			appsyncMutationRolePolicy, err := iam.NewPolicy(ctx, "appsync_mutation_role_policy", &iam.PolicyArgs{
+//				Name: pulumi.String("appsync-mutation-role-policy"),
+//				Policy: pulumi.String(appsyncMutationRolePolicyDocument.ApplyT(func(appsyncMutationRolePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+//					return &appsyncMutationRolePolicyDocument.Json, nil
+//				}).(pulumi.StringPtrOutput)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicyAttachment(ctx, "appsync_mutation_role_attachment", &iam.RolePolicyAttachmentArgs{
+//				PolicyArn: appsyncMutationRolePolicy.Arn,
+//				Role:      appsyncMutationRole.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import EventBridge Targets using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
@@ -768,6 +908,8 @@ import (
 type EventTarget struct {
 	pulumi.CustomResourceState
 
+	// Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
+	AppsyncTarget EventTargetAppsyncTargetPtrOutput `pulumi:"appsyncTarget"`
 	// The Amazon Resource Name (ARN) of the target.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
@@ -847,6 +989,8 @@ func GetEventTarget(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventTarget resources.
 type eventTargetState struct {
+	// Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
+	AppsyncTarget *EventTargetAppsyncTarget `pulumi:"appsyncTarget"`
 	// The Amazon Resource Name (ARN) of the target.
 	Arn *string `pulumi:"arn"`
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
@@ -891,6 +1035,8 @@ type eventTargetState struct {
 }
 
 type EventTargetState struct {
+	// Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
+	AppsyncTarget EventTargetAppsyncTargetPtrInput
 	// The Amazon Resource Name (ARN) of the target.
 	Arn pulumi.StringPtrInput
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
@@ -939,6 +1085,8 @@ func (EventTargetState) ElementType() reflect.Type {
 }
 
 type eventTargetArgs struct {
+	// Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
+	AppsyncTarget *EventTargetAppsyncTarget `pulumi:"appsyncTarget"`
 	// The Amazon Resource Name (ARN) of the target.
 	Arn string `pulumi:"arn"`
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
@@ -984,6 +1132,8 @@ type eventTargetArgs struct {
 
 // The set of arguments for constructing a EventTarget resource.
 type EventTargetArgs struct {
+	// Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
+	AppsyncTarget EventTargetAppsyncTargetPtrInput
 	// The Amazon Resource Name (ARN) of the target.
 	Arn pulumi.StringInput
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
@@ -1112,6 +1262,11 @@ func (o EventTargetOutput) ToEventTargetOutput() EventTargetOutput {
 
 func (o EventTargetOutput) ToEventTargetOutputWithContext(ctx context.Context) EventTargetOutput {
 	return o
+}
+
+// Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
+func (o EventTargetOutput) AppsyncTarget() EventTargetAppsyncTargetPtrOutput {
+	return o.ApplyT(func(v *EventTarget) EventTargetAppsyncTargetPtrOutput { return v.AppsyncTarget }).(EventTargetAppsyncTargetPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the target.

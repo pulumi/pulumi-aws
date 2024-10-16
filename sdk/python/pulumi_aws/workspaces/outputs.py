@@ -16,6 +16,7 @@ from .. import _utilities
 
 __all__ = [
     'ConnectionAliasTimeouts',
+    'DirectorySamlProperties',
     'DirectorySelfServicePermissions',
     'DirectoryWorkspaceAccessProperties',
     'DirectoryWorkspaceCreationProperties',
@@ -24,6 +25,7 @@ __all__ = [
     'GetBundleComputeTypeResult',
     'GetBundleRootStorageResult',
     'GetBundleUserStorageResult',
+    'GetDirectorySamlPropertyResult',
     'GetDirectorySelfServicePermissionResult',
     'GetDirectoryWorkspaceAccessPropertyResult',
     'GetDirectoryWorkspaceCreationPropertyResult',
@@ -34,19 +36,15 @@ __all__ = [
 class ConnectionAliasTimeouts(dict):
     def __init__(__self__, *,
                  create: Optional[str] = None,
-                 delete: Optional[str] = None,
-                 update: Optional[str] = None):
+                 delete: Optional[str] = None):
         """
         :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        :param str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         if create is not None:
             pulumi.set(__self__, "create", create)
         if delete is not None:
             pulumi.set(__self__, "delete", delete)
-        if update is not None:
-            pulumi.set(__self__, "update", update)
 
     @property
     @pulumi.getter
@@ -64,13 +62,67 @@ class ConnectionAliasTimeouts(dict):
         """
         return pulumi.get(self, "delete")
 
+
+@pulumi.output_type
+class DirectorySamlProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "relayStateParameterName":
+            suggest = "relay_state_parameter_name"
+        elif key == "userAccessUrl":
+            suggest = "user_access_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectorySamlProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectorySamlProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectorySamlProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 relay_state_parameter_name: Optional[str] = None,
+                 status: Optional[str] = None,
+                 user_access_url: Optional[str] = None):
+        """
+        :param str relay_state_parameter_name: The relay state parameter name supported by the SAML 2.0 identity provider (IdP). Default `RelayState`.
+        :param str status: Status of SAML 2.0 authentication. Default `DISABLED`.
+        :param str user_access_url: The SAML 2.0 identity provider (IdP) user access URL.
+        """
+        if relay_state_parameter_name is not None:
+            pulumi.set(__self__, "relay_state_parameter_name", relay_state_parameter_name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if user_access_url is not None:
+            pulumi.set(__self__, "user_access_url", user_access_url)
+
+    @property
+    @pulumi.getter(name="relayStateParameterName")
+    def relay_state_parameter_name(self) -> Optional[str]:
+        """
+        The relay state parameter name supported by the SAML 2.0 identity provider (IdP). Default `RelayState`.
+        """
+        return pulumi.get(self, "relay_state_parameter_name")
+
     @property
     @pulumi.getter
-    def update(self) -> Optional[str]:
+    def status(self) -> Optional[str]:
         """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        Status of SAML 2.0 authentication. Default `DISABLED`.
         """
-        return pulumi.get(self, "update")
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="userAccessUrl")
+    def user_access_url(self) -> Optional[str]:
+        """
+        The SAML 2.0 identity provider (IdP) user access URL.
+        """
+        return pulumi.get(self, "user_access_url")
 
 
 @pulumi.output_type
@@ -565,6 +617,32 @@ class GetBundleUserStorageResult(dict):
         Size of the user storage.
         """
         return pulumi.get(self, "capacity")
+
+
+@pulumi.output_type
+class GetDirectorySamlPropertyResult(dict):
+    def __init__(__self__, *,
+                 relay_state_parameter_name: str,
+                 status: str,
+                 user_access_url: str):
+        pulumi.set(__self__, "relay_state_parameter_name", relay_state_parameter_name)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "user_access_url", user_access_url)
+
+    @property
+    @pulumi.getter(name="relayStateParameterName")
+    def relay_state_parameter_name(self) -> str:
+        return pulumi.get(self, "relay_state_parameter_name")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="userAccessUrl")
+    def user_access_url(self) -> str:
+        return pulumi.get(self, "user_access_url")
 
 
 @pulumi.output_type

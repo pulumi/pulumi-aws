@@ -21,6 +21,8 @@ __all__ = [
     'TableAttributeArgsDict',
     'TableGlobalSecondaryIndexArgs',
     'TableGlobalSecondaryIndexArgsDict',
+    'TableGlobalSecondaryIndexOnDemandThroughputArgs',
+    'TableGlobalSecondaryIndexOnDemandThroughputArgsDict',
     'TableImportTableArgs',
     'TableImportTableArgsDict',
     'TableImportTableInputFormatOptionsArgs',
@@ -31,6 +33,8 @@ __all__ = [
     'TableImportTableS3BucketSourceArgsDict',
     'TableLocalSecondaryIndexArgs',
     'TableLocalSecondaryIndexArgsDict',
+    'TableOnDemandThroughputArgs',
+    'TableOnDemandThroughputArgsDict',
     'TablePointInTimeRecoveryArgs',
     'TablePointInTimeRecoveryArgsDict',
     'TableReplicaArgs',
@@ -144,6 +148,10 @@ if not MYPY:
         """
         Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
         """
+        on_demand_throughput: NotRequired[pulumi.Input['TableGlobalSecondaryIndexOnDemandThroughputArgsDict']]
+        """
+        Sets the maximum number of read and write units for the specified on-demand table. See below.
+        """
         range_key: NotRequired[pulumi.Input[str]]
         """
         Name of the range key; must be defined
@@ -166,6 +174,7 @@ class TableGlobalSecondaryIndexArgs:
                  name: pulumi.Input[str],
                  projection_type: pulumi.Input[str],
                  non_key_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 on_demand_throughput: Optional[pulumi.Input['TableGlobalSecondaryIndexOnDemandThroughputArgs']] = None,
                  range_key: Optional[pulumi.Input[str]] = None,
                  read_capacity: Optional[pulumi.Input[int]] = None,
                  write_capacity: Optional[pulumi.Input[int]] = None):
@@ -174,6 +183,7 @@ class TableGlobalSecondaryIndexArgs:
         :param pulumi.Input[str] name: Name of the index.
         :param pulumi.Input[str] projection_type: One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] non_key_attributes: Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
+        :param pulumi.Input['TableGlobalSecondaryIndexOnDemandThroughputArgs'] on_demand_throughput: Sets the maximum number of read and write units for the specified on-demand table. See below.
         :param pulumi.Input[str] range_key: Name of the range key; must be defined
         :param pulumi.Input[int] read_capacity: Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
         :param pulumi.Input[int] write_capacity: Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
@@ -183,6 +193,8 @@ class TableGlobalSecondaryIndexArgs:
         pulumi.set(__self__, "projection_type", projection_type)
         if non_key_attributes is not None:
             pulumi.set(__self__, "non_key_attributes", non_key_attributes)
+        if on_demand_throughput is not None:
+            pulumi.set(__self__, "on_demand_throughput", on_demand_throughput)
         if range_key is not None:
             pulumi.set(__self__, "range_key", range_key)
         if read_capacity is not None:
@@ -239,6 +251,18 @@ class TableGlobalSecondaryIndexArgs:
         pulumi.set(self, "non_key_attributes", value)
 
     @property
+    @pulumi.getter(name="onDemandThroughput")
+    def on_demand_throughput(self) -> Optional[pulumi.Input['TableGlobalSecondaryIndexOnDemandThroughputArgs']]:
+        """
+        Sets the maximum number of read and write units for the specified on-demand table. See below.
+        """
+        return pulumi.get(self, "on_demand_throughput")
+
+    @on_demand_throughput.setter
+    def on_demand_throughput(self, value: Optional[pulumi.Input['TableGlobalSecondaryIndexOnDemandThroughputArgs']]):
+        pulumi.set(self, "on_demand_throughput", value)
+
+    @property
     @pulumi.getter(name="rangeKey")
     def range_key(self) -> Optional[pulumi.Input[str]]:
         """
@@ -273,6 +297,58 @@ class TableGlobalSecondaryIndexArgs:
     @write_capacity.setter
     def write_capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "write_capacity", value)
+
+
+if not MYPY:
+    class TableGlobalSecondaryIndexOnDemandThroughputArgsDict(TypedDict):
+        max_read_request_units: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+        """
+        max_write_request_units: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+        """
+elif False:
+    TableGlobalSecondaryIndexOnDemandThroughputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableGlobalSecondaryIndexOnDemandThroughputArgs:
+    def __init__(__self__, *,
+                 max_read_request_units: Optional[pulumi.Input[int]] = None,
+                 max_write_request_units: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] max_read_request_units: Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+        :param pulumi.Input[int] max_write_request_units: Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+        """
+        if max_read_request_units is not None:
+            pulumi.set(__self__, "max_read_request_units", max_read_request_units)
+        if max_write_request_units is not None:
+            pulumi.set(__self__, "max_write_request_units", max_write_request_units)
+
+    @property
+    @pulumi.getter(name="maxReadRequestUnits")
+    def max_read_request_units(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+        """
+        return pulumi.get(self, "max_read_request_units")
+
+    @max_read_request_units.setter
+    def max_read_request_units(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_read_request_units", value)
+
+    @property
+    @pulumi.getter(name="maxWriteRequestUnits")
+    def max_write_request_units(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+        """
+        return pulumi.get(self, "max_write_request_units")
+
+    @max_write_request_units.setter
+    def max_write_request_units(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_write_request_units", value)
 
 
 if not MYPY:
@@ -622,6 +698,58 @@ class TableLocalSecondaryIndexArgs:
     @non_key_attributes.setter
     def non_key_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "non_key_attributes", value)
+
+
+if not MYPY:
+    class TableOnDemandThroughputArgsDict(TypedDict):
+        max_read_request_units: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+        """
+        max_write_request_units: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+        """
+elif False:
+    TableOnDemandThroughputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableOnDemandThroughputArgs:
+    def __init__(__self__, *,
+                 max_read_request_units: Optional[pulumi.Input[int]] = None,
+                 max_write_request_units: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] max_read_request_units: Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+        :param pulumi.Input[int] max_write_request_units: Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+        """
+        if max_read_request_units is not None:
+            pulumi.set(__self__, "max_read_request_units", max_read_request_units)
+        if max_write_request_units is not None:
+            pulumi.set(__self__, "max_write_request_units", max_write_request_units)
+
+    @property
+    @pulumi.getter(name="maxReadRequestUnits")
+    def max_read_request_units(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+        """
+        return pulumi.get(self, "max_read_request_units")
+
+    @max_read_request_units.setter
+    def max_read_request_units(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_read_request_units", value)
+
+    @property
+    @pulumi.getter(name="maxWriteRequestUnits")
+    def max_write_request_units(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+        """
+        return pulumi.get(self, "max_write_request_units")
+
+    @max_write_request_units.setter
+    def max_write_request_units(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_write_request_units", value)
 
 
 if not MYPY:

@@ -97,9 +97,21 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.inlinePolicies);
     }
 
+    /**
+     * @deprecated
+     * The managed_policy_arns argument is deprecated. Use the aws.iam.RolePolicyAttachmentsExclusive resource instead.
+     * 
+     */
+    @Deprecated /* The managed_policy_arns argument is deprecated. Use the aws.iam.RolePolicyAttachmentsExclusive resource instead. */
     @Import(name="managedPolicyArns")
     private @Nullable Output<List<String>> managedPolicyArns;
 
+    /**
+     * @deprecated
+     * The managed_policy_arns argument is deprecated. Use the aws.iam.RolePolicyAttachmentsExclusive resource instead.
+     * 
+     */
+    @Deprecated /* The managed_policy_arns argument is deprecated. Use the aws.iam.RolePolicyAttachmentsExclusive resource instead. */
     public Optional<Output<List<String>>> managedPolicyArns() {
         return Optional.ofNullable(this.managedPolicyArns);
     }
@@ -342,15 +354,39 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
             return inlinePolicies(List.of(inlinePolicies));
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * The managed_policy_arns argument is deprecated. Use the aws.iam.RolePolicyAttachmentsExclusive resource instead.
+         * 
+         */
+        @Deprecated /* The managed_policy_arns argument is deprecated. Use the aws.iam.RolePolicyAttachmentsExclusive resource instead. */
         public Builder managedPolicyArns(@Nullable Output<List<String>> managedPolicyArns) {
             $.managedPolicyArns = managedPolicyArns;
             return this;
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * The managed_policy_arns argument is deprecated. Use the aws.iam.RolePolicyAttachmentsExclusive resource instead.
+         * 
+         */
+        @Deprecated /* The managed_policy_arns argument is deprecated. Use the aws.iam.RolePolicyAttachmentsExclusive resource instead. */
         public Builder managedPolicyArns(List<String> managedPolicyArns) {
             return managedPolicyArns(Output.of(managedPolicyArns));
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * The managed_policy_arns argument is deprecated. Use the aws.iam.RolePolicyAttachmentsExclusive resource instead.
+         * 
+         */
+        @Deprecated /* The managed_policy_arns argument is deprecated. Use the aws.iam.RolePolicyAttachmentsExclusive resource instead. */
         public Builder managedPolicyArns(String... managedPolicyArns) {
             return managedPolicyArns(List.of(managedPolicyArns));
         }

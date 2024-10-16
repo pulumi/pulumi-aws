@@ -23,6 +23,7 @@ class EventTargetArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[str],
                  rule: pulumi.Input[str],
+                 appsync_target: Optional[pulumi.Input['EventTargetAppsyncTargetArgs']] = None,
                  batch_target: Optional[pulumi.Input['EventTargetBatchTargetArgs']] = None,
                  dead_letter_config: Optional[pulumi.Input['EventTargetDeadLetterConfigArgs']] = None,
                  ecs_target: Optional[pulumi.Input['EventTargetEcsTargetArgs']] = None,
@@ -46,6 +47,7 @@ class EventTargetArgs:
         :param pulumi.Input[str] rule: The name of the rule you want to add targets to.
                
                The following arguments are optional:
+        :param pulumi.Input['EventTargetAppsyncTargetArgs'] appsync_target: Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input['EventTargetBatchTargetArgs'] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input['EventTargetDeadLetterConfigArgs'] dead_letter_config: Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input['EventTargetEcsTargetArgs'] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
@@ -67,6 +69,8 @@ class EventTargetArgs:
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "rule", rule)
+        if appsync_target is not None:
+            pulumi.set(__self__, "appsync_target", appsync_target)
         if batch_target is not None:
             pulumi.set(__self__, "batch_target", batch_target)
         if dead_letter_config is not None:
@@ -127,6 +131,18 @@ class EventTargetArgs:
     @rule.setter
     def rule(self, value: pulumi.Input[str]):
         pulumi.set(self, "rule", value)
+
+    @property
+    @pulumi.getter(name="appsyncTarget")
+    def appsync_target(self) -> Optional[pulumi.Input['EventTargetAppsyncTargetArgs']]:
+        """
+        Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
+        """
+        return pulumi.get(self, "appsync_target")
+
+    @appsync_target.setter
+    def appsync_target(self, value: Optional[pulumi.Input['EventTargetAppsyncTargetArgs']]):
+        pulumi.set(self, "appsync_target", value)
 
     @property
     @pulumi.getter(name="batchTarget")
@@ -337,6 +353,7 @@ class EventTargetArgs:
 @pulumi.input_type
 class _EventTargetState:
     def __init__(__self__, *,
+                 appsync_target: Optional[pulumi.Input['EventTargetAppsyncTargetArgs']] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  batch_target: Optional[pulumi.Input['EventTargetBatchTargetArgs']] = None,
                  dead_letter_config: Optional[pulumi.Input['EventTargetDeadLetterConfigArgs']] = None,
@@ -358,6 +375,7 @@ class _EventTargetState:
                  target_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EventTarget resources.
+        :param pulumi.Input['EventTargetAppsyncTargetArgs'] appsync_target: Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the target.
         :param pulumi.Input['EventTargetBatchTargetArgs'] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input['EventTargetDeadLetterConfigArgs'] dead_letter_config: Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
@@ -381,6 +399,8 @@ class _EventTargetState:
         :param pulumi.Input['EventTargetSqsTargetArgs'] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] target_id: The unique target assignment ID. If missing, will generate a random, unique id.
         """
+        if appsync_target is not None:
+            pulumi.set(__self__, "appsync_target", appsync_target)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if batch_target is not None:
@@ -419,6 +439,18 @@ class _EventTargetState:
             pulumi.set(__self__, "sqs_target", sqs_target)
         if target_id is not None:
             pulumi.set(__self__, "target_id", target_id)
+
+    @property
+    @pulumi.getter(name="appsyncTarget")
+    def appsync_target(self) -> Optional[pulumi.Input['EventTargetAppsyncTargetArgs']]:
+        """
+        Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
+        """
+        return pulumi.get(self, "appsync_target")
+
+    @appsync_target.setter
+    def appsync_target(self, value: Optional[pulumi.Input['EventTargetAppsyncTargetArgs']]):
+        pulumi.set(self, "appsync_target", value)
 
     @property
     @pulumi.getter
@@ -657,6 +689,7 @@ class EventTarget(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 appsync_target: Optional[pulumi.Input[Union['EventTargetAppsyncTargetArgs', 'EventTargetAppsyncTargetArgsDict']]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  batch_target: Optional[pulumi.Input[Union['EventTargetBatchTargetArgs', 'EventTargetBatchTargetArgsDict']]] = None,
                  dead_letter_config: Optional[pulumi.Input[Union['EventTargetDeadLetterConfigArgs', 'EventTargetDeadLetterConfigArgsDict']]] = None,
@@ -1035,6 +1068,82 @@ class EventTarget(pulumi.CustomResource):
             arn=example.arn)
         ```
 
+        ### AppSync Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        invoke_appsync_mutation = aws.cloudwatch.EventRule("invoke_appsync_mutation",
+            name="invoke-appsync-mutation",
+            description="schedule_batch_test",
+            schedule_expression="rate(5 minutes)")
+        appsync_mutation_role_trust = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["events.amazonaws.com"],
+            }],
+        }])
+        appsync_mutation_role = aws.iam.Role("appsync_mutation_role",
+            name="appsync-mutation-role",
+            assume_role_policy=appsync_mutation_role_trust.json)
+        graphql_api = aws.appsync.GraphQLApi("graphql-api",
+            name="api",
+            authentication_type="AWS_IAM",
+            schema=\"\"\"    schema {
+              mutation: Mutation
+              query: Query
+            }
+
+            type Query {
+              testQuery: String
+            }
+
+            type Mutation {
+              testMutation(input: MutationInput!): TestMutationResult
+            }
+
+            type TestMutationResult {
+              test: String
+            }
+
+            input MutationInput {
+              testInput: String
+            }
+        \"\"\")
+        invoke_appsync_mutation_event_target = aws.cloudwatch.EventTarget("invoke_appsync_mutation",
+            arn=std.replace_output(text=graphql_api.arn,
+                search="apis",
+                replace="endpoints/graphql-api").apply(lambda invoke: invoke.result),
+            rule=invoke_appsync_mutation.id,
+            role_arn=appsync_mutation_role.arn,
+            input_transformer={
+                "input_paths": {
+                    "input": "$.detail.input",
+                },
+                "input_template": \"\"\"      {
+                "input": <input>
+              }
+        \"\"\",
+            },
+            appsync_target={
+                "graphql_operation": "mutation TestMutation($input:MutationInput!){testMutation(input: $input) {test}}",
+            })
+        appsync_mutation_role_policy_document = aws.iam.get_policy_document_output(statements=[{
+            "actions": ["appsync:GraphQL"],
+            "effect": "Allow",
+            "resources": [graphql_api.arn],
+        }])
+        appsync_mutation_role_policy = aws.iam.Policy("appsync_mutation_role_policy",
+            name="appsync-mutation-role-policy",
+            policy=appsync_mutation_role_policy_document.json)
+        appsync_mutation_role_attachment = aws.iam.RolePolicyAttachment("appsync_mutation_role_attachment",
+            policy_arn=appsync_mutation_role_policy.arn,
+            role=appsync_mutation_role.name)
+        ```
+
         ## Import
 
         Using `pulumi import`, import EventBridge Targets using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
@@ -1045,6 +1154,7 @@ class EventTarget(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['EventTargetAppsyncTargetArgs', 'EventTargetAppsyncTargetArgsDict']] appsync_target: Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the target.
         :param pulumi.Input[Union['EventTargetBatchTargetArgs', 'EventTargetBatchTargetArgsDict']] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[Union['EventTargetDeadLetterConfigArgs', 'EventTargetDeadLetterConfigArgsDict']] dead_letter_config: Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
@@ -1432,6 +1542,82 @@ class EventTarget(pulumi.CustomResource):
             arn=example.arn)
         ```
 
+        ### AppSync Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        invoke_appsync_mutation = aws.cloudwatch.EventRule("invoke_appsync_mutation",
+            name="invoke-appsync-mutation",
+            description="schedule_batch_test",
+            schedule_expression="rate(5 minutes)")
+        appsync_mutation_role_trust = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["events.amazonaws.com"],
+            }],
+        }])
+        appsync_mutation_role = aws.iam.Role("appsync_mutation_role",
+            name="appsync-mutation-role",
+            assume_role_policy=appsync_mutation_role_trust.json)
+        graphql_api = aws.appsync.GraphQLApi("graphql-api",
+            name="api",
+            authentication_type="AWS_IAM",
+            schema=\"\"\"    schema {
+              mutation: Mutation
+              query: Query
+            }
+
+            type Query {
+              testQuery: String
+            }
+
+            type Mutation {
+              testMutation(input: MutationInput!): TestMutationResult
+            }
+
+            type TestMutationResult {
+              test: String
+            }
+
+            input MutationInput {
+              testInput: String
+            }
+        \"\"\")
+        invoke_appsync_mutation_event_target = aws.cloudwatch.EventTarget("invoke_appsync_mutation",
+            arn=std.replace_output(text=graphql_api.arn,
+                search="apis",
+                replace="endpoints/graphql-api").apply(lambda invoke: invoke.result),
+            rule=invoke_appsync_mutation.id,
+            role_arn=appsync_mutation_role.arn,
+            input_transformer={
+                "input_paths": {
+                    "input": "$.detail.input",
+                },
+                "input_template": \"\"\"      {
+                "input": <input>
+              }
+        \"\"\",
+            },
+            appsync_target={
+                "graphql_operation": "mutation TestMutation($input:MutationInput!){testMutation(input: $input) {test}}",
+            })
+        appsync_mutation_role_policy_document = aws.iam.get_policy_document_output(statements=[{
+            "actions": ["appsync:GraphQL"],
+            "effect": "Allow",
+            "resources": [graphql_api.arn],
+        }])
+        appsync_mutation_role_policy = aws.iam.Policy("appsync_mutation_role_policy",
+            name="appsync-mutation-role-policy",
+            policy=appsync_mutation_role_policy_document.json)
+        appsync_mutation_role_attachment = aws.iam.RolePolicyAttachment("appsync_mutation_role_attachment",
+            policy_arn=appsync_mutation_role_policy.arn,
+            role=appsync_mutation_role.name)
+        ```
+
         ## Import
 
         Using `pulumi import`, import EventBridge Targets using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
@@ -1455,6 +1641,7 @@ class EventTarget(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 appsync_target: Optional[pulumi.Input[Union['EventTargetAppsyncTargetArgs', 'EventTargetAppsyncTargetArgsDict']]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  batch_target: Optional[pulumi.Input[Union['EventTargetBatchTargetArgs', 'EventTargetBatchTargetArgsDict']]] = None,
                  dead_letter_config: Optional[pulumi.Input[Union['EventTargetDeadLetterConfigArgs', 'EventTargetDeadLetterConfigArgsDict']]] = None,
@@ -1483,6 +1670,7 @@ class EventTarget(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EventTargetArgs.__new__(EventTargetArgs)
 
+            __props__.__dict__["appsync_target"] = appsync_target
             if arn is None and not opts.urn:
                 raise TypeError("Missing required property 'arn'")
             __props__.__dict__["arn"] = arn
@@ -1516,6 +1704,7 @@ class EventTarget(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            appsync_target: Optional[pulumi.Input[Union['EventTargetAppsyncTargetArgs', 'EventTargetAppsyncTargetArgsDict']]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             batch_target: Optional[pulumi.Input[Union['EventTargetBatchTargetArgs', 'EventTargetBatchTargetArgsDict']]] = None,
             dead_letter_config: Optional[pulumi.Input[Union['EventTargetDeadLetterConfigArgs', 'EventTargetDeadLetterConfigArgsDict']]] = None,
@@ -1542,6 +1731,7 @@ class EventTarget(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['EventTargetAppsyncTargetArgs', 'EventTargetAppsyncTargetArgsDict']] appsync_target: Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the target.
         :param pulumi.Input[Union['EventTargetBatchTargetArgs', 'EventTargetBatchTargetArgsDict']] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[Union['EventTargetDeadLetterConfigArgs', 'EventTargetDeadLetterConfigArgsDict']] dead_letter_config: Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
@@ -1569,6 +1759,7 @@ class EventTarget(pulumi.CustomResource):
 
         __props__ = _EventTargetState.__new__(_EventTargetState)
 
+        __props__.__dict__["appsync_target"] = appsync_target
         __props__.__dict__["arn"] = arn
         __props__.__dict__["batch_target"] = batch_target
         __props__.__dict__["dead_letter_config"] = dead_letter_config
@@ -1589,6 +1780,14 @@ class EventTarget(pulumi.CustomResource):
         __props__.__dict__["sqs_target"] = sqs_target
         __props__.__dict__["target_id"] = target_id
         return EventTarget(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="appsyncTarget")
+    def appsync_target(self) -> pulumi.Output[Optional['outputs.EventTargetAppsyncTarget']]:
+        """
+        Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
+        """
+        return pulumi.get(self, "appsync_target")
 
     @property
     @pulumi.getter

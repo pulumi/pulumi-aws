@@ -39,6 +39,7 @@ from .role import *
 from .role_policies_exclusive import *
 from .role_policy import *
 from .role_policy_attachment import *
+from .role_policy_attachments_exclusive import *
 from .saml_provider import *
 from .security_token_service_preferences import *
 from .server_certificate import *

@@ -227,6 +227,10 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Sets the maximum number of read and write units for the specified on-demand table. See below.
+     */
+    public readonly onDemandThroughput!: pulumi.Output<outputs.dynamodb.TableOnDemandThroughput | undefined>;
+    /**
      * Enable point-in-time recovery options. See below.
      */
     public readonly pointInTimeRecovery!: pulumi.Output<outputs.dynamodb.TablePointInTimeRecovery>;
@@ -325,6 +329,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["importTable"] = state ? state.importTable : undefined;
             resourceInputs["localSecondaryIndexes"] = state ? state.localSecondaryIndexes : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["onDemandThroughput"] = state ? state.onDemandThroughput : undefined;
             resourceInputs["pointInTimeRecovery"] = state ? state.pointInTimeRecovery : undefined;
             resourceInputs["rangeKey"] = state ? state.rangeKey : undefined;
             resourceInputs["readCapacity"] = state ? state.readCapacity : undefined;
@@ -353,6 +358,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["importTable"] = args ? args.importTable : undefined;
             resourceInputs["localSecondaryIndexes"] = args ? args.localSecondaryIndexes : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["onDemandThroughput"] = args ? args.onDemandThroughput : undefined;
             resourceInputs["pointInTimeRecovery"] = args ? args.pointInTimeRecovery : undefined;
             resourceInputs["rangeKey"] = args ? args.rangeKey : undefined;
             resourceInputs["readCapacity"] = args ? args.readCapacity : undefined;
@@ -420,6 +426,10 @@ export interface TableState {
      * Optional arguments:
      */
     name?: pulumi.Input<string>;
+    /**
+     * Sets the maximum number of read and write units for the specified on-demand table. See below.
+     */
+    onDemandThroughput?: pulumi.Input<inputs.dynamodb.TableOnDemandThroughput>;
     /**
      * Enable point-in-time recovery options. See below.
      */
@@ -536,6 +546,10 @@ export interface TableArgs {
      * Optional arguments:
      */
     name?: pulumi.Input<string>;
+    /**
+     * Sets the maximum number of read and write units for the specified on-demand table. See below.
+     */
+    onDemandThroughput?: pulumi.Input<inputs.dynamodb.TableOnDemandThroughput>;
     /**
      * Enable point-in-time recovery options. See below.
      */

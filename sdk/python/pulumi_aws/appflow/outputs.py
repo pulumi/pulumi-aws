@@ -118,6 +118,8 @@ __all__ = [
     'FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig',
     'FlowSourceFlowConfigSourceConnectorPropertiesSalesforce',
     'FlowSourceFlowConfigSourceConnectorPropertiesSapoData',
+    'FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig',
+    'FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig',
     'FlowSourceFlowConfigSourceConnectorPropertiesServiceNow',
     'FlowSourceFlowConfigSourceConnectorPropertiesSingular',
     'FlowSourceFlowConfigSourceConnectorPropertiesSlack',
@@ -5550,6 +5552,10 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSapoData(dict):
         suggest = None
         if key == "objectPath":
             suggest = "object_path"
+        elif key == "paginationConfig":
+            suggest = "pagination_config"
+        elif key == "parallelismConfig":
+            suggest = "parallelism_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FlowSourceFlowConfigSourceConnectorPropertiesSapoData. Access the value via the '{suggest}' property getter instead.")
@@ -5563,13 +5569,109 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSapoData(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 object_path: str):
+                 object_path: str,
+                 pagination_config: Optional['outputs.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig'] = None,
+                 parallelism_config: Optional['outputs.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig'] = None):
+        """
+        :param 'FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs' pagination_config: Sets the page size for each concurrent process that transfers OData records from your SAP instance.
+        :param 'FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs' parallelism_config: Sets the number of concurrent processes that transfers OData records from your SAP instance.
+        """
         pulumi.set(__self__, "object_path", object_path)
+        if pagination_config is not None:
+            pulumi.set(__self__, "pagination_config", pagination_config)
+        if parallelism_config is not None:
+            pulumi.set(__self__, "parallelism_config", parallelism_config)
 
     @property
     @pulumi.getter(name="objectPath")
     def object_path(self) -> str:
         return pulumi.get(self, "object_path")
+
+    @property
+    @pulumi.getter(name="paginationConfig")
+    def pagination_config(self) -> Optional['outputs.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig']:
+        """
+        Sets the page size for each concurrent process that transfers OData records from your SAP instance.
+        """
+        return pulumi.get(self, "pagination_config")
+
+    @property
+    @pulumi.getter(name="parallelismConfig")
+    def parallelism_config(self) -> Optional['outputs.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig']:
+        """
+        Sets the number of concurrent processes that transfers OData records from your SAP instance.
+        """
+        return pulumi.get(self, "parallelism_config")
+
+
+@pulumi.output_type
+class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxPageSize":
+            suggest = "max_page_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_page_size: int):
+        """
+        :param int max_page_size: he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
+        """
+        pulumi.set(__self__, "max_page_size", max_page_size)
+
+    @property
+    @pulumi.getter(name="maxPageSize")
+    def max_page_size(self) -> int:
+        """
+        he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
+        """
+        return pulumi.get(self, "max_page_size")
+
+
+@pulumi.output_type
+class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxPageSize":
+            suggest = "max_page_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_page_size: int):
+        """
+        :param int max_page_size: he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
+        """
+        pulumi.set(__self__, "max_page_size", max_page_size)
+
+    @property
+    @pulumi.getter(name="maxPageSize")
+    def max_page_size(self) -> int:
+        """
+        he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
+        """
+        return pulumi.get(self, "max_page_size")
 
 
 @pulumi.output_type

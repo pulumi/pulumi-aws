@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.dynamodb.inputs;
 
+import com.pulumi.aws.dynamodb.inputs.TableGlobalSecondaryIndexOnDemandThroughputArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -61,6 +62,21 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
      */
     public Optional<Output<List<String>>> nonKeyAttributes() {
         return Optional.ofNullable(this.nonKeyAttributes);
+    }
+
+    /**
+     * Sets the maximum number of read and write units for the specified on-demand table. See below.
+     * 
+     */
+    @Import(name="onDemandThroughput")
+    private @Nullable Output<TableGlobalSecondaryIndexOnDemandThroughputArgs> onDemandThroughput;
+
+    /**
+     * @return Sets the maximum number of read and write units for the specified on-demand table. See below.
+     * 
+     */
+    public Optional<Output<TableGlobalSecondaryIndexOnDemandThroughputArgs>> onDemandThroughput() {
+        return Optional.ofNullable(this.onDemandThroughput);
     }
 
     /**
@@ -129,6 +145,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         this.hashKey = $.hashKey;
         this.name = $.name;
         this.nonKeyAttributes = $.nonKeyAttributes;
+        this.onDemandThroughput = $.onDemandThroughput;
         this.projectionType = $.projectionType;
         this.rangeKey = $.rangeKey;
         this.readCapacity = $.readCapacity;
@@ -224,6 +241,27 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
          */
         public Builder nonKeyAttributes(String... nonKeyAttributes) {
             return nonKeyAttributes(List.of(nonKeyAttributes));
+        }
+
+        /**
+         * @param onDemandThroughput Sets the maximum number of read and write units for the specified on-demand table. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onDemandThroughput(@Nullable Output<TableGlobalSecondaryIndexOnDemandThroughputArgs> onDemandThroughput) {
+            $.onDemandThroughput = onDemandThroughput;
+            return this;
+        }
+
+        /**
+         * @param onDemandThroughput Sets the maximum number of read and write units for the specified on-demand table. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onDemandThroughput(TableGlobalSecondaryIndexOnDemandThroughputArgs onDemandThroughput) {
+            return onDemandThroughput(Output.of(onDemandThroughput));
         }
 
         /**

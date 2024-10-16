@@ -6473,6 +6473,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "iam/rolePolicyAttachmentsExclusive",
+  "fqn": "pulumi_aws.iam",
+  "classes": {
+   "aws:iam/rolePolicyAttachmentsExclusive:RolePolicyAttachmentsExclusive": "RolePolicyAttachmentsExclusive"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "iam/samlProvider",
   "fqn": "pulumi_aws.iam",
   "classes": {

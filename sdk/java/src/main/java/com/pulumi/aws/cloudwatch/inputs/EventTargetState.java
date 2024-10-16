@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.cloudwatch.inputs;
 
+import com.pulumi.aws.cloudwatch.inputs.EventTargetAppsyncTargetArgs;
 import com.pulumi.aws.cloudwatch.inputs.EventTargetBatchTargetArgs;
 import com.pulumi.aws.cloudwatch.inputs.EventTargetDeadLetterConfigArgs;
 import com.pulumi.aws.cloudwatch.inputs.EventTargetEcsTargetArgs;
@@ -27,6 +28,21 @@ import javax.annotation.Nullable;
 public final class EventTargetState extends com.pulumi.resources.ResourceArgs {
 
     public static final EventTargetState Empty = new EventTargetState();
+
+    /**
+     * Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
+     * 
+     */
+    @Import(name="appsyncTarget")
+    private @Nullable Output<EventTargetAppsyncTargetArgs> appsyncTarget;
+
+    /**
+     * @return Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
+     * 
+     */
+    public Optional<Output<EventTargetAppsyncTargetArgs>> appsyncTarget() {
+        return Optional.ofNullable(this.appsyncTarget);
+    }
 
     /**
      * The Amazon Resource Name (ARN) of the target.
@@ -322,6 +338,7 @@ public final class EventTargetState extends com.pulumi.resources.ResourceArgs {
     private EventTargetState() {}
 
     private EventTargetState(EventTargetState $) {
+        this.appsyncTarget = $.appsyncTarget;
         this.arn = $.arn;
         this.batchTarget = $.batchTarget;
         this.deadLetterConfig = $.deadLetterConfig;
@@ -359,6 +376,27 @@ public final class EventTargetState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(EventTargetState defaults) {
             $ = new EventTargetState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param appsyncTarget Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder appsyncTarget(@Nullable Output<EventTargetAppsyncTargetArgs> appsyncTarget) {
+            $.appsyncTarget = appsyncTarget;
+            return this;
+        }
+
+        /**
+         * @param appsyncTarget Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder appsyncTarget(EventTargetAppsyncTargetArgs appsyncTarget) {
+            return appsyncTarget(Output.of(appsyncTarget));
         }
 
         /**

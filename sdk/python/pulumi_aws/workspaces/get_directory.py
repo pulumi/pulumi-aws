@@ -27,7 +27,7 @@ class GetDirectoryResult:
     """
     A collection of values returned by getDirectory.
     """
-    def __init__(__self__, alias=None, customer_user_name=None, directory_id=None, directory_name=None, directory_type=None, dns_ip_addresses=None, iam_role_id=None, id=None, ip_group_ids=None, registration_code=None, self_service_permissions=None, subnet_ids=None, tags=None, workspace_access_properties=None, workspace_creation_properties=None, workspace_security_group_id=None):
+    def __init__(__self__, alias=None, customer_user_name=None, directory_id=None, directory_name=None, directory_type=None, dns_ip_addresses=None, iam_role_id=None, id=None, ip_group_ids=None, registration_code=None, saml_properties=None, self_service_permissions=None, subnet_ids=None, tags=None, workspace_access_properties=None, workspace_creation_properties=None, workspace_security_group_id=None):
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
         pulumi.set(__self__, "alias", alias)
@@ -58,6 +58,9 @@ class GetDirectoryResult:
         if registration_code and not isinstance(registration_code, str):
             raise TypeError("Expected argument 'registration_code' to be a str")
         pulumi.set(__self__, "registration_code", registration_code)
+        if saml_properties and not isinstance(saml_properties, list):
+            raise TypeError("Expected argument 'saml_properties' to be a list")
+        pulumi.set(__self__, "saml_properties", saml_properties)
         if self_service_permissions and not isinstance(self_service_permissions, list):
             raise TypeError("Expected argument 'self_service_permissions' to be a list")
         pulumi.set(__self__, "self_service_permissions", self_service_permissions)
@@ -155,6 +158,11 @@ class GetDirectoryResult:
         return pulumi.get(self, "registration_code")
 
     @property
+    @pulumi.getter(name="samlProperties")
+    def saml_properties(self) -> Sequence['outputs.GetDirectorySamlPropertyResult']:
+        return pulumi.get(self, "saml_properties")
+
+    @property
     @pulumi.getter(name="selfServicePermissions")
     def self_service_permissions(self) -> Sequence['outputs.GetDirectorySelfServicePermissionResult']:
         """
@@ -172,7 +180,7 @@ class GetDirectoryResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> Mapping[str, str]:
         """
         A map of tags assigned to the WorkSpaces directory.
         """
@@ -219,6 +227,7 @@ class AwaitableGetDirectoryResult(GetDirectoryResult):
             id=self.id,
             ip_group_ids=self.ip_group_ids,
             registration_code=self.registration_code,
+            saml_properties=self.saml_properties,
             self_service_permissions=self.self_service_permissions,
             subnet_ids=self.subnet_ids,
             tags=self.tags,
@@ -263,6 +272,7 @@ def get_directory(directory_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         ip_group_ids=pulumi.get(__ret__, 'ip_group_ids'),
         registration_code=pulumi.get(__ret__, 'registration_code'),
+        saml_properties=pulumi.get(__ret__, 'saml_properties'),
         self_service_permissions=pulumi.get(__ret__, 'self_service_permissions'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -304,6 +314,7 @@ def get_directory_output(directory_id: Optional[pulumi.Input[str]] = None,
         id=pulumi.get(__response__, 'id'),
         ip_group_ids=pulumi.get(__response__, 'ip_group_ids'),
         registration_code=pulumi.get(__response__, 'registration_code'),
+        saml_properties=pulumi.get(__response__, 'saml_properties'),
         self_service_permissions=pulumi.get(__response__, 'self_service_permissions'),
         subnet_ids=pulumi.get(__response__, 'subnet_ids'),
         tags=pulumi.get(__response__, 'tags'),

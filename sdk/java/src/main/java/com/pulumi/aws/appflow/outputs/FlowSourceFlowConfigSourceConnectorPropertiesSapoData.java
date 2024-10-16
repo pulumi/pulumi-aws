@@ -3,18 +3,46 @@
 
 package com.pulumi.aws.appflow.outputs;
 
+import com.pulumi.aws.appflow.outputs.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig;
+import com.pulumi.aws.appflow.outputs.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoData {
     private String objectPath;
+    /**
+     * @return Sets the page size for each concurrent process that transfers OData records from your SAP instance.
+     * 
+     */
+    private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig paginationConfig;
+    /**
+     * @return Sets the number of concurrent processes that transfers OData records from your SAP instance.
+     * 
+     */
+    private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig parallelismConfig;
 
     private FlowSourceFlowConfigSourceConnectorPropertiesSapoData() {}
     public String objectPath() {
         return this.objectPath;
+    }
+    /**
+     * @return Sets the page size for each concurrent process that transfers OData records from your SAP instance.
+     * 
+     */
+    public Optional<FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig> paginationConfig() {
+        return Optional.ofNullable(this.paginationConfig);
+    }
+    /**
+     * @return Sets the number of concurrent processes that transfers OData records from your SAP instance.
+     * 
+     */
+    public Optional<FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig> parallelismConfig() {
+        return Optional.ofNullable(this.parallelismConfig);
     }
 
     public static Builder builder() {
@@ -27,10 +55,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoData {
     @CustomType.Builder
     public static final class Builder {
         private String objectPath;
+        private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig paginationConfig;
+        private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig parallelismConfig;
         public Builder() {}
         public Builder(FlowSourceFlowConfigSourceConnectorPropertiesSapoData defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.objectPath = defaults.objectPath;
+    	      this.paginationConfig = defaults.paginationConfig;
+    	      this.parallelismConfig = defaults.parallelismConfig;
         }
 
         @CustomType.Setter
@@ -41,9 +73,23 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoData {
             this.objectPath = objectPath;
             return this;
         }
+        @CustomType.Setter
+        public Builder paginationConfig(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig paginationConfig) {
+
+            this.paginationConfig = paginationConfig;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder parallelismConfig(@Nullable FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig parallelismConfig) {
+
+            this.parallelismConfig = parallelismConfig;
+            return this;
+        }
         public FlowSourceFlowConfigSourceConnectorPropertiesSapoData build() {
             final var _resultValue = new FlowSourceFlowConfigSourceConnectorPropertiesSapoData();
             _resultValue.objectPath = objectPath;
+            _resultValue.paginationConfig = paginationConfig;
+            _resultValue.parallelismConfig = parallelismConfig;
             return _resultValue;
         }
     }
