@@ -449,7 +449,7 @@ require (
 	github.com/pulumi/esc v0.10.0 // indirect
 	github.com/pulumi/inflector v0.1.1 // indirect
 	github.com/pulumi/pulumi-java/pkg v0.16.1 // indirect
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.92.0 // indirect
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.93.0 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.10 // indirect
 	github.com/pulumi/pulumi-yaml v1.10.3 // indirect
 	github.com/pulumi/pulumi/sdk/v3 v3.136.1 // indirect
