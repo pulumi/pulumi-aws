@@ -313,6 +313,66 @@ func TestRegress4568(t *testing.T) {
 	})
 }
 
+// Tests that there are no diagnostics by default on simple programs.
+func TestNoExtranousLogOutput(t *testing.T) {
+	skipIfShort(t)
+	dir := filepath.Join("test-programs", "bucket-obj")
+	cwd, err := os.Getwd()
+	require.NoError(t, err)
+	providerName := "aws"
+	options := []opttest.Option{
+		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
+	}
+	test := pulumitest.NewPulumiTest(t, dir, options...)
+	result := test.Preview(t)
+	assert.NotContainsf(t, result.StdOut, "Diagnostics:",
+		"No diagnostics should be emitted to stdout for simple programs")
+	assert.NotContainsf(t, result.StdErr, "Diagnostics:",
+		"No diagnostics should be emitted to stderr for simple programs")
+}
+
+// Since AWS is doing something non-standard with logging, double-check that `log.Printf` messages do get propagated
+// when TF_LOG=DEBUG is set. One such message is set by aws.s3.Bucketv2 when refresh finds that the bucket no longer
+// exists. Emulate this situation and assert that the message has propagated.
+func TestUpstreamWarningsPropagated(t *testing.T) {
+	skipIfShort(t)
+	dir := filepath.Join("test-programs", "disappearing-bucket-object")
+	cwd, err := os.Getwd()
+	require.NoError(t, err)
+	providerName := "aws"
+	options := []opttest.Option{
+		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
+		opttest.YarnLink("@pulumi/aws"),
+		opttest.Env("TF_LOG", "DEBUG"),
+	}
+	test := pulumitest.NewPulumiTest(t, dir, options...)
+
+	t.Logf("Creating the bucket object")
+	test.Up(t)
+
+	state := test.ExportStack(t)
+
+	t.Logf("Deleting the bucket object")
+	test.SetConfig(t, "bucket-object", "exclude")
+	test.Up(t)
+
+	t.Logf("Resetting the state back")
+	test.ImportStack(t, state)
+
+	t.Logf("Refreshing the stack and expecting bucket to be deleted from the state")
+	rr := test.Refresh(t)
+	t.Logf("%v%v", rr.StdOut, rr.StdErr)
+
+	// Upstream code has this line:
+	//
+	//     log.Printf("[WARN] S3 Object (%s) not found, removing from state", d.Id())
+	//
+	assert.Containsf(t,
+		rr.StdErr+rr.StdOut,
+		"warning: S3 Object (index.ts) not found, removing from state",
+		"Expected upstream log.Printf to propagate under TF_LOG=DEBUG")
+}
+
 func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	envRegion := getEnvRegion(t)
 	baseJS := integration.ProgramTestOptions{
