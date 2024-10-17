@@ -84,6 +84,7 @@ export interface GetDirectoryResult {
      * Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
      */
     readonly registrationCode: string;
+    readonly samlProperties: outputs.workspaces.GetDirectorySamlProperty[];
     /**
      * The permissions to enable or disable self-service capabilities.
      */
@@ -95,7 +96,7 @@ export interface GetDirectoryResult {
     /**
      * A map of tags assigned to the WorkSpaces directory.
      */
-    readonly tags?: {[key: string]: string};
+    readonly tags: {[key: string]: string};
     /**
      * (Optional) Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
      */

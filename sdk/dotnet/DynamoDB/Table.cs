@@ -283,6 +283,12 @@ namespace Pulumi.Aws.DynamoDB
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Sets the maximum number of read and write units for the specified on-demand table. See below.
+        /// </summary>
+        [Output("onDemandThroughput")]
+        public Output<Outputs.TableOnDemandThroughput?> OnDemandThroughput { get; private set; } = null!;
+
+        /// <summary>
         /// Enable point-in-time recovery options. See below.
         /// </summary>
         [Output("pointInTimeRecovery")]
@@ -507,6 +513,12 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Sets the maximum number of read and write units for the specified on-demand table. See below.
+        /// </summary>
+        [Input("onDemandThroughput")]
+        public Input<Inputs.TableOnDemandThroughputArgs>? OnDemandThroughput { get; set; }
+
+        /// <summary>
         /// Enable point-in-time recovery options. See below.
         /// </summary>
         [Input("pointInTimeRecovery")]
@@ -691,6 +703,12 @@ namespace Pulumi.Aws.DynamoDB
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Sets the maximum number of read and write units for the specified on-demand table. See below.
+        /// </summary>
+        [Input("onDemandThroughput")]
+        public Input<Inputs.TableOnDemandThroughputGetArgs>? OnDemandThroughput { get; set; }
 
         /// <summary>
         /// Enable point-in-time recovery options. See below.

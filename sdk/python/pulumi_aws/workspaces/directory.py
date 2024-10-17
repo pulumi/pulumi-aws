@@ -23,6 +23,7 @@ class DirectoryArgs:
     def __init__(__self__, *,
                  directory_id: pulumi.Input[str],
                  ip_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 saml_properties: Optional[pulumi.Input['DirectorySamlPropertiesArgs']] = None,
                  self_service_permissions: Optional[pulumi.Input['DirectorySelfServicePermissionsArgs']] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -32,6 +33,7 @@ class DirectoryArgs:
         The set of arguments for constructing a Directory resource.
         :param pulumi.Input[str] directory_id: The directory identifier for registration in WorkSpaces service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_group_ids: The identifiers of the IP access control groups associated with the directory.
+        :param pulumi.Input['DirectorySamlPropertiesArgs'] saml_properties: Configuration of SAML authentication integration. Defined below.
         :param pulumi.Input['DirectorySelfServicePermissionsArgs'] self_service_permissions: Permissions to enable or disable self-service capabilities. Defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The identifiers of the subnets where the directory resides.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -41,6 +43,8 @@ class DirectoryArgs:
         pulumi.set(__self__, "directory_id", directory_id)
         if ip_group_ids is not None:
             pulumi.set(__self__, "ip_group_ids", ip_group_ids)
+        if saml_properties is not None:
+            pulumi.set(__self__, "saml_properties", saml_properties)
         if self_service_permissions is not None:
             pulumi.set(__self__, "self_service_permissions", self_service_permissions)
         if subnet_ids is not None:
@@ -75,6 +79,18 @@ class DirectoryArgs:
     @ip_group_ids.setter
     def ip_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ip_group_ids", value)
+
+    @property
+    @pulumi.getter(name="samlProperties")
+    def saml_properties(self) -> Optional[pulumi.Input['DirectorySamlPropertiesArgs']]:
+        """
+        Configuration of SAML authentication integration. Defined below.
+        """
+        return pulumi.get(self, "saml_properties")
+
+    @saml_properties.setter
+    def saml_properties(self, value: Optional[pulumi.Input['DirectorySamlPropertiesArgs']]):
+        pulumi.set(self, "saml_properties", value)
 
     @property
     @pulumi.getter(name="selfServicePermissions")
@@ -149,6 +165,7 @@ class _DirectoryState:
                  iam_role_id: Optional[pulumi.Input[str]] = None,
                  ip_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  registration_code: Optional[pulumi.Input[str]] = None,
+                 saml_properties: Optional[pulumi.Input['DirectorySamlPropertiesArgs']] = None,
                  self_service_permissions: Optional[pulumi.Input['DirectorySelfServicePermissionsArgs']] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -167,6 +184,7 @@ class _DirectoryState:
         :param pulumi.Input[str] iam_role_id: The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_group_ids: The identifiers of the IP access control groups associated with the directory.
         :param pulumi.Input[str] registration_code: The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
+        :param pulumi.Input['DirectorySamlPropertiesArgs'] saml_properties: Configuration of SAML authentication integration. Defined below.
         :param pulumi.Input['DirectorySelfServicePermissionsArgs'] self_service_permissions: Permissions to enable or disable self-service capabilities. Defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The identifiers of the subnets where the directory resides.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -193,6 +211,8 @@ class _DirectoryState:
             pulumi.set(__self__, "ip_group_ids", ip_group_ids)
         if registration_code is not None:
             pulumi.set(__self__, "registration_code", registration_code)
+        if saml_properties is not None:
+            pulumi.set(__self__, "saml_properties", saml_properties)
         if self_service_permissions is not None:
             pulumi.set(__self__, "self_service_permissions", self_service_permissions)
         if subnet_ids is not None:
@@ -320,6 +340,18 @@ class _DirectoryState:
         pulumi.set(self, "registration_code", value)
 
     @property
+    @pulumi.getter(name="samlProperties")
+    def saml_properties(self) -> Optional[pulumi.Input['DirectorySamlPropertiesArgs']]:
+        """
+        Configuration of SAML authentication integration. Defined below.
+        """
+        return pulumi.get(self, "saml_properties")
+
+    @saml_properties.setter
+    def saml_properties(self, value: Optional[pulumi.Input['DirectorySamlPropertiesArgs']]):
+        pulumi.set(self, "saml_properties", value)
+
+    @property
     @pulumi.getter(name="selfServicePermissions")
     def self_service_permissions(self) -> Optional[pulumi.Input['DirectorySelfServicePermissionsArgs']]:
         """
@@ -412,6 +444,7 @@ class Directory(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  directory_id: Optional[pulumi.Input[str]] = None,
                  ip_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 saml_properties: Optional[pulumi.Input[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict']]] = None,
                  self_service_permissions: Optional[pulumi.Input[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -482,6 +515,10 @@ class Directory(pulumi.CustomResource):
             tags={
                 "Example": "true",
             },
+            saml_properties={
+                "user_access_url": "https://sso.example.com/",
+                "status": "ENABLED",
+            },
             self_service_permissions={
                 "change_compute_type": True,
                 "increase_volume_size": True,
@@ -536,6 +573,7 @@ class Directory(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] directory_id: The directory identifier for registration in WorkSpaces service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_group_ids: The identifiers of the IP access control groups associated with the directory.
+        :param pulumi.Input[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict']] saml_properties: Configuration of SAML authentication integration. Defined below.
         :param pulumi.Input[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']] self_service_permissions: Permissions to enable or disable self-service capabilities. Defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The identifiers of the subnets where the directory resides.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -612,6 +650,10 @@ class Directory(pulumi.CustomResource):
             tags={
                 "Example": "true",
             },
+            saml_properties={
+                "user_access_url": "https://sso.example.com/",
+                "status": "ENABLED",
+            },
             self_service_permissions={
                 "change_compute_type": True,
                 "increase_volume_size": True,
@@ -679,6 +721,7 @@ class Directory(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  directory_id: Optional[pulumi.Input[str]] = None,
                  ip_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 saml_properties: Optional[pulumi.Input[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict']]] = None,
                  self_service_permissions: Optional[pulumi.Input[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -697,6 +740,7 @@ class Directory(pulumi.CustomResource):
                 raise TypeError("Missing required property 'directory_id'")
             __props__.__dict__["directory_id"] = directory_id
             __props__.__dict__["ip_group_ids"] = ip_group_ids
+            __props__.__dict__["saml_properties"] = saml_properties
             __props__.__dict__["self_service_permissions"] = self_service_permissions
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
@@ -730,6 +774,7 @@ class Directory(pulumi.CustomResource):
             iam_role_id: Optional[pulumi.Input[str]] = None,
             ip_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             registration_code: Optional[pulumi.Input[str]] = None,
+            saml_properties: Optional[pulumi.Input[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict']]] = None,
             self_service_permissions: Optional[pulumi.Input[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']]] = None,
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -753,6 +798,7 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[str] iam_role_id: The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_group_ids: The identifiers of the IP access control groups associated with the directory.
         :param pulumi.Input[str] registration_code: The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
+        :param pulumi.Input[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict']] saml_properties: Configuration of SAML authentication integration. Defined below.
         :param pulumi.Input[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']] self_service_permissions: Permissions to enable or disable self-service capabilities. Defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The identifiers of the subnets where the directory resides.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -774,6 +820,7 @@ class Directory(pulumi.CustomResource):
         __props__.__dict__["iam_role_id"] = iam_role_id
         __props__.__dict__["ip_group_ids"] = ip_group_ids
         __props__.__dict__["registration_code"] = registration_code
+        __props__.__dict__["saml_properties"] = saml_properties
         __props__.__dict__["self_service_permissions"] = self_service_permissions
         __props__.__dict__["subnet_ids"] = subnet_ids
         __props__.__dict__["tags"] = tags
@@ -854,6 +901,14 @@ class Directory(pulumi.CustomResource):
         The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
         """
         return pulumi.get(self, "registration_code")
+
+    @property
+    @pulumi.getter(name="samlProperties")
+    def saml_properties(self) -> pulumi.Output['outputs.DirectorySamlProperties']:
+        """
+        Configuration of SAML authentication integration. Defined below.
+        """
+        return pulumi.get(self, "saml_properties")
 
     @property
     @pulumi.getter(name="selfServicePermissions")

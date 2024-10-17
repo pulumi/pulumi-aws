@@ -5,7 +5,7 @@ Subject: [PATCH] DisableTagSchemaCheck for PF provider
 
 
 diff --git a/internal/provider/fwprovider/provider.go b/internal/provider/fwprovider/provider.go
-index 3a654af572..5fe2a71b55 100644
+index 5ed49e758f..20d54caf1f 100644
 --- a/internal/provider/fwprovider/provider.go
 +++ b/internal/provider/fwprovider/provider.go
 @@ -417,8 +417,7 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {

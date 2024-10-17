@@ -17,6 +17,8 @@ from .. import _utilities
 __all__ = [
     'ConnectionAliasTimeoutsArgs',
     'ConnectionAliasTimeoutsArgsDict',
+    'DirectorySamlPropertiesArgs',
+    'DirectorySamlPropertiesArgsDict',
     'DirectorySelfServicePermissionsArgs',
     'DirectorySelfServicePermissionsArgsDict',
     'DirectoryWorkspaceAccessPropertiesArgs',
@@ -41,10 +43,6 @@ if not MYPY:
         """
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
-        update: NotRequired[pulumi.Input[str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
 elif False:
     ConnectionAliasTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -52,19 +50,15 @@ elif False:
 class ConnectionAliasTimeoutsArgs:
     def __init__(__self__, *,
                  create: Optional[pulumi.Input[str]] = None,
-                 delete: Optional[pulumi.Input[str]] = None,
-                 update: Optional[pulumi.Input[str]] = None):
+                 delete: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        :param pulumi.Input[str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         if create is not None:
             pulumi.set(__self__, "create", create)
         if delete is not None:
             pulumi.set(__self__, "delete", delete)
-        if update is not None:
-            pulumi.set(__self__, "update", update)
 
     @property
     @pulumi.getter
@@ -90,17 +84,77 @@ class ConnectionAliasTimeoutsArgs:
     def delete(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "delete", value)
 
+
+if not MYPY:
+    class DirectorySamlPropertiesArgsDict(TypedDict):
+        relay_state_parameter_name: NotRequired[pulumi.Input[str]]
+        """
+        The relay state parameter name supported by the SAML 2.0 identity provider (IdP). Default `RelayState`.
+        """
+        status: NotRequired[pulumi.Input[str]]
+        """
+        Status of SAML 2.0 authentication. Default `DISABLED`.
+        """
+        user_access_url: NotRequired[pulumi.Input[str]]
+        """
+        The SAML 2.0 identity provider (IdP) user access URL.
+        """
+elif False:
+    DirectorySamlPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DirectorySamlPropertiesArgs:
+    def __init__(__self__, *,
+                 relay_state_parameter_name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 user_access_url: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] relay_state_parameter_name: The relay state parameter name supported by the SAML 2.0 identity provider (IdP). Default `RelayState`.
+        :param pulumi.Input[str] status: Status of SAML 2.0 authentication. Default `DISABLED`.
+        :param pulumi.Input[str] user_access_url: The SAML 2.0 identity provider (IdP) user access URL.
+        """
+        if relay_state_parameter_name is not None:
+            pulumi.set(__self__, "relay_state_parameter_name", relay_state_parameter_name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if user_access_url is not None:
+            pulumi.set(__self__, "user_access_url", user_access_url)
+
+    @property
+    @pulumi.getter(name="relayStateParameterName")
+    def relay_state_parameter_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The relay state parameter name supported by the SAML 2.0 identity provider (IdP). Default `RelayState`.
+        """
+        return pulumi.get(self, "relay_state_parameter_name")
+
+    @relay_state_parameter_name.setter
+    def relay_state_parameter_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "relay_state_parameter_name", value)
+
     @property
     @pulumi.getter
-    def update(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input[str]]:
         """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        Status of SAML 2.0 authentication. Default `DISABLED`.
         """
-        return pulumi.get(self, "update")
+        return pulumi.get(self, "status")
 
-    @update.setter
-    def update(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "update", value)
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="userAccessUrl")
+    def user_access_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SAML 2.0 identity provider (IdP) user access URL.
+        """
+        return pulumi.get(self, "user_access_url")
+
+    @user_access_url.setter
+    def user_access_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_access_url", value)
 
 
 if not MYPY:

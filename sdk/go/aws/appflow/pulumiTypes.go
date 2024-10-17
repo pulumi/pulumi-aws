@@ -17529,6 +17529,10 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput) Object
 
 type FlowSourceFlowConfigSourceConnectorPropertiesSapoData struct {
 	ObjectPath string `pulumi:"objectPath"`
+	// Sets the page size for each concurrent process that transfers OData records from your SAP instance.
+	PaginationConfig *FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig `pulumi:"paginationConfig"`
+	// Sets the number of concurrent processes that transfers OData records from your SAP instance.
+	ParallelismConfig *FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig `pulumi:"parallelismConfig"`
 }
 
 // FlowSourceFlowConfigSourceConnectorPropertiesSapoDataInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs and FlowSourceFlowConfigSourceConnectorPropertiesSapoDataOutput values.
@@ -17544,6 +17548,10 @@ type FlowSourceFlowConfigSourceConnectorPropertiesSapoDataInput interface {
 
 type FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs struct {
 	ObjectPath pulumi.StringInput `pulumi:"objectPath"`
+	// Sets the page size for each concurrent process that transfers OData records from your SAP instance.
+	PaginationConfig FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrInput `pulumi:"paginationConfig"`
+	// Sets the number of concurrent processes that transfers OData records from your SAP instance.
+	ParallelismConfig FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrInput `pulumi:"parallelismConfig"`
 }
 
 func (FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs) ElementType() reflect.Type {
@@ -17627,6 +17635,20 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataOutput) ObjectPath(
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesSapoData) string { return v.ObjectPath }).(pulumi.StringOutput)
 }
 
+// Sets the page size for each concurrent process that transfers OData records from your SAP instance.
+func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataOutput) PaginationConfig() FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutput {
+	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesSapoData) *FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig {
+		return v.PaginationConfig
+	}).(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutput)
+}
+
+// Sets the number of concurrent processes that transfers OData records from your SAP instance.
+func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataOutput) ParallelismConfig() FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutput {
+	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesSapoData) *FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig {
+		return v.ParallelismConfig
+	}).(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutput)
+}
+
 type FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutput struct{ *pulumi.OutputState }
 
 func (FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutput) ElementType() reflect.Type {
@@ -17658,6 +17680,304 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutput) ObjectPa
 		}
 		return &v.ObjectPath
 	}).(pulumi.StringPtrOutput)
+}
+
+// Sets the page size for each concurrent process that transfers OData records from your SAP instance.
+func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutput) PaginationConfig() FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutput {
+	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesSapoData) *FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig {
+		if v == nil {
+			return nil
+		}
+		return v.PaginationConfig
+	}).(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutput)
+}
+
+// Sets the number of concurrent processes that transfers OData records from your SAP instance.
+func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutput) ParallelismConfig() FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutput {
+	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesSapoData) *FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ParallelismConfig
+	}).(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutput)
+}
+
+type FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig struct {
+	// he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
+	MaxPageSize int `pulumi:"maxPageSize"`
+}
+
+// FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs and FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigOutput values.
+// You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigInput` via:
+//
+//	FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs{...}
+type FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigInput interface {
+	pulumi.Input
+
+	ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigOutput() FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigOutput
+	ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigOutputWithContext(context.Context) FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigOutput
+}
+
+type FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs struct {
+	// he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
+	MaxPageSize pulumi.IntInput `pulumi:"maxPageSize"`
+}
+
+func (FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig)(nil)).Elem()
+}
+
+func (i FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs) ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigOutput() FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigOutput {
+	return i.ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigOutputWithContext(context.Background())
+}
+
+func (i FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs) ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigOutputWithContext(ctx context.Context) FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigOutput)
+}
+
+func (i FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs) ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutput() FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutput {
+	return i.ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs) ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigOutput).ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutputWithContext(ctx)
+}
+
+// FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs, FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtr and FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutput values.
+// You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrInput` via:
+//
+//	        FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrInput interface {
+	pulumi.Input
+
+	ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutput() FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutput
+	ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutputWithContext(context.Context) FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutput
+}
+
+type flowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrType FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs
+
+func FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtr(v *FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs) FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrInput {
+	return (*flowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrType)(v)
+}
+
+func (*flowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig)(nil)).Elem()
+}
+
+func (i *flowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrType) ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutput() FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutput {
+	return i.ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *flowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrType) ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutput)
+}
+
+type FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigOutput struct{ *pulumi.OutputState }
+
+func (FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig)(nil)).Elem()
+}
+
+func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigOutput) ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigOutput() FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigOutput {
+	return o
+}
+
+func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigOutput) ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigOutputWithContext(ctx context.Context) FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigOutput {
+	return o
+}
+
+func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigOutput) ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutput() FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutput {
+	return o.ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigOutput) ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig) *FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig {
+		return &v
+	}).(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutput)
+}
+
+// he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
+func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigOutput) MaxPageSize() pulumi.IntOutput {
+	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig) int {
+		return v.MaxPageSize
+	}).(pulumi.IntOutput)
+}
+
+type FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig)(nil)).Elem()
+}
+
+func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutput) ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutput() FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutput {
+	return o
+}
+
+func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutput) ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutput {
+	return o
+}
+
+func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutput) Elem() FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigOutput {
+	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig) FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig
+		return ret
+	}).(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigOutput)
+}
+
+// he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
+func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutput) MaxPageSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxPageSize
+	}).(pulumi.IntPtrOutput)
+}
+
+type FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig struct {
+	// he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
+	MaxPageSize int `pulumi:"maxPageSize"`
+}
+
+// FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs and FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigOutput values.
+// You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigInput` via:
+//
+//	FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs{...}
+type FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigInput interface {
+	pulumi.Input
+
+	ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigOutput() FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigOutput
+	ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigOutputWithContext(context.Context) FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigOutput
+}
+
+type FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs struct {
+	// he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
+	MaxPageSize pulumi.IntInput `pulumi:"maxPageSize"`
+}
+
+func (FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig)(nil)).Elem()
+}
+
+func (i FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs) ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigOutput() FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigOutput {
+	return i.ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigOutputWithContext(context.Background())
+}
+
+func (i FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs) ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigOutputWithContext(ctx context.Context) FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigOutput)
+}
+
+func (i FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs) ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutput() FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutput {
+	return i.ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs) ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigOutput).ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutputWithContext(ctx)
+}
+
+// FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrInput is an input type that accepts FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs, FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtr and FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutput values.
+// You can construct a concrete instance of `FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrInput` via:
+//
+//	        FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrInput interface {
+	pulumi.Input
+
+	ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutput() FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutput
+	ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutputWithContext(context.Context) FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutput
+}
+
+type flowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrType FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs
+
+func FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtr(v *FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs) FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrInput {
+	return (*flowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrType)(v)
+}
+
+func (*flowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig)(nil)).Elem()
+}
+
+func (i *flowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrType) ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutput() FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutput {
+	return i.ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *flowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrType) ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutput)
+}
+
+type FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigOutput struct{ *pulumi.OutputState }
+
+func (FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig)(nil)).Elem()
+}
+
+func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigOutput) ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigOutput() FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigOutput {
+	return o
+}
+
+func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigOutput) ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigOutputWithContext(ctx context.Context) FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigOutput {
+	return o
+}
+
+func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigOutput) ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutput() FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutput {
+	return o.ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigOutput) ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig) *FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig {
+		return &v
+	}).(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutput)
+}
+
+// he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
+func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigOutput) MaxPageSize() pulumi.IntOutput {
+	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig) int {
+		return v.MaxPageSize
+	}).(pulumi.IntOutput)
+}
+
+type FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig)(nil)).Elem()
+}
+
+func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutput) ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutput() FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutput {
+	return o
+}
+
+func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutput) ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutput {
+	return o
+}
+
+func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutput) Elem() FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigOutput {
+	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig) FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig
+		return ret
+	}).(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigOutput)
+}
+
+// he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
+func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutput) MaxPageSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxPageSize
+	}).(pulumi.IntPtrOutput)
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesServiceNow struct {
@@ -19645,6 +19965,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrInput)(nil)).Elem(), FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceFlowConfigSourceConnectorPropertiesSapoDataInput)(nil)).Elem(), FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrInput)(nil)).Elem(), FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigInput)(nil)).Elem(), FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrInput)(nil)).Elem(), FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigInput)(nil)).Elem(), FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrInput)(nil)).Elem(), FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceFlowConfigSourceConnectorPropertiesServiceNowInput)(nil)).Elem(), FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceFlowConfigSourceConnectorPropertiesServiceNowPtrInput)(nil)).Elem(), FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowSourceFlowConfigSourceConnectorPropertiesSingularInput)(nil)).Elem(), FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs{})
@@ -19870,6 +20194,10 @@ func init() {
 	pulumi.RegisterOutputType(FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataOutput{})
 	pulumi.RegisterOutputType(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutput{})
+	pulumi.RegisterOutputType(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigOutput{})
+	pulumi.RegisterOutputType(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigPtrOutput{})
+	pulumi.RegisterOutputType(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigOutput{})
+	pulumi.RegisterOutputType(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceFlowConfigSourceConnectorPropertiesServiceNowOutput{})
 	pulumi.RegisterOutputType(FlowSourceFlowConfigSourceConnectorPropertiesServiceNowPtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceFlowConfigSourceConnectorPropertiesSingularOutput{})

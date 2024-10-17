@@ -7,6 +7,7 @@ import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
 import com.pulumi.aws.dynamodb.inputs.TableGlobalSecondaryIndexArgs;
 import com.pulumi.aws.dynamodb.inputs.TableImportTableArgs;
 import com.pulumi.aws.dynamodb.inputs.TableLocalSecondaryIndexArgs;
+import com.pulumi.aws.dynamodb.inputs.TableOnDemandThroughputArgs;
 import com.pulumi.aws.dynamodb.inputs.TablePointInTimeRecoveryArgs;
 import com.pulumi.aws.dynamodb.inputs.TableReplicaArgs;
 import com.pulumi.aws.dynamodb.inputs.TableServerSideEncryptionArgs;
@@ -149,6 +150,21 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * Sets the maximum number of read and write units for the specified on-demand table. See below.
+     * 
+     */
+    @Import(name="onDemandThroughput")
+    private @Nullable Output<TableOnDemandThroughputArgs> onDemandThroughput;
+
+    /**
+     * @return Sets the maximum number of read and write units for the specified on-demand table. See below.
+     * 
+     */
+    public Optional<Output<TableOnDemandThroughputArgs>> onDemandThroughput() {
+        return Optional.ofNullable(this.onDemandThroughput);
     }
 
     /**
@@ -391,6 +407,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         this.importTable = $.importTable;
         this.localSecondaryIndexes = $.localSecondaryIndexes;
         this.name = $.name;
+        this.onDemandThroughput = $.onDemandThroughput;
         this.pointInTimeRecovery = $.pointInTimeRecovery;
         this.rangeKey = $.rangeKey;
         this.readCapacity = $.readCapacity;
@@ -626,6 +643,27 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param onDemandThroughput Sets the maximum number of read and write units for the specified on-demand table. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onDemandThroughput(@Nullable Output<TableOnDemandThroughputArgs> onDemandThroughput) {
+            $.onDemandThroughput = onDemandThroughput;
+            return this;
+        }
+
+        /**
+         * @param onDemandThroughput Sets the maximum number of read and write units for the specified on-demand table. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onDemandThroughput(TableOnDemandThroughputArgs onDemandThroughput) {
+            return onDemandThroughput(Output.of(onDemandThroughput));
         }
 
         /**

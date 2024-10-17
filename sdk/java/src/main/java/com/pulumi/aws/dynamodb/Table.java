@@ -10,6 +10,7 @@ import com.pulumi.aws.dynamodb.outputs.TableAttribute;
 import com.pulumi.aws.dynamodb.outputs.TableGlobalSecondaryIndex;
 import com.pulumi.aws.dynamodb.outputs.TableImportTable;
 import com.pulumi.aws.dynamodb.outputs.TableLocalSecondaryIndex;
+import com.pulumi.aws.dynamodb.outputs.TableOnDemandThroughput;
 import com.pulumi.aws.dynamodb.outputs.TablePointInTimeRecovery;
 import com.pulumi.aws.dynamodb.outputs.TableReplica;
 import com.pulumi.aws.dynamodb.outputs.TableServerSideEncryption;
@@ -390,6 +391,20 @@ public class Table extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Sets the maximum number of read and write units for the specified on-demand table. See below.
+     * 
+     */
+    @Export(name="onDemandThroughput", refs={TableOnDemandThroughput.class}, tree="[0]")
+    private Output</* @Nullable */ TableOnDemandThroughput> onDemandThroughput;
+
+    /**
+     * @return Sets the maximum number of read and write units for the specified on-demand table. See below.
+     * 
+     */
+    public Output<Optional<TableOnDemandThroughput>> onDemandThroughput() {
+        return Codegen.optional(this.onDemandThroughput);
     }
     /**
      * Enable point-in-time recovery options. See below.

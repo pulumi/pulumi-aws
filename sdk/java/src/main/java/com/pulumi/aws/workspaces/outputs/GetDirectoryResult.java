@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.workspaces.outputs;
 
+import com.pulumi.aws.workspaces.outputs.GetDirectorySamlProperty;
 import com.pulumi.aws.workspaces.outputs.GetDirectorySelfServicePermission;
 import com.pulumi.aws.workspaces.outputs.GetDirectoryWorkspaceAccessProperty;
 import com.pulumi.aws.workspaces.outputs.GetDirectoryWorkspaceCreationProperty;
@@ -12,7 +13,6 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDirectoryResult {
@@ -62,6 +62,7 @@ public final class GetDirectoryResult {
      * 
      */
     private String registrationCode;
+    private List<GetDirectorySamlProperty> samlProperties;
     /**
      * @return The permissions to enable or disable self-service capabilities.
      * 
@@ -76,7 +77,7 @@ public final class GetDirectoryResult {
      * @return A map of tags assigned to the WorkSpaces directory.
      * 
      */
-    private @Nullable Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return (Optional) Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
      * 
@@ -160,6 +161,9 @@ public final class GetDirectoryResult {
     public String registrationCode() {
         return this.registrationCode;
     }
+    public List<GetDirectorySamlProperty> samlProperties() {
+        return this.samlProperties;
+    }
     /**
      * @return The permissions to enable or disable self-service capabilities.
      * 
@@ -179,7 +183,7 @@ public final class GetDirectoryResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags == null ? Map.of() : this.tags;
+        return this.tags;
     }
     /**
      * @return (Optional) Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
@@ -222,9 +226,10 @@ public final class GetDirectoryResult {
         private String id;
         private List<String> ipGroupIds;
         private String registrationCode;
+        private List<GetDirectorySamlProperty> samlProperties;
         private List<GetDirectorySelfServicePermission> selfServicePermissions;
         private List<String> subnetIds;
-        private @Nullable Map<String,String> tags;
+        private Map<String,String> tags;
         private List<GetDirectoryWorkspaceAccessProperty> workspaceAccessProperties;
         private List<GetDirectoryWorkspaceCreationProperty> workspaceCreationProperties;
         private String workspaceSecurityGroupId;
@@ -241,6 +246,7 @@ public final class GetDirectoryResult {
     	      this.id = defaults.id;
     	      this.ipGroupIds = defaults.ipGroupIds;
     	      this.registrationCode = defaults.registrationCode;
+    	      this.samlProperties = defaults.samlProperties;
     	      this.selfServicePermissions = defaults.selfServicePermissions;
     	      this.subnetIds = defaults.subnetIds;
     	      this.tags = defaults.tags;
@@ -336,6 +342,17 @@ public final class GetDirectoryResult {
             return this;
         }
         @CustomType.Setter
+        public Builder samlProperties(List<GetDirectorySamlProperty> samlProperties) {
+            if (samlProperties == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "samlProperties");
+            }
+            this.samlProperties = samlProperties;
+            return this;
+        }
+        public Builder samlProperties(GetDirectorySamlProperty... samlProperties) {
+            return samlProperties(List.of(samlProperties));
+        }
+        @CustomType.Setter
         public Builder selfServicePermissions(List<GetDirectorySelfServicePermission> selfServicePermissions) {
             if (selfServicePermissions == null) {
               throw new MissingRequiredPropertyException("GetDirectoryResult", "selfServicePermissions");
@@ -358,8 +375,10 @@ public final class GetDirectoryResult {
             return subnetIds(List.of(subnetIds));
         }
         @CustomType.Setter
-        public Builder tags(@Nullable Map<String,String> tags) {
-
+        public Builder tags(Map<String,String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "tags");
+            }
             this.tags = tags;
             return this;
         }
@@ -405,6 +424,7 @@ public final class GetDirectoryResult {
             _resultValue.id = id;
             _resultValue.ipGroupIds = ipGroupIds;
             _resultValue.registrationCode = registrationCode;
+            _resultValue.samlProperties = samlProperties;
             _resultValue.selfServicePermissions = selfServicePermissions;
             _resultValue.subnetIds = subnetIds;
             _resultValue.tags = tags;

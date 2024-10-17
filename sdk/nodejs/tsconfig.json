@@ -1178,6 +1178,7 @@
         "iam/rolePoliciesExclusive.ts",
         "iam/rolePolicy.ts",
         "iam/rolePolicyAttachment.ts",
+        "iam/rolePolicyAttachmentsExclusive.ts",
         "iam/samlProvider.ts",
         "iam/securityTokenServicePreferences.ts",
         "iam/serverCertificate.ts",

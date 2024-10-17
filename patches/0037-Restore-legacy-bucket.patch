@@ -5,10 +5,10 @@ Subject: [PATCH] Restore legacy bucket
 
 
 diff --git a/internal/conns/awsclient.go b/internal/conns/awsclient.go
-index c98bc7fc2f..b9d46d6765 100644
+index dde69d462d..6391a4988c 100644
 --- a/internal/conns/awsclient.go
 +++ b/internal/conns/awsclient.go
-@@ -101,6 +101,10 @@ func (c *AWSClient) S3UsePathStyle(context.Context) bool {
+@@ -105,6 +105,10 @@ func (c *AWSClient) S3UsePathStyle(context.Context) bool {
  	return c.s3UsePathStyle
  }
  
@@ -20,7 +20,7 @@ index c98bc7fc2f..b9d46d6765 100644
  	config := client.S3Conn(ctx).Config
  	config.DisableRestProtocolURICleaning = aws_sdkv2.Bool(true)
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index 4221a35f24..af988348da 100644
+index 026e936537..664f55488d 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
 @@ -17,7 +17,6 @@ import (
