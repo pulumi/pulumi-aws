@@ -16,6 +16,9 @@ package provider
 
 import (
 	"context"
+	"io"
+	"log"
+	"os"
 
 	awsShim "github.com/hashicorp/terraform-provider-aws/shim"
 	"github.com/pulumi/pulumi-aws/provider/v6/pkg/rds"
@@ -30,6 +33,9 @@ import (
 // runtime startup is somewhat performance sensitive. Therefore any modifications undertaken here should complete
 // quickly.
 func newUpstreamProvider(ctx context.Context) awsShim.UpstreamProvider {
+	log.SetOutput(io.Discard)      // ignore logging from upstream constructors
+	defer log.SetOutput(os.Stderr) // revert to default
+
 	upstreamProvider, err := awsShim.NewUpstreamProvider(ctx)
 	contract.AssertNoErrorf(err, "NewUpstreamProvider failed to initialize")
 	rds.ReconfigureResources(upstreamProvider.SDKV2Provider)
