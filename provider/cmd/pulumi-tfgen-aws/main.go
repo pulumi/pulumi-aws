@@ -20,7 +20,7 @@ import (
 	"strings"
 
 	aws "github.com/pulumi/pulumi-aws/provider/v6"
-	pftfgen "github.com/pulumi/pulumi-terraform-bridge/pf/tfgen"
+	pftfgen "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfgen"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
