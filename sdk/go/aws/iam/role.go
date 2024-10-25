@@ -369,12 +369,8 @@ type Role struct {
 	// Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
 	ForceDetachPolicies pulumi.BoolPtrOutput `pulumi:"forceDetachPolicies"`
 	// Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, Pulumi will not manage any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause Pulumi to remove _all_ inline policies added out of band on `apply`.
-	//
-	// Deprecated: The inlinePolicy argument is deprecated. Use the iam.RolePolicy resource instead. If Terraform should exclusively manage all inline policy associations (the current behavior of this argument), use the iam.RolePoliciesExclusive resource as well.
 	InlinePolicies RoleInlinePolicyArrayOutput `pulumi:"inlinePolicies"`
 	// Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, Pulumi will ignore policy attachments to this resource. When configured, Pulumi will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managedPolicyArns = []`) will cause Pulumi to remove _all_ managed policy attachments.
-	//
-	// Deprecated: The managedPolicyArns argument is deprecated. Use the iam.RolePolicyAttachmentsExclusive resource instead.
 	ManagedPolicyArns pulumi.StringArrayOutput `pulumi:"managedPolicyArns"`
 	// Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
 	MaxSessionDuration pulumi.IntPtrOutput `pulumi:"maxSessionDuration"`
@@ -444,12 +440,8 @@ type roleState struct {
 	// Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
 	ForceDetachPolicies *bool `pulumi:"forceDetachPolicies"`
 	// Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, Pulumi will not manage any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause Pulumi to remove _all_ inline policies added out of band on `apply`.
-	//
-	// Deprecated: The inlinePolicy argument is deprecated. Use the iam.RolePolicy resource instead. If Terraform should exclusively manage all inline policy associations (the current behavior of this argument), use the iam.RolePoliciesExclusive resource as well.
 	InlinePolicies []RoleInlinePolicy `pulumi:"inlinePolicies"`
 	// Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, Pulumi will ignore policy attachments to this resource. When configured, Pulumi will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managedPolicyArns = []`) will cause Pulumi to remove _all_ managed policy attachments.
-	//
-	// Deprecated: The managedPolicyArns argument is deprecated. Use the iam.RolePolicyAttachmentsExclusive resource instead.
 	ManagedPolicyArns []string `pulumi:"managedPolicyArns"`
 	// Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
 	MaxSessionDuration *int `pulumi:"maxSessionDuration"`
@@ -487,12 +479,8 @@ type RoleState struct {
 	// Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
 	ForceDetachPolicies pulumi.BoolPtrInput
 	// Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, Pulumi will not manage any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause Pulumi to remove _all_ inline policies added out of band on `apply`.
-	//
-	// Deprecated: The inlinePolicy argument is deprecated. Use the iam.RolePolicy resource instead. If Terraform should exclusively manage all inline policy associations (the current behavior of this argument), use the iam.RolePoliciesExclusive resource as well.
 	InlinePolicies RoleInlinePolicyArrayInput
 	// Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, Pulumi will ignore policy attachments to this resource. When configured, Pulumi will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managedPolicyArns = []`) will cause Pulumi to remove _all_ managed policy attachments.
-	//
-	// Deprecated: The managedPolicyArns argument is deprecated. Use the iam.RolePolicyAttachmentsExclusive resource instead.
 	ManagedPolicyArns pulumi.StringArrayInput
 	// Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
 	MaxSessionDuration pulumi.IntPtrInput
@@ -530,12 +518,8 @@ type roleArgs struct {
 	// Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
 	ForceDetachPolicies *bool `pulumi:"forceDetachPolicies"`
 	// Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, Pulumi will not manage any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause Pulumi to remove _all_ inline policies added out of band on `apply`.
-	//
-	// Deprecated: The inlinePolicy argument is deprecated. Use the iam.RolePolicy resource instead. If Terraform should exclusively manage all inline policy associations (the current behavior of this argument), use the iam.RolePoliciesExclusive resource as well.
 	InlinePolicies []RoleInlinePolicy `pulumi:"inlinePolicies"`
 	// Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, Pulumi will ignore policy attachments to this resource. When configured, Pulumi will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managedPolicyArns = []`) will cause Pulumi to remove _all_ managed policy attachments.
-	//
-	// Deprecated: The managedPolicyArns argument is deprecated. Use the iam.RolePolicyAttachmentsExclusive resource instead.
 	ManagedPolicyArns []string `pulumi:"managedPolicyArns"`
 	// Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
 	MaxSessionDuration *int `pulumi:"maxSessionDuration"`
@@ -564,12 +548,8 @@ type RoleArgs struct {
 	// Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
 	ForceDetachPolicies pulumi.BoolPtrInput
 	// Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, Pulumi will not manage any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause Pulumi to remove _all_ inline policies added out of band on `apply`.
-	//
-	// Deprecated: The inlinePolicy argument is deprecated. Use the iam.RolePolicy resource instead. If Terraform should exclusively manage all inline policy associations (the current behavior of this argument), use the iam.RolePoliciesExclusive resource as well.
 	InlinePolicies RoleInlinePolicyArrayInput
 	// Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, Pulumi will ignore policy attachments to this resource. When configured, Pulumi will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managedPolicyArns = []`) will cause Pulumi to remove _all_ managed policy attachments.
-	//
-	// Deprecated: The managedPolicyArns argument is deprecated. Use the iam.RolePolicyAttachmentsExclusive resource instead.
 	ManagedPolicyArns pulumi.StringArrayInput
 	// Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
 	MaxSessionDuration pulumi.IntPtrInput
@@ -702,15 +682,11 @@ func (o RoleOutput) ForceDetachPolicies() pulumi.BoolPtrOutput {
 }
 
 // Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, Pulumi will not manage any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause Pulumi to remove _all_ inline policies added out of band on `apply`.
-//
-// Deprecated: The inlinePolicy argument is deprecated. Use the iam.RolePolicy resource instead. If Terraform should exclusively manage all inline policy associations (the current behavior of this argument), use the iam.RolePoliciesExclusive resource as well.
 func (o RoleOutput) InlinePolicies() RoleInlinePolicyArrayOutput {
 	return o.ApplyT(func(v *Role) RoleInlinePolicyArrayOutput { return v.InlinePolicies }).(RoleInlinePolicyArrayOutput)
 }
 
 // Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, Pulumi will ignore policy attachments to this resource. When configured, Pulumi will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managedPolicyArns = []`) will cause Pulumi to remove _all_ managed policy attachments.
-//
-// Deprecated: The managedPolicyArns argument is deprecated. Use the iam.RolePolicyAttachmentsExclusive resource instead.
 func (o RoleOutput) ManagedPolicyArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Role) pulumi.StringArrayOutput { return v.ManagedPolicyArns }).(pulumi.StringArrayOutput)
 }

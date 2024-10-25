@@ -248,14 +248,10 @@ export class Role extends pulumi.CustomResource {
     public readonly forceDetachPolicies!: pulumi.Output<boolean | undefined>;
     /**
      * Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, Pulumi will not manage any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause Pulumi to remove _all_ inline policies added out of band on `apply`.
-     *
-     * @deprecated The inlinePolicy argument is deprecated. Use the aws.iam.RolePolicy resource instead. If Terraform should exclusively manage all inline policy associations (the current behavior of this argument), use the aws.iam.RolePoliciesExclusive resource as well.
      */
     public readonly inlinePolicies!: pulumi.Output<outputs.iam.RoleInlinePolicy[]>;
     /**
      * Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, Pulumi will ignore policy attachments to this resource. When configured, Pulumi will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managedPolicyArns = []`) will cause Pulumi to remove _all_ managed policy attachments.
-     *
-     * @deprecated The managedPolicyArns argument is deprecated. Use the aws.iam.RolePolicyAttachmentsExclusive resource instead.
      */
     public readonly managedPolicyArns!: pulumi.Output<string[]>;
     /**
@@ -377,14 +373,10 @@ export interface RoleState {
     forceDetachPolicies?: pulumi.Input<boolean>;
     /**
      * Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, Pulumi will not manage any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause Pulumi to remove _all_ inline policies added out of band on `apply`.
-     *
-     * @deprecated The inlinePolicy argument is deprecated. Use the aws.iam.RolePolicy resource instead. If Terraform should exclusively manage all inline policy associations (the current behavior of this argument), use the aws.iam.RolePoliciesExclusive resource as well.
      */
     inlinePolicies?: pulumi.Input<pulumi.Input<inputs.iam.RoleInlinePolicy>[]>;
     /**
      * Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, Pulumi will ignore policy attachments to this resource. When configured, Pulumi will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managedPolicyArns = []`) will cause Pulumi to remove _all_ managed policy attachments.
-     *
-     * @deprecated The managedPolicyArns argument is deprecated. Use the aws.iam.RolePolicyAttachmentsExclusive resource instead.
      */
     managedPolicyArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -445,14 +437,10 @@ export interface RoleArgs {
     forceDetachPolicies?: pulumi.Input<boolean>;
     /**
      * Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, Pulumi will not manage any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause Pulumi to remove _all_ inline policies added out of band on `apply`.
-     *
-     * @deprecated The inlinePolicy argument is deprecated. Use the aws.iam.RolePolicy resource instead. If Terraform should exclusively manage all inline policy associations (the current behavior of this argument), use the aws.iam.RolePoliciesExclusive resource as well.
      */
     inlinePolicies?: pulumi.Input<pulumi.Input<inputs.iam.RoleInlinePolicy>[]>;
     /**
      * Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, Pulumi will ignore policy attachments to this resource. When configured, Pulumi will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managedPolicyArns = []`) will cause Pulumi to remove _all_ managed policy attachments.
-     *
-     * @deprecated The managedPolicyArns argument is deprecated. Use the aws.iam.RolePolicyAttachmentsExclusive resource instead.
      */
     managedPolicyArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**

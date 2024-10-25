@@ -447,11 +447,7 @@ public class Role extends com.pulumi.resources.CustomResource {
     /**
      * Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, Pulumi will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause Pulumi to remove _all_ inline policies added out of band on `apply`.
      * 
-     * @deprecated
-     * The inline_policy argument is deprecated. Use the aws.iam.RolePolicy resource instead. If Terraform should exclusively manage all inline policy associations (the current behavior of this argument), use the aws.iam.RolePoliciesExclusive resource as well.
-     * 
      */
-    @Deprecated /* The inline_policy argument is deprecated. Use the aws.iam.RolePolicy resource instead. If Terraform should exclusively manage all inline policy associations (the current behavior of this argument), use the aws.iam.RolePoliciesExclusive resource as well. */
     @Export(name="inlinePolicies", refs={List.class,RoleInlinePolicy.class}, tree="[0,1]")
     private Output<List<RoleInlinePolicy>> inlinePolicies;
 
@@ -465,11 +461,7 @@ public class Role extends com.pulumi.resources.CustomResource {
     /**
      * Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, Pulumi will ignore policy attachments to this resource. When configured, Pulumi will align the role&#39;s managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managed_policy_arns = []`) will cause Pulumi to remove _all_ managed policy attachments.
      * 
-     * @deprecated
-     * The managed_policy_arns argument is deprecated. Use the aws.iam.RolePolicyAttachmentsExclusive resource instead.
-     * 
      */
-    @Deprecated /* The managed_policy_arns argument is deprecated. Use the aws.iam.RolePolicyAttachmentsExclusive resource instead. */
     @Export(name="managedPolicyArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> managedPolicyArns;
 
