@@ -5,7 +5,7 @@ Subject: [PATCH] Optimize startup performance
 
 
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index 3b939a83f3..026e936537 100644
+index 30ebfcf0f3..4c83f4bb1c 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
 @@ -317,7 +317,7 @@ func New(ctx context.Context) (*schema.Provider, error) {

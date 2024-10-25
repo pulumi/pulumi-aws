@@ -6,21 +6,19 @@ Subject: [PATCH] Disable retry for KMS access denied in lambda
 
 diff --git a/internal/service/lambda/service_package_extra.go b/internal/service/lambda/service_package_extra.go
 new file mode 100644
-index 0000000000..ffd7fa9728
+index 0000000000..79867519db
 --- /dev/null
 +++ b/internal/service/lambda/service_package_extra.go
-@@ -0,0 +1,41 @@
+@@ -0,0 +1,34 @@
 +package lambda
 +
 +import (
-+	"context"
-+
++	"github.com/aws/aws-sdk-go-v2/aws"
 +	aws_sdkv2 "github.com/aws/aws-sdk-go-v2/aws"
 +	retry_sdkv2 "github.com/aws/aws-sdk-go-v2/aws/retry"
-+	lambda_sdkv2 "github.com/aws/aws-sdk-go-v2/service/lambda"
++	"github.com/aws/aws-sdk-go-v2/service/lambda"
 +	tfawserr_sdkv2 "github.com/hashicorp/aws-sdk-go-base/v2/tfawserr"
 +	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-+	"github.com/hashicorp/terraform-provider-aws/names"
 +)
 +
 +// Customize lambda retries.
@@ -29,8 +27,7 @@ index 0000000000..ffd7fa9728
 +//
 +// https://github.com/hashicorp/terraform-provider-aws/blob/main/docs/retries-and-waiters.md
 +// https://github.com/pulumi/pulumi-aws/issues/3196
-+func (p *servicePackage) NewClient(ctx context.Context, config map[string]any) (*lambda_sdkv2.Client, error) {
-+	cfg := *(config["aws_sdkv2_config"].(*aws_sdkv2.Config))
++func (p *servicePackage) pulumiCustomizeLambdaRetries(cfg aws.Config) func(*lambda.Options) {
 +	retry := retry_sdkv2.IsErrorRetryableFunc(func(err error) aws_sdkv2.Ternary {
 +		if tfawserr_sdkv2.ErrMessageContains(
 +			err,
@@ -43,41 +40,19 @@ index 0000000000..ffd7fa9728
 +		return aws_sdkv2.UnknownTernary // Delegate
 +	})
 +
-+	return lambda_sdkv2.NewFromConfig(cfg,
-+		lambda_sdkv2.WithEndpointResolverV2(newEndpointResolverSDKv2()),
-+		withBaseEndpoint(config[names.AttrEndpoint].(string)),
-+		func(o *lambda_sdkv2.Options) {
-+			o.Retryer = conns.AddIsErrorRetryables(cfg.Retryer().(aws_sdkv2.RetryerV2), retry)
-+		},
-+	), nil
++	return func(o *lambda.Options) {
++		o.Retryer = conns.AddIsErrorRetryables(cfg.Retryer().(aws_sdkv2.RetryerV2), retry)
++	}
 +}
 diff --git a/internal/service/lambda/service_package_gen.go b/internal/service/lambda/service_package_gen.go
-index c70ed5f1f4..5b33cca471 100644
+index b787967d5a..c9a8c815a7 100644
 --- a/internal/service/lambda/service_package_gen.go
 +++ b/internal/service/lambda/service_package_gen.go
-@@ -5,8 +5,6 @@ package lambda
- import (
- 	"context"
- 
--	aws_sdkv2 "github.com/aws/aws-sdk-go-v2/aws"
--	lambda_sdkv2 "github.com/aws/aws-sdk-go-v2/service/lambda"
- 	"github.com/hashicorp/terraform-provider-aws/internal/conns"
- 	"github.com/hashicorp/terraform-provider-aws/internal/types"
- 	"github.com/hashicorp/terraform-provider-aws/names"
-@@ -144,16 +142,6 @@ func (p *servicePackage) ServicePackageName() string {
- 	return names.Lambda
+@@ -151,6 +151,7 @@ func (p *servicePackage) NewClient(ctx context.Context, config map[string]any) (
+ 	return lambda.NewFromConfig(cfg,
+ 		lambda.WithEndpointResolverV2(newEndpointResolverV2()),
+ 		withBaseEndpoint(config[names.AttrEndpoint].(string)),
++		p.pulumiCustomizeLambdaRetries(cfg),
+ 	), nil
  }
  
--// NewClient returns a new AWS SDK for Go v2 client for this service package's AWS API.
--func (p *servicePackage) NewClient(ctx context.Context, config map[string]any) (*lambda_sdkv2.Client, error) {
--	cfg := *(config["aws_sdkv2_config"].(*aws_sdkv2.Config))
--
--	return lambda_sdkv2.NewFromConfig(cfg,
--		lambda_sdkv2.WithEndpointResolverV2(newEndpointResolverSDKv2()),
--		withBaseEndpoint(config[names.AttrEndpoint].(string)),
--	), nil
--}
--
- func ServicePackage(ctx context.Context) conns.ServicePackage {
- 	return &servicePackage{}
- }

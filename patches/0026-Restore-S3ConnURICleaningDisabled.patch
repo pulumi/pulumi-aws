@@ -5,10 +5,10 @@ Subject: [PATCH] Restore S3ConnURICleaningDisabled
 
 
 diff --git a/internal/conns/awsclient.go b/internal/conns/awsclient.go
-index f31b7a7ef2..e9885784f5 100644
+index 9425b4a16d..ddfe9d8849 100644
 --- a/internal/conns/awsclient.go
 +++ b/internal/conns/awsclient.go
-@@ -169,7 +169,7 @@ func (c *AWSClient) DefaultKMSKeyPolicy(context.Context) string {
+@@ -182,7 +182,7 @@ func (c *AWSClient) DefaultKMSKeyPolicy(context.Context) string {
  			"Resource": "*"
  		}
  	]
