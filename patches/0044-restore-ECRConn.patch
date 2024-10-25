@@ -5,20 +5,24 @@ Subject: [PATCH] restore ECRConn
 
 
 diff --git a/internal/conns/awsclient_extra.go b/internal/conns/awsclient_extra.go
-new file mode 100644
-index 0000000000..01a3a5d14d
---- /dev/null
+index 96c809fc47..57bf4c7c94 100644
+--- a/internal/conns/awsclient_extra.go
 +++ b/internal/conns/awsclient_extra.go
-@@ -0,0 +1,13 @@
-+package conns
-+
-+import (
-+	"context"
-+
+@@ -6,7 +6,10 @@ package conns
+ import (
+ 	"context"
+ 
 +	ecr_sdkv1 "github.com/aws/aws-sdk-go/service/ecr"
+ 	s3_sdkv1 "github.com/aws/aws-sdk-go/service/s3"
 +	"github.com/hashicorp/terraform-provider-aws/internal/errs"
 +	"github.com/hashicorp/terraform-provider-aws/names"
-+)
+ )
+ 
+ func (c *AWSClient) S3Conn(ctx context.Context) *s3_sdkv1.S3 {
+@@ -20,3 +23,7 @@ func (client *AWSClient) S3ConnURICleaningDisabled(ctx context.Context) *s3_sdkv
+ 
+ 	return s3_sdkv1.New(client.session.Copy(&config))
+ }
 +
 +func (c *AWSClient) ECRConn(ctx context.Context) *ecr_sdkv1.ECR {
 +	return errs.Must(conn[*ecr_sdkv1.ECR](ctx, c, names.ECR, make(map[string]any)))
