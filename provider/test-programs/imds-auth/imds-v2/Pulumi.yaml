@@ -94,7 +94,7 @@ resources:
       bucket: ${upload-bucket.id}
       key: pulumi-resource-aws
       source:
-        fn::FileAsset: ${localProviderBuild}
+        fn::fileAsset: ${localProviderBuild}
 
   my-instance-profile:
     type: aws:iam/instanceProfile:InstanceProfile
@@ -167,14 +167,21 @@ resources:
     type: command:remote:Command
     properties:
       create: |
-        cd /tmp
+        # Install pulumi and pulumi-resource-aws into PATH
+        export PATH="/home/ec2-user/.pulumi/bin:$PATH"
+        cp /tmp/pulumi-resource-aws /home/ec2-user/.pulumi/bin/
+        chmod a+x /home/ec2-user/.pulumi/bin/pulumi-resource-aws
+        stat /home/ec2-user/.pulumi/bin/pulumi-resource-aws
+        echo "pulumi version:"
+        pulumi version
+        echo "pulumi-resource-aws version:"
+        pulumi-resource-aws -version
+        mkdir /home/ec2-user/repro
+        cp /tmp/Pulumi.yaml /home/ec2-user/repro/Pulumi.yaml
+        cd /home/ec2-user/repro
+        rm -rf ./pulumi-state
         mkdir ./pulumi-state
         export PULUMI_CONFIG_PASSPHRASE=123456
-        export PATH="/tmp:$PATH"
-        export PATH="/home/ec2-user/.pulumi/bin:$PATH"
-        chmod a+x /tmp/pulumi-resource-aws
-        pulumi version # ensure in PATH
-        pulumi-resource-aws --help # ensure in PATH
         pulumi stack init dev
         pulumi stack select dev
         pulumi config
