@@ -202,6 +202,7 @@ const (
 	qldbMod                     = "Qldb"                     // QLDB
 	quicksightMod               = "Quicksight"               // Quicksight
 	ramMod                      = "Ram"                      // Resource Access Manager
+	resilienceHubMod            = "ResilienceHub"            // Resilience Hub
 	rbinMod                     = "Rbin"                     // Recycle Bin
 	rdsMod                      = "Rds"                      // Relational Database Service (RDS)
 	rekognitionMod              = "Rekognition"              // Amazon Rekognition"
@@ -433,6 +434,7 @@ var moduleMap = map[string]string{
 	"redshiftdata":                    redshiftDataMod,
 	"redshiftserverless":              redshiftServerlessMod,
 	"rekognition":                     rekognitionMod,
+	"resiliencehub":                   resilienceHubMod,
 	"resourcegroups":                  resourcegroupsMod,
 	"resourcegroupstaggingapi":        resourcegroupsTaggingApiMod,
 	"rolesanywhere":                   rolesAnywhereMod,
