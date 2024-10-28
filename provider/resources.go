@@ -5892,4 +5892,9 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	) (resource.ID, error) {
 		return attrWithSeparator(state, "userName"), nil
 	}
+	prov.Resources["aws_resiliencehub_resiliency_policy"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attrWithSeparator(state, "arn"), nil
+	}
 }
