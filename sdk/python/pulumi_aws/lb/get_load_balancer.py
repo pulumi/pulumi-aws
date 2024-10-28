@@ -27,7 +27,7 @@ class GetLoadBalancerResult:
     """
     A collection of values returned by getLoadBalancer.
     """
-    def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, client_keep_alive=None, connection_logs=None, customer_owned_ipv4_pool=None, desync_mitigation_mode=None, dns_name=None, dns_record_client_routing_policy=None, drop_invalid_header_fields=None, enable_cross_zone_load_balancing=None, enable_deletion_protection=None, enable_http2=None, enable_tls_version_and_cipher_suite_headers=None, enable_waf_fail_open=None, enable_xff_client_port=None, enforce_security_group_inbound_rules_on_private_link_traffic=None, id=None, idle_timeout=None, internal=None, ip_address_type=None, load_balancer_type=None, name=None, preserve_host_header=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, xff_header_processing_mode=None, zone_id=None):
+    def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, client_keep_alive=None, connection_logs=None, customer_owned_ipv4_pool=None, desync_mitigation_mode=None, dns_name=None, dns_record_client_routing_policy=None, drop_invalid_header_fields=None, enable_cross_zone_load_balancing=None, enable_deletion_protection=None, enable_http2=None, enable_tls_version_and_cipher_suite_headers=None, enable_waf_fail_open=None, enable_xff_client_port=None, enable_zonal_shift=None, enforce_security_group_inbound_rules_on_private_link_traffic=None, id=None, idle_timeout=None, internal=None, ip_address_type=None, load_balancer_type=None, name=None, preserve_host_header=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, xff_header_processing_mode=None, zone_id=None):
         if access_logs and not isinstance(access_logs, dict):
             raise TypeError("Expected argument 'access_logs' to be a dict")
         pulumi.set(__self__, "access_logs", access_logs)
@@ -76,6 +76,9 @@ class GetLoadBalancerResult:
         if enable_xff_client_port and not isinstance(enable_xff_client_port, bool):
             raise TypeError("Expected argument 'enable_xff_client_port' to be a bool")
         pulumi.set(__self__, "enable_xff_client_port", enable_xff_client_port)
+        if enable_zonal_shift and not isinstance(enable_zonal_shift, bool):
+            raise TypeError("Expected argument 'enable_zonal_shift' to be a bool")
+        pulumi.set(__self__, "enable_zonal_shift", enable_zonal_shift)
         if enforce_security_group_inbound_rules_on_private_link_traffic and not isinstance(enforce_security_group_inbound_rules_on_private_link_traffic, str):
             raise TypeError("Expected argument 'enforce_security_group_inbound_rules_on_private_link_traffic' to be a str")
         pulumi.set(__self__, "enforce_security_group_inbound_rules_on_private_link_traffic", enforce_security_group_inbound_rules_on_private_link_traffic)
@@ -203,6 +206,11 @@ class GetLoadBalancerResult:
         return pulumi.get(self, "enable_xff_client_port")
 
     @property
+    @pulumi.getter(name="enableZonalShift")
+    def enable_zonal_shift(self) -> bool:
+        return pulumi.get(self, "enable_zonal_shift")
+
+    @property
     @pulumi.getter(name="enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")
     def enforce_security_group_inbound_rules_on_private_link_traffic(self) -> str:
         return pulumi.get(self, "enforce_security_group_inbound_rules_on_private_link_traffic")
@@ -303,6 +311,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             enable_tls_version_and_cipher_suite_headers=self.enable_tls_version_and_cipher_suite_headers,
             enable_waf_fail_open=self.enable_waf_fail_open,
             enable_xff_client_port=self.enable_xff_client_port,
+            enable_zonal_shift=self.enable_zonal_shift,
             enforce_security_group_inbound_rules_on_private_link_traffic=self.enforce_security_group_inbound_rules_on_private_link_traffic,
             id=self.id,
             idle_timeout=self.idle_timeout,
@@ -381,6 +390,7 @@ def get_load_balancer(arn: Optional[str] = None,
         enable_tls_version_and_cipher_suite_headers=pulumi.get(__ret__, 'enable_tls_version_and_cipher_suite_headers'),
         enable_waf_fail_open=pulumi.get(__ret__, 'enable_waf_fail_open'),
         enable_xff_client_port=pulumi.get(__ret__, 'enable_xff_client_port'),
+        enable_zonal_shift=pulumi.get(__ret__, 'enable_zonal_shift'),
         enforce_security_group_inbound_rules_on_private_link_traffic=pulumi.get(__ret__, 'enforce_security_group_inbound_rules_on_private_link_traffic'),
         id=pulumi.get(__ret__, 'id'),
         idle_timeout=pulumi.get(__ret__, 'idle_timeout'),
@@ -456,6 +466,7 @@ def get_load_balancer_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
         enable_tls_version_and_cipher_suite_headers=pulumi.get(__response__, 'enable_tls_version_and_cipher_suite_headers'),
         enable_waf_fail_open=pulumi.get(__response__, 'enable_waf_fail_open'),
         enable_xff_client_port=pulumi.get(__response__, 'enable_xff_client_port'),
+        enable_zonal_shift=pulumi.get(__response__, 'enable_zonal_shift'),
         enforce_security_group_inbound_rules_on_private_link_traffic=pulumi.get(__response__, 'enforce_security_group_inbound_rules_on_private_link_traffic'),
         id=pulumi.get(__response__, 'id'),
         idle_timeout=pulumi.get(__response__, 'idle_timeout'),

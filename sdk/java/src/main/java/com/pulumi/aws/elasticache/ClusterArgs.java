@@ -100,14 +100,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+     * Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
      * 
      */
     @Import(name="engine")
     private @Nullable Output<String> engine;
 
     /**
-     * @return Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+     * @return Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
      * 
      */
     public Optional<Output<String>> engine() {
@@ -649,7 +649,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engine Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+         * @param engine Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
          * 
          * @return builder
          * 
@@ -660,7 +660,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engine Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+         * @param engine Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
          * 
          * @return builder
          * 

@@ -22,7 +22,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides an ElastiCache Serverless Cache resource which manages memcached or redis.
+ * Provides an ElastiCache Serverless Cache resource which manages memcached, redis or valkey.
  * 
  * ## Example Usage
  * 
@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Redis Serverless
+ * ### Redis OSS Serverless
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -107,6 +107,60 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ServerlessCache("example", ServerlessCacheArgs.builder()
  *             .engine("redis")
+ *             .name("example")
+ *             .cacheUsageLimits(ServerlessCacheCacheUsageLimitsArgs.builder()
+ *                 .dataStorage(ServerlessCacheCacheUsageLimitsDataStorageArgs.builder()
+ *                     .maximum(10)
+ *                     .unit("GB")
+ *                     .build())
+ *                 .ecpuPerSeconds(ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs.builder()
+ *                     .maximum(5000)
+ *                     .build())
+ *                 .build())
+ *             .dailySnapshotTime("09:00")
+ *             .description("Test Server")
+ *             .kmsKeyId(test.arn())
+ *             .majorEngineVersion("7")
+ *             .snapshotRetentionLimit(1)
+ *             .securityGroupIds(testAwsSecurityGroup.id())
+ *             .subnetIds(testAwsSubnet.stream().map(element -> element.id()).collect(toList()))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Valkey Serverless
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.elasticache.ServerlessCache;
+ * import com.pulumi.aws.elasticache.ServerlessCacheArgs;
+ * import com.pulumi.aws.elasticache.inputs.ServerlessCacheCacheUsageLimitsArgs;
+ * import com.pulumi.aws.elasticache.inputs.ServerlessCacheCacheUsageLimitsDataStorageArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ServerlessCache("example", ServerlessCacheArgs.builder()
+ *             .engine("valkey")
  *             .name("example")
  *             .cacheUsageLimits(ServerlessCacheCacheUsageLimitsArgs.builder()
  *                 .dataStorage(ServerlessCacheCacheUsageLimitsDataStorageArgs.builder()
@@ -186,14 +240,14 @@ public class ServerlessCache extends com.pulumi.resources.CustomResource {
         return this.createTime;
     }
     /**
-     * The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `&#34;redis&#34;`. Defaults to `0`.
+     * The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `&#34;redis&#34;` or `&#34;valkey&#34;`. Defaults to `0`.
      * 
      */
     @Export(name="dailySnapshotTime", refs={String.class}, tree="[0]")
     private Output<String> dailySnapshotTime;
 
     /**
-     * @return The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `&#34;redis&#34;`. Defaults to `0`.
+     * @return The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `&#34;redis&#34;` or `&#34;valkey&#34;`. Defaults to `0`.
      * 
      */
     public Output<String> dailySnapshotTime() {
@@ -228,14 +282,14 @@ public class ServerlessCache extends com.pulumi.resources.CustomResource {
         return this.endpoints;
     }
     /**
-     * Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+     * Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
      * 
      */
     @Export(name="engine", refs={String.class}, tree="[0]")
     private Output<String> engine;
 
     /**
-     * @return Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+     * @return Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
      * 
      */
     public Output<String> engine() {

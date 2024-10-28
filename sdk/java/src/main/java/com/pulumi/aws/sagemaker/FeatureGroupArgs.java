@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker;
 import com.pulumi.aws.sagemaker.inputs.FeatureGroupFeatureDefinitionArgs;
 import com.pulumi.aws.sagemaker.inputs.FeatureGroupOfflineStoreConfigArgs;
 import com.pulumi.aws.sagemaker.inputs.FeatureGroupOnlineStoreConfigArgs;
+import com.pulumi.aws.sagemaker.inputs.FeatureGroupThroughputConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -156,6 +157,13 @@ public final class FeatureGroupArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
+    @Import(name="throughputConfig")
+    private @Nullable Output<FeatureGroupThroughputConfigArgs> throughputConfig;
+
+    public Optional<Output<FeatureGroupThroughputConfigArgs>> throughputConfig() {
+        return Optional.ofNullable(this.throughputConfig);
+    }
+
     private FeatureGroupArgs() {}
 
     private FeatureGroupArgs(FeatureGroupArgs $) {
@@ -168,6 +176,7 @@ public final class FeatureGroupArgs extends com.pulumi.resources.ResourceArgs {
         this.recordIdentifierFeatureName = $.recordIdentifierFeatureName;
         this.roleArn = $.roleArn;
         this.tags = $.tags;
+        this.throughputConfig = $.throughputConfig;
     }
 
     public static Builder builder() {
@@ -385,6 +394,15 @@ public final class FeatureGroupArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        public Builder throughputConfig(@Nullable Output<FeatureGroupThroughputConfigArgs> throughputConfig) {
+            $.throughputConfig = throughputConfig;
+            return this;
+        }
+
+        public Builder throughputConfig(FeatureGroupThroughputConfigArgs throughputConfig) {
+            return throughputConfig(Output.of(throughputConfig));
         }
 
         public FeatureGroupArgs build() {

@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * const selected = aws.ec2.getSubnet({
  *     id: subnetId,
  * });
- * const subnet = new aws.ec2.SecurityGroup("subnet", {
+ * const subnetSecurityGroup = new aws.ec2.SecurityGroup("subnet_security_group", {
  *     vpcId: selected.then(selected => selected.vpcId),
  *     ingress: [{
  *         cidrBlocks: [selected.then(selected => selected.cidrBlock)],
@@ -208,7 +208,7 @@ export interface GetSubnetResult {
  * const selected = aws.ec2.getSubnet({
  *     id: subnetId,
  * });
- * const subnet = new aws.ec2.SecurityGroup("subnet", {
+ * const subnetSecurityGroup = new aws.ec2.SecurityGroup("subnet_security_group", {
  *     vpcId: selected.then(selected => selected.vpcId),
  *     ingress: [{
  *         cidrBlocks: [selected.then(selected => selected.cidrBlock)],

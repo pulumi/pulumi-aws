@@ -13,6 +13,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class UserProfileUserSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
+        /// </summary>
+        [Input("autoMountHomeEfs")]
+        public Input<string>? AutoMountHomeEfs { get; set; }
+
+        /// <summary>
         /// The Canvas app settings. See Canvas App Settings below.
         /// </summary>
         [Input("canvasAppSettings")]

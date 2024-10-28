@@ -18,6 +18,7 @@ from .get_maintenance_windows import *
 from .get_parameter import *
 from .get_parameters_by_path import *
 from .get_patch_baseline import *
+from .get_patch_baselines import *
 from .maintenance_window import *
 from .maintenance_window_target import *
 from .maintenance_window_task import *

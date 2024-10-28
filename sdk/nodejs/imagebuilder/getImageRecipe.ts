@@ -87,7 +87,7 @@ export interface GetImageRecipeResult {
     /**
      * Key-value map of resource tags for the image recipe.
      */
-    readonly tags?: {[key: string]: string};
+    readonly tags: {[key: string]: string};
     /**
      * Base64 encoded contents of user data. Commands or a command script to run when build instance is launched.
      */

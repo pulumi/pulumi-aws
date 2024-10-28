@@ -127,6 +127,10 @@ namespace Pulumi.Aws.LakeFormation
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Key-value map of additional configuration. `CROSS_ACCOUNT_VERSION` will be set to values `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` will also be returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Parameters;
+        /// <summary>
         /// List of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
         /// </summary>
         public readonly ImmutableArray<string> ReadOnlyAdmins;
@@ -155,6 +159,8 @@ namespace Pulumi.Aws.LakeFormation
 
             string id,
 
+            ImmutableDictionary<string, string> parameters,
+
             ImmutableArray<string> readOnlyAdmins,
 
             ImmutableArray<string> trustedResourceOwners)
@@ -168,6 +174,7 @@ namespace Pulumi.Aws.LakeFormation
             CreateTableDefaultPermissions = createTableDefaultPermissions;
             ExternalDataFilteringAllowLists = externalDataFilteringAllowLists;
             Id = id;
+            Parameters = parameters;
             ReadOnlyAdmins = readOnlyAdmins;
             TrustedResourceOwners = trustedResourceOwners;
         }

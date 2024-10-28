@@ -15,6 +15,7 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -168,6 +169,41 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Change Cross Account Version
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lakeformation.DataLakeSettings;
+ * import com.pulumi.aws.lakeformation.DataLakeSettingsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new DataLakeSettings("example", DataLakeSettingsArgs.builder()
+ *             .parameters(Map.of("CROSS_ACCOUNT_VERSION", "3"))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  */
 @ResourceType(type="aws:lakeformation/dataLakeSettings:DataLakeSettings")
 public class DataLakeSettings extends com.pulumi.resources.CustomResource {
@@ -202,16 +238,12 @@ public class DataLakeSettings extends com.pulumi.resources.CustomResource {
     /**
      * Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
      * 
-     * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
-     * 
      */
     @Export(name="allowFullTableExternalDataAccess", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowFullTableExternalDataAccess;
 
     /**
      * @return Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
-     * 
-     * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
      * 
      */
     public Output<Optional<Boolean>> allowFullTableExternalDataAccess() {
@@ -288,6 +320,20 @@ public class DataLakeSettings extends com.pulumi.resources.CustomResource {
         return this.externalDataFilteringAllowLists;
     }
     /**
+     * Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `&#34;1&#34;`, `&#34;2&#34;`, `&#34;3&#34;`, or `&#34;4&#34;`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `&#34;1&#34;`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `&#34;1&#34;`.
+     * 
+     */
+    @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output<Map<String,String>> parameters;
+
+    /**
+     * @return Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `&#34;1&#34;`, `&#34;2&#34;`, `&#34;3&#34;`, or `&#34;4&#34;`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `&#34;1&#34;`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `&#34;1&#34;`.
+     * 
+     */
+    public Output<Map<String,String>> parameters() {
+        return this.parameters;
+    }
+    /**
      * Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
      * 
      */
@@ -304,12 +350,16 @@ public class DataLakeSettings extends com.pulumi.resources.CustomResource {
     /**
      * List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
      * 
+     * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.
+     * 
      */
     @Export(name="trustedResourceOwners", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> trustedResourceOwners;
 
     /**
      * @return List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
+     * 
+     * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.
      * 
      */
     public Output<List<String>> trustedResourceOwners() {

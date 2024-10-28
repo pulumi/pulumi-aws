@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.sagemaker.inputs;
 
+import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs;
 import com.pulumi.core.Output;
@@ -17,6 +18,36 @@ import javax.annotation.Nullable;
 public final class DomainDefaultUserSettingsCodeEditorAppSettingsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DomainDefaultUserSettingsCodeEditorAppSettingsArgs Empty = new DomainDefaultUserSettingsCodeEditorAppSettingsArgs();
+
+    /**
+     * Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+     * 
+     */
+    @Import(name="appLifecycleManagement")
+    private @Nullable Output<DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs> appLifecycleManagement;
+
+    /**
+     * @return Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+     * 
+     */
+    public Optional<Output<DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs>> appLifecycleManagement() {
+        return Optional.ofNullable(this.appLifecycleManagement);
+    }
+
+    /**
+     * The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+     * 
+     */
+    @Import(name="builtInLifecycleConfigArn")
+    private @Nullable Output<String> builtInLifecycleConfigArn;
+
+    /**
+     * @return The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+     * 
+     */
+    public Optional<Output<String>> builtInLifecycleConfigArn() {
+        return Optional.ofNullable(this.builtInLifecycleConfigArn);
+    }
 
     /**
      * A list of custom SageMaker images that are configured to run as a CodeEditor app. see `custom_image` Block below.
@@ -66,6 +97,8 @@ public final class DomainDefaultUserSettingsCodeEditorAppSettingsArgs extends co
     private DomainDefaultUserSettingsCodeEditorAppSettingsArgs() {}
 
     private DomainDefaultUserSettingsCodeEditorAppSettingsArgs(DomainDefaultUserSettingsCodeEditorAppSettingsArgs $) {
+        this.appLifecycleManagement = $.appLifecycleManagement;
+        this.builtInLifecycleConfigArn = $.builtInLifecycleConfigArn;
         this.customImages = $.customImages;
         this.defaultResourceSpec = $.defaultResourceSpec;
         this.lifecycleConfigArns = $.lifecycleConfigArns;
@@ -87,6 +120,48 @@ public final class DomainDefaultUserSettingsCodeEditorAppSettingsArgs extends co
 
         public Builder(DomainDefaultUserSettingsCodeEditorAppSettingsArgs defaults) {
             $ = new DomainDefaultUserSettingsCodeEditorAppSettingsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param appLifecycleManagement Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder appLifecycleManagement(@Nullable Output<DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs> appLifecycleManagement) {
+            $.appLifecycleManagement = appLifecycleManagement;
+            return this;
+        }
+
+        /**
+         * @param appLifecycleManagement Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder appLifecycleManagement(DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs appLifecycleManagement) {
+            return appLifecycleManagement(Output.of(appLifecycleManagement));
+        }
+
+        /**
+         * @param builtInLifecycleConfigArn The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder builtInLifecycleConfigArn(@Nullable Output<String> builtInLifecycleConfigArn) {
+            $.builtInLifecycleConfigArn = builtInLifecycleConfigArn;
+            return this;
+        }
+
+        /**
+         * @param builtInLifecycleConfigArn The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder builtInLifecycleConfigArn(String builtInLifecycleConfigArn) {
+            return builtInLifecycleConfigArn(Output.of(builtInLifecycleConfigArn));
         }
 
         /**

@@ -63,6 +63,8 @@ __all__ = [
     'GetPatchBaselineApprovalRulePatchFilterResult',
     'GetPatchBaselineGlobalFilterResult',
     'GetPatchBaselineSourceResult',
+    'GetPatchBaselinesBaselineIdentityResult',
+    'GetPatchBaselinesFilterResult',
 ]
 
 @pulumi.output_type
@@ -2082,5 +2084,96 @@ class GetPatchBaselineSourceResult(dict):
         Specific operating system versions a patch repository applies to.
         """
         return pulumi.get(self, "products")
+
+
+@pulumi.output_type
+class GetPatchBaselinesBaselineIdentityResult(dict):
+    def __init__(__self__, *,
+                 baseline_description: str,
+                 baseline_id: str,
+                 baseline_name: str,
+                 default_baseline: bool,
+                 operating_system: str):
+        """
+        :param str baseline_description: Description of the patch baseline.
+        :param str baseline_id: ID of the patch baseline.
+        :param str baseline_name: Name of the patch baseline.
+        :param bool default_baseline: Indicates whether this is the default baseline. AWS Systems Manager supports creating multiple default patch baselines. For example, you can create a default patch baseline for each operating system.
+        :param str operating_system: Operating system the patch baseline applies to.
+        """
+        pulumi.set(__self__, "baseline_description", baseline_description)
+        pulumi.set(__self__, "baseline_id", baseline_id)
+        pulumi.set(__self__, "baseline_name", baseline_name)
+        pulumi.set(__self__, "default_baseline", default_baseline)
+        pulumi.set(__self__, "operating_system", operating_system)
+
+    @property
+    @pulumi.getter(name="baselineDescription")
+    def baseline_description(self) -> str:
+        """
+        Description of the patch baseline.
+        """
+        return pulumi.get(self, "baseline_description")
+
+    @property
+    @pulumi.getter(name="baselineId")
+    def baseline_id(self) -> str:
+        """
+        ID of the patch baseline.
+        """
+        return pulumi.get(self, "baseline_id")
+
+    @property
+    @pulumi.getter(name="baselineName")
+    def baseline_name(self) -> str:
+        """
+        Name of the patch baseline.
+        """
+        return pulumi.get(self, "baseline_name")
+
+    @property
+    @pulumi.getter(name="defaultBaseline")
+    def default_baseline(self) -> bool:
+        """
+        Indicates whether this is the default baseline. AWS Systems Manager supports creating multiple default patch baselines. For example, you can create a default patch baseline for each operating system.
+        """
+        return pulumi.get(self, "default_baseline")
+
+    @property
+    @pulumi.getter(name="operatingSystem")
+    def operating_system(self) -> str:
+        """
+        Operating system the patch baseline applies to.
+        """
+        return pulumi.get(self, "operating_system")
+
+
+@pulumi.output_type
+class GetPatchBaselinesFilterResult(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 values: Sequence[str]):
+        """
+        :param str key: Filter key. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for valid values.
+        :param Sequence[str] values: Filter values. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for example values.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        Filter key. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for valid values.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Filter values. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for example values.
+        """
+        return pulumi.get(self, "values")
 
 

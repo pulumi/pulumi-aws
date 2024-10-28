@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.sagemaker.outputs;
 
+import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement;
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage;
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec;
 import com.pulumi.core.annotations.CustomType;
@@ -14,6 +15,16 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainDefaultUserSettingsCodeEditorAppSettings {
+    /**
+     * @return Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+     * 
+     */
+    private @Nullable DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement appLifecycleManagement;
+    /**
+     * @return The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+     * 
+     */
+    private @Nullable String builtInLifecycleConfigArn;
     /**
      * @return A list of custom SageMaker images that are configured to run as a CodeEditor app. see `custom_image` Block below.
      * 
@@ -31,6 +42,20 @@ public final class DomainDefaultUserSettingsCodeEditorAppSettings {
     private @Nullable List<String> lifecycleConfigArns;
 
     private DomainDefaultUserSettingsCodeEditorAppSettings() {}
+    /**
+     * @return Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+     * 
+     */
+    public Optional<DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement> appLifecycleManagement() {
+        return Optional.ofNullable(this.appLifecycleManagement);
+    }
+    /**
+     * @return The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+     * 
+     */
+    public Optional<String> builtInLifecycleConfigArn() {
+        return Optional.ofNullable(this.builtInLifecycleConfigArn);
+    }
     /**
      * @return A list of custom SageMaker images that are configured to run as a CodeEditor app. see `custom_image` Block below.
      * 
@@ -62,17 +87,33 @@ public final class DomainDefaultUserSettingsCodeEditorAppSettings {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement appLifecycleManagement;
+        private @Nullable String builtInLifecycleConfigArn;
         private @Nullable List<DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage> customImages;
         private @Nullable DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec defaultResourceSpec;
         private @Nullable List<String> lifecycleConfigArns;
         public Builder() {}
         public Builder(DomainDefaultUserSettingsCodeEditorAppSettings defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.appLifecycleManagement = defaults.appLifecycleManagement;
+    	      this.builtInLifecycleConfigArn = defaults.builtInLifecycleConfigArn;
     	      this.customImages = defaults.customImages;
     	      this.defaultResourceSpec = defaults.defaultResourceSpec;
     	      this.lifecycleConfigArns = defaults.lifecycleConfigArns;
         }
 
+        @CustomType.Setter
+        public Builder appLifecycleManagement(@Nullable DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement appLifecycleManagement) {
+
+            this.appLifecycleManagement = appLifecycleManagement;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder builtInLifecycleConfigArn(@Nullable String builtInLifecycleConfigArn) {
+
+            this.builtInLifecycleConfigArn = builtInLifecycleConfigArn;
+            return this;
+        }
         @CustomType.Setter
         public Builder customImages(@Nullable List<DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage> customImages) {
 
@@ -99,6 +140,8 @@ public final class DomainDefaultUserSettingsCodeEditorAppSettings {
         }
         public DomainDefaultUserSettingsCodeEditorAppSettings build() {
             final var _resultValue = new DomainDefaultUserSettingsCodeEditorAppSettings();
+            _resultValue.appLifecycleManagement = appLifecycleManagement;
+            _resultValue.builtInLifecycleConfigArn = builtInLifecycleConfigArn;
             _resultValue.customImages = customImages;
             _resultValue.defaultResourceSpec = defaultResourceSpec;
             _resultValue.lifecycleConfigArns = lifecycleConfigArns;

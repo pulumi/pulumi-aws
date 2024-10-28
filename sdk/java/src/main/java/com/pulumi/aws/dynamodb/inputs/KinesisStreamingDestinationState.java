@@ -16,6 +16,21 @@ public final class KinesisStreamingDestinationState extends com.pulumi.resources
     public static final KinesisStreamingDestinationState Empty = new KinesisStreamingDestinationState();
 
     /**
+     * Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
+     * 
+     */
+    @Import(name="approximateCreationDateTimePrecision")
+    private @Nullable Output<String> approximateCreationDateTimePrecision;
+
+    /**
+     * @return Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
+     * 
+     */
+    public Optional<Output<String>> approximateCreationDateTimePrecision() {
+        return Optional.ofNullable(this.approximateCreationDateTimePrecision);
+    }
+
+    /**
      * The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
      * 
      */
@@ -31,16 +46,14 @@ public final class KinesisStreamingDestinationState extends com.pulumi.resources
     }
 
     /**
-     * The name of the DynamoDB table. There
-     * can only be one Kinesis streaming destination for a given DynamoDB table.
+     * The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
      * 
      */
     @Import(name="tableName")
     private @Nullable Output<String> tableName;
 
     /**
-     * @return The name of the DynamoDB table. There
-     * can only be one Kinesis streaming destination for a given DynamoDB table.
+     * @return The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
      * 
      */
     public Optional<Output<String>> tableName() {
@@ -50,6 +63,7 @@ public final class KinesisStreamingDestinationState extends com.pulumi.resources
     private KinesisStreamingDestinationState() {}
 
     private KinesisStreamingDestinationState(KinesisStreamingDestinationState $) {
+        this.approximateCreationDateTimePrecision = $.approximateCreationDateTimePrecision;
         this.streamArn = $.streamArn;
         this.tableName = $.tableName;
     }
@@ -70,6 +84,27 @@ public final class KinesisStreamingDestinationState extends com.pulumi.resources
 
         public Builder(KinesisStreamingDestinationState defaults) {
             $ = new KinesisStreamingDestinationState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param approximateCreationDateTimePrecision Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder approximateCreationDateTimePrecision(@Nullable Output<String> approximateCreationDateTimePrecision) {
+            $.approximateCreationDateTimePrecision = approximateCreationDateTimePrecision;
+            return this;
+        }
+
+        /**
+         * @param approximateCreationDateTimePrecision Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder approximateCreationDateTimePrecision(String approximateCreationDateTimePrecision) {
+            return approximateCreationDateTimePrecision(Output.of(approximateCreationDateTimePrecision));
         }
 
         /**
@@ -94,8 +129,7 @@ public final class KinesisStreamingDestinationState extends com.pulumi.resources
         }
 
         /**
-         * @param tableName The name of the DynamoDB table. There
-         * can only be one Kinesis streaming destination for a given DynamoDB table.
+         * @param tableName The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
          * 
          * @return builder
          * 
@@ -106,8 +140,7 @@ public final class KinesisStreamingDestinationState extends com.pulumi.resources
         }
 
         /**
-         * @param tableName The name of the DynamoDB table. There
-         * can only be one Kinesis streaming destination for a given DynamoDB table.
+         * @param tableName The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
          * 
          * @return builder
          * 

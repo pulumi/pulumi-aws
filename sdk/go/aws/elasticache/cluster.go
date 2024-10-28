@@ -271,7 +271,7 @@ type Cluster struct {
 	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
 	// (Memcached only) Configuration endpoint to allow host discovery.
 	ConfigurationEndpoint pulumi.StringOutput `pulumi:"configurationEndpoint"`
-	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
 	Engine pulumi.StringOutput `pulumi:"engine"`
 	// Version number of the cache engine to be used.
 	// If not set, defaults to the latest version.
@@ -391,7 +391,7 @@ type clusterState struct {
 	ClusterId *string `pulumi:"clusterId"`
 	// (Memcached only) Configuration endpoint to allow host discovery.
 	ConfigurationEndpoint *string `pulumi:"configurationEndpoint"`
-	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
 	Engine *string `pulumi:"engine"`
 	// Version number of the cache engine to be used.
 	// If not set, defaults to the latest version.
@@ -482,7 +482,7 @@ type ClusterState struct {
 	ClusterId pulumi.StringPtrInput
 	// (Memcached only) Configuration endpoint to allow host discovery.
 	ConfigurationEndpoint pulumi.StringPtrInput
-	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
 	Engine pulumi.StringPtrInput
 	// Version number of the cache engine to be used.
 	// If not set, defaults to the latest version.
@@ -569,7 +569,7 @@ type clusterArgs struct {
 	AzMode *string `pulumi:"azMode"`
 	// Group identifier. ElastiCache converts this name to lowercase. Changing this value will re-create the resource.
 	ClusterId *string `pulumi:"clusterId"`
-	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
 	Engine *string `pulumi:"engine"`
 	// Version number of the cache engine to be used.
 	// If not set, defaults to the latest version.
@@ -647,7 +647,7 @@ type ClusterArgs struct {
 	AzMode pulumi.StringPtrInput
 	// Group identifier. ElastiCache converts this name to lowercase. Changing this value will re-create the resource.
 	ClusterId pulumi.StringPtrInput
-	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
 	Engine pulumi.StringPtrInput
 	// Version number of the cache engine to be used.
 	// If not set, defaults to the latest version.
@@ -845,7 +845,7 @@ func (o ClusterOutput) ConfigurationEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ConfigurationEndpoint }).(pulumi.StringOutput)
 }
 
-// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
 func (o ClusterOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Engine }).(pulumi.StringOutput)
 }

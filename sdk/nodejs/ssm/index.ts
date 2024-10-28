@@ -65,6 +65,11 @@ export const getPatchBaseline: typeof import("./getPatchBaseline").getPatchBasel
 export const getPatchBaselineOutput: typeof import("./getPatchBaseline").getPatchBaselineOutput = null as any;
 utilities.lazyLoad(exports, ["getPatchBaseline","getPatchBaselineOutput"], () => require("./getPatchBaseline"));
 
+export { GetPatchBaselinesArgs, GetPatchBaselinesResult, GetPatchBaselinesOutputArgs } from "./getPatchBaselines";
+export const getPatchBaselines: typeof import("./getPatchBaselines").getPatchBaselines = null as any;
+export const getPatchBaselinesOutput: typeof import("./getPatchBaselines").getPatchBaselinesOutput = null as any;
+utilities.lazyLoad(exports, ["getPatchBaselines","getPatchBaselinesOutput"], () => require("./getPatchBaselines"));
+
 export { MaintenanceWindowArgs, MaintenanceWindowState } from "./maintenanceWindow";
 export type MaintenanceWindow = import("./maintenanceWindow").MaintenanceWindow;
 export const MaintenanceWindow: typeof import("./maintenanceWindow").MaintenanceWindow = null as any;

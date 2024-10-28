@@ -17,6 +17,11 @@ public final class DomainDefaultUserSettingsStudioWebPortalSettings {
      */
     private @Nullable List<String> hiddenAppTypes;
     /**
+     * @return The instance types you are hiding from the Studio user interface.
+     * 
+     */
+    private @Nullable List<String> hiddenInstanceTypes;
+    /**
      * @return The machine learning tools that are hidden from the Studio left navigation pane.
      * 
      */
@@ -29,6 +34,13 @@ public final class DomainDefaultUserSettingsStudioWebPortalSettings {
      */
     public List<String> hiddenAppTypes() {
         return this.hiddenAppTypes == null ? List.of() : this.hiddenAppTypes;
+    }
+    /**
+     * @return The instance types you are hiding from the Studio user interface.
+     * 
+     */
+    public List<String> hiddenInstanceTypes() {
+        return this.hiddenInstanceTypes == null ? List.of() : this.hiddenInstanceTypes;
     }
     /**
      * @return The machine learning tools that are hidden from the Studio left navigation pane.
@@ -48,11 +60,13 @@ public final class DomainDefaultUserSettingsStudioWebPortalSettings {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> hiddenAppTypes;
+        private @Nullable List<String> hiddenInstanceTypes;
         private @Nullable List<String> hiddenMlTools;
         public Builder() {}
         public Builder(DomainDefaultUserSettingsStudioWebPortalSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hiddenAppTypes = defaults.hiddenAppTypes;
+    	      this.hiddenInstanceTypes = defaults.hiddenInstanceTypes;
     	      this.hiddenMlTools = defaults.hiddenMlTools;
         }
 
@@ -66,6 +80,15 @@ public final class DomainDefaultUserSettingsStudioWebPortalSettings {
             return hiddenAppTypes(List.of(hiddenAppTypes));
         }
         @CustomType.Setter
+        public Builder hiddenInstanceTypes(@Nullable List<String> hiddenInstanceTypes) {
+
+            this.hiddenInstanceTypes = hiddenInstanceTypes;
+            return this;
+        }
+        public Builder hiddenInstanceTypes(String... hiddenInstanceTypes) {
+            return hiddenInstanceTypes(List.of(hiddenInstanceTypes));
+        }
+        @CustomType.Setter
         public Builder hiddenMlTools(@Nullable List<String> hiddenMlTools) {
 
             this.hiddenMlTools = hiddenMlTools;
@@ -77,6 +100,7 @@ public final class DomainDefaultUserSettingsStudioWebPortalSettings {
         public DomainDefaultUserSettingsStudioWebPortalSettings build() {
             final var _resultValue = new DomainDefaultUserSettingsStudioWebPortalSettings();
             _resultValue.hiddenAppTypes = hiddenAppTypes;
+            _resultValue.hiddenInstanceTypes = hiddenInstanceTypes;
             _resultValue.hiddenMlTools = hiddenMlTools;
             return _resultValue;
         }

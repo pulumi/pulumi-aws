@@ -4983,7 +4983,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationP
 type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor struct {
 	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters []FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type string `pulumi:"type"`
 }
 
@@ -5001,7 +5001,7 @@ type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProc
 type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs struct {
 	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArrayInput `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5063,7 +5063,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationP
 	}).(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArrayOutput)
 }
 
-// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor) string {
 		return v.Type
@@ -5091,7 +5091,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationP
 }
 
 type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter struct {
-	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
 	ParameterName string `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	//
@@ -5111,7 +5111,7 @@ type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProc
 }
 
 type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs struct {
-	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
 	ParameterName pulumi.StringInput `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	//
@@ -5170,7 +5170,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationP
 	return o
 }
 
-// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterOutput) ParameterName() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterName
@@ -8746,7 +8746,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrO
 type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor struct {
 	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters []FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type string `pulumi:"type"`
 }
 
@@ -8764,7 +8764,7 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcess
 type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs struct {
 	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArrayInput `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -8826,7 +8826,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProc
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArrayOutput)
 }
 
-// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor) string {
 		return v.Type
@@ -8854,7 +8854,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProc
 }
 
 type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter struct {
-	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
 	ParameterName string `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	//
@@ -8874,7 +8874,7 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcess
 }
 
 type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs struct {
-	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
 	ParameterName pulumi.StringInput `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	//
@@ -8933,7 +8933,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProc
 	return o
 }
 
-// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterOutput) ParameterName() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterName
@@ -10154,7 +10154,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPt
 type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor struct {
 	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters []FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type string `pulumi:"type"`
 }
 
@@ -10172,7 +10172,7 @@ type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProce
 type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArgs struct {
 	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayInput `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -10234,7 +10234,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPr
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutput)
 }
 
-// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor) string {
 		return v.Type
@@ -10262,7 +10262,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPr
 }
 
 type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter struct {
-	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
 	ParameterName string `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	//
@@ -10282,7 +10282,7 @@ type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProce
 }
 
 type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs struct {
-	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
 	ParameterName pulumi.StringInput `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	//
@@ -10341,7 +10341,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPr
 	return o
 }
 
-// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput) ParameterName() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterName
@@ -11311,6 +11311,1493 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurati
 			return nil
 		}
 		return v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamIcebergConfiguration struct {
+	// Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
+	BufferingInterval *int `pulumi:"bufferingInterval"`
+	// Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
+	BufferingSize *int `pulumi:"bufferingSize"`
+	// Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`
+	CatalogArn string `pulumi:"catalogArn"`
+	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	CloudwatchLoggingOptions *FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
+	// Destination table configurations which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided. See `destinationTableConfiguration` block below for details.
+	DestinationTableConfigurations []FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration `pulumi:"destinationTableConfigurations"`
+	// The data processing configuration.  See `processingConfiguration` block below for details.
+	ProcessingConfiguration *FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration `pulumi:"processingConfiguration"`
+	// The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
+	RetryDuration *int `pulumi:"retryDuration"`
+	// The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+	RoleArn      string  `pulumi:"roleArn"`
+	S3BackupMode *string `pulumi:"s3BackupMode"`
+	// The S3 Configuration. See `s3Configuration` block below for details.
+	S3Configuration FirehoseDeliveryStreamIcebergConfigurationS3Configuration `pulumi:"s3Configuration"`
+}
+
+// FirehoseDeliveryStreamIcebergConfigurationInput is an input type that accepts FirehoseDeliveryStreamIcebergConfigurationArgs and FirehoseDeliveryStreamIcebergConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamIcebergConfigurationInput` via:
+//
+//	FirehoseDeliveryStreamIcebergConfigurationArgs{...}
+type FirehoseDeliveryStreamIcebergConfigurationInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamIcebergConfigurationOutput() FirehoseDeliveryStreamIcebergConfigurationOutput
+	ToFirehoseDeliveryStreamIcebergConfigurationOutputWithContext(context.Context) FirehoseDeliveryStreamIcebergConfigurationOutput
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationArgs struct {
+	// Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
+	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
+	// Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
+	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
+	// Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`
+	CatalogArn pulumi.StringInput `pulumi:"catalogArn"`
+	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	CloudwatchLoggingOptions FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
+	// Destination table configurations which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided. See `destinationTableConfiguration` block below for details.
+	DestinationTableConfigurations FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayInput `pulumi:"destinationTableConfigurations"`
+	// The data processing configuration.  See `processingConfiguration` block below for details.
+	ProcessingConfiguration FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
+	// The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
+	RetryDuration pulumi.IntPtrInput `pulumi:"retryDuration"`
+	// The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+	RoleArn      pulumi.StringInput    `pulumi:"roleArn"`
+	S3BackupMode pulumi.StringPtrInput `pulumi:"s3BackupMode"`
+	// The S3 Configuration. See `s3Configuration` block below for details.
+	S3Configuration FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationInput `pulumi:"s3Configuration"`
+}
+
+func (FirehoseDeliveryStreamIcebergConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfiguration)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationArgs) ToFirehoseDeliveryStreamIcebergConfigurationOutput() FirehoseDeliveryStreamIcebergConfigurationOutput {
+	return i.ToFirehoseDeliveryStreamIcebergConfigurationOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationArgs) ToFirehoseDeliveryStreamIcebergConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamIcebergConfigurationOutput)
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationArgs) ToFirehoseDeliveryStreamIcebergConfigurationPtrOutput() FirehoseDeliveryStreamIcebergConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamIcebergConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationArgs) ToFirehoseDeliveryStreamIcebergConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamIcebergConfigurationOutput).ToFirehoseDeliveryStreamIcebergConfigurationPtrOutputWithContext(ctx)
+}
+
+// FirehoseDeliveryStreamIcebergConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamIcebergConfigurationArgs, FirehoseDeliveryStreamIcebergConfigurationPtr and FirehoseDeliveryStreamIcebergConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamIcebergConfigurationPtrInput` via:
+//
+//	        FirehoseDeliveryStreamIcebergConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirehoseDeliveryStreamIcebergConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamIcebergConfigurationPtrOutput() FirehoseDeliveryStreamIcebergConfigurationPtrOutput
+	ToFirehoseDeliveryStreamIcebergConfigurationPtrOutputWithContext(context.Context) FirehoseDeliveryStreamIcebergConfigurationPtrOutput
+}
+
+type firehoseDeliveryStreamIcebergConfigurationPtrType FirehoseDeliveryStreamIcebergConfigurationArgs
+
+func FirehoseDeliveryStreamIcebergConfigurationPtr(v *FirehoseDeliveryStreamIcebergConfigurationArgs) FirehoseDeliveryStreamIcebergConfigurationPtrInput {
+	return (*firehoseDeliveryStreamIcebergConfigurationPtrType)(v)
+}
+
+func (*firehoseDeliveryStreamIcebergConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamIcebergConfiguration)(nil)).Elem()
+}
+
+func (i *firehoseDeliveryStreamIcebergConfigurationPtrType) ToFirehoseDeliveryStreamIcebergConfigurationPtrOutput() FirehoseDeliveryStreamIcebergConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamIcebergConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *firehoseDeliveryStreamIcebergConfigurationPtrType) ToFirehoseDeliveryStreamIcebergConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamIcebergConfigurationPtrOutput)
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamIcebergConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationOutput) ToFirehoseDeliveryStreamIcebergConfigurationOutput() FirehoseDeliveryStreamIcebergConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationOutput) ToFirehoseDeliveryStreamIcebergConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationOutput) ToFirehoseDeliveryStreamIcebergConfigurationPtrOutput() FirehoseDeliveryStreamIcebergConfigurationPtrOutput {
+	return o.ToFirehoseDeliveryStreamIcebergConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationOutput) ToFirehoseDeliveryStreamIcebergConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamIcebergConfiguration) *FirehoseDeliveryStreamIcebergConfiguration {
+		return &v
+	}).(FirehoseDeliveryStreamIcebergConfigurationPtrOutput)
+}
+
+// Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
+func (o FirehoseDeliveryStreamIcebergConfigurationOutput) BufferingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfiguration) *int { return v.BufferingInterval }).(pulumi.IntPtrOutput)
+}
+
+// Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
+func (o FirehoseDeliveryStreamIcebergConfigurationOutput) BufferingSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfiguration) *int { return v.BufferingSize }).(pulumi.IntPtrOutput)
+}
+
+// Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`
+func (o FirehoseDeliveryStreamIcebergConfigurationOutput) CatalogArn() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfiguration) string { return v.CatalogArn }).(pulumi.StringOutput)
+}
+
+// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+func (o FirehoseDeliveryStreamIcebergConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfiguration) *FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions {
+		return v.CloudwatchLoggingOptions
+	}).(FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+// Destination table configurations which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided. See `destinationTableConfiguration` block below for details.
+func (o FirehoseDeliveryStreamIcebergConfigurationOutput) DestinationTableConfigurations() FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfiguration) []FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration {
+		return v.DestinationTableConfigurations
+	}).(FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayOutput)
+}
+
+// The data processing configuration.  See `processingConfiguration` block below for details.
+func (o FirehoseDeliveryStreamIcebergConfigurationOutput) ProcessingConfiguration() FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfiguration) *FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration {
+		return v.ProcessingConfiguration
+	}).(FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput)
+}
+
+// The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
+func (o FirehoseDeliveryStreamIcebergConfigurationOutput) RetryDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfiguration) *int { return v.RetryDuration }).(pulumi.IntPtrOutput)
+}
+
+// The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+func (o FirehoseDeliveryStreamIcebergConfigurationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationOutput) S3BackupMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfiguration) *string { return v.S3BackupMode }).(pulumi.StringPtrOutput)
+}
+
+// The S3 Configuration. See `s3Configuration` block below for details.
+func (o FirehoseDeliveryStreamIcebergConfigurationOutput) S3Configuration() FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfiguration) FirehoseDeliveryStreamIcebergConfigurationS3Configuration {
+		return v.S3Configuration
+	}).(FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput)
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamIcebergConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamIcebergConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) ToFirehoseDeliveryStreamIcebergConfigurationPtrOutput() FirehoseDeliveryStreamIcebergConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) ToFirehoseDeliveryStreamIcebergConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) Elem() FirehoseDeliveryStreamIcebergConfigurationOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfiguration) FirehoseDeliveryStreamIcebergConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamIcebergConfiguration
+		return ret
+	}).(FirehoseDeliveryStreamIcebergConfigurationOutput)
+}
+
+// Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
+func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) BufferingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BufferingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+// Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
+func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) BufferingSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BufferingSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`
+func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) CatalogArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CatalogArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfiguration) *FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLoggingOptions
+	}).(FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+// Destination table configurations which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided. See `destinationTableConfiguration` block below for details.
+func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) DestinationTableConfigurations() FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfiguration) []FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationTableConfigurations
+	}).(FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayOutput)
+}
+
+// The data processing configuration.  See `processingConfiguration` block below for details.
+func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) ProcessingConfiguration() FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfiguration) *FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ProcessingConfiguration
+	}).(FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput)
+}
+
+// The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
+func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) RetryDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetryDuration
+	}).(pulumi.IntPtrOutput)
+}
+
+// The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) S3BackupMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3BackupMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The S3 Configuration. See `s3Configuration` block below for details.
+func (o FirehoseDeliveryStreamIcebergConfigurationPtrOutput) S3Configuration() FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfiguration) *FirehoseDeliveryStreamIcebergConfigurationS3Configuration {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Configuration
+	}).(FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput)
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions struct {
+	// Enables or disables the logging. Defaults to `false`.
+	Enabled *bool `pulumi:"enabled"`
+	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	LogGroupName *string `pulumi:"logGroupName"`
+	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	LogStreamName *string `pulumi:"logStreamName"`
+}
+
+// FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsInput is an input type that accepts FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsArgs and FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsInput` via:
+//
+//	FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsArgs{...}
+type FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsOutput() FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsOutput
+	ToFirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsOutputWithContext(context.Context) FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsOutput
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsArgs struct {
+	// Enables or disables the logging. Defaults to `false`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
+	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	LogStreamName pulumi.StringPtrInput `pulumi:"logStreamName"`
+}
+
+func (FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsOutput() FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsOutput {
+	return i.ToFirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsOutput)
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return i.ToFirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsOutput).ToFirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx)
+}
+
+// FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrInput is an input type that accepts FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsArgs, FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtr and FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrInput` via:
+//
+//	        FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput
+	ToFirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Context) FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput
+}
+
+type firehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrType FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsArgs
+
+func FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtr(v *FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsArgs) FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrInput {
+	return (*firehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrType)(v)
+}
+
+func (*firehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions)(nil)).Elem()
+}
+
+func (i *firehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrType) ToFirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return i.ToFirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *firehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrType) ToFirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsOutput() FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o.ToFirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions {
+		return &v
+	}).(FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+// Enables or disables the logging. Defaults to `false`.
+func (o FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The CloudWatch group name for logging. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions) *string {
+		return v.LogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsOutput) LogStreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions) *string {
+		return v.LogStreamName
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput) ToFirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput) ToFirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput) Elem() FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions) FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions {
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions
+		return ret
+	}).(FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsOutput)
+}
+
+// Enables or disables the logging. Defaults to `false`.
+func (o FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The CloudWatch group name for logging. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput) LogStreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogStreamName
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration struct {
+	// The name of the Apache Iceberg database.
+	DatabaseName string `pulumi:"databaseName"`
+	// The table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
+	S3ErrorOutputPrefix *string `pulumi:"s3ErrorOutputPrefix"`
+	// The name of the Apache Iceberg Table.
+	TableName string `pulumi:"tableName"`
+	// A list of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
+	UniqueKeys []string `pulumi:"uniqueKeys"`
+}
+
+// FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationInput is an input type that accepts FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArgs and FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationInput` via:
+//
+//	FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArgs{...}
+type FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationOutput() FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationOutput
+	ToFirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationOutputWithContext(context.Context) FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationOutput
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArgs struct {
+	// The name of the Apache Iceberg database.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// The table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
+	S3ErrorOutputPrefix pulumi.StringPtrInput `pulumi:"s3ErrorOutputPrefix"`
+	// The name of the Apache Iceberg Table.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+	// A list of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
+	UniqueKeys pulumi.StringArrayInput `pulumi:"uniqueKeys"`
+}
+
+func (FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArgs) ToFirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationOutput() FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationOutput {
+	return i.ToFirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArgs) ToFirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationOutput)
+}
+
+// FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayInput is an input type that accepts FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArray and FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayInput` via:
+//
+//	FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArray{ FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArgs{...} }
+type FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayOutput() FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayOutput
+	ToFirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayOutputWithContext(context.Context) FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayOutput
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArray []FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationInput
+
+func (FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArray) ToFirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayOutput() FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayOutput {
+	return i.ToFirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArray) ToFirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayOutput)
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationOutput) ToFirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationOutput() FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationOutput) ToFirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationOutput {
+	return o
+}
+
+// The name of the Apache Iceberg database.
+func (o FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration) string {
+		return v.DatabaseName
+	}).(pulumi.StringOutput)
+}
+
+// The table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
+func (o FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationOutput) S3ErrorOutputPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration) *string {
+		return v.S3ErrorOutputPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the Apache Iceberg Table.
+func (o FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration) string {
+		return v.TableName
+	}).(pulumi.StringOutput)
+}
+
+// A list of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
+func (o FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationOutput) UniqueKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration) []string {
+		return v.UniqueKeys
+	}).(pulumi.StringArrayOutput)
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayOutput) ToFirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayOutput() FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayOutput) ToFirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayOutput) Index(i pulumi.IntInput) FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration {
+		return vs[0].([]FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration)[vs[1].(int)]
+	}).(FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationOutput)
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration struct {
+	// Enables or disables data processing.
+	Enabled *bool `pulumi:"enabled"`
+	// Specifies the data processors as multiple blocks. See `processors` block below for details.
+	Processors []FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessor `pulumi:"processors"`
+}
+
+// FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationInput is an input type that accepts FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs and FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationInput` via:
+//
+//	FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs{...}
+type FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationOutput() FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationOutput
+	ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationOutputWithContext(context.Context) FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationOutput
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs struct {
+	// Enables or disables data processing.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Specifies the data processors as multiple blocks. See `processors` block below for details.
+	Processors FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayInput `pulumi:"processors"`
+}
+
+func (FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs) ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationOutput() FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationOutput {
+	return i.ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs) ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationOutput)
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs) ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput() FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs) ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationOutput).ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutputWithContext(ctx)
+}
+
+// FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs, FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtr and FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrInput` via:
+//
+//	        FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput() FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput
+	ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutputWithContext(context.Context) FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput
+}
+
+type firehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrType FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs
+
+func FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtr(v *FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs) FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrInput {
+	return (*firehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrType)(v)
+}
+
+func (*firehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration)(nil)).Elem()
+}
+
+func (i *firehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrType) ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput() FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *firehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrType) ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput)
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationOutput) ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationOutput() FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationOutput) ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationOutput) ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput() FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput {
+	return o.ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationOutput) ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration) *FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration {
+		return &v
+	}).(FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput)
+}
+
+// Enables or disables data processing.
+func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the data processors as multiple blocks. See `processors` block below for details.
+func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationOutput) Processors() FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration) []FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessor {
+		return v.Processors
+	}).(FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayOutput)
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput) ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput() FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput) ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput) Elem() FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration) FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration
+		return ret
+	}).(FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationOutput)
+}
+
+// Enables or disables data processing.
+func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the data processors as multiple blocks. See `processors` block below for details.
+func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput) Processors() FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration) []FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessor {
+		if v == nil {
+			return nil
+		}
+		return v.Processors
+	}).(FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayOutput)
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessor struct {
+	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+	Parameters []FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameter `pulumi:"parameters"`
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+	Type string `pulumi:"type"`
+}
+
+// FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorInput is an input type that accepts FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArgs and FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorInput` via:
+//
+//	FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArgs{...}
+type FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorOutput() FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorOutput
+	ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorOutputWithContext(context.Context) FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorOutput
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArgs struct {
+	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+	Parameters FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArrayInput `pulumi:"parameters"`
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessor)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArgs) ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorOutput() FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorOutput {
+	return i.ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArgs) ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorOutput)
+}
+
+// FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayInput is an input type that accepts FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArray and FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayInput` via:
+//
+//	FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArray{ FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArgs{...} }
+type FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayOutput() FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayOutput
+	ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayOutputWithContext(context.Context) FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayOutput
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArray []FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorInput
+
+func (FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessor)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArray) ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayOutput() FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayOutput {
+	return i.ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArray) ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayOutput)
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessor)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorOutput) ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorOutput() FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorOutput) ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorOutput {
+	return o
+}
+
+// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorOutput) Parameters() FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArrayOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessor) []FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameter {
+		return v.Parameters
+	}).(FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArrayOutput)
+}
+
+// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessor) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessor)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayOutput) ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayOutput() FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayOutput) ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayOutput) Index(i pulumi.IntInput) FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessor {
+		return vs[0].([]FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessor)[vs[1].(int)]
+	}).(FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorOutput)
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameter struct {
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
+	ParameterName string `pulumi:"parameterName"`
+	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+	ParameterValue string `pulumi:"parameterValue"`
+}
+
+// FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterInput is an input type that accepts FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArgs and FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterInput` via:
+//
+//	FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArgs{...}
+type FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterOutput() FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterOutput
+	ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterOutputWithContext(context.Context) FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterOutput
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArgs struct {
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
+	ParameterName pulumi.StringInput `pulumi:"parameterName"`
+	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
+}
+
+func (FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameter)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArgs) ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterOutput() FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterOutput {
+	return i.ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArgs) ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterOutput)
+}
+
+// FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArrayInput is an input type that accepts FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArray and FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArrayOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArrayInput` via:
+//
+//	FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArray{ FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArgs{...} }
+type FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArrayInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArrayOutput() FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArrayOutput
+	ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArrayOutputWithContext(context.Context) FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArrayOutput
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArray []FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterInput
+
+func (FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameter)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArray) ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArrayOutput() FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArrayOutput {
+	return i.ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArrayOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArray) ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArrayOutput)
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameter)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterOutput) ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterOutput() FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterOutput) ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterOutput {
+	return o
+}
+
+// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
+func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterOutput) ParameterName() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameter) string {
+		return v.ParameterName
+	}).(pulumi.StringOutput)
+}
+
+// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+//
+// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterOutput) ParameterValue() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameter) string {
+		return v.ParameterValue
+	}).(pulumi.StringOutput)
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameter)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArrayOutput) ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArrayOutput() FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArrayOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArrayOutput) ToFirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArrayOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArrayOutput) Index(i pulumi.IntInput) FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameter {
+		return vs[0].([]FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameter)[vs[1].(int)]
+	}).(FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterOutput)
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationS3Configuration struct {
+	// The ARN of the S3 bucket
+	BucketArn string `pulumi:"bucketArn"`
+	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+	BufferingInterval *int `pulumi:"bufferingInterval"`
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+	BufferingSize *int `pulumi:"bufferingSize"`
+	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	CloudwatchLoggingOptions *FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
+	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+	CompressionFormat *string `pulumi:"compressionFormat"`
+	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+	ErrorOutputPrefix *string `pulumi:"errorOutputPrefix"`
+	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+	// be used.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+	Prefix *string `pulumi:"prefix"`
+	// The ARN of the AWS credentials.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationInput is an input type that accepts FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs and FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationInput` via:
+//
+//	FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs{...}
+type FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput() FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput
+	ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutputWithContext(context.Context) FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs struct {
+	// The ARN of the S3 bucket
+	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
+	// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+	BufferingInterval pulumi.IntPtrInput `pulumi:"bufferingInterval"`
+	// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+	BufferingSize pulumi.IntPtrInput `pulumi:"bufferingSize"`
+	// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+	CloudwatchLoggingOptions FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
+	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+	CompressionFormat pulumi.StringPtrInput `pulumi:"compressionFormat"`
+	// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+	ErrorOutputPrefix pulumi.StringPtrInput `pulumi:"errorOutputPrefix"`
+	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+	// be used.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// The ARN of the AWS credentials.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs) ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput() FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput {
+	return i.ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs) ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput)
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs) ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput() FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs) ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput).ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutputWithContext(ctx)
+}
+
+// FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs, FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtr and FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrInput` via:
+//
+//	        FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput() FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput
+	ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutputWithContext(context.Context) FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput
+}
+
+type firehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrType FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs
+
+func FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtr(v *FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs) FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrInput {
+	return (*firehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrType)(v)
+}
+
+func (*firehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamIcebergConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (i *firehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrType) ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput() FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *firehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrType) ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput)
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput) ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput() FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput) ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput) ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput() FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput {
+	return o.ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput) ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamIcebergConfigurationS3Configuration) *FirehoseDeliveryStreamIcebergConfigurationS3Configuration {
+		return &v
+	}).(FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput)
+}
+
+// The ARN of the S3 bucket
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput) BucketArn() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationS3Configuration) string { return v.BucketArn }).(pulumi.StringOutput)
+}
+
+// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput) BufferingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationS3Configuration) *int { return v.BufferingInterval }).(pulumi.IntPtrOutput)
+}
+
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput) BufferingSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationS3Configuration) *int { return v.BufferingSize }).(pulumi.IntPtrOutput)
+}
+
+// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationS3Configuration) *FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions {
+		return v.CloudwatchLoggingOptions
+	}).(FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput) CompressionFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationS3Configuration) *string { return v.CompressionFormat }).(pulumi.StringPtrOutput)
+}
+
+// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput) ErrorOutputPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationS3Configuration) *string { return v.ErrorOutputPrefix }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+// be used.
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationS3Configuration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationS3Configuration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the AWS credentials.
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationS3Configuration) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamIcebergConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput) ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput() FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput) ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput) Elem() FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationS3Configuration) FirehoseDeliveryStreamIcebergConfigurationS3Configuration {
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamIcebergConfigurationS3Configuration
+		return ret
+	}).(FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput)
+}
+
+// The ARN of the S3 bucket
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput) BucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput) BufferingInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationS3Configuration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BufferingInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput) BufferingSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationS3Configuration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BufferingSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationS3Configuration) *FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLoggingOptions
+	}).(FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput) CompressionFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CompressionFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput) ErrorOutputPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorOutputPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+// be used.
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the AWS credentials.
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions struct {
+	// Enables or disables the logging. Defaults to `false`.
+	Enabled *bool `pulumi:"enabled"`
+	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	LogGroupName *string `pulumi:"logGroupName"`
+	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	LogStreamName *string `pulumi:"logStreamName"`
+}
+
+// FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsInput is an input type that accepts FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs and FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsInput` via:
+//
+//	FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs{...}
+type FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput() FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput
+	ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsOutputWithContext(context.Context) FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs struct {
+	// Enables or disables the logging. Defaults to `false`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The CloudWatch group name for logging. This value is required if `enabled` is true.
+	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
+	// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+	LogStreamName pulumi.StringPtrInput `pulumi:"logStreamName"`
+}
+
+func (FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput() FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput {
+	return i.ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput)
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return i.ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput).ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx)
+}
+
+// FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput is an input type that accepts FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs, FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtr and FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput` via:
+//
+//	        FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput
+	ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Context) FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput
+}
+
+type firehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrType FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs
+
+func FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtr(v *FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs) FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput {
+	return (*firehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrType)(v)
+}
+
+func (*firehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions)(nil)).Elem()
+}
+
+func (i *firehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrType) ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return i.ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *firehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrType) ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput() FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o.ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions {
+		return &v
+	}).(FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+// Enables or disables the logging. Defaults to `false`.
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions) *bool {
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The CloudWatch group name for logging. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
+		return v.LogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput) LogStreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
+		return v.LogStreamName
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) ToFirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) Elem() FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions) FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions {
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions
+		return ret
+	}).(FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput)
+}
+
+// Enables or disables the logging. Defaults to `false`.
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The CloudWatch group name for logging. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+func (o FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput) LogStreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogStreamName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -12699,7 +14186,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationPtrO
 type FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessor struct {
 	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters []FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameter `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type string `pulumi:"type"`
 }
 
@@ -12717,7 +14204,7 @@ type FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcess
 type FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArgs struct {
 	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArrayInput `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -12779,7 +14266,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProc
 	}).(FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArrayOutput)
 }
 
-// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessor) string {
 		return v.Type
@@ -12807,7 +14294,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProc
 }
 
 type FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameter struct {
-	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
 	ParameterName string `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	//
@@ -12827,7 +14314,7 @@ type FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcess
 }
 
 type FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArgs struct {
-	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
 	ParameterName pulumi.StringInput `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	//
@@ -12886,7 +14373,7 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProc
 	return o
 }
 
-// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterOutput) ParameterName() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterName
@@ -14275,7 +15762,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigu
 type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor struct {
 	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters []FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type string `pulumi:"type"`
 }
 
@@ -14293,7 +15780,7 @@ type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurat
 type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArgs struct {
 	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayInput `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -14355,7 +15842,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigu
 	}).(FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArrayOutput)
 }
 
-// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor) string {
 		return v.Type
@@ -14383,7 +15870,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigu
 }
 
 type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter struct {
-	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
 	ParameterName string `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	//
@@ -14403,7 +15890,7 @@ type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurat
 }
 
 type FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArgs struct {
-	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
 	ParameterName pulumi.StringInput `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	//
@@ -14462,7 +15949,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigu
 	return o
 }
 
-// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterOutput) ParameterName() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterName
@@ -15920,7 +17407,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrOut
 type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor struct {
 	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters []FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type string `pulumi:"type"`
 }
 
@@ -15938,7 +17425,7 @@ type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor
 type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArgs struct {
 	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArrayInput `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -16000,7 +17487,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProces
 	}).(FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArrayOutput)
 }
 
-// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor) string {
 		return v.Type
@@ -16028,7 +17515,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProces
 }
 
 type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter struct {
-	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
 	ParameterName string `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	//
@@ -16048,7 +17535,7 @@ type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor
 }
 
 type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArgs struct {
-	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
 	ParameterName pulumi.StringInput `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	//
@@ -16107,7 +17594,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProces
 	return o
 }
 
-// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterOutput) ParameterName() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterName
@@ -18312,7 +19799,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationPtrOu
 type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor struct {
 	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters []FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameter `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type string `pulumi:"type"`
 }
 
@@ -18330,7 +19817,7 @@ type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcesso
 type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArgs struct {
 	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayInput `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -18392,7 +19879,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProce
 	}).(FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArrayOutput)
 }
 
-// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor) string {
 		return v.Type
@@ -18420,7 +19907,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProce
 }
 
 type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameter struct {
-	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
 	ParameterName string `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	//
@@ -18440,7 +19927,7 @@ type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcesso
 }
 
 type FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArgs struct {
-	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
 	ParameterName pulumi.StringInput `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	//
@@ -18499,7 +19986,7 @@ func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProce
 	return o
 }
 
-// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterOutput) ParameterName() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterName
@@ -20191,7 +21678,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrOutpu
 type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor struct {
 	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters []FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type string `pulumi:"type"`
 }
 
@@ -20209,7 +21696,7 @@ type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorIn
 type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArgs struct {
 	// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
 	Parameters FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArrayInput `pulumi:"parameters"`
-	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -20271,7 +21758,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcesso
 	}).(FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArrayOutput)
 }
 
-// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor) string {
 		return v.Type
@@ -20299,7 +21786,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcesso
 }
 
 type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter struct {
-	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
 	ParameterName string `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	//
@@ -20319,7 +21806,7 @@ type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorPa
 }
 
 type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArgs struct {
-	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
 	ParameterName pulumi.StringInput `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	//
@@ -20378,7 +21865,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcesso
 	return o
 }
 
-// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterOutput) ParameterName() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterName
@@ -21431,6 +22918,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput)(nil)).Elem(), FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamIcebergConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamIcebergConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsInput)(nil)).Elem(), FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrInput)(nil)).Elem(), FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayInput)(nil)).Elem(), FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorInput)(nil)).Elem(), FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayInput)(nil)).Elem(), FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterInput)(nil)).Elem(), FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArrayInput)(nil)).Elem(), FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsInput)(nil)).Elem(), FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrInput)(nil)).Elem(), FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamKinesisSourceConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamKinesisSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamKinesisSourceConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamKinesisSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamMskSourceConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamMskSourceConfigurationArgs{})
@@ -21658,6 +23161,22 @@ func init() {
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamIcebergConfigurationOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamIcebergConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsPtrOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArrayOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArrayOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamKinesisSourceConfigurationOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamMskSourceConfigurationOutput{})

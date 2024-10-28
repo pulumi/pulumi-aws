@@ -27,14 +27,14 @@ type ProfilesAssociation struct {
 	pulumi.CustomResourceState
 
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name of the Profile Association.
+	// Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_' ']+)`.
 	Name    pulumi.StringOutput `pulumi:"name"`
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// ID of the profile associated with the VPC.
 	ProfileId pulumi.StringOutput `pulumi:"profileId"`
 	// Resource ID of the VPC the profile to be associated with.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
-	// Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+	// Status of the Profile Association. See the [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html) for valid values.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Status message of the Profile Association.
 	StatusMessage pulumi.StringOutput    `pulumi:"statusMessage"`
@@ -81,14 +81,14 @@ func GetProfilesAssociation(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ProfilesAssociation resources.
 type profilesAssociationState struct {
 	Arn *string `pulumi:"arn"`
-	// Name of the Profile Association.
+	// Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_' ']+)`.
 	Name    *string `pulumi:"name"`
 	OwnerId *string `pulumi:"ownerId"`
 	// ID of the profile associated with the VPC.
 	ProfileId *string `pulumi:"profileId"`
 	// Resource ID of the VPC the profile to be associated with.
 	ResourceId *string `pulumi:"resourceId"`
-	// Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+	// Status of the Profile Association. See the [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html) for valid values.
 	Status *string `pulumi:"status"`
 	// Status message of the Profile Association.
 	StatusMessage *string           `pulumi:"statusMessage"`
@@ -100,14 +100,14 @@ type profilesAssociationState struct {
 
 type ProfilesAssociationState struct {
 	Arn pulumi.StringPtrInput
-	// Name of the Profile Association.
+	// Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_' ']+)`.
 	Name    pulumi.StringPtrInput
 	OwnerId pulumi.StringPtrInput
 	// ID of the profile associated with the VPC.
 	ProfileId pulumi.StringPtrInput
 	// Resource ID of the VPC the profile to be associated with.
 	ResourceId pulumi.StringPtrInput
-	// Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+	// Status of the Profile Association. See the [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html) for valid values.
 	Status pulumi.StringPtrInput
 	// Status message of the Profile Association.
 	StatusMessage pulumi.StringPtrInput
@@ -122,7 +122,7 @@ func (ProfilesAssociationState) ElementType() reflect.Type {
 }
 
 type profilesAssociationArgs struct {
-	// Name of the Profile Association.
+	// Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_' ']+)`.
 	Name *string `pulumi:"name"`
 	// ID of the profile associated with the VPC.
 	ProfileId string `pulumi:"profileId"`
@@ -134,7 +134,7 @@ type profilesAssociationArgs struct {
 
 // The set of arguments for constructing a ProfilesAssociation resource.
 type ProfilesAssociationArgs struct {
-	// Name of the Profile Association.
+	// Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_' ']+)`.
 	Name pulumi.StringPtrInput
 	// ID of the profile associated with the VPC.
 	ProfileId pulumi.StringInput
@@ -235,7 +235,7 @@ func (o ProfilesAssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of the Profile Association.
+// Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_' ']+)`.
 func (o ProfilesAssociationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesAssociation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -254,7 +254,7 @@ func (o ProfilesAssociationOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesAssociation) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+// Status of the Profile Association. See the [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html) for valid values.
 func (o ProfilesAssociationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesAssociation) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

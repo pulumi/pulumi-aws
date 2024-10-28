@@ -40,7 +40,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ec2.NewSecurityGroup(ctx, "subnet", &ec2.SecurityGroupArgs{
+//			_, err = ec2.NewSecurityGroup(ctx, "subnet_security_group", &ec2.SecurityGroupArgs{
 //				VpcId: pulumi.String(selected.VpcId),
 //				Ingress: ec2.SecurityGroupIngressArray{
 //					&ec2.SecurityGroupIngressArgs{

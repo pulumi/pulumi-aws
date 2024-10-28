@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker.inputs;
 import com.pulumi.aws.sagemaker.inputs.FeatureGroupFeatureDefinitionArgs;
 import com.pulumi.aws.sagemaker.inputs.FeatureGroupOfflineStoreConfigArgs;
 import com.pulumi.aws.sagemaker.inputs.FeatureGroupOnlineStoreConfigArgs;
+import com.pulumi.aws.sagemaker.inputs.FeatureGroupThroughputConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -193,6 +194,13 @@ public final class FeatureGroupState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tagsAll);
     }
 
+    @Import(name="throughputConfig")
+    private @Nullable Output<FeatureGroupThroughputConfigArgs> throughputConfig;
+
+    public Optional<Output<FeatureGroupThroughputConfigArgs>> throughputConfig() {
+        return Optional.ofNullable(this.throughputConfig);
+    }
+
     private FeatureGroupState() {}
 
     private FeatureGroupState(FeatureGroupState $) {
@@ -207,6 +215,7 @@ public final class FeatureGroupState extends com.pulumi.resources.ResourceArgs {
         this.roleArn = $.roleArn;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.throughputConfig = $.throughputConfig;
     }
 
     public static Builder builder() {
@@ -474,6 +483,15 @@ public final class FeatureGroupState extends com.pulumi.resources.ResourceArgs {
         @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        public Builder throughputConfig(@Nullable Output<FeatureGroupThroughputConfigArgs> throughputConfig) {
+            $.throughputConfig = throughputConfig;
+            return this;
+        }
+
+        public Builder throughputConfig(FeatureGroupThroughputConfigArgs throughputConfig) {
+            return throughputConfig(Output.of(throughputConfig));
         }
 
         public FeatureGroupState build() {

@@ -28,6 +28,7 @@ import * as utilities from "../utilities";
  * const exampleKinesisStreamingDestination = new aws.dynamodb.KinesisStreamingDestination("example", {
  *     streamArn: exampleStream.arn,
  *     tableName: example.name,
+ *     approximateCreationDateTimePrecision: "MICROSECOND",
  * });
  * ```
  *
@@ -68,12 +69,15 @@ export class KinesisStreamingDestination extends pulumi.CustomResource {
     }
 
     /**
+     * Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
+     */
+    public readonly approximateCreationDateTimePrecision!: pulumi.Output<string>;
+    /**
      * The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
      */
     public readonly streamArn!: pulumi.Output<string>;
     /**
-     * The name of the DynamoDB table. There
-     * can only be one Kinesis streaming destination for a given DynamoDB table.
+     * The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
      */
     public readonly tableName!: pulumi.Output<string>;
 
@@ -90,6 +94,7 @@ export class KinesisStreamingDestination extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KinesisStreamingDestinationState | undefined;
+            resourceInputs["approximateCreationDateTimePrecision"] = state ? state.approximateCreationDateTimePrecision : undefined;
             resourceInputs["streamArn"] = state ? state.streamArn : undefined;
             resourceInputs["tableName"] = state ? state.tableName : undefined;
         } else {
@@ -100,6 +105,7 @@ export class KinesisStreamingDestination extends pulumi.CustomResource {
             if ((!args || args.tableName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
+            resourceInputs["approximateCreationDateTimePrecision"] = args ? args.approximateCreationDateTimePrecision : undefined;
             resourceInputs["streamArn"] = args ? args.streamArn : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
         }
@@ -113,12 +119,15 @@ export class KinesisStreamingDestination extends pulumi.CustomResource {
  */
 export interface KinesisStreamingDestinationState {
     /**
+     * Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
+     */
+    approximateCreationDateTimePrecision?: pulumi.Input<string>;
+    /**
      * The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
      */
     streamArn?: pulumi.Input<string>;
     /**
-     * The name of the DynamoDB table. There
-     * can only be one Kinesis streaming destination for a given DynamoDB table.
+     * The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
      */
     tableName?: pulumi.Input<string>;
 }
@@ -128,12 +137,15 @@ export interface KinesisStreamingDestinationState {
  */
 export interface KinesisStreamingDestinationArgs {
     /**
+     * Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
+     */
+    approximateCreationDateTimePrecision?: pulumi.Input<string>;
+    /**
      * The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
      */
     streamArn: pulumi.Input<string>;
     /**
-     * The name of the DynamoDB table. There
-     * can only be one Kinesis streaming destination for a given DynamoDB table.
+     * The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
      */
     tableName: pulumi.Input<string>;
 }

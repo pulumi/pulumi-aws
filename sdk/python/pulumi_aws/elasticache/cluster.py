@@ -59,7 +59,7 @@ class ClusterArgs:
         :param pulumi.Input[str] availability_zone: Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
         :param pulumi.Input[str] az_mode: Whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`.
         :param pulumi.Input[str] cluster_id: Group identifier. ElastiCache converts this name to lowercase. Changing this value will re-create the resource.
-        :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+        :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used.
                If not set, defaults to the latest version.
                See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
@@ -223,7 +223,7 @@ class ClusterArgs:
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+        Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
         """
         return pulumi.get(self, "engine")
 
@@ -573,7 +573,7 @@ class _ClusterState:
         :param pulumi.Input[str] cluster_address: (Memcached only) DNS name of the cache cluster without the port appended.
         :param pulumi.Input[str] cluster_id: Group identifier. ElastiCache converts this name to lowercase. Changing this value will re-create the resource.
         :param pulumi.Input[str] configuration_endpoint: (Memcached only) Configuration endpoint to allow host discovery.
-        :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+        :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used.
                If not set, defaults to the latest version.
                See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
@@ -802,7 +802,7 @@ class _ClusterState:
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+        Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
         """
         return pulumi.get(self, "engine")
 
@@ -1304,7 +1304,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] availability_zone: Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
         :param pulumi.Input[str] az_mode: Whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`.
         :param pulumi.Input[str] cluster_id: Group identifier. ElastiCache converts this name to lowercase. Changing this value will re-create the resource.
-        :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+        :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used.
                If not set, defaults to the latest version.
                See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
@@ -1634,7 +1634,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_address: (Memcached only) DNS name of the cache cluster without the port appended.
         :param pulumi.Input[str] cluster_id: Group identifier. ElastiCache converts this name to lowercase. Changing this value will re-create the resource.
         :param pulumi.Input[str] configuration_endpoint: (Memcached only) Configuration endpoint to allow host discovery.
-        :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+        :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used.
                If not set, defaults to the latest version.
                See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
@@ -1794,7 +1794,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def engine(self) -> pulumi.Output[str]:
         """
-        Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+        Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
         """
         return pulumi.get(self, "engine")
 

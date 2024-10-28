@@ -133,6 +133,8 @@ type LoadBalancer struct {
 	EnableWafFailOpen pulumi.BoolPtrOutput `pulumi:"enableWafFailOpen"`
 	// Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
 	EnableXffClientPort pulumi.BoolPtrOutput `pulumi:"enableXffClientPort"`
+	// Whether zonal shift is enabled. Defaults to `false`.
+	EnableZonalShift pulumi.BoolPtrOutput `pulumi:"enableZonalShift"`
 	// Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic pulumi.StringOutput `pulumi:"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"`
 	// Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
@@ -236,6 +238,8 @@ type loadBalancerState struct {
 	EnableWafFailOpen *bool `pulumi:"enableWafFailOpen"`
 	// Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
 	EnableXffClientPort *bool `pulumi:"enableXffClientPort"`
+	// Whether zonal shift is enabled. Defaults to `false`.
+	EnableZonalShift *bool `pulumi:"enableZonalShift"`
 	// Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic *string `pulumi:"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"`
 	// Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
@@ -304,6 +308,8 @@ type LoadBalancerState struct {
 	EnableWafFailOpen pulumi.BoolPtrInput
 	// Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
 	EnableXffClientPort pulumi.BoolPtrInput
+	// Whether zonal shift is enabled. Defaults to `false`.
+	EnableZonalShift pulumi.BoolPtrInput
 	// Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic pulumi.StringPtrInput
 	// Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
@@ -370,6 +376,8 @@ type loadBalancerArgs struct {
 	EnableWafFailOpen *bool `pulumi:"enableWafFailOpen"`
 	// Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
 	EnableXffClientPort *bool `pulumi:"enableXffClientPort"`
+	// Whether zonal shift is enabled. Defaults to `false`.
+	EnableZonalShift *bool `pulumi:"enableZonalShift"`
 	// Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic *string `pulumi:"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"`
 	// Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
@@ -426,6 +434,8 @@ type LoadBalancerArgs struct {
 	EnableWafFailOpen pulumi.BoolPtrInput
 	// Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
 	EnableXffClientPort pulumi.BoolPtrInput
+	// Whether zonal shift is enabled. Defaults to `false`.
+	EnableZonalShift pulumi.BoolPtrInput
 	// Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic pulumi.StringPtrInput
 	// Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
@@ -619,6 +629,11 @@ func (o LoadBalancerOutput) EnableWafFailOpen() pulumi.BoolPtrOutput {
 // Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
 func (o LoadBalancerOutput) EnableXffClientPort() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.BoolPtrOutput { return v.EnableXffClientPort }).(pulumi.BoolPtrOutput)
+}
+
+// Whether zonal shift is enabled. Defaults to `false`.
+func (o LoadBalancerOutput) EnableZonalShift() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.BoolPtrOutput { return v.EnableZonalShift }).(pulumi.BoolPtrOutput)
 }
 
 // Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.

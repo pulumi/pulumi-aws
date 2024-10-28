@@ -173,7 +173,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// Key-value map of resource tags for the container recipe.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// Destination repository for the container image.
         /// </summary>
@@ -217,7 +217,7 @@ namespace Pulumi.Aws.ImageBuilder
 
             string platform,
 
-            ImmutableDictionary<string, string>? tags,
+            ImmutableDictionary<string, string> tags,
 
             ImmutableArray<Outputs.GetContainerRecipeTargetRepositoryResult> targetRepositories,
 

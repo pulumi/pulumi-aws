@@ -27,7 +27,7 @@ class GetDataLakeSettingsResult:
     """
     A collection of values returned by getDataLakeSettings.
     """
-    def __init__(__self__, admins=None, allow_external_data_filtering=None, allow_full_table_external_data_access=None, authorized_session_tag_value_lists=None, catalog_id=None, create_database_default_permissions=None, create_table_default_permissions=None, external_data_filtering_allow_lists=None, id=None, read_only_admins=None, trusted_resource_owners=None):
+    def __init__(__self__, admins=None, allow_external_data_filtering=None, allow_full_table_external_data_access=None, authorized_session_tag_value_lists=None, catalog_id=None, create_database_default_permissions=None, create_table_default_permissions=None, external_data_filtering_allow_lists=None, id=None, parameters=None, read_only_admins=None, trusted_resource_owners=None):
         if admins and not isinstance(admins, list):
             raise TypeError("Expected argument 'admins' to be a list")
         pulumi.set(__self__, "admins", admins)
@@ -55,6 +55,9 @@ class GetDataLakeSettingsResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if parameters and not isinstance(parameters, dict):
+            raise TypeError("Expected argument 'parameters' to be a dict")
+        pulumi.set(__self__, "parameters", parameters)
         if read_only_admins and not isinstance(read_only_admins, list):
             raise TypeError("Expected argument 'read_only_admins' to be a list")
         pulumi.set(__self__, "read_only_admins", read_only_admins)
@@ -132,6 +135,14 @@ class GetDataLakeSettingsResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def parameters(self) -> Mapping[str, str]:
+        """
+        Key-value map of additional configuration. `CROSS_ACCOUNT_VERSION` will be set to values `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` will also be returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
     @pulumi.getter(name="readOnlyAdmins")
     def read_only_admins(self) -> Sequence[str]:
         """
@@ -163,6 +174,7 @@ class AwaitableGetDataLakeSettingsResult(GetDataLakeSettingsResult):
             create_table_default_permissions=self.create_table_default_permissions,
             external_data_filtering_allow_lists=self.external_data_filtering_allow_lists,
             id=self.id,
+            parameters=self.parameters,
             read_only_admins=self.read_only_admins,
             trusted_resource_owners=self.trusted_resource_owners)
 
@@ -199,6 +211,7 @@ def get_data_lake_settings(catalog_id: Optional[str] = None,
         create_table_default_permissions=pulumi.get(__ret__, 'create_table_default_permissions'),
         external_data_filtering_allow_lists=pulumi.get(__ret__, 'external_data_filtering_allow_lists'),
         id=pulumi.get(__ret__, 'id'),
+        parameters=pulumi.get(__ret__, 'parameters'),
         read_only_admins=pulumi.get(__ret__, 'read_only_admins'),
         trusted_resource_owners=pulumi.get(__ret__, 'trusted_resource_owners'))
 def get_data_lake_settings_output(catalog_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -232,5 +245,6 @@ def get_data_lake_settings_output(catalog_id: Optional[pulumi.Input[Optional[str
         create_table_default_permissions=pulumi.get(__response__, 'create_table_default_permissions'),
         external_data_filtering_allow_lists=pulumi.get(__response__, 'external_data_filtering_allow_lists'),
         id=pulumi.get(__response__, 'id'),
+        parameters=pulumi.get(__response__, 'parameters'),
         read_only_admins=pulumi.get(__response__, 'read_only_admins'),
         trusted_resource_owners=pulumi.get(__response__, 'trusted_resource_owners')))

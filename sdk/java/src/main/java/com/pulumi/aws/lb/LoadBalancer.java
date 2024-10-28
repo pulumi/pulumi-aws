@@ -367,6 +367,20 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableXffClientPort);
     }
     /**
+     * Whether zonal shift is enabled. Defaults to `false`.
+     * 
+     */
+    @Export(name="enableZonalShift", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> enableZonalShift;
+
+    /**
+     * @return Whether zonal shift is enabled. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> enableZonalShift() {
+        return Codegen.optional(this.enableZonalShift);
+    }
+    /**
      * Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
      * 
      */

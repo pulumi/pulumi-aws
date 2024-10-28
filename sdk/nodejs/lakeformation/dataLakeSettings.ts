@@ -84,6 +84,17 @@ import * as utilities from "../utilities";
  *     allowFullTableExternalDataAccess: true,
  * });
  * ```
+ *
+ * ### Change Cross Account Version
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lakeformation.DataLakeSettings("example", {parameters: {
+ *     CROSS_ACCOUNT_VERSION: "3",
+ * }});
+ * ```
  */
 export class DataLakeSettings extends pulumi.CustomResource {
     /**
@@ -123,8 +134,6 @@ export class DataLakeSettings extends pulumi.CustomResource {
     public readonly allowExternalDataFiltering!: pulumi.Output<boolean | undefined>;
     /**
      * Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
-     *
-     * > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, and/or `trustedResourceOwners` results in the setting being cleared.
      */
     public readonly allowFullTableExternalDataAccess!: pulumi.Output<boolean | undefined>;
     /**
@@ -148,11 +157,17 @@ export class DataLakeSettings extends pulumi.CustomResource {
      */
     public readonly externalDataFilteringAllowLists!: pulumi.Output<string[]>;
     /**
+     * Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `"1"`.
+     */
+    public readonly parameters!: pulumi.Output<{[key: string]: string}>;
+    /**
      * Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
      */
     public readonly readOnlyAdmins!: pulumi.Output<string[]>;
     /**
      * List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
+     *
+     * > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, `parameters`, and/or `trustedResourceOwners` results in the setting being cleared.
      */
     public readonly trustedResourceOwners!: pulumi.Output<string[]>;
 
@@ -177,6 +192,7 @@ export class DataLakeSettings extends pulumi.CustomResource {
             resourceInputs["createDatabaseDefaultPermissions"] = state ? state.createDatabaseDefaultPermissions : undefined;
             resourceInputs["createTableDefaultPermissions"] = state ? state.createTableDefaultPermissions : undefined;
             resourceInputs["externalDataFilteringAllowLists"] = state ? state.externalDataFilteringAllowLists : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["readOnlyAdmins"] = state ? state.readOnlyAdmins : undefined;
             resourceInputs["trustedResourceOwners"] = state ? state.trustedResourceOwners : undefined;
         } else {
@@ -189,6 +205,7 @@ export class DataLakeSettings extends pulumi.CustomResource {
             resourceInputs["createDatabaseDefaultPermissions"] = args ? args.createDatabaseDefaultPermissions : undefined;
             resourceInputs["createTableDefaultPermissions"] = args ? args.createTableDefaultPermissions : undefined;
             resourceInputs["externalDataFilteringAllowLists"] = args ? args.externalDataFilteringAllowLists : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["readOnlyAdmins"] = args ? args.readOnlyAdmins : undefined;
             resourceInputs["trustedResourceOwners"] = args ? args.trustedResourceOwners : undefined;
         }
@@ -211,8 +228,6 @@ export interface DataLakeSettingsState {
     allowExternalDataFiltering?: pulumi.Input<boolean>;
     /**
      * Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
-     *
-     * > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, and/or `trustedResourceOwners` results in the setting being cleared.
      */
     allowFullTableExternalDataAccess?: pulumi.Input<boolean>;
     /**
@@ -236,11 +251,17 @@ export interface DataLakeSettingsState {
      */
     externalDataFilteringAllowLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `"1"`.
+     */
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
      */
     readOnlyAdmins?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
+     *
+     * > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, `parameters`, and/or `trustedResourceOwners` results in the setting being cleared.
      */
     trustedResourceOwners?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -259,8 +280,6 @@ export interface DataLakeSettingsArgs {
     allowExternalDataFiltering?: pulumi.Input<boolean>;
     /**
      * Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
-     *
-     * > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, and/or `trustedResourceOwners` results in the setting being cleared.
      */
     allowFullTableExternalDataAccess?: pulumi.Input<boolean>;
     /**
@@ -284,11 +303,17 @@ export interface DataLakeSettingsArgs {
      */
     externalDataFilteringAllowLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `"1"`.
+     */
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
      */
     readOnlyAdmins?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
+     *
+     * > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, `parameters`, and/or `trustedResourceOwners` results in the setting being cleared.
      */
     trustedResourceOwners?: pulumi.Input<pulumi.Input<string>[]>;
 }

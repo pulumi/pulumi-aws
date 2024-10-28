@@ -35,7 +35,7 @@ import (
 //
 // ## Example Usage
 //
-// ### Redis Cluster Mode Disabled
+// ### Redis OSS/Valkey Cluster Mode Disabled
 //
 // To create a single shard primary with single read replica:
 //
@@ -127,7 +127,7 @@ import (
 //
 // ```
 //
-// ### Redis Cluster Mode Enabled
+// ### Redis OSS/Valkey Cluster Mode Enabled
 //
 // To create two shards with a primary and a single read replica each:
 //
@@ -326,7 +326,7 @@ type ReplicationGroup struct {
 	// Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
 	AuthTokenUpdateStrategy pulumi.StringPtrOutput `pulumi:"authTokenUpdateStrategy"`
 	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
-	// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+	// Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
 	// Defaults to `true`.
 	AutoMinorVersionUpgrade pulumi.BoolOutput `pulumi:"autoMinorVersionUpgrade"`
 	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
@@ -341,7 +341,7 @@ type ReplicationGroup struct {
 	DataTieringEnabled pulumi.BoolOutput `pulumi:"dataTieringEnabled"`
 	// User-created description for the replication group. Must not be empty.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
+	// Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// Version number of the cache engine to be used for the cache clusters in this replication group.
 	// If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
@@ -360,7 +360,7 @@ type ReplicationGroup struct {
 	IpDiscovery pulumi.StringOutput `pulumi:"ipDiscovery"`
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	// Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
+	// Specifies the destination and format of Redis OSS/Valkey [SLOWLOG](https://redis.io/commands/slowlog) or Redis OSS/Valkey [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
 	LogDeliveryConfigurations ReplicationGroupLogDeliveryConfigurationArrayOutput `pulumi:"logDeliveryConfigurations"`
 	// Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
 	MaintenanceWindow pulumi.StringOutput `pulumi:"maintenanceWindow"`
@@ -493,7 +493,7 @@ type replicationGroupState struct {
 	// Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
 	AuthTokenUpdateStrategy *string `pulumi:"authTokenUpdateStrategy"`
 	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
-	// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+	// Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
 	// Defaults to `true`.
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
 	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
@@ -508,7 +508,7 @@ type replicationGroupState struct {
 	DataTieringEnabled *bool `pulumi:"dataTieringEnabled"`
 	// User-created description for the replication group. Must not be empty.
 	Description *string `pulumi:"description"`
-	// Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
+	// Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
 	Engine *string `pulumi:"engine"`
 	// Version number of the cache engine to be used for the cache clusters in this replication group.
 	// If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
@@ -527,7 +527,7 @@ type replicationGroupState struct {
 	IpDiscovery *string `pulumi:"ipDiscovery"`
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
+	// Specifies the destination and format of Redis OSS/Valkey [SLOWLOG](https://redis.io/commands/slowlog) or Redis OSS/Valkey [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
 	LogDeliveryConfigurations []ReplicationGroupLogDeliveryConfiguration `pulumi:"logDeliveryConfigurations"`
 	// Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
@@ -621,7 +621,7 @@ type ReplicationGroupState struct {
 	// Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
 	AuthTokenUpdateStrategy pulumi.StringPtrInput
 	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
-	// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+	// Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
 	// Defaults to `true`.
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
 	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
@@ -636,7 +636,7 @@ type ReplicationGroupState struct {
 	DataTieringEnabled pulumi.BoolPtrInput
 	// User-created description for the replication group. Must not be empty.
 	Description pulumi.StringPtrInput
-	// Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
+	// Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
 	Engine pulumi.StringPtrInput
 	// Version number of the cache engine to be used for the cache clusters in this replication group.
 	// If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
@@ -655,7 +655,7 @@ type ReplicationGroupState struct {
 	IpDiscovery pulumi.StringPtrInput
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId pulumi.StringPtrInput
-	// Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
+	// Specifies the destination and format of Redis OSS/Valkey [SLOWLOG](https://redis.io/commands/slowlog) or Redis OSS/Valkey [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
 	LogDeliveryConfigurations ReplicationGroupLogDeliveryConfigurationArrayInput
 	// Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
 	MaintenanceWindow pulumi.StringPtrInput
@@ -751,7 +751,7 @@ type replicationGroupArgs struct {
 	// Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
 	AuthTokenUpdateStrategy *string `pulumi:"authTokenUpdateStrategy"`
 	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
-	// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+	// Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
 	// Defaults to `true`.
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
 	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
@@ -762,7 +762,7 @@ type replicationGroupArgs struct {
 	DataTieringEnabled *bool `pulumi:"dataTieringEnabled"`
 	// User-created description for the replication group. Must not be empty.
 	Description string `pulumi:"description"`
-	// Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
+	// Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
 	Engine *string `pulumi:"engine"`
 	// Version number of the cache engine to be used for the cache clusters in this replication group.
 	// If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
@@ -779,7 +779,7 @@ type replicationGroupArgs struct {
 	IpDiscovery *string `pulumi:"ipDiscovery"`
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
+	// Specifies the destination and format of Redis OSS/Valkey [SLOWLOG](https://redis.io/commands/slowlog) or Redis OSS/Valkey [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
 	LogDeliveryConfigurations []ReplicationGroupLogDeliveryConfiguration `pulumi:"logDeliveryConfigurations"`
 	// Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
@@ -862,7 +862,7 @@ type ReplicationGroupArgs struct {
 	// Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
 	AuthTokenUpdateStrategy pulumi.StringPtrInput
 	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
-	// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+	// Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
 	// Defaults to `true`.
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
 	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
@@ -873,7 +873,7 @@ type ReplicationGroupArgs struct {
 	DataTieringEnabled pulumi.BoolPtrInput
 	// User-created description for the replication group. Must not be empty.
 	Description pulumi.StringInput
-	// Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
+	// Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
 	Engine pulumi.StringPtrInput
 	// Version number of the cache engine to be used for the cache clusters in this replication group.
 	// If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
@@ -890,7 +890,7 @@ type ReplicationGroupArgs struct {
 	IpDiscovery pulumi.StringPtrInput
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId pulumi.StringPtrInput
-	// Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
+	// Specifies the destination and format of Redis OSS/Valkey [SLOWLOG](https://redis.io/commands/slowlog) or Redis OSS/Valkey [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
 	LogDeliveryConfigurations ReplicationGroupLogDeliveryConfigurationArrayInput
 	// Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
 	MaintenanceWindow pulumi.StringPtrInput
@@ -1075,7 +1075,7 @@ func (o ReplicationGroupOutput) AuthTokenUpdateStrategy() pulumi.StringPtrOutput
 }
 
 // Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
-// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+// Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
 // Defaults to `true`.
 func (o ReplicationGroupOutput) AutoMinorVersionUpgrade() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolOutput { return v.AutoMinorVersionUpgrade }).(pulumi.BoolOutput)
@@ -1111,7 +1111,7 @@ func (o ReplicationGroupOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
+// Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
 func (o ReplicationGroupOutput) Engine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.Engine }).(pulumi.StringPtrOutput)
 }
@@ -1151,7 +1151,7 @@ func (o ReplicationGroupOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
+// Specifies the destination and format of Redis OSS/Valkey [SLOWLOG](https://redis.io/commands/slowlog) or Redis OSS/Valkey [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
 func (o ReplicationGroupOutput) LogDeliveryConfigurations() ReplicationGroupLogDeliveryConfigurationArrayOutput {
 	return o.ApplyT(func(v *ReplicationGroup) ReplicationGroupLogDeliveryConfigurationArrayOutput {
 		return v.LogDeliveryConfigurations

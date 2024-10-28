@@ -25,6 +25,7 @@ from .image import *
 from .image_pipeline import *
 from .image_recipe import *
 from .infrastructure_configuration import *
+from .lifecycle_policy import *
 from .workflow import *
 from ._inputs import *
 from . import outputs

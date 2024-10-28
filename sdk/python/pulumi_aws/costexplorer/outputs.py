@@ -226,8 +226,8 @@ class AnomalySubscriptionThresholdExpression(dict):
         :param Sequence['AnomalySubscriptionThresholdExpressionAndArgs'] ands: Return results that match both Dimension objects.
         :param 'AnomalySubscriptionThresholdExpressionCostCategoryArgs' cost_category: Configuration block for the filter that's based on  values. See Cost Category below.
         :param 'AnomalySubscriptionThresholdExpressionDimensionArgs' dimension: Configuration block for the specific Dimension to use for.
-        :param 'AnomalySubscriptionThresholdExpressionNotArgs' not_: Return results that match both Dimension object.
-        :param Sequence['AnomalySubscriptionThresholdExpressionOrArgs'] ors: Return results that match both Dimension object.
+        :param 'AnomalySubscriptionThresholdExpressionNotArgs' not_: Return results that do not match the Dimension object.
+        :param Sequence['AnomalySubscriptionThresholdExpressionOrArgs'] ors: Return results that match either Dimension object.
         :param 'AnomalySubscriptionThresholdExpressionTagsArgs' tags: Configuration block for the specific Tag to use for. See Tags below.
         """
         if ands is not None:
@@ -271,7 +271,7 @@ class AnomalySubscriptionThresholdExpression(dict):
     @pulumi.getter(name="not")
     def not_(self) -> Optional['outputs.AnomalySubscriptionThresholdExpressionNot']:
         """
-        Return results that match both Dimension object.
+        Return results that do not match the Dimension object.
         """
         return pulumi.get(self, "not_")
 
@@ -279,7 +279,7 @@ class AnomalySubscriptionThresholdExpression(dict):
     @pulumi.getter
     def ors(self) -> Optional[Sequence['outputs.AnomalySubscriptionThresholdExpressionOr']]:
         """
-        Return results that match both Dimension object.
+        Return results that match either Dimension object.
         """
         return pulumi.get(self, "ors")
 

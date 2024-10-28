@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.sagemaker.inputs;
 
+import com.pulumi.aws.sagemaker.inputs.SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs;
 import com.pulumi.aws.sagemaker.inputs.SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs;
 import com.pulumi.aws.sagemaker.inputs.SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs;
 import com.pulumi.core.Output;
@@ -17,6 +18,21 @@ import javax.annotation.Nullable;
 public final class SpaceSpaceSettingsJupyterLabAppSettingsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SpaceSpaceSettingsJupyterLabAppSettingsArgs Empty = new SpaceSpaceSettingsJupyterLabAppSettingsArgs();
+
+    /**
+     * Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
+     * 
+     */
+    @Import(name="appLifecycleManagement")
+    private @Nullable Output<SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs> appLifecycleManagement;
+
+    /**
+     * @return Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
+     * 
+     */
+    public Optional<Output<SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs>> appLifecycleManagement() {
+        return Optional.ofNullable(this.appLifecycleManagement);
+    }
 
     /**
      * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
@@ -51,6 +67,7 @@ public final class SpaceSpaceSettingsJupyterLabAppSettingsArgs extends com.pulum
     private SpaceSpaceSettingsJupyterLabAppSettingsArgs() {}
 
     private SpaceSpaceSettingsJupyterLabAppSettingsArgs(SpaceSpaceSettingsJupyterLabAppSettingsArgs $) {
+        this.appLifecycleManagement = $.appLifecycleManagement;
         this.codeRepositories = $.codeRepositories;
         this.defaultResourceSpec = $.defaultResourceSpec;
     }
@@ -71,6 +88,27 @@ public final class SpaceSpaceSettingsJupyterLabAppSettingsArgs extends com.pulum
 
         public Builder(SpaceSpaceSettingsJupyterLabAppSettingsArgs defaults) {
             $ = new SpaceSpaceSettingsJupyterLabAppSettingsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param appLifecycleManagement Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder appLifecycleManagement(@Nullable Output<SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs> appLifecycleManagement) {
+            $.appLifecycleManagement = appLifecycleManagement;
+            return this;
+        }
+
+        /**
+         * @param appLifecycleManagement Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder appLifecycleManagement(SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs appLifecycleManagement) {
+            return appLifecycleManagement(Output.of(appLifecycleManagement));
         }
 
         /**

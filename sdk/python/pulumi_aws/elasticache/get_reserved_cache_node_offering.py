@@ -140,7 +140,7 @@ def get_reserved_cache_node_offering(cache_node_type: Optional[str] = None,
            For other current generation nodes (i.e. T2, M3, M4, R3, or R4) the only valid value is `Heavy Utilization`.
            For previous generation modes (i.e. T1, M1, M2, or C1) valid values are `Heavy Utilization`, `Medium Utilization`, and `Light Utilization`.
     :param str product_description: Engine type for the reserved cache node.
-           Valid values are `redis` and `memcached`.
+           Valid values are `redis`, `valkey` and `memcached`.
     """
     __args__ = dict()
     __args__['cacheNodeType'] = cache_node_type
@@ -189,7 +189,7 @@ def get_reserved_cache_node_offering_output(cache_node_type: Optional[pulumi.Inp
            For other current generation nodes (i.e. T2, M3, M4, R3, or R4) the only valid value is `Heavy Utilization`.
            For previous generation modes (i.e. T1, M1, M2, or C1) valid values are `Heavy Utilization`, `Medium Utilization`, and `Light Utilization`.
     :param str product_description: Engine type for the reserved cache node.
-           Valid values are `redis` and `memcached`.
+           Valid values are `redis`, `valkey` and `memcached`.
     """
     __args__ = dict()
     __args__['cacheNodeType'] = cache_node_type

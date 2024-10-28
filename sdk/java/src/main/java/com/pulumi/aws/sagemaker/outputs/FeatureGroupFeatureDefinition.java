@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.sagemaker.outputs;
 
+import com.pulumi.aws.sagemaker.outputs.FeatureGroupFeatureDefinitionCollectionConfig;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
@@ -11,6 +12,8 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FeatureGroupFeatureDefinition {
+    private @Nullable FeatureGroupFeatureDefinitionCollectionConfig collectionConfig;
+    private @Nullable String collectionType;
     /**
      * @return The name of a feature. `feature_name` cannot be any of the following: `is_deleted`, `write_time`, `api_invocation_time`.
      * 
@@ -23,6 +26,12 @@ public final class FeatureGroupFeatureDefinition {
     private @Nullable String featureType;
 
     private FeatureGroupFeatureDefinition() {}
+    public Optional<FeatureGroupFeatureDefinitionCollectionConfig> collectionConfig() {
+        return Optional.ofNullable(this.collectionConfig);
+    }
+    public Optional<String> collectionType() {
+        return Optional.ofNullable(this.collectionType);
+    }
     /**
      * @return The name of a feature. `feature_name` cannot be any of the following: `is_deleted`, `write_time`, `api_invocation_time`.
      * 
@@ -47,15 +56,31 @@ public final class FeatureGroupFeatureDefinition {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable FeatureGroupFeatureDefinitionCollectionConfig collectionConfig;
+        private @Nullable String collectionType;
         private @Nullable String featureName;
         private @Nullable String featureType;
         public Builder() {}
         public Builder(FeatureGroupFeatureDefinition defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.collectionConfig = defaults.collectionConfig;
+    	      this.collectionType = defaults.collectionType;
     	      this.featureName = defaults.featureName;
     	      this.featureType = defaults.featureType;
         }
 
+        @CustomType.Setter
+        public Builder collectionConfig(@Nullable FeatureGroupFeatureDefinitionCollectionConfig collectionConfig) {
+
+            this.collectionConfig = collectionConfig;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder collectionType(@Nullable String collectionType) {
+
+            this.collectionType = collectionType;
+            return this;
+        }
         @CustomType.Setter
         public Builder featureName(@Nullable String featureName) {
 
@@ -70,6 +95,8 @@ public final class FeatureGroupFeatureDefinition {
         }
         public FeatureGroupFeatureDefinition build() {
             final var _resultValue = new FeatureGroupFeatureDefinition();
+            _resultValue.collectionConfig = collectionConfig;
+            _resultValue.collectionType = collectionType;
             _resultValue.featureName = featureName;
             _resultValue.featureType = featureType;
             return _resultValue;

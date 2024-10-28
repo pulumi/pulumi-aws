@@ -10,6 +10,7 @@ import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -52,16 +53,12 @@ public final class DataLakeSettingsState extends com.pulumi.resources.ResourceAr
     /**
      * Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
      * 
-     * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
-     * 
      */
     @Import(name="allowFullTableExternalDataAccess")
     private @Nullable Output<Boolean> allowFullTableExternalDataAccess;
 
     /**
      * @return Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
-     * 
-     * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
      * 
      */
     public Optional<Output<Boolean>> allowFullTableExternalDataAccess() {
@@ -144,6 +141,21 @@ public final class DataLakeSettingsState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `&#34;1&#34;`, `&#34;2&#34;`, `&#34;3&#34;`, or `&#34;4&#34;`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `&#34;1&#34;`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `&#34;1&#34;`.
+     * 
+     */
+    @Import(name="parameters")
+    private @Nullable Output<Map<String,String>> parameters;
+
+    /**
+     * @return Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `&#34;1&#34;`, `&#34;2&#34;`, `&#34;3&#34;`, or `&#34;4&#34;`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `&#34;1&#34;`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `&#34;1&#34;`.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> parameters() {
+        return Optional.ofNullable(this.parameters);
+    }
+
+    /**
      * Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
      * 
      */
@@ -161,12 +173,16 @@ public final class DataLakeSettingsState extends com.pulumi.resources.ResourceAr
     /**
      * List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
      * 
+     * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.
+     * 
      */
     @Import(name="trustedResourceOwners")
     private @Nullable Output<List<String>> trustedResourceOwners;
 
     /**
      * @return List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
+     * 
+     * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.
      * 
      */
     public Optional<Output<List<String>>> trustedResourceOwners() {
@@ -184,6 +200,7 @@ public final class DataLakeSettingsState extends com.pulumi.resources.ResourceAr
         this.createDatabaseDefaultPermissions = $.createDatabaseDefaultPermissions;
         this.createTableDefaultPermissions = $.createTableDefaultPermissions;
         this.externalDataFilteringAllowLists = $.externalDataFilteringAllowLists;
+        this.parameters = $.parameters;
         this.readOnlyAdmins = $.readOnlyAdmins;
         this.trustedResourceOwners = $.trustedResourceOwners;
     }
@@ -261,8 +278,6 @@ public final class DataLakeSettingsState extends com.pulumi.resources.ResourceAr
         /**
          * @param allowFullTableExternalDataAccess Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
          * 
-         * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
-         * 
          * @return builder
          * 
          */
@@ -273,8 +288,6 @@ public final class DataLakeSettingsState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param allowFullTableExternalDataAccess Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
-         * 
-         * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
          * 
          * @return builder
          * 
@@ -429,6 +442,27 @@ public final class DataLakeSettingsState extends com.pulumi.resources.ResourceAr
         }
 
         /**
+         * @param parameters Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `&#34;1&#34;`, `&#34;2&#34;`, `&#34;3&#34;`, or `&#34;4&#34;`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `&#34;1&#34;`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `&#34;1&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parameters(@Nullable Output<Map<String,String>> parameters) {
+            $.parameters = parameters;
+            return this;
+        }
+
+        /**
+         * @param parameters Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `&#34;1&#34;`, `&#34;2&#34;`, `&#34;3&#34;`, or `&#34;4&#34;`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `&#34;1&#34;`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `&#34;1&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parameters(Map<String,String> parameters) {
+            return parameters(Output.of(parameters));
+        }
+
+        /**
          * @param readOnlyAdmins Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
          * 
          * @return builder
@@ -462,6 +496,8 @@ public final class DataLakeSettingsState extends com.pulumi.resources.ResourceAr
         /**
          * @param trustedResourceOwners List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
          * 
+         * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.
+         * 
          * @return builder
          * 
          */
@@ -473,6 +509,8 @@ public final class DataLakeSettingsState extends com.pulumi.resources.ResourceAr
         /**
          * @param trustedResourceOwners List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
          * 
+         * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.
+         * 
          * @return builder
          * 
          */
@@ -482,6 +520,8 @@ public final class DataLakeSettingsState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param trustedResourceOwners List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
+         * 
+         * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.
          * 
          * @return builder
          * 

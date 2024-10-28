@@ -23,6 +23,10 @@ __all__ = [
     'DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgsDict',
     'DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs',
     'DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgsDict',
+    'DeploymentConfigZonalConfigArgs',
+    'DeploymentConfigZonalConfigArgsDict',
+    'DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs',
+    'DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgsDict',
     'DeploymentGroupAlarmConfigurationArgs',
     'DeploymentGroupAlarmConfigurationArgsDict',
     'DeploymentGroupAutoRollbackConfigurationArgs',
@@ -302,6 +306,130 @@ class DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs:
     @percentage.setter
     def percentage(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "percentage", value)
+
+
+if not MYPY:
+    class DeploymentConfigZonalConfigArgsDict(TypedDict):
+        first_zone_monitor_duration_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The period of time, in seconds, that CodeDeploy must wait after completing a deployment to the first Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the second Availability Zone. If you don't specify a value for `first_zone_monitor_duration_in_seconds`, then CodeDeploy uses the `monitor_duration_in_seconds` value for the first Availability Zone.
+        """
+        minimum_healthy_hosts_per_zone: NotRequired[pulumi.Input['DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgsDict']]
+        """
+        The number or percentage of instances that must remain available per Availability Zone during a deployment. If you don't specify a value under `minimum_healthy_hosts_per_zone`, then CodeDeploy uses a default value of 0 percent. This block is more documented below.
+        """
+        monitor_duration_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The period of time, in seconds, that CodeDeploy must wait after completing a deployment to an Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the next Availability Zone. If you don't specify a `monitor_duration_in_seconds`, CodeDeploy starts deploying to the next Availability Zone immediately.
+        """
+elif False:
+    DeploymentConfigZonalConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DeploymentConfigZonalConfigArgs:
+    def __init__(__self__, *,
+                 first_zone_monitor_duration_in_seconds: Optional[pulumi.Input[int]] = None,
+                 minimum_healthy_hosts_per_zone: Optional[pulumi.Input['DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs']] = None,
+                 monitor_duration_in_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] first_zone_monitor_duration_in_seconds: The period of time, in seconds, that CodeDeploy must wait after completing a deployment to the first Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the second Availability Zone. If you don't specify a value for `first_zone_monitor_duration_in_seconds`, then CodeDeploy uses the `monitor_duration_in_seconds` value for the first Availability Zone.
+        :param pulumi.Input['DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs'] minimum_healthy_hosts_per_zone: The number or percentage of instances that must remain available per Availability Zone during a deployment. If you don't specify a value under `minimum_healthy_hosts_per_zone`, then CodeDeploy uses a default value of 0 percent. This block is more documented below.
+        :param pulumi.Input[int] monitor_duration_in_seconds: The period of time, in seconds, that CodeDeploy must wait after completing a deployment to an Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the next Availability Zone. If you don't specify a `monitor_duration_in_seconds`, CodeDeploy starts deploying to the next Availability Zone immediately.
+        """
+        if first_zone_monitor_duration_in_seconds is not None:
+            pulumi.set(__self__, "first_zone_monitor_duration_in_seconds", first_zone_monitor_duration_in_seconds)
+        if minimum_healthy_hosts_per_zone is not None:
+            pulumi.set(__self__, "minimum_healthy_hosts_per_zone", minimum_healthy_hosts_per_zone)
+        if monitor_duration_in_seconds is not None:
+            pulumi.set(__self__, "monitor_duration_in_seconds", monitor_duration_in_seconds)
+
+    @property
+    @pulumi.getter(name="firstZoneMonitorDurationInSeconds")
+    def first_zone_monitor_duration_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The period of time, in seconds, that CodeDeploy must wait after completing a deployment to the first Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the second Availability Zone. If you don't specify a value for `first_zone_monitor_duration_in_seconds`, then CodeDeploy uses the `monitor_duration_in_seconds` value for the first Availability Zone.
+        """
+        return pulumi.get(self, "first_zone_monitor_duration_in_seconds")
+
+    @first_zone_monitor_duration_in_seconds.setter
+    def first_zone_monitor_duration_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "first_zone_monitor_duration_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="minimumHealthyHostsPerZone")
+    def minimum_healthy_hosts_per_zone(self) -> Optional[pulumi.Input['DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs']]:
+        """
+        The number or percentage of instances that must remain available per Availability Zone during a deployment. If you don't specify a value under `minimum_healthy_hosts_per_zone`, then CodeDeploy uses a default value of 0 percent. This block is more documented below.
+        """
+        return pulumi.get(self, "minimum_healthy_hosts_per_zone")
+
+    @minimum_healthy_hosts_per_zone.setter
+    def minimum_healthy_hosts_per_zone(self, value: Optional[pulumi.Input['DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs']]):
+        pulumi.set(self, "minimum_healthy_hosts_per_zone", value)
+
+    @property
+    @pulumi.getter(name="monitorDurationInSeconds")
+    def monitor_duration_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The period of time, in seconds, that CodeDeploy must wait after completing a deployment to an Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the next Availability Zone. If you don't specify a `monitor_duration_in_seconds`, CodeDeploy starts deploying to the next Availability Zone immediately.
+        """
+        return pulumi.get(self, "monitor_duration_in_seconds")
+
+    @monitor_duration_in_seconds.setter
+    def monitor_duration_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "monitor_duration_in_seconds", value)
+
+
+if not MYPY:
+    class DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgsDict(TypedDict):
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type can either be `FLEET_PERCENT` or `HOST_COUNT`.
+        """
+        value: NotRequired[pulumi.Input[int]]
+        """
+        The value when the type is `FLEET_PERCENT` represents the minimum number of healthy instances as a percentage of the total number of instances in the Availability Zone during a deployment. If you specify FLEET_PERCENT, at the start of the deployment, AWS CodeDeploy converts the percentage to the equivalent number of instance and rounds up fractional instances. When the type is `HOST_COUNT`, the value represents the minimum number of healthy instances in the Availability Zone as an absolute value.
+        """
+elif False:
+    DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] type: The type can either be `FLEET_PERCENT` or `HOST_COUNT`.
+        :param pulumi.Input[int] value: The value when the type is `FLEET_PERCENT` represents the minimum number of healthy instances as a percentage of the total number of instances in the Availability Zone during a deployment. If you specify FLEET_PERCENT, at the start of the deployment, AWS CodeDeploy converts the percentage to the equivalent number of instance and rounds up fractional instances. When the type is `HOST_COUNT`, the value represents the minimum number of healthy instances in the Availability Zone as an absolute value.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type can either be `FLEET_PERCENT` or `HOST_COUNT`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[int]]:
+        """
+        The value when the type is `FLEET_PERCENT` represents the minimum number of healthy instances as a percentage of the total number of instances in the Availability Zone during a deployment. If you specify FLEET_PERCENT, at the start of the deployment, AWS CodeDeploy converts the percentage to the equivalent number of instance and rounds up fractional instances. When the type is `HOST_COUNT`, the value represents the minimum number of healthy instances in the Availability Zone as an absolute value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "value", value)
 
 
 if not MYPY:

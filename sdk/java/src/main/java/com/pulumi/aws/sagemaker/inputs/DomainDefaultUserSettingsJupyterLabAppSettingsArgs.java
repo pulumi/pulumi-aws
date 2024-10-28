@@ -3,9 +3,11 @@
 
 package com.pulumi.aws.sagemaker.inputs;
 
+import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs;
+import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -18,6 +20,36 @@ import javax.annotation.Nullable;
 public final class DomainDefaultUserSettingsJupyterLabAppSettingsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DomainDefaultUserSettingsJupyterLabAppSettingsArgs Empty = new DomainDefaultUserSettingsJupyterLabAppSettingsArgs();
+
+    /**
+     * Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+     * 
+     */
+    @Import(name="appLifecycleManagement")
+    private @Nullable Output<DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs> appLifecycleManagement;
+
+    /**
+     * @return Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+     * 
+     */
+    public Optional<Output<DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs>> appLifecycleManagement() {
+        return Optional.ofNullable(this.appLifecycleManagement);
+    }
+
+    /**
+     * The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+     * 
+     */
+    @Import(name="builtInLifecycleConfigArn")
+    private @Nullable Output<String> builtInLifecycleConfigArn;
+
+    /**
+     * @return The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+     * 
+     */
+    public Optional<Output<String>> builtInLifecycleConfigArn() {
+        return Optional.ofNullable(this.builtInLifecycleConfigArn);
+    }
 
     /**
      * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
@@ -65,6 +97,21 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettingsArgs extends co
     }
 
     /**
+     * The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+     * 
+     */
+    @Import(name="emrSettings")
+    private @Nullable Output<DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsArgs> emrSettings;
+
+    /**
+     * @return The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+     * 
+     */
+    public Optional<Output<DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsArgs>> emrSettings() {
+        return Optional.ofNullable(this.emrSettings);
+    }
+
+    /**
      * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
      * 
      */
@@ -82,9 +129,12 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettingsArgs extends co
     private DomainDefaultUserSettingsJupyterLabAppSettingsArgs() {}
 
     private DomainDefaultUserSettingsJupyterLabAppSettingsArgs(DomainDefaultUserSettingsJupyterLabAppSettingsArgs $) {
+        this.appLifecycleManagement = $.appLifecycleManagement;
+        this.builtInLifecycleConfigArn = $.builtInLifecycleConfigArn;
         this.codeRepositories = $.codeRepositories;
         this.customImages = $.customImages;
         this.defaultResourceSpec = $.defaultResourceSpec;
+        this.emrSettings = $.emrSettings;
         this.lifecycleConfigArns = $.lifecycleConfigArns;
     }
 
@@ -104,6 +154,48 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettingsArgs extends co
 
         public Builder(DomainDefaultUserSettingsJupyterLabAppSettingsArgs defaults) {
             $ = new DomainDefaultUserSettingsJupyterLabAppSettingsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param appLifecycleManagement Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder appLifecycleManagement(@Nullable Output<DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs> appLifecycleManagement) {
+            $.appLifecycleManagement = appLifecycleManagement;
+            return this;
+        }
+
+        /**
+         * @param appLifecycleManagement Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder appLifecycleManagement(DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs appLifecycleManagement) {
+            return appLifecycleManagement(Output.of(appLifecycleManagement));
+        }
+
+        /**
+         * @param builtInLifecycleConfigArn The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder builtInLifecycleConfigArn(@Nullable Output<String> builtInLifecycleConfigArn) {
+            $.builtInLifecycleConfigArn = builtInLifecycleConfigArn;
+            return this;
+        }
+
+        /**
+         * @param builtInLifecycleConfigArn The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder builtInLifecycleConfigArn(String builtInLifecycleConfigArn) {
+            return builtInLifecycleConfigArn(Output.of(builtInLifecycleConfigArn));
         }
 
         /**
@@ -187,6 +279,27 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettingsArgs extends co
          */
         public Builder defaultResourceSpec(DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs defaultResourceSpec) {
             return defaultResourceSpec(Output.of(defaultResourceSpec));
+        }
+
+        /**
+         * @param emrSettings The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder emrSettings(@Nullable Output<DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsArgs> emrSettings) {
+            $.emrSettings = emrSettings;
+            return this;
+        }
+
+        /**
+         * @param emrSettings The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder emrSettings(DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsArgs emrSettings) {
+            return emrSettings(Output.of(emrSettings));
         }
 
         /**

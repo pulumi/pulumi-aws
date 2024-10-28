@@ -62,7 +62,7 @@ type LookupServerlessCacheResult struct {
 	CacheUsageLimits GetServerlessCacheCacheUsageLimits `pulumi:"cacheUsageLimits"`
 	// Timestamp of when the serverless cache was created.
 	CreateTime string `pulumi:"createTime"`
-	// The daily time that snapshots will be created from the new serverless cache. Only available for engine type `"redis"`.
+	// The daily time that snapshots will be created from the new serverless cache. Only available for engine types `"redis"` and `"valkey"`.
 	DailySnapshotTime string `pulumi:"dailySnapshotTime"`
 	// Description of the serverless cache.
 	Description string `pulumi:"description"`
@@ -152,7 +152,7 @@ func (o LookupServerlessCacheResultOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) string { return v.CreateTime }).(pulumi.StringOutput)
 }
 
-// The daily time that snapshots will be created from the new serverless cache. Only available for engine type `"redis"`.
+// The daily time that snapshots will be created from the new serverless cache. Only available for engine types `"redis"` and `"valkey"`.
 func (o LookupServerlessCacheResultOutput) DailySnapshotTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) string { return v.DailySnapshotTime }).(pulumi.StringOutput)
 }

@@ -55,7 +55,7 @@ export interface GetServerlessCacheResult {
      */
     readonly createTime: string;
     /**
-     * The daily time that snapshots will be created from the new serverless cache. Only available for engine type `"redis"`.
+     * The daily time that snapshots will be created from the new serverless cache. Only available for engine types `"redis"` and `"valkey"`.
      */
     readonly dailySnapshotTime: string;
     /**

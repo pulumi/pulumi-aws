@@ -247,6 +247,21 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
+     * 
+     */
+    @Import(name="tagPropagation")
+    private @Nullable Output<String> tagPropagation;
+
+    /**
+     * @return Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
+     * 
+     */
+    public Optional<Output<String>> tagPropagation() {
+        return Optional.ofNullable(this.tagPropagation);
+    }
+
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -336,6 +351,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         this.singleSignOnApplicationArn = $.singleSignOnApplicationArn;
         this.singleSignOnManagedApplicationInstanceId = $.singleSignOnManagedApplicationInstanceId;
         this.subnetIds = $.subnetIds;
+        this.tagPropagation = $.tagPropagation;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.url = $.url;
@@ -683,6 +699,27 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
+        }
+
+        /**
+         * @param tagPropagation Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagPropagation(@Nullable Output<String> tagPropagation) {
+            $.tagPropagation = tagPropagation;
+            return this;
+        }
+
+        /**
+         * @param tagPropagation Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagPropagation(String tagPropagation) {
+            return tagPropagation(Output.of(tagPropagation));
         }
 
         /**

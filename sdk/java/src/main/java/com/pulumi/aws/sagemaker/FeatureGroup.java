@@ -9,6 +9,7 @@ import com.pulumi.aws.sagemaker.inputs.FeatureGroupState;
 import com.pulumi.aws.sagemaker.outputs.FeatureGroupFeatureDefinition;
 import com.pulumi.aws.sagemaker.outputs.FeatureGroupOfflineStoreConfig;
 import com.pulumi.aws.sagemaker.outputs.FeatureGroupOnlineStoreConfig;
+import com.pulumi.aws.sagemaker.outputs.FeatureGroupThroughputConfig;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -239,6 +240,12 @@ public class FeatureGroup extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    @Export(name="throughputConfig", refs={FeatureGroupThroughputConfig.class}, tree="[0]")
+    private Output<FeatureGroupThroughputConfig> throughputConfig;
+
+    public Output<FeatureGroupThroughputConfig> throughputConfig() {
+        return this.throughputConfig;
     }
 
     /**

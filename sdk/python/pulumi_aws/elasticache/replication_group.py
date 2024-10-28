@@ -68,12 +68,12 @@ class ReplicationGroupArgs:
         :param pulumi.Input[str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
         :param pulumi.Input[str] auth_token_update_strategy: Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
-               Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+               Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
                Defaults to `true`.
         :param pulumi.Input[bool] automatic_failover_enabled: Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
         :param pulumi.Input[str] cluster_mode: Specifies whether cluster mode is enabled or disabled. Valid values are `enabled` or `disabled` or `compatible`
         :param pulumi.Input[bool] data_tiering_enabled: Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
-        :param pulumi.Input[str] engine: Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
+        :param pulumi.Input[str] engine: Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used for the cache clusters in this replication group.
                If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
                If the version is 6, the major and minor version can be set, e.g., `6.2`,
@@ -84,7 +84,7 @@ class ReplicationGroupArgs:
         :param pulumi.Input[str] global_replication_group_id: The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter cannot be set.
         :param pulumi.Input[str] ip_discovery: The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
         :param pulumi.Input[str] kms_key_id: The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicationGroupLogDeliveryConfigurationArgs']]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationGroupLogDeliveryConfigurationArgs']]] log_delivery_configurations: Specifies the destination and format of Redis OSS/Valkey [SLOWLOG](https://redis.io/commands/slowlog) or Redis OSS/Valkey [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
         :param pulumi.Input[bool] multi_az_enabled: Specifies whether to enable Multi-AZ Support for the replication group.
                If `true`, `automatic_failover_enabled` must also be enabled.
@@ -274,7 +274,7 @@ class ReplicationGroupArgs:
     def auto_minor_version_upgrade(self) -> Optional[pulumi.Input[bool]]:
         """
         Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
-        Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+        Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
         Defaults to `true`.
         """
         return pulumi.get(self, "auto_minor_version_upgrade")
@@ -323,7 +323,7 @@ class ReplicationGroupArgs:
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
+        Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
         """
         return pulumi.get(self, "engine")
 
@@ -400,7 +400,7 @@ class ReplicationGroupArgs:
     @pulumi.getter(name="logDeliveryConfigurations")
     def log_delivery_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationGroupLogDeliveryConfigurationArgs']]]]:
         """
-        Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
+        Specifies the destination and format of Redis OSS/Valkey [SLOWLOG](https://redis.io/commands/slowlog) or Redis OSS/Valkey [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
         """
         return pulumi.get(self, "log_delivery_configurations")
 
@@ -765,7 +765,7 @@ class _ReplicationGroupState:
         :param pulumi.Input[str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
         :param pulumi.Input[str] auth_token_update_strategy: Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
-               Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+               Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
                Defaults to `true`.
         :param pulumi.Input[bool] automatic_failover_enabled: Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
         :param pulumi.Input[bool] cluster_enabled: Indicates if cluster mode is enabled.
@@ -773,7 +773,7 @@ class _ReplicationGroupState:
         :param pulumi.Input[str] configuration_endpoint_address: Address of the replication group configuration endpoint when cluster mode is enabled.
         :param pulumi.Input[bool] data_tiering_enabled: Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
         :param pulumi.Input[str] description: User-created description for the replication group. Must not be empty.
-        :param pulumi.Input[str] engine: Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
+        :param pulumi.Input[str] engine: Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used for the cache clusters in this replication group.
                If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
                If the version is 6, the major and minor version can be set, e.g., `6.2`,
@@ -785,7 +785,7 @@ class _ReplicationGroupState:
         :param pulumi.Input[str] global_replication_group_id: The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter cannot be set.
         :param pulumi.Input[str] ip_discovery: The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
         :param pulumi.Input[str] kms_key_id: The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicationGroupLogDeliveryConfigurationArgs']]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationGroupLogDeliveryConfigurationArgs']]] log_delivery_configurations: Specifies the destination and format of Redis OSS/Valkey [SLOWLOG](https://redis.io/commands/slowlog) or Redis OSS/Valkey [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] member_clusters: Identifiers of all the nodes that are part of this replication group.
         :param pulumi.Input[bool] multi_az_enabled: Specifies whether to enable Multi-AZ Support for the replication group.
@@ -999,7 +999,7 @@ class _ReplicationGroupState:
     def auto_minor_version_upgrade(self) -> Optional[pulumi.Input[bool]]:
         """
         Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
-        Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+        Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
         Defaults to `true`.
         """
         return pulumi.get(self, "auto_minor_version_upgrade")
@@ -1084,7 +1084,7 @@ class _ReplicationGroupState:
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
+        Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
         """
         return pulumi.get(self, "engine")
 
@@ -1173,7 +1173,7 @@ class _ReplicationGroupState:
     @pulumi.getter(name="logDeliveryConfigurations")
     def log_delivery_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationGroupLogDeliveryConfigurationArgs']]]]:
         """
-        Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
+        Specifies the destination and format of Redis OSS/Valkey [SLOWLOG](https://redis.io/commands/slowlog) or Redis OSS/Valkey [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
         """
         return pulumi.get(self, "log_delivery_configurations")
 
@@ -1598,7 +1598,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Redis Cluster Mode Disabled
+        ### Redis OSS/Valkey Cluster Mode Disabled
 
         To create a single shard primary with single read replica:
 
@@ -1648,7 +1648,7 @@ class ReplicationGroup(pulumi.CustomResource):
                 replication_group_id=example.id))
         ```
 
-        ### Redis Cluster Mode Enabled
+        ### Redis OSS/Valkey Cluster Mode Enabled
 
         To create two shards with a primary and a single read replica each:
 
@@ -1767,13 +1767,13 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
         :param pulumi.Input[str] auth_token_update_strategy: Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
-               Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+               Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
                Defaults to `true`.
         :param pulumi.Input[bool] automatic_failover_enabled: Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
         :param pulumi.Input[str] cluster_mode: Specifies whether cluster mode is enabled or disabled. Valid values are `enabled` or `disabled` or `compatible`
         :param pulumi.Input[bool] data_tiering_enabled: Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
         :param pulumi.Input[str] description: User-created description for the replication group. Must not be empty.
-        :param pulumi.Input[str] engine: Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
+        :param pulumi.Input[str] engine: Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used for the cache clusters in this replication group.
                If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
                If the version is 6, the major and minor version can be set, e.g., `6.2`,
@@ -1784,7 +1784,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] global_replication_group_id: The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter cannot be set.
         :param pulumi.Input[str] ip_discovery: The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
         :param pulumi.Input[str] kms_key_id: The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationGroupLogDeliveryConfigurationArgs', 'ReplicationGroupLogDeliveryConfigurationArgsDict']]]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationGroupLogDeliveryConfigurationArgs', 'ReplicationGroupLogDeliveryConfigurationArgsDict']]]] log_delivery_configurations: Specifies the destination and format of Redis OSS/Valkey [SLOWLOG](https://redis.io/commands/slowlog) or Redis OSS/Valkey [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
         :param pulumi.Input[bool] multi_az_enabled: Specifies whether to enable Multi-AZ Support for the replication group.
                If `true`, `automatic_failover_enabled` must also be enabled.
@@ -1861,7 +1861,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Redis Cluster Mode Disabled
+        ### Redis OSS/Valkey Cluster Mode Disabled
 
         To create a single shard primary with single read replica:
 
@@ -1911,7 +1911,7 @@ class ReplicationGroup(pulumi.CustomResource):
                 replication_group_id=example.id))
         ```
 
-        ### Redis Cluster Mode Enabled
+        ### Redis OSS/Valkey Cluster Mode Enabled
 
         To create two shards with a primary and a single read replica each:
 
@@ -2207,7 +2207,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
         :param pulumi.Input[str] auth_token_update_strategy: Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
-               Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+               Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
                Defaults to `true`.
         :param pulumi.Input[bool] automatic_failover_enabled: Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
         :param pulumi.Input[bool] cluster_enabled: Indicates if cluster mode is enabled.
@@ -2215,7 +2215,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] configuration_endpoint_address: Address of the replication group configuration endpoint when cluster mode is enabled.
         :param pulumi.Input[bool] data_tiering_enabled: Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
         :param pulumi.Input[str] description: User-created description for the replication group. Must not be empty.
-        :param pulumi.Input[str] engine: Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
+        :param pulumi.Input[str] engine: Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used for the cache clusters in this replication group.
                If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
                If the version is 6, the major and minor version can be set, e.g., `6.2`,
@@ -2227,7 +2227,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] global_replication_group_id: The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter cannot be set.
         :param pulumi.Input[str] ip_discovery: The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
         :param pulumi.Input[str] kms_key_id: The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationGroupLogDeliveryConfigurationArgs', 'ReplicationGroupLogDeliveryConfigurationArgsDict']]]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationGroupLogDeliveryConfigurationArgs', 'ReplicationGroupLogDeliveryConfigurationArgsDict']]]] log_delivery_configurations: Specifies the destination and format of Redis OSS/Valkey [SLOWLOG](https://redis.io/commands/slowlog) or Redis OSS/Valkey [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] member_clusters: Identifiers of all the nodes that are part of this replication group.
         :param pulumi.Input[bool] multi_az_enabled: Specifies whether to enable Multi-AZ Support for the replication group.
@@ -2376,7 +2376,7 @@ class ReplicationGroup(pulumi.CustomResource):
     def auto_minor_version_upgrade(self) -> pulumi.Output[bool]:
         """
         Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
-        Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+        Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
         Defaults to `true`.
         """
         return pulumi.get(self, "auto_minor_version_upgrade")
@@ -2433,7 +2433,7 @@ class ReplicationGroup(pulumi.CustomResource):
     @pulumi.getter
     def engine(self) -> pulumi.Output[Optional[str]]:
         """
-        Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
+        Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
         """
         return pulumi.get(self, "engine")
 
@@ -2494,7 +2494,7 @@ class ReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="logDeliveryConfigurations")
     def log_delivery_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.ReplicationGroupLogDeliveryConfiguration']]]:
         """
-        Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
+        Specifies the destination and format of Redis OSS/Valkey [SLOWLOG](https://redis.io/commands/slowlog) or Redis OSS/Valkey [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
         """
         return pulumi.get(self, "log_delivery_configurations")
 

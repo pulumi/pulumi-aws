@@ -10,6 +10,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -57,6 +58,11 @@ public final class GetDataLakeSettingsResult {
      * 
      */
     private String id;
+    /**
+     * @return Key-value map of additional configuration. `CROSS_ACCOUNT_VERSION` will be set to values `&#34;1&#34;`, `&#34;2&#34;`, `&#34;3&#34;`, or `&#34;4&#34;`. `SET_CONTEXT` will also be returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `&#34;1&#34;`.
+     * 
+     */
+    private Map<String,String> parameters;
     /**
      * @return List of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
      * 
@@ -129,6 +135,13 @@ public final class GetDataLakeSettingsResult {
         return this.id;
     }
     /**
+     * @return Key-value map of additional configuration. `CROSS_ACCOUNT_VERSION` will be set to values `&#34;1&#34;`, `&#34;2&#34;`, `&#34;3&#34;`, or `&#34;4&#34;`. `SET_CONTEXT` will also be returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `&#34;1&#34;`.
+     * 
+     */
+    public Map<String,String> parameters() {
+        return this.parameters;
+    }
+    /**
      * @return List of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
      * 
      */
@@ -161,6 +174,7 @@ public final class GetDataLakeSettingsResult {
         private List<GetDataLakeSettingsCreateTableDefaultPermission> createTableDefaultPermissions;
         private List<String> externalDataFilteringAllowLists;
         private String id;
+        private Map<String,String> parameters;
         private List<String> readOnlyAdmins;
         private List<String> trustedResourceOwners;
         public Builder() {}
@@ -175,6 +189,7 @@ public final class GetDataLakeSettingsResult {
     	      this.createTableDefaultPermissions = defaults.createTableDefaultPermissions;
     	      this.externalDataFilteringAllowLists = defaults.externalDataFilteringAllowLists;
     	      this.id = defaults.id;
+    	      this.parameters = defaults.parameters;
     	      this.readOnlyAdmins = defaults.readOnlyAdmins;
     	      this.trustedResourceOwners = defaults.trustedResourceOwners;
         }
@@ -265,6 +280,14 @@ public final class GetDataLakeSettingsResult {
             return this;
         }
         @CustomType.Setter
+        public Builder parameters(Map<String,String> parameters) {
+            if (parameters == null) {
+              throw new MissingRequiredPropertyException("GetDataLakeSettingsResult", "parameters");
+            }
+            this.parameters = parameters;
+            return this;
+        }
+        @CustomType.Setter
         public Builder readOnlyAdmins(List<String> readOnlyAdmins) {
             if (readOnlyAdmins == null) {
               throw new MissingRequiredPropertyException("GetDataLakeSettingsResult", "readOnlyAdmins");
@@ -297,6 +320,7 @@ public final class GetDataLakeSettingsResult {
             _resultValue.createTableDefaultPermissions = createTableDefaultPermissions;
             _resultValue.externalDataFilteringAllowLists = externalDataFilteringAllowLists;
             _resultValue.id = id;
+            _resultValue.parameters = parameters;
             _resultValue.readOnlyAdmins = readOnlyAdmins;
             _resultValue.trustedResourceOwners = trustedResourceOwners;
             return _resultValue;

@@ -217,7 +217,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly configurationEndpoint!: pulumi.Output<string>;
     /**
-     * Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+     * Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
      */
     public readonly engine!: pulumi.Output<string>;
     /**
@@ -471,7 +471,7 @@ export interface ClusterState {
      */
     configurationEndpoint?: pulumi.Input<string>;
     /**
-     * Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+     * Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
      */
     engine?: pulumi.Input<string>;
     /**
@@ -619,7 +619,7 @@ export interface ClusterArgs {
      */
     clusterId?: pulumi.Input<string>;
     /**
-     * Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+     * Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
      */
     engine?: pulumi.Input<string>;
     /**

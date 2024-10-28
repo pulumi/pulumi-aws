@@ -750,6 +750,118 @@ namespace Pulumi.Aws.Kinesis
     /// });
     /// ```
     /// 
+    /// ### Iceberg Destination
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var currentGetPartition = Aws.GetPartition.Invoke();
+    /// 
+    ///     var currentGetRegion = Aws.GetRegion.Invoke();
+    /// 
+    ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+    ///     {
+    ///         Bucket = "test-bucket",
+    ///         ForceDestroy = true,
+    ///     });
+    /// 
+    ///     var test = new Aws.Glue.CatalogDatabase("test", new()
+    ///     {
+    ///         Name = "test",
+    ///     });
+    /// 
+    ///     var testCatalogTable = new Aws.Glue.CatalogTable("test", new()
+    ///     {
+    ///         Name = "test",
+    ///         DatabaseName = test.Name,
+    ///         Parameters = 
+    ///         {
+    ///             { "format", "parquet" },
+    ///         },
+    ///         TableType = "EXTERNAL_TABLE",
+    ///         OpenTableFormatInput = new Aws.Glue.Inputs.CatalogTableOpenTableFormatInputArgs
+    ///         {
+    ///             IcebergInput = new Aws.Glue.Inputs.CatalogTableOpenTableFormatInputIcebergInputArgs
+    ///             {
+    ///                 MetadataOperation = "CREATE",
+    ///                 Version = "2",
+    ///             },
+    ///         },
+    ///         StorageDescriptor = new Aws.Glue.Inputs.CatalogTableStorageDescriptorArgs
+    ///         {
+    ///             Location = bucket.Id.Apply(id =&gt; $"s3://{id}"),
+    ///             Columns = new[]
+    ///             {
+    ///                 new Aws.Glue.Inputs.CatalogTableStorageDescriptorColumnArgs
+    ///                 {
+    ///                     Name = "my_column_1",
+    ///                     Type = "int",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var testStream = new Aws.Kinesis.FirehoseDeliveryStream("test_stream", new()
+    ///     {
+    ///         Name = "kinesis-firehose-test-stream",
+    ///         Destination = "iceberg",
+    ///         IcebergConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamIcebergConfigurationArgs
+    ///         {
+    ///             RoleArn = firehoseRole.Arn,
+    ///             CatalogArn = Output.Tuple(currentGetPartition, currentGetRegion, current).Apply(values =&gt;
+    ///             {
+    ///                 var currentGetPartition = values.Item1;
+    ///                 var currentGetRegion = values.Item2;
+    ///                 var current = values.Item3;
+    ///                 return $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:glue:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:catalog";
+    ///             }),
+    ///             BufferingSize = 10,
+    ///             BufferingInterval = 400,
+    ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs
+    ///             {
+    ///                 RoleArn = firehoseRole.Arn,
+    ///                 BucketArn = bucket.Arn,
+    ///             },
+    ///             DestinationTableConfigurations = new[]
+    ///             {
+    ///                 new Aws.Kinesis.Inputs.FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArgs
+    ///                 {
+    ///                     DatabaseName = test.Name,
+    ///                     TableName = testCatalogTable.Name,
+    ///                 },
+    ///             },
+    ///             ProcessingConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Processors = new[]
+    ///                 {
+    ///                     new Aws.Kinesis.Inputs.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArgs
+    ///                     {
+    ///                         Type = "Lambda",
+    ///                         Parameters = new[]
+    ///                         {
+    ///                             new Aws.Kinesis.Inputs.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArgs
+    ///                             {
+    ///                                 ParameterName = "LambdaArn",
+    ///                                 ParameterValue = $"{lambdaProcessor.Arn}:$LATEST",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Splunk Destination
     /// 
     /// ```csharp
@@ -924,6 +1036,12 @@ namespace Pulumi.Aws.Kinesis
         public Output<Outputs.FirehoseDeliveryStreamHttpEndpointConfiguration?> HttpEndpointConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
+        /// </summary>
+        [Output("icebergConfiguration")]
+        public Output<Outputs.FirehoseDeliveryStreamIcebergConfiguration?> IcebergConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
         /// </summary>
         [Output("kinesisSourceConfiguration")]
@@ -1074,6 +1192,12 @@ namespace Pulumi.Aws.Kinesis
         public Input<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationArgs>? HttpEndpointConfiguration { get; set; }
 
         /// <summary>
+        /// Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
+        /// </summary>
+        [Input("icebergConfiguration")]
+        public Input<Inputs.FirehoseDeliveryStreamIcebergConfigurationArgs>? IcebergConfiguration { get; set; }
+
+        /// <summary>
         /// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
         /// </summary>
         [Input("kinesisSourceConfiguration")]
@@ -1184,6 +1308,12 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         [Input("httpEndpointConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationGetArgs>? HttpEndpointConfiguration { get; set; }
+
+        /// <summary>
+        /// Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
+        /// </summary>
+        [Input("icebergConfiguration")]
+        public Input<Inputs.FirehoseDeliveryStreamIcebergConfigurationGetArgs>? IcebergConfiguration { get; set; }
 
         /// <summary>
         /// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.

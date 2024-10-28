@@ -490,6 +490,71 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Iceberg Destination
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getCallerIdentity({});
+ * const currentGetPartition = aws.getPartition({});
+ * const currentGetRegion = aws.getRegion({});
+ * const bucket = new aws.s3.BucketV2("bucket", {
+ *     bucket: "test-bucket",
+ *     forceDestroy: true,
+ * });
+ * const test = new aws.glue.CatalogDatabase("test", {name: "test"});
+ * const testCatalogTable = new aws.glue.CatalogTable("test", {
+ *     name: "test",
+ *     databaseName: test.name,
+ *     parameters: {
+ *         format: "parquet",
+ *     },
+ *     tableType: "EXTERNAL_TABLE",
+ *     openTableFormatInput: {
+ *         icebergInput: {
+ *             metadataOperation: "CREATE",
+ *             version: "2",
+ *         },
+ *     },
+ *     storageDescriptor: {
+ *         location: pulumi.interpolate`s3://${bucket.id}`,
+ *         columns: [{
+ *             name: "my_column_1",
+ *             type: "int",
+ *         }],
+ *     },
+ * });
+ * const testStream = new aws.kinesis.FirehoseDeliveryStream("test_stream", {
+ *     name: "kinesis-firehose-test-stream",
+ *     destination: "iceberg",
+ *     icebergConfiguration: {
+ *         roleArn: firehoseRole.arn,
+ *         catalogArn: Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => `arn:${currentGetPartition.partition}:glue:${currentGetRegion.name}:${current.accountId}:catalog`),
+ *         bufferingSize: 10,
+ *         bufferingInterval: 400,
+ *         s3Configuration: {
+ *             roleArn: firehoseRole.arn,
+ *             bucketArn: bucket.arn,
+ *         },
+ *         destinationTableConfigurations: [{
+ *             databaseName: test.name,
+ *             tableName: testCatalogTable.name,
+ *         }],
+ *         processingConfiguration: {
+ *             enabled: true,
+ *             processors: [{
+ *                 type: "Lambda",
+ *                 parameters: [{
+ *                     parameterName: "LambdaArn",
+ *                     parameterValue: `${lambdaProcessor.arn}:$LATEST`,
+ *                 }],
+ *             }],
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ### Splunk Destination
  *
  * ```typescript
@@ -646,6 +711,10 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
      */
     public readonly httpEndpointConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfiguration | undefined>;
     /**
+     * Configuration options when `destination` is `iceberg`. See `icebergConfiguration` block below for details.
+     */
+    public readonly icebergConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamIcebergConfiguration | undefined>;
+    /**
      * The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
      */
     public readonly kinesisSourceConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamKinesisSourceConfiguration | undefined>;
@@ -714,6 +783,7 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
             resourceInputs["elasticsearchConfiguration"] = state ? state.elasticsearchConfiguration : undefined;
             resourceInputs["extendedS3Configuration"] = state ? state.extendedS3Configuration : undefined;
             resourceInputs["httpEndpointConfiguration"] = state ? state.httpEndpointConfiguration : undefined;
+            resourceInputs["icebergConfiguration"] = state ? state.icebergConfiguration : undefined;
             resourceInputs["kinesisSourceConfiguration"] = state ? state.kinesisSourceConfiguration : undefined;
             resourceInputs["mskSourceConfiguration"] = state ? state.mskSourceConfiguration : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -737,6 +807,7 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
             resourceInputs["elasticsearchConfiguration"] = args ? args.elasticsearchConfiguration : undefined;
             resourceInputs["extendedS3Configuration"] = args ? args.extendedS3Configuration : undefined;
             resourceInputs["httpEndpointConfiguration"] = args ? args.httpEndpointConfiguration : undefined;
+            resourceInputs["icebergConfiguration"] = args ? args.icebergConfiguration : undefined;
             resourceInputs["kinesisSourceConfiguration"] = args ? args.kinesisSourceConfiguration : undefined;
             resourceInputs["mskSourceConfiguration"] = args ? args.mskSourceConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -780,6 +851,10 @@ export interface FirehoseDeliveryStreamState {
      * Configuration options when `destination` is `httpEndpoint`. Requires the user to also specify an `s3Configuration` block.  See `httpEndpointConfiguration` block below for details.
      */
     httpEndpointConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfiguration>;
+    /**
+     * Configuration options when `destination` is `iceberg`. See `icebergConfiguration` block below for details.
+     */
+    icebergConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamIcebergConfiguration>;
     /**
      * The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
      */
@@ -856,6 +931,10 @@ export interface FirehoseDeliveryStreamArgs {
      * Configuration options when `destination` is `httpEndpoint`. Requires the user to also specify an `s3Configuration` block.  See `httpEndpointConfiguration` block below for details.
      */
     httpEndpointConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfiguration>;
+    /**
+     * Configuration options when `destination` is `iceberg`. See `icebergConfiguration` block below for details.
+     */
+    icebergConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamIcebergConfiguration>;
     /**
      * The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
      */

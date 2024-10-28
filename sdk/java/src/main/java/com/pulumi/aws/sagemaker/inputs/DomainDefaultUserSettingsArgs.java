@@ -31,6 +31,21 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
     public static final DomainDefaultUserSettingsArgs Empty = new DomainDefaultUserSettingsArgs();
 
     /**
+     * Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
+     * 
+     */
+    @Import(name="autoMountHomeEfs")
+    private @Nullable Output<String> autoMountHomeEfs;
+
+    /**
+     * @return Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
+     * 
+     */
+    public Optional<Output<String>> autoMountHomeEfs() {
+        return Optional.ofNullable(this.autoMountHomeEfs);
+    }
+
+    /**
      * The Canvas app settings. See `canvas_app_settings` Block below.
      * 
      */
@@ -288,6 +303,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
     private DomainDefaultUserSettingsArgs() {}
 
     private DomainDefaultUserSettingsArgs(DomainDefaultUserSettingsArgs $) {
+        this.autoMountHomeEfs = $.autoMountHomeEfs;
         this.canvasAppSettings = $.canvasAppSettings;
         this.codeEditorAppSettings = $.codeEditorAppSettings;
         this.customFileSystemConfigs = $.customFileSystemConfigs;
@@ -323,6 +339,27 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
 
         public Builder(DomainDefaultUserSettingsArgs defaults) {
             $ = new DomainDefaultUserSettingsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param autoMountHomeEfs Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoMountHomeEfs(@Nullable Output<String> autoMountHomeEfs) {
+            $.autoMountHomeEfs = autoMountHomeEfs;
+            return this;
+        }
+
+        /**
+         * @param autoMountHomeEfs Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoMountHomeEfs(String autoMountHomeEfs) {
+            return autoMountHomeEfs(Output.of(autoMountHomeEfs));
         }
 
         /**

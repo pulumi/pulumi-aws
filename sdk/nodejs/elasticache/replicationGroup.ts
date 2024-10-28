@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### Redis Cluster Mode Disabled
+ * ### Redis OSS/Valkey Cluster Mode Disabled
  *
  * To create a single shard primary with single read replica:
  *
@@ -85,7 +85,7 @@ import * as utilities from "../utilities";
  * }
  * ```
  *
- * ### Redis Cluster Mode Enabled
+ * ### Redis OSS/Valkey Cluster Mode Enabled
  *
  * To create two shards with a primary and a single read replica each:
  *
@@ -253,7 +253,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
     public readonly authTokenUpdateStrategy!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
-     * Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+     * Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
      * Defaults to `true`.
      */
     public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean>;
@@ -282,7 +282,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
+     * Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
      */
     public readonly engine!: pulumi.Output<string | undefined>;
     /**
@@ -315,7 +315,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
+     * Specifies the destination and format of Redis OSS/Valkey [SLOWLOG](https://redis.io/commands/slowlog) or Redis OSS/Valkey [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
      */
     public readonly logDeliveryConfigurations!: pulumi.Output<outputs.elasticache.ReplicationGroupLogDeliveryConfiguration[] | undefined>;
     /**
@@ -597,7 +597,7 @@ export interface ReplicationGroupState {
     authTokenUpdateStrategy?: pulumi.Input<string>;
     /**
      * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
-     * Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+     * Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
      * Defaults to `true`.
      */
     autoMinorVersionUpgrade?: pulumi.Input<boolean>;
@@ -626,7 +626,7 @@ export interface ReplicationGroupState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
+     * Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
      */
     engine?: pulumi.Input<string>;
     /**
@@ -659,7 +659,7 @@ export interface ReplicationGroupState {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
+     * Specifies the destination and format of Redis OSS/Valkey [SLOWLOG](https://redis.io/commands/slowlog) or Redis OSS/Valkey [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
      */
     logDeliveryConfigurations?: pulumi.Input<pulumi.Input<inputs.elasticache.ReplicationGroupLogDeliveryConfiguration>[]>;
     /**
@@ -818,7 +818,7 @@ export interface ReplicationGroupArgs {
     authTokenUpdateStrategy?: pulumi.Input<string>;
     /**
      * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
-     * Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+     * Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
      * Defaults to `true`.
      */
     autoMinorVersionUpgrade?: pulumi.Input<boolean>;
@@ -839,7 +839,7 @@ export interface ReplicationGroupArgs {
      */
     description: pulumi.Input<string>;
     /**
-     * Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
+     * Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
      */
     engine?: pulumi.Input<string>;
     /**
@@ -868,7 +868,7 @@ export interface ReplicationGroupArgs {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
+     * Specifies the destination and format of Redis OSS/Valkey [SLOWLOG](https://redis.io/commands/slowlog) or Redis OSS/Valkey [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
      */
     logDeliveryConfigurations?: pulumi.Input<pulumi.Input<inputs.elasticache.ReplicationGroupLogDeliveryConfiguration>[]>;
     /**

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElastiCache
 {
     /// <summary>
-    /// Provides an ElastiCache Serverless Cache resource which manages memcached or redis.
+    /// Provides an ElastiCache Serverless Cache resource which manages memcached, redis or valkey.
     /// 
     /// ## Example Usage
     /// 
@@ -56,7 +56,7 @@ namespace Pulumi.Aws.ElastiCache
     /// });
     /// ```
     /// 
-    /// ### Redis Serverless
+    /// ### Redis OSS Serverless
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -69,6 +69,50 @@ namespace Pulumi.Aws.ElastiCache
     ///     var example = new Aws.ElastiCache.ServerlessCache("example", new()
     ///     {
     ///         Engine = "redis",
+    ///         Name = "example",
+    ///         CacheUsageLimits = new Aws.ElastiCache.Inputs.ServerlessCacheCacheUsageLimitsArgs
+    ///         {
+    ///             DataStorage = new Aws.ElastiCache.Inputs.ServerlessCacheCacheUsageLimitsDataStorageArgs
+    ///             {
+    ///                 Maximum = 10,
+    ///                 Unit = "GB",
+    ///             },
+    ///             EcpuPerSeconds = new[]
+    ///             {
+    ///                 new Aws.ElastiCache.Inputs.ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs
+    ///                 {
+    ///                     Maximum = 5000,
+    ///                 },
+    ///             },
+    ///         },
+    ///         DailySnapshotTime = "09:00",
+    ///         Description = "Test Server",
+    ///         KmsKeyId = test.Arn,
+    ///         MajorEngineVersion = "7",
+    ///         SnapshotRetentionLimit = 1,
+    ///         SecurityGroupIds = new[]
+    ///         {
+    ///             testAwsSecurityGroup.Id,
+    ///         },
+    ///         SubnetIds = testAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Valkey Serverless
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.ElastiCache.ServerlessCache("example", new()
+    ///     {
+    ///         Engine = "valkey",
     ///         Name = "example",
     ///         CacheUsageLimits = new Aws.ElastiCache.Inputs.ServerlessCacheCacheUsageLimitsArgs
     ///         {
@@ -130,7 +174,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> CreateTime { get; private set; } = null!;
 
         /// <summary>
-        /// The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
+        /// The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
         /// </summary>
         [Output("dailySnapshotTime")]
         public Output<string> DailySnapshotTime { get; private set; } = null!;
@@ -148,7 +192,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<ImmutableArray<Outputs.ServerlessCacheEndpoint>> Endpoints { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+        /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
         /// </summary>
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
@@ -287,7 +331,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<Inputs.ServerlessCacheCacheUsageLimitsArgs>? CacheUsageLimits { get; set; }
 
         /// <summary>
-        /// The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
+        /// The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
         /// </summary>
         [Input("dailySnapshotTime")]
         public Input<string>? DailySnapshotTime { get; set; }
@@ -299,7 +343,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+        /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
         /// </summary>
         [Input("engine", required: true)]
         public Input<string> Engine { get; set; } = null!;
@@ -415,7 +459,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? CreateTime { get; set; }
 
         /// <summary>
-        /// The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
+        /// The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
         /// </summary>
         [Input("dailySnapshotTime")]
         public Input<string>? DailySnapshotTime { get; set; }
@@ -439,7 +483,7 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+        /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }

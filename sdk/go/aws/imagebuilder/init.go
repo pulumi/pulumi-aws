@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ImageRecipe{}
 	case "aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration":
 		r = &InfrastructureConfiguration{}
+	case "aws:imagebuilder/lifecyclePolicy:LifecyclePolicy":
+		r = &LifecyclePolicy{}
 	case "aws:imagebuilder/workflow:Workflow":
 		r = &Workflow{}
 	default:
@@ -83,6 +85,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"imagebuilder/infrastructureConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"imagebuilder/lifecyclePolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

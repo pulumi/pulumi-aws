@@ -5,6 +5,7 @@ package com.pulumi.aws.codedeploy.inputs;
 
 import com.pulumi.aws.codedeploy.inputs.DeploymentConfigMinimumHealthyHostsArgs;
 import com.pulumi.aws.codedeploy.inputs.DeploymentConfigTrafficRoutingConfigArgs;
+import com.pulumi.aws.codedeploy.inputs.DeploymentConfigZonalConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -107,6 +108,21 @@ public final class DeploymentConfigState extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.trafficRoutingConfig);
     }
 
+    /**
+     * A zonal_config block. Zonal Config is documented below.
+     * 
+     */
+    @Import(name="zonalConfig")
+    private @Nullable Output<DeploymentConfigZonalConfigArgs> zonalConfig;
+
+    /**
+     * @return A zonal_config block. Zonal Config is documented below.
+     * 
+     */
+    public Optional<Output<DeploymentConfigZonalConfigArgs>> zonalConfig() {
+        return Optional.ofNullable(this.zonalConfig);
+    }
+
     private DeploymentConfigState() {}
 
     private DeploymentConfigState(DeploymentConfigState $) {
@@ -116,6 +132,7 @@ public final class DeploymentConfigState extends com.pulumi.resources.ResourceAr
         this.deploymentConfigName = $.deploymentConfigName;
         this.minimumHealthyHosts = $.minimumHealthyHosts;
         this.trafficRoutingConfig = $.trafficRoutingConfig;
+        this.zonalConfig = $.zonalConfig;
     }
 
     public static Builder builder() {
@@ -260,6 +277,27 @@ public final class DeploymentConfigState extends com.pulumi.resources.ResourceAr
          */
         public Builder trafficRoutingConfig(DeploymentConfigTrafficRoutingConfigArgs trafficRoutingConfig) {
             return trafficRoutingConfig(Output.of(trafficRoutingConfig));
+        }
+
+        /**
+         * @param zonalConfig A zonal_config block. Zonal Config is documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zonalConfig(@Nullable Output<DeploymentConfigZonalConfigArgs> zonalConfig) {
+            $.zonalConfig = zonalConfig;
+            return this;
+        }
+
+        /**
+         * @param zonalConfig A zonal_config block. Zonal Config is documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zonalConfig(DeploymentConfigZonalConfigArgs zonalConfig) {
+            return zonalConfig(Output.of(zonalConfig));
         }
 
         public DeploymentConfigState build() {

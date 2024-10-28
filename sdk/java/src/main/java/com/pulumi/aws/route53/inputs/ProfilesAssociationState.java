@@ -25,14 +25,14 @@ public final class ProfilesAssociationState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Name of the Profile Association.
+     * Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_&#39; &#39;]+)`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the Profile Association.
+     * @return Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_&#39; &#39;]+)`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -77,14 +77,14 @@ public final class ProfilesAssociationState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+     * Status of the Profile Association. See the [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html) for valid values.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+     * @return Status of the Profile Association. See the [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html) for valid values.
      * 
      */
     public Optional<Output<String>> status() {
@@ -182,7 +182,7 @@ public final class ProfilesAssociationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name Name of the Profile Association.
+         * @param name Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_&#39; &#39;]+)`.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class ProfilesAssociationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name Name of the Profile Association.
+         * @param name Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_&#39; &#39;]+)`.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class ProfilesAssociationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param status Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+         * @param status Status of the Profile Association. See the [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html) for valid values.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class ProfilesAssociationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param status Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+         * @param status Status of the Profile Association. See the [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html) for valid values.
          * 
          * @return builder
          * 

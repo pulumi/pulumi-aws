@@ -65,6 +65,11 @@ export const getPrebuiltEcrImage: typeof import("./getPrebuiltEcrImage").getPreb
 export const getPrebuiltEcrImageOutput: typeof import("./getPrebuiltEcrImage").getPrebuiltEcrImageOutput = null as any;
 utilities.lazyLoad(exports, ["getPrebuiltEcrImage","getPrebuiltEcrImageOutput"], () => require("./getPrebuiltEcrImage"));
 
+export { HubArgs, HubState } from "./hub";
+export type Hub = import("./hub").Hub;
+export const Hub: typeof import("./hub").Hub = null as any;
+utilities.lazyLoad(exports, ["Hub"], () => require("./hub"));
+
 export { HumanTaskUIArgs, HumanTaskUIState } from "./humanTaskUI";
 export type HumanTaskUI = import("./humanTaskUI").HumanTaskUI;
 export const HumanTaskUI: typeof import("./humanTaskUI").HumanTaskUI = null as any;
@@ -79,6 +84,11 @@ export { ImageVersionArgs, ImageVersionState } from "./imageVersion";
 export type ImageVersion = import("./imageVersion").ImageVersion;
 export const ImageVersion: typeof import("./imageVersion").ImageVersion = null as any;
 utilities.lazyLoad(exports, ["ImageVersion"], () => require("./imageVersion"));
+
+export { MlflowTrackingServerArgs, MlflowTrackingServerState } from "./mlflowTrackingServer";
+export type MlflowTrackingServer = import("./mlflowTrackingServer").MlflowTrackingServer;
+export const MlflowTrackingServer: typeof import("./mlflowTrackingServer").MlflowTrackingServer = null as any;
+utilities.lazyLoad(exports, ["MlflowTrackingServer"], () => require("./mlflowTrackingServer"));
 
 export { ModelArgs, ModelState } from "./model";
 export type Model = import("./model").Model;
@@ -177,12 +187,16 @@ const _module = {
                 return new FeatureGroup(name, <any>undefined, { urn })
             case "aws:sagemaker/flowDefinition:FlowDefinition":
                 return new FlowDefinition(name, <any>undefined, { urn })
+            case "aws:sagemaker/hub:Hub":
+                return new Hub(name, <any>undefined, { urn })
             case "aws:sagemaker/humanTaskUI:HumanTaskUI":
                 return new HumanTaskUI(name, <any>undefined, { urn })
             case "aws:sagemaker/image:Image":
                 return new Image(name, <any>undefined, { urn })
             case "aws:sagemaker/imageVersion:ImageVersion":
                 return new ImageVersion(name, <any>undefined, { urn })
+            case "aws:sagemaker/mlflowTrackingServer:MlflowTrackingServer":
+                return new MlflowTrackingServer(name, <any>undefined, { urn })
             case "aws:sagemaker/model:Model":
                 return new Model(name, <any>undefined, { urn })
             case "aws:sagemaker/modelPackageGroup:ModelPackageGroup":
@@ -227,9 +241,11 @@ pulumi.runtime.registerResourceModule("aws", "sagemaker/endpoint", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/endpointConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/featureGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/flowDefinition", _module)
+pulumi.runtime.registerResourceModule("aws", "sagemaker/hub", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/humanTaskUI", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/image", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/imageVersion", _module)
+pulumi.runtime.registerResourceModule("aws", "sagemaker/mlflowTrackingServer", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/model", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/modelPackageGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/modelPackageGroupPolicy", _module)

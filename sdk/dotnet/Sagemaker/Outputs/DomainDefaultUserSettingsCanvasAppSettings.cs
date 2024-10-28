@@ -17,6 +17,10 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// The model deployment settings for the SageMaker Canvas application. See `direct_deploy_settings` Block below.
         /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings? DirectDeploySettings;
+        /// <summary>
+        /// The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emr_serverless_settings` Block below.
+        /// </summary>
+        public readonly Outputs.DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings? EmrServerlessSettings;
         public readonly Outputs.DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings? GenerativeAiSettings;
         /// <summary>
         /// The settings for connecting to an external data source with OAuth. See `identity_provider_oauth_settings` Block below.
@@ -43,6 +47,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         private DomainDefaultUserSettingsCanvasAppSettings(
             Outputs.DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings? directDeploySettings,
 
+            Outputs.DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings? emrServerlessSettings,
+
             Outputs.DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings? generativeAiSettings,
 
             ImmutableArray<Outputs.DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting> identityProviderOauthSettings,
@@ -56,6 +62,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
             Outputs.DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings? workspaceSettings)
         {
             DirectDeploySettings = directDeploySettings;
+            EmrServerlessSettings = emrServerlessSettings;
             GenerativeAiSettings = generativeAiSettings;
             IdentityProviderOauthSettings = identityProviderOauthSettings;
             KendraSettings = kendraSettings;

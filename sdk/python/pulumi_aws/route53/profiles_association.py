@@ -30,7 +30,7 @@ class ProfilesAssociationArgs:
         The set of arguments for constructing a ProfilesAssociation resource.
         :param pulumi.Input[str] profile_id: ID of the profile associated with the VPC.
         :param pulumi.Input[str] resource_id: Resource ID of the VPC the profile to be associated with.
-        :param pulumi.Input[str] name: Name of the Profile Association.
+        :param pulumi.Input[str] name: Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\\\-_' ']+)`.
         """
         pulumi.set(__self__, "profile_id", profile_id)
         pulumi.set(__self__, "resource_id", resource_id)
@@ -69,7 +69,7 @@ class ProfilesAssociationArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the Profile Association.
+        Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\\\-_' ']+)`.
         """
         return pulumi.get(self, "name")
 
@@ -111,10 +111,10 @@ class _ProfilesAssociationState:
                  timeouts: Optional[pulumi.Input['ProfilesAssociationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering ProfilesAssociation resources.
-        :param pulumi.Input[str] name: Name of the Profile Association.
+        :param pulumi.Input[str] name: Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\\\-_' ']+)`.
         :param pulumi.Input[str] profile_id: ID of the profile associated with the VPC.
         :param pulumi.Input[str] resource_id: Resource ID of the VPC the profile to be associated with.
-        :param pulumi.Input[str] status: Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+        :param pulumi.Input[str] status: Status of the Profile Association. See the [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html) for valid values.
         :param pulumi.Input[str] status_message: Status message of the Profile Association.
         """
         if arn is not None:
@@ -154,7 +154,7 @@ class _ProfilesAssociationState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the Profile Association.
+        Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\\\-_' ']+)`.
         """
         return pulumi.get(self, "name")
 
@@ -199,7 +199,7 @@ class _ProfilesAssociationState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+        Status of the Profile Association. See the [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html) for valid values.
         """
         return pulumi.get(self, "status")
 
@@ -274,7 +274,7 @@ class ProfilesAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Name of the Profile Association.
+        :param pulumi.Input[str] name: Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\\\-_' ']+)`.
         :param pulumi.Input[str] profile_id: ID of the profile associated with the VPC.
         :param pulumi.Input[str] resource_id: Resource ID of the VPC the profile to be associated with.
         """
@@ -367,10 +367,10 @@ class ProfilesAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Name of the Profile Association.
+        :param pulumi.Input[str] name: Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\\\-_' ']+)`.
         :param pulumi.Input[str] profile_id: ID of the profile associated with the VPC.
         :param pulumi.Input[str] resource_id: Resource ID of the VPC the profile to be associated with.
-        :param pulumi.Input[str] status: Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+        :param pulumi.Input[str] status: Status of the Profile Association. See the [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html) for valid values.
         :param pulumi.Input[str] status_message: Status message of the Profile Association.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -398,7 +398,7 @@ class ProfilesAssociation(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the Profile Association.
+        Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\\\-_' ']+)`.
         """
         return pulumi.get(self, "name")
 
@@ -427,7 +427,7 @@ class ProfilesAssociation(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
-        Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+        Status of the Profile Association. See the [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html) for valid values.
         """
         return pulumi.get(self, "status")
 

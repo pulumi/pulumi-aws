@@ -20,6 +20,21 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.verifiedaccess.Group("example", {verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id});
  * ```
+ *
+ * ### Usage with KMS Key
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testKey = new aws.kms.Key("test_key", {description: "KMS key for Verified Access Group test"});
+ * const test = new aws.verifiedaccess.Group("test", {
+ *     verifiedaccessInstanceId: testAwsVerifiedaccessInstanceTrustProviderAttachment.verifiedaccessInstanceId,
+ *     sseConfiguration: {
+ *         kmsKeyArn: testKey.arn,
+ *     },
+ * });
+ * ```
  */
 export class Group extends pulumi.CustomResource {
     /**

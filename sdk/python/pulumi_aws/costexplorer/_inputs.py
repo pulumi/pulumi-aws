@@ -267,11 +267,11 @@ if not MYPY:
         """
         not_: NotRequired[pulumi.Input['AnomalySubscriptionThresholdExpressionNotArgsDict']]
         """
-        Return results that match both Dimension object.
+        Return results that do not match the Dimension object.
         """
         ors: NotRequired[pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionThresholdExpressionOrArgsDict']]]]
         """
-        Return results that match both Dimension object.
+        Return results that match either Dimension object.
         """
         tags: NotRequired[pulumi.Input['AnomalySubscriptionThresholdExpressionTagsArgsDict']]
         """
@@ -293,8 +293,8 @@ class AnomalySubscriptionThresholdExpressionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionThresholdExpressionAndArgs']]] ands: Return results that match both Dimension objects.
         :param pulumi.Input['AnomalySubscriptionThresholdExpressionCostCategoryArgs'] cost_category: Configuration block for the filter that's based on  values. See Cost Category below.
         :param pulumi.Input['AnomalySubscriptionThresholdExpressionDimensionArgs'] dimension: Configuration block for the specific Dimension to use for.
-        :param pulumi.Input['AnomalySubscriptionThresholdExpressionNotArgs'] not_: Return results that match both Dimension object.
-        :param pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionThresholdExpressionOrArgs']]] ors: Return results that match both Dimension object.
+        :param pulumi.Input['AnomalySubscriptionThresholdExpressionNotArgs'] not_: Return results that do not match the Dimension object.
+        :param pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionThresholdExpressionOrArgs']]] ors: Return results that match either Dimension object.
         :param pulumi.Input['AnomalySubscriptionThresholdExpressionTagsArgs'] tags: Configuration block for the specific Tag to use for. See Tags below.
         """
         if ands is not None:
@@ -350,7 +350,7 @@ class AnomalySubscriptionThresholdExpressionArgs:
     @pulumi.getter(name="not")
     def not_(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotArgs']]:
         """
-        Return results that match both Dimension object.
+        Return results that do not match the Dimension object.
         """
         return pulumi.get(self, "not_")
 
@@ -362,7 +362,7 @@ class AnomalySubscriptionThresholdExpressionArgs:
     @pulumi.getter
     def ors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionThresholdExpressionOrArgs']]]]:
         """
-        Return results that match both Dimension object.
+        Return results that match either Dimension object.
         """
         return pulumi.get(self, "ors")
 

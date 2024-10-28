@@ -27,6 +27,7 @@ class FirehoseDeliveryStreamArgs:
                  elasticsearch_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationArgs']] = None,
                  extended_s3_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationArgs']] = None,
                  http_endpoint_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationArgs']] = None,
+                 iceberg_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamIcebergConfigurationArgs']] = None,
                  kinesis_source_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']] = None,
                  msk_source_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamMskSourceConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -45,6 +46,7 @@ class FirehoseDeliveryStreamArgs:
         :param pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationArgs'] elasticsearch_configuration: Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationArgs'] extended_s3_configuration: Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationArgs'] http_endpoint_configuration: Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
+        :param pulumi.Input['FirehoseDeliveryStreamIcebergConfigurationArgs'] iceberg_configuration: Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs'] kinesis_source_configuration: The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamMskSourceConfigurationArgs'] msk_source_configuration: The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
         :param pulumi.Input[str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
@@ -69,6 +71,8 @@ class FirehoseDeliveryStreamArgs:
             pulumi.set(__self__, "extended_s3_configuration", extended_s3_configuration)
         if http_endpoint_configuration is not None:
             pulumi.set(__self__, "http_endpoint_configuration", http_endpoint_configuration)
+        if iceberg_configuration is not None:
+            pulumi.set(__self__, "iceberg_configuration", iceberg_configuration)
         if kinesis_source_configuration is not None:
             pulumi.set(__self__, "kinesis_source_configuration", kinesis_source_configuration)
         if msk_source_configuration is not None:
@@ -160,6 +164,18 @@ class FirehoseDeliveryStreamArgs:
     @http_endpoint_configuration.setter
     def http_endpoint_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationArgs']]):
         pulumi.set(self, "http_endpoint_configuration", value)
+
+    @property
+    @pulumi.getter(name="icebergConfiguration")
+    def iceberg_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamIcebergConfigurationArgs']]:
+        """
+        Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
+        """
+        return pulumi.get(self, "iceberg_configuration")
+
+    @iceberg_configuration.setter
+    def iceberg_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamIcebergConfigurationArgs']]):
+        pulumi.set(self, "iceberg_configuration", value)
 
     @property
     @pulumi.getter(name="kinesisSourceConfiguration")
@@ -302,6 +318,7 @@ class _FirehoseDeliveryStreamState:
                  elasticsearch_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationArgs']] = None,
                  extended_s3_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationArgs']] = None,
                  http_endpoint_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationArgs']] = None,
+                 iceberg_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamIcebergConfigurationArgs']] = None,
                  kinesis_source_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs']] = None,
                  msk_source_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamMskSourceConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -321,6 +338,7 @@ class _FirehoseDeliveryStreamState:
         :param pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationArgs'] elasticsearch_configuration: Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationArgs'] extended_s3_configuration: Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationArgs'] http_endpoint_configuration: Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
+        :param pulumi.Input['FirehoseDeliveryStreamIcebergConfigurationArgs'] iceberg_configuration: Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs'] kinesis_source_configuration: The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamMskSourceConfigurationArgs'] msk_source_configuration: The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
         :param pulumi.Input[str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
@@ -347,6 +365,8 @@ class _FirehoseDeliveryStreamState:
             pulumi.set(__self__, "extended_s3_configuration", extended_s3_configuration)
         if http_endpoint_configuration is not None:
             pulumi.set(__self__, "http_endpoint_configuration", http_endpoint_configuration)
+        if iceberg_configuration is not None:
+            pulumi.set(__self__, "iceberg_configuration", iceberg_configuration)
         if kinesis_source_configuration is not None:
             pulumi.set(__self__, "kinesis_source_configuration", kinesis_source_configuration)
         if msk_source_configuration is not None:
@@ -443,6 +463,18 @@ class _FirehoseDeliveryStreamState:
     @http_endpoint_configuration.setter
     def http_endpoint_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationArgs']]):
         pulumi.set(self, "http_endpoint_configuration", value)
+
+    @property
+    @pulumi.getter(name="icebergConfiguration")
+    def iceberg_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamIcebergConfigurationArgs']]:
+        """
+        Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
+        """
+        return pulumi.get(self, "iceberg_configuration")
+
+    @iceberg_configuration.setter
+    def iceberg_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamIcebergConfigurationArgs']]):
+        pulumi.set(self, "iceberg_configuration", value)
 
     @property
     @pulumi.getter(name="kinesisSourceConfiguration")
@@ -600,6 +632,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                  elasticsearch_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamElasticsearchConfigurationArgs', 'FirehoseDeliveryStreamElasticsearchConfigurationArgsDict']]] = None,
                  extended_s3_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamExtendedS3ConfigurationArgs', 'FirehoseDeliveryStreamExtendedS3ConfigurationArgsDict']]] = None,
                  http_endpoint_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamHttpEndpointConfigurationArgs', 'FirehoseDeliveryStreamHttpEndpointConfigurationArgsDict']]] = None,
+                 iceberg_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamIcebergConfigurationArgs', 'FirehoseDeliveryStreamIcebergConfigurationArgsDict']]] = None,
                  kinesis_source_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamKinesisSourceConfigurationArgs', 'FirehoseDeliveryStreamKinesisSourceConfigurationArgsDict']]] = None,
                  msk_source_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamMskSourceConfigurationArgs', 'FirehoseDeliveryStreamMskSourceConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -1077,6 +1110,68 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             })
         ```
 
+        ### Iceberg Destination
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        current_get_partition = aws.get_partition()
+        current_get_region = aws.get_region()
+        bucket = aws.s3.BucketV2("bucket",
+            bucket="test-bucket",
+            force_destroy=True)
+        test = aws.glue.CatalogDatabase("test", name="test")
+        test_catalog_table = aws.glue.CatalogTable("test",
+            name="test",
+            database_name=test.name,
+            parameters={
+                "format": "parquet",
+            },
+            table_type="EXTERNAL_TABLE",
+            open_table_format_input={
+                "iceberg_input": {
+                    "metadata_operation": "CREATE",
+                    "version": "2",
+                },
+            },
+            storage_descriptor={
+                "location": bucket.id.apply(lambda id: f"s3://{id}"),
+                "columns": [{
+                    "name": "my_column_1",
+                    "type": "int",
+                }],
+            })
+        test_stream = aws.kinesis.FirehoseDeliveryStream("test_stream",
+            name="kinesis-firehose-test-stream",
+            destination="iceberg",
+            iceberg_configuration={
+                "role_arn": firehose_role["arn"],
+                "catalog_arn": f"arn:{current_get_partition.partition}:glue:{current_get_region.name}:{current.account_id}:catalog",
+                "buffering_size": 10,
+                "buffering_interval": 400,
+                "s3_configuration": {
+                    "role_arn": firehose_role["arn"],
+                    "bucket_arn": bucket.arn,
+                },
+                "destination_table_configurations": [{
+                    "database_name": test.name,
+                    "table_name": test_catalog_table.name,
+                }],
+                "processing_configuration": {
+                    "enabled": True,
+                    "processors": [{
+                        "type": "Lambda",
+                        "parameters": [{
+                            "parameter_name": "LambdaArn",
+                            "parameter_value": f"{lambda_processor['arn']}:$LATEST",
+                        }],
+                    }],
+                },
+            })
+        ```
+
         ### Splunk Destination
 
         ```python
@@ -1187,6 +1282,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         :param pulumi.Input[Union['FirehoseDeliveryStreamElasticsearchConfigurationArgs', 'FirehoseDeliveryStreamElasticsearchConfigurationArgsDict']] elasticsearch_configuration: Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamExtendedS3ConfigurationArgs', 'FirehoseDeliveryStreamExtendedS3ConfigurationArgsDict']] extended_s3_configuration: Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamHttpEndpointConfigurationArgs', 'FirehoseDeliveryStreamHttpEndpointConfigurationArgsDict']] http_endpoint_configuration: Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
+        :param pulumi.Input[Union['FirehoseDeliveryStreamIcebergConfigurationArgs', 'FirehoseDeliveryStreamIcebergConfigurationArgsDict']] iceberg_configuration: Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamKinesisSourceConfigurationArgs', 'FirehoseDeliveryStreamKinesisSourceConfigurationArgsDict']] kinesis_source_configuration: The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamMskSourceConfigurationArgs', 'FirehoseDeliveryStreamMskSourceConfigurationArgsDict']] msk_source_configuration: The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
         :param pulumi.Input[str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
@@ -1671,6 +1767,68 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             })
         ```
 
+        ### Iceberg Destination
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        current_get_partition = aws.get_partition()
+        current_get_region = aws.get_region()
+        bucket = aws.s3.BucketV2("bucket",
+            bucket="test-bucket",
+            force_destroy=True)
+        test = aws.glue.CatalogDatabase("test", name="test")
+        test_catalog_table = aws.glue.CatalogTable("test",
+            name="test",
+            database_name=test.name,
+            parameters={
+                "format": "parquet",
+            },
+            table_type="EXTERNAL_TABLE",
+            open_table_format_input={
+                "iceberg_input": {
+                    "metadata_operation": "CREATE",
+                    "version": "2",
+                },
+            },
+            storage_descriptor={
+                "location": bucket.id.apply(lambda id: f"s3://{id}"),
+                "columns": [{
+                    "name": "my_column_1",
+                    "type": "int",
+                }],
+            })
+        test_stream = aws.kinesis.FirehoseDeliveryStream("test_stream",
+            name="kinesis-firehose-test-stream",
+            destination="iceberg",
+            iceberg_configuration={
+                "role_arn": firehose_role["arn"],
+                "catalog_arn": f"arn:{current_get_partition.partition}:glue:{current_get_region.name}:{current.account_id}:catalog",
+                "buffering_size": 10,
+                "buffering_interval": 400,
+                "s3_configuration": {
+                    "role_arn": firehose_role["arn"],
+                    "bucket_arn": bucket.arn,
+                },
+                "destination_table_configurations": [{
+                    "database_name": test.name,
+                    "table_name": test_catalog_table.name,
+                }],
+                "processing_configuration": {
+                    "enabled": True,
+                    "processors": [{
+                        "type": "Lambda",
+                        "parameters": [{
+                            "parameter_name": "LambdaArn",
+                            "parameter_value": f"{lambda_processor['arn']}:$LATEST",
+                        }],
+                    }],
+                },
+            })
+        ```
+
         ### Splunk Destination
 
         ```python
@@ -1795,6 +1953,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                  elasticsearch_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamElasticsearchConfigurationArgs', 'FirehoseDeliveryStreamElasticsearchConfigurationArgsDict']]] = None,
                  extended_s3_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamExtendedS3ConfigurationArgs', 'FirehoseDeliveryStreamExtendedS3ConfigurationArgsDict']]] = None,
                  http_endpoint_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamHttpEndpointConfigurationArgs', 'FirehoseDeliveryStreamHttpEndpointConfigurationArgsDict']]] = None,
+                 iceberg_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamIcebergConfigurationArgs', 'FirehoseDeliveryStreamIcebergConfigurationArgsDict']]] = None,
                  kinesis_source_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamKinesisSourceConfigurationArgs', 'FirehoseDeliveryStreamKinesisSourceConfigurationArgsDict']]] = None,
                  msk_source_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamMskSourceConfigurationArgs', 'FirehoseDeliveryStreamMskSourceConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -1823,6 +1982,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             __props__.__dict__["elasticsearch_configuration"] = elasticsearch_configuration
             __props__.__dict__["extended_s3_configuration"] = extended_s3_configuration
             __props__.__dict__["http_endpoint_configuration"] = http_endpoint_configuration
+            __props__.__dict__["iceberg_configuration"] = iceberg_configuration
             __props__.__dict__["kinesis_source_configuration"] = kinesis_source_configuration
             __props__.__dict__["msk_source_configuration"] = msk_source_configuration
             __props__.__dict__["name"] = name
@@ -1851,6 +2011,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             elasticsearch_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamElasticsearchConfigurationArgs', 'FirehoseDeliveryStreamElasticsearchConfigurationArgsDict']]] = None,
             extended_s3_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamExtendedS3ConfigurationArgs', 'FirehoseDeliveryStreamExtendedS3ConfigurationArgsDict']]] = None,
             http_endpoint_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamHttpEndpointConfigurationArgs', 'FirehoseDeliveryStreamHttpEndpointConfigurationArgsDict']]] = None,
+            iceberg_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamIcebergConfigurationArgs', 'FirehoseDeliveryStreamIcebergConfigurationArgsDict']]] = None,
             kinesis_source_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamKinesisSourceConfigurationArgs', 'FirehoseDeliveryStreamKinesisSourceConfigurationArgsDict']]] = None,
             msk_source_configuration: Optional[pulumi.Input[Union['FirehoseDeliveryStreamMskSourceConfigurationArgs', 'FirehoseDeliveryStreamMskSourceConfigurationArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -1875,6 +2036,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         :param pulumi.Input[Union['FirehoseDeliveryStreamElasticsearchConfigurationArgs', 'FirehoseDeliveryStreamElasticsearchConfigurationArgsDict']] elasticsearch_configuration: Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamExtendedS3ConfigurationArgs', 'FirehoseDeliveryStreamExtendedS3ConfigurationArgsDict']] extended_s3_configuration: Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamHttpEndpointConfigurationArgs', 'FirehoseDeliveryStreamHttpEndpointConfigurationArgsDict']] http_endpoint_configuration: Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
+        :param pulumi.Input[Union['FirehoseDeliveryStreamIcebergConfigurationArgs', 'FirehoseDeliveryStreamIcebergConfigurationArgsDict']] iceberg_configuration: Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamKinesisSourceConfigurationArgs', 'FirehoseDeliveryStreamKinesisSourceConfigurationArgsDict']] kinesis_source_configuration: The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamMskSourceConfigurationArgs', 'FirehoseDeliveryStreamMskSourceConfigurationArgsDict']] msk_source_configuration: The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
         :param pulumi.Input[str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
@@ -1899,6 +2061,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         __props__.__dict__["elasticsearch_configuration"] = elasticsearch_configuration
         __props__.__dict__["extended_s3_configuration"] = extended_s3_configuration
         __props__.__dict__["http_endpoint_configuration"] = http_endpoint_configuration
+        __props__.__dict__["iceberg_configuration"] = iceberg_configuration
         __props__.__dict__["kinesis_source_configuration"] = kinesis_source_configuration
         __props__.__dict__["msk_source_configuration"] = msk_source_configuration
         __props__.__dict__["name"] = name
@@ -1957,6 +2120,14 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
         """
         return pulumi.get(self, "http_endpoint_configuration")
+
+    @property
+    @pulumi.getter(name="icebergConfiguration")
+    def iceberg_configuration(self) -> pulumi.Output[Optional['outputs.FirehoseDeliveryStreamIcebergConfiguration']]:
+        """
+        Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
+        """
+        return pulumi.get(self, "iceberg_configuration")
 
     @property
     @pulumi.getter(name="kinesisSourceConfiguration")

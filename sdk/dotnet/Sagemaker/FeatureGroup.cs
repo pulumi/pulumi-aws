@@ -124,6 +124,9 @@ namespace Pulumi.Aws.Sagemaker
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        [Output("throughputConfig")]
+        public Output<Outputs.FeatureGroupThroughputConfig> ThroughputConfig { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a FeatureGroup resource with the given unique name, arguments, and options.
@@ -236,6 +239,9 @@ namespace Pulumi.Aws.Sagemaker
             set => _tags = value;
         }
 
+        [Input("throughputConfig")]
+        public Input<Inputs.FeatureGroupThroughputConfigArgs>? ThroughputConfig { get; set; }
+
         public FeatureGroupArgs()
         {
         }
@@ -328,6 +334,9 @@ namespace Pulumi.Aws.Sagemaker
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        [Input("throughputConfig")]
+        public Input<Inputs.FeatureGroupThroughputConfigGetArgs>? ThroughputConfig { get; set; }
 
         public FeatureGroupState()
         {

@@ -9,6 +9,7 @@ import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamState;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamElasticsearchConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamExtendedS3Configuration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamHttpEndpointConfiguration;
+import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamIcebergConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamKinesisSourceConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamMskSourceConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamOpensearchConfiguration;
@@ -811,6 +812,117 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Iceberg Destination
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.inputs.GetPartitionArgs;
+ * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.glue.CatalogDatabase;
+ * import com.pulumi.aws.glue.CatalogDatabaseArgs;
+ * import com.pulumi.aws.glue.CatalogTable;
+ * import com.pulumi.aws.glue.CatalogTableArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTableOpenTableFormatInputArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTableOpenTableFormatInputIcebergInputArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorArgs;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamIcebergConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getCallerIdentity();
+ * 
+ *         final var currentGetPartition = AwsFunctions.getPartition();
+ * 
+ *         final var currentGetRegion = AwsFunctions.getRegion();
+ * 
+ *         var bucket = new BucketV2("bucket", BucketV2Args.builder()
+ *             .bucket("test-bucket")
+ *             .forceDestroy(true)
+ *             .build());
+ * 
+ *         var test = new CatalogDatabase("test", CatalogDatabaseArgs.builder()
+ *             .name("test")
+ *             .build());
+ * 
+ *         var testCatalogTable = new CatalogTable("testCatalogTable", CatalogTableArgs.builder()
+ *             .name("test")
+ *             .databaseName(test.name())
+ *             .parameters(Map.of("format", "parquet"))
+ *             .tableType("EXTERNAL_TABLE")
+ *             .openTableFormatInput(CatalogTableOpenTableFormatInputArgs.builder()
+ *                 .icebergInput(CatalogTableOpenTableFormatInputIcebergInputArgs.builder()
+ *                     .metadataOperation("CREATE")
+ *                     .version(2)
+ *                     .build())
+ *                 .build())
+ *             .storageDescriptor(CatalogTableStorageDescriptorArgs.builder()
+ *                 .location(bucket.id().applyValue(id -> String.format("s3://%s", id)))
+ *                 .columns(CatalogTableStorageDescriptorColumnArgs.builder()
+ *                     .name("my_column_1")
+ *                     .type("int")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var testStream = new FirehoseDeliveryStream("testStream", FirehoseDeliveryStreamArgs.builder()
+ *             .name("kinesis-firehose-test-stream")
+ *             .destination("iceberg")
+ *             .icebergConfiguration(FirehoseDeliveryStreamIcebergConfigurationArgs.builder()
+ *                 .roleArn(firehoseRole.arn())
+ *                 .catalogArn(String.format("arn:%s:glue:%s:%s:catalog", currentGetPartition.applyValue(getPartitionResult -> getPartitionResult.partition()),currentGetRegion.applyValue(getRegionResult -> getRegionResult.name()),current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+ *                 .bufferingSize(10)
+ *                 .bufferingInterval(400)
+ *                 .s3Configuration(FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs.builder()
+ *                     .roleArn(firehoseRole.arn())
+ *                     .bucketArn(bucket.arn())
+ *                     .build())
+ *                 .destinationTableConfigurations(FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArgs.builder()
+ *                     .databaseName(test.name())
+ *                     .tableName(testCatalogTable.name())
+ *                     .build())
+ *                 .processingConfiguration(FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs.builder()
+ *                     .enabled("true")
+ *                     .processors(FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArgs.builder()
+ *                         .type("Lambda")
+ *                         .parameters(FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArgs.builder()
+ *                             .parameterName("LambdaArn")
+ *                             .parameterValue(String.format("%s:$LATEST", lambdaProcessor.arn()))
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Splunk Destination
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -1073,6 +1185,20 @@ public class FirehoseDeliveryStream extends com.pulumi.resources.CustomResource 
      */
     public Output<Optional<FirehoseDeliveryStreamHttpEndpointConfiguration>> httpEndpointConfiguration() {
         return Codegen.optional(this.httpEndpointConfiguration);
+    }
+    /**
+     * Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
+     * 
+     */
+    @Export(name="icebergConfiguration", refs={FirehoseDeliveryStreamIcebergConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ FirehoseDeliveryStreamIcebergConfiguration> icebergConfiguration;
+
+    /**
+     * @return Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
+     * 
+     */
+    public Output<Optional<FirehoseDeliveryStreamIcebergConfiguration>> icebergConfiguration() {
+        return Codegen.optional(this.icebergConfiguration);
     }
     /**
      * The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.

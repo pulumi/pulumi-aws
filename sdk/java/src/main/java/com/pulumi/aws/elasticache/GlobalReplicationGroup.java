@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Managing Redis Engine Versions
+ * ### Managing Redis OOS/Valkey Engine Versions
  * 
  * The initial Redis version is determined by the version set on the primary replication group.
  * However, once it is part of a Global Replication Group,

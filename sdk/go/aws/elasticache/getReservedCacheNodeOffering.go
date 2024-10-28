@@ -66,7 +66,7 @@ type GetReservedCacheNodeOfferingArgs struct {
 	// For previous generation modes (i.e. T1, M1, M2, or C1) valid values are `Heavy Utilization`, `Medium Utilization`, and `Light Utilization`.
 	OfferingType string `pulumi:"offeringType"`
 	// Engine type for the reserved cache node.
-	// Valid values are `redis` and `memcached`.
+	// Valid values are `redis`, `valkey` and `memcached`.
 	ProductDescription string `pulumi:"productDescription"`
 }
 
@@ -118,7 +118,7 @@ type GetReservedCacheNodeOfferingOutputArgs struct {
 	// For previous generation modes (i.e. T1, M1, M2, or C1) valid values are `Heavy Utilization`, `Medium Utilization`, and `Light Utilization`.
 	OfferingType pulumi.StringInput `pulumi:"offeringType"`
 	// Engine type for the reserved cache node.
-	// Valid values are `redis` and `memcached`.
+	// Valid values are `redis`, `valkey` and `memcached`.
 	ProductDescription pulumi.StringInput `pulumi:"productDescription"`
 }
 

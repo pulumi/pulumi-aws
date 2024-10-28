@@ -6,6 +6,7 @@ package com.pulumi.aws.kinesis.inputs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamElasticsearchConfigurationArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamHttpEndpointConfigurationArgs;
+import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamIcebergConfigurationArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamKinesisSourceConfigurationArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamMskSourceConfigurationArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchConfigurationArgs;
@@ -107,6 +108,21 @@ public final class FirehoseDeliveryStreamState extends com.pulumi.resources.Reso
      */
     public Optional<Output<FirehoseDeliveryStreamHttpEndpointConfigurationArgs>> httpEndpointConfiguration() {
         return Optional.ofNullable(this.httpEndpointConfiguration);
+    }
+
+    /**
+     * Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
+     * 
+     */
+    @Import(name="icebergConfiguration")
+    private @Nullable Output<FirehoseDeliveryStreamIcebergConfigurationArgs> icebergConfiguration;
+
+    /**
+     * @return Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
+     * 
+     */
+    public Optional<Output<FirehoseDeliveryStreamIcebergConfigurationArgs>> icebergConfiguration() {
+        return Optional.ofNullable(this.icebergConfiguration);
     }
 
     /**
@@ -302,6 +318,7 @@ public final class FirehoseDeliveryStreamState extends com.pulumi.resources.Reso
         this.elasticsearchConfiguration = $.elasticsearchConfiguration;
         this.extendedS3Configuration = $.extendedS3Configuration;
         this.httpEndpointConfiguration = $.httpEndpointConfiguration;
+        this.icebergConfiguration = $.icebergConfiguration;
         this.kinesisSourceConfiguration = $.kinesisSourceConfiguration;
         this.mskSourceConfiguration = $.mskSourceConfiguration;
         this.name = $.name;
@@ -446,6 +463,27 @@ public final class FirehoseDeliveryStreamState extends com.pulumi.resources.Reso
          */
         public Builder httpEndpointConfiguration(FirehoseDeliveryStreamHttpEndpointConfigurationArgs httpEndpointConfiguration) {
             return httpEndpointConfiguration(Output.of(httpEndpointConfiguration));
+        }
+
+        /**
+         * @param icebergConfiguration Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder icebergConfiguration(@Nullable Output<FirehoseDeliveryStreamIcebergConfigurationArgs> icebergConfiguration) {
+            $.icebergConfiguration = icebergConfiguration;
+            return this;
+        }
+
+        /**
+         * @param icebergConfiguration Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder icebergConfiguration(FirehoseDeliveryStreamIcebergConfigurationArgs icebergConfiguration) {
+            return icebergConfiguration(Output.of(icebergConfiguration));
         }
 
         /**

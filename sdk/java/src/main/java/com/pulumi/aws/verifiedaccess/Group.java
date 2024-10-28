@@ -59,6 +59,46 @@ import javax.annotation.Nullable;
  * ### Usage with KMS Key
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import com.pulumi.aws.verifiedaccess.Group;
+ * import com.pulumi.aws.verifiedaccess.GroupArgs;
+ * import com.pulumi.aws.verifiedaccess.inputs.GroupSseConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testKey = new Key("testKey", KeyArgs.builder()
+ *             .description("KMS key for Verified Access Group test")
+ *             .build());
+ * 
+ *         var test = new Group("test", GroupArgs.builder()
+ *             .verifiedaccessInstanceId(testAwsVerifiedaccessInstanceTrustProviderAttachment.verifiedaccessInstanceId())
+ *             .sseConfiguration(GroupSseConfigurationArgs.builder()
+ *                 .kmsKeyArn(testKey.arn())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */

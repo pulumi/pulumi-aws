@@ -350,6 +350,8 @@ if typing.TYPE_CHECKING:
     redshiftserverless = __redshiftserverless
     import pulumi_aws.rekognition as __rekognition
     rekognition = __rekognition
+    import pulumi_aws.resiliencehub as __resiliencehub
+    resiliencehub = __resiliencehub
     import pulumi_aws.resourceexplorer as __resourceexplorer
     resourceexplorer = __resourceexplorer
     import pulumi_aws.resourcegroups as __resourcegroups
@@ -616,6 +618,7 @@ else:
     redshiftdata = _utilities.lazy_import('pulumi_aws.redshiftdata')
     redshiftserverless = _utilities.lazy_import('pulumi_aws.redshiftserverless')
     rekognition = _utilities.lazy_import('pulumi_aws.rekognition')
+    resiliencehub = _utilities.lazy_import('pulumi_aws.resiliencehub')
     resourceexplorer = _utilities.lazy_import('pulumi_aws.resourceexplorer')
     resourcegroups = _utilities.lazy_import('pulumi_aws.resourcegroups')
     resourcegroupstaggingapi = _utilities.lazy_import('pulumi_aws.resourcegroupstaggingapi')
@@ -6689,6 +6692,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "imagebuilder/lifecyclePolicy",
+  "fqn": "pulumi_aws.imagebuilder",
+  "classes": {
+   "aws:imagebuilder/lifecyclePolicy:LifecyclePolicy": "LifecyclePolicy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "imagebuilder/workflow",
   "fqn": "pulumi_aws.imagebuilder",
   "classes": {
@@ -9465,6 +9476,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "resiliencehub/resiliencyPolicy",
+  "fqn": "pulumi_aws.resiliencehub",
+  "classes": {
+   "aws:resiliencehub/resiliencyPolicy:ResiliencyPolicy": "ResiliencyPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "resourceexplorer/index",
   "fqn": "pulumi_aws.resourceexplorer",
   "classes": {
@@ -10249,6 +10268,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "sagemaker/hub",
+  "fqn": "pulumi_aws.sagemaker",
+  "classes": {
+   "aws:sagemaker/hub:Hub": "Hub"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "sagemaker/humanTaskUI",
   "fqn": "pulumi_aws.sagemaker",
   "classes": {
@@ -10269,6 +10296,14 @@ _utilities.register(
   "fqn": "pulumi_aws.sagemaker",
   "classes": {
    "aws:sagemaker/imageVersion:ImageVersion": "ImageVersion"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "sagemaker/mlflowTrackingServer",
+  "fqn": "pulumi_aws.sagemaker",
+  "classes": {
+   "aws:sagemaker/mlflowTrackingServer:MlflowTrackingServer": "MlflowTrackingServer"
   }
  },
  {

@@ -14,13 +14,21 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class SpaceSpaceSettingsCodeEditorAppSettings
     {
         /// <summary>
+        /// Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
+        /// </summary>
+        public readonly Outputs.SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement? AppLifecycleManagement;
+        /// <summary>
         /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
         /// </summary>
         public readonly Outputs.SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec DefaultResourceSpec;
 
         [OutputConstructor]
-        private SpaceSpaceSettingsCodeEditorAppSettings(Outputs.SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec defaultResourceSpec)
+        private SpaceSpaceSettingsCodeEditorAppSettings(
+            Outputs.SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement? appLifecycleManagement,
+
+            Outputs.SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec defaultResourceSpec)
         {
+            AppLifecycleManagement = appLifecycleManagement;
             DefaultResourceSpec = defaultResourceSpec;
         }
     }

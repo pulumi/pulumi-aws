@@ -300,6 +300,10 @@ export class Listener extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
+     */
+    public readonly tcpIdleTimeoutSeconds!: pulumi.Output<number | undefined>;
 
     /**
      * Create a Listener resource with the given unique name, arguments, and options.
@@ -325,6 +329,7 @@ export class Listener extends pulumi.CustomResource {
             resourceInputs["sslPolicy"] = state ? state.sslPolicy : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["tcpIdleTimeoutSeconds"] = state ? state.tcpIdleTimeoutSeconds : undefined;
         } else {
             const args = argsOrState as ListenerArgs | undefined;
             if ((!args || args.defaultActions === undefined) && !opts.urn) {
@@ -342,6 +347,7 @@ export class Listener extends pulumi.CustomResource {
             resourceInputs["protocol"] = args ? args.protocol : undefined;
             resourceInputs["sslPolicy"] = args ? args.sslPolicy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tcpIdleTimeoutSeconds"] = args ? args.tcpIdleTimeoutSeconds : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -404,6 +410,10 @@ export interface ListenerState {
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
+     */
+    tcpIdleTimeoutSeconds?: pulumi.Input<number>;
 }
 
 /**
@@ -448,4 +458,8 @@ export interface ListenerArgs {
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
+     */
+    tcpIdleTimeoutSeconds?: pulumi.Input<number>;
 }

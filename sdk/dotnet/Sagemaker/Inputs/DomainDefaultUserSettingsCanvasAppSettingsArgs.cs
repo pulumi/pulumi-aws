@@ -18,6 +18,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         [Input("directDeploySettings")]
         public Input<Inputs.DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs>? DirectDeploySettings { get; set; }
 
+        /// <summary>
+        /// The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emr_serverless_settings` Block below.
+        /// </summary>
+        [Input("emrServerlessSettings")]
+        public Input<Inputs.DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs>? EmrServerlessSettings { get; set; }
+
         [Input("generativeAiSettings")]
         public Input<Inputs.DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs>? GenerativeAiSettings { get; set; }
 

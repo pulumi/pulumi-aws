@@ -14875,6 +14875,32 @@ export namespace codedeploy {
         percentage?: pulumi.Input<number>;
     }
 
+    export interface DeploymentConfigZonalConfig {
+        /**
+         * The period of time, in seconds, that CodeDeploy must wait after completing a deployment to the first Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the second Availability Zone. If you don't specify a value for `firstZoneMonitorDurationInSeconds`, then CodeDeploy uses the `monitorDurationInSeconds` value for the first Availability Zone.
+         */
+        firstZoneMonitorDurationInSeconds?: pulumi.Input<number>;
+        /**
+         * The number or percentage of instances that must remain available per Availability Zone during a deployment. If you don't specify a value under `minimumHealthyHostsPerZone`, then CodeDeploy uses a default value of 0 percent. This block is more documented below.
+         */
+        minimumHealthyHostsPerZone?: pulumi.Input<inputs.codedeploy.DeploymentConfigZonalConfigMinimumHealthyHostsPerZone>;
+        /**
+         * The period of time, in seconds, that CodeDeploy must wait after completing a deployment to an Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the next Availability Zone. If you don't specify a `monitorDurationInSeconds`, CodeDeploy starts deploying to the next Availability Zone immediately.
+         */
+        monitorDurationInSeconds?: pulumi.Input<number>;
+    }
+
+    export interface DeploymentConfigZonalConfigMinimumHealthyHostsPerZone {
+        /**
+         * The type can either be `FLEET_PERCENT` or `HOST_COUNT`.
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * The value when the type is `FLEET_PERCENT` represents the minimum number of healthy instances as a percentage of the total number of instances in the Availability Zone during a deployment. If you specify FLEET_PERCENT, at the start of the deployment, AWS CodeDeploy converts the percentage to the equivalent number of instance and rounds up fractional instances. When the type is `HOST_COUNT`, the value represents the minimum number of healthy instances in the Availability Zone as an absolute value.
+         */
+        value?: pulumi.Input<number>;
+    }
+
     export interface DeploymentGroupAlarmConfiguration {
         /**
          * A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
@@ -16996,11 +17022,11 @@ export namespace costexplorer {
          */
         dimension?: pulumi.Input<inputs.costexplorer.AnomalySubscriptionThresholdExpressionDimension>;
         /**
-         * Return results that match both Dimension object.
+         * Return results that do not match the Dimension object.
          */
         not?: pulumi.Input<inputs.costexplorer.AnomalySubscriptionThresholdExpressionNot>;
         /**
-         * Return results that match both Dimension object.
+         * Return results that match either Dimension object.
          */
         ors?: pulumi.Input<pulumi.Input<inputs.costexplorer.AnomalySubscriptionThresholdExpressionOr>[]>;
         /**
@@ -34108,6 +34134,139 @@ export namespace imagebuilder {
          */
         s3KeyPrefix?: pulumi.Input<string>;
     }
+
+    export interface LifecyclePolicyPolicyDetail {
+        /**
+         * Configuration details for the policy action.
+         */
+        action?: pulumi.Input<inputs.imagebuilder.LifecyclePolicyPolicyDetailAction>;
+        /**
+         * Additional rules to specify resources that should be exempt from policy actions.
+         */
+        exclusionRules?: pulumi.Input<inputs.imagebuilder.LifecyclePolicyPolicyDetailExclusionRules>;
+        /**
+         * Specifies the resources that the lifecycle policy applies to.
+         *
+         * The following arguments are optional:
+         */
+        filter?: pulumi.Input<inputs.imagebuilder.LifecyclePolicyPolicyDetailFilter>;
+    }
+
+    export interface LifecyclePolicyPolicyDetailAction {
+        /**
+         * Specifies the resources that the lifecycle policy applies to. Detailed below.
+         */
+        includeResources?: pulumi.Input<inputs.imagebuilder.LifecyclePolicyPolicyDetailActionIncludeResources>;
+        /**
+         * Specifies the lifecycle action to take. Valid values: `DELETE`, `DEPRECATE` or `DISABLE`.
+         *
+         * The following arguments are optional:
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface LifecyclePolicyPolicyDetailActionIncludeResources {
+        /**
+         * Specifies whether the lifecycle action should apply to distributed AMIs.
+         */
+        amis?: pulumi.Input<boolean>;
+        /**
+         * Specifies whether the lifecycle action should apply to distributed containers.
+         */
+        containers?: pulumi.Input<boolean>;
+        /**
+         * Specifies whether the lifecycle action should apply to snapshots associated with distributed AMIs.
+         */
+        snapshots?: pulumi.Input<boolean>;
+    }
+
+    export interface LifecyclePolicyPolicyDetailExclusionRules {
+        /**
+         * Lists configuration values that apply to AMIs that Image Builder should exclude from the lifecycle action. Detailed below.
+         */
+        amis?: pulumi.Input<inputs.imagebuilder.LifecyclePolicyPolicyDetailExclusionRulesAmis>;
+        /**
+         * Contains a list of tags that Image Builder uses to skip lifecycle actions for Image Builder image resources that have them.
+         */
+        tagMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface LifecyclePolicyPolicyDetailExclusionRulesAmis {
+        /**
+         * Configures whether public AMIs are excluded from the lifecycle action.
+         */
+        isPublic?: pulumi.Input<boolean>;
+        /**
+         * Specifies configuration details for Image Builder to exclude the most recent resources from lifecycle actions. Detailed below.
+         */
+        lastLaunched?: pulumi.Input<inputs.imagebuilder.LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunched>;
+        /**
+         * Configures AWS Regions that are excluded from the lifecycle action.
+         */
+        regions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies AWS accounts whose resources are excluded from the lifecycle action.
+         */
+        sharedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Lists tags that should be excluded from lifecycle actions for the AMIs that have them.
+         */
+        tagMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunched {
+        /**
+         * Defines the unit of time that the lifecycle policy uses to calculate elapsed time since the last instance launched from the AMI. For example: days, weeks, months, or years. Valid values: `DAYS`, `WEEKS`, `MONTHS` or `YEARS`.
+         */
+        unit: pulumi.Input<string>;
+        /**
+         * The integer number of units for the time period. For example 6 (months).
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface LifecyclePolicyPolicyDetailFilter {
+        /**
+         * For age-based filters, this is the number of resources to keep on hand after the lifecycle DELETE action is applied. Impacted resources are only deleted if you have more than this number of resources. If you have fewer resources than this number, the impacted resource is not deleted.
+         */
+        retainAtLeast?: pulumi.Input<number>;
+        /**
+         * Filter resources based on either age or count. Valid values: `AGE` or `COUNT`.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * Defines the unit of time that the lifecycle policy uses to determine impacted resources. This is required for age-based rules. Valid values: `DAYS`, `WEEKS`, `MONTHS` or `YEARS`.
+         */
+        unit?: pulumi.Input<string>;
+        /**
+         * The number of units for the time period or for the count. For example, a value of 6 might refer to six months or six AMIs.
+         *
+         * The following arguments are optional:
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface LifecyclePolicyResourceSelection {
+        /**
+         * A list of recipe that are used as selection criteria for the output images that the lifecycle policy applies to. Detailed below.
+         */
+        recipes?: pulumi.Input<pulumi.Input<inputs.imagebuilder.LifecyclePolicyResourceSelectionRecipe>[]>;
+        /**
+         * A list of tags that are used as selection criteria for the Image Builder image resources that the lifecycle policy applies to.
+         */
+        tagMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface LifecyclePolicyResourceSelectionRecipe {
+        /**
+         * The name of an Image Builder recipe that the lifecycle policy uses for resource selection.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The version of the Image Builder recipe specified by the name field.
+         */
+        semanticVersion: pulumi.Input<string>;
+    }
 }
 
 export namespace inspector {
@@ -36458,14 +36617,14 @@ export namespace kinesis {
          */
         parameters?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter>[]>;
         /**
-         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
          */
         type: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter {
         /**
-         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
          */
         parameterName: pulumi.Input<string>;
         /**
@@ -36823,14 +36982,14 @@ export namespace kinesis {
          */
         parameters?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter>[]>;
         /**
-         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
          */
         type: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter {
         /**
-         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
          */
         parameterName: pulumi.Input<string>;
         /**
@@ -36971,14 +37130,14 @@ export namespace kinesis {
          */
         parameters?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter>[]>;
         /**
-         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
          */
         type: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter {
         /**
-         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
          */
         parameterName: pulumi.Input<string>;
         /**
@@ -37080,6 +37239,171 @@ export namespace kinesis {
          * The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
          */
         secretArn?: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamIcebergConfiguration {
+        /**
+         * Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
+         */
+        bufferingInterval?: pulumi.Input<number>;
+        /**
+         * Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
+         */
+        bufferingSize?: pulumi.Input<number>;
+        /**
+         * Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`
+         */
+        catalogArn: pulumi.Input<string>;
+        /**
+         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         */
+        cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions>;
+        /**
+         * Destination table configurations which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided. See `destinationTableConfiguration` block below for details.
+         */
+        destinationTableConfigurations?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration>[]>;
+        /**
+         * The data processing configuration.  See `processingConfiguration` block below for details.
+         */
+        processingConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration>;
+        /**
+         * The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
+         */
+        retryDuration?: pulumi.Input<number>;
+        /**
+         * The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+         */
+        roleArn: pulumi.Input<string>;
+        s3BackupMode?: pulumi.Input<string>;
+        /**
+         * The S3 Configuration. See `s3Configuration` block below for details.
+         */
+        s3Configuration: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamIcebergConfigurationS3Configuration>;
+    }
+
+    export interface FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions {
+        /**
+         * Enables or disables the logging. Defaults to `false`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The CloudWatch group name for logging. This value is required if `enabled` is true.
+         */
+        logGroupName?: pulumi.Input<string>;
+        /**
+         * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+         */
+        logStreamName?: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration {
+        /**
+         * The name of the Apache Iceberg database.
+         */
+        databaseName: pulumi.Input<string>;
+        /**
+         * The table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
+         */
+        s3ErrorOutputPrefix?: pulumi.Input<string>;
+        /**
+         * The name of the Apache Iceberg Table.
+         */
+        tableName: pulumi.Input<string>;
+        /**
+         * A list of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
+         */
+        uniqueKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration {
+        /**
+         * Enables or disables data processing.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * Specifies the data processors as multiple blocks. See `processors` block below for details.
+         */
+        processors?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessor>[]>;
+    }
+
+    export interface FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessor {
+        /**
+         * Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+         */
+        parameters?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameter>[]>;
+        /**
+         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameter {
+        /**
+         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
+         */
+        parameterName: pulumi.Input<string>;
+        /**
+         * Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+         *
+         * > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
+         */
+        parameterValue: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamIcebergConfigurationS3Configuration {
+        /**
+         * The ARN of the S3 bucket
+         */
+        bucketArn: pulumi.Input<string>;
+        /**
+         * Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+         */
+        bufferingInterval?: pulumi.Input<number>;
+        /**
+         * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+         */
+        bufferingSize?: pulumi.Input<number>;
+        /**
+         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         */
+        cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions>;
+        /**
+         * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+         */
+        compressionFormat?: pulumi.Input<string>;
+        /**
+         * Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+         */
+        errorOutputPrefix?: pulumi.Input<string>;
+        /**
+         * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
+         * be used.
+         */
+        kmsKeyArn?: pulumi.Input<string>;
+        /**
+         * The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+         */
+        prefix?: pulumi.Input<string>;
+        /**
+         * The ARN of the AWS credentials.
+         */
+        roleArn: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions {
+        /**
+         * Enables or disables the logging. Defaults to `false`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The CloudWatch group name for logging. This value is required if `enabled` is true.
+         */
+        logGroupName?: pulumi.Input<string>;
+        /**
+         * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+         */
+        logStreamName?: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamKinesisSourceConfiguration {
@@ -37221,14 +37545,14 @@ export namespace kinesis {
          */
         parameters?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameter>[]>;
         /**
-         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
          */
         type: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameter {
         /**
-         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
          */
         parameterName: pulumi.Input<string>;
         /**
@@ -37390,14 +37714,14 @@ export namespace kinesis {
          */
         parameters?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter>[]>;
         /**
-         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
          */
         type: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter {
         /**
-         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
          */
         parameterName: pulumi.Input<string>;
         /**
@@ -37569,14 +37893,14 @@ export namespace kinesis {
          */
         parameters?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter>[]>;
         /**
-         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
          */
         type: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter {
         /**
-         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
          */
         parameterName: pulumi.Input<string>;
         /**
@@ -37835,14 +38159,14 @@ export namespace kinesis {
          */
         parameters?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameter>[]>;
         /**
-         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
          */
         type: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameter {
         /**
-         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
          */
         parameterName: pulumi.Input<string>;
         /**
@@ -38023,14 +38347,14 @@ export namespace kinesis {
          */
         parameters?: pulumi.Input<pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter>[]>;
         /**
-         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
          */
         type: pulumi.Input<string>;
     }
 
     export interface FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter {
         /**
-         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
+         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
          */
         parameterName: pulumi.Input<string>;
         /**
@@ -64184,6 +64508,88 @@ export namespace rekognition {
     }
 }
 
+export namespace resiliencehub {
+    export interface ResiliencyPolicyPolicy {
+        /**
+         * Specifies Availability Zone failure policy. See `policy.az`
+         */
+        az?: pulumi.Input<inputs.resiliencehub.ResiliencyPolicyPolicyAz>;
+        /**
+         * Specifies Infrastructure failure policy. See `policy.hardware`
+         */
+        hardware?: pulumi.Input<inputs.resiliencehub.ResiliencyPolicyPolicyHardware>;
+        /**
+         * Specifies Region failure policy. `policy.region`
+         */
+        region?: pulumi.Input<inputs.resiliencehub.ResiliencyPolicyPolicyRegion>;
+        /**
+         * Specifies Application failure policy. See `policy.software`
+         *
+         * The following arguments are optional:
+         */
+        software?: pulumi.Input<inputs.resiliencehub.ResiliencyPolicyPolicySoftware>;
+    }
+
+    export interface ResiliencyPolicyPolicyAz {
+        /**
+         * Recovery Point Objective (RPO) as a Go duration.
+         */
+        rpo: pulumi.Input<string>;
+        /**
+         * Recovery Time Objective (RTO) as a Go duration.
+         */
+        rto: pulumi.Input<string>;
+    }
+
+    export interface ResiliencyPolicyPolicyHardware {
+        /**
+         * Recovery Point Objective (RPO) as a Go duration.
+         */
+        rpo: pulumi.Input<string>;
+        /**
+         * Recovery Time Objective (RTO) as a Go duration.
+         */
+        rto: pulumi.Input<string>;
+    }
+
+    export interface ResiliencyPolicyPolicyRegion {
+        /**
+         * Recovery Point Objective (RPO) as a Go duration.
+         */
+        rpo?: pulumi.Input<string>;
+        /**
+         * Recovery Time Objective (RTO) as a Go duration.
+         */
+        rto?: pulumi.Input<string>;
+    }
+
+    export interface ResiliencyPolicyPolicySoftware {
+        /**
+         * Recovery Point Objective (RPO) as a Go duration.
+         */
+        rpo: pulumi.Input<string>;
+        /**
+         * Recovery Time Objective (RTO) as a Go duration.
+         */
+        rto: pulumi.Input<string>;
+    }
+
+    export interface ResiliencyPolicyTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string>;
+    }
+}
+
 export namespace resourceexplorer {
     export interface IndexTimeouts {
         /**
@@ -64693,9 +65099,9 @@ export namespace route53 {
          */
         delete?: pulumi.Input<string>;
         /**
-         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
          */
-        read?: pulumi.Input<string>;
+        update?: pulumi.Input<string>;
     }
 
     export interface ProfilesProfileTimeouts {
@@ -67861,6 +68267,14 @@ export namespace sagemaker {
 
     export interface DomainDefaultSpaceSettingsJupyterLabAppSettings {
         /**
+         * Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
+         */
+        appLifecycleManagement?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement>;
+        /**
+         * The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+         */
+        builtInLifecycleConfigArn?: pulumi.Input<string>;
+        /**
          * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
          */
         codeRepositories?: pulumi.Input<pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepository>[]>;
@@ -67873,9 +68287,39 @@ export namespace sagemaker {
          */
         defaultResourceSpec?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec>;
         /**
+         * The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
+         */
+        emrSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings>;
+        /**
          * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
          */
         lifecycleConfigArns?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement {
+        /**
+         * Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
+         */
+        idleSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings>;
+    }
+
+    export interface DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings {
+        /**
+         * The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+         */
+        idleTimeoutInMinutes?: pulumi.Input<number>;
+        /**
+         * Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+         */
+        lifecycleManagement?: pulumi.Input<string>;
+        /**
+         * The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+         */
+        maxIdleTimeoutInMinutes?: pulumi.Input<number>;
+        /**
+         * The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+         */
+        minIdleTimeoutInMinutes?: pulumi.Input<number>;
     }
 
     export interface DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepository {
@@ -67921,6 +68365,17 @@ export namespace sagemaker {
          * The ARN of the image version created on the instance.
          */
         sagemakerImageVersionArn?: pulumi.Input<string>;
+    }
+
+    export interface DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings {
+        /**
+         * An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker domain.
+         */
+        assumableRoleArns?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+         */
+        executionRoleArns?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface DomainDefaultSpaceSettingsJupyterServerAppSettings {
@@ -68041,6 +68496,10 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettings {
         /**
+         * Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
+         */
+        autoMountHomeEfs?: pulumi.Input<string>;
+        /**
          * The Canvas app settings. See `canvasAppSettings` Block below.
          */
         canvasAppSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsCanvasAppSettings>;
@@ -68115,6 +68574,10 @@ export namespace sagemaker {
          * The model deployment settings for the SageMaker Canvas application. See `directDeploySettings` Block below.
          */
         directDeploySettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings>;
+        /**
+         * The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emrServerlessSettings` Block below.
+         */
+        emrServerlessSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings>;
         generativeAiSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings>;
         /**
          * The settings for connecting to an external data source with OAuth. See `identityProviderOauthSettings` Block below.
@@ -68141,6 +68604,17 @@ export namespace sagemaker {
     export interface DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings {
         /**
          * Describes whether model deployment permissions are enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+         */
+        status?: pulumi.Input<string>;
+    }
+
+    export interface DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings {
+        /**
+         * The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+         */
+        executionRoleArn?: pulumi.Input<string>;
+        /**
+         * Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker Canvas application. Valid values are: `ENABLED` and `DISABLED`.
          */
         status?: pulumi.Input<string>;
     }
@@ -68206,6 +68680,14 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettingsCodeEditorAppSettings {
         /**
+         * Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
+         */
+        appLifecycleManagement?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement>;
+        /**
+         * The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+         */
+        builtInLifecycleConfigArn?: pulumi.Input<string>;
+        /**
          * A list of custom SageMaker images that are configured to run as a CodeEditor app. see `customImage` Block below.
          */
         customImages?: pulumi.Input<pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage>[]>;
@@ -68217,6 +68699,32 @@ export namespace sagemaker {
          * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
          */
         lifecycleConfigArns?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement {
+        /**
+         * Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
+         */
+        idleSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings>;
+    }
+
+    export interface DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings {
+        /**
+         * The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+         */
+        idleTimeoutInMinutes?: pulumi.Input<number>;
+        /**
+         * Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+         */
+        lifecycleManagement?: pulumi.Input<string>;
+        /**
+         * The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+         */
+        maxIdleTimeoutInMinutes?: pulumi.Input<number>;
+        /**
+         * The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+         */
+        minIdleTimeoutInMinutes?: pulumi.Input<number>;
     }
 
     export interface DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage {
@@ -68288,6 +68796,14 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettingsJupyterLabAppSettings {
         /**
+         * Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
+         */
+        appLifecycleManagement?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement>;
+        /**
+         * The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+         */
+        builtInLifecycleConfigArn?: pulumi.Input<string>;
+        /**
          * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
          */
         codeRepositories?: pulumi.Input<pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository>[]>;
@@ -68300,9 +68816,39 @@ export namespace sagemaker {
          */
         defaultResourceSpec?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec>;
         /**
+         * The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
+         */
+        emrSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings>;
+        /**
          * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
          */
         lifecycleConfigArns?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement {
+        /**
+         * Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
+         */
+        idleSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings>;
+    }
+
+    export interface DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings {
+        /**
+         * The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+         */
+        idleTimeoutInMinutes?: pulumi.Input<number>;
+        /**
+         * Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+         */
+        lifecycleManagement?: pulumi.Input<string>;
+        /**
+         * The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+         */
+        maxIdleTimeoutInMinutes?: pulumi.Input<number>;
+        /**
+         * The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+         */
+        minIdleTimeoutInMinutes?: pulumi.Input<number>;
     }
 
     export interface DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository {
@@ -68348,6 +68894,17 @@ export namespace sagemaker {
          * The ARN of the image version created on the instance.
          */
         sagemakerImageVersionArn?: pulumi.Input<string>;
+    }
+
+    export interface DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings {
+        /**
+         * An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker domain.
+         */
+        assumableRoleArns?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+         */
+        executionRoleArns?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface DomainDefaultUserSettingsJupyterServerAppSettings {
@@ -68546,6 +69103,10 @@ export namespace sagemaker {
          * The Applications supported in Studio that are hidden from the Studio left navigation pane.
          */
         hiddenAppTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The instance types you are hiding from the Studio user interface.
+         */
+        hiddenInstanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The machine learning tools that are hidden from the Studio left navigation pane.
          */
@@ -69104,6 +69665,8 @@ export namespace sagemaker {
     }
 
     export interface FeatureGroupFeatureDefinition {
+        collectionConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupFeatureDefinitionCollectionConfig>;
+        collectionType?: pulumi.Input<string>;
         /**
          * The name of a feature. `featureName` cannot be any of the following: `isDeleted`, `writeTime`, `apiInvocationTime`.
          */
@@ -69112,6 +69675,14 @@ export namespace sagemaker {
          * The value type of a feature. Valid values are `Integral`, `Fractional`, or `String`.
          */
         featureType?: pulumi.Input<string>;
+    }
+
+    export interface FeatureGroupFeatureDefinitionCollectionConfig {
+        vectorConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupFeatureDefinitionCollectionConfigVectorConfig>;
+    }
+
+    export interface FeatureGroupFeatureDefinitionCollectionConfigVectorConfig {
+        dimension?: pulumi.Input<number>;
     }
 
     export interface FeatureGroupOfflineStoreConfig {
@@ -69198,6 +69769,12 @@ export namespace sagemaker {
          * TtlDuration time value.
          */
         value?: pulumi.Input<number>;
+    }
+
+    export interface FeatureGroupThroughputConfig {
+        provisionedReadCapacityUnits?: pulumi.Input<number>;
+        provisionedWriteCapacityUnits?: pulumi.Input<number>;
+        throughputMode?: pulumi.Input<string>;
     }
 
     export interface FlowDefinitionHumanLoopActivationConfig {
@@ -69291,6 +69868,13 @@ export namespace sagemaker {
          * The Amazon S3 path where the object containing human output will be made available.
          */
         s3OutputPath: pulumi.Input<string>;
+    }
+
+    export interface HubS3StorageConfig {
+        /**
+         * The Amazon S3 bucket prefix for hosting hub content.interface.
+         */
+        s3OutputPath?: pulumi.Input<string>;
     }
 
     export interface HumanTaskUIUiTemplate {
@@ -69645,9 +70229,27 @@ export namespace sagemaker {
 
     export interface SpaceSpaceSettingsCodeEditorAppSettings {
         /**
+         * Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `appLifecycleManagement` Block below.
+         */
+        appLifecycleManagement?: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement>;
+        /**
          * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
          */
         defaultResourceSpec: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec>;
+    }
+
+    export interface SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement {
+        /**
+         * Settings related to idle shutdown of Studio applications. See `idleSettings` Block below.
+         */
+        idleSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings>;
+    }
+
+    export interface SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings {
+        /**
+         * The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+         */
+        idleTimeoutInMinutes?: pulumi.Input<number>;
     }
 
     export interface SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec {
@@ -69689,6 +70291,10 @@ export namespace sagemaker {
 
     export interface SpaceSpaceSettingsJupyterLabAppSettings {
         /**
+         * Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `appLifecycleManagement` Block below.
+         */
+        appLifecycleManagement?: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement>;
+        /**
          * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `codeRepository` Block below.
          */
         codeRepositories?: pulumi.Input<pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository>[]>;
@@ -69696,6 +70302,20 @@ export namespace sagemaker {
          * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
          */
         defaultResourceSpec: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec>;
+    }
+
+    export interface SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement {
+        /**
+         * Settings related to idle shutdown of Studio applications. See `idleSettings` Block below.
+         */
+        idleSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings>;
+    }
+
+    export interface SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings {
+        /**
+         * The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+         */
+        idleTimeoutInMinutes?: pulumi.Input<number>;
     }
 
     export interface SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository {
@@ -69849,6 +70469,10 @@ export namespace sagemaker {
 
     export interface UserProfileUserSettings {
         /**
+         * Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
+         */
+        autoMountHomeEfs?: pulumi.Input<string>;
+        /**
          * The Canvas app settings. See Canvas App Settings below.
          */
         canvasAppSettings?: pulumi.Input<inputs.sagemaker.UserProfileUserSettingsCanvasAppSettings>;
@@ -69923,6 +70547,10 @@ export namespace sagemaker {
          * The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
          */
         directDeploySettings?: pulumi.Input<inputs.sagemaker.UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings>;
+        /**
+         * The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emrServerlessSettings` Block below.
+         */
+        emrServerlessSettings?: pulumi.Input<inputs.sagemaker.UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings>;
         generativeAiSettings?: pulumi.Input<inputs.sagemaker.UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings>;
         /**
          * The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
@@ -69949,6 +70577,17 @@ export namespace sagemaker {
     export interface UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings {
         /**
          * Describes whether model deployment permissions are enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+         */
+        status?: pulumi.Input<string>;
+    }
+
+    export interface UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings {
+        /**
+         * The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+         */
+        executionRoleArn?: pulumi.Input<string>;
+        /**
+         * Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker Canvas application. Valid values are: `ENABLED` and `DISABLED`.
          */
         status?: pulumi.Input<string>;
     }
@@ -70014,6 +70653,14 @@ export namespace sagemaker {
 
     export interface UserProfileUserSettingsCodeEditorAppSettings {
         /**
+         * Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
+         */
+        appLifecycleManagement?: pulumi.Input<inputs.sagemaker.UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement>;
+        /**
+         * The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+         */
+        builtInLifecycleConfigArn?: pulumi.Input<string>;
+        /**
          * A list of custom SageMaker images that are configured to run as a CodeEditor app. see Custom Image below.
          */
         customImages?: pulumi.Input<pulumi.Input<inputs.sagemaker.UserProfileUserSettingsCodeEditorAppSettingsCustomImage>[]>;
@@ -70025,6 +70672,32 @@ export namespace sagemaker {
          * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
          */
         lifecycleConfigArns?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement {
+        /**
+         * Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
+         */
+        idleSettings?: pulumi.Input<inputs.sagemaker.UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings>;
+    }
+
+    export interface UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings {
+        /**
+         * The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+         */
+        idleTimeoutInMinutes?: pulumi.Input<number>;
+        /**
+         * Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+         */
+        lifecycleManagement?: pulumi.Input<string>;
+        /**
+         * The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+         */
+        maxIdleTimeoutInMinutes?: pulumi.Input<number>;
+        /**
+         * The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+         */
+        minIdleTimeoutInMinutes?: pulumi.Input<number>;
     }
 
     export interface UserProfileUserSettingsCodeEditorAppSettingsCustomImage {
@@ -70096,6 +70769,14 @@ export namespace sagemaker {
 
     export interface UserProfileUserSettingsJupyterLabAppSettings {
         /**
+         * Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
+         */
+        appLifecycleManagement?: pulumi.Input<inputs.sagemaker.UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement>;
+        /**
+         * The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+         */
+        builtInLifecycleConfigArn?: pulumi.Input<string>;
+        /**
          * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
          */
         codeRepositories?: pulumi.Input<pulumi.Input<inputs.sagemaker.UserProfileUserSettingsJupyterLabAppSettingsCodeRepository>[]>;
@@ -70105,9 +70786,39 @@ export namespace sagemaker {
          */
         defaultResourceSpec?: pulumi.Input<inputs.sagemaker.UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec>;
         /**
+         * The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
+         */
+        emrSettings?: pulumi.Input<inputs.sagemaker.UserProfileUserSettingsJupyterLabAppSettingsEmrSettings>;
+        /**
          * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
          */
         lifecycleConfigArns?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement {
+        /**
+         * Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
+         */
+        idleSettings?: pulumi.Input<inputs.sagemaker.UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings>;
+    }
+
+    export interface UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings {
+        /**
+         * The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+         */
+        idleTimeoutInMinutes?: pulumi.Input<number>;
+        /**
+         * Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+         */
+        lifecycleManagement?: pulumi.Input<string>;
+        /**
+         * The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+         */
+        maxIdleTimeoutInMinutes?: pulumi.Input<number>;
+        /**
+         * The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+         */
+        minIdleTimeoutInMinutes?: pulumi.Input<number>;
     }
 
     export interface UserProfileUserSettingsJupyterLabAppSettingsCodeRepository {
@@ -70153,6 +70864,17 @@ export namespace sagemaker {
          * The ARN of the image version created on the instance.
          */
         sagemakerImageVersionArn?: pulumi.Input<string>;
+    }
+
+    export interface UserProfileUserSettingsJupyterLabAppSettingsEmrSettings {
+        /**
+         * An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker domain.
+         */
+        assumableRoleArns?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+         */
+        executionRoleArns?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface UserProfileUserSettingsJupyterServerAppSettings {
@@ -70351,6 +71073,10 @@ export namespace sagemaker {
          * The Applications supported in Studio that are hidden from the Studio left navigation pane.
          */
         hiddenAppTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The instance types you are hiding from the Studio user interface.
+         */
+        hiddenInstanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The machine learning tools that are hidden from the Studio left navigation pane.
          */
@@ -74052,6 +74778,28 @@ export namespace ssm {
         name: pulumi.Input<string>;
         /**
          * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetPatchBaselinesFilter {
+        /**
+         * Filter key. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for valid values.
+         */
+        key: string;
+        /**
+         * Filter values. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for example values.
+         */
+        values: string[];
+    }
+
+    export interface GetPatchBaselinesFilterArgs {
+        /**
+         * Filter key. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for valid values.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Filter values. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for example values.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }

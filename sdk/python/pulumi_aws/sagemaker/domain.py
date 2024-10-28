@@ -32,6 +32,7 @@ class DomainArgs:
                  domain_settings: Optional[pulumi.Input['DomainDomainSettingsArgs']] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  retention_policy: Optional[pulumi.Input['DomainRetentionPolicyArgs']] = None,
+                 tag_propagation: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Domain resource.
@@ -48,6 +49,7 @@ class DomainArgs:
         :param pulumi.Input['DomainDomainSettingsArgs'] domain_settings: The domain settings. See `domain_settings` Block below.
         :param pulumi.Input[str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
         :param pulumi.Input['DomainRetentionPolicyArgs'] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
+        :param pulumi.Input[str] tag_propagation: Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "auth_mode", auth_mode)
@@ -67,6 +69,8 @@ class DomainArgs:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if retention_policy is not None:
             pulumi.set(__self__, "retention_policy", retention_policy)
+        if tag_propagation is not None:
+            pulumi.set(__self__, "tag_propagation", tag_propagation)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -205,6 +209,18 @@ class DomainArgs:
         pulumi.set(self, "retention_policy", value)
 
     @property
+    @pulumi.getter(name="tagPropagation")
+    def tag_propagation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
+        """
+        return pulumi.get(self, "tag_propagation")
+
+    @tag_propagation.setter
+    def tag_propagation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tag_propagation", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -235,6 +251,7 @@ class _DomainState:
                  single_sign_on_application_arn: Optional[pulumi.Input[str]] = None,
                  single_sign_on_managed_application_instance_id: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tag_propagation: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
@@ -256,6 +273,7 @@ class _DomainState:
         :param pulumi.Input[str] single_sign_on_application_arn: The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
         :param pulumi.Input[str] single_sign_on_managed_application_instance_id: The SSO managed application instance ID.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The VPC subnets that Studio uses for communication.
+        :param pulumi.Input[str] tag_propagation: Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] url: The domain's URL.
@@ -293,6 +311,8 @@ class _DomainState:
             pulumi.set(__self__, "single_sign_on_managed_application_instance_id", single_sign_on_managed_application_instance_id)
         if subnet_ids is not None:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if tag_propagation is not None:
+            pulumi.set(__self__, "tag_propagation", tag_propagation)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -486,6 +506,18 @@ class _DomainState:
         pulumi.set(self, "subnet_ids", value)
 
     @property
+    @pulumi.getter(name="tagPropagation")
+    def tag_propagation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
+        """
+        return pulumi.get(self, "tag_propagation")
+
+    @tag_propagation.setter
+    def tag_propagation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tag_propagation", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -552,6 +584,7 @@ class Domain(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  retention_policy: Optional[pulumi.Input[Union['DomainRetentionPolicyArgs', 'DomainRetentionPolicyArgsDict']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tag_propagation: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -607,6 +640,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
         :param pulumi.Input[Union['DomainRetentionPolicyArgs', 'DomainRetentionPolicyArgsDict']] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The VPC subnets that Studio uses for communication.
+        :param pulumi.Input[str] tag_propagation: Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
                
@@ -683,6 +717,7 @@ class Domain(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  retention_policy: Optional[pulumi.Input[Union['DomainRetentionPolicyArgs', 'DomainRetentionPolicyArgsDict']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tag_propagation: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -712,6 +747,7 @@ class Domain(pulumi.CustomResource):
             if subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__.__dict__["subnet_ids"] = subnet_ids
+            __props__.__dict__["tag_propagation"] = tag_propagation
             __props__.__dict__["tags"] = tags
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
@@ -748,6 +784,7 @@ class Domain(pulumi.CustomResource):
             single_sign_on_application_arn: Optional[pulumi.Input[str]] = None,
             single_sign_on_managed_application_instance_id: Optional[pulumi.Input[str]] = None,
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            tag_propagation: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             url: Optional[pulumi.Input[str]] = None,
@@ -774,6 +811,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] single_sign_on_application_arn: The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
         :param pulumi.Input[str] single_sign_on_managed_application_instance_id: The SSO managed application instance ID.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The VPC subnets that Studio uses for communication.
+        :param pulumi.Input[str] tag_propagation: Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] url: The domain's URL.
@@ -800,6 +838,7 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["single_sign_on_application_arn"] = single_sign_on_application_arn
         __props__.__dict__["single_sign_on_managed_application_instance_id"] = single_sign_on_managed_application_instance_id
         __props__.__dict__["subnet_ids"] = subnet_ids
+        __props__.__dict__["tag_propagation"] = tag_propagation
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["url"] = url
@@ -925,6 +964,14 @@ class Domain(pulumi.CustomResource):
         The VPC subnets that Studio uses for communication.
         """
         return pulumi.get(self, "subnet_ids")
+
+    @property
+    @pulumi.getter(name="tagPropagation")
+    def tag_propagation(self) -> pulumi.Output[Optional[str]]:
+        """
+        Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
+        """
+        return pulumi.get(self, "tag_propagation")
 
     @property
     @pulumi.getter

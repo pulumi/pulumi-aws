@@ -26,11 +26,11 @@ namespace Pulumi.Aws.CostExplorer.Outputs
         /// </summary>
         public readonly Outputs.AnomalySubscriptionThresholdExpressionDimension? Dimension;
         /// <summary>
-        /// Return results that match both Dimension object.
+        /// Return results that do not match the Dimension object.
         /// </summary>
         public readonly Outputs.AnomalySubscriptionThresholdExpressionNot? Not;
         /// <summary>
-        /// Return results that match both Dimension object.
+        /// Return results that match either Dimension object.
         /// </summary>
         public readonly ImmutableArray<Outputs.AnomalySubscriptionThresholdExpressionOr> Ors;
         /// <summary>

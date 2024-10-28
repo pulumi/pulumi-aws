@@ -169,6 +169,7 @@ namespace Pulumi.Aws.Alb
         public readonly bool EnableTlsVersionAndCipherSuiteHeaders;
         public readonly bool EnableWafFailOpen;
         public readonly bool EnableXffClientPort;
+        public readonly bool EnableZonalShift;
         public readonly string EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -222,6 +223,8 @@ namespace Pulumi.Aws.Alb
 
             bool enableXffClientPort,
 
+            bool enableZonalShift,
+
             string enforceSecurityGroupInboundRulesOnPrivateLinkTraffic,
 
             string id,
@@ -268,6 +271,7 @@ namespace Pulumi.Aws.Alb
             EnableTlsVersionAndCipherSuiteHeaders = enableTlsVersionAndCipherSuiteHeaders;
             EnableWafFailOpen = enableWafFailOpen;
             EnableXffClientPort = enableXffClientPort;
+            EnableZonalShift = enableZonalShift;
             EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic = enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
             Id = id;
             IdleTimeout = idleTimeout;

@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings;
+import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings;
 import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings;
 import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting;
 import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsCanvasAppSettingsKendraSettings;
@@ -23,6 +24,11 @@ public final class UserProfileUserSettingsCanvasAppSettings {
      * 
      */
     private @Nullable UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings directDeploySettings;
+    /**
+     * @return The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emr_serverless_settings` Block below.
+     * 
+     */
+    private @Nullable UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings emrServerlessSettings;
     private @Nullable UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings generativeAiSettings;
     /**
      * @return The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
@@ -57,6 +63,13 @@ public final class UserProfileUserSettingsCanvasAppSettings {
      */
     public Optional<UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings> directDeploySettings() {
         return Optional.ofNullable(this.directDeploySettings);
+    }
+    /**
+     * @return The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emr_serverless_settings` Block below.
+     * 
+     */
+    public Optional<UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings> emrServerlessSettings() {
+        return Optional.ofNullable(this.emrServerlessSettings);
     }
     public Optional<UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings> generativeAiSettings() {
         return Optional.ofNullable(this.generativeAiSettings);
@@ -107,6 +120,7 @@ public final class UserProfileUserSettingsCanvasAppSettings {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings directDeploySettings;
+        private @Nullable UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings emrServerlessSettings;
         private @Nullable UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings generativeAiSettings;
         private @Nullable List<UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting> identityProviderOauthSettings;
         private @Nullable UserProfileUserSettingsCanvasAppSettingsKendraSettings kendraSettings;
@@ -117,6 +131,7 @@ public final class UserProfileUserSettingsCanvasAppSettings {
         public Builder(UserProfileUserSettingsCanvasAppSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.directDeploySettings = defaults.directDeploySettings;
+    	      this.emrServerlessSettings = defaults.emrServerlessSettings;
     	      this.generativeAiSettings = defaults.generativeAiSettings;
     	      this.identityProviderOauthSettings = defaults.identityProviderOauthSettings;
     	      this.kendraSettings = defaults.kendraSettings;
@@ -129,6 +144,12 @@ public final class UserProfileUserSettingsCanvasAppSettings {
         public Builder directDeploySettings(@Nullable UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings directDeploySettings) {
 
             this.directDeploySettings = directDeploySettings;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder emrServerlessSettings(@Nullable UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings emrServerlessSettings) {
+
+            this.emrServerlessSettings = emrServerlessSettings;
             return this;
         }
         @CustomType.Setter
@@ -173,6 +194,7 @@ public final class UserProfileUserSettingsCanvasAppSettings {
         public UserProfileUserSettingsCanvasAppSettings build() {
             final var _resultValue = new UserProfileUserSettingsCanvasAppSettings();
             _resultValue.directDeploySettings = directDeploySettings;
+            _resultValue.emrServerlessSettings = emrServerlessSettings;
             _resultValue.generativeAiSettings = generativeAiSettings;
             _resultValue.identityProviderOauthSettings = identityProviderOauthSettings;
             _resultValue.kendraSettings = kendraSettings;

@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs;
+import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs;
 import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs;
@@ -35,6 +36,21 @@ public final class UserProfileUserSettingsCanvasAppSettingsArgs extends com.pulu
      */
     public Optional<Output<UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs>> directDeploySettings() {
         return Optional.ofNullable(this.directDeploySettings);
+    }
+
+    /**
+     * The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emr_serverless_settings` Block below.
+     * 
+     */
+    @Import(name="emrServerlessSettings")
+    private @Nullable Output<UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs> emrServerlessSettings;
+
+    /**
+     * @return The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emr_serverless_settings` Block below.
+     * 
+     */
+    public Optional<Output<UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs>> emrServerlessSettings() {
+        return Optional.ofNullable(this.emrServerlessSettings);
     }
 
     @Import(name="generativeAiSettings")
@@ -123,6 +139,7 @@ public final class UserProfileUserSettingsCanvasAppSettingsArgs extends com.pulu
 
     private UserProfileUserSettingsCanvasAppSettingsArgs(UserProfileUserSettingsCanvasAppSettingsArgs $) {
         this.directDeploySettings = $.directDeploySettings;
+        this.emrServerlessSettings = $.emrServerlessSettings;
         this.generativeAiSettings = $.generativeAiSettings;
         this.identityProviderOauthSettings = $.identityProviderOauthSettings;
         this.kendraSettings = $.kendraSettings;
@@ -168,6 +185,27 @@ public final class UserProfileUserSettingsCanvasAppSettingsArgs extends com.pulu
          */
         public Builder directDeploySettings(UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs directDeploySettings) {
             return directDeploySettings(Output.of(directDeploySettings));
+        }
+
+        /**
+         * @param emrServerlessSettings The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emr_serverless_settings` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder emrServerlessSettings(@Nullable Output<UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs> emrServerlessSettings) {
+            $.emrServerlessSettings = emrServerlessSettings;
+            return this;
+        }
+
+        /**
+         * @param emrServerlessSettings The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emr_serverless_settings` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder emrServerlessSettings(UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs emrServerlessSettings) {
+            return emrServerlessSettings(Output.of(emrServerlessSettings));
         }
 
         public Builder generativeAiSettings(@Nullable Output<UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs> generativeAiSettings) {

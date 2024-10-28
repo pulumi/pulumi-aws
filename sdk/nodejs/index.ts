@@ -242,6 +242,7 @@ import * as redshift from "./redshift";
 import * as redshiftdata from "./redshiftdata";
 import * as redshiftserverless from "./redshiftserverless";
 import * as rekognition from "./rekognition";
+import * as resiliencehub from "./resiliencehub";
 import * as resourceexplorer from "./resourceexplorer";
 import * as resourcegroups from "./resourcegroups";
 import * as resourcegroupstaggingapi from "./resourcegroupstaggingapi";
@@ -459,6 +460,7 @@ export {
     redshiftdata,
     redshiftserverless,
     rekognition,
+    resiliencehub,
     resourceexplorer,
     resourcegroups,
     resourcegroupstaggingapi,

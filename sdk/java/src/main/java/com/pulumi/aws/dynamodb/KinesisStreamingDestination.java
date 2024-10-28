@@ -63,6 +63,7 @@ import javax.annotation.Nullable;
  *         var exampleKinesisStreamingDestination = new KinesisStreamingDestination("exampleKinesisStreamingDestination", KinesisStreamingDestinationArgs.builder()
  *             .streamArn(exampleStream.arn())
  *             .tableName(example.name())
+ *             .approximateCreationDateTimePrecision("MICROSECOND")
  *             .build());
  * 
  *     }
@@ -83,6 +84,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination")
 public class KinesisStreamingDestination extends com.pulumi.resources.CustomResource {
     /**
+     * Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
+     * 
+     */
+    @Export(name="approximateCreationDateTimePrecision", refs={String.class}, tree="[0]")
+    private Output<String> approximateCreationDateTimePrecision;
+
+    /**
+     * @return Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
+     * 
+     */
+    public Output<String> approximateCreationDateTimePrecision() {
+        return this.approximateCreationDateTimePrecision;
+    }
+    /**
      * The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
      * 
      */
@@ -97,16 +112,14 @@ public class KinesisStreamingDestination extends com.pulumi.resources.CustomReso
         return this.streamArn;
     }
     /**
-     * The name of the DynamoDB table. There
-     * can only be one Kinesis streaming destination for a given DynamoDB table.
+     * The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
      * 
      */
     @Export(name="tableName", refs={String.class}, tree="[0]")
     private Output<String> tableName;
 
     /**
-     * @return The name of the DynamoDB table. There
-     * can only be one Kinesis streaming destination for a given DynamoDB table.
+     * @return The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
      * 
      */
     public Output<String> tableName() {

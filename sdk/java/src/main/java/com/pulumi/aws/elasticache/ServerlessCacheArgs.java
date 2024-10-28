@@ -37,14 +37,14 @@ public final class ServerlessCacheArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `&#34;redis&#34;`. Defaults to `0`.
+     * The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `&#34;redis&#34;` or `&#34;valkey&#34;`. Defaults to `0`.
      * 
      */
     @Import(name="dailySnapshotTime")
     private @Nullable Output<String> dailySnapshotTime;
 
     /**
-     * @return The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `&#34;redis&#34;`. Defaults to `0`.
+     * @return The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `&#34;redis&#34;` or `&#34;valkey&#34;`. Defaults to `0`.
      * 
      */
     public Optional<Output<String>> dailySnapshotTime() {
@@ -67,14 +67,14 @@ public final class ServerlessCacheArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+     * Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
      * 
      */
     @Import(name="engine", required=true)
     private Output<String> engine;
 
     /**
-     * @return Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+     * @return Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
      * 
      */
     public Output<String> engine() {
@@ -288,7 +288,7 @@ public final class ServerlessCacheArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dailySnapshotTime The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `&#34;redis&#34;`. Defaults to `0`.
+         * @param dailySnapshotTime The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `&#34;redis&#34;` or `&#34;valkey&#34;`. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -299,7 +299,7 @@ public final class ServerlessCacheArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dailySnapshotTime The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `&#34;redis&#34;`. Defaults to `0`.
+         * @param dailySnapshotTime The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `&#34;redis&#34;` or `&#34;valkey&#34;`. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class ServerlessCacheArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param engine Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+         * @param engine Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class ServerlessCacheArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param engine Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+         * @param engine Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
          * 
          * @return builder
          * 

@@ -18,8 +18,8 @@ type ProfilesAssociationTimeouts struct {
 	Create *string `pulumi:"create"`
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 	Delete *string `pulumi:"delete"`
-	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
-	Read *string `pulumi:"read"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
 }
 
 // ProfilesAssociationTimeoutsInput is an input type that accepts ProfilesAssociationTimeoutsArgs and ProfilesAssociationTimeoutsOutput values.
@@ -38,8 +38,8 @@ type ProfilesAssociationTimeoutsArgs struct {
 	Create pulumi.StringPtrInput `pulumi:"create"`
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 	Delete pulumi.StringPtrInput `pulumi:"delete"`
-	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
-	Read pulumi.StringPtrInput `pulumi:"read"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
 }
 
 func (ProfilesAssociationTimeoutsArgs) ElementType() reflect.Type {
@@ -129,9 +129,9 @@ func (o ProfilesAssociationTimeoutsOutput) Delete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfilesAssociationTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
 }
 
-// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
-func (o ProfilesAssociationTimeoutsOutput) Read() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProfilesAssociationTimeouts) *string { return v.Read }).(pulumi.StringPtrOutput)
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ProfilesAssociationTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProfilesAssociationTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
 }
 
 type ProfilesAssociationTimeoutsPtrOutput struct{ *pulumi.OutputState }
@@ -178,13 +178,13 @@ func (o ProfilesAssociationTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
-func (o ProfilesAssociationTimeoutsPtrOutput) Read() pulumi.StringPtrOutput {
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ProfilesAssociationTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProfilesAssociationTimeouts) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Read
+		return v.Update
 	}).(pulumi.StringPtrOutput)
 }
 
