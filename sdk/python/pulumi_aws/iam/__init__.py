@@ -31,6 +31,7 @@ from .group_membership import *
 from .group_policies_exclusive import *
 from .group_policy import *
 from .group_policy_attachment import *
+from .group_policy_attachments_exclusive import *
 from .instance_profile import *
 from .open_id_connect_provider import *
 from .policy import *
@@ -53,6 +54,7 @@ from .user_login_profile import *
 from .user_policies_exclusive import *
 from .user_policy import *
 from .user_policy_attachment import *
+from .user_policy_attachments_exclusive import *
 from .virtual_mfa_device import *
 from ._inputs import *
 from . import outputs

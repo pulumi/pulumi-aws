@@ -62,6 +62,7 @@ type LookupVpcLinkArgs struct {
 
 // A collection of values returned by getVpcLink.
 type LookupVpcLinkResult struct {
+	Arn string `pulumi:"arn"`
 	// Description of the VPC link.
 	Description string `pulumi:"description"`
 	// Set to the ID of the found API Gateway VPC Link.
@@ -122,6 +123,10 @@ func (o LookupVpcLinkResultOutput) ToLookupVpcLinkResultOutput() LookupVpcLinkRe
 
 func (o LookupVpcLinkResultOutput) ToLookupVpcLinkResultOutputWithContext(ctx context.Context) LookupVpcLinkResultOutput {
 	return o
+}
+
+func (o LookupVpcLinkResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpcLinkResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Description of the VPC link.

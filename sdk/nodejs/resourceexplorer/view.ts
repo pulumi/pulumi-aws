@@ -87,6 +87,10 @@ export class View extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+     */
+    public readonly scope!: pulumi.Output<string>;
+    /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -115,6 +119,7 @@ export class View extends pulumi.CustomResource {
             resourceInputs["filters"] = state ? state.filters : undefined;
             resourceInputs["includedProperties"] = state ? state.includedProperties : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["scope"] = state ? state.scope : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -123,6 +128,7 @@ export class View extends pulumi.CustomResource {
             resourceInputs["filters"] = args ? args.filters : undefined;
             resourceInputs["includedProperties"] = args ? args.includedProperties : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -157,6 +163,10 @@ export interface ViewState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+     */
+    scope?: pulumi.Input<string>;
+    /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -188,6 +198,10 @@ export interface ViewArgs {
      * The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+     */
+    scope?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

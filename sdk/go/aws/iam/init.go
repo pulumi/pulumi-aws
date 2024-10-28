@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GroupPolicy{}
 	case "aws:iam/groupPolicyAttachment:GroupPolicyAttachment":
 		r = &GroupPolicyAttachment{}
+	case "aws:iam/groupPolicyAttachmentsExclusive:GroupPolicyAttachmentsExclusive":
+		r = &GroupPolicyAttachmentsExclusive{}
 	case "aws:iam/instanceProfile:InstanceProfile":
 		r = &InstanceProfile{}
 	case "aws:iam/openIdConnectProvider:OpenIdConnectProvider":
@@ -81,6 +83,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &UserPolicy{}
 	case "aws:iam/userPolicyAttachment:UserPolicyAttachment":
 		r = &UserPolicyAttachment{}
+	case "aws:iam/userPolicyAttachmentsExclusive:UserPolicyAttachmentsExclusive":
+		r = &UserPolicyAttachmentsExclusive{}
 	case "aws:iam/virtualMfaDevice:VirtualMfaDevice":
 		r = &VirtualMfaDevice{}
 	default:
@@ -134,6 +138,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"iam/groupPolicyAttachment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"iam/groupPolicyAttachmentsExclusive",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -244,6 +253,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"iam/userPolicyAttachment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"iam/userPolicyAttachmentsExclusive",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

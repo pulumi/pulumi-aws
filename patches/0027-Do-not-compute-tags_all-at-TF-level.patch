@@ -192,10 +192,10 @@ index 5db0e656ab..e27aea658b 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/resourceexplorer2/index.go b/internal/service/resourceexplorer2/index.go
-index e63f7e17f3..0da66b3855 100644
+index ff89093f18..f8fd12370f 100644
 --- a/internal/service/resourceexplorer2/index.go
 +++ b/internal/service/resourceexplorer2/index.go
-@@ -56,7 +56,7 @@ func (r *resourceIndex) Schema(ctx context.Context, request resource.SchemaReque
+@@ -58,7 +58,7 @@ func (r *indexResource) Schema(ctx context.Context, request resource.SchemaReque
  			names.AttrARN:     framework.ARNAttributeComputedOnly(),
  			names.AttrID:      framework.IDAttribute(),
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -205,11 +205,11 @@ index e63f7e17f3..0da66b3855 100644
  				CustomType: fwtypes.StringEnumType[awstypes.IndexType](),
  				Required:   true,
 diff --git a/internal/service/resourceexplorer2/view.go b/internal/service/resourceexplorer2/view.go
-index 793580c0ad..5c173c826c 100644
+index 414ac271d1..9172d35477 100644
 --- a/internal/service/resourceexplorer2/view.go
 +++ b/internal/service/resourceexplorer2/view.go
-@@ -76,7 +76,7 @@ func (r *resourceView) Schema(ctx context.Context, request resource.SchemaReques
- 				},
+@@ -81,7 +81,7 @@ func (r *viewResource) Schema(ctx context.Context, request resource.SchemaReques
+ 				Computed: true,
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
 -			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),

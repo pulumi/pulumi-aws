@@ -131,6 +131,11 @@ export type GroupPolicyAttachment = import("./groupPolicyAttachment").GroupPolic
 export const GroupPolicyAttachment: typeof import("./groupPolicyAttachment").GroupPolicyAttachment = null as any;
 utilities.lazyLoad(exports, ["GroupPolicyAttachment"], () => require("./groupPolicyAttachment"));
 
+export { GroupPolicyAttachmentsExclusiveArgs, GroupPolicyAttachmentsExclusiveState } from "./groupPolicyAttachmentsExclusive";
+export type GroupPolicyAttachmentsExclusive = import("./groupPolicyAttachmentsExclusive").GroupPolicyAttachmentsExclusive;
+export const GroupPolicyAttachmentsExclusive: typeof import("./groupPolicyAttachmentsExclusive").GroupPolicyAttachmentsExclusive = null as any;
+utilities.lazyLoad(exports, ["GroupPolicyAttachmentsExclusive"], () => require("./groupPolicyAttachmentsExclusive"));
+
 export { InstanceProfileArgs, InstanceProfileState } from "./instanceProfile";
 export type InstanceProfile = import("./instanceProfile").InstanceProfile;
 export const InstanceProfile: typeof import("./instanceProfile").InstanceProfile = null as any;
@@ -243,6 +248,11 @@ export type UserPolicyAttachment = import("./userPolicyAttachment").UserPolicyAt
 export const UserPolicyAttachment: typeof import("./userPolicyAttachment").UserPolicyAttachment = null as any;
 utilities.lazyLoad(exports, ["UserPolicyAttachment"], () => require("./userPolicyAttachment"));
 
+export { UserPolicyAttachmentsExclusiveArgs, UserPolicyAttachmentsExclusiveState } from "./userPolicyAttachmentsExclusive";
+export type UserPolicyAttachmentsExclusive = import("./userPolicyAttachmentsExclusive").UserPolicyAttachmentsExclusive;
+export const UserPolicyAttachmentsExclusive: typeof import("./userPolicyAttachmentsExclusive").UserPolicyAttachmentsExclusive = null as any;
+utilities.lazyLoad(exports, ["UserPolicyAttachmentsExclusive"], () => require("./userPolicyAttachmentsExclusive"));
+
 export { VirtualMfaDeviceArgs, VirtualMfaDeviceState } from "./virtualMfaDevice";
 export type VirtualMfaDevice = import("./virtualMfaDevice").VirtualMfaDevice;
 export const VirtualMfaDevice: typeof import("./virtualMfaDevice").VirtualMfaDevice = null as any;
@@ -272,6 +282,8 @@ const _module = {
                 return new GroupPolicy(name, <any>undefined, { urn })
             case "aws:iam/groupPolicyAttachment:GroupPolicyAttachment":
                 return new GroupPolicyAttachment(name, <any>undefined, { urn })
+            case "aws:iam/groupPolicyAttachmentsExclusive:GroupPolicyAttachmentsExclusive":
+                return new GroupPolicyAttachmentsExclusive(name, <any>undefined, { urn })
             case "aws:iam/instanceProfile:InstanceProfile":
                 return new InstanceProfile(name, <any>undefined, { urn })
             case "aws:iam/openIdConnectProvider:OpenIdConnectProvider":
@@ -316,6 +328,8 @@ const _module = {
                 return new UserPolicy(name, <any>undefined, { urn })
             case "aws:iam/userPolicyAttachment:UserPolicyAttachment":
                 return new UserPolicyAttachment(name, <any>undefined, { urn })
+            case "aws:iam/userPolicyAttachmentsExclusive:UserPolicyAttachmentsExclusive":
+                return new UserPolicyAttachmentsExclusive(name, <any>undefined, { urn })
             case "aws:iam/virtualMfaDevice:VirtualMfaDevice":
                 return new VirtualMfaDevice(name, <any>undefined, { urn })
             default:
@@ -331,6 +345,7 @@ pulumi.runtime.registerResourceModule("aws", "iam/groupMembership", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/groupPoliciesExclusive", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/groupPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/groupPolicyAttachment", _module)
+pulumi.runtime.registerResourceModule("aws", "iam/groupPolicyAttachmentsExclusive", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/instanceProfile", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/openIdConnectProvider", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/policy", _module)
@@ -353,4 +368,5 @@ pulumi.runtime.registerResourceModule("aws", "iam/userLoginProfile", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/userPoliciesExclusive", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/userPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/userPolicyAttachment", _module)
+pulumi.runtime.registerResourceModule("aws", "iam/userPolicyAttachmentsExclusive", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/virtualMfaDevice", _module)

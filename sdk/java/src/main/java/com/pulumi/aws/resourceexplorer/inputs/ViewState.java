@@ -96,6 +96,21 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+     * 
+     */
+    @Import(name="scope")
+    private @Nullable Output<String> scope;
+
+    /**
+     * @return The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+     * 
+     */
+    public Optional<Output<String>> scope() {
+        return Optional.ofNullable(this.scope);
+    }
+
+    /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -141,6 +156,7 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
         this.filters = $.filters;
         this.includedProperties = $.includedProperties;
         this.name = $.name;
+        this.scope = $.scope;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
     }
@@ -276,6 +292,27 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param scope The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scope(@Nullable Output<String> scope) {
+            $.scope = scope;
+            return this;
+        }
+
+        /**
+         * @param scope The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scope(String scope) {
+            return scope(Output.of(scope));
         }
 
         /**

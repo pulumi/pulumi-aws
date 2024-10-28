@@ -5880,4 +5880,14 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	) (resource.ID, error) {
 		return attrWithSeparator(state, "roleName"), nil
 	}
+	prov.Resources["aws_iam_group_policy_attachments_exclusive"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attrWithSeparator(state, "groupName"), nil
+	}
+	prov.Resources["aws_iam_user_policy_attachments_exclusive"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attrWithSeparator(state, "userName"), nil
+	}
 }

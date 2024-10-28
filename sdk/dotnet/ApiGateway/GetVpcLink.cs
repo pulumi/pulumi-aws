@@ -125,6 +125,7 @@ namespace Pulumi.Aws.ApiGateway
     [OutputType]
     public sealed class GetVpcLinkResult
     {
+        public readonly string Arn;
         /// <summary>
         /// Description of the VPC link.
         /// </summary>
@@ -153,6 +154,8 @@ namespace Pulumi.Aws.ApiGateway
 
         [OutputConstructor]
         private GetVpcLinkResult(
+            string arn,
+
             string description,
 
             string id,
@@ -167,6 +170,7 @@ namespace Pulumi.Aws.ApiGateway
 
             ImmutableArray<string> targetArns)
         {
+            Arn = arn;
             Description = description;
             Id = id;
             Name = name;

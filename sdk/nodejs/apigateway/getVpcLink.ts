@@ -48,6 +48,7 @@ export interface GetVpcLinkArgs {
  * A collection of values returned by getVpcLink.
  */
 export interface GetVpcLinkResult {
+    readonly arn: string;
     /**
      * Description of the VPC link.
      */
