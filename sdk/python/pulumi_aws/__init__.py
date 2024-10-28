@@ -6409,6 +6409,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "iam/groupPolicyAttachmentsExclusive",
+  "fqn": "pulumi_aws.iam",
+  "classes": {
+   "aws:iam/groupPolicyAttachmentsExclusive:GroupPolicyAttachmentsExclusive": "GroupPolicyAttachmentsExclusive"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "iam/instanceProfile",
   "fqn": "pulumi_aws.iam",
   "classes": {
@@ -6581,6 +6589,14 @@ _utilities.register(
   "fqn": "pulumi_aws.iam",
   "classes": {
    "aws:iam/userPolicyAttachment:UserPolicyAttachment": "UserPolicyAttachment"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "iam/userPolicyAttachmentsExclusive",
+  "fqn": "pulumi_aws.iam",
+  "classes": {
+   "aws:iam/userPolicyAttachmentsExclusive:UserPolicyAttachmentsExclusive": "UserPolicyAttachmentsExclusive"
   }
  },
  {

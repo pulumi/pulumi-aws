@@ -75,6 +75,8 @@ type View struct {
 	IncludedProperties ViewIncludedPropertyArrayOutput `pulumi:"includedProperties"`
 	// The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+	Scope pulumi.StringOutput `pulumi:"scope"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -123,6 +125,8 @@ type viewState struct {
 	IncludedProperties []ViewIncludedProperty `pulumi:"includedProperties"`
 	// The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
 	Name *string `pulumi:"name"`
+	// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+	Scope *string `pulumi:"scope"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -142,6 +146,8 @@ type ViewState struct {
 	IncludedProperties ViewIncludedPropertyArrayInput
 	// The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
 	Name pulumi.StringPtrInput
+	// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+	Scope pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -163,6 +169,8 @@ type viewArgs struct {
 	IncludedProperties []ViewIncludedProperty `pulumi:"includedProperties"`
 	// The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
 	Name *string `pulumi:"name"`
+	// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+	Scope *string `pulumi:"scope"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -177,6 +185,8 @@ type ViewArgs struct {
 	IncludedProperties ViewIncludedPropertyArrayInput
 	// The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
 	Name pulumi.StringPtrInput
+	// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+	Scope pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -291,6 +301,11 @@ func (o ViewOutput) IncludedProperties() ViewIncludedPropertyArrayOutput {
 // The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
 func (o ViewOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+func (o ViewOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Scope }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

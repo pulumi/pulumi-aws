@@ -12,6 +12,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetKeyResult {
+    private String arn;
     /**
      * @return Date and time when the API Key was created.
      * 
@@ -59,6 +60,9 @@ public final class GetKeyResult {
     private String value;
 
     private GetKeyResult() {}
+    public String arn() {
+        return this.arn;
+    }
     /**
      * @return Date and time when the API Key was created.
      * 
@@ -132,6 +136,7 @@ public final class GetKeyResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String arn;
         private String createdDate;
         private String customerId;
         private String description;
@@ -144,6 +149,7 @@ public final class GetKeyResult {
         public Builder() {}
         public Builder(GetKeyResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.arn = defaults.arn;
     	      this.createdDate = defaults.createdDate;
     	      this.customerId = defaults.customerId;
     	      this.description = defaults.description;
@@ -155,6 +161,14 @@ public final class GetKeyResult {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
+        public Builder arn(String arn) {
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "arn");
+            }
+            this.arn = arn;
+            return this;
+        }
         @CustomType.Setter
         public Builder createdDate(String createdDate) {
             if (createdDate == null) {
@@ -229,6 +243,7 @@ public final class GetKeyResult {
         }
         public GetKeyResult build() {
             final var _resultValue = new GetKeyResult();
+            _resultValue.arn = arn;
             _resultValue.createdDate = createdDate;
             _resultValue.customerId = customerId;
             _resultValue.description = description;

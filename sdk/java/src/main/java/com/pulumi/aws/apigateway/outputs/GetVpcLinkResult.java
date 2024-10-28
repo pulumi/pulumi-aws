@@ -12,6 +12,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVpcLinkResult {
+    private String arn;
     /**
      * @return Description of the VPC link.
      * 
@@ -45,6 +46,9 @@ public final class GetVpcLinkResult {
     private List<String> targetArns;
 
     private GetVpcLinkResult() {}
+    public String arn() {
+        return this.arn;
+    }
     /**
      * @return Description of the VPC link.
      * 
@@ -100,6 +104,7 @@ public final class GetVpcLinkResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String arn;
         private String description;
         private String id;
         private String name;
@@ -110,6 +115,7 @@ public final class GetVpcLinkResult {
         public Builder() {}
         public Builder(GetVpcLinkResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.arn = defaults.arn;
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
@@ -119,6 +125,14 @@ public final class GetVpcLinkResult {
     	      this.targetArns = defaults.targetArns;
         }
 
+        @CustomType.Setter
+        public Builder arn(String arn) {
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetVpcLinkResult", "arn");
+            }
+            this.arn = arn;
+            return this;
+        }
         @CustomType.Setter
         public Builder description(String description) {
             if (description == null) {
@@ -180,6 +194,7 @@ public final class GetVpcLinkResult {
         }
         public GetVpcLinkResult build() {
             final var _resultValue = new GetVpcLinkResult();
+            _resultValue.arn = arn;
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.name = name;

@@ -26,7 +26,10 @@ class GetVpcLinkResult:
     """
     A collection of values returned by getVpcLink.
     """
-    def __init__(__self__, description=None, id=None, name=None, status=None, status_message=None, tags=None, target_arns=None):
+    def __init__(__self__, arn=None, description=None, id=None, name=None, status=None, status_message=None, tags=None, target_arns=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -48,6 +51,11 @@ class GetVpcLinkResult:
         if target_arns and not isinstance(target_arns, list):
             raise TypeError("Expected argument 'target_arns' to be a list")
         pulumi.set(__self__, "target_arns", target_arns)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
@@ -109,6 +117,7 @@ class AwaitableGetVpcLinkResult(GetVpcLinkResult):
         if False:
             yield self
         return GetVpcLinkResult(
+            arn=self.arn,
             description=self.description,
             id=self.id,
             name=self.name,
@@ -148,6 +157,7 @@ def get_vpc_link(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:apigateway/getVpcLink:getVpcLink', __args__, opts=opts, typ=GetVpcLinkResult).value
 
     return AwaitableGetVpcLinkResult(
+        arn=pulumi.get(__ret__, 'arn'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -184,6 +194,7 @@ def get_vpc_link_output(name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:apigateway/getVpcLink:getVpcLink', __args__, opts=opts, typ=GetVpcLinkResult)
     return __ret__.apply(lambda __response__: GetVpcLinkResult(
+        arn=pulumi.get(__response__, 'arn'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

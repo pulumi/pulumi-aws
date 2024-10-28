@@ -25,6 +25,7 @@ class ViewArgs:
                  filters: Optional[pulumi.Input['ViewFiltersArgs']] = None,
                  included_properties: Optional[pulumi.Input[Sequence[pulumi.Input['ViewIncludedPropertyArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a View resource.
@@ -32,6 +33,7 @@ class ViewArgs:
         :param pulumi.Input['ViewFiltersArgs'] filters: Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['ViewIncludedPropertyArgs']]] included_properties: Optional fields to be included in search results from this view. See Included Properties below for more details.
         :param pulumi.Input[str] name: The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
+        :param pulumi.Input[str] scope: The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if default_view is not None:
@@ -42,6 +44,8 @@ class ViewArgs:
             pulumi.set(__self__, "included_properties", included_properties)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -95,6 +99,18 @@ class ViewArgs:
 
     @property
     @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -114,6 +130,7 @@ class _ViewState:
                  filters: Optional[pulumi.Input['ViewFiltersArgs']] = None,
                  included_properties: Optional[pulumi.Input[Sequence[pulumi.Input['ViewIncludedPropertyArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -123,6 +140,7 @@ class _ViewState:
         :param pulumi.Input['ViewFiltersArgs'] filters: Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['ViewIncludedPropertyArgs']]] included_properties: Optional fields to be included in search results from this view. See Included Properties below for more details.
         :param pulumi.Input[str] name: The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
+        :param pulumi.Input[str] scope: The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -136,6 +154,8 @@ class _ViewState:
             pulumi.set(__self__, "included_properties", included_properties)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -206,6 +226,18 @@ class _ViewState:
 
     @property
     @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -239,6 +271,7 @@ class View(pulumi.CustomResource):
                  filters: Optional[pulumi.Input[Union['ViewFiltersArgs', 'ViewFiltersArgsDict']]] = None,
                  included_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -276,6 +309,7 @@ class View(pulumi.CustomResource):
         :param pulumi.Input[Union['ViewFiltersArgs', 'ViewFiltersArgsDict']] filters: Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict']]]] included_properties: Optional fields to be included in search results from this view. See Included Properties below for more details.
         :param pulumi.Input[str] name: The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
+        :param pulumi.Input[str] scope: The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -332,6 +366,7 @@ class View(pulumi.CustomResource):
                  filters: Optional[pulumi.Input[Union['ViewFiltersArgs', 'ViewFiltersArgsDict']]] = None,
                  included_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -346,6 +381,7 @@ class View(pulumi.CustomResource):
             __props__.__dict__["filters"] = filters
             __props__.__dict__["included_properties"] = included_properties
             __props__.__dict__["name"] = name
+            __props__.__dict__["scope"] = scope
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
@@ -364,6 +400,7 @@ class View(pulumi.CustomResource):
             filters: Optional[pulumi.Input[Union['ViewFiltersArgs', 'ViewFiltersArgsDict']]] = None,
             included_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            scope: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'View':
         """
@@ -378,6 +415,7 @@ class View(pulumi.CustomResource):
         :param pulumi.Input[Union['ViewFiltersArgs', 'ViewFiltersArgsDict']] filters: Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict']]]] included_properties: Optional fields to be included in search results from this view. See Included Properties below for more details.
         :param pulumi.Input[str] name: The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
+        :param pulumi.Input[str] scope: The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -390,6 +428,7 @@ class View(pulumi.CustomResource):
         __props__.__dict__["filters"] = filters
         __props__.__dict__["included_properties"] = included_properties
         __props__.__dict__["name"] = name
+        __props__.__dict__["scope"] = scope
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return View(resource_name, opts=opts, __props__=__props__)
@@ -433,6 +472,14 @@ class View(pulumi.CustomResource):
         The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> pulumi.Output[str]:
+        """
+        The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+        """
+        return pulumi.get(self, "scope")
 
     @property
     @pulumi.getter

@@ -156,6 +156,20 @@ public class View extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+     * 
+     */
+    @Export(name="scope", refs={String.class}, tree="[0]")
+    private Output<String> scope;
+
+    /**
+     * @return The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
+     * 
+     */
+    public Output<String> scope() {
+        return this.scope;
+    }
+    /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
