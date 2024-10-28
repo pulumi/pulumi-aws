@@ -5,7 +5,7 @@ Subject: [PATCH] Do not compute tags_all at TF level
 
 
 diff --git a/internal/framework/resource_with_configure.go b/internal/framework/resource_with_configure.go
-index a415a989a8..9a3f8eea5c 100644
+index 6ece15b4f4..89844a1233 100644
 --- a/internal/framework/resource_with_configure.go
 +++ b/internal/framework/resource_with_configure.go
 @@ -30,6 +30,11 @@ func (r *ResourceWithConfigure) Configure(_ context.Context, request resource.Co
@@ -21,7 +21,7 @@ index a415a989a8..9a3f8eea5c 100644
  	if request.Plan.Raw.IsNull() {
  		return
 diff --git a/internal/provider/fwprovider/provider.go b/internal/provider/fwprovider/provider.go
-index 95563b9882..5ed49e758f 100644
+index c29a9f9b7d..3eebe2feb9 100644
 --- a/internal/provider/fwprovider/provider.go
 +++ b/internal/provider/fwprovider/provider.go
 @@ -430,8 +430,8 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
@@ -231,7 +231,7 @@ index 789e374885..d5a771ce81 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/verify/diff.go b/internal/verify/diff.go
-index 95c63b9f8d..ca148c9e7f 100644
+index afffb80b4a..afb980ec65 100644
 --- a/internal/verify/diff.go
 +++ b/internal/verify/diff.go
 @@ -22,6 +22,11 @@ import (
@@ -244,7 +244,7 @@ index 95c63b9f8d..ca148c9e7f 100644
 +	}
 +
  	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig(ctx)
- 	ignoreTagsConfig := meta.(*conns.AWSClient).IgnoreTagsConfig
+ 	ignoreTagsConfig := meta.(*conns.AWSClient).IgnoreTagsConfig(ctx)
  
 diff --git a/shim/shim.go b/shim/shim.go
 index 2af7c06925..ce64074bfd 100644
