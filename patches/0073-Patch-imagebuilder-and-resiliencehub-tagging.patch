@@ -1,0 +1,32 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Anton Tayanovskyy <anton@pulumi.com>
+Date: Mon, 28 Oct 2024 14:29:42 -0400
+Subject: [PATCH] Patch imagebuilder and resiliencehub tagging
+
+
+diff --git a/internal/service/imagebuilder/lifecycle_policy.go b/internal/service/imagebuilder/lifecycle_policy.go
+index de77993cb4..aba05a03c0 100644
+--- a/internal/service/imagebuilder/lifecycle_policy.go
++++ b/internal/service/imagebuilder/lifecycle_policy.go
+@@ -89,7 +89,7 @@ func (r *lifecyclePolicyResource) Schema(ctx context.Context, request resource.S
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 		Blocks: map[string]schema.Block{
+ 			"policy_detail": schema.SetNestedBlock{
+diff --git a/internal/service/resiliencehub/resiliency_policy.go b/internal/service/resiliencehub/resiliency_policy.go
+index 9f349c81ff..4feca02f5e 100644
+--- a/internal/service/resiliencehub/resiliency_policy.go
++++ b/internal/service/resiliencehub/resiliency_policy.go
+@@ -130,7 +130,7 @@ func (r *resourceResiliencyPolicy) Schema(ctx context.Context, req resource.Sche
+ 				Computed:    true,
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 		Blocks: map[string]schema.Block{
+ 			names.AttrPolicy: schema.SingleNestedBlock{
