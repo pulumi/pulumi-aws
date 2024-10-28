@@ -5867,7 +5867,9 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	prov.Resources["aws_iam_user_policies_exclusive"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
 		return attr(state, "userName"), nil
 	}
-	prov.Resources["aws_backup_restore_testing_plan"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+	prov.Resources["aws_backup_restore_testing_plan"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
 		return attr(state, "name"), nil
 	}
 	prov.Resources["aws_backup_restore_testing_selection"].ComputeID = func(
