@@ -76,7 +76,8 @@ type LookupDirectoryResult struct {
 	// Identifiers of the IP access control groups associated with the directory.
 	IpGroupIds []string `pulumi:"ipGroupIds"`
 	// Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
-	RegistrationCode string `pulumi:"registrationCode"`
+	RegistrationCode string                     `pulumi:"registrationCode"`
+	SamlProperties   []GetDirectorySamlProperty `pulumi:"samlProperties"`
 	// The permissions to enable or disable self-service capabilities.
 	SelfServicePermissions []GetDirectorySelfServicePermission `pulumi:"selfServicePermissions"`
 	// Identifiers of the subnets where the directory resides.
@@ -184,6 +185,10 @@ func (o LookupDirectoryResultOutput) IpGroupIds() pulumi.StringArrayOutput {
 // Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
 func (o LookupDirectoryResultOutput) RegistrationCode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) string { return v.RegistrationCode }).(pulumi.StringOutput)
+}
+
+func (o LookupDirectoryResultOutput) SamlProperties() GetDirectorySamlPropertyArrayOutput {
+	return o.ApplyT(func(v LookupDirectoryResult) []GetDirectorySamlProperty { return v.SamlProperties }).(GetDirectorySamlPropertyArrayOutput)
 }
 
 // The permissions to enable or disable self-service capabilities.

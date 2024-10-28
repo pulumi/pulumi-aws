@@ -885,13 +885,19 @@ public final class CloudfrontFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.BucketOwnershipControls;
+     * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
+     * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyOwnerArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -905,10 +911,19 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         final var current = S3Functions.getCanonicalUserId();
+     * 
      *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
      * 
      *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
      *             .bucket("example")
+     *             .build());
+     * 
+     *         var exampleBucketOwnershipControls = new BucketOwnershipControls("exampleBucketOwnershipControls", BucketOwnershipControlsArgs.builder()
+     *             .bucket(exampleBucketV2.id())
+     *             .rule(BucketOwnershipControlsRuleArgs.builder()
+     *                 .objectOwnership("BucketOwnerPreferred")
+     *                 .build())
      *             .build());
      * 
      *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
@@ -921,8 +936,13 @@ public final class CloudfrontFunctions {
      *                         .build())
      *                     .permission("FULL_CONTROL")
      *                     .build())
+     *                 .owner(BucketAclV2AccessControlPolicyOwnerArgs.builder()
+     *                     .id(current.applyValue(getCanonicalUserIdResult -> getCanonicalUserIdResult.id()))
+     *                     .build())
      *                 .build())
-     *             .build());
+     *             .build(), CustomResourceOptions.builder()
+     *                 .dependsOn(exampleBucketOwnershipControls)
+     *                 .build());
      * 
      *     }
      * }
@@ -948,13 +968,19 @@ public final class CloudfrontFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.BucketOwnershipControls;
+     * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
+     * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyOwnerArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -968,10 +994,19 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         final var current = S3Functions.getCanonicalUserId();
+     * 
      *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
      * 
      *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
      *             .bucket("example")
+     *             .build());
+     * 
+     *         var exampleBucketOwnershipControls = new BucketOwnershipControls("exampleBucketOwnershipControls", BucketOwnershipControlsArgs.builder()
+     *             .bucket(exampleBucketV2.id())
+     *             .rule(BucketOwnershipControlsRuleArgs.builder()
+     *                 .objectOwnership("BucketOwnerPreferred")
+     *                 .build())
      *             .build());
      * 
      *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
@@ -984,8 +1019,13 @@ public final class CloudfrontFunctions {
      *                         .build())
      *                     .permission("FULL_CONTROL")
      *                     .build())
+     *                 .owner(BucketAclV2AccessControlPolicyOwnerArgs.builder()
+     *                     .id(current.applyValue(getCanonicalUserIdResult -> getCanonicalUserIdResult.id()))
+     *                     .build())
      *                 .build())
-     *             .build());
+     *             .build(), CustomResourceOptions.builder()
+     *                 .dependsOn(exampleBucketOwnershipControls)
+     *                 .build());
      * 
      *     }
      * }
@@ -1011,13 +1051,19 @@ public final class CloudfrontFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.BucketOwnershipControls;
+     * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
+     * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyOwnerArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1031,10 +1077,19 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         final var current = S3Functions.getCanonicalUserId();
+     * 
      *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
      * 
      *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
      *             .bucket("example")
+     *             .build());
+     * 
+     *         var exampleBucketOwnershipControls = new BucketOwnershipControls("exampleBucketOwnershipControls", BucketOwnershipControlsArgs.builder()
+     *             .bucket(exampleBucketV2.id())
+     *             .rule(BucketOwnershipControlsRuleArgs.builder()
+     *                 .objectOwnership("BucketOwnerPreferred")
+     *                 .build())
      *             .build());
      * 
      *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
@@ -1047,8 +1102,13 @@ public final class CloudfrontFunctions {
      *                         .build())
      *                     .permission("FULL_CONTROL")
      *                     .build())
+     *                 .owner(BucketAclV2AccessControlPolicyOwnerArgs.builder()
+     *                     .id(current.applyValue(getCanonicalUserIdResult -> getCanonicalUserIdResult.id()))
+     *                     .build())
      *                 .build())
-     *             .build());
+     *             .build(), CustomResourceOptions.builder()
+     *                 .dependsOn(exampleBucketOwnershipControls)
+     *                 .build());
      * 
      *     }
      * }
@@ -1074,13 +1134,19 @@ public final class CloudfrontFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.BucketOwnershipControls;
+     * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
+     * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyOwnerArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1094,10 +1160,19 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         final var current = S3Functions.getCanonicalUserId();
+     * 
      *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
      * 
      *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
      *             .bucket("example")
+     *             .build());
+     * 
+     *         var exampleBucketOwnershipControls = new BucketOwnershipControls("exampleBucketOwnershipControls", BucketOwnershipControlsArgs.builder()
+     *             .bucket(exampleBucketV2.id())
+     *             .rule(BucketOwnershipControlsRuleArgs.builder()
+     *                 .objectOwnership("BucketOwnerPreferred")
+     *                 .build())
      *             .build());
      * 
      *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
@@ -1110,8 +1185,13 @@ public final class CloudfrontFunctions {
      *                         .build())
      *                     .permission("FULL_CONTROL")
      *                     .build())
+     *                 .owner(BucketAclV2AccessControlPolicyOwnerArgs.builder()
+     *                     .id(current.applyValue(getCanonicalUserIdResult -> getCanonicalUserIdResult.id()))
+     *                     .build())
      *                 .build())
-     *             .build());
+     *             .build(), CustomResourceOptions.builder()
+     *                 .dependsOn(exampleBucketOwnershipControls)
+     *                 .build());
      * 
      *     }
      * }
@@ -1137,13 +1217,19 @@ public final class CloudfrontFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.BucketOwnershipControls;
+     * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
+     * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyOwnerArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1157,10 +1243,19 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         final var current = S3Functions.getCanonicalUserId();
+     * 
      *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
      * 
      *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
      *             .bucket("example")
+     *             .build());
+     * 
+     *         var exampleBucketOwnershipControls = new BucketOwnershipControls("exampleBucketOwnershipControls", BucketOwnershipControlsArgs.builder()
+     *             .bucket(exampleBucketV2.id())
+     *             .rule(BucketOwnershipControlsRuleArgs.builder()
+     *                 .objectOwnership("BucketOwnerPreferred")
+     *                 .build())
      *             .build());
      * 
      *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
@@ -1173,8 +1268,13 @@ public final class CloudfrontFunctions {
      *                         .build())
      *                     .permission("FULL_CONTROL")
      *                     .build())
+     *                 .owner(BucketAclV2AccessControlPolicyOwnerArgs.builder()
+     *                     .id(current.applyValue(getCanonicalUserIdResult -> getCanonicalUserIdResult.id()))
+     *                     .build())
      *                 .build())
-     *             .build());
+     *             .build(), CustomResourceOptions.builder()
+     *                 .dependsOn(exampleBucketOwnershipControls)
+     *                 .build());
      * 
      *     }
      * }
@@ -1200,13 +1300,19 @@ public final class CloudfrontFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
      * import com.pulumi.aws.cloudfront.CloudfrontFunctions;
      * import com.pulumi.aws.cloudfront.inputs.GetLogDeliveryCanonicalUserIdArgs;
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketV2Args;
+     * import com.pulumi.aws.s3.BucketOwnershipControls;
+     * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
+     * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
      * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyOwnerArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1220,10 +1326,19 @@ public final class CloudfrontFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
+     *         final var current = S3Functions.getCanonicalUserId();
+     * 
      *         final var example = CloudfrontFunctions.getLogDeliveryCanonicalUserId();
      * 
      *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
      *             .bucket("example")
+     *             .build());
+     * 
+     *         var exampleBucketOwnershipControls = new BucketOwnershipControls("exampleBucketOwnershipControls", BucketOwnershipControlsArgs.builder()
+     *             .bucket(exampleBucketV2.id())
+     *             .rule(BucketOwnershipControlsRuleArgs.builder()
+     *                 .objectOwnership("BucketOwnerPreferred")
+     *                 .build())
      *             .build());
      * 
      *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
@@ -1236,8 +1351,13 @@ public final class CloudfrontFunctions {
      *                         .build())
      *                     .permission("FULL_CONTROL")
      *                     .build())
+     *                 .owner(BucketAclV2AccessControlPolicyOwnerArgs.builder()
+     *                     .id(current.applyValue(getCanonicalUserIdResult -> getCanonicalUserIdResult.id()))
+     *                     .build())
      *                 .build())
-     *             .build());
+     *             .build(), CustomResourceOptions.builder()
+     *                 .dependsOn(exampleBucketOwnershipControls)
+     *                 .build());
      * 
      *     }
      * }

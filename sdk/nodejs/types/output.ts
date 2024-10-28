@@ -3338,6 +3338,28 @@ export namespace appflow {
 
     export interface FlowSourceFlowConfigSourceConnectorPropertiesSapoData {
         objectPath: string;
+        /**
+         * Sets the page size for each concurrent process that transfers OData records from your SAP instance.
+         */
+        paginationConfig?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig;
+        /**
+         * Sets the number of concurrent processes that transfers OData records from your SAP instance.
+         */
+        parallelismConfig?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig;
+    }
+
+    export interface FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig {
+        /**
+         * he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
+         */
+        maxPageSize: number;
+    }
+
+    export interface FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig {
+        /**
+         * he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
+         */
+        maxPageSize: number;
     }
 
     export interface FlowSourceFlowConfigSourceConnectorPropertiesServiceNow {
@@ -15412,6 +15434,13 @@ export namespace cloudwatch {
         value: string;
     }
 
+    export interface EventTargetAppsyncTarget {
+        /**
+         * Contains the GraphQL mutation to be parsed and executed.
+         */
+        graphqlOperation?: string;
+    }
+
     export interface EventTargetBatchTarget {
         /**
          * The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
@@ -25271,6 +25300,10 @@ export namespace dynamodb {
          */
         nonKeyAttributes?: string[];
         /**
+         * Sets the maximum number of read and write units for the specified on-demand table. See below.
+         */
+        onDemandThroughput?: outputs.dynamodb.TableGlobalSecondaryIndexOnDemandThroughput;
+        /**
          * One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
          */
         projectionType: string;
@@ -25281,11 +25314,22 @@ export namespace dynamodb {
         /**
          * Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
          */
-        readCapacity?: number;
+        readCapacity: number;
         /**
          * Number of write units for this index. Must be set if billingMode is set to PROVISIONED.
          */
-        writeCapacity?: number;
+        writeCapacity: number;
+    }
+
+    export interface TableGlobalSecondaryIndexOnDemandThroughput {
+        /**
+         * Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+         */
+        maxReadRequestUnits: number;
+        /**
+         * Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+         */
+        maxWriteRequestUnits: number;
     }
 
     export interface TableImportTable {
@@ -25362,6 +25406,17 @@ export namespace dynamodb {
          * Name of the range key.
          */
         rangeKey: string;
+    }
+
+    export interface TableOnDemandThroughput {
+        /**
+         * Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+         */
+        maxReadRequestUnits: number;
+        /**
+         * Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+         */
+        maxWriteRequestUnits: number;
     }
 
     export interface TablePointInTimeRecovery {
@@ -71647,11 +71702,11 @@ export namespace rds {
 
     export interface ClusterServerlessv2ScalingConfiguration {
         /**
-         * Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0.5` up to `128` in steps of `0.5`.
+         * Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0.5` up to `256` in steps of `0.5`.
          */
         maxCapacity: number;
         /**
-         * Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0.5` up to `128` in steps of `0.5`.
+         * Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0.5` up to `256` in steps of `0.5`.
          */
         minCapacity: number;
     }
@@ -94726,10 +94781,21 @@ export namespace workspaces {
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
          */
         delete?: string;
+    }
+
+    export interface DirectorySamlProperties {
         /**
-         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         * The relay state parameter name supported by the SAML 2.0 identity provider (IdP). Default `RelayState`.
          */
-        update?: string;
+        relayStateParameterName?: string;
+        /**
+         * Status of SAML 2.0 authentication. Default `DISABLED`.
+         */
+        status?: string;
+        /**
+         * The SAML 2.0 identity provider (IdP) user access URL.
+         */
+        userAccessUrl?: string;
     }
 
     export interface DirectorySelfServicePermissions {
@@ -94832,6 +94898,12 @@ export namespace workspaces {
          * Size of the user storage.
          */
         capacity: string;
+    }
+
+    export interface GetDirectorySamlProperty {
+        relayStateParameterName: string;
+        status: string;
+        userAccessUrl: string;
     }
 
     export interface GetDirectorySelfServicePermission {

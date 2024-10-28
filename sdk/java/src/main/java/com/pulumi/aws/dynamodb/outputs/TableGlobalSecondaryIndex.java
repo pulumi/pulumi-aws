@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.dynamodb.outputs;
 
+import com.pulumi.aws.dynamodb.outputs.TableGlobalSecondaryIndexOnDemandThroughput;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
@@ -29,6 +30,11 @@ public final class TableGlobalSecondaryIndex {
      * 
      */
     private @Nullable List<String> nonKeyAttributes;
+    /**
+     * @return Sets the maximum number of read and write units for the specified on-demand table. See below.
+     * 
+     */
+    private @Nullable TableGlobalSecondaryIndexOnDemandThroughput onDemandThroughput;
     /**
      * @return One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
      * 
@@ -73,6 +79,13 @@ public final class TableGlobalSecondaryIndex {
         return this.nonKeyAttributes == null ? List.of() : this.nonKeyAttributes;
     }
     /**
+     * @return Sets the maximum number of read and write units for the specified on-demand table. See below.
+     * 
+     */
+    public Optional<TableGlobalSecondaryIndexOnDemandThroughput> onDemandThroughput() {
+        return Optional.ofNullable(this.onDemandThroughput);
+    }
+    /**
      * @return One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
      * 
      */
@@ -113,6 +126,7 @@ public final class TableGlobalSecondaryIndex {
         private String hashKey;
         private String name;
         private @Nullable List<String> nonKeyAttributes;
+        private @Nullable TableGlobalSecondaryIndexOnDemandThroughput onDemandThroughput;
         private String projectionType;
         private @Nullable String rangeKey;
         private @Nullable Integer readCapacity;
@@ -123,6 +137,7 @@ public final class TableGlobalSecondaryIndex {
     	      this.hashKey = defaults.hashKey;
     	      this.name = defaults.name;
     	      this.nonKeyAttributes = defaults.nonKeyAttributes;
+    	      this.onDemandThroughput = defaults.onDemandThroughput;
     	      this.projectionType = defaults.projectionType;
     	      this.rangeKey = defaults.rangeKey;
     	      this.readCapacity = defaults.readCapacity;
@@ -155,6 +170,12 @@ public final class TableGlobalSecondaryIndex {
             return nonKeyAttributes(List.of(nonKeyAttributes));
         }
         @CustomType.Setter
+        public Builder onDemandThroughput(@Nullable TableGlobalSecondaryIndexOnDemandThroughput onDemandThroughput) {
+
+            this.onDemandThroughput = onDemandThroughput;
+            return this;
+        }
+        @CustomType.Setter
         public Builder projectionType(String projectionType) {
             if (projectionType == null) {
               throw new MissingRequiredPropertyException("TableGlobalSecondaryIndex", "projectionType");
@@ -185,6 +206,7 @@ public final class TableGlobalSecondaryIndex {
             _resultValue.hashKey = hashKey;
             _resultValue.name = name;
             _resultValue.nonKeyAttributes = nonKeyAttributes;
+            _resultValue.onDemandThroughput = onDemandThroughput;
             _resultValue.projectionType = projectionType;
             _resultValue.rangeKey = rangeKey;
             _resultValue.readCapacity = readCapacity;

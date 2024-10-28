@@ -4394,6 +4394,28 @@ export namespace appflow {
 
     export interface FlowSourceFlowConfigSourceConnectorPropertiesSapoData {
         objectPath: pulumi.Input<string>;
+        /**
+         * Sets the page size for each concurrent process that transfers OData records from your SAP instance.
+         */
+        paginationConfig?: pulumi.Input<inputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig>;
+        /**
+         * Sets the number of concurrent processes that transfers OData records from your SAP instance.
+         */
+        parallelismConfig?: pulumi.Input<inputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig>;
+    }
+
+    export interface FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig {
+        /**
+         * he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
+         */
+        maxPageSize: pulumi.Input<number>;
+    }
+
+    export interface FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig {
+        /**
+         * he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
+         */
+        maxPageSize: pulumi.Input<number>;
     }
 
     export interface FlowSourceFlowConfigSourceConnectorPropertiesServiceNow {
@@ -13606,6 +13628,13 @@ export namespace cloudwatch {
         value: pulumi.Input<string>;
     }
 
+    export interface EventTargetAppsyncTarget {
+        /**
+         * Contains the GraphQL mutation to be parsed and executed.
+         */
+        graphqlOperation?: pulumi.Input<string>;
+    }
+
     export interface EventTargetBatchTarget {
         /**
          * The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
@@ -20572,6 +20601,10 @@ export namespace dynamodb {
          */
         nonKeyAttributes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
+         * Sets the maximum number of read and write units for the specified on-demand table. See below.
+         */
+        onDemandThroughput?: pulumi.Input<inputs.dynamodb.TableGlobalSecondaryIndexOnDemandThroughput>;
+        /**
          * One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
          */
         projectionType: pulumi.Input<string>;
@@ -20587,6 +20620,17 @@ export namespace dynamodb {
          * Number of write units for this index. Must be set if billingMode is set to PROVISIONED.
          */
         writeCapacity?: pulumi.Input<number>;
+    }
+
+    export interface TableGlobalSecondaryIndexOnDemandThroughput {
+        /**
+         * Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+         */
+        maxReadRequestUnits?: pulumi.Input<number>;
+        /**
+         * Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+         */
+        maxWriteRequestUnits?: pulumi.Input<number>;
     }
 
     export interface TableImportTable {
@@ -20663,6 +20707,17 @@ export namespace dynamodb {
          * Name of the range key.
          */
         rangeKey: pulumi.Input<string>;
+    }
+
+    export interface TableOnDemandThroughput {
+        /**
+         * Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+         */
+        maxReadRequestUnits?: pulumi.Input<number>;
+        /**
+         * Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+         */
+        maxWriteRequestUnits?: pulumi.Input<number>;
     }
 
     export interface TablePointInTimeRecovery {
@@ -63333,11 +63388,11 @@ export namespace rds {
 
     export interface ClusterServerlessv2ScalingConfiguration {
         /**
-         * Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0.5` up to `128` in steps of `0.5`.
+         * Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0.5` up to `256` in steps of `0.5`.
          */
         maxCapacity: pulumi.Input<number>;
         /**
-         * Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0.5` up to `128` in steps of `0.5`.
+         * Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0.5` up to `256` in steps of `0.5`.
          */
         minCapacity: pulumi.Input<number>;
     }
@@ -85742,10 +85797,21 @@ export namespace workspaces {
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
          */
         delete?: pulumi.Input<string>;
+    }
+
+    export interface DirectorySamlProperties {
         /**
-         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         * The relay state parameter name supported by the SAML 2.0 identity provider (IdP). Default `RelayState`.
          */
-        update?: pulumi.Input<string>;
+        relayStateParameterName?: pulumi.Input<string>;
+        /**
+         * Status of SAML 2.0 authentication. Default `DISABLED`.
+         */
+        status?: pulumi.Input<string>;
+        /**
+         * The SAML 2.0 identity provider (IdP) user access URL.
+         */
+        userAccessUrl?: pulumi.Input<string>;
     }
 
     export interface DirectorySelfServicePermissions {

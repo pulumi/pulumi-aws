@@ -5875,4 +5875,9 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		// the Pulumi ID as well.
 		return attrWithSeparator(state, ":", "name", "restoreTestingPlanName"), nil
 	}
+	prov.Resources["aws_iam_role_policy_attachments_exclusive"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attrWithSeparator(state, "roleName"), nil
+	}
 }

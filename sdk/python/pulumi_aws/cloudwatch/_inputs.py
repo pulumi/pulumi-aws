@@ -57,6 +57,8 @@ __all__ = [
     'EventEndpointRoutingConfigFailoverConfigSecondaryArgsDict',
     'EventPermissionConditionArgs',
     'EventPermissionConditionArgsDict',
+    'EventTargetAppsyncTargetArgs',
+    'EventTargetAppsyncTargetArgsDict',
     'EventTargetBatchTargetArgs',
     'EventTargetBatchTargetArgsDict',
     'EventTargetDeadLetterConfigArgs',
@@ -1382,6 +1384,38 @@ class EventPermissionConditionArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class EventTargetAppsyncTargetArgsDict(TypedDict):
+        graphql_operation: NotRequired[pulumi.Input[str]]
+        """
+        Contains the GraphQL mutation to be parsed and executed.
+        """
+elif False:
+    EventTargetAppsyncTargetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EventTargetAppsyncTargetArgs:
+    def __init__(__self__, *,
+                 graphql_operation: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] graphql_operation: Contains the GraphQL mutation to be parsed and executed.
+        """
+        if graphql_operation is not None:
+            pulumi.set(__self__, "graphql_operation", graphql_operation)
+
+    @property
+    @pulumi.getter(name="graphqlOperation")
+    def graphql_operation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Contains the GraphQL mutation to be parsed and executed.
+        """
+        return pulumi.get(self, "graphql_operation")
+
+    @graphql_operation.setter
+    def graphql_operation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "graphql_operation", value)
 
 
 if not MYPY:
