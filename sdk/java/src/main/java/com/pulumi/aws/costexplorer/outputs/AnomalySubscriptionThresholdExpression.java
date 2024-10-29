@@ -33,12 +33,12 @@ public final class AnomalySubscriptionThresholdExpression {
      */
     private @Nullable AnomalySubscriptionThresholdExpressionDimension dimension;
     /**
-     * @return Return results that match both Dimension object.
+     * @return Return results that do not match the Dimension object.
      * 
      */
     private @Nullable AnomalySubscriptionThresholdExpressionNot not;
     /**
-     * @return Return results that match both Dimension object.
+     * @return Return results that match either Dimension object.
      * 
      */
     private @Nullable List<AnomalySubscriptionThresholdExpressionOr> ors;
@@ -71,14 +71,14 @@ public final class AnomalySubscriptionThresholdExpression {
         return Optional.ofNullable(this.dimension);
     }
     /**
-     * @return Return results that match both Dimension object.
+     * @return Return results that do not match the Dimension object.
      * 
      */
     public Optional<AnomalySubscriptionThresholdExpressionNot> not() {
         return Optional.ofNullable(this.not);
     }
     /**
-     * @return Return results that match both Dimension object.
+     * @return Return results that match either Dimension object.
      * 
      */
     public List<AnomalySubscriptionThresholdExpressionOr> ors() {

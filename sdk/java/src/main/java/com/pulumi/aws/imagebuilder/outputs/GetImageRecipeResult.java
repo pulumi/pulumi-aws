@@ -11,7 +11,6 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetImageRecipeResult {
@@ -65,7 +64,7 @@ public final class GetImageRecipeResult {
      * @return Key-value map of resource tags for the image recipe.
      * 
      */
-    private @Nullable Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return Base64 encoded contents of user data. Commands or a command script to run when build instance is launched.
      * 
@@ -154,7 +153,7 @@ public final class GetImageRecipeResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags == null ? Map.of() : this.tags;
+        return this.tags;
     }
     /**
      * @return Base64 encoded contents of user data. Commands or a command script to run when build instance is launched.
@@ -197,7 +196,7 @@ public final class GetImageRecipeResult {
         private String owner;
         private String parentImage;
         private String platform;
-        private @Nullable Map<String,String> tags;
+        private Map<String,String> tags;
         private String userDataBase64;
         private String version;
         private String workingDirectory;
@@ -307,8 +306,10 @@ public final class GetImageRecipeResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tags(@Nullable Map<String,String> tags) {
-
+        public Builder tags(Map<String,String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetImageRecipeResult", "tags");
+            }
             this.tags = tags;
             return this;
         }

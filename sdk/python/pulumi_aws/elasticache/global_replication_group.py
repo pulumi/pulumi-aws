@@ -534,7 +534,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
             num_cache_clusters=1)
         ```
 
-        ### Managing Redis Engine Versions
+        ### Managing Redis OOS/Valkey Engine Versions
 
         The initial Redis version is determined by the version set on the primary replication group.
         However, once it is part of a Global Replication Group,
@@ -639,7 +639,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
             num_cache_clusters=1)
         ```
 
-        ### Managing Redis Engine Versions
+        ### Managing Redis OOS/Valkey Engine Versions
 
         The initial Redis version is determined by the version set on the primary replication group.
         However, once it is part of a Global Replication Group,

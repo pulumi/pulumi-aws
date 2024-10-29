@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides an ElastiCache Serverless Cache resource which manages memcached or redis.
+ * Provides an ElastiCache Serverless Cache resource which manages memcached, redis or valkey.
  *
  * ## Example Usage
  *
@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Redis Serverless
+ * ### Redis OSS Serverless
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -46,6 +46,34 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.elasticache.ServerlessCache("example", {
  *     engine: "redis",
+ *     name: "example",
+ *     cacheUsageLimits: {
+ *         dataStorage: {
+ *             maximum: 10,
+ *             unit: "GB",
+ *         },
+ *         ecpuPerSeconds: [{
+ *             maximum: 5000,
+ *         }],
+ *     },
+ *     dailySnapshotTime: "09:00",
+ *     description: "Test Server",
+ *     kmsKeyId: test.arn,
+ *     majorEngineVersion: "7",
+ *     snapshotRetentionLimit: 1,
+ *     securityGroupIds: [testAwsSecurityGroup.id],
+ *     subnetIds: testAwsSubnet.map(__item => __item.id),
+ * });
+ * ```
+ *
+ * ### Valkey Serverless
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.elasticache.ServerlessCache("example", {
+ *     engine: "valkey",
  *     name: "example",
  *     cacheUsageLimits: {
  *         dataStorage: {
@@ -115,7 +143,7 @@ export class ServerlessCache extends pulumi.CustomResource {
      */
     public /*out*/ readonly createTime!: pulumi.Output<string>;
     /**
-     * The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
+     * The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
      */
     public readonly dailySnapshotTime!: pulumi.Output<string>;
     /**
@@ -127,7 +155,7 @@ export class ServerlessCache extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoints!: pulumi.Output<outputs.elasticache.ServerlessCacheEndpoint[]>;
     /**
-     * Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+     * Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
      */
     public readonly engine!: pulumi.Output<string>;
     /**
@@ -270,7 +298,7 @@ export interface ServerlessCacheState {
      */
     createTime?: pulumi.Input<string>;
     /**
-     * The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
+     * The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
      */
     dailySnapshotTime?: pulumi.Input<string>;
     /**
@@ -282,7 +310,7 @@ export interface ServerlessCacheState {
      */
     endpoints?: pulumi.Input<pulumi.Input<inputs.elasticache.ServerlessCacheEndpoint>[]>;
     /**
-     * Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+     * Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
      */
     engine?: pulumi.Input<string>;
     /**
@@ -352,7 +380,7 @@ export interface ServerlessCacheArgs {
      */
     cacheUsageLimits?: pulumi.Input<inputs.elasticache.ServerlessCacheCacheUsageLimits>;
     /**
-     * The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
+     * The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
      */
     dailySnapshotTime?: pulumi.Input<string>;
     /**
@@ -360,7 +388,7 @@ export interface ServerlessCacheArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+     * Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
      */
     engine: pulumi.Input<string>;
     /**

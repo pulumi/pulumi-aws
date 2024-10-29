@@ -33,6 +33,7 @@ public final class GetLoadBalancerResult {
     private Boolean enableTlsVersionAndCipherSuiteHeaders;
     private Boolean enableWafFailOpen;
     private Boolean enableXffClientPort;
+    private Boolean enableZonalShift;
     private String enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -101,6 +102,9 @@ public final class GetLoadBalancerResult {
     }
     public Boolean enableXffClientPort() {
         return this.enableXffClientPort;
+    }
+    public Boolean enableZonalShift() {
+        return this.enableZonalShift;
     }
     public String enforceSecurityGroupInboundRulesOnPrivateLinkTraffic() {
         return this.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
@@ -177,6 +181,7 @@ public final class GetLoadBalancerResult {
         private Boolean enableTlsVersionAndCipherSuiteHeaders;
         private Boolean enableWafFailOpen;
         private Boolean enableXffClientPort;
+        private Boolean enableZonalShift;
         private String enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
         private String id;
         private Integer idleTimeout;
@@ -211,6 +216,7 @@ public final class GetLoadBalancerResult {
     	      this.enableTlsVersionAndCipherSuiteHeaders = defaults.enableTlsVersionAndCipherSuiteHeaders;
     	      this.enableWafFailOpen = defaults.enableWafFailOpen;
     	      this.enableXffClientPort = defaults.enableXffClientPort;
+    	      this.enableZonalShift = defaults.enableZonalShift;
     	      this.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic = defaults.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
     	      this.id = defaults.id;
     	      this.idleTimeout = defaults.idleTimeout;
@@ -360,6 +366,14 @@ public final class GetLoadBalancerResult {
             return this;
         }
         @CustomType.Setter
+        public Builder enableZonalShift(Boolean enableZonalShift) {
+            if (enableZonalShift == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "enableZonalShift");
+            }
+            this.enableZonalShift = enableZonalShift;
+            return this;
+        }
+        @CustomType.Setter
         public Builder enforceSecurityGroupInboundRulesOnPrivateLinkTraffic(String enforceSecurityGroupInboundRulesOnPrivateLinkTraffic) {
             if (enforceSecurityGroupInboundRulesOnPrivateLinkTraffic == null) {
               throw new MissingRequiredPropertyException("GetLoadBalancerResult", "enforceSecurityGroupInboundRulesOnPrivateLinkTraffic");
@@ -506,6 +520,7 @@ public final class GetLoadBalancerResult {
             _resultValue.enableTlsVersionAndCipherSuiteHeaders = enableTlsVersionAndCipherSuiteHeaders;
             _resultValue.enableWafFailOpen = enableWafFailOpen;
             _resultValue.enableXffClientPort = enableXffClientPort;
+            _resultValue.enableZonalShift = enableZonalShift;
             _resultValue.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic = enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
             _resultValue.id = id;
             _resultValue.idleTimeout = idleTimeout;

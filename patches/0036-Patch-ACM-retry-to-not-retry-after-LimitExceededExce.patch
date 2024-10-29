@@ -1,37 +1,46 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Anton Tayanovskyy <anton@pulumi.com>
-Date: Fri, 19 Jan 2024 18:08:51 -0500
+Date: Fri, 25 Oct 2024 17:14:36 -0400
 Subject: [PATCH] Patch ACM retry to not retry after LimitExceededException
  (#3290)
 
 
+diff --git a/internal/service/acm/service_package_extra.go b/internal/service/acm/service_package_extra.go
+new file mode 100644
+index 0000000000..b432bed386
+--- /dev/null
++++ b/internal/service/acm/service_package_extra.go
+@@ -0,0 +1,21 @@
++package acm
++
++import (
++	"github.com/aws/aws-sdk-go-v2/aws"
++	retry_sdkv2 "github.com/aws/aws-sdk-go-v2/aws/retry"
++	"github.com/aws/aws-sdk-go-v2/service/acm"
++	tfawserr_sdkv2 "github.com/hashicorp/aws-sdk-go-base/v2/tfawserr"
++	"github.com/hashicorp/terraform-provider-aws/internal/conns"
++)
++
++func (p *servicePackage) pulumiCustomizeRetries(cfg aws.Config) func(*acm.Options) {
++	return func(o *acm.Options) {
++		o.Retryer = conns.AddIsErrorRetryables(cfg.Retryer().(aws.RetryerV2), retry_sdkv2.IsErrorRetryableFunc(func(err error) aws.Ternary {
++			if tfawserr_sdkv2.ErrMessageContains(err, "LimitExceededException", "the maximum number of") &&
++				tfawserr_sdkv2.ErrMessageContains(err, "LimitExceededException", "certificates in the last year") {
++				return aws.FalseTernary
++			}
++			return aws.UnknownTernary // Delegate to configured Retryer.
++		}))
++	}
++}
 diff --git a/internal/service/acm/service_package_gen.go b/internal/service/acm/service_package_gen.go
-index d76d553329..7f9a9ca461 100644
+index 90c139864a..da16c6a6b5 100644
 --- a/internal/service/acm/service_package_gen.go
 +++ b/internal/service/acm/service_package_gen.go
-@@ -6,7 +6,9 @@ import (
- 	"context"
- 
- 	aws_sdkv2 "github.com/aws/aws-sdk-go-v2/aws"
-+	retry_sdkv2 "github.com/aws/aws-sdk-go-v2/aws/retry"
- 	acm_sdkv2 "github.com/aws/aws-sdk-go-v2/service/acm"
-+	tfawserr_sdkv2 "github.com/hashicorp/aws-sdk-go-base/v2/tfawserr"
- 	"github.com/hashicorp/terraform-provider-aws/internal/conns"
- 	"github.com/hashicorp/terraform-provider-aws/internal/types"
- 	"github.com/hashicorp/terraform-provider-aws/names"
-@@ -63,6 +65,15 @@ func (p *servicePackage) NewClient(ctx context.Context, config map[string]any) (
- 	return acm_sdkv2.NewFromConfig(cfg,
- 		acm_sdkv2.WithEndpointResolverV2(newEndpointResolverSDKv2()),
+@@ -63,6 +63,7 @@ func (p *servicePackage) NewClient(ctx context.Context, config map[string]any) (
+ 	return acm.NewFromConfig(cfg,
+ 		acm.WithEndpointResolverV2(newEndpointResolverV2()),
  		withBaseEndpoint(config[names.AttrEndpoint].(string)),
-+		func(o *acm_sdkv2.Options) {
-+			o.Retryer = conns.AddIsErrorRetryables(cfg.Retryer().(aws_sdkv2.RetryerV2), retry_sdkv2.IsErrorRetryableFunc(func(err error) aws_sdkv2.Ternary {
-+				if tfawserr_sdkv2.ErrMessageContains(err, "LimitExceededException", "the maximum number of") &&
-+					tfawserr_sdkv2.ErrMessageContains(err, "LimitExceededException", "certificates in the last year") {
-+					return aws_sdkv2.FalseTernary
-+				}
-+				return aws_sdkv2.UnknownTernary // Delegate to configured Retryer.
-+			}))
-+		},
++		p.pulumiCustomizeRetries(cfg),
  	), nil
  }
  

@@ -15348,7 +15348,7 @@ public final class Ec2Functions {
      *             .id(subnetId)
      *             .build());
      * 
-     *         var subnet = new SecurityGroup("subnet", SecurityGroupArgs.builder()
+     *         var subnetSecurityGroup = new SecurityGroup("subnetSecurityGroup", SecurityGroupArgs.builder()
      *             .vpcId(selected.applyValue(getSubnetResult -> getSubnetResult.vpcId()))
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .cidrBlocks(selected.applyValue(getSubnetResult -> getSubnetResult.cidrBlock()))
@@ -15449,7 +15449,7 @@ public final class Ec2Functions {
      *             .id(subnetId)
      *             .build());
      * 
-     *         var subnet = new SecurityGroup("subnet", SecurityGroupArgs.builder()
+     *         var subnetSecurityGroup = new SecurityGroup("subnetSecurityGroup", SecurityGroupArgs.builder()
      *             .vpcId(selected.applyValue(getSubnetResult -> getSubnetResult.vpcId()))
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .cidrBlocks(selected.applyValue(getSubnetResult -> getSubnetResult.cidrBlock()))
@@ -15550,7 +15550,7 @@ public final class Ec2Functions {
      *             .id(subnetId)
      *             .build());
      * 
-     *         var subnet = new SecurityGroup("subnet", SecurityGroupArgs.builder()
+     *         var subnetSecurityGroup = new SecurityGroup("subnetSecurityGroup", SecurityGroupArgs.builder()
      *             .vpcId(selected.applyValue(getSubnetResult -> getSubnetResult.vpcId()))
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .cidrBlocks(selected.applyValue(getSubnetResult -> getSubnetResult.cidrBlock()))
@@ -15651,7 +15651,7 @@ public final class Ec2Functions {
      *             .id(subnetId)
      *             .build());
      * 
-     *         var subnet = new SecurityGroup("subnet", SecurityGroupArgs.builder()
+     *         var subnetSecurityGroup = new SecurityGroup("subnetSecurityGroup", SecurityGroupArgs.builder()
      *             .vpcId(selected.applyValue(getSubnetResult -> getSubnetResult.vpcId()))
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .cidrBlocks(selected.applyValue(getSubnetResult -> getSubnetResult.cidrBlock()))
@@ -15752,7 +15752,7 @@ public final class Ec2Functions {
      *             .id(subnetId)
      *             .build());
      * 
-     *         var subnet = new SecurityGroup("subnet", SecurityGroupArgs.builder()
+     *         var subnetSecurityGroup = new SecurityGroup("subnetSecurityGroup", SecurityGroupArgs.builder()
      *             .vpcId(selected.applyValue(getSubnetResult -> getSubnetResult.vpcId()))
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .cidrBlocks(selected.applyValue(getSubnetResult -> getSubnetResult.cidrBlock()))
@@ -15853,7 +15853,7 @@ public final class Ec2Functions {
      *             .id(subnetId)
      *             .build());
      * 
-     *         var subnet = new SecurityGroup("subnet", SecurityGroupArgs.builder()
+     *         var subnetSecurityGroup = new SecurityGroup("subnetSecurityGroup", SecurityGroupArgs.builder()
      *             .vpcId(selected.applyValue(getSubnetResult -> getSubnetResult.vpcId()))
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .cidrBlocks(selected.applyValue(getSubnetResult -> getSubnetResult.cidrBlock()))

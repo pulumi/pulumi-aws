@@ -44,14 +44,14 @@ public class ProfilesAssociation extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Name of the Profile Association.
+     * Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_&#39; &#39;]+)`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the Profile Association.
+     * @return Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_&#39; &#39;]+)`.
      * 
      */
     public Output<String> name() {
@@ -92,14 +92,14 @@ public class ProfilesAssociation extends com.pulumi.resources.CustomResource {
         return this.resourceId;
     }
     /**
-     * Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+     * Status of the Profile Association. See the [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html) for valid values.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+     * @return Status of the Profile Association. See the [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html) for valid values.
      * 
      */
     public Output<String> status() {

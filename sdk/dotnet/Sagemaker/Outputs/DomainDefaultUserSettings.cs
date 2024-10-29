@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class DomainDefaultUserSettings
     {
         /// <summary>
+        /// Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
+        /// </summary>
+        public readonly string? AutoMountHomeEfs;
+        /// <summary>
         /// The Canvas app settings. See `canvas_app_settings` Block below.
         /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsCanvasAppSettings? CanvasAppSettings;
@@ -84,6 +88,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
 
         [OutputConstructor]
         private DomainDefaultUserSettings(
+            string? autoMountHomeEfs,
+
             Outputs.DomainDefaultUserSettingsCanvasAppSettings? canvasAppSettings,
 
             Outputs.DomainDefaultUserSettingsCodeEditorAppSettings? codeEditorAppSettings,
@@ -118,6 +124,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
 
             Outputs.DomainDefaultUserSettingsTensorBoardAppSettings? tensorBoardAppSettings)
         {
+            AutoMountHomeEfs = autoMountHomeEfs;
             CanvasAppSettings = canvasAppSettings;
             CodeEditorAppSettings = codeEditorAppSettings;
             CustomFileSystemConfigs = customFileSystemConfigs;

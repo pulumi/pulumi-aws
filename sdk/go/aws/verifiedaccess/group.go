@@ -41,6 +41,42 @@ import (
 //	}
 //
 // ```
+//
+// ### Usage with KMS Key
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/verifiedaccess"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testKey, err := kms.NewKey(ctx, "test_key", &kms.KeyArgs{
+//				Description: pulumi.String("KMS key for Verified Access Group test"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = verifiedaccess.NewGroup(ctx, "test", &verifiedaccess.GroupArgs{
+//				VerifiedaccessInstanceId: pulumi.Any(testAwsVerifiedaccessInstanceTrustProviderAttachment.VerifiedaccessInstanceId),
+//				SseConfiguration: &verifiedaccess.GroupSseConfigurationArgs{
+//					KmsKeyArn: testKey.Arn,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type Group struct {
 	pulumi.CustomResourceState
 

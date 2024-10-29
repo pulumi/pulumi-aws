@@ -72,7 +72,7 @@ public final class GetReservedCacheNodeOfferingPlainArgs extends com.pulumi.reso
 
     /**
      * Engine type for the reserved cache node.
-     * Valid values are `redis` and `memcached`.
+     * Valid values are `redis`, `valkey` and `memcached`.
      * 
      */
     @Import(name="productDescription", required=true)
@@ -80,7 +80,7 @@ public final class GetReservedCacheNodeOfferingPlainArgs extends com.pulumi.reso
 
     /**
      * @return Engine type for the reserved cache node.
-     * Valid values are `redis` and `memcached`.
+     * Valid values are `redis`, `valkey` and `memcached`.
      * 
      */
     public String productDescription() {
@@ -155,7 +155,7 @@ public final class GetReservedCacheNodeOfferingPlainArgs extends com.pulumi.reso
 
         /**
          * @param productDescription Engine type for the reserved cache node.
-         * Valid values are `redis` and `memcached`.
+         * Valid values are `redis`, `valkey` and `memcached`.
          * 
          * @return builder
          * 

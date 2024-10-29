@@ -13,6 +13,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     [OutputType]
     public sealed class FeatureGroupFeatureDefinition
     {
+        public readonly Outputs.FeatureGroupFeatureDefinitionCollectionConfig? CollectionConfig;
+        public readonly string? CollectionType;
         /// <summary>
         /// The name of a feature. `feature_name` cannot be any of the following: `is_deleted`, `write_time`, `api_invocation_time`.
         /// </summary>
@@ -24,10 +26,16 @@ namespace Pulumi.Aws.Sagemaker.Outputs
 
         [OutputConstructor]
         private FeatureGroupFeatureDefinition(
+            Outputs.FeatureGroupFeatureDefinitionCollectionConfig? collectionConfig,
+
+            string? collectionType,
+
             string? featureName,
 
             string? featureType)
         {
+            CollectionConfig = collectionConfig;
+            CollectionType = collectionType;
             FeatureName = featureName;
             FeatureType = featureType;
         }

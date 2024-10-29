@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.sagemaker.inputs;
 
+import com.pulumi.aws.sagemaker.inputs.FeatureGroupFeatureDefinitionCollectionConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -14,6 +15,20 @@ import javax.annotation.Nullable;
 public final class FeatureGroupFeatureDefinitionArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final FeatureGroupFeatureDefinitionArgs Empty = new FeatureGroupFeatureDefinitionArgs();
+
+    @Import(name="collectionConfig")
+    private @Nullable Output<FeatureGroupFeatureDefinitionCollectionConfigArgs> collectionConfig;
+
+    public Optional<Output<FeatureGroupFeatureDefinitionCollectionConfigArgs>> collectionConfig() {
+        return Optional.ofNullable(this.collectionConfig);
+    }
+
+    @Import(name="collectionType")
+    private @Nullable Output<String> collectionType;
+
+    public Optional<Output<String>> collectionType() {
+        return Optional.ofNullable(this.collectionType);
+    }
 
     /**
      * The name of a feature. `feature_name` cannot be any of the following: `is_deleted`, `write_time`, `api_invocation_time`.
@@ -48,6 +63,8 @@ public final class FeatureGroupFeatureDefinitionArgs extends com.pulumi.resource
     private FeatureGroupFeatureDefinitionArgs() {}
 
     private FeatureGroupFeatureDefinitionArgs(FeatureGroupFeatureDefinitionArgs $) {
+        this.collectionConfig = $.collectionConfig;
+        this.collectionType = $.collectionType;
         this.featureName = $.featureName;
         this.featureType = $.featureType;
     }
@@ -68,6 +85,24 @@ public final class FeatureGroupFeatureDefinitionArgs extends com.pulumi.resource
 
         public Builder(FeatureGroupFeatureDefinitionArgs defaults) {
             $ = new FeatureGroupFeatureDefinitionArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder collectionConfig(@Nullable Output<FeatureGroupFeatureDefinitionCollectionConfigArgs> collectionConfig) {
+            $.collectionConfig = collectionConfig;
+            return this;
+        }
+
+        public Builder collectionConfig(FeatureGroupFeatureDefinitionCollectionConfigArgs collectionConfig) {
+            return collectionConfig(Output.of(collectionConfig));
+        }
+
+        public Builder collectionType(@Nullable Output<String> collectionType) {
+            $.collectionType = collectionType;
+            return this;
+        }
+
+        public Builder collectionType(String collectionType) {
+            return collectionType(Output.of(collectionType));
         }
 
         /**

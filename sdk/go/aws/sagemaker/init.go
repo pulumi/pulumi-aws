@@ -43,12 +43,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FeatureGroup{}
 	case "aws:sagemaker/flowDefinition:FlowDefinition":
 		r = &FlowDefinition{}
+	case "aws:sagemaker/hub:Hub":
+		r = &Hub{}
 	case "aws:sagemaker/humanTaskUI:HumanTaskUI":
 		r = &HumanTaskUI{}
 	case "aws:sagemaker/image:Image":
 		r = &Image{}
 	case "aws:sagemaker/imageVersion:ImageVersion":
 		r = &ImageVersion{}
+	case "aws:sagemaker/mlflowTrackingServer:MlflowTrackingServer":
+		r = &MlflowTrackingServer{}
 	case "aws:sagemaker/model:Model":
 		r = &Model{}
 	case "aws:sagemaker/modelPackageGroup:ModelPackageGroup":
@@ -147,6 +151,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"sagemaker/hub",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"sagemaker/humanTaskUI",
 		&module{version},
 	)
@@ -158,6 +167,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"sagemaker/imageVersion",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"sagemaker/mlflowTrackingServer",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

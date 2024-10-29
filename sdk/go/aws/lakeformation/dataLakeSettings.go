@@ -148,6 +148,34 @@ import (
 //	}
 //
 // ```
+//
+// ### Change Cross Account Version
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lakeformation.NewDataLakeSettings(ctx, "example", &lakeformation.DataLakeSettingsArgs{
+//				Parameters: pulumi.StringMap{
+//					"CROSS_ACCOUNT_VERSION": pulumi.String("3"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type DataLakeSettings struct {
 	pulumi.CustomResourceState
 
@@ -156,8 +184,6 @@ type DataLakeSettings struct {
 	// Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
 	AllowExternalDataFiltering pulumi.BoolPtrOutput `pulumi:"allowExternalDataFiltering"`
 	// Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
-	//
-	// > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, and/or `trustedResourceOwners` results in the setting being cleared.
 	AllowFullTableExternalDataAccess pulumi.BoolPtrOutput `pulumi:"allowFullTableExternalDataAccess"`
 	// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
 	AuthorizedSessionTagValueLists pulumi.StringArrayOutput `pulumi:"authorizedSessionTagValueLists"`
@@ -169,9 +195,13 @@ type DataLakeSettings struct {
 	CreateTableDefaultPermissions DataLakeSettingsCreateTableDefaultPermissionArrayOutput `pulumi:"createTableDefaultPermissions"`
 	// A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
 	ExternalDataFilteringAllowLists pulumi.StringArrayOutput `pulumi:"externalDataFilteringAllowLists"`
+	// Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `"1"`.
+	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
 	ReadOnlyAdmins pulumi.StringArrayOutput `pulumi:"readOnlyAdmins"`
 	// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
+	//
+	// > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, `parameters`, and/or `trustedResourceOwners` results in the setting being cleared.
 	TrustedResourceOwners pulumi.StringArrayOutput `pulumi:"trustedResourceOwners"`
 }
 
@@ -210,8 +240,6 @@ type dataLakeSettingsState struct {
 	// Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
 	AllowExternalDataFiltering *bool `pulumi:"allowExternalDataFiltering"`
 	// Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
-	//
-	// > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, and/or `trustedResourceOwners` results in the setting being cleared.
 	AllowFullTableExternalDataAccess *bool `pulumi:"allowFullTableExternalDataAccess"`
 	// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
 	AuthorizedSessionTagValueLists []string `pulumi:"authorizedSessionTagValueLists"`
@@ -223,9 +251,13 @@ type dataLakeSettingsState struct {
 	CreateTableDefaultPermissions []DataLakeSettingsCreateTableDefaultPermission `pulumi:"createTableDefaultPermissions"`
 	// A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
 	ExternalDataFilteringAllowLists []string `pulumi:"externalDataFilteringAllowLists"`
+	// Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `"1"`.
+	Parameters map[string]string `pulumi:"parameters"`
 	// Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
 	ReadOnlyAdmins []string `pulumi:"readOnlyAdmins"`
 	// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
+	//
+	// > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, `parameters`, and/or `trustedResourceOwners` results in the setting being cleared.
 	TrustedResourceOwners []string `pulumi:"trustedResourceOwners"`
 }
 
@@ -235,8 +267,6 @@ type DataLakeSettingsState struct {
 	// Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
 	AllowExternalDataFiltering pulumi.BoolPtrInput
 	// Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
-	//
-	// > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, and/or `trustedResourceOwners` results in the setting being cleared.
 	AllowFullTableExternalDataAccess pulumi.BoolPtrInput
 	// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
 	AuthorizedSessionTagValueLists pulumi.StringArrayInput
@@ -248,9 +278,13 @@ type DataLakeSettingsState struct {
 	CreateTableDefaultPermissions DataLakeSettingsCreateTableDefaultPermissionArrayInput
 	// A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
 	ExternalDataFilteringAllowLists pulumi.StringArrayInput
+	// Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `"1"`.
+	Parameters pulumi.StringMapInput
 	// Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
 	ReadOnlyAdmins pulumi.StringArrayInput
 	// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
+	//
+	// > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, `parameters`, and/or `trustedResourceOwners` results in the setting being cleared.
 	TrustedResourceOwners pulumi.StringArrayInput
 }
 
@@ -264,8 +298,6 @@ type dataLakeSettingsArgs struct {
 	// Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
 	AllowExternalDataFiltering *bool `pulumi:"allowExternalDataFiltering"`
 	// Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
-	//
-	// > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, and/or `trustedResourceOwners` results in the setting being cleared.
 	AllowFullTableExternalDataAccess *bool `pulumi:"allowFullTableExternalDataAccess"`
 	// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
 	AuthorizedSessionTagValueLists []string `pulumi:"authorizedSessionTagValueLists"`
@@ -277,9 +309,13 @@ type dataLakeSettingsArgs struct {
 	CreateTableDefaultPermissions []DataLakeSettingsCreateTableDefaultPermission `pulumi:"createTableDefaultPermissions"`
 	// A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
 	ExternalDataFilteringAllowLists []string `pulumi:"externalDataFilteringAllowLists"`
+	// Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `"1"`.
+	Parameters map[string]string `pulumi:"parameters"`
 	// Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
 	ReadOnlyAdmins []string `pulumi:"readOnlyAdmins"`
 	// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
+	//
+	// > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, `parameters`, and/or `trustedResourceOwners` results in the setting being cleared.
 	TrustedResourceOwners []string `pulumi:"trustedResourceOwners"`
 }
 
@@ -290,8 +326,6 @@ type DataLakeSettingsArgs struct {
 	// Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
 	AllowExternalDataFiltering pulumi.BoolPtrInput
 	// Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
-	//
-	// > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, and/or `trustedResourceOwners` results in the setting being cleared.
 	AllowFullTableExternalDataAccess pulumi.BoolPtrInput
 	// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
 	AuthorizedSessionTagValueLists pulumi.StringArrayInput
@@ -303,9 +337,13 @@ type DataLakeSettingsArgs struct {
 	CreateTableDefaultPermissions DataLakeSettingsCreateTableDefaultPermissionArrayInput
 	// A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
 	ExternalDataFilteringAllowLists pulumi.StringArrayInput
+	// Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `"1"`.
+	Parameters pulumi.StringMapInput
 	// Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
 	ReadOnlyAdmins pulumi.StringArrayInput
 	// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
+	//
+	// > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, `parameters`, and/or `trustedResourceOwners` results in the setting being cleared.
 	TrustedResourceOwners pulumi.StringArrayInput
 }
 
@@ -407,8 +445,6 @@ func (o DataLakeSettingsOutput) AllowExternalDataFiltering() pulumi.BoolPtrOutpu
 }
 
 // Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
-//
-// > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, and/or `trustedResourceOwners` results in the setting being cleared.
 func (o DataLakeSettingsOutput) AllowFullTableExternalDataAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataLakeSettings) pulumi.BoolPtrOutput { return v.AllowFullTableExternalDataAccess }).(pulumi.BoolPtrOutput)
 }
@@ -442,12 +478,19 @@ func (o DataLakeSettingsOutput) ExternalDataFilteringAllowLists() pulumi.StringA
 	return o.ApplyT(func(v *DataLakeSettings) pulumi.StringArrayOutput { return v.ExternalDataFilteringAllowLists }).(pulumi.StringArrayOutput)
 }
 
+// Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `"1"`.
+func (o DataLakeSettingsOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DataLakeSettings) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
 // Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
 func (o DataLakeSettingsOutput) ReadOnlyAdmins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataLakeSettings) pulumi.StringArrayOutput { return v.ReadOnlyAdmins }).(pulumi.StringArrayOutput)
 }
 
 // List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
+//
+// > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, `parameters`, and/or `trustedResourceOwners` results in the setting being cleared.
 func (o DataLakeSettingsOutput) TrustedResourceOwners() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataLakeSettings) pulumi.StringArrayOutput { return v.TrustedResourceOwners }).(pulumi.StringArrayOutput)
 }

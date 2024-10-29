@@ -176,6 +176,12 @@ namespace Pulumi.Aws.Sagemaker
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
+        /// </summary>
+        [Output("tagPropagation")]
+        public Output<string?> TagPropagation { get; private set; } = null!;
+
+        /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -313,6 +319,12 @@ namespace Pulumi.Aws.Sagemaker
             set => _subnetIds = value;
         }
 
+        /// <summary>
+        /// Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
+        /// </summary>
+        [Input("tagPropagation")]
+        public Input<string>? TagPropagation { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -436,6 +448,12 @@ namespace Pulumi.Aws.Sagemaker
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
             set => _subnetIds = value;
         }
+
+        /// <summary>
+        /// Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
+        /// </summary>
+        [Input("tagPropagation")]
+        public Input<string>? TagPropagation { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

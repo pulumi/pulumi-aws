@@ -37,9 +37,9 @@ class ServerlessCacheArgs:
                  user_group_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServerlessCache resource.
-        :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+        :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
         :param pulumi.Input['ServerlessCacheCacheUsageLimitsArgs'] cache_usage_limits: Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
-        :param pulumi.Input[str] daily_snapshot_time: The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
+        :param pulumi.Input[str] daily_snapshot_time: The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
         :param pulumi.Input[str] description: User-provided description for the serverless cache. The default is NULL.
         :param pulumi.Input[str] kms_key_id: ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
         :param pulumi.Input[str] major_engine_version: The version of the cache engine that will be used to create the serverless cache.
@@ -86,7 +86,7 @@ class ServerlessCacheArgs:
     @pulumi.getter
     def engine(self) -> pulumi.Input[str]:
         """
-        Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+        Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
         """
         return pulumi.get(self, "engine")
 
@@ -110,7 +110,7 @@ class ServerlessCacheArgs:
     @pulumi.getter(name="dailySnapshotTime")
     def daily_snapshot_time(self) -> Optional[pulumi.Input[str]]:
         """
-        The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
+        The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
         """
         return pulumi.get(self, "daily_snapshot_time")
 
@@ -280,10 +280,10 @@ class _ServerlessCacheState:
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the serverless cache.
         :param pulumi.Input['ServerlessCacheCacheUsageLimitsArgs'] cache_usage_limits: Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
         :param pulumi.Input[str] create_time: Timestamp of when the serverless cache was created.
-        :param pulumi.Input[str] daily_snapshot_time: The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
+        :param pulumi.Input[str] daily_snapshot_time: The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
         :param pulumi.Input[str] description: User-provided description for the serverless cache. The default is NULL.
         :param pulumi.Input[Sequence[pulumi.Input['ServerlessCacheEndpointArgs']]] endpoints: Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
-        :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+        :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
         :param pulumi.Input[str] full_engine_version: The name and version number of the engine the serverless cache is compatible with.
         :param pulumi.Input[str] kms_key_id: ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
         :param pulumi.Input[str] major_engine_version: The version of the cache engine that will be used to create the serverless cache.
@@ -386,7 +386,7 @@ class _ServerlessCacheState:
     @pulumi.getter(name="dailySnapshotTime")
     def daily_snapshot_time(self) -> Optional[pulumi.Input[str]]:
         """
-        The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
+        The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
         """
         return pulumi.get(self, "daily_snapshot_time")
 
@@ -422,7 +422,7 @@ class _ServerlessCacheState:
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+        Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
         """
         return pulumi.get(self, "engine")
 
@@ -618,7 +618,7 @@ class ServerlessCache(pulumi.CustomResource):
                  user_group_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an ElastiCache Serverless Cache resource which manages memcached or redis.
+        Provides an ElastiCache Serverless Cache resource which manages memcached, redis or valkey.
 
         ## Example Usage
 
@@ -647,7 +647,7 @@ class ServerlessCache(pulumi.CustomResource):
             subnet_ids=[__item["id"] for __item in test_aws_subnet])
         ```
 
-        ### Redis Serverless
+        ### Redis OSS Serverless
 
         ```python
         import pulumi
@@ -655,6 +655,33 @@ class ServerlessCache(pulumi.CustomResource):
 
         example = aws.elasticache.ServerlessCache("example",
             engine="redis",
+            name="example",
+            cache_usage_limits={
+                "data_storage": {
+                    "maximum": 10,
+                    "unit": "GB",
+                },
+                "ecpu_per_seconds": [{
+                    "maximum": 5000,
+                }],
+            },
+            daily_snapshot_time="09:00",
+            description="Test Server",
+            kms_key_id=test["arn"],
+            major_engine_version="7",
+            snapshot_retention_limit=1,
+            security_group_ids=[test_aws_security_group["id"]],
+            subnet_ids=[__item["id"] for __item in test_aws_subnet])
+        ```
+
+        ### Valkey Serverless
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.elasticache.ServerlessCache("example",
+            engine="valkey",
             name="example",
             cache_usage_limits={
                 "data_storage": {
@@ -685,9 +712,9 @@ class ServerlessCache(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServerlessCacheCacheUsageLimitsArgs', 'ServerlessCacheCacheUsageLimitsArgsDict']] cache_usage_limits: Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
-        :param pulumi.Input[str] daily_snapshot_time: The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
+        :param pulumi.Input[str] daily_snapshot_time: The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
         :param pulumi.Input[str] description: User-provided description for the serverless cache. The default is NULL.
-        :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+        :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
         :param pulumi.Input[str] kms_key_id: ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
         :param pulumi.Input[str] major_engine_version: The version of the cache engine that will be used to create the serverless cache.
                See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
@@ -708,7 +735,7 @@ class ServerlessCache(pulumi.CustomResource):
                  args: ServerlessCacheArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an ElastiCache Serverless Cache resource which manages memcached or redis.
+        Provides an ElastiCache Serverless Cache resource which manages memcached, redis or valkey.
 
         ## Example Usage
 
@@ -737,7 +764,7 @@ class ServerlessCache(pulumi.CustomResource):
             subnet_ids=[__item["id"] for __item in test_aws_subnet])
         ```
 
-        ### Redis Serverless
+        ### Redis OSS Serverless
 
         ```python
         import pulumi
@@ -745,6 +772,33 @@ class ServerlessCache(pulumi.CustomResource):
 
         example = aws.elasticache.ServerlessCache("example",
             engine="redis",
+            name="example",
+            cache_usage_limits={
+                "data_storage": {
+                    "maximum": 10,
+                    "unit": "GB",
+                },
+                "ecpu_per_seconds": [{
+                    "maximum": 5000,
+                }],
+            },
+            daily_snapshot_time="09:00",
+            description="Test Server",
+            kms_key_id=test["arn"],
+            major_engine_version="7",
+            snapshot_retention_limit=1,
+            security_group_ids=[test_aws_security_group["id"]],
+            subnet_ids=[__item["id"] for __item in test_aws_subnet])
+        ```
+
+        ### Valkey Serverless
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.elasticache.ServerlessCache("example",
+            engine="valkey",
             name="example",
             cache_usage_limits={
                 "data_storage": {
@@ -874,10 +928,10 @@ class ServerlessCache(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the serverless cache.
         :param pulumi.Input[Union['ServerlessCacheCacheUsageLimitsArgs', 'ServerlessCacheCacheUsageLimitsArgsDict']] cache_usage_limits: Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
         :param pulumi.Input[str] create_time: Timestamp of when the serverless cache was created.
-        :param pulumi.Input[str] daily_snapshot_time: The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
+        :param pulumi.Input[str] daily_snapshot_time: The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
         :param pulumi.Input[str] description: User-provided description for the serverless cache. The default is NULL.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCacheEndpointArgs', 'ServerlessCacheEndpointArgsDict']]]] endpoints: Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
-        :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+        :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
         :param pulumi.Input[str] full_engine_version: The name and version number of the engine the serverless cache is compatible with.
         :param pulumi.Input[str] kms_key_id: ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
         :param pulumi.Input[str] major_engine_version: The version of the cache engine that will be used to create the serverless cache.
@@ -949,7 +1003,7 @@ class ServerlessCache(pulumi.CustomResource):
     @pulumi.getter(name="dailySnapshotTime")
     def daily_snapshot_time(self) -> pulumi.Output[str]:
         """
-        The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
+        The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
         """
         return pulumi.get(self, "daily_snapshot_time")
 
@@ -973,7 +1027,7 @@ class ServerlessCache(pulumi.CustomResource):
     @pulumi.getter
     def engine(self) -> pulumi.Output[str]:
         """
-        Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+        Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
         """
         return pulumi.get(self, "engine")
 

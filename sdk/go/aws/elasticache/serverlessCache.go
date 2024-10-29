@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an ElastiCache Serverless Cache resource which manages memcached or redis.
+// Provides an ElastiCache Serverless Cache resource which manages memcached, redis or valkey.
 //
 // ## Example Usage
 //
@@ -70,7 +70,7 @@ import (
 // }
 // ```
 //
-// ### Redis Serverless
+// ### Redis OSS Serverless
 //
 // ```go
 // package main
@@ -126,6 +126,62 @@ import (
 // }
 // ```
 //
+// ### Valkey Serverless
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// var splat0 []interface{}
+// for _, val0 := range testAwsSubnet {
+// splat0 = append(splat0, val0.Id)
+// }
+// _, err := elasticache.NewServerlessCache(ctx, "example", &elasticache.ServerlessCacheArgs{
+// Engine: pulumi.String("valkey"),
+// Name: pulumi.String("example"),
+// CacheUsageLimits: &elasticache.ServerlessCacheCacheUsageLimitsArgs{
+// DataStorage: &elasticache.ServerlessCacheCacheUsageLimitsDataStorageArgs{
+// Maximum: pulumi.Int(10),
+// Unit: pulumi.String("GB"),
+// },
+// EcpuPerSeconds: elasticache.ServerlessCacheCacheUsageLimitsEcpuPerSecondArray{
+// &elasticache.ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs{
+// Maximum: pulumi.Int(5000),
+// },
+// },
+// },
+// DailySnapshotTime: pulumi.String("09:00"),
+// Description: pulumi.String("Test Server"),
+// KmsKeyId: pulumi.Any(test.Arn),
+// MajorEngineVersion: pulumi.String("7"),
+// SnapshotRetentionLimit: pulumi.Int(1),
+// SecurityGroupIds: pulumi.StringArray{
+// testAwsSecurityGroup.Id,
+// },
+// SubnetIds: toPulumiArray(splat0),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// func toPulumiArray(arr []) pulumi.Array {
+// var pulumiArr pulumi.Array
+// for _, v := range arr {
+// pulumiArr = append(pulumiArr, pulumi.(v))
+// }
+// return pulumiArr
+// }
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import ElastiCache Serverless Cache using the `name`. For example:
@@ -142,13 +198,13 @@ type ServerlessCache struct {
 	CacheUsageLimits ServerlessCacheCacheUsageLimitsPtrOutput `pulumi:"cacheUsageLimits"`
 	// Timestamp of when the serverless cache was created.
 	CreateTime pulumi.StringOutput `pulumi:"createTime"`
-	// The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
+	// The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
 	DailySnapshotTime pulumi.StringOutput `pulumi:"dailySnapshotTime"`
 	// User-provided description for the serverless cache. The default is NULL.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
 	Endpoints ServerlessCacheEndpointArrayOutput `pulumi:"endpoints"`
-	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
 	Engine pulumi.StringOutput `pulumi:"engine"`
 	// The name and version number of the engine the serverless cache is compatible with.
 	FullEngineVersion pulumi.StringOutput `pulumi:"fullEngineVersion"`
@@ -221,13 +277,13 @@ type serverlessCacheState struct {
 	CacheUsageLimits *ServerlessCacheCacheUsageLimits `pulumi:"cacheUsageLimits"`
 	// Timestamp of when the serverless cache was created.
 	CreateTime *string `pulumi:"createTime"`
-	// The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
+	// The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
 	DailySnapshotTime *string `pulumi:"dailySnapshotTime"`
 	// User-provided description for the serverless cache. The default is NULL.
 	Description *string `pulumi:"description"`
 	// Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
 	Endpoints []ServerlessCacheEndpoint `pulumi:"endpoints"`
-	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
 	Engine *string `pulumi:"engine"`
 	// The name and version number of the engine the serverless cache is compatible with.
 	FullEngineVersion *string `pulumi:"fullEngineVersion"`
@@ -268,13 +324,13 @@ type ServerlessCacheState struct {
 	CacheUsageLimits ServerlessCacheCacheUsageLimitsPtrInput
 	// Timestamp of when the serverless cache was created.
 	CreateTime pulumi.StringPtrInput
-	// The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
+	// The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
 	DailySnapshotTime pulumi.StringPtrInput
 	// User-provided description for the serverless cache. The default is NULL.
 	Description pulumi.StringPtrInput
 	// Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
 	Endpoints ServerlessCacheEndpointArrayInput
-	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
 	Engine pulumi.StringPtrInput
 	// The name and version number of the engine the serverless cache is compatible with.
 	FullEngineVersion pulumi.StringPtrInput
@@ -315,11 +371,11 @@ func (ServerlessCacheState) ElementType() reflect.Type {
 type serverlessCacheArgs struct {
 	// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
 	CacheUsageLimits *ServerlessCacheCacheUsageLimits `pulumi:"cacheUsageLimits"`
-	// The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
+	// The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
 	DailySnapshotTime *string `pulumi:"dailySnapshotTime"`
 	// User-provided description for the serverless cache. The default is NULL.
 	Description *string `pulumi:"description"`
-	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
 	Engine string `pulumi:"engine"`
 	// ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -349,11 +405,11 @@ type serverlessCacheArgs struct {
 type ServerlessCacheArgs struct {
 	// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
 	CacheUsageLimits ServerlessCacheCacheUsageLimitsPtrInput
-	// The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
+	// The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
 	DailySnapshotTime pulumi.StringPtrInput
 	// User-provided description for the serverless cache. The default is NULL.
 	Description pulumi.StringPtrInput
-	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
 	Engine pulumi.StringInput
 	// ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
 	KmsKeyId pulumi.StringPtrInput
@@ -481,7 +537,7 @@ func (o ServerlessCacheOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCache) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
 }
 
-// The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
+// The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
 func (o ServerlessCacheOutput) DailySnapshotTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCache) pulumi.StringOutput { return v.DailySnapshotTime }).(pulumi.StringOutput)
 }
@@ -496,7 +552,7 @@ func (o ServerlessCacheOutput) Endpoints() ServerlessCacheEndpointArrayOutput {
 	return o.ApplyT(func(v *ServerlessCache) ServerlessCacheEndpointArrayOutput { return v.Endpoints }).(ServerlessCacheEndpointArrayOutput)
 }
 
-// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+// Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
 func (o ServerlessCacheOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCache) pulumi.StringOutput { return v.Engine }).(pulumi.StringOutput)
 }

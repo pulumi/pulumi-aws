@@ -5895,12 +5895,18 @@ func (o DomainDefaultSpaceSettingsCustomPosixUserConfigPtrOutput) Uid() pulumi.I
 }
 
 type DomainDefaultSpaceSettingsJupyterLabAppSettings struct {
+	// Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
+	AppLifecycleManagement *DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement `pulumi:"appLifecycleManagement"`
+	// The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+	BuiltInLifecycleConfigArn *string `pulumi:"builtInLifecycleConfigArn"`
 	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
 	CodeRepositories []DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepository `pulumi:"codeRepositories"`
 	// A list of custom SageMaker images that are configured to run as a JupyterLab app. see `customImage` Block below.
 	CustomImages []DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImage `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec *DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
+	// The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
+	EmrSettings *DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings `pulumi:"emrSettings"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
@@ -5917,12 +5923,18 @@ type DomainDefaultSpaceSettingsJupyterLabAppSettingsInput interface {
 }
 
 type DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs struct {
+	// Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
+	AppLifecycleManagement DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrInput `pulumi:"appLifecycleManagement"`
+	// The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+	BuiltInLifecycleConfigArn pulumi.StringPtrInput `pulumi:"builtInLifecycleConfigArn"`
 	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
 	CodeRepositories DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayInput `pulumi:"codeRepositories"`
 	// A list of custom SageMaker images that are configured to run as a JupyterLab app. see `customImage` Block below.
 	CustomImages DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImageArrayInput `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
+	// The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
+	EmrSettings DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrInput `pulumi:"emrSettings"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
@@ -6004,6 +6016,18 @@ func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsOutput) ToDomainDefaultSp
 	}).(DomainDefaultSpaceSettingsJupyterLabAppSettingsPtrOutput)
 }
 
+// Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsOutput) AppLifecycleManagement() DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterLabAppSettings) *DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement {
+		return v.AppLifecycleManagement
+	}).(DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput)
+}
+
+// The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsOutput) BuiltInLifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterLabAppSettings) *string { return v.BuiltInLifecycleConfigArn }).(pulumi.StringPtrOutput)
+}
+
 // A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
 func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsOutput) CodeRepositories() DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterLabAppSettings) []DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepository {
@@ -6023,6 +6047,13 @@ func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsOutput) DefaultResourceSp
 	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterLabAppSettings) *DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
 	}).(DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+// The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsOutput) EmrSettings() DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterLabAppSettings) *DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings {
+		return v.EmrSettings
+	}).(DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the Lifecycle Configurations.
@@ -6052,6 +6083,26 @@ func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsPtrOutput) Elem() DomainD
 		var ret DomainDefaultSpaceSettingsJupyterLabAppSettings
 		return ret
 	}).(DomainDefaultSpaceSettingsJupyterLabAppSettingsOutput)
+}
+
+// Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsPtrOutput) AppLifecycleManagement() DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterLabAppSettings) *DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement {
+		if v == nil {
+			return nil
+		}
+		return v.AppLifecycleManagement
+	}).(DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput)
+}
+
+// The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsPtrOutput) BuiltInLifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterLabAppSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BuiltInLifecycleConfigArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
@@ -6084,6 +6135,16 @@ func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsPtrOutput) DefaultResourc
 	}).(DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput)
 }
 
+// The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsPtrOutput) EmrSettings() DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterLabAppSettings) *DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings {
+		if v == nil {
+			return nil
+		}
+		return v.EmrSettings
+	}).(DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput)
+}
+
 // The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterLabAppSettings) []string {
@@ -6092,6 +6153,347 @@ func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsPtrOutput) LifecycleConfi
 		}
 		return v.LifecycleConfigArns
 	}).(pulumi.StringArrayOutput)
+}
+
+type DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement struct {
+	// Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
+	IdleSettings *DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings `pulumi:"idleSettings"`
+}
+
+// DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementInput is an input type that accepts DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs and DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput values.
+// You can construct a concrete instance of `DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementInput` via:
+//
+//	DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs{...}
+type DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementInput interface {
+	pulumi.Input
+
+	ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput() DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput
+	ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutputWithContext(context.Context) DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput
+}
+
+type DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs struct {
+	// Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
+	IdleSettings DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrInput `pulumi:"idleSettings"`
+}
+
+func (DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement)(nil)).Elem()
+}
+
+func (i DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput() DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput {
+	return i.ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutputWithContext(ctx context.Context) DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput)
+}
+
+func (i DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput() DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return i.ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx context.Context) DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput).ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrInput is an input type that accepts DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs, DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtr and DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrInput` via:
+//
+//	        DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput() DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput
+	ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(context.Context) DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput
+}
+
+type domainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrType DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs
+
+func DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtr(v *DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs) DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrInput {
+	return (*domainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrType)(v)
+}
+
+func (*domainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement)(nil)).Elem()
+}
+
+func (i *domainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrType) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput() DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return i.ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrType) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx context.Context) DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput)
+}
+
+type DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement)(nil)).Elem()
+}
+
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput() DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput {
+	return o
+}
+
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutputWithContext(ctx context.Context) DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput {
+	return o
+}
+
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput() DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return o.ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx context.Context) DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement) *DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement {
+		return &v
+	}).(DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput)
+}
+
+// Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput) IdleSettings() DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement) *DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings {
+		return v.IdleSettings
+	}).(DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput)
+}
+
+type DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement)(nil)).Elem()
+}
+
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput() DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return o
+}
+
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx context.Context) DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return o
+}
+
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput) Elem() DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput {
+	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement) DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement
+		return ret
+	}).(DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput)
+}
+
+// Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput) IdleSettings() DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement) *DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings {
+		if v == nil {
+			return nil
+		}
+		return v.IdleSettings
+	}).(DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput)
+}
+
+type DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings struct {
+	// The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
+	// Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+	LifecycleManagement *string `pulumi:"lifecycleManagement"`
+	// The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+	MaxIdleTimeoutInMinutes *int `pulumi:"maxIdleTimeoutInMinutes"`
+	// The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+	MinIdleTimeoutInMinutes *int `pulumi:"minIdleTimeoutInMinutes"`
+}
+
+// DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsInput is an input type that accepts DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs and DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput values.
+// You can construct a concrete instance of `DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsInput` via:
+//
+//	DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs{...}
+type DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsInput interface {
+	pulumi.Input
+
+	ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput() DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput
+	ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutputWithContext(context.Context) DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput
+}
+
+type DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs struct {
+	// The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+	IdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"idleTimeoutInMinutes"`
+	// Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+	LifecycleManagement pulumi.StringPtrInput `pulumi:"lifecycleManagement"`
+	// The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+	MaxIdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"maxIdleTimeoutInMinutes"`
+	// The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+	MinIdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"minIdleTimeoutInMinutes"`
+}
+
+func (DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings)(nil)).Elem()
+}
+
+func (i DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput() DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return i.ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutputWithContext(ctx context.Context) DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput)
+}
+
+func (i DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return i.ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput).ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrInput is an input type that accepts DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs, DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtr and DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrInput` via:
+//
+//	        DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput
+	ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(context.Context) DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput
+}
+
+type domainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrType DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs
+
+func DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtr(v *DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs) DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrInput {
+	return (*domainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrType)(v)
+}
+
+func (*domainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings)(nil)).Elem()
+}
+
+func (i *domainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrType) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return i.ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrType) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput)
+}
+
+type DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput() DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutputWithContext(ctx context.Context) DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o.ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) *DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings {
+		return &v
+	}).(DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput)
+}
+
+// The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) *int {
+		return v.IdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) LifecycleManagement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) *string {
+		return v.LifecycleManagement
+	}).(pulumi.StringPtrOutput)
+}
+
+// The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) MaxIdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) *int {
+		return v.MaxIdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) MinIdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) *int {
+		return v.MinIdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+type DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) Elem() DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings
+		return ret
+	}).(DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput)
+}
+
+// The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) LifecycleManagement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleManagement
+	}).(pulumi.StringPtrOutput)
+}
+
+// The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) MaxIdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxIdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) MinIdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinIdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
 }
 
 type DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepository struct {
@@ -6527,6 +6929,166 @@ func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOut
 		}
 		return v.SagemakerImageVersionArn
 	}).(pulumi.StringPtrOutput)
+}
+
+type DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings struct {
+	// An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker domain.
+	AssumableRoleArns []string `pulumi:"assumableRoleArns"`
+	// An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+	ExecutionRoleArns []string `pulumi:"executionRoleArns"`
+}
+
+// DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsInput is an input type that accepts DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsArgs and DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsOutput values.
+// You can construct a concrete instance of `DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsInput` via:
+//
+//	DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsArgs{...}
+type DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsInput interface {
+	pulumi.Input
+
+	ToDomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsOutput() DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsOutput
+	ToDomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsOutputWithContext(context.Context) DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsOutput
+}
+
+type DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsArgs struct {
+	// An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker domain.
+	AssumableRoleArns pulumi.StringArrayInput `pulumi:"assumableRoleArns"`
+	// An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+	ExecutionRoleArns pulumi.StringArrayInput `pulumi:"executionRoleArns"`
+}
+
+func (DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings)(nil)).Elem()
+}
+
+func (i DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsArgs) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsOutput() DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsOutput {
+	return i.ToDomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsArgs) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsOutputWithContext(ctx context.Context) DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsOutput)
+}
+
+func (i DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsArgs) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput() DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput {
+	return i.ToDomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsArgs) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsOutput).ToDomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrInput is an input type that accepts DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsArgs, DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtr and DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrInput` via:
+//
+//	        DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput() DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput
+	ToDomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutputWithContext(context.Context) DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput
+}
+
+type domainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrType DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsArgs
+
+func DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtr(v *DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsArgs) DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrInput {
+	return (*domainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrType)(v)
+}
+
+func (*domainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings)(nil)).Elem()
+}
+
+func (i *domainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrType) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput() DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput {
+	return i.ToDomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrType) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput)
+}
+
+type DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsOutput) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsOutput() DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsOutput) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsOutputWithContext(ctx context.Context) DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsOutput) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput() DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput {
+	return o.ToDomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsOutput) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings) *DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings {
+		return &v
+	}).(DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput)
+}
+
+// An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker domain.
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsOutput) AssumableRoleArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings) []string {
+		return v.AssumableRoleArns
+	}).(pulumi.StringArrayOutput)
+}
+
+// An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsOutput) ExecutionRoleArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings) []string {
+		return v.ExecutionRoleArns
+	}).(pulumi.StringArrayOutput)
+}
+
+type DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput() DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) ToDomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) Elem() DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsOutput {
+	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings) DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings
+		return ret
+	}).(DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsOutput)
+}
+
+// An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker domain.
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) AssumableRoleArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AssumableRoleArns
+	}).(pulumi.StringArrayOutput)
+}
+
+// An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+func (o DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) ExecutionRoleArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExecutionRoleArns
+	}).(pulumi.StringArrayOutput)
 }
 
 type DomainDefaultSpaceSettingsJupyterServerAppSettings struct {
@@ -7851,6 +8413,8 @@ func (o DomainDefaultSpaceSettingsSpaceStorageSettingsDefaultEbsStorageSettingsP
 }
 
 type DomainDefaultUserSettings struct {
+	// Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
+	AutoMountHomeEfs *string `pulumi:"autoMountHomeEfs"`
 	// The Canvas app settings. See `canvasAppSettings` Block below.
 	CanvasAppSettings *DomainDefaultUserSettingsCanvasAppSettings `pulumi:"canvasAppSettings"`
 	// The Code Editor application settings. See `codeEditorAppSettings` Block below.
@@ -7899,6 +8463,8 @@ type DomainDefaultUserSettingsInput interface {
 }
 
 type DomainDefaultUserSettingsArgs struct {
+	// Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
+	AutoMountHomeEfs pulumi.StringPtrInput `pulumi:"autoMountHomeEfs"`
 	// The Canvas app settings. See `canvasAppSettings` Block below.
 	CanvasAppSettings DomainDefaultUserSettingsCanvasAppSettingsPtrInput `pulumi:"canvasAppSettings"`
 	// The Code Editor application settings. See `codeEditorAppSettings` Block below.
@@ -8010,6 +8576,11 @@ func (o DomainDefaultUserSettingsOutput) ToDomainDefaultUserSettingsPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettings) *DomainDefaultUserSettings {
 		return &v
 	}).(DomainDefaultUserSettingsPtrOutput)
+}
+
+// Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
+func (o DomainDefaultUserSettingsOutput) AutoMountHomeEfs() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettings) *string { return v.AutoMountHomeEfs }).(pulumi.StringPtrOutput)
 }
 
 // The Canvas app settings. See `canvasAppSettings` Block below.
@@ -8143,6 +8714,16 @@ func (o DomainDefaultUserSettingsPtrOutput) Elem() DomainDefaultUserSettingsOutp
 		var ret DomainDefaultUserSettings
 		return ret
 	}).(DomainDefaultUserSettingsOutput)
+}
+
+// Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
+func (o DomainDefaultUserSettingsPtrOutput) AutoMountHomeEfs() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AutoMountHomeEfs
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Canvas app settings. See `canvasAppSettings` Block below.
@@ -8318,7 +8899,9 @@ func (o DomainDefaultUserSettingsPtrOutput) TensorBoardAppSettings() DomainDefau
 type DomainDefaultUserSettingsCanvasAppSettings struct {
 	// The model deployment settings for the SageMaker Canvas application. See `directDeploySettings` Block below.
 	DirectDeploySettings *DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings `pulumi:"directDeploySettings"`
-	GenerativeAiSettings *DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings `pulumi:"generativeAiSettings"`
+	// The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emrServerlessSettings` Block below.
+	EmrServerlessSettings *DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings `pulumi:"emrServerlessSettings"`
+	GenerativeAiSettings  *DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings  `pulumi:"generativeAiSettings"`
 	// The settings for connecting to an external data source with OAuth. See `identityProviderOauthSettings` Block below.
 	IdentityProviderOauthSettings []DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting `pulumi:"identityProviderOauthSettings"`
 	// The settings for document querying. See `kendraSettings` Block below.
@@ -8345,7 +8928,9 @@ type DomainDefaultUserSettingsCanvasAppSettingsInput interface {
 type DomainDefaultUserSettingsCanvasAppSettingsArgs struct {
 	// The model deployment settings for the SageMaker Canvas application. See `directDeploySettings` Block below.
 	DirectDeploySettings DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrInput `pulumi:"directDeploySettings"`
-	GenerativeAiSettings DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrInput `pulumi:"generativeAiSettings"`
+	// The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emrServerlessSettings` Block below.
+	EmrServerlessSettings DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrInput `pulumi:"emrServerlessSettings"`
+	GenerativeAiSettings  DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrInput  `pulumi:"generativeAiSettings"`
 	// The settings for connecting to an external data source with OAuth. See `identityProviderOauthSettings` Block below.
 	IdentityProviderOauthSettings DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayInput `pulumi:"identityProviderOauthSettings"`
 	// The settings for document querying. See `kendraSettings` Block below.
@@ -8442,6 +9027,13 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsOutput) DirectDeploySettings()
 	}).(DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput)
 }
 
+// The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emrServerlessSettings` Block below.
+func (o DomainDefaultUserSettingsCanvasAppSettingsOutput) EmrServerlessSettings() DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings {
+		return v.EmrServerlessSettings
+	}).(DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput)
+}
+
 func (o DomainDefaultUserSettingsCanvasAppSettingsOutput) GenerativeAiSettings() DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings {
 		return v.GenerativeAiSettings
@@ -8515,6 +9107,16 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) DirectDeploySetting
 		}
 		return v.DirectDeploySettings
 	}).(DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput)
+}
+
+// The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emrServerlessSettings` Block below.
+func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) EmrServerlessSettings() DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings {
+		if v == nil {
+			return nil
+		}
+		return v.EmrServerlessSettings
+	}).(DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput)
 }
 
 func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) GenerativeAiSettings() DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput {
@@ -8706,6 +9308,164 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput)
 // Describes whether model deployment permissions are enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
 func (o DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings struct {
+	// The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
+	// Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker Canvas application. Valid values are: `ENABLED` and `DISABLED`.
+	Status *string `pulumi:"status"`
+}
+
+// DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsInput is an input type that accepts DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs and DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsInput` via:
+//
+//	DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs{...}
+type DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput() DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput
+	ToDomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsOutputWithContext(context.Context) DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs struct {
+	// The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+	ExecutionRoleArn pulumi.StringPtrInput `pulumi:"executionRoleArn"`
+	// Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker Canvas application. Valid values are: `ENABLED` and `DISABLED`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput() DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput {
+	return i.ToDomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput)
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput).ToDomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrInput is an input type that accepts DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs, DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtr and DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrInput` via:
+//
+//	        DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput
+	ToDomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutputWithContext(context.Context) DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput
+}
+
+type domainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrType DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs
+
+func DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtr(v *DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs) DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrInput {
+	return (*domainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrType) ToDomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrType) ToDomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput() DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput {
+	return o.ToDomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings) *DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings {
+		return &v
+	}).(DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+func (o DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings) *string {
+		return v.ExecutionRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker Canvas application. Valid values are: `ENABLED` and `DISABLED`.
+func (o DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput) ToDomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput) ToDomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput) Elem() DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings) DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings
+		return ret
+	}).(DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput)
+}
+
+// The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+func (o DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExecutionRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker Canvas application. Valid values are: `ENABLED` and `DISABLED`.
+func (o DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings) *string {
 		if v == nil {
 			return nil
 		}
@@ -9581,6 +10341,10 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput) S3
 }
 
 type DomainDefaultUserSettingsCodeEditorAppSettings struct {
+	// Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
+	AppLifecycleManagement *DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement `pulumi:"appLifecycleManagement"`
+	// The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+	BuiltInLifecycleConfigArn *string `pulumi:"builtInLifecycleConfigArn"`
 	// A list of custom SageMaker images that are configured to run as a CodeEditor app. see `customImage` Block below.
 	CustomImages []DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
@@ -9601,6 +10365,10 @@ type DomainDefaultUserSettingsCodeEditorAppSettingsInput interface {
 }
 
 type DomainDefaultUserSettingsCodeEditorAppSettingsArgs struct {
+	// Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
+	AppLifecycleManagement DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrInput `pulumi:"appLifecycleManagement"`
+	// The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+	BuiltInLifecycleConfigArn pulumi.StringPtrInput `pulumi:"builtInLifecycleConfigArn"`
 	// A list of custom SageMaker images that are configured to run as a CodeEditor app. see `customImage` Block below.
 	CustomImages DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayInput `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
@@ -9686,6 +10454,18 @@ func (o DomainDefaultUserSettingsCodeEditorAppSettingsOutput) ToDomainDefaultUse
 	}).(DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput)
 }
 
+// Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsOutput) AppLifecycleManagement() DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCodeEditorAppSettings) *DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement {
+		return v.AppLifecycleManagement
+	}).(DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput)
+}
+
+// The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsOutput) BuiltInLifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCodeEditorAppSettings) *string { return v.BuiltInLifecycleConfigArn }).(pulumi.StringPtrOutput)
+}
+
 // A list of custom SageMaker images that are configured to run as a CodeEditor app. see `customImage` Block below.
 func (o DomainDefaultUserSettingsCodeEditorAppSettingsOutput) CustomImages() DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsCodeEditorAppSettings) []DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage {
@@ -9729,6 +10509,26 @@ func (o DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput) Elem() DomainDe
 	}).(DomainDefaultUserSettingsCodeEditorAppSettingsOutput)
 }
 
+// Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput) AppLifecycleManagement() DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCodeEditorAppSettings) *DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement {
+		if v == nil {
+			return nil
+		}
+		return v.AppLifecycleManagement
+	}).(DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput)
+}
+
+// The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput) BuiltInLifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCodeEditorAppSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BuiltInLifecycleConfigArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // A list of custom SageMaker images that are configured to run as a CodeEditor app. see `customImage` Block below.
 func (o DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput) CustomImages() DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsCodeEditorAppSettings) []DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage {
@@ -9757,6 +10557,347 @@ func (o DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput) LifecycleConfig
 		}
 		return v.LifecycleConfigArns
 	}).(pulumi.StringArrayOutput)
+}
+
+type DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement struct {
+	// Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
+	IdleSettings *DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings `pulumi:"idleSettings"`
+}
+
+// DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementInput is an input type that accepts DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs and DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementInput` via:
+//
+//	DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs{...}
+type DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput() DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput
+	ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutputWithContext(context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput
+}
+
+type DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs struct {
+	// Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
+	IdleSettings DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrInput `pulumi:"idleSettings"`
+}
+
+func (DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs) ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput() DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput {
+	return i.ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs) ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput)
+}
+
+func (i DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs) ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput() DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput {
+	return i.ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs) ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput).ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrInput is an input type that accepts DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs, DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtr and DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrInput` via:
+//
+//	        DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput() DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput
+	ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutputWithContext(context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput
+}
+
+type domainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrType DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs
+
+func DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtr(v *DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs) DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrInput {
+	return (*domainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrType) ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput() DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput {
+	return i.ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrType) ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput)
+}
+
+type DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput) ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput() DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput) ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput) ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput() DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput {
+	return o.ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput) ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement) *DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement {
+		return &v
+	}).(DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput)
+}
+
+// Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput) IdleSettings() DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement) *DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings {
+		return v.IdleSettings
+	}).(DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput) ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput() DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput) ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput) Elem() DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement) DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement
+		return ret
+	}).(DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput)
+}
+
+// Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput) IdleSettings() DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement) *DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings {
+		if v == nil {
+			return nil
+		}
+		return v.IdleSettings
+	}).(DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings struct {
+	// The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
+	// Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+	LifecycleManagement *string `pulumi:"lifecycleManagement"`
+	// The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+	MaxIdleTimeoutInMinutes *int `pulumi:"maxIdleTimeoutInMinutes"`
+	// The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+	MinIdleTimeoutInMinutes *int `pulumi:"minIdleTimeoutInMinutes"`
+}
+
+// DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsInput is an input type that accepts DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs and DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsInput` via:
+//
+//	DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs{...}
+type DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput() DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput
+	ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutputWithContext(context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput
+}
+
+type DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs struct {
+	// The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+	IdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"idleTimeoutInMinutes"`
+	// Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+	LifecycleManagement pulumi.StringPtrInput `pulumi:"lifecycleManagement"`
+	// The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+	MaxIdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"maxIdleTimeoutInMinutes"`
+	// The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+	MinIdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"minIdleTimeoutInMinutes"`
+}
+
+func (DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs) ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput() DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return i.ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs) ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput)
+}
+
+func (i DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs) ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs) ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput).ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrInput is an input type that accepts DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs, DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtr and DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrInput` via:
+//
+//	        DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput
+	ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput
+}
+
+type domainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrType DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs
+
+func DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtr(v *DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs) DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrInput {
+	return (*domainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrType) ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrType) ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput) ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput() DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput) ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput) ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o.ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput) ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings) *DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings {
+		return &v
+	}).(DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput)
+}
+
+// The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings) *int {
+		return v.IdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput) LifecycleManagement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings) *string {
+		return v.LifecycleManagement
+	}).(pulumi.StringPtrOutput)
+}
+
+// The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput) MaxIdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings) *int {
+		return v.MaxIdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput) MinIdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings) *int {
+		return v.MinIdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+type DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) ToDomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) Elem() DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings) DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings
+		return ret
+	}).(DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput)
+}
+
+// The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) LifecycleManagement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleManagement
+	}).(pulumi.StringPtrOutput)
+}
+
+// The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) MaxIdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxIdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) MinIdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinIdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
 }
 
 type DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage struct {
@@ -10513,12 +11654,18 @@ func (o DomainDefaultUserSettingsCustomPosixUserConfigPtrOutput) Uid() pulumi.In
 }
 
 type DomainDefaultUserSettingsJupyterLabAppSettings struct {
+	// Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
+	AppLifecycleManagement *DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement `pulumi:"appLifecycleManagement"`
+	// The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+	BuiltInLifecycleConfigArn *string `pulumi:"builtInLifecycleConfigArn"`
 	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
 	CodeRepositories []DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository `pulumi:"codeRepositories"`
 	// A list of custom SageMaker images that are configured to run as a JupyterLab app. see `customImage` Block below.
 	CustomImages []DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec *DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
+	// The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
+	EmrSettings *DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings `pulumi:"emrSettings"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
@@ -10535,12 +11682,18 @@ type DomainDefaultUserSettingsJupyterLabAppSettingsInput interface {
 }
 
 type DomainDefaultUserSettingsJupyterLabAppSettingsArgs struct {
+	// Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
+	AppLifecycleManagement DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrInput `pulumi:"appLifecycleManagement"`
+	// The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+	BuiltInLifecycleConfigArn pulumi.StringPtrInput `pulumi:"builtInLifecycleConfigArn"`
 	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
 	CodeRepositories DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayInput `pulumi:"codeRepositories"`
 	// A list of custom SageMaker images that are configured to run as a JupyterLab app. see `customImage` Block below.
 	CustomImages DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayInput `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
+	// The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
+	EmrSettings DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrInput `pulumi:"emrSettings"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
@@ -10622,6 +11775,18 @@ func (o DomainDefaultUserSettingsJupyterLabAppSettingsOutput) ToDomainDefaultUse
 	}).(DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput)
 }
 
+// Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsOutput) AppLifecycleManagement() DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettings) *DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement {
+		return v.AppLifecycleManagement
+	}).(DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput)
+}
+
+// The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsOutput) BuiltInLifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettings) *string { return v.BuiltInLifecycleConfigArn }).(pulumi.StringPtrOutput)
+}
+
 // A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
 func (o DomainDefaultUserSettingsJupyterLabAppSettingsOutput) CodeRepositories() DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettings) []DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository {
@@ -10641,6 +11806,13 @@ func (o DomainDefaultUserSettingsJupyterLabAppSettingsOutput) DefaultResourceSpe
 	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettings) *DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
 	}).(DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+// The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsOutput) EmrSettings() DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettings) *DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings {
+		return v.EmrSettings
+	}).(DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the Lifecycle Configurations.
@@ -10670,6 +11842,26 @@ func (o DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput) Elem() DomainDe
 		var ret DomainDefaultUserSettingsJupyterLabAppSettings
 		return ret
 	}).(DomainDefaultUserSettingsJupyterLabAppSettingsOutput)
+}
+
+// Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput) AppLifecycleManagement() DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettings) *DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement {
+		if v == nil {
+			return nil
+		}
+		return v.AppLifecycleManagement
+	}).(DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput)
+}
+
+// The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput) BuiltInLifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BuiltInLifecycleConfigArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `codeRepository` Block below.
@@ -10702,6 +11894,16 @@ func (o DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput) DefaultResource
 	}).(DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput)
 }
 
+// The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput) EmrSettings() DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettings) *DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings {
+		if v == nil {
+			return nil
+		}
+		return v.EmrSettings
+	}).(DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput)
+}
+
 // The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 func (o DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettings) []string {
@@ -10710,6 +11912,347 @@ func (o DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput) LifecycleConfig
 		}
 		return v.LifecycleConfigArns
 	}).(pulumi.StringArrayOutput)
+}
+
+type DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement struct {
+	// Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
+	IdleSettings *DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings `pulumi:"idleSettings"`
+}
+
+// DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementInput is an input type that accepts DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs and DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementInput` via:
+//
+//	DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs{...}
+type DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput() DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput
+	ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutputWithContext(context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput
+}
+
+type DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs struct {
+	// Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
+	IdleSettings DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrInput `pulumi:"idleSettings"`
+}
+
+func (DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs) ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput() DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput {
+	return i.ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs) ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput)
+}
+
+func (i DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs) ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput() DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return i.ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs) ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput).ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrInput is an input type that accepts DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs, DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtr and DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrInput` via:
+//
+//	        DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput() DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput
+	ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput
+}
+
+type domainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrType DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs
+
+func DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtr(v *DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs) DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrInput {
+	return (*domainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrType) ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput() DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return i.ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrType) ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput)
+}
+
+type DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput() DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput() DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return o.ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement) *DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement {
+		return &v
+	}).(DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput)
+}
+
+// Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput) IdleSettings() DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement) *DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings {
+		return v.IdleSettings
+	}).(DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput() DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput) Elem() DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement) DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement
+		return ret
+	}).(DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput)
+}
+
+// Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput) IdleSettings() DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement) *DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings {
+		if v == nil {
+			return nil
+		}
+		return v.IdleSettings
+	}).(DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings struct {
+	// The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
+	// Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+	LifecycleManagement *string `pulumi:"lifecycleManagement"`
+	// The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+	MaxIdleTimeoutInMinutes *int `pulumi:"maxIdleTimeoutInMinutes"`
+	// The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+	MinIdleTimeoutInMinutes *int `pulumi:"minIdleTimeoutInMinutes"`
+}
+
+// DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsInput is an input type that accepts DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs and DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsInput` via:
+//
+//	DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs{...}
+type DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput() DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput
+	ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutputWithContext(context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput
+}
+
+type DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs struct {
+	// The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+	IdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"idleTimeoutInMinutes"`
+	// Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+	LifecycleManagement pulumi.StringPtrInput `pulumi:"lifecycleManagement"`
+	// The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+	MaxIdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"maxIdleTimeoutInMinutes"`
+	// The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+	MinIdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"minIdleTimeoutInMinutes"`
+}
+
+func (DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs) ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput() DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return i.ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs) ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput)
+}
+
+func (i DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs) ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs) ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput).ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrInput is an input type that accepts DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs, DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtr and DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrInput` via:
+//
+//	        DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput
+	ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput
+}
+
+type domainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrType DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs
+
+func DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtr(v *DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs) DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrInput {
+	return (*domainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrType) ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrType) ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput() DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o.ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) *DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings {
+		return &v
+	}).(DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput)
+}
+
+// The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) *int {
+		return v.IdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) LifecycleManagement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) *string {
+		return v.LifecycleManagement
+	}).(pulumi.StringPtrOutput)
+}
+
+// The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) MaxIdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) *int {
+		return v.MaxIdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) MinIdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) *int {
+		return v.MinIdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+type DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) Elem() DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings
+		return ret
+	}).(DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput)
+}
+
+// The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) LifecycleManagement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleManagement
+	}).(pulumi.StringPtrOutput)
+}
+
+// The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) MaxIdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxIdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) MinIdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinIdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
 }
 
 type DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository struct {
@@ -11145,6 +12688,162 @@ func (o DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutp
 		}
 		return v.SagemakerImageVersionArn
 	}).(pulumi.StringPtrOutput)
+}
+
+type DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings struct {
+	// An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker domain.
+	AssumableRoleArns []string `pulumi:"assumableRoleArns"`
+	// An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+	ExecutionRoleArns []string `pulumi:"executionRoleArns"`
+}
+
+// DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsInput is an input type that accepts DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsArgs and DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsInput` via:
+//
+//	DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsArgs{...}
+type DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsOutput() DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsOutput
+	ToDomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsOutputWithContext(context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsOutput
+}
+
+type DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsArgs struct {
+	// An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker domain.
+	AssumableRoleArns pulumi.StringArrayInput `pulumi:"assumableRoleArns"`
+	// An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+	ExecutionRoleArns pulumi.StringArrayInput `pulumi:"executionRoleArns"`
+}
+
+func (DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsArgs) ToDomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsOutput() DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsOutput {
+	return i.ToDomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsArgs) ToDomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsOutput)
+}
+
+func (i DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsArgs) ToDomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput() DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsArgs) ToDomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsOutput).ToDomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrInput is an input type that accepts DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsArgs, DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtr and DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrInput` via:
+//
+//	        DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput() DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput
+	ToDomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutputWithContext(context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput
+}
+
+type domainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrType DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsArgs
+
+func DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtr(v *DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsArgs) DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrInput {
+	return (*domainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrType) ToDomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput() DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrType) ToDomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsOutput() DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput() DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput {
+	return o.ToDomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings) *DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings {
+		return &v
+	}).(DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput)
+}
+
+// An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker domain.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsOutput) AssumableRoleArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings) []string { return v.AssumableRoleArns }).(pulumi.StringArrayOutput)
+}
+
+// An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsOutput) ExecutionRoleArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings) []string { return v.ExecutionRoleArns }).(pulumi.StringArrayOutput)
+}
+
+type DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput() DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) ToDomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) Elem() DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings) DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings
+		return ret
+	}).(DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsOutput)
+}
+
+// An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker domain.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) AssumableRoleArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AssumableRoleArns
+	}).(pulumi.StringArrayOutput)
+}
+
+// An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+func (o DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) ExecutionRoleArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExecutionRoleArns
+	}).(pulumi.StringArrayOutput)
 }
 
 type DomainDefaultUserSettingsJupyterServerAppSettings struct {
@@ -13294,6 +14993,8 @@ func (o DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPt
 type DomainDefaultUserSettingsStudioWebPortalSettings struct {
 	// The Applications supported in Studio that are hidden from the Studio left navigation pane.
 	HiddenAppTypes []string `pulumi:"hiddenAppTypes"`
+	// The instance types you are hiding from the Studio user interface.
+	HiddenInstanceTypes []string `pulumi:"hiddenInstanceTypes"`
 	// The machine learning tools that are hidden from the Studio left navigation pane.
 	HiddenMlTools []string `pulumi:"hiddenMlTools"`
 }
@@ -13312,6 +15013,8 @@ type DomainDefaultUserSettingsStudioWebPortalSettingsInput interface {
 type DomainDefaultUserSettingsStudioWebPortalSettingsArgs struct {
 	// The Applications supported in Studio that are hidden from the Studio left navigation pane.
 	HiddenAppTypes pulumi.StringArrayInput `pulumi:"hiddenAppTypes"`
+	// The instance types you are hiding from the Studio user interface.
+	HiddenInstanceTypes pulumi.StringArrayInput `pulumi:"hiddenInstanceTypes"`
 	// The machine learning tools that are hidden from the Studio left navigation pane.
 	HiddenMlTools pulumi.StringArrayInput `pulumi:"hiddenMlTools"`
 }
@@ -13398,6 +15101,11 @@ func (o DomainDefaultUserSettingsStudioWebPortalSettingsOutput) HiddenAppTypes()
 	return o.ApplyT(func(v DomainDefaultUserSettingsStudioWebPortalSettings) []string { return v.HiddenAppTypes }).(pulumi.StringArrayOutput)
 }
 
+// The instance types you are hiding from the Studio user interface.
+func (o DomainDefaultUserSettingsStudioWebPortalSettingsOutput) HiddenInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsStudioWebPortalSettings) []string { return v.HiddenInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
 // The machine learning tools that are hidden from the Studio left navigation pane.
 func (o DomainDefaultUserSettingsStudioWebPortalSettingsOutput) HiddenMlTools() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsStudioWebPortalSettings) []string { return v.HiddenMlTools }).(pulumi.StringArrayOutput)
@@ -13434,6 +15142,16 @@ func (o DomainDefaultUserSettingsStudioWebPortalSettingsPtrOutput) HiddenAppType
 			return nil
 		}
 		return v.HiddenAppTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The instance types you are hiding from the Studio user interface.
+func (o DomainDefaultUserSettingsStudioWebPortalSettingsPtrOutput) HiddenInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsStudioWebPortalSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.HiddenInstanceTypes
 	}).(pulumi.StringArrayOutput)
 }
 
@@ -19185,6 +20903,8 @@ func (o EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOu
 }
 
 type FeatureGroupFeatureDefinition struct {
+	CollectionConfig *FeatureGroupFeatureDefinitionCollectionConfig `pulumi:"collectionConfig"`
+	CollectionType   *string                                        `pulumi:"collectionType"`
 	// The name of a feature. `featureName` cannot be any of the following: `isDeleted`, `writeTime`, `apiInvocationTime`.
 	FeatureName *string `pulumi:"featureName"`
 	// The value type of a feature. Valid values are `Integral`, `Fractional`, or `String`.
@@ -19203,6 +20923,8 @@ type FeatureGroupFeatureDefinitionInput interface {
 }
 
 type FeatureGroupFeatureDefinitionArgs struct {
+	CollectionConfig FeatureGroupFeatureDefinitionCollectionConfigPtrInput `pulumi:"collectionConfig"`
+	CollectionType   pulumi.StringPtrInput                                 `pulumi:"collectionType"`
 	// The name of a feature. `featureName` cannot be any of the following: `isDeleted`, `writeTime`, `apiInvocationTime`.
 	FeatureName pulumi.StringPtrInput `pulumi:"featureName"`
 	// The value type of a feature. Valid values are `Integral`, `Fractional`, or `String`.
@@ -19260,6 +20982,16 @@ func (o FeatureGroupFeatureDefinitionOutput) ToFeatureGroupFeatureDefinitionOutp
 	return o
 }
 
+func (o FeatureGroupFeatureDefinitionOutput) CollectionConfig() FeatureGroupFeatureDefinitionCollectionConfigPtrOutput {
+	return o.ApplyT(func(v FeatureGroupFeatureDefinition) *FeatureGroupFeatureDefinitionCollectionConfig {
+		return v.CollectionConfig
+	}).(FeatureGroupFeatureDefinitionCollectionConfigPtrOutput)
+}
+
+func (o FeatureGroupFeatureDefinitionOutput) CollectionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeatureGroupFeatureDefinition) *string { return v.CollectionType }).(pulumi.StringPtrOutput)
+}
+
 // The name of a feature. `featureName` cannot be any of the following: `isDeleted`, `writeTime`, `apiInvocationTime`.
 func (o FeatureGroupFeatureDefinitionOutput) FeatureName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FeatureGroupFeatureDefinition) *string { return v.FeatureName }).(pulumi.StringPtrOutput)
@@ -19288,6 +21020,274 @@ func (o FeatureGroupFeatureDefinitionArrayOutput) Index(i pulumi.IntInput) Featu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FeatureGroupFeatureDefinition {
 		return vs[0].([]FeatureGroupFeatureDefinition)[vs[1].(int)]
 	}).(FeatureGroupFeatureDefinitionOutput)
+}
+
+type FeatureGroupFeatureDefinitionCollectionConfig struct {
+	VectorConfig *FeatureGroupFeatureDefinitionCollectionConfigVectorConfig `pulumi:"vectorConfig"`
+}
+
+// FeatureGroupFeatureDefinitionCollectionConfigInput is an input type that accepts FeatureGroupFeatureDefinitionCollectionConfigArgs and FeatureGroupFeatureDefinitionCollectionConfigOutput values.
+// You can construct a concrete instance of `FeatureGroupFeatureDefinitionCollectionConfigInput` via:
+//
+//	FeatureGroupFeatureDefinitionCollectionConfigArgs{...}
+type FeatureGroupFeatureDefinitionCollectionConfigInput interface {
+	pulumi.Input
+
+	ToFeatureGroupFeatureDefinitionCollectionConfigOutput() FeatureGroupFeatureDefinitionCollectionConfigOutput
+	ToFeatureGroupFeatureDefinitionCollectionConfigOutputWithContext(context.Context) FeatureGroupFeatureDefinitionCollectionConfigOutput
+}
+
+type FeatureGroupFeatureDefinitionCollectionConfigArgs struct {
+	VectorConfig FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrInput `pulumi:"vectorConfig"`
+}
+
+func (FeatureGroupFeatureDefinitionCollectionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupFeatureDefinitionCollectionConfig)(nil)).Elem()
+}
+
+func (i FeatureGroupFeatureDefinitionCollectionConfigArgs) ToFeatureGroupFeatureDefinitionCollectionConfigOutput() FeatureGroupFeatureDefinitionCollectionConfigOutput {
+	return i.ToFeatureGroupFeatureDefinitionCollectionConfigOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupFeatureDefinitionCollectionConfigArgs) ToFeatureGroupFeatureDefinitionCollectionConfigOutputWithContext(ctx context.Context) FeatureGroupFeatureDefinitionCollectionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupFeatureDefinitionCollectionConfigOutput)
+}
+
+func (i FeatureGroupFeatureDefinitionCollectionConfigArgs) ToFeatureGroupFeatureDefinitionCollectionConfigPtrOutput() FeatureGroupFeatureDefinitionCollectionConfigPtrOutput {
+	return i.ToFeatureGroupFeatureDefinitionCollectionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupFeatureDefinitionCollectionConfigArgs) ToFeatureGroupFeatureDefinitionCollectionConfigPtrOutputWithContext(ctx context.Context) FeatureGroupFeatureDefinitionCollectionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupFeatureDefinitionCollectionConfigOutput).ToFeatureGroupFeatureDefinitionCollectionConfigPtrOutputWithContext(ctx)
+}
+
+// FeatureGroupFeatureDefinitionCollectionConfigPtrInput is an input type that accepts FeatureGroupFeatureDefinitionCollectionConfigArgs, FeatureGroupFeatureDefinitionCollectionConfigPtr and FeatureGroupFeatureDefinitionCollectionConfigPtrOutput values.
+// You can construct a concrete instance of `FeatureGroupFeatureDefinitionCollectionConfigPtrInput` via:
+//
+//	        FeatureGroupFeatureDefinitionCollectionConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeatureGroupFeatureDefinitionCollectionConfigPtrInput interface {
+	pulumi.Input
+
+	ToFeatureGroupFeatureDefinitionCollectionConfigPtrOutput() FeatureGroupFeatureDefinitionCollectionConfigPtrOutput
+	ToFeatureGroupFeatureDefinitionCollectionConfigPtrOutputWithContext(context.Context) FeatureGroupFeatureDefinitionCollectionConfigPtrOutput
+}
+
+type featureGroupFeatureDefinitionCollectionConfigPtrType FeatureGroupFeatureDefinitionCollectionConfigArgs
+
+func FeatureGroupFeatureDefinitionCollectionConfigPtr(v *FeatureGroupFeatureDefinitionCollectionConfigArgs) FeatureGroupFeatureDefinitionCollectionConfigPtrInput {
+	return (*featureGroupFeatureDefinitionCollectionConfigPtrType)(v)
+}
+
+func (*featureGroupFeatureDefinitionCollectionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupFeatureDefinitionCollectionConfig)(nil)).Elem()
+}
+
+func (i *featureGroupFeatureDefinitionCollectionConfigPtrType) ToFeatureGroupFeatureDefinitionCollectionConfigPtrOutput() FeatureGroupFeatureDefinitionCollectionConfigPtrOutput {
+	return i.ToFeatureGroupFeatureDefinitionCollectionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *featureGroupFeatureDefinitionCollectionConfigPtrType) ToFeatureGroupFeatureDefinitionCollectionConfigPtrOutputWithContext(ctx context.Context) FeatureGroupFeatureDefinitionCollectionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupFeatureDefinitionCollectionConfigPtrOutput)
+}
+
+type FeatureGroupFeatureDefinitionCollectionConfigOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupFeatureDefinitionCollectionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupFeatureDefinitionCollectionConfig)(nil)).Elem()
+}
+
+func (o FeatureGroupFeatureDefinitionCollectionConfigOutput) ToFeatureGroupFeatureDefinitionCollectionConfigOutput() FeatureGroupFeatureDefinitionCollectionConfigOutput {
+	return o
+}
+
+func (o FeatureGroupFeatureDefinitionCollectionConfigOutput) ToFeatureGroupFeatureDefinitionCollectionConfigOutputWithContext(ctx context.Context) FeatureGroupFeatureDefinitionCollectionConfigOutput {
+	return o
+}
+
+func (o FeatureGroupFeatureDefinitionCollectionConfigOutput) ToFeatureGroupFeatureDefinitionCollectionConfigPtrOutput() FeatureGroupFeatureDefinitionCollectionConfigPtrOutput {
+	return o.ToFeatureGroupFeatureDefinitionCollectionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FeatureGroupFeatureDefinitionCollectionConfigOutput) ToFeatureGroupFeatureDefinitionCollectionConfigPtrOutputWithContext(ctx context.Context) FeatureGroupFeatureDefinitionCollectionConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeatureGroupFeatureDefinitionCollectionConfig) *FeatureGroupFeatureDefinitionCollectionConfig {
+		return &v
+	}).(FeatureGroupFeatureDefinitionCollectionConfigPtrOutput)
+}
+
+func (o FeatureGroupFeatureDefinitionCollectionConfigOutput) VectorConfig() FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutput {
+	return o.ApplyT(func(v FeatureGroupFeatureDefinitionCollectionConfig) *FeatureGroupFeatureDefinitionCollectionConfigVectorConfig {
+		return v.VectorConfig
+	}).(FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutput)
+}
+
+type FeatureGroupFeatureDefinitionCollectionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupFeatureDefinitionCollectionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupFeatureDefinitionCollectionConfig)(nil)).Elem()
+}
+
+func (o FeatureGroupFeatureDefinitionCollectionConfigPtrOutput) ToFeatureGroupFeatureDefinitionCollectionConfigPtrOutput() FeatureGroupFeatureDefinitionCollectionConfigPtrOutput {
+	return o
+}
+
+func (o FeatureGroupFeatureDefinitionCollectionConfigPtrOutput) ToFeatureGroupFeatureDefinitionCollectionConfigPtrOutputWithContext(ctx context.Context) FeatureGroupFeatureDefinitionCollectionConfigPtrOutput {
+	return o
+}
+
+func (o FeatureGroupFeatureDefinitionCollectionConfigPtrOutput) Elem() FeatureGroupFeatureDefinitionCollectionConfigOutput {
+	return o.ApplyT(func(v *FeatureGroupFeatureDefinitionCollectionConfig) FeatureGroupFeatureDefinitionCollectionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FeatureGroupFeatureDefinitionCollectionConfig
+		return ret
+	}).(FeatureGroupFeatureDefinitionCollectionConfigOutput)
+}
+
+func (o FeatureGroupFeatureDefinitionCollectionConfigPtrOutput) VectorConfig() FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupFeatureDefinitionCollectionConfig) *FeatureGroupFeatureDefinitionCollectionConfigVectorConfig {
+		if v == nil {
+			return nil
+		}
+		return v.VectorConfig
+	}).(FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutput)
+}
+
+type FeatureGroupFeatureDefinitionCollectionConfigVectorConfig struct {
+	Dimension *int `pulumi:"dimension"`
+}
+
+// FeatureGroupFeatureDefinitionCollectionConfigVectorConfigInput is an input type that accepts FeatureGroupFeatureDefinitionCollectionConfigVectorConfigArgs and FeatureGroupFeatureDefinitionCollectionConfigVectorConfigOutput values.
+// You can construct a concrete instance of `FeatureGroupFeatureDefinitionCollectionConfigVectorConfigInput` via:
+//
+//	FeatureGroupFeatureDefinitionCollectionConfigVectorConfigArgs{...}
+type FeatureGroupFeatureDefinitionCollectionConfigVectorConfigInput interface {
+	pulumi.Input
+
+	ToFeatureGroupFeatureDefinitionCollectionConfigVectorConfigOutput() FeatureGroupFeatureDefinitionCollectionConfigVectorConfigOutput
+	ToFeatureGroupFeatureDefinitionCollectionConfigVectorConfigOutputWithContext(context.Context) FeatureGroupFeatureDefinitionCollectionConfigVectorConfigOutput
+}
+
+type FeatureGroupFeatureDefinitionCollectionConfigVectorConfigArgs struct {
+	Dimension pulumi.IntPtrInput `pulumi:"dimension"`
+}
+
+func (FeatureGroupFeatureDefinitionCollectionConfigVectorConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupFeatureDefinitionCollectionConfigVectorConfig)(nil)).Elem()
+}
+
+func (i FeatureGroupFeatureDefinitionCollectionConfigVectorConfigArgs) ToFeatureGroupFeatureDefinitionCollectionConfigVectorConfigOutput() FeatureGroupFeatureDefinitionCollectionConfigVectorConfigOutput {
+	return i.ToFeatureGroupFeatureDefinitionCollectionConfigVectorConfigOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupFeatureDefinitionCollectionConfigVectorConfigArgs) ToFeatureGroupFeatureDefinitionCollectionConfigVectorConfigOutputWithContext(ctx context.Context) FeatureGroupFeatureDefinitionCollectionConfigVectorConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupFeatureDefinitionCollectionConfigVectorConfigOutput)
+}
+
+func (i FeatureGroupFeatureDefinitionCollectionConfigVectorConfigArgs) ToFeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutput() FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutput {
+	return i.ToFeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupFeatureDefinitionCollectionConfigVectorConfigArgs) ToFeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutputWithContext(ctx context.Context) FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupFeatureDefinitionCollectionConfigVectorConfigOutput).ToFeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutputWithContext(ctx)
+}
+
+// FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrInput is an input type that accepts FeatureGroupFeatureDefinitionCollectionConfigVectorConfigArgs, FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtr and FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutput values.
+// You can construct a concrete instance of `FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrInput` via:
+//
+//	        FeatureGroupFeatureDefinitionCollectionConfigVectorConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrInput interface {
+	pulumi.Input
+
+	ToFeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutput() FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutput
+	ToFeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutputWithContext(context.Context) FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutput
+}
+
+type featureGroupFeatureDefinitionCollectionConfigVectorConfigPtrType FeatureGroupFeatureDefinitionCollectionConfigVectorConfigArgs
+
+func FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtr(v *FeatureGroupFeatureDefinitionCollectionConfigVectorConfigArgs) FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrInput {
+	return (*featureGroupFeatureDefinitionCollectionConfigVectorConfigPtrType)(v)
+}
+
+func (*featureGroupFeatureDefinitionCollectionConfigVectorConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupFeatureDefinitionCollectionConfigVectorConfig)(nil)).Elem()
+}
+
+func (i *featureGroupFeatureDefinitionCollectionConfigVectorConfigPtrType) ToFeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutput() FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutput {
+	return i.ToFeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *featureGroupFeatureDefinitionCollectionConfigVectorConfigPtrType) ToFeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutputWithContext(ctx context.Context) FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutput)
+}
+
+type FeatureGroupFeatureDefinitionCollectionConfigVectorConfigOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupFeatureDefinitionCollectionConfigVectorConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupFeatureDefinitionCollectionConfigVectorConfig)(nil)).Elem()
+}
+
+func (o FeatureGroupFeatureDefinitionCollectionConfigVectorConfigOutput) ToFeatureGroupFeatureDefinitionCollectionConfigVectorConfigOutput() FeatureGroupFeatureDefinitionCollectionConfigVectorConfigOutput {
+	return o
+}
+
+func (o FeatureGroupFeatureDefinitionCollectionConfigVectorConfigOutput) ToFeatureGroupFeatureDefinitionCollectionConfigVectorConfigOutputWithContext(ctx context.Context) FeatureGroupFeatureDefinitionCollectionConfigVectorConfigOutput {
+	return o
+}
+
+func (o FeatureGroupFeatureDefinitionCollectionConfigVectorConfigOutput) ToFeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutput() FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutput {
+	return o.ToFeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FeatureGroupFeatureDefinitionCollectionConfigVectorConfigOutput) ToFeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutputWithContext(ctx context.Context) FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeatureGroupFeatureDefinitionCollectionConfigVectorConfig) *FeatureGroupFeatureDefinitionCollectionConfigVectorConfig {
+		return &v
+	}).(FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutput)
+}
+
+func (o FeatureGroupFeatureDefinitionCollectionConfigVectorConfigOutput) Dimension() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FeatureGroupFeatureDefinitionCollectionConfigVectorConfig) *int { return v.Dimension }).(pulumi.IntPtrOutput)
+}
+
+type FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupFeatureDefinitionCollectionConfigVectorConfig)(nil)).Elem()
+}
+
+func (o FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutput) ToFeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutput() FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutput {
+	return o
+}
+
+func (o FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutput) ToFeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutputWithContext(ctx context.Context) FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutput {
+	return o
+}
+
+func (o FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutput) Elem() FeatureGroupFeatureDefinitionCollectionConfigVectorConfigOutput {
+	return o.ApplyT(func(v *FeatureGroupFeatureDefinitionCollectionConfigVectorConfig) FeatureGroupFeatureDefinitionCollectionConfigVectorConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FeatureGroupFeatureDefinitionCollectionConfigVectorConfig
+		return ret
+	}).(FeatureGroupFeatureDefinitionCollectionConfigVectorConfigOutput)
+}
+
+func (o FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutput) Dimension() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupFeatureDefinitionCollectionConfigVectorConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Dimension
+	}).(pulumi.IntPtrOutput)
 }
 
 type FeatureGroupOfflineStoreConfig struct {
@@ -20325,6 +22325,169 @@ func (o FeatureGroupOnlineStoreConfigTtlDurationPtrOutput) Value() pulumi.IntPtr
 		}
 		return v.Value
 	}).(pulumi.IntPtrOutput)
+}
+
+type FeatureGroupThroughputConfig struct {
+	ProvisionedReadCapacityUnits  *int    `pulumi:"provisionedReadCapacityUnits"`
+	ProvisionedWriteCapacityUnits *int    `pulumi:"provisionedWriteCapacityUnits"`
+	ThroughputMode                *string `pulumi:"throughputMode"`
+}
+
+// FeatureGroupThroughputConfigInput is an input type that accepts FeatureGroupThroughputConfigArgs and FeatureGroupThroughputConfigOutput values.
+// You can construct a concrete instance of `FeatureGroupThroughputConfigInput` via:
+//
+//	FeatureGroupThroughputConfigArgs{...}
+type FeatureGroupThroughputConfigInput interface {
+	pulumi.Input
+
+	ToFeatureGroupThroughputConfigOutput() FeatureGroupThroughputConfigOutput
+	ToFeatureGroupThroughputConfigOutputWithContext(context.Context) FeatureGroupThroughputConfigOutput
+}
+
+type FeatureGroupThroughputConfigArgs struct {
+	ProvisionedReadCapacityUnits  pulumi.IntPtrInput    `pulumi:"provisionedReadCapacityUnits"`
+	ProvisionedWriteCapacityUnits pulumi.IntPtrInput    `pulumi:"provisionedWriteCapacityUnits"`
+	ThroughputMode                pulumi.StringPtrInput `pulumi:"throughputMode"`
+}
+
+func (FeatureGroupThroughputConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupThroughputConfig)(nil)).Elem()
+}
+
+func (i FeatureGroupThroughputConfigArgs) ToFeatureGroupThroughputConfigOutput() FeatureGroupThroughputConfigOutput {
+	return i.ToFeatureGroupThroughputConfigOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupThroughputConfigArgs) ToFeatureGroupThroughputConfigOutputWithContext(ctx context.Context) FeatureGroupThroughputConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupThroughputConfigOutput)
+}
+
+func (i FeatureGroupThroughputConfigArgs) ToFeatureGroupThroughputConfigPtrOutput() FeatureGroupThroughputConfigPtrOutput {
+	return i.ToFeatureGroupThroughputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupThroughputConfigArgs) ToFeatureGroupThroughputConfigPtrOutputWithContext(ctx context.Context) FeatureGroupThroughputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupThroughputConfigOutput).ToFeatureGroupThroughputConfigPtrOutputWithContext(ctx)
+}
+
+// FeatureGroupThroughputConfigPtrInput is an input type that accepts FeatureGroupThroughputConfigArgs, FeatureGroupThroughputConfigPtr and FeatureGroupThroughputConfigPtrOutput values.
+// You can construct a concrete instance of `FeatureGroupThroughputConfigPtrInput` via:
+//
+//	        FeatureGroupThroughputConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeatureGroupThroughputConfigPtrInput interface {
+	pulumi.Input
+
+	ToFeatureGroupThroughputConfigPtrOutput() FeatureGroupThroughputConfigPtrOutput
+	ToFeatureGroupThroughputConfigPtrOutputWithContext(context.Context) FeatureGroupThroughputConfigPtrOutput
+}
+
+type featureGroupThroughputConfigPtrType FeatureGroupThroughputConfigArgs
+
+func FeatureGroupThroughputConfigPtr(v *FeatureGroupThroughputConfigArgs) FeatureGroupThroughputConfigPtrInput {
+	return (*featureGroupThroughputConfigPtrType)(v)
+}
+
+func (*featureGroupThroughputConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupThroughputConfig)(nil)).Elem()
+}
+
+func (i *featureGroupThroughputConfigPtrType) ToFeatureGroupThroughputConfigPtrOutput() FeatureGroupThroughputConfigPtrOutput {
+	return i.ToFeatureGroupThroughputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *featureGroupThroughputConfigPtrType) ToFeatureGroupThroughputConfigPtrOutputWithContext(ctx context.Context) FeatureGroupThroughputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupThroughputConfigPtrOutput)
+}
+
+type FeatureGroupThroughputConfigOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupThroughputConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupThroughputConfig)(nil)).Elem()
+}
+
+func (o FeatureGroupThroughputConfigOutput) ToFeatureGroupThroughputConfigOutput() FeatureGroupThroughputConfigOutput {
+	return o
+}
+
+func (o FeatureGroupThroughputConfigOutput) ToFeatureGroupThroughputConfigOutputWithContext(ctx context.Context) FeatureGroupThroughputConfigOutput {
+	return o
+}
+
+func (o FeatureGroupThroughputConfigOutput) ToFeatureGroupThroughputConfigPtrOutput() FeatureGroupThroughputConfigPtrOutput {
+	return o.ToFeatureGroupThroughputConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FeatureGroupThroughputConfigOutput) ToFeatureGroupThroughputConfigPtrOutputWithContext(ctx context.Context) FeatureGroupThroughputConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeatureGroupThroughputConfig) *FeatureGroupThroughputConfig {
+		return &v
+	}).(FeatureGroupThroughputConfigPtrOutput)
+}
+
+func (o FeatureGroupThroughputConfigOutput) ProvisionedReadCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FeatureGroupThroughputConfig) *int { return v.ProvisionedReadCapacityUnits }).(pulumi.IntPtrOutput)
+}
+
+func (o FeatureGroupThroughputConfigOutput) ProvisionedWriteCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FeatureGroupThroughputConfig) *int { return v.ProvisionedWriteCapacityUnits }).(pulumi.IntPtrOutput)
+}
+
+func (o FeatureGroupThroughputConfigOutput) ThroughputMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeatureGroupThroughputConfig) *string { return v.ThroughputMode }).(pulumi.StringPtrOutput)
+}
+
+type FeatureGroupThroughputConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupThroughputConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupThroughputConfig)(nil)).Elem()
+}
+
+func (o FeatureGroupThroughputConfigPtrOutput) ToFeatureGroupThroughputConfigPtrOutput() FeatureGroupThroughputConfigPtrOutput {
+	return o
+}
+
+func (o FeatureGroupThroughputConfigPtrOutput) ToFeatureGroupThroughputConfigPtrOutputWithContext(ctx context.Context) FeatureGroupThroughputConfigPtrOutput {
+	return o
+}
+
+func (o FeatureGroupThroughputConfigPtrOutput) Elem() FeatureGroupThroughputConfigOutput {
+	return o.ApplyT(func(v *FeatureGroupThroughputConfig) FeatureGroupThroughputConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FeatureGroupThroughputConfig
+		return ret
+	}).(FeatureGroupThroughputConfigOutput)
+}
+
+func (o FeatureGroupThroughputConfigPtrOutput) ProvisionedReadCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupThroughputConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisionedReadCapacityUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o FeatureGroupThroughputConfigPtrOutput) ProvisionedWriteCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupThroughputConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisionedWriteCapacityUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o FeatureGroupThroughputConfigPtrOutput) ThroughputMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupThroughputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ThroughputMode
+	}).(pulumi.StringPtrOutput)
 }
 
 type FlowDefinitionHumanLoopActivationConfig struct {
@@ -21502,6 +23665,143 @@ func (o FlowDefinitionOutputConfigPtrOutput) S3OutputPath() pulumi.StringPtrOutp
 			return nil
 		}
 		return &v.S3OutputPath
+	}).(pulumi.StringPtrOutput)
+}
+
+type HubS3StorageConfig struct {
+	// The Amazon S3 bucket prefix for hosting hub content.interface.
+	S3OutputPath *string `pulumi:"s3OutputPath"`
+}
+
+// HubS3StorageConfigInput is an input type that accepts HubS3StorageConfigArgs and HubS3StorageConfigOutput values.
+// You can construct a concrete instance of `HubS3StorageConfigInput` via:
+//
+//	HubS3StorageConfigArgs{...}
+type HubS3StorageConfigInput interface {
+	pulumi.Input
+
+	ToHubS3StorageConfigOutput() HubS3StorageConfigOutput
+	ToHubS3StorageConfigOutputWithContext(context.Context) HubS3StorageConfigOutput
+}
+
+type HubS3StorageConfigArgs struct {
+	// The Amazon S3 bucket prefix for hosting hub content.interface.
+	S3OutputPath pulumi.StringPtrInput `pulumi:"s3OutputPath"`
+}
+
+func (HubS3StorageConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HubS3StorageConfig)(nil)).Elem()
+}
+
+func (i HubS3StorageConfigArgs) ToHubS3StorageConfigOutput() HubS3StorageConfigOutput {
+	return i.ToHubS3StorageConfigOutputWithContext(context.Background())
+}
+
+func (i HubS3StorageConfigArgs) ToHubS3StorageConfigOutputWithContext(ctx context.Context) HubS3StorageConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HubS3StorageConfigOutput)
+}
+
+func (i HubS3StorageConfigArgs) ToHubS3StorageConfigPtrOutput() HubS3StorageConfigPtrOutput {
+	return i.ToHubS3StorageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i HubS3StorageConfigArgs) ToHubS3StorageConfigPtrOutputWithContext(ctx context.Context) HubS3StorageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HubS3StorageConfigOutput).ToHubS3StorageConfigPtrOutputWithContext(ctx)
+}
+
+// HubS3StorageConfigPtrInput is an input type that accepts HubS3StorageConfigArgs, HubS3StorageConfigPtr and HubS3StorageConfigPtrOutput values.
+// You can construct a concrete instance of `HubS3StorageConfigPtrInput` via:
+//
+//	        HubS3StorageConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type HubS3StorageConfigPtrInput interface {
+	pulumi.Input
+
+	ToHubS3StorageConfigPtrOutput() HubS3StorageConfigPtrOutput
+	ToHubS3StorageConfigPtrOutputWithContext(context.Context) HubS3StorageConfigPtrOutput
+}
+
+type hubS3StorageConfigPtrType HubS3StorageConfigArgs
+
+func HubS3StorageConfigPtr(v *HubS3StorageConfigArgs) HubS3StorageConfigPtrInput {
+	return (*hubS3StorageConfigPtrType)(v)
+}
+
+func (*hubS3StorageConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HubS3StorageConfig)(nil)).Elem()
+}
+
+func (i *hubS3StorageConfigPtrType) ToHubS3StorageConfigPtrOutput() HubS3StorageConfigPtrOutput {
+	return i.ToHubS3StorageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *hubS3StorageConfigPtrType) ToHubS3StorageConfigPtrOutputWithContext(ctx context.Context) HubS3StorageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HubS3StorageConfigPtrOutput)
+}
+
+type HubS3StorageConfigOutput struct{ *pulumi.OutputState }
+
+func (HubS3StorageConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HubS3StorageConfig)(nil)).Elem()
+}
+
+func (o HubS3StorageConfigOutput) ToHubS3StorageConfigOutput() HubS3StorageConfigOutput {
+	return o
+}
+
+func (o HubS3StorageConfigOutput) ToHubS3StorageConfigOutputWithContext(ctx context.Context) HubS3StorageConfigOutput {
+	return o
+}
+
+func (o HubS3StorageConfigOutput) ToHubS3StorageConfigPtrOutput() HubS3StorageConfigPtrOutput {
+	return o.ToHubS3StorageConfigPtrOutputWithContext(context.Background())
+}
+
+func (o HubS3StorageConfigOutput) ToHubS3StorageConfigPtrOutputWithContext(ctx context.Context) HubS3StorageConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HubS3StorageConfig) *HubS3StorageConfig {
+		return &v
+	}).(HubS3StorageConfigPtrOutput)
+}
+
+// The Amazon S3 bucket prefix for hosting hub content.interface.
+func (o HubS3StorageConfigOutput) S3OutputPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HubS3StorageConfig) *string { return v.S3OutputPath }).(pulumi.StringPtrOutput)
+}
+
+type HubS3StorageConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (HubS3StorageConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HubS3StorageConfig)(nil)).Elem()
+}
+
+func (o HubS3StorageConfigPtrOutput) ToHubS3StorageConfigPtrOutput() HubS3StorageConfigPtrOutput {
+	return o
+}
+
+func (o HubS3StorageConfigPtrOutput) ToHubS3StorageConfigPtrOutputWithContext(ctx context.Context) HubS3StorageConfigPtrOutput {
+	return o
+}
+
+func (o HubS3StorageConfigPtrOutput) Elem() HubS3StorageConfigOutput {
+	return o.ApplyT(func(v *HubS3StorageConfig) HubS3StorageConfig {
+		if v != nil {
+			return *v
+		}
+		var ret HubS3StorageConfig
+		return ret
+	}).(HubS3StorageConfigOutput)
+}
+
+// The Amazon S3 bucket prefix for hosting hub content.interface.
+func (o HubS3StorageConfigPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HubS3StorageConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3OutputPath
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -25590,6 +27890,8 @@ func (o SpaceSpaceSettingsPtrOutput) SpaceStorageSettings() SpaceSpaceSettingsSp
 }
 
 type SpaceSpaceSettingsCodeEditorAppSettings struct {
+	// Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `appLifecycleManagement` Block below.
+	AppLifecycleManagement *SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement `pulumi:"appLifecycleManagement"`
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
 	DefaultResourceSpec SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 }
@@ -25606,6 +27908,8 @@ type SpaceSpaceSettingsCodeEditorAppSettingsInput interface {
 }
 
 type SpaceSpaceSettingsCodeEditorAppSettingsArgs struct {
+	// Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `appLifecycleManagement` Block below.
+	AppLifecycleManagement SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrInput `pulumi:"appLifecycleManagement"`
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
 	DefaultResourceSpec SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecInput `pulumi:"defaultResourceSpec"`
 }
@@ -25687,6 +27991,13 @@ func (o SpaceSpaceSettingsCodeEditorAppSettingsOutput) ToSpaceSpaceSettingsCodeE
 	}).(SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput)
 }
 
+// Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `appLifecycleManagement` Block below.
+func (o SpaceSpaceSettingsCodeEditorAppSettingsOutput) AppLifecycleManagement() SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput {
+	return o.ApplyT(func(v SpaceSpaceSettingsCodeEditorAppSettings) *SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement {
+		return v.AppLifecycleManagement
+	}).(SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput)
+}
+
 // The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
 func (o SpaceSpaceSettingsCodeEditorAppSettingsOutput) DefaultResourceSpec() SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsCodeEditorAppSettings) SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec {
@@ -25718,6 +28029,16 @@ func (o SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput) Elem() SpaceSpaceSetti
 	}).(SpaceSpaceSettingsCodeEditorAppSettingsOutput)
 }
 
+// Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `appLifecycleManagement` Block below.
+func (o SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput) AppLifecycleManagement() SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsCodeEditorAppSettings) *SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement {
+		if v == nil {
+			return nil
+		}
+		return v.AppLifecycleManagement
+	}).(SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput)
+}
+
 // The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
 func (o SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput) DefaultResourceSpec() SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsCodeEditorAppSettings) *SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec {
@@ -25726,6 +28047,284 @@ func (o SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput) DefaultResourceSpec() 
 		}
 		return &v.DefaultResourceSpec
 	}).(SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+type SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement struct {
+	// Settings related to idle shutdown of Studio applications. See `idleSettings` Block below.
+	IdleSettings *SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings `pulumi:"idleSettings"`
+}
+
+// SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementInput is an input type that accepts SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs and SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementOutput values.
+// You can construct a concrete instance of `SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementInput` via:
+//
+//	SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs{...}
+type SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementInput interface {
+	pulumi.Input
+
+	ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementOutput() SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementOutput
+	ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementOutputWithContext(context.Context) SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementOutput
+}
+
+type SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs struct {
+	// Settings related to idle shutdown of Studio applications. See `idleSettings` Block below.
+	IdleSettings SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrInput `pulumi:"idleSettings"`
+}
+
+func (SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement)(nil)).Elem()
+}
+
+func (i SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs) ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementOutput() SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementOutput {
+	return i.ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementOutputWithContext(context.Background())
+}
+
+func (i SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs) ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementOutputWithContext(ctx context.Context) SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementOutput)
+}
+
+func (i SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs) ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput() SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput {
+	return i.ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (i SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs) ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementOutput).ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx)
+}
+
+// SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrInput is an input type that accepts SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs, SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtr and SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput values.
+// You can construct a concrete instance of `SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrInput` via:
+//
+//	        SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrInput interface {
+	pulumi.Input
+
+	ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput() SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput
+	ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutputWithContext(context.Context) SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput
+}
+
+type spaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrType SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs
+
+func SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtr(v *SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs) SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrInput {
+	return (*spaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrType)(v)
+}
+
+func (*spaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement)(nil)).Elem()
+}
+
+func (i *spaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrType) ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput() SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput {
+	return i.ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (i *spaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrType) ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput)
+}
+
+type SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementOutput struct{ *pulumi.OutputState }
+
+func (SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement)(nil)).Elem()
+}
+
+func (o SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementOutput) ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementOutput() SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementOutput) ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementOutputWithContext(ctx context.Context) SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementOutput) ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput() SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput {
+	return o.ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementOutput) ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement) *SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement {
+		return &v
+	}).(SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput)
+}
+
+// Settings related to idle shutdown of Studio applications. See `idleSettings` Block below.
+func (o SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementOutput) IdleSettings() SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o.ApplyT(func(v SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement) *SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings {
+		return v.IdleSettings
+	}).(SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput)
+}
+
+type SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput struct{ *pulumi.OutputState }
+
+func (SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement)(nil)).Elem()
+}
+
+func (o SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput) ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput() SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput) ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput) Elem() SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement) SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement {
+		if v != nil {
+			return *v
+		}
+		var ret SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement
+		return ret
+	}).(SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementOutput)
+}
+
+// Settings related to idle shutdown of Studio applications. See `idleSettings` Block below.
+func (o SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput) IdleSettings() SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement) *SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings {
+		if v == nil {
+			return nil
+		}
+		return v.IdleSettings
+	}).(SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput)
+}
+
+type SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings struct {
+	// The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
+}
+
+// SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsInput is an input type that accepts SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs and SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput values.
+// You can construct a concrete instance of `SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsInput` via:
+//
+//	SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs{...}
+type SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsInput interface {
+	pulumi.Input
+
+	ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput() SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput
+	ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutputWithContext(context.Context) SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput
+}
+
+type SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs struct {
+	// The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+	IdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"idleTimeoutInMinutes"`
+}
+
+func (SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings)(nil)).Elem()
+}
+
+func (i SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs) ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput() SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return i.ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutputWithContext(context.Background())
+}
+
+func (i SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs) ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutputWithContext(ctx context.Context) SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput)
+}
+
+func (i SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs) ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return i.ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs) ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput).ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx)
+}
+
+// SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrInput is an input type that accepts SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs, SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtr and SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput values.
+// You can construct a concrete instance of `SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrInput` via:
+//
+//	        SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrInput interface {
+	pulumi.Input
+
+	ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput
+	ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(context.Context) SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput
+}
+
+type spaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrType SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs
+
+func SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtr(v *SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs) SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrInput {
+	return (*spaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrType)(v)
+}
+
+func (*spaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings)(nil)).Elem()
+}
+
+func (i *spaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrType) ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return i.ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *spaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrType) ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput)
+}
+
+type SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput struct{ *pulumi.OutputState }
+
+func (SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings)(nil)).Elem()
+}
+
+func (o SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput) ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput() SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput) ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutputWithContext(ctx context.Context) SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput) ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o.ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput) ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings) *SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings {
+		return &v
+	}).(SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput)
+}
+
+// The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+func (o SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings) *int {
+		return v.IdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+type SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings)(nil)).Elem()
+}
+
+func (o SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) ToSpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) Elem() SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings) SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings
+		return ret
+	}).(SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput)
+}
+
+// The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+func (o SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
 }
 
 type SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec struct {
@@ -26099,6 +28698,8 @@ func (o SpaceSpaceSettingsCustomFileSystemEfsFileSystemOutput) FileSystemId() pu
 }
 
 type SpaceSpaceSettingsJupyterLabAppSettings struct {
+	// Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `appLifecycleManagement` Block below.
+	AppLifecycleManagement *SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement `pulumi:"appLifecycleManagement"`
 	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `codeRepository` Block below.
 	CodeRepositories []SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository `pulumi:"codeRepositories"`
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
@@ -26117,6 +28718,8 @@ type SpaceSpaceSettingsJupyterLabAppSettingsInput interface {
 }
 
 type SpaceSpaceSettingsJupyterLabAppSettingsArgs struct {
+	// Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `appLifecycleManagement` Block below.
+	AppLifecycleManagement SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrInput `pulumi:"appLifecycleManagement"`
 	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `codeRepository` Block below.
 	CodeRepositories SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayInput `pulumi:"codeRepositories"`
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
@@ -26200,6 +28803,13 @@ func (o SpaceSpaceSettingsJupyterLabAppSettingsOutput) ToSpaceSpaceSettingsJupyt
 	}).(SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput)
 }
 
+// Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `appLifecycleManagement` Block below.
+func (o SpaceSpaceSettingsJupyterLabAppSettingsOutput) AppLifecycleManagement() SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return o.ApplyT(func(v SpaceSpaceSettingsJupyterLabAppSettings) *SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement {
+		return v.AppLifecycleManagement
+	}).(SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput)
+}
+
 // A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `codeRepository` Block below.
 func (o SpaceSpaceSettingsJupyterLabAppSettingsOutput) CodeRepositories() SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsJupyterLabAppSettings) []SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository {
@@ -26238,6 +28848,16 @@ func (o SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput) Elem() SpaceSpaceSetti
 	}).(SpaceSpaceSettingsJupyterLabAppSettingsOutput)
 }
 
+// Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `appLifecycleManagement` Block below.
+func (o SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput) AppLifecycleManagement() SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterLabAppSettings) *SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement {
+		if v == nil {
+			return nil
+		}
+		return v.AppLifecycleManagement
+	}).(SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput)
+}
+
 // A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `codeRepository` Block below.
 func (o SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput) CodeRepositories() SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterLabAppSettings) []SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository {
@@ -26256,6 +28876,284 @@ func (o SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput) DefaultResourceSpec() 
 		}
 		return &v.DefaultResourceSpec
 	}).(SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+type SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement struct {
+	// Settings related to idle shutdown of Studio applications. See `idleSettings` Block below.
+	IdleSettings *SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings `pulumi:"idleSettings"`
+}
+
+// SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementInput is an input type that accepts SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs and SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput values.
+// You can construct a concrete instance of `SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementInput` via:
+//
+//	SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs{...}
+type SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementInput interface {
+	pulumi.Input
+
+	ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput() SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput
+	ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutputWithContext(context.Context) SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput
+}
+
+type SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs struct {
+	// Settings related to idle shutdown of Studio applications. See `idleSettings` Block below.
+	IdleSettings SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrInput `pulumi:"idleSettings"`
+}
+
+func (SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement)(nil)).Elem()
+}
+
+func (i SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs) ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput() SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput {
+	return i.ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutputWithContext(context.Background())
+}
+
+func (i SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs) ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutputWithContext(ctx context.Context) SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput)
+}
+
+func (i SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs) ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput() SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return i.ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (i SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs) ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput).ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx)
+}
+
+// SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrInput is an input type that accepts SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs, SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtr and SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput values.
+// You can construct a concrete instance of `SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrInput` via:
+//
+//	        SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrInput interface {
+	pulumi.Input
+
+	ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput() SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput
+	ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(context.Context) SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput
+}
+
+type spaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrType SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs
+
+func SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtr(v *SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs) SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrInput {
+	return (*spaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrType)(v)
+}
+
+func (*spaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement)(nil)).Elem()
+}
+
+func (i *spaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrType) ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput() SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return i.ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (i *spaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrType) ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput)
+}
+
+type SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput struct{ *pulumi.OutputState }
+
+func (SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement)(nil)).Elem()
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput) ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput() SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput) ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutputWithContext(ctx context.Context) SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput) ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput() SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return o.ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput) ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement) *SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement {
+		return &v
+	}).(SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput)
+}
+
+// Settings related to idle shutdown of Studio applications. See `idleSettings` Block below.
+func (o SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput) IdleSettings() SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o.ApplyT(func(v SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement) *SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings {
+		return v.IdleSettings
+	}).(SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput)
+}
+
+type SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput struct{ *pulumi.OutputState }
+
+func (SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement)(nil)).Elem()
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput) ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput() SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput) ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput) Elem() SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement) SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement {
+		if v != nil {
+			return *v
+		}
+		var ret SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement
+		return ret
+	}).(SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput)
+}
+
+// Settings related to idle shutdown of Studio applications. See `idleSettings` Block below.
+func (o SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput) IdleSettings() SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement) *SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings {
+		if v == nil {
+			return nil
+		}
+		return v.IdleSettings
+	}).(SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput)
+}
+
+type SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings struct {
+	// The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
+}
+
+// SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsInput is an input type that accepts SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs and SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput values.
+// You can construct a concrete instance of `SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsInput` via:
+//
+//	SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs{...}
+type SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsInput interface {
+	pulumi.Input
+
+	ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput() SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput
+	ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutputWithContext(context.Context) SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput
+}
+
+type SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs struct {
+	// The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+	IdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"idleTimeoutInMinutes"`
+}
+
+func (SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings)(nil)).Elem()
+}
+
+func (i SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs) ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput() SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return i.ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutputWithContext(context.Background())
+}
+
+func (i SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs) ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutputWithContext(ctx context.Context) SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput)
+}
+
+func (i SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs) ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return i.ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs) ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput).ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx)
+}
+
+// SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrInput is an input type that accepts SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs, SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtr and SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput values.
+// You can construct a concrete instance of `SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrInput` via:
+//
+//	        SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrInput interface {
+	pulumi.Input
+
+	ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput
+	ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(context.Context) SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput
+}
+
+type spaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrType SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs
+
+func SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtr(v *SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs) SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrInput {
+	return (*spaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrType)(v)
+}
+
+func (*spaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings)(nil)).Elem()
+}
+
+func (i *spaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrType) ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return i.ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *spaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrType) ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput)
+}
+
+type SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput struct{ *pulumi.OutputState }
+
+func (SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings)(nil)).Elem()
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput() SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutputWithContext(ctx context.Context) SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o.ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) *SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings {
+		return &v
+	}).(SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput)
+}
+
+// The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+func (o SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) *int {
+		return v.IdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+type SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings)(nil)).Elem()
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) ToSpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx context.Context) SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o
+}
+
+func (o SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) Elem() SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings
+		return ret
+	}).(SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput)
+}
+
+// The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+func (o SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
 }
 
 type SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository struct {
@@ -28000,6 +30898,8 @@ func (o SpaceSpaceSharingSettingsPtrOutput) SharingType() pulumi.StringPtrOutput
 }
 
 type UserProfileUserSettings struct {
+	// Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
+	AutoMountHomeEfs *string `pulumi:"autoMountHomeEfs"`
 	// The Canvas app settings. See Canvas App Settings below.
 	CanvasAppSettings *UserProfileUserSettingsCanvasAppSettings `pulumi:"canvasAppSettings"`
 	// The Code Editor application settings. See Code Editor App Settings below.
@@ -28048,6 +30948,8 @@ type UserProfileUserSettingsInput interface {
 }
 
 type UserProfileUserSettingsArgs struct {
+	// Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
+	AutoMountHomeEfs pulumi.StringPtrInput `pulumi:"autoMountHomeEfs"`
 	// The Canvas app settings. See Canvas App Settings below.
 	CanvasAppSettings UserProfileUserSettingsCanvasAppSettingsPtrInput `pulumi:"canvasAppSettings"`
 	// The Code Editor application settings. See Code Editor App Settings below.
@@ -28159,6 +31061,11 @@ func (o UserProfileUserSettingsOutput) ToUserProfileUserSettingsPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettings) *UserProfileUserSettings {
 		return &v
 	}).(UserProfileUserSettingsPtrOutput)
+}
+
+// Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
+func (o UserProfileUserSettingsOutput) AutoMountHomeEfs() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettings) *string { return v.AutoMountHomeEfs }).(pulumi.StringPtrOutput)
 }
 
 // The Canvas app settings. See Canvas App Settings below.
@@ -28290,6 +31197,16 @@ func (o UserProfileUserSettingsPtrOutput) Elem() UserProfileUserSettingsOutput {
 		var ret UserProfileUserSettings
 		return ret
 	}).(UserProfileUserSettingsOutput)
+}
+
+// Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
+func (o UserProfileUserSettingsPtrOutput) AutoMountHomeEfs() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AutoMountHomeEfs
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Canvas app settings. See Canvas App Settings below.
@@ -28465,7 +31382,9 @@ func (o UserProfileUserSettingsPtrOutput) TensorBoardAppSettings() UserProfileUs
 type UserProfileUserSettingsCanvasAppSettings struct {
 	// The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
 	DirectDeploySettings *UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings `pulumi:"directDeploySettings"`
-	GenerativeAiSettings *UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings `pulumi:"generativeAiSettings"`
+	// The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emrServerlessSettings` Block below.
+	EmrServerlessSettings *UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings `pulumi:"emrServerlessSettings"`
+	GenerativeAiSettings  *UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings  `pulumi:"generativeAiSettings"`
 	// The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
 	IdentityProviderOauthSettings []UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting `pulumi:"identityProviderOauthSettings"`
 	// The settings for document querying. See Kendra Settings below.
@@ -28492,7 +31411,9 @@ type UserProfileUserSettingsCanvasAppSettingsInput interface {
 type UserProfileUserSettingsCanvasAppSettingsArgs struct {
 	// The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
 	DirectDeploySettings UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrInput `pulumi:"directDeploySettings"`
-	GenerativeAiSettings UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrInput `pulumi:"generativeAiSettings"`
+	// The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emrServerlessSettings` Block below.
+	EmrServerlessSettings UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrInput `pulumi:"emrServerlessSettings"`
+	GenerativeAiSettings  UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrInput  `pulumi:"generativeAiSettings"`
 	// The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
 	IdentityProviderOauthSettings UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayInput `pulumi:"identityProviderOauthSettings"`
 	// The settings for document querying. See Kendra Settings below.
@@ -28589,6 +31510,13 @@ func (o UserProfileUserSettingsCanvasAppSettingsOutput) DirectDeploySettings() U
 	}).(UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput)
 }
 
+// The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emrServerlessSettings` Block below.
+func (o UserProfileUserSettingsCanvasAppSettingsOutput) EmrServerlessSettings() UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettings) *UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings {
+		return v.EmrServerlessSettings
+	}).(UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput)
+}
+
 func (o UserProfileUserSettingsCanvasAppSettingsOutput) GenerativeAiSettings() UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettings) *UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings {
 		return v.GenerativeAiSettings
@@ -28662,6 +31590,16 @@ func (o UserProfileUserSettingsCanvasAppSettingsPtrOutput) DirectDeploySettings(
 		}
 		return v.DirectDeploySettings
 	}).(UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput)
+}
+
+// The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emrServerlessSettings` Block below.
+func (o UserProfileUserSettingsCanvasAppSettingsPtrOutput) EmrServerlessSettings() UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettings) *UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings {
+		if v == nil {
+			return nil
+		}
+		return v.EmrServerlessSettings
+	}).(UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput)
 }
 
 func (o UserProfileUserSettingsCanvasAppSettingsPtrOutput) GenerativeAiSettings() UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput {
@@ -28853,6 +31791,164 @@ func (o UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput) E
 // Describes whether model deployment permissions are enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
 func (o UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings struct {
+	// The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
+	// Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker Canvas application. Valid values are: `ENABLED` and `DISABLED`.
+	Status *string `pulumi:"status"`
+}
+
+// UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsInput is an input type that accepts UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs and UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsInput` via:
+//
+//	UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs{...}
+type UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput() UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput
+	ToUserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsOutputWithContext(context.Context) UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput
+}
+
+type UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs struct {
+	// The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+	ExecutionRoleArn pulumi.StringPtrInput `pulumi:"executionRoleArn"`
+	// Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker Canvas application. Valid values are: `ENABLED` and `DISABLED`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput() UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput {
+	return i.ToUserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput)
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput).ToUserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrInput is an input type that accepts UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs, UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtr and UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrInput` via:
+//
+//	        UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput
+	ToUserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutputWithContext(context.Context) UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput
+}
+
+type userProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrType UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs
+
+func UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtr(v *UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs) UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrInput {
+	return (*userProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrType)(v)
+}
+
+func (*userProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrType) ToUserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrType) ToUserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput() UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput {
+	return o.ToUserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings) *UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings {
+		return &v
+	}).(UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+func (o UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings) *string {
+		return v.ExecutionRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker Canvas application. Valid values are: `ENABLED` and `DISABLED`.
+func (o UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput) ToUserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput) ToUserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput) Elem() UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings) UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings
+		return ret
+	}).(UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput)
+}
+
+// The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+func (o UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExecutionRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker Canvas application. Valid values are: `ENABLED` and `DISABLED`.
+func (o UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings) *string {
 		if v == nil {
 			return nil
 		}
@@ -29724,6 +32820,10 @@ func (o UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput) S3Km
 }
 
 type UserProfileUserSettingsCodeEditorAppSettings struct {
+	// Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
+	AppLifecycleManagement *UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement `pulumi:"appLifecycleManagement"`
+	// The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+	BuiltInLifecycleConfigArn *string `pulumi:"builtInLifecycleConfigArn"`
 	// A list of custom SageMaker images that are configured to run as a CodeEditor app. see Custom Image below.
 	CustomImages []UserProfileUserSettingsCodeEditorAppSettingsCustomImage `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
@@ -29744,6 +32844,10 @@ type UserProfileUserSettingsCodeEditorAppSettingsInput interface {
 }
 
 type UserProfileUserSettingsCodeEditorAppSettingsArgs struct {
+	// Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
+	AppLifecycleManagement UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrInput `pulumi:"appLifecycleManagement"`
+	// The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+	BuiltInLifecycleConfigArn pulumi.StringPtrInput `pulumi:"builtInLifecycleConfigArn"`
 	// A list of custom SageMaker images that are configured to run as a CodeEditor app. see Custom Image below.
 	CustomImages UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayInput `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
@@ -29829,6 +32933,18 @@ func (o UserProfileUserSettingsCodeEditorAppSettingsOutput) ToUserProfileUserSet
 	}).(UserProfileUserSettingsCodeEditorAppSettingsPtrOutput)
 }
 
+// Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
+func (o UserProfileUserSettingsCodeEditorAppSettingsOutput) AppLifecycleManagement() UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCodeEditorAppSettings) *UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement {
+		return v.AppLifecycleManagement
+	}).(UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput)
+}
+
+// The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+func (o UserProfileUserSettingsCodeEditorAppSettingsOutput) BuiltInLifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCodeEditorAppSettings) *string { return v.BuiltInLifecycleConfigArn }).(pulumi.StringPtrOutput)
+}
+
 // A list of custom SageMaker images that are configured to run as a CodeEditor app. see Custom Image below.
 func (o UserProfileUserSettingsCodeEditorAppSettingsOutput) CustomImages() UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsCodeEditorAppSettings) []UserProfileUserSettingsCodeEditorAppSettingsCustomImage {
@@ -29872,6 +32988,26 @@ func (o UserProfileUserSettingsCodeEditorAppSettingsPtrOutput) Elem() UserProfil
 	}).(UserProfileUserSettingsCodeEditorAppSettingsOutput)
 }
 
+// Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
+func (o UserProfileUserSettingsCodeEditorAppSettingsPtrOutput) AppLifecycleManagement() UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCodeEditorAppSettings) *UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement {
+		if v == nil {
+			return nil
+		}
+		return v.AppLifecycleManagement
+	}).(UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput)
+}
+
+// The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+func (o UserProfileUserSettingsCodeEditorAppSettingsPtrOutput) BuiltInLifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCodeEditorAppSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BuiltInLifecycleConfigArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // A list of custom SageMaker images that are configured to run as a CodeEditor app. see Custom Image below.
 func (o UserProfileUserSettingsCodeEditorAppSettingsPtrOutput) CustomImages() UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsCodeEditorAppSettings) []UserProfileUserSettingsCodeEditorAppSettingsCustomImage {
@@ -29900,6 +33036,347 @@ func (o UserProfileUserSettingsCodeEditorAppSettingsPtrOutput) LifecycleConfigAr
 		}
 		return v.LifecycleConfigArns
 	}).(pulumi.StringArrayOutput)
+}
+
+type UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement struct {
+	// Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
+	IdleSettings *UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings `pulumi:"idleSettings"`
+}
+
+// UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementInput is an input type that accepts UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs and UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementInput` via:
+//
+//	UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs{...}
+type UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput() UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput
+	ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutputWithContext(context.Context) UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput
+}
+
+type UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs struct {
+	// Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
+	IdleSettings UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrInput `pulumi:"idleSettings"`
+}
+
+func (UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs) ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput() UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput {
+	return i.ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs) ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutputWithContext(ctx context.Context) UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput)
+}
+
+func (i UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs) ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput() UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput {
+	return i.ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs) ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput).ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrInput is an input type that accepts UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs, UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtr and UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrInput` via:
+//
+//	        UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput() UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput
+	ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutputWithContext(context.Context) UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput
+}
+
+type userProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrType UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs
+
+func UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtr(v *UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs) UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrInput {
+	return (*userProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrType)(v)
+}
+
+func (*userProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrType) ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput() UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput {
+	return i.ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrType) ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput)
+}
+
+type UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput) ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput() UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput) ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutputWithContext(ctx context.Context) UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput) ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput() UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput {
+	return o.ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput) ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement) *UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement {
+		return &v
+	}).(UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput)
+}
+
+// Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
+func (o UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput) IdleSettings() UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement) *UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings {
+		return v.IdleSettings
+	}).(UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput) ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput() UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput) ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput) Elem() UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement) UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement
+		return ret
+	}).(UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput)
+}
+
+// Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
+func (o UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput) IdleSettings() UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement) *UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings {
+		if v == nil {
+			return nil
+		}
+		return v.IdleSettings
+	}).(UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings struct {
+	// The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
+	// Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+	LifecycleManagement *string `pulumi:"lifecycleManagement"`
+	// The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+	MaxIdleTimeoutInMinutes *int `pulumi:"maxIdleTimeoutInMinutes"`
+	// The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+	MinIdleTimeoutInMinutes *int `pulumi:"minIdleTimeoutInMinutes"`
+}
+
+// UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsInput is an input type that accepts UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs and UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsInput` via:
+//
+//	UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs{...}
+type UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput() UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput
+	ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutputWithContext(context.Context) UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput
+}
+
+type UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs struct {
+	// The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+	IdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"idleTimeoutInMinutes"`
+	// Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+	LifecycleManagement pulumi.StringPtrInput `pulumi:"lifecycleManagement"`
+	// The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+	MaxIdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"maxIdleTimeoutInMinutes"`
+	// The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+	MinIdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"minIdleTimeoutInMinutes"`
+}
+
+func (UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs) ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput() UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return i.ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs) ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput)
+}
+
+func (i UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs) ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs) ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput).ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrInput is an input type that accepts UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs, UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtr and UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrInput` via:
+//
+//	        UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput
+	ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(context.Context) UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput
+}
+
+type userProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrType UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs
+
+func UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtr(v *UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs) UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrInput {
+	return (*userProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrType)(v)
+}
+
+func (*userProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrType) ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrType) ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput) ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput() UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput) ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput) ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o.ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput) ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings) *UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings {
+		return &v
+	}).(UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput)
+}
+
+// The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+func (o UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings) *int {
+		return v.IdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+func (o UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput) LifecycleManagement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings) *string {
+		return v.LifecycleManagement
+	}).(pulumi.StringPtrOutput)
+}
+
+// The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+func (o UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput) MaxIdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings) *int {
+		return v.MaxIdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+func (o UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput) MinIdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings) *int {
+		return v.MinIdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+type UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) ToUserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) Elem() UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings) UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings
+		return ret
+	}).(UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput)
+}
+
+// The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+func (o UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+func (o UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) LifecycleManagement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleManagement
+	}).(pulumi.StringPtrOutput)
+}
+
+// The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+func (o UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) MaxIdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxIdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+func (o UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) MinIdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinIdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
 }
 
 type UserProfileUserSettingsCodeEditorAppSettingsCustomImage struct {
@@ -30602,11 +34079,17 @@ func (o UserProfileUserSettingsCustomPosixUserConfigPtrOutput) Uid() pulumi.IntP
 }
 
 type UserProfileUserSettingsJupyterLabAppSettings struct {
+	// Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
+	AppLifecycleManagement *UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement `pulumi:"appLifecycleManagement"`
+	// The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+	BuiltInLifecycleConfigArn *string `pulumi:"builtInLifecycleConfigArn"`
 	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
 	CodeRepositories []UserProfileUserSettingsJupyterLabAppSettingsCodeRepository `pulumi:"codeRepositories"`
 	CustomImages     []UserProfileUserSettingsJupyterLabAppSettingsCustomImage    `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec *UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
+	// The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
+	EmrSettings *UserProfileUserSettingsJupyterLabAppSettingsEmrSettings `pulumi:"emrSettings"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
 }
@@ -30623,11 +34106,17 @@ type UserProfileUserSettingsJupyterLabAppSettingsInput interface {
 }
 
 type UserProfileUserSettingsJupyterLabAppSettingsArgs struct {
+	// Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
+	AppLifecycleManagement UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrInput `pulumi:"appLifecycleManagement"`
+	// The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+	BuiltInLifecycleConfigArn pulumi.StringPtrInput `pulumi:"builtInLifecycleConfigArn"`
 	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
 	CodeRepositories UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayInput `pulumi:"codeRepositories"`
 	CustomImages     UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayInput    `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
+	// The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
+	EmrSettings UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrInput `pulumi:"emrSettings"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
 }
@@ -30709,6 +34198,18 @@ func (o UserProfileUserSettingsJupyterLabAppSettingsOutput) ToUserProfileUserSet
 	}).(UserProfileUserSettingsJupyterLabAppSettingsPtrOutput)
 }
 
+// Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
+func (o UserProfileUserSettingsJupyterLabAppSettingsOutput) AppLifecycleManagement() UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettings) *UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement {
+		return v.AppLifecycleManagement
+	}).(UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput)
+}
+
+// The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+func (o UserProfileUserSettingsJupyterLabAppSettingsOutput) BuiltInLifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettings) *string { return v.BuiltInLifecycleConfigArn }).(pulumi.StringPtrOutput)
+}
+
 // A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
 func (o UserProfileUserSettingsJupyterLabAppSettingsOutput) CodeRepositories() UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettings) []UserProfileUserSettingsJupyterLabAppSettingsCodeRepository {
@@ -30727,6 +34228,13 @@ func (o UserProfileUserSettingsJupyterLabAppSettingsOutput) DefaultResourceSpec(
 	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettings) *UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec {
 		return v.DefaultResourceSpec
 	}).(UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput)
+}
+
+// The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
+func (o UserProfileUserSettingsJupyterLabAppSettingsOutput) EmrSettings() UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettings) *UserProfileUserSettingsJupyterLabAppSettingsEmrSettings {
+		return v.EmrSettings
+	}).(UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the Lifecycle Configurations.
@@ -30758,6 +34266,26 @@ func (o UserProfileUserSettingsJupyterLabAppSettingsPtrOutput) Elem() UserProfil
 	}).(UserProfileUserSettingsJupyterLabAppSettingsOutput)
 }
 
+// Indicates whether idle shutdown is activated for JupyterLab applications. see `appLifecycleManagement` Block below.
+func (o UserProfileUserSettingsJupyterLabAppSettingsPtrOutput) AppLifecycleManagement() UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettings) *UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement {
+		if v == nil {
+			return nil
+		}
+		return v.AppLifecycleManagement
+	}).(UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput)
+}
+
+// The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+func (o UserProfileUserSettingsJupyterLabAppSettingsPtrOutput) BuiltInLifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BuiltInLifecycleConfigArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
 func (o UserProfileUserSettingsJupyterLabAppSettingsPtrOutput) CodeRepositories() UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettings) []UserProfileUserSettingsJupyterLabAppSettingsCodeRepository {
@@ -30787,6 +34315,16 @@ func (o UserProfileUserSettingsJupyterLabAppSettingsPtrOutput) DefaultResourceSp
 	}).(UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput)
 }
 
+// The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emrSettings` Block below.
+func (o UserProfileUserSettingsJupyterLabAppSettingsPtrOutput) EmrSettings() UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettings) *UserProfileUserSettingsJupyterLabAppSettingsEmrSettings {
+		if v == nil {
+			return nil
+		}
+		return v.EmrSettings
+	}).(UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput)
+}
+
 // The Amazon Resource Name (ARN) of the Lifecycle Configurations.
 func (o UserProfileUserSettingsJupyterLabAppSettingsPtrOutput) LifecycleConfigArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettings) []string {
@@ -30795,6 +34333,347 @@ func (o UserProfileUserSettingsJupyterLabAppSettingsPtrOutput) LifecycleConfigAr
 		}
 		return v.LifecycleConfigArns
 	}).(pulumi.StringArrayOutput)
+}
+
+type UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement struct {
+	// Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
+	IdleSettings *UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings `pulumi:"idleSettings"`
+}
+
+// UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementInput is an input type that accepts UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs and UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementInput` via:
+//
+//	UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs{...}
+type UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput() UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput
+	ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutputWithContext(context.Context) UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput
+}
+
+type UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs struct {
+	// Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
+	IdleSettings UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrInput `pulumi:"idleSettings"`
+}
+
+func (UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs) ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput() UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput {
+	return i.ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs) ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput)
+}
+
+func (i UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs) ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput() UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return i.ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs) ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput).ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrInput is an input type that accepts UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs, UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtr and UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrInput` via:
+//
+//	        UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput() UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput
+	ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(context.Context) UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput
+}
+
+type userProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrType UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs
+
+func UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtr(v *UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs) UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrInput {
+	return (*userProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrType)(v)
+}
+
+func (*userProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrType) ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput() UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return i.ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrType) ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput)
+}
+
+type UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput) ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput() UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput) ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput) ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput() UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return o.ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput) ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement) *UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement {
+		return &v
+	}).(UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput)
+}
+
+// Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
+func (o UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput) IdleSettings() UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement) *UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings {
+		return v.IdleSettings
+	}).(UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput) ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput() UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput) ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput) Elem() UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement) UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement
+		return ret
+	}).(UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput)
+}
+
+// Settings related to idle shutdown of Studio applications. see `idleSettings` Block below.
+func (o UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput) IdleSettings() UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement) *UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings {
+		if v == nil {
+			return nil
+		}
+		return v.IdleSettings
+	}).(UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings struct {
+	// The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
+	// Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+	LifecycleManagement *string `pulumi:"lifecycleManagement"`
+	// The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+	MaxIdleTimeoutInMinutes *int `pulumi:"maxIdleTimeoutInMinutes"`
+	// The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+	MinIdleTimeoutInMinutes *int `pulumi:"minIdleTimeoutInMinutes"`
+}
+
+// UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsInput is an input type that accepts UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs and UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsInput` via:
+//
+//	UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs{...}
+type UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput() UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput
+	ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutputWithContext(context.Context) UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput
+}
+
+type UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs struct {
+	// The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+	IdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"idleTimeoutInMinutes"`
+	// Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+	LifecycleManagement pulumi.StringPtrInput `pulumi:"lifecycleManagement"`
+	// The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+	MaxIdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"maxIdleTimeoutInMinutes"`
+	// The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+	MinIdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"minIdleTimeoutInMinutes"`
+}
+
+func (UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs) ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput() UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return i.ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs) ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput)
+}
+
+func (i UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs) ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs) ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput).ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrInput is an input type that accepts UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs, UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtr and UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrInput` via:
+//
+//	        UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput
+	ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(context.Context) UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput
+}
+
+type userProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrType UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs
+
+func UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtr(v *UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs) UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrInput {
+	return (*userProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrType)(v)
+}
+
+func (*userProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrType) ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrType) ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput() UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o.ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) *UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings {
+		return &v
+	}).(UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput)
+}
+
+// The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+func (o UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) *int {
+		return v.IdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+func (o UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) LifecycleManagement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) *string {
+		return v.LifecycleManagement
+	}).(pulumi.StringPtrOutput)
+}
+
+// The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+func (o UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) MaxIdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) *int {
+		return v.MaxIdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+func (o UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput) MinIdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) *int {
+		return v.MinIdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+type UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput() UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) ToUserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) Elem() UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings
+		return ret
+	}).(UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput)
+}
+
+// The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+func (o UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+func (o UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) LifecycleManagement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleManagement
+	}).(pulumi.StringPtrOutput)
+}
+
+// The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+func (o UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) MaxIdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxIdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+func (o UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput) MinIdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinIdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
 }
 
 type UserProfileUserSettingsJupyterLabAppSettingsCodeRepository struct {
@@ -31228,6 +35107,162 @@ func (o UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput
 		}
 		return v.SagemakerImageVersionArn
 	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileUserSettingsJupyterLabAppSettingsEmrSettings struct {
+	// An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker domain.
+	AssumableRoleArns []string `pulumi:"assumableRoleArns"`
+	// An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+	ExecutionRoleArns []string `pulumi:"executionRoleArns"`
+}
+
+// UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsInput is an input type that accepts UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgs and UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsInput` via:
+//
+//	UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgs{...}
+type UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsJupyterLabAppSettingsEmrSettingsOutput() UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsOutput
+	ToUserProfileUserSettingsJupyterLabAppSettingsEmrSettingsOutputWithContext(context.Context) UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsOutput
+}
+
+type UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgs struct {
+	// An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker domain.
+	AssumableRoleArns pulumi.StringArrayInput `pulumi:"assumableRoleArns"`
+	// An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+	ExecutionRoleArns pulumi.StringArrayInput `pulumi:"executionRoleArns"`
+}
+
+func (UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsEmrSettings)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgs) ToUserProfileUserSettingsJupyterLabAppSettingsEmrSettingsOutput() UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsOutput {
+	return i.ToUserProfileUserSettingsJupyterLabAppSettingsEmrSettingsOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgs) ToUserProfileUserSettingsJupyterLabAppSettingsEmrSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsOutput)
+}
+
+func (i UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgs) ToUserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput() UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgs) ToUserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsOutput).ToUserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrInput is an input type that accepts UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgs, UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtr and UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrInput` via:
+//
+//	        UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput() UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput
+	ToUserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutputWithContext(context.Context) UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput
+}
+
+type userProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrType UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgs
+
+func UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtr(v *UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgs) UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrInput {
+	return (*userProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrType)(v)
+}
+
+func (*userProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsJupyterLabAppSettingsEmrSettings)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrType) ToUserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput() UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrType) ToUserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsEmrSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsOutput) ToUserProfileUserSettingsJupyterLabAppSettingsEmrSettingsOutput() UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsOutput) ToUserProfileUserSettingsJupyterLabAppSettingsEmrSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsOutput) ToUserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput() UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput {
+	return o.ToUserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsOutput) ToUserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsJupyterLabAppSettingsEmrSettings) *UserProfileUserSettingsJupyterLabAppSettingsEmrSettings {
+		return &v
+	}).(UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput)
+}
+
+// An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker domain.
+func (o UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsOutput) AssumableRoleArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettingsEmrSettings) []string { return v.AssumableRoleArns }).(pulumi.StringArrayOutput)
+}
+
+// An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+func (o UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsOutput) ExecutionRoleArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsJupyterLabAppSettingsEmrSettings) []string { return v.ExecutionRoleArns }).(pulumi.StringArrayOutput)
+}
+
+type UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsJupyterLabAppSettingsEmrSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) ToUserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput() UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) ToUserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) Elem() UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettingsEmrSettings) UserProfileUserSettingsJupyterLabAppSettingsEmrSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsJupyterLabAppSettingsEmrSettings
+		return ret
+	}).(UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsOutput)
+}
+
+// An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker domain.
+func (o UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) AssumableRoleArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettingsEmrSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AssumableRoleArns
+	}).(pulumi.StringArrayOutput)
+}
+
+// An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+func (o UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput) ExecutionRoleArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsJupyterLabAppSettingsEmrSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExecutionRoleArns
+	}).(pulumi.StringArrayOutput)
 }
 
 type UserProfileUserSettingsJupyterServerAppSettings struct {
@@ -33375,6 +37410,8 @@ func (o UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsPtrO
 type UserProfileUserSettingsStudioWebPortalSettings struct {
 	// The Applications supported in Studio that are hidden from the Studio left navigation pane.
 	HiddenAppTypes []string `pulumi:"hiddenAppTypes"`
+	// The instance types you are hiding from the Studio user interface.
+	HiddenInstanceTypes []string `pulumi:"hiddenInstanceTypes"`
 	// The machine learning tools that are hidden from the Studio left navigation pane.
 	HiddenMlTools []string `pulumi:"hiddenMlTools"`
 }
@@ -33393,6 +37430,8 @@ type UserProfileUserSettingsStudioWebPortalSettingsInput interface {
 type UserProfileUserSettingsStudioWebPortalSettingsArgs struct {
 	// The Applications supported in Studio that are hidden from the Studio left navigation pane.
 	HiddenAppTypes pulumi.StringArrayInput `pulumi:"hiddenAppTypes"`
+	// The instance types you are hiding from the Studio user interface.
+	HiddenInstanceTypes pulumi.StringArrayInput `pulumi:"hiddenInstanceTypes"`
 	// The machine learning tools that are hidden from the Studio left navigation pane.
 	HiddenMlTools pulumi.StringArrayInput `pulumi:"hiddenMlTools"`
 }
@@ -33479,6 +37518,11 @@ func (o UserProfileUserSettingsStudioWebPortalSettingsOutput) HiddenAppTypes() p
 	return o.ApplyT(func(v UserProfileUserSettingsStudioWebPortalSettings) []string { return v.HiddenAppTypes }).(pulumi.StringArrayOutput)
 }
 
+// The instance types you are hiding from the Studio user interface.
+func (o UserProfileUserSettingsStudioWebPortalSettingsOutput) HiddenInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsStudioWebPortalSettings) []string { return v.HiddenInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
 // The machine learning tools that are hidden from the Studio left navigation pane.
 func (o UserProfileUserSettingsStudioWebPortalSettingsOutput) HiddenMlTools() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsStudioWebPortalSettings) []string { return v.HiddenMlTools }).(pulumi.StringArrayOutput)
@@ -33515,6 +37559,16 @@ func (o UserProfileUserSettingsStudioWebPortalSettingsPtrOutput) HiddenAppTypes(
 			return nil
 		}
 		return v.HiddenAppTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The instance types you are hiding from the Studio user interface.
+func (o UserProfileUserSettingsStudioWebPortalSettingsPtrOutput) HiddenInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsStudioWebPortalSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.HiddenInstanceTypes
 	}).(pulumi.StringArrayOutput)
 }
 
@@ -35751,12 +39805,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultSpaceSettingsCustomPosixUserConfigPtrInput)(nil)).Elem(), DomainDefaultSpaceSettingsCustomPosixUserConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultSpaceSettingsJupyterLabAppSettingsInput)(nil)).Elem(), DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultSpaceSettingsJupyterLabAppSettingsPtrInput)(nil)).Elem(), DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementInput)(nil)).Elem(), DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrInput)(nil)).Elem(), DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsInput)(nil)).Elem(), DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrInput)(nil)).Elem(), DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepositoryInput)(nil)).Elem(), DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayInput)(nil)).Elem(), DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImageInput)(nil)).Elem(), DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImageArrayInput)(nil)).Elem(), DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecInput)(nil)).Elem(), DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrInput)(nil)).Elem(), DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsInput)(nil)).Elem(), DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrInput)(nil)).Elem(), DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultSpaceSettingsJupyterServerAppSettingsInput)(nil)).Elem(), DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultSpaceSettingsJupyterServerAppSettingsPtrInput)(nil)).Elem(), DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryInput)(nil)).Elem(), DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs{})
@@ -35779,6 +39839,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs{})
@@ -35793,6 +39855,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCodeEditorAppSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsCodeEditorAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCodeEditorAppSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCodeEditorAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementInput)(nil)).Elem(), DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageInput)(nil)).Elem(), DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayInput)(nil)).Elem(), DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecInput)(nil)).Elem(), DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs{})
@@ -35805,12 +39871,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCustomPosixUserConfigPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCustomPosixUserConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterLabAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterLabAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterServerAppSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterServerAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterServerAppSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterServerAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArgs{})
@@ -35909,6 +39981,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrInput)(nil)).Elem(), EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupFeatureDefinitionInput)(nil)).Elem(), FeatureGroupFeatureDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupFeatureDefinitionArrayInput)(nil)).Elem(), FeatureGroupFeatureDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupFeatureDefinitionCollectionConfigInput)(nil)).Elem(), FeatureGroupFeatureDefinitionCollectionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupFeatureDefinitionCollectionConfigPtrInput)(nil)).Elem(), FeatureGroupFeatureDefinitionCollectionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupFeatureDefinitionCollectionConfigVectorConfigInput)(nil)).Elem(), FeatureGroupFeatureDefinitionCollectionConfigVectorConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrInput)(nil)).Elem(), FeatureGroupFeatureDefinitionCollectionConfigVectorConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupOfflineStoreConfigInput)(nil)).Elem(), FeatureGroupOfflineStoreConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupOfflineStoreConfigPtrInput)(nil)).Elem(), FeatureGroupOfflineStoreConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupOfflineStoreConfigDataCatalogConfigInput)(nil)).Elem(), FeatureGroupOfflineStoreConfigDataCatalogConfigArgs{})
@@ -35921,6 +39997,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupOnlineStoreConfigSecurityConfigPtrInput)(nil)).Elem(), FeatureGroupOnlineStoreConfigSecurityConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupOnlineStoreConfigTtlDurationInput)(nil)).Elem(), FeatureGroupOnlineStoreConfigTtlDurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupOnlineStoreConfigTtlDurationPtrInput)(nil)).Elem(), FeatureGroupOnlineStoreConfigTtlDurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupThroughputConfigInput)(nil)).Elem(), FeatureGroupThroughputConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupThroughputConfigPtrInput)(nil)).Elem(), FeatureGroupThroughputConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDefinitionHumanLoopActivationConfigInput)(nil)).Elem(), FlowDefinitionHumanLoopActivationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDefinitionHumanLoopActivationConfigPtrInput)(nil)).Elem(), FlowDefinitionHumanLoopActivationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigInput)(nil)).Elem(), FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs{})
@@ -35935,6 +40013,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDefinitionHumanLoopRequestSourcePtrInput)(nil)).Elem(), FlowDefinitionHumanLoopRequestSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDefinitionOutputConfigInput)(nil)).Elem(), FlowDefinitionOutputConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDefinitionOutputConfigPtrInput)(nil)).Elem(), FlowDefinitionOutputConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HubS3StorageConfigInput)(nil)).Elem(), HubS3StorageConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HubS3StorageConfigPtrInput)(nil)).Elem(), HubS3StorageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HumanTaskUIUiTemplateInput)(nil)).Elem(), HumanTaskUIUiTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HumanTaskUIUiTemplatePtrInput)(nil)).Elem(), HumanTaskUIUiTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerInput)(nil)).Elem(), ModelContainerArgs{})
@@ -35989,6 +40069,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsPtrInput)(nil)).Elem(), SpaceSpaceSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsCodeEditorAppSettingsInput)(nil)).Elem(), SpaceSpaceSettingsCodeEditorAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsCodeEditorAppSettingsPtrInput)(nil)).Elem(), SpaceSpaceSettingsCodeEditorAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementInput)(nil)).Elem(), SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrInput)(nil)).Elem(), SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsInput)(nil)).Elem(), SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrInput)(nil)).Elem(), SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecInput)(nil)).Elem(), SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrInput)(nil)).Elem(), SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsCustomFileSystemInput)(nil)).Elem(), SpaceSpaceSettingsCustomFileSystemArgs{})
@@ -35996,6 +40080,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsCustomFileSystemEfsFileSystemInput)(nil)).Elem(), SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsJupyterLabAppSettingsInput)(nil)).Elem(), SpaceSpaceSettingsJupyterLabAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsJupyterLabAppSettingsPtrInput)(nil)).Elem(), SpaceSpaceSettingsJupyterLabAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementInput)(nil)).Elem(), SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrInput)(nil)).Elem(), SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsInput)(nil)).Elem(), SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrInput)(nil)).Elem(), SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryInput)(nil)).Elem(), SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayInput)(nil)).Elem(), SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecInput)(nil)).Elem(), SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs{})
@@ -36024,6 +40112,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs{})
@@ -36038,6 +40128,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCodeEditorAppSettingsInput)(nil)).Elem(), UserProfileUserSettingsCodeEditorAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCodeEditorAppSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsCodeEditorAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementInput)(nil)).Elem(), UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrInput)(nil)).Elem(), UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsInput)(nil)).Elem(), UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCodeEditorAppSettingsCustomImageInput)(nil)).Elem(), UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayInput)(nil)).Elem(), UserProfileUserSettingsCodeEditorAppSettingsCustomImageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecInput)(nil)).Elem(), UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs{})
@@ -36050,12 +40144,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCustomPosixUserConfigPtrInput)(nil)).Elem(), UserProfileUserSettingsCustomPosixUserConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsInput)(nil)).Elem(), UserProfileUserSettingsJupyterLabAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsJupyterLabAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementInput)(nil)).Elem(), UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrInput)(nil)).Elem(), UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsInput)(nil)).Elem(), UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryInput)(nil)).Elem(), UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayInput)(nil)).Elem(), UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsCustomImageInput)(nil)).Elem(), UserProfileUserSettingsJupyterLabAppSettingsCustomImageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayInput)(nil)).Elem(), UserProfileUserSettingsJupyterLabAppSettingsCustomImageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecInput)(nil)).Elem(), UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrInput)(nil)).Elem(), UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsInput)(nil)).Elem(), UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterServerAppSettingsInput)(nil)).Elem(), UserProfileUserSettingsJupyterServerAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterServerAppSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsJupyterServerAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryInput)(nil)).Elem(), UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArgs{})
@@ -36182,12 +40282,18 @@ func init() {
 	pulumi.RegisterOutputType(DomainDefaultSpaceSettingsCustomPosixUserConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultSpaceSettingsJupyterLabAppSettingsOutput{})
 	pulumi.RegisterOutputType(DomainDefaultSpaceSettingsJupyterLabAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput{})
+	pulumi.RegisterOutputType(DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput{})
+	pulumi.RegisterOutputType(DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepositoryOutput{})
 	pulumi.RegisterOutputType(DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImageOutput{})
 	pulumi.RegisterOutputType(DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImageArrayOutput{})
 	pulumi.RegisterOutputType(DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput{})
 	pulumi.RegisterOutputType(DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsOutput{})
+	pulumi.RegisterOutputType(DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultSpaceSettingsJupyterServerAppSettingsOutput{})
 	pulumi.RegisterOutputType(DomainDefaultSpaceSettingsJupyterServerAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryOutput{})
@@ -36210,6 +40316,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput{})
@@ -36224,6 +40332,10 @@ func init() {
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCodeEditorAppSettingsOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput{})
@@ -36236,12 +40348,18 @@ func init() {
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCustomPosixUserConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterLabAppSettingsOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterLabAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArrayOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterServerAppSettingsOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryOutput{})
@@ -36340,6 +40458,10 @@ func init() {
 	pulumi.RegisterOutputType(EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionOutput{})
 	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionCollectionConfigOutput{})
+	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionCollectionConfigPtrOutput{})
+	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionCollectionConfigVectorConfigOutput{})
+	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionCollectionConfigVectorConfigPtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupOfflineStoreConfigOutput{})
 	pulumi.RegisterOutputType(FeatureGroupOfflineStoreConfigPtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupOfflineStoreConfigDataCatalogConfigOutput{})
@@ -36352,6 +40474,8 @@ func init() {
 	pulumi.RegisterOutputType(FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupOnlineStoreConfigTtlDurationOutput{})
 	pulumi.RegisterOutputType(FeatureGroupOnlineStoreConfigTtlDurationPtrOutput{})
+	pulumi.RegisterOutputType(FeatureGroupThroughputConfigOutput{})
+	pulumi.RegisterOutputType(FeatureGroupThroughputConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlowDefinitionHumanLoopActivationConfigOutput{})
 	pulumi.RegisterOutputType(FlowDefinitionHumanLoopActivationConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigOutput{})
@@ -36366,6 +40490,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowDefinitionHumanLoopRequestSourcePtrOutput{})
 	pulumi.RegisterOutputType(FlowDefinitionOutputConfigOutput{})
 	pulumi.RegisterOutputType(FlowDefinitionOutputConfigPtrOutput{})
+	pulumi.RegisterOutputType(HubS3StorageConfigOutput{})
+	pulumi.RegisterOutputType(HubS3StorageConfigPtrOutput{})
 	pulumi.RegisterOutputType(HumanTaskUIUiTemplateOutput{})
 	pulumi.RegisterOutputType(HumanTaskUIUiTemplatePtrOutput{})
 	pulumi.RegisterOutputType(ModelContainerOutput{})
@@ -36420,6 +40546,10 @@ func init() {
 	pulumi.RegisterOutputType(SpaceSpaceSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SpaceSpaceSettingsCodeEditorAppSettingsOutput{})
 	pulumi.RegisterOutputType(SpaceSpaceSettingsCodeEditorAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementOutput{})
+	pulumi.RegisterOutputType(SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput{})
+	pulumi.RegisterOutputType(SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput{})
+	pulumi.RegisterOutputType(SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecOutput{})
 	pulumi.RegisterOutputType(SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput{})
 	pulumi.RegisterOutputType(SpaceSpaceSettingsCustomFileSystemOutput{})
@@ -36427,6 +40557,10 @@ func init() {
 	pulumi.RegisterOutputType(SpaceSpaceSettingsCustomFileSystemEfsFileSystemOutput{})
 	pulumi.RegisterOutputType(SpaceSpaceSettingsJupyterLabAppSettingsOutput{})
 	pulumi.RegisterOutputType(SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementOutput{})
+	pulumi.RegisterOutputType(SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput{})
+	pulumi.RegisterOutputType(SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput{})
+	pulumi.RegisterOutputType(SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryOutput{})
 	pulumi.RegisterOutputType(SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecOutput{})
@@ -36455,6 +40589,8 @@ func init() {
 	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput{})
@@ -36469,6 +40605,10 @@ func init() {
 	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCodeEditorAppSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCodeEditorAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCodeEditorAppSettingsCustomImageOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput{})
@@ -36481,12 +40621,18 @@ func init() {
 	pulumi.RegisterOutputType(UserProfileUserSettingsCustomPosixUserConfigPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterLabAppSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterLabAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterLabAppSettingsCustomImageOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterLabAppSettingsCustomImageArrayOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterServerAppSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterServerAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryOutput{})

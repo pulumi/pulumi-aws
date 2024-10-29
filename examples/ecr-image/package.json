@@ -1,0 +1,16 @@
+{
+    "name": "ecr-image",
+    "version": "0.0.1",
+    "license": "Apache-2.0",
+    "scripts": {
+        "build": "tsc"
+    },
+    "dependencies": {
+        "@pulumi/pulumi": "^3.0.0",
+        "@pulumi/aws": "^6.0.0",
+        "@pulumi/docker-build": "^0.0.7"
+    },
+    "devDependencies": {
+        "@types/node": "^8.0.0"
+    }
+}

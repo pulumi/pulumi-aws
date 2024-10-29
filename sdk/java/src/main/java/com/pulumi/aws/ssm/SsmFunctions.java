@@ -18,6 +18,8 @@ import com.pulumi.aws.ssm.inputs.GetParametersByPathArgs;
 import com.pulumi.aws.ssm.inputs.GetParametersByPathPlainArgs;
 import com.pulumi.aws.ssm.inputs.GetPatchBaselineArgs;
 import com.pulumi.aws.ssm.inputs.GetPatchBaselinePlainArgs;
+import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
+import com.pulumi.aws.ssm.inputs.GetPatchBaselinesPlainArgs;
 import com.pulumi.aws.ssm.outputs.GetContactsRotationResult;
 import com.pulumi.aws.ssm.outputs.GetDocumentResult;
 import com.pulumi.aws.ssm.outputs.GetInstancesResult;
@@ -25,6 +27,7 @@ import com.pulumi.aws.ssm.outputs.GetMaintenanceWindowsResult;
 import com.pulumi.aws.ssm.outputs.GetParameterResult;
 import com.pulumi.aws.ssm.outputs.GetParametersByPathResult;
 import com.pulumi.aws.ssm.outputs.GetPatchBaselineResult;
+import com.pulumi.aws.ssm.outputs.GetPatchBaselinesResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -1591,5 +1594,515 @@ public final class SsmFunctions {
      */
     public static CompletableFuture<GetPatchBaselineResult> getPatchBaselinePlain(GetPatchBaselinePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ssm/getPatchBaseline:getPatchBaseline", TypeShape.of(GetPatchBaselineResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for retrieving AWS SSM (Systems Manager) Patch Baselines.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsmFunctions.getPatchBaselines();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### With Filters
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsmFunctions.getPatchBaselines(GetPatchBaselinesArgs.builder()
+     *             .filters(            
+     *                 GetPatchBaselinesFilterArgs.builder()
+     *                     .key("OWNER")
+     *                     .values("AWS")
+     *                     .build(),
+     *                 GetPatchBaselinesFilterArgs.builder()
+     *                     .key("OPERATING_SYSTEM")
+     *                     .values("WINDOWS")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetPatchBaselinesResult> getPatchBaselines() {
+        return getPatchBaselines(GetPatchBaselinesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for retrieving AWS SSM (Systems Manager) Patch Baselines.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsmFunctions.getPatchBaselines();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### With Filters
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsmFunctions.getPatchBaselines(GetPatchBaselinesArgs.builder()
+     *             .filters(            
+     *                 GetPatchBaselinesFilterArgs.builder()
+     *                     .key("OWNER")
+     *                     .values("AWS")
+     *                     .build(),
+     *                 GetPatchBaselinesFilterArgs.builder()
+     *                     .key("OPERATING_SYSTEM")
+     *                     .values("WINDOWS")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetPatchBaselinesResult> getPatchBaselinesPlain() {
+        return getPatchBaselinesPlain(GetPatchBaselinesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for retrieving AWS SSM (Systems Manager) Patch Baselines.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsmFunctions.getPatchBaselines();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### With Filters
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsmFunctions.getPatchBaselines(GetPatchBaselinesArgs.builder()
+     *             .filters(            
+     *                 GetPatchBaselinesFilterArgs.builder()
+     *                     .key("OWNER")
+     *                     .values("AWS")
+     *                     .build(),
+     *                 GetPatchBaselinesFilterArgs.builder()
+     *                     .key("OPERATING_SYSTEM")
+     *                     .values("WINDOWS")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetPatchBaselinesResult> getPatchBaselines(GetPatchBaselinesArgs args) {
+        return getPatchBaselines(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for retrieving AWS SSM (Systems Manager) Patch Baselines.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsmFunctions.getPatchBaselines();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### With Filters
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsmFunctions.getPatchBaselines(GetPatchBaselinesArgs.builder()
+     *             .filters(            
+     *                 GetPatchBaselinesFilterArgs.builder()
+     *                     .key("OWNER")
+     *                     .values("AWS")
+     *                     .build(),
+     *                 GetPatchBaselinesFilterArgs.builder()
+     *                     .key("OPERATING_SYSTEM")
+     *                     .values("WINDOWS")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetPatchBaselinesResult> getPatchBaselinesPlain(GetPatchBaselinesPlainArgs args) {
+        return getPatchBaselinesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for retrieving AWS SSM (Systems Manager) Patch Baselines.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsmFunctions.getPatchBaselines();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### With Filters
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsmFunctions.getPatchBaselines(GetPatchBaselinesArgs.builder()
+     *             .filters(            
+     *                 GetPatchBaselinesFilterArgs.builder()
+     *                     .key("OWNER")
+     *                     .values("AWS")
+     *                     .build(),
+     *                 GetPatchBaselinesFilterArgs.builder()
+     *                     .key("OPERATING_SYSTEM")
+     *                     .values("WINDOWS")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetPatchBaselinesResult> getPatchBaselines(GetPatchBaselinesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ssm/getPatchBaselines:getPatchBaselines", TypeShape.of(GetPatchBaselinesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for retrieving AWS SSM (Systems Manager) Patch Baselines.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsmFunctions.getPatchBaselines();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### With Filters
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsmFunctions.getPatchBaselines(GetPatchBaselinesArgs.builder()
+     *             .filters(            
+     *                 GetPatchBaselinesFilterArgs.builder()
+     *                     .key("OWNER")
+     *                     .values("AWS")
+     *                     .build(),
+     *                 GetPatchBaselinesFilterArgs.builder()
+     *                     .key("OPERATING_SYSTEM")
+     *                     .values("WINDOWS")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetPatchBaselinesResult> getPatchBaselinesPlain(GetPatchBaselinesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ssm/getPatchBaselines:getPatchBaselines", TypeShape.of(GetPatchBaselinesResult.class), args, Utilities.withVersion(options));
     }
 }

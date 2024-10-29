@@ -1,0 +1,3 @@
+name: ecr-image
+runtime: nodejs
+description: Publish docker images to ECR

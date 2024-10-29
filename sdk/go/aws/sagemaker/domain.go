@@ -119,6 +119,8 @@ type Domain struct {
 	SingleSignOnManagedApplicationInstanceId pulumi.StringOutput `pulumi:"singleSignOnManagedApplicationInstanceId"`
 	// The VPC subnets that Studio uses for communication.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
+	// Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
+	TagPropagation pulumi.StringPtrOutput `pulumi:"tagPropagation"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -208,6 +210,8 @@ type domainState struct {
 	SingleSignOnManagedApplicationInstanceId *string `pulumi:"singleSignOnManagedApplicationInstanceId"`
 	// The VPC subnets that Studio uses for communication.
 	SubnetIds []string `pulumi:"subnetIds"`
+	// Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
+	TagPropagation *string `pulumi:"tagPropagation"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -253,6 +257,8 @@ type DomainState struct {
 	SingleSignOnManagedApplicationInstanceId pulumi.StringPtrInput
 	// The VPC subnets that Studio uses for communication.
 	SubnetIds pulumi.StringArrayInput
+	// Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
+	TagPropagation pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -292,6 +298,8 @@ type domainArgs struct {
 	RetentionPolicy *DomainRetentionPolicy `pulumi:"retentionPolicy"`
 	// The VPC subnets that Studio uses for communication.
 	SubnetIds []string `pulumi:"subnetIds"`
+	// Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
+	TagPropagation *string `pulumi:"tagPropagation"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
@@ -322,6 +330,8 @@ type DomainArgs struct {
 	RetentionPolicy DomainRetentionPolicyPtrInput
 	// The VPC subnets that Studio uses for communication.
 	SubnetIds pulumi.StringArrayInput
+	// Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
+	TagPropagation pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
@@ -490,6 +500,11 @@ func (o DomainOutput) SingleSignOnManagedApplicationInstanceId() pulumi.StringOu
 // The VPC subnets that Studio uses for communication.
 func (o DomainOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+// Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
+func (o DomainOutput) TagPropagation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.TagPropagation }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

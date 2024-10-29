@@ -37,7 +37,7 @@ namespace Pulumi.Aws.CostExplorer.Inputs
         public Input<Inputs.AnomalySubscriptionThresholdExpressionDimensionGetArgs>? Dimension { get; set; }
 
         /// <summary>
-        /// Return results that match both Dimension object.
+        /// Return results that do not match the Dimension object.
         /// </summary>
         [Input("not")]
         public Input<Inputs.AnomalySubscriptionThresholdExpressionNotGetArgs>? Not { get; set; }
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.CostExplorer.Inputs
         private InputList<Inputs.AnomalySubscriptionThresholdExpressionOrGetArgs>? _ors;
 
         /// <summary>
-        /// Return results that match both Dimension object.
+        /// Return results that match either Dimension object.
         /// </summary>
         public InputList<Inputs.AnomalySubscriptionThresholdExpressionOrGetArgs> Ors
         {

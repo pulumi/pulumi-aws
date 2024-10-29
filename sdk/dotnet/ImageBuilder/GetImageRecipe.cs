@@ -157,7 +157,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// Key-value map of resource tags for the image recipe.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// Base64 encoded contents of user data. Commands or a command script to run when build instance is launched.
         /// </summary>
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.ImageBuilder
 
             string platform,
 
-            ImmutableDictionary<string, string>? tags,
+            ImmutableDictionary<string, string> tags,
 
             string userDataBase64,
 

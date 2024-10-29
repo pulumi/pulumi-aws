@@ -672,6 +672,339 @@ func (o DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput) Percentage
 	}).(pulumi.IntPtrOutput)
 }
 
+type DeploymentConfigZonalConfig struct {
+	// The period of time, in seconds, that CodeDeploy must wait after completing a deployment to the first Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the second Availability Zone. If you don't specify a value for `firstZoneMonitorDurationInSeconds`, then CodeDeploy uses the `monitorDurationInSeconds` value for the first Availability Zone.
+	FirstZoneMonitorDurationInSeconds *int `pulumi:"firstZoneMonitorDurationInSeconds"`
+	// The number or percentage of instances that must remain available per Availability Zone during a deployment. If you don't specify a value under `minimumHealthyHostsPerZone`, then CodeDeploy uses a default value of 0 percent. This block is more documented below.
+	MinimumHealthyHostsPerZone *DeploymentConfigZonalConfigMinimumHealthyHostsPerZone `pulumi:"minimumHealthyHostsPerZone"`
+	// The period of time, in seconds, that CodeDeploy must wait after completing a deployment to an Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the next Availability Zone. If you don't specify a `monitorDurationInSeconds`, CodeDeploy starts deploying to the next Availability Zone immediately.
+	MonitorDurationInSeconds *int `pulumi:"monitorDurationInSeconds"`
+}
+
+// DeploymentConfigZonalConfigInput is an input type that accepts DeploymentConfigZonalConfigArgs and DeploymentConfigZonalConfigOutput values.
+// You can construct a concrete instance of `DeploymentConfigZonalConfigInput` via:
+//
+//	DeploymentConfigZonalConfigArgs{...}
+type DeploymentConfigZonalConfigInput interface {
+	pulumi.Input
+
+	ToDeploymentConfigZonalConfigOutput() DeploymentConfigZonalConfigOutput
+	ToDeploymentConfigZonalConfigOutputWithContext(context.Context) DeploymentConfigZonalConfigOutput
+}
+
+type DeploymentConfigZonalConfigArgs struct {
+	// The period of time, in seconds, that CodeDeploy must wait after completing a deployment to the first Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the second Availability Zone. If you don't specify a value for `firstZoneMonitorDurationInSeconds`, then CodeDeploy uses the `monitorDurationInSeconds` value for the first Availability Zone.
+	FirstZoneMonitorDurationInSeconds pulumi.IntPtrInput `pulumi:"firstZoneMonitorDurationInSeconds"`
+	// The number or percentage of instances that must remain available per Availability Zone during a deployment. If you don't specify a value under `minimumHealthyHostsPerZone`, then CodeDeploy uses a default value of 0 percent. This block is more documented below.
+	MinimumHealthyHostsPerZone DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrInput `pulumi:"minimumHealthyHostsPerZone"`
+	// The period of time, in seconds, that CodeDeploy must wait after completing a deployment to an Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the next Availability Zone. If you don't specify a `monitorDurationInSeconds`, CodeDeploy starts deploying to the next Availability Zone immediately.
+	MonitorDurationInSeconds pulumi.IntPtrInput `pulumi:"monitorDurationInSeconds"`
+}
+
+func (DeploymentConfigZonalConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentConfigZonalConfig)(nil)).Elem()
+}
+
+func (i DeploymentConfigZonalConfigArgs) ToDeploymentConfigZonalConfigOutput() DeploymentConfigZonalConfigOutput {
+	return i.ToDeploymentConfigZonalConfigOutputWithContext(context.Background())
+}
+
+func (i DeploymentConfigZonalConfigArgs) ToDeploymentConfigZonalConfigOutputWithContext(ctx context.Context) DeploymentConfigZonalConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigZonalConfigOutput)
+}
+
+func (i DeploymentConfigZonalConfigArgs) ToDeploymentConfigZonalConfigPtrOutput() DeploymentConfigZonalConfigPtrOutput {
+	return i.ToDeploymentConfigZonalConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentConfigZonalConfigArgs) ToDeploymentConfigZonalConfigPtrOutputWithContext(ctx context.Context) DeploymentConfigZonalConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigZonalConfigOutput).ToDeploymentConfigZonalConfigPtrOutputWithContext(ctx)
+}
+
+// DeploymentConfigZonalConfigPtrInput is an input type that accepts DeploymentConfigZonalConfigArgs, DeploymentConfigZonalConfigPtr and DeploymentConfigZonalConfigPtrOutput values.
+// You can construct a concrete instance of `DeploymentConfigZonalConfigPtrInput` via:
+//
+//	        DeploymentConfigZonalConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentConfigZonalConfigPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentConfigZonalConfigPtrOutput() DeploymentConfigZonalConfigPtrOutput
+	ToDeploymentConfigZonalConfigPtrOutputWithContext(context.Context) DeploymentConfigZonalConfigPtrOutput
+}
+
+type deploymentConfigZonalConfigPtrType DeploymentConfigZonalConfigArgs
+
+func DeploymentConfigZonalConfigPtr(v *DeploymentConfigZonalConfigArgs) DeploymentConfigZonalConfigPtrInput {
+	return (*deploymentConfigZonalConfigPtrType)(v)
+}
+
+func (*deploymentConfigZonalConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentConfigZonalConfig)(nil)).Elem()
+}
+
+func (i *deploymentConfigZonalConfigPtrType) ToDeploymentConfigZonalConfigPtrOutput() DeploymentConfigZonalConfigPtrOutput {
+	return i.ToDeploymentConfigZonalConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentConfigZonalConfigPtrType) ToDeploymentConfigZonalConfigPtrOutputWithContext(ctx context.Context) DeploymentConfigZonalConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigZonalConfigPtrOutput)
+}
+
+type DeploymentConfigZonalConfigOutput struct{ *pulumi.OutputState }
+
+func (DeploymentConfigZonalConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentConfigZonalConfig)(nil)).Elem()
+}
+
+func (o DeploymentConfigZonalConfigOutput) ToDeploymentConfigZonalConfigOutput() DeploymentConfigZonalConfigOutput {
+	return o
+}
+
+func (o DeploymentConfigZonalConfigOutput) ToDeploymentConfigZonalConfigOutputWithContext(ctx context.Context) DeploymentConfigZonalConfigOutput {
+	return o
+}
+
+func (o DeploymentConfigZonalConfigOutput) ToDeploymentConfigZonalConfigPtrOutput() DeploymentConfigZonalConfigPtrOutput {
+	return o.ToDeploymentConfigZonalConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentConfigZonalConfigOutput) ToDeploymentConfigZonalConfigPtrOutputWithContext(ctx context.Context) DeploymentConfigZonalConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentConfigZonalConfig) *DeploymentConfigZonalConfig {
+		return &v
+	}).(DeploymentConfigZonalConfigPtrOutput)
+}
+
+// The period of time, in seconds, that CodeDeploy must wait after completing a deployment to the first Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the second Availability Zone. If you don't specify a value for `firstZoneMonitorDurationInSeconds`, then CodeDeploy uses the `monitorDurationInSeconds` value for the first Availability Zone.
+func (o DeploymentConfigZonalConfigOutput) FirstZoneMonitorDurationInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeploymentConfigZonalConfig) *int { return v.FirstZoneMonitorDurationInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The number or percentage of instances that must remain available per Availability Zone during a deployment. If you don't specify a value under `minimumHealthyHostsPerZone`, then CodeDeploy uses a default value of 0 percent. This block is more documented below.
+func (o DeploymentConfigZonalConfigOutput) MinimumHealthyHostsPerZone() DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutput {
+	return o.ApplyT(func(v DeploymentConfigZonalConfig) *DeploymentConfigZonalConfigMinimumHealthyHostsPerZone {
+		return v.MinimumHealthyHostsPerZone
+	}).(DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutput)
+}
+
+// The period of time, in seconds, that CodeDeploy must wait after completing a deployment to an Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the next Availability Zone. If you don't specify a `monitorDurationInSeconds`, CodeDeploy starts deploying to the next Availability Zone immediately.
+func (o DeploymentConfigZonalConfigOutput) MonitorDurationInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeploymentConfigZonalConfig) *int { return v.MonitorDurationInSeconds }).(pulumi.IntPtrOutput)
+}
+
+type DeploymentConfigZonalConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentConfigZonalConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentConfigZonalConfig)(nil)).Elem()
+}
+
+func (o DeploymentConfigZonalConfigPtrOutput) ToDeploymentConfigZonalConfigPtrOutput() DeploymentConfigZonalConfigPtrOutput {
+	return o
+}
+
+func (o DeploymentConfigZonalConfigPtrOutput) ToDeploymentConfigZonalConfigPtrOutputWithContext(ctx context.Context) DeploymentConfigZonalConfigPtrOutput {
+	return o
+}
+
+func (o DeploymentConfigZonalConfigPtrOutput) Elem() DeploymentConfigZonalConfigOutput {
+	return o.ApplyT(func(v *DeploymentConfigZonalConfig) DeploymentConfigZonalConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentConfigZonalConfig
+		return ret
+	}).(DeploymentConfigZonalConfigOutput)
+}
+
+// The period of time, in seconds, that CodeDeploy must wait after completing a deployment to the first Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the second Availability Zone. If you don't specify a value for `firstZoneMonitorDurationInSeconds`, then CodeDeploy uses the `monitorDurationInSeconds` value for the first Availability Zone.
+func (o DeploymentConfigZonalConfigPtrOutput) FirstZoneMonitorDurationInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeploymentConfigZonalConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FirstZoneMonitorDurationInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number or percentage of instances that must remain available per Availability Zone during a deployment. If you don't specify a value under `minimumHealthyHostsPerZone`, then CodeDeploy uses a default value of 0 percent. This block is more documented below.
+func (o DeploymentConfigZonalConfigPtrOutput) MinimumHealthyHostsPerZone() DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutput {
+	return o.ApplyT(func(v *DeploymentConfigZonalConfig) *DeploymentConfigZonalConfigMinimumHealthyHostsPerZone {
+		if v == nil {
+			return nil
+		}
+		return v.MinimumHealthyHostsPerZone
+	}).(DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutput)
+}
+
+// The period of time, in seconds, that CodeDeploy must wait after completing a deployment to an Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the next Availability Zone. If you don't specify a `monitorDurationInSeconds`, CodeDeploy starts deploying to the next Availability Zone immediately.
+func (o DeploymentConfigZonalConfigPtrOutput) MonitorDurationInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeploymentConfigZonalConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MonitorDurationInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type DeploymentConfigZonalConfigMinimumHealthyHostsPerZone struct {
+	// The type can either be `FLEET_PERCENT` or `HOST_COUNT`.
+	Type *string `pulumi:"type"`
+	// The value when the type is `FLEET_PERCENT` represents the minimum number of healthy instances as a percentage of the total number of instances in the Availability Zone during a deployment. If you specify FLEET_PERCENT, at the start of the deployment, AWS CodeDeploy converts the percentage to the equivalent number of instance and rounds up fractional instances. When the type is `HOST_COUNT`, the value represents the minimum number of healthy instances in the Availability Zone as an absolute value.
+	Value *int `pulumi:"value"`
+}
+
+// DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneInput is an input type that accepts DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs and DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneOutput values.
+// You can construct a concrete instance of `DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneInput` via:
+//
+//	DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs{...}
+type DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneInput interface {
+	pulumi.Input
+
+	ToDeploymentConfigZonalConfigMinimumHealthyHostsPerZoneOutput() DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneOutput
+	ToDeploymentConfigZonalConfigMinimumHealthyHostsPerZoneOutputWithContext(context.Context) DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneOutput
+}
+
+type DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs struct {
+	// The type can either be `FLEET_PERCENT` or `HOST_COUNT`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The value when the type is `FLEET_PERCENT` represents the minimum number of healthy instances as a percentage of the total number of instances in the Availability Zone during a deployment. If you specify FLEET_PERCENT, at the start of the deployment, AWS CodeDeploy converts the percentage to the equivalent number of instance and rounds up fractional instances. When the type is `HOST_COUNT`, the value represents the minimum number of healthy instances in the Availability Zone as an absolute value.
+	Value pulumi.IntPtrInput `pulumi:"value"`
+}
+
+func (DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentConfigZonalConfigMinimumHealthyHostsPerZone)(nil)).Elem()
+}
+
+func (i DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs) ToDeploymentConfigZonalConfigMinimumHealthyHostsPerZoneOutput() DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneOutput {
+	return i.ToDeploymentConfigZonalConfigMinimumHealthyHostsPerZoneOutputWithContext(context.Background())
+}
+
+func (i DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs) ToDeploymentConfigZonalConfigMinimumHealthyHostsPerZoneOutputWithContext(ctx context.Context) DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneOutput)
+}
+
+func (i DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs) ToDeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutput() DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutput {
+	return i.ToDeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs) ToDeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutputWithContext(ctx context.Context) DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneOutput).ToDeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutputWithContext(ctx)
+}
+
+// DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrInput is an input type that accepts DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs, DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtr and DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutput values.
+// You can construct a concrete instance of `DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrInput` via:
+//
+//	        DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrInput interface {
+	pulumi.Input
+
+	ToDeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutput() DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutput
+	ToDeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutputWithContext(context.Context) DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutput
+}
+
+type deploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrType DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs
+
+func DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtr(v *DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs) DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrInput {
+	return (*deploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrType)(v)
+}
+
+func (*deploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentConfigZonalConfigMinimumHealthyHostsPerZone)(nil)).Elem()
+}
+
+func (i *deploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrType) ToDeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutput() DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutput {
+	return i.ToDeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrType) ToDeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutputWithContext(ctx context.Context) DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutput)
+}
+
+type DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneOutput struct{ *pulumi.OutputState }
+
+func (DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentConfigZonalConfigMinimumHealthyHostsPerZone)(nil)).Elem()
+}
+
+func (o DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneOutput) ToDeploymentConfigZonalConfigMinimumHealthyHostsPerZoneOutput() DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneOutput {
+	return o
+}
+
+func (o DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneOutput) ToDeploymentConfigZonalConfigMinimumHealthyHostsPerZoneOutputWithContext(ctx context.Context) DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneOutput {
+	return o
+}
+
+func (o DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneOutput) ToDeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutput() DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutput {
+	return o.ToDeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneOutput) ToDeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutputWithContext(ctx context.Context) DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentConfigZonalConfigMinimumHealthyHostsPerZone) *DeploymentConfigZonalConfigMinimumHealthyHostsPerZone {
+		return &v
+	}).(DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutput)
+}
+
+// The type can either be `FLEET_PERCENT` or `HOST_COUNT`.
+func (o DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentConfigZonalConfigMinimumHealthyHostsPerZone) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The value when the type is `FLEET_PERCENT` represents the minimum number of healthy instances as a percentage of the total number of instances in the Availability Zone during a deployment. If you specify FLEET_PERCENT, at the start of the deployment, AWS CodeDeploy converts the percentage to the equivalent number of instance and rounds up fractional instances. When the type is `HOST_COUNT`, the value represents the minimum number of healthy instances in the Availability Zone as an absolute value.
+func (o DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeploymentConfigZonalConfigMinimumHealthyHostsPerZone) *int { return v.Value }).(pulumi.IntPtrOutput)
+}
+
+type DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentConfigZonalConfigMinimumHealthyHostsPerZone)(nil)).Elem()
+}
+
+func (o DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutput) ToDeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutput() DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutput {
+	return o
+}
+
+func (o DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutput) ToDeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutputWithContext(ctx context.Context) DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutput {
+	return o
+}
+
+func (o DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutput) Elem() DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneOutput {
+	return o.ApplyT(func(v *DeploymentConfigZonalConfigMinimumHealthyHostsPerZone) DeploymentConfigZonalConfigMinimumHealthyHostsPerZone {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentConfigZonalConfigMinimumHealthyHostsPerZone
+		return ret
+	}).(DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneOutput)
+}
+
+// The type can either be `FLEET_PERCENT` or `HOST_COUNT`.
+func (o DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentConfigZonalConfigMinimumHealthyHostsPerZone) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value when the type is `FLEET_PERCENT` represents the minimum number of healthy instances as a percentage of the total number of instances in the Availability Zone during a deployment. If you specify FLEET_PERCENT, at the start of the deployment, AWS CodeDeploy converts the percentage to the equivalent number of instance and rounds up fractional instances. When the type is `HOST_COUNT`, the value represents the minimum number of healthy instances in the Availability Zone as an absolute value.
+func (o DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeploymentConfigZonalConfigMinimumHealthyHostsPerZone) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
 type DeploymentGroupAlarmConfiguration struct {
 	// A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
 	Alarms []string `pulumi:"alarms"`
@@ -3506,6 +3839,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrInput)(nil)).Elem(), DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigTrafficRoutingConfigTimeBasedLinearInput)(nil)).Elem(), DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrInput)(nil)).Elem(), DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigZonalConfigInput)(nil)).Elem(), DeploymentConfigZonalConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigZonalConfigPtrInput)(nil)).Elem(), DeploymentConfigZonalConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneInput)(nil)).Elem(), DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrInput)(nil)).Elem(), DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupAlarmConfigurationInput)(nil)).Elem(), DeploymentGroupAlarmConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupAlarmConfigurationPtrInput)(nil)).Elem(), DeploymentGroupAlarmConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupAutoRollbackConfigurationInput)(nil)).Elem(), DeploymentGroupAutoRollbackConfigurationArgs{})
@@ -3554,6 +3891,10 @@ func init() {
 	pulumi.RegisterOutputType(DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentConfigTrafficRoutingConfigTimeBasedLinearOutput{})
 	pulumi.RegisterOutputType(DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentConfigZonalConfigOutput{})
+	pulumi.RegisterOutputType(DeploymentConfigZonalConfigPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneOutput{})
+	pulumi.RegisterOutputType(DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupAlarmConfigurationOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupAlarmConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupAutoRollbackConfigurationOutput{})

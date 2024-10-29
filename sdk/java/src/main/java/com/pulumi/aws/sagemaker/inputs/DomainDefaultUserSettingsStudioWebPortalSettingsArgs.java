@@ -32,6 +32,21 @@ public final class DomainDefaultUserSettingsStudioWebPortalSettingsArgs extends 
     }
 
     /**
+     * The instance types you are hiding from the Studio user interface.
+     * 
+     */
+    @Import(name="hiddenInstanceTypes")
+    private @Nullable Output<List<String>> hiddenInstanceTypes;
+
+    /**
+     * @return The instance types you are hiding from the Studio user interface.
+     * 
+     */
+    public Optional<Output<List<String>>> hiddenInstanceTypes() {
+        return Optional.ofNullable(this.hiddenInstanceTypes);
+    }
+
+    /**
      * The machine learning tools that are hidden from the Studio left navigation pane.
      * 
      */
@@ -50,6 +65,7 @@ public final class DomainDefaultUserSettingsStudioWebPortalSettingsArgs extends 
 
     private DomainDefaultUserSettingsStudioWebPortalSettingsArgs(DomainDefaultUserSettingsStudioWebPortalSettingsArgs $) {
         this.hiddenAppTypes = $.hiddenAppTypes;
+        this.hiddenInstanceTypes = $.hiddenInstanceTypes;
         this.hiddenMlTools = $.hiddenMlTools;
     }
 
@@ -100,6 +116,37 @@ public final class DomainDefaultUserSettingsStudioWebPortalSettingsArgs extends 
          */
         public Builder hiddenAppTypes(String... hiddenAppTypes) {
             return hiddenAppTypes(List.of(hiddenAppTypes));
+        }
+
+        /**
+         * @param hiddenInstanceTypes The instance types you are hiding from the Studio user interface.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hiddenInstanceTypes(@Nullable Output<List<String>> hiddenInstanceTypes) {
+            $.hiddenInstanceTypes = hiddenInstanceTypes;
+            return this;
+        }
+
+        /**
+         * @param hiddenInstanceTypes The instance types you are hiding from the Studio user interface.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hiddenInstanceTypes(List<String> hiddenInstanceTypes) {
+            return hiddenInstanceTypes(Output.of(hiddenInstanceTypes));
+        }
+
+        /**
+         * @param hiddenInstanceTypes The instance types you are hiding from the Studio user interface.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hiddenInstanceTypes(String... hiddenInstanceTypes) {
+            return hiddenInstanceTypes(List.of(hiddenInstanceTypes));
         }
 
         /**

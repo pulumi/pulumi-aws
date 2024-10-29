@@ -24,6 +24,18 @@ namespace Pulumi.Aws.Sagemaker.Inputs
             set => _hiddenAppTypes = value;
         }
 
+        [Input("hiddenInstanceTypes")]
+        private InputList<string>? _hiddenInstanceTypes;
+
+        /// <summary>
+        /// The instance types you are hiding from the Studio user interface.
+        /// </summary>
+        public InputList<string> HiddenInstanceTypes
+        {
+            get => _hiddenInstanceTypes ?? (_hiddenInstanceTypes = new InputList<string>());
+            set => _hiddenInstanceTypes = value;
+        }
+
         [Input("hiddenMlTools")]
         private InputList<string>? _hiddenMlTools;
 

@@ -13,7 +13,6 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetContainerRecipeResult {
@@ -87,7 +86,7 @@ public final class GetContainerRecipeResult {
      * @return Key-value map of resource tags for the container recipe.
      * 
      */
-    private @Nullable Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return Destination repository for the container image.
      * 
@@ -204,7 +203,7 @@ public final class GetContainerRecipeResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags == null ? Map.of() : this.tags;
+        return this.tags;
     }
     /**
      * @return Destination repository for the container image.
@@ -251,7 +250,7 @@ public final class GetContainerRecipeResult {
         private String owner;
         private String parentImage;
         private String platform;
-        private @Nullable Map<String,String> tags;
+        private Map<String,String> tags;
         private List<GetContainerRecipeTargetRepository> targetRepositories;
         private String version;
         private String workingDirectory;
@@ -397,8 +396,10 @@ public final class GetContainerRecipeResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tags(@Nullable Map<String,String> tags) {
-
+        public Builder tags(Map<String,String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeResult", "tags");
+            }
             this.tags = tags;
             return this;
         }

@@ -181,6 +181,12 @@ namespace Pulumi.Aws.CodeDeploy
         [Output("trafficRoutingConfig")]
         public Output<Outputs.DeploymentConfigTrafficRoutingConfig?> TrafficRoutingConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// A zonal_config block. Zonal Config is documented below.
+        /// </summary>
+        [Output("zonalConfig")]
+        public Output<Outputs.DeploymentConfigZonalConfig?> ZonalConfig { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a DeploymentConfig resource with the given unique name, arguments, and options.
@@ -251,6 +257,12 @@ namespace Pulumi.Aws.CodeDeploy
         [Input("trafficRoutingConfig")]
         public Input<Inputs.DeploymentConfigTrafficRoutingConfigArgs>? TrafficRoutingConfig { get; set; }
 
+        /// <summary>
+        /// A zonal_config block. Zonal Config is documented below.
+        /// </summary>
+        [Input("zonalConfig")]
+        public Input<Inputs.DeploymentConfigZonalConfigArgs>? ZonalConfig { get; set; }
+
         public DeploymentConfigArgs()
         {
         }
@@ -294,6 +306,12 @@ namespace Pulumi.Aws.CodeDeploy
         /// </summary>
         [Input("trafficRoutingConfig")]
         public Input<Inputs.DeploymentConfigTrafficRoutingConfigGetArgs>? TrafficRoutingConfig { get; set; }
+
+        /// <summary>
+        /// A zonal_config block. Zonal Config is documented below.
+        /// </summary>
+        [Input("zonalConfig")]
+        public Input<Inputs.DeploymentConfigZonalConfigGetArgs>? ZonalConfig { get; set; }
 
         public DeploymentConfigState()
         {

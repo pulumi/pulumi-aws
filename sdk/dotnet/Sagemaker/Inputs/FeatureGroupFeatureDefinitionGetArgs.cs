@@ -12,6 +12,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class FeatureGroupFeatureDefinitionGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("collectionConfig")]
+        public Input<Inputs.FeatureGroupFeatureDefinitionCollectionConfigGetArgs>? CollectionConfig { get; set; }
+
+        [Input("collectionType")]
+        public Input<string>? CollectionType { get; set; }
+
         /// <summary>
         /// The name of a feature. `feature_name` cannot be any of the following: `is_deleted`, `write_time`, `api_invocation_time`.
         /// </summary>

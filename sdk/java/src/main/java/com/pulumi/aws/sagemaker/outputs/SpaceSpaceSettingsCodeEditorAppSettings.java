@@ -3,13 +3,21 @@
 
 package com.pulumi.aws.sagemaker.outputs;
 
+import com.pulumi.aws.sagemaker.outputs.SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement;
 import com.pulumi.aws.sagemaker.outputs.SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class SpaceSpaceSettingsCodeEditorAppSettings {
+    /**
+     * @return Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
+     * 
+     */
+    private @Nullable SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement appLifecycleManagement;
     /**
      * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
      * 
@@ -17,6 +25,13 @@ public final class SpaceSpaceSettingsCodeEditorAppSettings {
     private SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec defaultResourceSpec;
 
     private SpaceSpaceSettingsCodeEditorAppSettings() {}
+    /**
+     * @return Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
+     * 
+     */
+    public Optional<SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement> appLifecycleManagement() {
+        return Optional.ofNullable(this.appLifecycleManagement);
+    }
     /**
      * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
      * 
@@ -34,13 +49,21 @@ public final class SpaceSpaceSettingsCodeEditorAppSettings {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement appLifecycleManagement;
         private SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec defaultResourceSpec;
         public Builder() {}
         public Builder(SpaceSpaceSettingsCodeEditorAppSettings defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.appLifecycleManagement = defaults.appLifecycleManagement;
     	      this.defaultResourceSpec = defaults.defaultResourceSpec;
         }
 
+        @CustomType.Setter
+        public Builder appLifecycleManagement(@Nullable SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement appLifecycleManagement) {
+
+            this.appLifecycleManagement = appLifecycleManagement;
+            return this;
+        }
         @CustomType.Setter
         public Builder defaultResourceSpec(SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec defaultResourceSpec) {
             if (defaultResourceSpec == null) {
@@ -51,6 +74,7 @@ public final class SpaceSpaceSettingsCodeEditorAppSettings {
         }
         public SpaceSpaceSettingsCodeEditorAppSettings build() {
             final var _resultValue = new SpaceSpaceSettingsCodeEditorAppSettings();
+            _resultValue.appLifecycleManagement = appLifecycleManagement;
             _resultValue.defaultResourceSpec = defaultResourceSpec;
             return _resultValue;
         }

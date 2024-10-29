@@ -12,6 +12,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class SpaceSpaceSettingsJupyterLabAppSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
+        /// </summary>
+        [Input("appLifecycleManagement")]
+        public Input<Inputs.SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs>? AppLifecycleManagement { get; set; }
+
         [Input("codeRepositories")]
         private InputList<Inputs.SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs>? _codeRepositories;
 

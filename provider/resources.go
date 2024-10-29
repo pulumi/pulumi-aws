@@ -202,6 +202,7 @@ const (
 	qldbMod                     = "Qldb"                     // QLDB
 	quicksightMod               = "Quicksight"               // Quicksight
 	ramMod                      = "Ram"                      // Resource Access Manager
+	resilienceHubMod            = "ResilienceHub"            // Resilience Hub
 	rbinMod                     = "Rbin"                     // Recycle Bin
 	rdsMod                      = "Rds"                      // Relational Database Service (RDS)
 	rekognitionMod              = "Rekognition"              // Amazon Rekognition"
@@ -433,6 +434,7 @@ var moduleMap = map[string]string{
 	"redshiftdata":                    redshiftDataMod,
 	"redshiftserverless":              redshiftServerlessMod,
 	"rekognition":                     rekognitionMod,
+	"resiliencehub":                   resilienceHubMod,
 	"resourcegroups":                  resourcegroupsMod,
 	"resourcegroupstaggingapi":        resourcegroupsTaggingApiMod,
 	"rolesanywhere":                   rolesAnywhereMod,
@@ -5865,7 +5867,9 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	prov.Resources["aws_iam_user_policies_exclusive"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
 		return attr(state, "userName"), nil
 	}
-	prov.Resources["aws_backup_restore_testing_plan"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
+	prov.Resources["aws_backup_restore_testing_plan"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
 		return attr(state, "name"), nil
 	}
 	prov.Resources["aws_backup_restore_testing_selection"].ComputeID = func(
@@ -5889,5 +5893,10 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		ctx context.Context, state resource.PropertyMap,
 	) (resource.ID, error) {
 		return attrWithSeparator(state, "userName"), nil
+	}
+	prov.Resources["aws_resiliencehub_resiliency_policy"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attrWithSeparator(state, "arn"), nil
 	}
 }

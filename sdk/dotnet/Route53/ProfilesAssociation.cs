@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Route53
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the Profile Association.
+        /// Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_' ']+)`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Route53
         public Output<string> ResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+        /// Status of the Profile Association. See the [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html) for valid values.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Route53
     public sealed class ProfilesAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the Profile Association.
+        /// Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_' ']+)`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.Route53
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Name of the Profile Association.
+        /// Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_' ']+)`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.Route53
         public Input<string>? ResourceId { get; set; }
 
         /// <summary>
-        /// Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+        /// Status of the Profile Association. See the [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html) for valid values.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

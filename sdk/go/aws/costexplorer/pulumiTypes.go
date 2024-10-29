@@ -126,9 +126,9 @@ type AnomalySubscriptionThresholdExpression struct {
 	CostCategory *AnomalySubscriptionThresholdExpressionCostCategory `pulumi:"costCategory"`
 	// Configuration block for the specific Dimension to use for.
 	Dimension *AnomalySubscriptionThresholdExpressionDimension `pulumi:"dimension"`
-	// Return results that match both Dimension object.
+	// Return results that do not match the Dimension object.
 	Not *AnomalySubscriptionThresholdExpressionNot `pulumi:"not"`
-	// Return results that match both Dimension object.
+	// Return results that match either Dimension object.
 	Ors []AnomalySubscriptionThresholdExpressionOr `pulumi:"ors"`
 	// Configuration block for the specific Tag to use for. See Tags below.
 	Tags *AnomalySubscriptionThresholdExpressionTags `pulumi:"tags"`
@@ -152,9 +152,9 @@ type AnomalySubscriptionThresholdExpressionArgs struct {
 	CostCategory AnomalySubscriptionThresholdExpressionCostCategoryPtrInput `pulumi:"costCategory"`
 	// Configuration block for the specific Dimension to use for.
 	Dimension AnomalySubscriptionThresholdExpressionDimensionPtrInput `pulumi:"dimension"`
-	// Return results that match both Dimension object.
+	// Return results that do not match the Dimension object.
 	Not AnomalySubscriptionThresholdExpressionNotPtrInput `pulumi:"not"`
-	// Return results that match both Dimension object.
+	// Return results that match either Dimension object.
 	Ors AnomalySubscriptionThresholdExpressionOrArrayInput `pulumi:"ors"`
 	// Configuration block for the specific Tag to use for. See Tags below.
 	Tags AnomalySubscriptionThresholdExpressionTagsPtrInput `pulumi:"tags"`
@@ -258,14 +258,14 @@ func (o AnomalySubscriptionThresholdExpressionOutput) Dimension() AnomalySubscri
 	}).(AnomalySubscriptionThresholdExpressionDimensionPtrOutput)
 }
 
-// Return results that match both Dimension object.
+// Return results that do not match the Dimension object.
 func (o AnomalySubscriptionThresholdExpressionOutput) Not() AnomalySubscriptionThresholdExpressionNotPtrOutput {
 	return o.ApplyT(func(v AnomalySubscriptionThresholdExpression) *AnomalySubscriptionThresholdExpressionNot {
 		return v.Not
 	}).(AnomalySubscriptionThresholdExpressionNotPtrOutput)
 }
 
-// Return results that match both Dimension object.
+// Return results that match either Dimension object.
 func (o AnomalySubscriptionThresholdExpressionOutput) Ors() AnomalySubscriptionThresholdExpressionOrArrayOutput {
 	return o.ApplyT(func(v AnomalySubscriptionThresholdExpression) []AnomalySubscriptionThresholdExpressionOr {
 		return v.Ors
@@ -333,7 +333,7 @@ func (o AnomalySubscriptionThresholdExpressionPtrOutput) Dimension() AnomalySubs
 	}).(AnomalySubscriptionThresholdExpressionDimensionPtrOutput)
 }
 
-// Return results that match both Dimension object.
+// Return results that do not match the Dimension object.
 func (o AnomalySubscriptionThresholdExpressionPtrOutput) Not() AnomalySubscriptionThresholdExpressionNotPtrOutput {
 	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpression) *AnomalySubscriptionThresholdExpressionNot {
 		if v == nil {
@@ -343,7 +343,7 @@ func (o AnomalySubscriptionThresholdExpressionPtrOutput) Not() AnomalySubscripti
 	}).(AnomalySubscriptionThresholdExpressionNotPtrOutput)
 }
 
-// Return results that match both Dimension object.
+// Return results that match either Dimension object.
 func (o AnomalySubscriptionThresholdExpressionPtrOutput) Ors() AnomalySubscriptionThresholdExpressionOrArrayOutput {
 	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpression) []AnomalySubscriptionThresholdExpressionOr {
 		if v == nil {

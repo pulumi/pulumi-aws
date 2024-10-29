@@ -89,6 +89,24 @@ __all__ = [
     'InfrastructureConfigurationLoggingArgsDict',
     'InfrastructureConfigurationLoggingS3LogsArgs',
     'InfrastructureConfigurationLoggingS3LogsArgsDict',
+    'LifecyclePolicyPolicyDetailArgs',
+    'LifecyclePolicyPolicyDetailArgsDict',
+    'LifecyclePolicyPolicyDetailActionArgs',
+    'LifecyclePolicyPolicyDetailActionArgsDict',
+    'LifecyclePolicyPolicyDetailActionIncludeResourcesArgs',
+    'LifecyclePolicyPolicyDetailActionIncludeResourcesArgsDict',
+    'LifecyclePolicyPolicyDetailExclusionRulesArgs',
+    'LifecyclePolicyPolicyDetailExclusionRulesArgsDict',
+    'LifecyclePolicyPolicyDetailExclusionRulesAmisArgs',
+    'LifecyclePolicyPolicyDetailExclusionRulesAmisArgsDict',
+    'LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs',
+    'LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgsDict',
+    'LifecyclePolicyPolicyDetailFilterArgs',
+    'LifecyclePolicyPolicyDetailFilterArgsDict',
+    'LifecyclePolicyResourceSelectionArgs',
+    'LifecyclePolicyResourceSelectionArgsDict',
+    'LifecyclePolicyResourceSelectionRecipeArgs',
+    'LifecyclePolicyResourceSelectionRecipeArgsDict',
     'GetComponentsFilterArgs',
     'GetComponentsFilterArgsDict',
     'GetContainerRecipesFilterArgs',
@@ -2765,6 +2783,625 @@ class InfrastructureConfigurationLoggingS3LogsArgs:
     @s3_key_prefix.setter
     def s3_key_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "s3_key_prefix", value)
+
+
+if not MYPY:
+    class LifecyclePolicyPolicyDetailArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input['LifecyclePolicyPolicyDetailActionArgsDict']]
+        """
+        Configuration details for the policy action.
+        """
+        exclusion_rules: NotRequired[pulumi.Input['LifecyclePolicyPolicyDetailExclusionRulesArgsDict']]
+        """
+        Additional rules to specify resources that should be exempt from policy actions.
+        """
+        filter: NotRequired[pulumi.Input['LifecyclePolicyPolicyDetailFilterArgsDict']]
+        """
+        Specifies the resources that the lifecycle policy applies to.
+
+        The following arguments are optional:
+        """
+elif False:
+    LifecyclePolicyPolicyDetailArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LifecyclePolicyPolicyDetailArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input['LifecyclePolicyPolicyDetailActionArgs']] = None,
+                 exclusion_rules: Optional[pulumi.Input['LifecyclePolicyPolicyDetailExclusionRulesArgs']] = None,
+                 filter: Optional[pulumi.Input['LifecyclePolicyPolicyDetailFilterArgs']] = None):
+        """
+        :param pulumi.Input['LifecyclePolicyPolicyDetailActionArgs'] action: Configuration details for the policy action.
+        :param pulumi.Input['LifecyclePolicyPolicyDetailExclusionRulesArgs'] exclusion_rules: Additional rules to specify resources that should be exempt from policy actions.
+        :param pulumi.Input['LifecyclePolicyPolicyDetailFilterArgs'] filter: Specifies the resources that the lifecycle policy applies to.
+               
+               The following arguments are optional:
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if exclusion_rules is not None:
+            pulumi.set(__self__, "exclusion_rules", exclusion_rules)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailActionArgs']]:
+        """
+        Configuration details for the policy action.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailActionArgs']]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter(name="exclusionRules")
+    def exclusion_rules(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailExclusionRulesArgs']]:
+        """
+        Additional rules to specify resources that should be exempt from policy actions.
+        """
+        return pulumi.get(self, "exclusion_rules")
+
+    @exclusion_rules.setter
+    def exclusion_rules(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailExclusionRulesArgs']]):
+        pulumi.set(self, "exclusion_rules", value)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailFilterArgs']]:
+        """
+        Specifies the resources that the lifecycle policy applies to.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailFilterArgs']]):
+        pulumi.set(self, "filter", value)
+
+
+if not MYPY:
+    class LifecyclePolicyPolicyDetailActionArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the lifecycle action to take. Valid values: `DELETE`, `DEPRECATE` or `DISABLE`.
+
+        The following arguments are optional:
+        """
+        include_resources: NotRequired[pulumi.Input['LifecyclePolicyPolicyDetailActionIncludeResourcesArgsDict']]
+        """
+        Specifies the resources that the lifecycle policy applies to. Detailed below.
+        """
+elif False:
+    LifecyclePolicyPolicyDetailActionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LifecyclePolicyPolicyDetailActionArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 include_resources: Optional[pulumi.Input['LifecyclePolicyPolicyDetailActionIncludeResourcesArgs']] = None):
+        """
+        :param pulumi.Input[str] type: Specifies the lifecycle action to take. Valid values: `DELETE`, `DEPRECATE` or `DISABLE`.
+               
+               The following arguments are optional:
+        :param pulumi.Input['LifecyclePolicyPolicyDetailActionIncludeResourcesArgs'] include_resources: Specifies the resources that the lifecycle policy applies to. Detailed below.
+        """
+        pulumi.set(__self__, "type", type)
+        if include_resources is not None:
+            pulumi.set(__self__, "include_resources", include_resources)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Specifies the lifecycle action to take. Valid values: `DELETE`, `DEPRECATE` or `DISABLE`.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="includeResources")
+    def include_resources(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailActionIncludeResourcesArgs']]:
+        """
+        Specifies the resources that the lifecycle policy applies to. Detailed below.
+        """
+        return pulumi.get(self, "include_resources")
+
+    @include_resources.setter
+    def include_resources(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailActionIncludeResourcesArgs']]):
+        pulumi.set(self, "include_resources", value)
+
+
+if not MYPY:
+    class LifecyclePolicyPolicyDetailActionIncludeResourcesArgsDict(TypedDict):
+        amis: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether the lifecycle action should apply to distributed AMIs.
+        """
+        containers: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether the lifecycle action should apply to distributed containers.
+        """
+        snapshots: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether the lifecycle action should apply to snapshots associated with distributed AMIs.
+        """
+elif False:
+    LifecyclePolicyPolicyDetailActionIncludeResourcesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LifecyclePolicyPolicyDetailActionIncludeResourcesArgs:
+    def __init__(__self__, *,
+                 amis: Optional[pulumi.Input[bool]] = None,
+                 containers: Optional[pulumi.Input[bool]] = None,
+                 snapshots: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] amis: Specifies whether the lifecycle action should apply to distributed AMIs.
+        :param pulumi.Input[bool] containers: Specifies whether the lifecycle action should apply to distributed containers.
+        :param pulumi.Input[bool] snapshots: Specifies whether the lifecycle action should apply to snapshots associated with distributed AMIs.
+        """
+        if amis is not None:
+            pulumi.set(__self__, "amis", amis)
+        if containers is not None:
+            pulumi.set(__self__, "containers", containers)
+        if snapshots is not None:
+            pulumi.set(__self__, "snapshots", snapshots)
+
+    @property
+    @pulumi.getter
+    def amis(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the lifecycle action should apply to distributed AMIs.
+        """
+        return pulumi.get(self, "amis")
+
+    @amis.setter
+    def amis(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "amis", value)
+
+    @property
+    @pulumi.getter
+    def containers(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the lifecycle action should apply to distributed containers.
+        """
+        return pulumi.get(self, "containers")
+
+    @containers.setter
+    def containers(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "containers", value)
+
+    @property
+    @pulumi.getter
+    def snapshots(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the lifecycle action should apply to snapshots associated with distributed AMIs.
+        """
+        return pulumi.get(self, "snapshots")
+
+    @snapshots.setter
+    def snapshots(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "snapshots", value)
+
+
+if not MYPY:
+    class LifecyclePolicyPolicyDetailExclusionRulesArgsDict(TypedDict):
+        amis: NotRequired[pulumi.Input['LifecyclePolicyPolicyDetailExclusionRulesAmisArgsDict']]
+        """
+        Lists configuration values that apply to AMIs that Image Builder should exclude from the lifecycle action. Detailed below.
+        """
+        tag_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Contains a list of tags that Image Builder uses to skip lifecycle actions for Image Builder image resources that have them.
+        """
+elif False:
+    LifecyclePolicyPolicyDetailExclusionRulesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LifecyclePolicyPolicyDetailExclusionRulesArgs:
+    def __init__(__self__, *,
+                 amis: Optional[pulumi.Input['LifecyclePolicyPolicyDetailExclusionRulesAmisArgs']] = None,
+                 tag_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['LifecyclePolicyPolicyDetailExclusionRulesAmisArgs'] amis: Lists configuration values that apply to AMIs that Image Builder should exclude from the lifecycle action. Detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tag_map: Contains a list of tags that Image Builder uses to skip lifecycle actions for Image Builder image resources that have them.
+        """
+        if amis is not None:
+            pulumi.set(__self__, "amis", amis)
+        if tag_map is not None:
+            pulumi.set(__self__, "tag_map", tag_map)
+
+    @property
+    @pulumi.getter
+    def amis(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailExclusionRulesAmisArgs']]:
+        """
+        Lists configuration values that apply to AMIs that Image Builder should exclude from the lifecycle action. Detailed below.
+        """
+        return pulumi.get(self, "amis")
+
+    @amis.setter
+    def amis(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailExclusionRulesAmisArgs']]):
+        pulumi.set(self, "amis", value)
+
+    @property
+    @pulumi.getter(name="tagMap")
+    def tag_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Contains a list of tags that Image Builder uses to skip lifecycle actions for Image Builder image resources that have them.
+        """
+        return pulumi.get(self, "tag_map")
+
+    @tag_map.setter
+    def tag_map(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tag_map", value)
+
+
+if not MYPY:
+    class LifecyclePolicyPolicyDetailExclusionRulesAmisArgsDict(TypedDict):
+        is_public: NotRequired[pulumi.Input[bool]]
+        """
+        Configures whether public AMIs are excluded from the lifecycle action.
+        """
+        last_launched: NotRequired[pulumi.Input['LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgsDict']]
+        """
+        Specifies configuration details for Image Builder to exclude the most recent resources from lifecycle actions. Detailed below.
+        """
+        regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Configures AWS Regions that are excluded from the lifecycle action.
+        """
+        shared_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies AWS accounts whose resources are excluded from the lifecycle action.
+        """
+        tag_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Lists tags that should be excluded from lifecycle actions for the AMIs that have them.
+        """
+elif False:
+    LifecyclePolicyPolicyDetailExclusionRulesAmisArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LifecyclePolicyPolicyDetailExclusionRulesAmisArgs:
+    def __init__(__self__, *,
+                 is_public: Optional[pulumi.Input[bool]] = None,
+                 last_launched: Optional[pulumi.Input['LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs']] = None,
+                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tag_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[bool] is_public: Configures whether public AMIs are excluded from the lifecycle action.
+        :param pulumi.Input['LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs'] last_launched: Specifies configuration details for Image Builder to exclude the most recent resources from lifecycle actions. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] regions: Configures AWS Regions that are excluded from the lifecycle action.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_accounts: Specifies AWS accounts whose resources are excluded from the lifecycle action.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tag_map: Lists tags that should be excluded from lifecycle actions for the AMIs that have them.
+        """
+        if is_public is not None:
+            pulumi.set(__self__, "is_public", is_public)
+        if last_launched is not None:
+            pulumi.set(__self__, "last_launched", last_launched)
+        if regions is not None:
+            pulumi.set(__self__, "regions", regions)
+        if shared_accounts is not None:
+            pulumi.set(__self__, "shared_accounts", shared_accounts)
+        if tag_map is not None:
+            pulumi.set(__self__, "tag_map", tag_map)
+
+    @property
+    @pulumi.getter(name="isPublic")
+    def is_public(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Configures whether public AMIs are excluded from the lifecycle action.
+        """
+        return pulumi.get(self, "is_public")
+
+    @is_public.setter
+    def is_public(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_public", value)
+
+    @property
+    @pulumi.getter(name="lastLaunched")
+    def last_launched(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs']]:
+        """
+        Specifies configuration details for Image Builder to exclude the most recent resources from lifecycle actions. Detailed below.
+        """
+        return pulumi.get(self, "last_launched")
+
+    @last_launched.setter
+    def last_launched(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs']]):
+        pulumi.set(self, "last_launched", value)
+
+    @property
+    @pulumi.getter
+    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Configures AWS Regions that are excluded from the lifecycle action.
+        """
+        return pulumi.get(self, "regions")
+
+    @regions.setter
+    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "regions", value)
+
+    @property
+    @pulumi.getter(name="sharedAccounts")
+    def shared_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies AWS accounts whose resources are excluded from the lifecycle action.
+        """
+        return pulumi.get(self, "shared_accounts")
+
+    @shared_accounts.setter
+    def shared_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "shared_accounts", value)
+
+    @property
+    @pulumi.getter(name="tagMap")
+    def tag_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Lists tags that should be excluded from lifecycle actions for the AMIs that have them.
+        """
+        return pulumi.get(self, "tag_map")
+
+    @tag_map.setter
+    def tag_map(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tag_map", value)
+
+
+if not MYPY:
+    class LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgsDict(TypedDict):
+        unit: pulumi.Input[str]
+        """
+        Defines the unit of time that the lifecycle policy uses to calculate elapsed time since the last instance launched from the AMI. For example: days, weeks, months, or years. Valid values: `DAYS`, `WEEKS`, `MONTHS` or `YEARS`.
+        """
+        value: pulumi.Input[int]
+        """
+        The integer number of units for the time period. For example 6 (months).
+        """
+elif False:
+    LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs:
+    def __init__(__self__, *,
+                 unit: pulumi.Input[str],
+                 value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] unit: Defines the unit of time that the lifecycle policy uses to calculate elapsed time since the last instance launched from the AMI. For example: days, weeks, months, or years. Valid values: `DAYS`, `WEEKS`, `MONTHS` or `YEARS`.
+        :param pulumi.Input[int] value: The integer number of units for the time period. For example 6 (months).
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input[str]:
+        """
+        Defines the unit of time that the lifecycle policy uses to calculate elapsed time since the last instance launched from the AMI. For example: days, weeks, months, or years. Valid values: `DAYS`, `WEEKS`, `MONTHS` or `YEARS`.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "unit", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        """
+        The integer number of units for the time period. For example 6 (months).
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class LifecyclePolicyPolicyDetailFilterArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Filter resources based on either age or count. Valid values: `AGE` or `COUNT`.
+        """
+        value: pulumi.Input[int]
+        """
+        The number of units for the time period or for the count. For example, a value of 6 might refer to six months or six AMIs.
+
+        The following arguments are optional:
+        """
+        retain_at_least: NotRequired[pulumi.Input[int]]
+        """
+        For age-based filters, this is the number of resources to keep on hand after the lifecycle DELETE action is applied. Impacted resources are only deleted if you have more than this number of resources. If you have fewer resources than this number, the impacted resource is not deleted.
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        Defines the unit of time that the lifecycle policy uses to determine impacted resources. This is required for age-based rules. Valid values: `DAYS`, `WEEKS`, `MONTHS` or `YEARS`.
+        """
+elif False:
+    LifecyclePolicyPolicyDetailFilterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LifecyclePolicyPolicyDetailFilterArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[int],
+                 retain_at_least: Optional[pulumi.Input[int]] = None,
+                 unit: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: Filter resources based on either age or count. Valid values: `AGE` or `COUNT`.
+        :param pulumi.Input[int] value: The number of units for the time period or for the count. For example, a value of 6 might refer to six months or six AMIs.
+               
+               The following arguments are optional:
+        :param pulumi.Input[int] retain_at_least: For age-based filters, this is the number of resources to keep on hand after the lifecycle DELETE action is applied. Impacted resources are only deleted if you have more than this number of resources. If you have fewer resources than this number, the impacted resource is not deleted.
+        :param pulumi.Input[str] unit: Defines the unit of time that the lifecycle policy uses to determine impacted resources. This is required for age-based rules. Valid values: `DAYS`, `WEEKS`, `MONTHS` or `YEARS`.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+        if retain_at_least is not None:
+            pulumi.set(__self__, "retain_at_least", retain_at_least)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Filter resources based on either age or count. Valid values: `AGE` or `COUNT`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        """
+        The number of units for the time period or for the count. For example, a value of 6 might refer to six months or six AMIs.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter(name="retainAtLeast")
+    def retain_at_least(self) -> Optional[pulumi.Input[int]]:
+        """
+        For age-based filters, this is the number of resources to keep on hand after the lifecycle DELETE action is applied. Impacted resources are only deleted if you have more than this number of resources. If you have fewer resources than this number, the impacted resource is not deleted.
+        """
+        return pulumi.get(self, "retain_at_least")
+
+    @retain_at_least.setter
+    def retain_at_least(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retain_at_least", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[pulumi.Input[str]]:
+        """
+        Defines the unit of time that the lifecycle policy uses to determine impacted resources. This is required for age-based rules. Valid values: `DAYS`, `WEEKS`, `MONTHS` or `YEARS`.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unit", value)
+
+
+if not MYPY:
+    class LifecyclePolicyResourceSelectionArgsDict(TypedDict):
+        recipes: NotRequired[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyResourceSelectionRecipeArgsDict']]]]
+        """
+        A list of recipe that are used as selection criteria for the output images that the lifecycle policy applies to. Detailed below.
+        """
+        tag_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A list of tags that are used as selection criteria for the Image Builder image resources that the lifecycle policy applies to.
+        """
+elif False:
+    LifecyclePolicyResourceSelectionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LifecyclePolicyResourceSelectionArgs:
+    def __init__(__self__, *,
+                 recipes: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyResourceSelectionRecipeArgs']]]] = None,
+                 tag_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyResourceSelectionRecipeArgs']]] recipes: A list of recipe that are used as selection criteria for the output images that the lifecycle policy applies to. Detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tag_map: A list of tags that are used as selection criteria for the Image Builder image resources that the lifecycle policy applies to.
+        """
+        if recipes is not None:
+            pulumi.set(__self__, "recipes", recipes)
+        if tag_map is not None:
+            pulumi.set(__self__, "tag_map", tag_map)
+
+    @property
+    @pulumi.getter
+    def recipes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyResourceSelectionRecipeArgs']]]]:
+        """
+        A list of recipe that are used as selection criteria for the output images that the lifecycle policy applies to. Detailed below.
+        """
+        return pulumi.get(self, "recipes")
+
+    @recipes.setter
+    def recipes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyResourceSelectionRecipeArgs']]]]):
+        pulumi.set(self, "recipes", value)
+
+    @property
+    @pulumi.getter(name="tagMap")
+    def tag_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A list of tags that are used as selection criteria for the Image Builder image resources that the lifecycle policy applies to.
+        """
+        return pulumi.get(self, "tag_map")
+
+    @tag_map.setter
+    def tag_map(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tag_map", value)
+
+
+if not MYPY:
+    class LifecyclePolicyResourceSelectionRecipeArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of an Image Builder recipe that the lifecycle policy uses for resource selection.
+        """
+        semantic_version: pulumi.Input[str]
+        """
+        The version of the Image Builder recipe specified by the name field.
+        """
+elif False:
+    LifecyclePolicyResourceSelectionRecipeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LifecyclePolicyResourceSelectionRecipeArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 semantic_version: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of an Image Builder recipe that the lifecycle policy uses for resource selection.
+        :param pulumi.Input[str] semantic_version: The version of the Image Builder recipe specified by the name field.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "semantic_version", semantic_version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of an Image Builder recipe that the lifecycle policy uses for resource selection.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="semanticVersion")
+    def semantic_version(self) -> pulumi.Input[str]:
+        """
+        The version of the Image Builder recipe specified by the name field.
+        """
+        return pulumi.get(self, "semantic_version")
+
+    @semantic_version.setter
+    def semantic_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "semantic_version", value)
 
 
 if not MYPY:

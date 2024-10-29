@@ -103,7 +103,7 @@ export interface GetContainerRecipeResult {
     /**
      * Key-value map of resource tags for the container recipe.
      */
-    readonly tags?: {[key: string]: string};
+    readonly tags: {[key: string]: string};
     /**
      * Destination repository for the container image.
      */

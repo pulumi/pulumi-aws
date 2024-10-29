@@ -8,6 +8,7 @@ import com.pulumi.aws.codedeploy.DeploymentConfigArgs;
 import com.pulumi.aws.codedeploy.inputs.DeploymentConfigState;
 import com.pulumi.aws.codedeploy.outputs.DeploymentConfigMinimumHealthyHosts;
 import com.pulumi.aws.codedeploy.outputs.DeploymentConfigTrafficRoutingConfig;
+import com.pulumi.aws.codedeploy.outputs.DeploymentConfigZonalConfig;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -250,6 +251,20 @@ public class DeploymentConfig extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<DeploymentConfigTrafficRoutingConfig>> trafficRoutingConfig() {
         return Codegen.optional(this.trafficRoutingConfig);
+    }
+    /**
+     * A zonal_config block. Zonal Config is documented below.
+     * 
+     */
+    @Export(name="zonalConfig", refs={DeploymentConfigZonalConfig.class}, tree="[0]")
+    private Output</* @Nullable */ DeploymentConfigZonalConfig> zonalConfig;
+
+    /**
+     * @return A zonal_config block. Zonal Config is documented below.
+     * 
+     */
+    public Output<Optional<DeploymentConfigZonalConfig>> zonalConfig() {
+        return Codegen.optional(this.zonalConfig);
     }
 
     /**

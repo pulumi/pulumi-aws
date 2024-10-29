@@ -203,6 +203,10 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly enableXffClientPort!: pulumi.Output<boolean | undefined>;
     /**
+     * Whether zonal shift is enabled. Defaults to `false`.
+     */
+    public readonly enableZonalShift!: pulumi.Output<boolean | undefined>;
+    /**
      * Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
      */
     public readonly enforceSecurityGroupInboundRulesOnPrivateLinkTraffic!: pulumi.Output<string>;
@@ -295,6 +299,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["enableTlsVersionAndCipherSuiteHeaders"] = state ? state.enableTlsVersionAndCipherSuiteHeaders : undefined;
             resourceInputs["enableWafFailOpen"] = state ? state.enableWafFailOpen : undefined;
             resourceInputs["enableXffClientPort"] = state ? state.enableXffClientPort : undefined;
+            resourceInputs["enableZonalShift"] = state ? state.enableZonalShift : undefined;
             resourceInputs["enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"] = state ? state.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic : undefined;
             resourceInputs["idleTimeout"] = state ? state.idleTimeout : undefined;
             resourceInputs["internal"] = state ? state.internal : undefined;
@@ -326,6 +331,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["enableTlsVersionAndCipherSuiteHeaders"] = args ? args.enableTlsVersionAndCipherSuiteHeaders : undefined;
             resourceInputs["enableWafFailOpen"] = args ? args.enableWafFailOpen : undefined;
             resourceInputs["enableXffClientPort"] = args ? args.enableXffClientPort : undefined;
+            resourceInputs["enableZonalShift"] = args ? args.enableZonalShift : undefined;
             resourceInputs["enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"] = args ? args.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic : undefined;
             resourceInputs["idleTimeout"] = args ? args.idleTimeout : undefined;
             resourceInputs["internal"] = args ? args.internal : undefined;
@@ -421,6 +427,10 @@ export interface LoadBalancerState {
      * Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
      */
     enableXffClientPort?: pulumi.Input<boolean>;
+    /**
+     * Whether zonal shift is enabled. Defaults to `false`.
+     */
+    enableZonalShift?: pulumi.Input<boolean>;
     /**
      * Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
      */
@@ -542,6 +552,10 @@ export interface LoadBalancerArgs {
      * Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
      */
     enableXffClientPort?: pulumi.Input<boolean>;
+    /**
+     * Whether zonal shift is enabled. Defaults to `false`.
+     */
+    enableZonalShift?: pulumi.Input<boolean>;
     /**
      * Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
      */

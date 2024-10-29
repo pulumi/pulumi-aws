@@ -5,10 +5,10 @@ Subject: [PATCH] Patch ComputedOnly for route53profiles and more
 
 
 diff --git a/internal/service/backup/restore_testing_plan.go b/internal/service/backup/restore_testing_plan.go
-index b324c80f36..b5e2bf8337 100644
+index 7d9155b5f0..c93f05adc5 100644
 --- a/internal/service/backup/restore_testing_plan.go
 +++ b/internal/service/backup/restore_testing_plan.go
-@@ -88,7 +88,7 @@ func (r *restoreTestingPlanResource) Schema(ctx context.Context, request resourc
+@@ -89,7 +89,7 @@ func (r *restoreTestingPlanResource) Schema(ctx context.Context, request resourc
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -31,10 +31,10 @@ index b4bd9f9d39..61334ec528 100644
  	}
  }
 diff --git a/internal/service/route53profiles/association.go b/internal/service/route53profiles/association.go
-index bb460f3268..9dc39c6e3f 100644
+index 7511a8a554..3a72dd67f3 100644
 --- a/internal/service/route53profiles/association.go
 +++ b/internal/service/route53profiles/association.go
-@@ -102,7 +102,7 @@ func (r *resourceAssociation) Schema(ctx context.Context, req resource.SchemaReq
+@@ -114,7 +114,7 @@ func (r *resourceAssociation) Schema(ctx context.Context, req resource.SchemaReq
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),

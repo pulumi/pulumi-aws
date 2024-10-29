@@ -111,7 +111,7 @@ class GetServerlessCacheResult:
     @pulumi.getter(name="dailySnapshotTime")
     def daily_snapshot_time(self) -> str:
         """
-        The daily time that snapshots will be created from the new serverless cache. Only available for engine type `"redis"`.
+        The daily time that snapshots will be created from the new serverless cache. Only available for engine types `"redis"` and `"valkey"`.
         """
         return pulumi.get(self, "daily_snapshot_time")
 

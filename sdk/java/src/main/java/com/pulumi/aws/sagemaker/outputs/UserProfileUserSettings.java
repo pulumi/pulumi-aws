@@ -27,6 +27,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class UserProfileUserSettings {
     /**
+     * @return Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
+     * 
+     */
+    private @Nullable String autoMountHomeEfs;
+    /**
      * @return The Canvas app settings. See Canvas App Settings below.
      * 
      */
@@ -113,6 +118,13 @@ public final class UserProfileUserSettings {
     private @Nullable UserProfileUserSettingsTensorBoardAppSettings tensorBoardAppSettings;
 
     private UserProfileUserSettings() {}
+    /**
+     * @return Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
+     * 
+     */
+    public Optional<String> autoMountHomeEfs() {
+        return Optional.ofNullable(this.autoMountHomeEfs);
+    }
     /**
      * @return The Canvas app settings. See Canvas App Settings below.
      * 
@@ -242,6 +254,7 @@ public final class UserProfileUserSettings {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String autoMountHomeEfs;
         private @Nullable UserProfileUserSettingsCanvasAppSettings canvasAppSettings;
         private @Nullable UserProfileUserSettingsCodeEditorAppSettings codeEditorAppSettings;
         private @Nullable List<UserProfileUserSettingsCustomFileSystemConfig> customFileSystemConfigs;
@@ -262,6 +275,7 @@ public final class UserProfileUserSettings {
         public Builder() {}
         public Builder(UserProfileUserSettings defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.autoMountHomeEfs = defaults.autoMountHomeEfs;
     	      this.canvasAppSettings = defaults.canvasAppSettings;
     	      this.codeEditorAppSettings = defaults.codeEditorAppSettings;
     	      this.customFileSystemConfigs = defaults.customFileSystemConfigs;
@@ -281,6 +295,12 @@ public final class UserProfileUserSettings {
     	      this.tensorBoardAppSettings = defaults.tensorBoardAppSettings;
         }
 
+        @CustomType.Setter
+        public Builder autoMountHomeEfs(@Nullable String autoMountHomeEfs) {
+
+            this.autoMountHomeEfs = autoMountHomeEfs;
+            return this;
+        }
         @CustomType.Setter
         public Builder canvasAppSettings(@Nullable UserProfileUserSettingsCanvasAppSettings canvasAppSettings) {
 
@@ -393,6 +413,7 @@ public final class UserProfileUserSettings {
         }
         public UserProfileUserSettings build() {
             final var _resultValue = new UserProfileUserSettings();
+            _resultValue.autoMountHomeEfs = autoMountHomeEfs;
             _resultValue.canvasAppSettings = canvasAppSettings;
             _resultValue.codeEditorAppSettings = codeEditorAppSettings;
             _resultValue.customFileSystemConfigs = customFileSystemConfigs;

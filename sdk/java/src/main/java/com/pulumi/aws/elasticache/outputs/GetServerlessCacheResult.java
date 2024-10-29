@@ -31,7 +31,7 @@ public final class GetServerlessCacheResult {
      */
     private String createTime;
     /**
-     * @return The daily time that snapshots will be created from the new serverless cache. Only available for engine type `&#34;redis&#34;`.
+     * @return The daily time that snapshots will be created from the new serverless cache. Only available for engine types `&#34;redis&#34;` and `&#34;valkey&#34;`.
      * 
      */
     private String dailySnapshotTime;
@@ -125,7 +125,7 @@ public final class GetServerlessCacheResult {
         return this.createTime;
     }
     /**
-     * @return The daily time that snapshots will be created from the new serverless cache. Only available for engine type `&#34;redis&#34;`.
+     * @return The daily time that snapshots will be created from the new serverless cache. Only available for engine types `&#34;redis&#34;` and `&#34;valkey&#34;`.
      * 
      */
     public String dailySnapshotTime() {

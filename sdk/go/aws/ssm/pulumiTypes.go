@@ -6111,6 +6111,245 @@ func (o GetPatchBaselineSourceArrayOutput) Index(i pulumi.IntInput) GetPatchBase
 	}).(GetPatchBaselineSourceOutput)
 }
 
+type GetPatchBaselinesBaselineIdentity struct {
+	// Description of the patch baseline.
+	BaselineDescription string `pulumi:"baselineDescription"`
+	// ID of the patch baseline.
+	BaselineId string `pulumi:"baselineId"`
+	// Name of the patch baseline.
+	BaselineName string `pulumi:"baselineName"`
+	// Indicates whether this is the default baseline. AWS Systems Manager supports creating multiple default patch baselines. For example, you can create a default patch baseline for each operating system.
+	DefaultBaseline bool `pulumi:"defaultBaseline"`
+	// Operating system the patch baseline applies to.
+	OperatingSystem string `pulumi:"operatingSystem"`
+}
+
+// GetPatchBaselinesBaselineIdentityInput is an input type that accepts GetPatchBaselinesBaselineIdentityArgs and GetPatchBaselinesBaselineIdentityOutput values.
+// You can construct a concrete instance of `GetPatchBaselinesBaselineIdentityInput` via:
+//
+//	GetPatchBaselinesBaselineIdentityArgs{...}
+type GetPatchBaselinesBaselineIdentityInput interface {
+	pulumi.Input
+
+	ToGetPatchBaselinesBaselineIdentityOutput() GetPatchBaselinesBaselineIdentityOutput
+	ToGetPatchBaselinesBaselineIdentityOutputWithContext(context.Context) GetPatchBaselinesBaselineIdentityOutput
+}
+
+type GetPatchBaselinesBaselineIdentityArgs struct {
+	// Description of the patch baseline.
+	BaselineDescription pulumi.StringInput `pulumi:"baselineDescription"`
+	// ID of the patch baseline.
+	BaselineId pulumi.StringInput `pulumi:"baselineId"`
+	// Name of the patch baseline.
+	BaselineName pulumi.StringInput `pulumi:"baselineName"`
+	// Indicates whether this is the default baseline. AWS Systems Manager supports creating multiple default patch baselines. For example, you can create a default patch baseline for each operating system.
+	DefaultBaseline pulumi.BoolInput `pulumi:"defaultBaseline"`
+	// Operating system the patch baseline applies to.
+	OperatingSystem pulumi.StringInput `pulumi:"operatingSystem"`
+}
+
+func (GetPatchBaselinesBaselineIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPatchBaselinesBaselineIdentity)(nil)).Elem()
+}
+
+func (i GetPatchBaselinesBaselineIdentityArgs) ToGetPatchBaselinesBaselineIdentityOutput() GetPatchBaselinesBaselineIdentityOutput {
+	return i.ToGetPatchBaselinesBaselineIdentityOutputWithContext(context.Background())
+}
+
+func (i GetPatchBaselinesBaselineIdentityArgs) ToGetPatchBaselinesBaselineIdentityOutputWithContext(ctx context.Context) GetPatchBaselinesBaselineIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPatchBaselinesBaselineIdentityOutput)
+}
+
+// GetPatchBaselinesBaselineIdentityArrayInput is an input type that accepts GetPatchBaselinesBaselineIdentityArray and GetPatchBaselinesBaselineIdentityArrayOutput values.
+// You can construct a concrete instance of `GetPatchBaselinesBaselineIdentityArrayInput` via:
+//
+//	GetPatchBaselinesBaselineIdentityArray{ GetPatchBaselinesBaselineIdentityArgs{...} }
+type GetPatchBaselinesBaselineIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetPatchBaselinesBaselineIdentityArrayOutput() GetPatchBaselinesBaselineIdentityArrayOutput
+	ToGetPatchBaselinesBaselineIdentityArrayOutputWithContext(context.Context) GetPatchBaselinesBaselineIdentityArrayOutput
+}
+
+type GetPatchBaselinesBaselineIdentityArray []GetPatchBaselinesBaselineIdentityInput
+
+func (GetPatchBaselinesBaselineIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPatchBaselinesBaselineIdentity)(nil)).Elem()
+}
+
+func (i GetPatchBaselinesBaselineIdentityArray) ToGetPatchBaselinesBaselineIdentityArrayOutput() GetPatchBaselinesBaselineIdentityArrayOutput {
+	return i.ToGetPatchBaselinesBaselineIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetPatchBaselinesBaselineIdentityArray) ToGetPatchBaselinesBaselineIdentityArrayOutputWithContext(ctx context.Context) GetPatchBaselinesBaselineIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPatchBaselinesBaselineIdentityArrayOutput)
+}
+
+type GetPatchBaselinesBaselineIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetPatchBaselinesBaselineIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPatchBaselinesBaselineIdentity)(nil)).Elem()
+}
+
+func (o GetPatchBaselinesBaselineIdentityOutput) ToGetPatchBaselinesBaselineIdentityOutput() GetPatchBaselinesBaselineIdentityOutput {
+	return o
+}
+
+func (o GetPatchBaselinesBaselineIdentityOutput) ToGetPatchBaselinesBaselineIdentityOutputWithContext(ctx context.Context) GetPatchBaselinesBaselineIdentityOutput {
+	return o
+}
+
+// Description of the patch baseline.
+func (o GetPatchBaselinesBaselineIdentityOutput) BaselineDescription() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPatchBaselinesBaselineIdentity) string { return v.BaselineDescription }).(pulumi.StringOutput)
+}
+
+// ID of the patch baseline.
+func (o GetPatchBaselinesBaselineIdentityOutput) BaselineId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPatchBaselinesBaselineIdentity) string { return v.BaselineId }).(pulumi.StringOutput)
+}
+
+// Name of the patch baseline.
+func (o GetPatchBaselinesBaselineIdentityOutput) BaselineName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPatchBaselinesBaselineIdentity) string { return v.BaselineName }).(pulumi.StringOutput)
+}
+
+// Indicates whether this is the default baseline. AWS Systems Manager supports creating multiple default patch baselines. For example, you can create a default patch baseline for each operating system.
+func (o GetPatchBaselinesBaselineIdentityOutput) DefaultBaseline() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetPatchBaselinesBaselineIdentity) bool { return v.DefaultBaseline }).(pulumi.BoolOutput)
+}
+
+// Operating system the patch baseline applies to.
+func (o GetPatchBaselinesBaselineIdentityOutput) OperatingSystem() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPatchBaselinesBaselineIdentity) string { return v.OperatingSystem }).(pulumi.StringOutput)
+}
+
+type GetPatchBaselinesBaselineIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPatchBaselinesBaselineIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPatchBaselinesBaselineIdentity)(nil)).Elem()
+}
+
+func (o GetPatchBaselinesBaselineIdentityArrayOutput) ToGetPatchBaselinesBaselineIdentityArrayOutput() GetPatchBaselinesBaselineIdentityArrayOutput {
+	return o
+}
+
+func (o GetPatchBaselinesBaselineIdentityArrayOutput) ToGetPatchBaselinesBaselineIdentityArrayOutputWithContext(ctx context.Context) GetPatchBaselinesBaselineIdentityArrayOutput {
+	return o
+}
+
+func (o GetPatchBaselinesBaselineIdentityArrayOutput) Index(i pulumi.IntInput) GetPatchBaselinesBaselineIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPatchBaselinesBaselineIdentity {
+		return vs[0].([]GetPatchBaselinesBaselineIdentity)[vs[1].(int)]
+	}).(GetPatchBaselinesBaselineIdentityOutput)
+}
+
+type GetPatchBaselinesFilter struct {
+	// Filter key. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for valid values.
+	Key string `pulumi:"key"`
+	// Filter values. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for example values.
+	Values []string `pulumi:"values"`
+}
+
+// GetPatchBaselinesFilterInput is an input type that accepts GetPatchBaselinesFilterArgs and GetPatchBaselinesFilterOutput values.
+// You can construct a concrete instance of `GetPatchBaselinesFilterInput` via:
+//
+//	GetPatchBaselinesFilterArgs{...}
+type GetPatchBaselinesFilterInput interface {
+	pulumi.Input
+
+	ToGetPatchBaselinesFilterOutput() GetPatchBaselinesFilterOutput
+	ToGetPatchBaselinesFilterOutputWithContext(context.Context) GetPatchBaselinesFilterOutput
+}
+
+type GetPatchBaselinesFilterArgs struct {
+	// Filter key. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for valid values.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Filter values. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for example values.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetPatchBaselinesFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPatchBaselinesFilter)(nil)).Elem()
+}
+
+func (i GetPatchBaselinesFilterArgs) ToGetPatchBaselinesFilterOutput() GetPatchBaselinesFilterOutput {
+	return i.ToGetPatchBaselinesFilterOutputWithContext(context.Background())
+}
+
+func (i GetPatchBaselinesFilterArgs) ToGetPatchBaselinesFilterOutputWithContext(ctx context.Context) GetPatchBaselinesFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPatchBaselinesFilterOutput)
+}
+
+// GetPatchBaselinesFilterArrayInput is an input type that accepts GetPatchBaselinesFilterArray and GetPatchBaselinesFilterArrayOutput values.
+// You can construct a concrete instance of `GetPatchBaselinesFilterArrayInput` via:
+//
+//	GetPatchBaselinesFilterArray{ GetPatchBaselinesFilterArgs{...} }
+type GetPatchBaselinesFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetPatchBaselinesFilterArrayOutput() GetPatchBaselinesFilterArrayOutput
+	ToGetPatchBaselinesFilterArrayOutputWithContext(context.Context) GetPatchBaselinesFilterArrayOutput
+}
+
+type GetPatchBaselinesFilterArray []GetPatchBaselinesFilterInput
+
+func (GetPatchBaselinesFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPatchBaselinesFilter)(nil)).Elem()
+}
+
+func (i GetPatchBaselinesFilterArray) ToGetPatchBaselinesFilterArrayOutput() GetPatchBaselinesFilterArrayOutput {
+	return i.ToGetPatchBaselinesFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetPatchBaselinesFilterArray) ToGetPatchBaselinesFilterArrayOutputWithContext(ctx context.Context) GetPatchBaselinesFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPatchBaselinesFilterArrayOutput)
+}
+
+type GetPatchBaselinesFilterOutput struct{ *pulumi.OutputState }
+
+func (GetPatchBaselinesFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPatchBaselinesFilter)(nil)).Elem()
+}
+
+func (o GetPatchBaselinesFilterOutput) ToGetPatchBaselinesFilterOutput() GetPatchBaselinesFilterOutput {
+	return o
+}
+
+func (o GetPatchBaselinesFilterOutput) ToGetPatchBaselinesFilterOutputWithContext(ctx context.Context) GetPatchBaselinesFilterOutput {
+	return o
+}
+
+// Filter key. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for valid values.
+func (o GetPatchBaselinesFilterOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPatchBaselinesFilter) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Filter values. See the [AWS SSM documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchBaselines.html) for example values.
+func (o GetPatchBaselinesFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPatchBaselinesFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetPatchBaselinesFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPatchBaselinesFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPatchBaselinesFilter)(nil)).Elem()
+}
+
+func (o GetPatchBaselinesFilterArrayOutput) ToGetPatchBaselinesFilterArrayOutput() GetPatchBaselinesFilterArrayOutput {
+	return o
+}
+
+func (o GetPatchBaselinesFilterArrayOutput) ToGetPatchBaselinesFilterArrayOutputWithContext(ctx context.Context) GetPatchBaselinesFilterArrayOutput {
+	return o
+}
+
+func (o GetPatchBaselinesFilterArrayOutput) Index(i pulumi.IntInput) GetPatchBaselinesFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPatchBaselinesFilter {
+		return vs[0].([]GetPatchBaselinesFilter)[vs[1].(int)]
+	}).(GetPatchBaselinesFilterOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationOutputLocationInput)(nil)).Elem(), AssociationOutputLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationOutputLocationPtrInput)(nil)).Elem(), AssociationOutputLocationArgs{})
@@ -6204,6 +6443,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPatchBaselineGlobalFilterArrayInput)(nil)).Elem(), GetPatchBaselineGlobalFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPatchBaselineSourceInput)(nil)).Elem(), GetPatchBaselineSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPatchBaselineSourceArrayInput)(nil)).Elem(), GetPatchBaselineSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPatchBaselinesBaselineIdentityInput)(nil)).Elem(), GetPatchBaselinesBaselineIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPatchBaselinesBaselineIdentityArrayInput)(nil)).Elem(), GetPatchBaselinesBaselineIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPatchBaselinesFilterInput)(nil)).Elem(), GetPatchBaselinesFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPatchBaselinesFilterArrayInput)(nil)).Elem(), GetPatchBaselinesFilterArray{})
 	pulumi.RegisterOutputType(AssociationOutputLocationOutput{})
 	pulumi.RegisterOutputType(AssociationOutputLocationPtrOutput{})
 	pulumi.RegisterOutputType(AssociationTargetOutput{})
@@ -6296,4 +6539,8 @@ func init() {
 	pulumi.RegisterOutputType(GetPatchBaselineGlobalFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetPatchBaselineSourceOutput{})
 	pulumi.RegisterOutputType(GetPatchBaselineSourceArrayOutput{})
+	pulumi.RegisterOutputType(GetPatchBaselinesBaselineIdentityOutput{})
+	pulumi.RegisterOutputType(GetPatchBaselinesBaselineIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetPatchBaselinesFilterOutput{})
+	pulumi.RegisterOutputType(GetPatchBaselinesFilterArrayOutput{})
 }

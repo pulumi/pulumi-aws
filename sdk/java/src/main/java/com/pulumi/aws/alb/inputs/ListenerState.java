@@ -197,6 +197,21 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tagsAll);
     }
 
+    /**
+     * TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
+     * 
+     */
+    @Import(name="tcpIdleTimeoutSeconds")
+    private @Nullable Output<Integer> tcpIdleTimeoutSeconds;
+
+    /**
+     * @return TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
+     * 
+     */
+    public Optional<Output<Integer>> tcpIdleTimeoutSeconds() {
+        return Optional.ofNullable(this.tcpIdleTimeoutSeconds);
+    }
+
     private ListenerState() {}
 
     private ListenerState(ListenerState $) {
@@ -211,6 +226,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         this.sslPolicy = $.sslPolicy;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.tcpIdleTimeoutSeconds = $.tcpIdleTimeoutSeconds;
     }
 
     public static Builder builder() {
@@ -482,6 +498,27 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param tcpIdleTimeoutSeconds TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tcpIdleTimeoutSeconds(@Nullable Output<Integer> tcpIdleTimeoutSeconds) {
+            $.tcpIdleTimeoutSeconds = tcpIdleTimeoutSeconds;
+            return this;
+        }
+
+        /**
+         * @param tcpIdleTimeoutSeconds TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tcpIdleTimeoutSeconds(Integer tcpIdleTimeoutSeconds) {
+            return tcpIdleTimeoutSeconds(Output.of(tcpIdleTimeoutSeconds));
         }
 
         public ListenerState build() {

@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Ec2
         ///         Id = subnetId,
         ///     });
         /// 
-        ///     var subnet = new Aws.Ec2.SecurityGroup("subnet", new()
+        ///     var subnetSecurityGroup = new Aws.Ec2.SecurityGroup("subnet_security_group", new()
         ///     {
         ///         VpcId = selected.Apply(getSubnetResult =&gt; getSubnetResult.VpcId),
         ///         Ingress = new[]
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Ec2
         ///         Id = subnetId,
         ///     });
         /// 
-        ///     var subnet = new Aws.Ec2.SecurityGroup("subnet", new()
+        ///     var subnetSecurityGroup = new Aws.Ec2.SecurityGroup("subnet_security_group", new()
         ///     {
         ///         VpcId = selected.Apply(getSubnetResult =&gt; getSubnetResult.VpcId),
         ///         Ingress = new[]

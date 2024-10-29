@@ -431,14 +431,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.configurationEndpoint;
     }
     /**
-     * Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+     * Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
      * 
      */
     @Export(name="engine", refs={String.class}, tree="[0]")
     private Output<String> engine;
 
     /**
-     * @return Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+     * @return Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
      * 
      */
     public Output<String> engine() {

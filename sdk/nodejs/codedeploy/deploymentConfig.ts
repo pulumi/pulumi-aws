@@ -144,6 +144,10 @@ export class DeploymentConfig extends pulumi.CustomResource {
      * A trafficRoutingConfig block. Traffic Routing Config is documented below.
      */
     public readonly trafficRoutingConfig!: pulumi.Output<outputs.codedeploy.DeploymentConfigTrafficRoutingConfig | undefined>;
+    /**
+     * A zonalConfig block. Zonal Config is documented below.
+     */
+    public readonly zonalConfig!: pulumi.Output<outputs.codedeploy.DeploymentConfigZonalConfig | undefined>;
 
     /**
      * Create a DeploymentConfig resource with the given unique name, arguments, and options.
@@ -164,12 +168,14 @@ export class DeploymentConfig extends pulumi.CustomResource {
             resourceInputs["deploymentConfigName"] = state ? state.deploymentConfigName : undefined;
             resourceInputs["minimumHealthyHosts"] = state ? state.minimumHealthyHosts : undefined;
             resourceInputs["trafficRoutingConfig"] = state ? state.trafficRoutingConfig : undefined;
+            resourceInputs["zonalConfig"] = state ? state.zonalConfig : undefined;
         } else {
             const args = argsOrState as DeploymentConfigArgs | undefined;
             resourceInputs["computePlatform"] = args ? args.computePlatform : undefined;
             resourceInputs["deploymentConfigName"] = args ? args.deploymentConfigName : undefined;
             resourceInputs["minimumHealthyHosts"] = args ? args.minimumHealthyHosts : undefined;
             resourceInputs["trafficRoutingConfig"] = args ? args.trafficRoutingConfig : undefined;
+            resourceInputs["zonalConfig"] = args ? args.zonalConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["deploymentConfigId"] = undefined /*out*/;
         }
@@ -206,6 +212,10 @@ export interface DeploymentConfigState {
      * A trafficRoutingConfig block. Traffic Routing Config is documented below.
      */
     trafficRoutingConfig?: pulumi.Input<inputs.codedeploy.DeploymentConfigTrafficRoutingConfig>;
+    /**
+     * A zonalConfig block. Zonal Config is documented below.
+     */
+    zonalConfig?: pulumi.Input<inputs.codedeploy.DeploymentConfigZonalConfig>;
 }
 
 /**
@@ -228,4 +238,8 @@ export interface DeploymentConfigArgs {
      * A trafficRoutingConfig block. Traffic Routing Config is documented below.
      */
     trafficRoutingConfig?: pulumi.Input<inputs.codedeploy.DeploymentConfigTrafficRoutingConfig>;
+    /**
+     * A zonalConfig block. Zonal Config is documented below.
+     */
+    zonalConfig?: pulumi.Input<inputs.codedeploy.DeploymentConfigZonalConfig>;
 }

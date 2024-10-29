@@ -263,6 +263,21 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether zonal shift is enabled. Defaults to `false`.
+     * 
+     */
+    @Import(name="enableZonalShift")
+    private @Nullable Output<Boolean> enableZonalShift;
+
+    /**
+     * @return Whether zonal shift is enabled. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> enableZonalShift() {
+        return Optional.ofNullable(this.enableZonalShift);
+    }
+
+    /**
      * Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
      * 
      */
@@ -521,6 +536,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         this.enableTlsVersionAndCipherSuiteHeaders = $.enableTlsVersionAndCipherSuiteHeaders;
         this.enableWafFailOpen = $.enableWafFailOpen;
         this.enableXffClientPort = $.enableXffClientPort;
+        this.enableZonalShift = $.enableZonalShift;
         this.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic = $.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
         this.idleTimeout = $.idleTimeout;
         this.internal = $.internal;
@@ -891,6 +907,27 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder enableXffClientPort(Boolean enableXffClientPort) {
             return enableXffClientPort(Output.of(enableXffClientPort));
+        }
+
+        /**
+         * @param enableZonalShift Whether zonal shift is enabled. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableZonalShift(@Nullable Output<Boolean> enableZonalShift) {
+            $.enableZonalShift = enableZonalShift;
+            return this;
+        }
+
+        /**
+         * @param enableZonalShift Whether zonal shift is enabled. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableZonalShift(Boolean enableZonalShift) {
+            return enableZonalShift(Output.of(enableZonalShift));
         }
 
         /**

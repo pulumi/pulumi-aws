@@ -12,6 +12,18 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class UserProfileUserSettingsCodeEditorAppSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+        /// </summary>
+        [Input("appLifecycleManagement")]
+        public Input<Inputs.UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs>? AppLifecycleManagement { get; set; }
+
+        /// <summary>
+        /// The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+        /// </summary>
+        [Input("builtInLifecycleConfigArn")]
+        public Input<string>? BuiltInLifecycleConfigArn { get; set; }
+
         [Input("customImages")]
         private InputList<Inputs.UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs>? _customImages;
 

@@ -14,6 +14,14 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class DomainDefaultUserSettingsJupyterLabAppSettings
     {
         /// <summary>
+        /// Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+        /// </summary>
+        public readonly Outputs.DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement? AppLifecycleManagement;
+        /// <summary>
+        /// The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+        /// </summary>
+        public readonly string? BuiltInLifecycleConfigArn;
+        /// <summary>
         /// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository> CodeRepositories;
@@ -26,23 +34,36 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec? DefaultResourceSpec;
         /// <summary>
+        /// The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+        /// </summary>
+        public readonly Outputs.DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings? EmrSettings;
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         /// </summary>
         public readonly ImmutableArray<string> LifecycleConfigArns;
 
         [OutputConstructor]
         private DomainDefaultUserSettingsJupyterLabAppSettings(
+            Outputs.DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement? appLifecycleManagement,
+
+            string? builtInLifecycleConfigArn,
+
             ImmutableArray<Outputs.DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository> codeRepositories,
 
             ImmutableArray<Outputs.DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage> customImages,
 
             Outputs.DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec? defaultResourceSpec,
 
+            Outputs.DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings? emrSettings,
+
             ImmutableArray<string> lifecycleConfigArns)
         {
+            AppLifecycleManagement = appLifecycleManagement;
+            BuiltInLifecycleConfigArn = builtInLifecycleConfigArn;
             CodeRepositories = codeRepositories;
             CustomImages = customImages;
             DefaultResourceSpec = defaultResourceSpec;
+            EmrSettings = emrSettings;
             LifecycleConfigArns = lifecycleConfigArns;
         }
     }

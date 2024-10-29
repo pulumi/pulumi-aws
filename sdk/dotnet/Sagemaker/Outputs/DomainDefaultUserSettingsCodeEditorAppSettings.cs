@@ -14,6 +14,14 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class DomainDefaultUserSettingsCodeEditorAppSettings
     {
         /// <summary>
+        /// Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+        /// </summary>
+        public readonly Outputs.DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement? AppLifecycleManagement;
+        /// <summary>
+        /// The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+        /// </summary>
+        public readonly string? BuiltInLifecycleConfigArn;
+        /// <summary>
         /// A list of custom SageMaker images that are configured to run as a CodeEditor app. see `custom_image` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage> CustomImages;
@@ -28,12 +36,18 @@ namespace Pulumi.Aws.Sagemaker.Outputs
 
         [OutputConstructor]
         private DomainDefaultUserSettingsCodeEditorAppSettings(
+            Outputs.DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement? appLifecycleManagement,
+
+            string? builtInLifecycleConfigArn,
+
             ImmutableArray<Outputs.DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage> customImages,
 
             Outputs.DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec? defaultResourceSpec,
 
             ImmutableArray<string> lifecycleConfigArns)
         {
+            AppLifecycleManagement = appLifecycleManagement;
+            BuiltInLifecycleConfigArn = builtInLifecycleConfigArn;
             CustomImages = customImages;
             DefaultResourceSpec = defaultResourceSpec;
             LifecycleConfigArns = lifecycleConfigArns;

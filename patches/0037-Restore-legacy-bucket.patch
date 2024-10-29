@@ -4,23 +4,8 @@ Date: Wed, 29 May 2024 09:07:38 -0400
 Subject: [PATCH] Restore legacy bucket
 
 
-diff --git a/internal/conns/awsclient.go b/internal/conns/awsclient.go
-index dde69d462d..6391a4988c 100644
---- a/internal/conns/awsclient.go
-+++ b/internal/conns/awsclient.go
-@@ -105,6 +105,10 @@ func (c *AWSClient) S3UsePathStyle(context.Context) bool {
- 	return c.s3UsePathStyle
- }
- 
-+func (c *AWSClient) S3Conn(ctx context.Context) *s3_sdkv1.S3 {
-+	return errs.Must(conn[*s3_sdkv1.S3](ctx, c, names.S3, make(map[string]any)))
-+}
-+
- func (client *AWSClient) S3ConnURICleaningDisabled(ctx context.Context) *s3_sdkv1.S3 {
- 	config := client.S3Conn(ctx).Config
- 	config.DisableRestProtocolURICleaning = aws_sdkv2.Bool(true)
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index 026e936537..664f55488d 100644
+index 4c83f4bb1c..2ec4c986be 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
 @@ -17,7 +17,6 @@ import (

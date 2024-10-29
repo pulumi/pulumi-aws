@@ -50,7 +50,7 @@ export class ProfilesAssociation extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Name of the Profile Association.
+     * Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_' ']+)`.
      */
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
@@ -63,7 +63,7 @@ export class ProfilesAssociation extends pulumi.CustomResource {
      */
     public readonly resourceId!: pulumi.Output<string>;
     /**
-     * Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+     * Status of the Profile Association. See the [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html) for valid values.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
@@ -130,7 +130,7 @@ export class ProfilesAssociation extends pulumi.CustomResource {
 export interface ProfilesAssociationState {
     arn?: pulumi.Input<string>;
     /**
-     * Name of the Profile Association.
+     * Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_' ']+)`.
      */
     name?: pulumi.Input<string>;
     ownerId?: pulumi.Input<string>;
@@ -143,7 +143,7 @@ export interface ProfilesAssociationState {
      */
     resourceId?: pulumi.Input<string>;
     /**
-     * Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+     * Status of the Profile Association. See the [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html) for valid values.
      */
     status?: pulumi.Input<string>;
     /**
@@ -163,7 +163,7 @@ export interface ProfilesAssociationState {
  */
 export interface ProfilesAssociationArgs {
     /**
-     * Name of the Profile Association.
+     * Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_' ']+)`.
      */
     name?: pulumi.Input<string>;
     /**

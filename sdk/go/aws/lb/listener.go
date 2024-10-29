@@ -438,6 +438,8 @@ type Listener struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
+	TcpIdleTimeoutSeconds pulumi.IntPtrOutput `pulumi:"tcpIdleTimeoutSeconds"`
 }
 
 // NewListener registers a new resource with the given unique name, arguments, and options.
@@ -508,6 +510,8 @@ type listenerState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
+	TcpIdleTimeoutSeconds *int `pulumi:"tcpIdleTimeoutSeconds"`
 }
 
 type ListenerState struct {
@@ -537,6 +541,8 @@ type ListenerState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
+	// TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
+	TcpIdleTimeoutSeconds pulumi.IntPtrInput
 }
 
 func (ListenerState) ElementType() reflect.Type {
@@ -564,6 +570,8 @@ type listenerArgs struct {
 	SslPolicy *string `pulumi:"sslPolicy"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
+	TcpIdleTimeoutSeconds *int `pulumi:"tcpIdleTimeoutSeconds"`
 }
 
 // The set of arguments for constructing a Listener resource.
@@ -588,6 +596,8 @@ type ListenerArgs struct {
 	SslPolicy pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
+	TcpIdleTimeoutSeconds pulumi.IntPtrInput
 }
 
 func (ListenerArgs) ElementType() reflect.Type {
@@ -734,6 +744,11 @@ func (o ListenerOutput) Tags() pulumi.StringMapOutput {
 // Deprecated: Please use `tags` instead.
 func (o ListenerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
+func (o ListenerOutput) TcpIdleTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Listener) pulumi.IntPtrOutput { return v.TcpIdleTimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
 type ListenerArrayOutput struct{ *pulumi.OutputState }

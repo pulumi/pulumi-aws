@@ -52,9 +52,12 @@ __all__ = [
     'DomainDefaultSpaceSettingsCustomFileSystemConfigEfsFileSystemConfig',
     'DomainDefaultSpaceSettingsCustomPosixUserConfig',
     'DomainDefaultSpaceSettingsJupyterLabAppSettings',
+    'DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement',
+    'DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings',
     'DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepository',
     'DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImage',
     'DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec',
+    'DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings',
     'DomainDefaultSpaceSettingsJupyterServerAppSettings',
     'DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository',
     'DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec',
@@ -66,6 +69,7 @@ __all__ = [
     'DomainDefaultUserSettings',
     'DomainDefaultUserSettingsCanvasAppSettings',
     'DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings',
+    'DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings',
     'DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings',
     'DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting',
     'DomainDefaultUserSettingsCanvasAppSettingsKendraSettings',
@@ -73,15 +77,20 @@ __all__ = [
     'DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings',
     'DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings',
     'DomainDefaultUserSettingsCodeEditorAppSettings',
+    'DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement',
+    'DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings',
     'DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage',
     'DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec',
     'DomainDefaultUserSettingsCustomFileSystemConfig',
     'DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfig',
     'DomainDefaultUserSettingsCustomPosixUserConfig',
     'DomainDefaultUserSettingsJupyterLabAppSettings',
+    'DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement',
+    'DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings',
     'DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository',
     'DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage',
     'DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec',
+    'DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings',
     'DomainDefaultUserSettingsJupyterServerAppSettings',
     'DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository',
     'DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec',
@@ -131,12 +140,15 @@ __all__ = [
     'EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize',
     'EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize',
     'FeatureGroupFeatureDefinition',
+    'FeatureGroupFeatureDefinitionCollectionConfig',
+    'FeatureGroupFeatureDefinitionCollectionConfigVectorConfig',
     'FeatureGroupOfflineStoreConfig',
     'FeatureGroupOfflineStoreConfigDataCatalogConfig',
     'FeatureGroupOfflineStoreConfigS3StorageConfig',
     'FeatureGroupOnlineStoreConfig',
     'FeatureGroupOnlineStoreConfigSecurityConfig',
     'FeatureGroupOnlineStoreConfigTtlDuration',
+    'FeatureGroupThroughputConfig',
     'FlowDefinitionHumanLoopActivationConfig',
     'FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig',
     'FlowDefinitionHumanLoopConfig',
@@ -144,6 +156,7 @@ __all__ = [
     'FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd',
     'FlowDefinitionHumanLoopRequestSource',
     'FlowDefinitionOutputConfig',
+    'HubS3StorageConfig',
     'HumanTaskUIUiTemplate',
     'ModelContainer',
     'ModelContainerImageConfig',
@@ -171,10 +184,14 @@ __all__ = [
     'SpaceOwnershipSettings',
     'SpaceSpaceSettings',
     'SpaceSpaceSettingsCodeEditorAppSettings',
+    'SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement',
+    'SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings',
     'SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec',
     'SpaceSpaceSettingsCustomFileSystem',
     'SpaceSpaceSettingsCustomFileSystemEfsFileSystem',
     'SpaceSpaceSettingsJupyterLabAppSettings',
+    'SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement',
+    'SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings',
     'SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository',
     'SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec',
     'SpaceSpaceSettingsJupyterServerAppSettings',
@@ -189,6 +206,7 @@ __all__ = [
     'UserProfileUserSettings',
     'UserProfileUserSettingsCanvasAppSettings',
     'UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings',
+    'UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings',
     'UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings',
     'UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting',
     'UserProfileUserSettingsCanvasAppSettingsKendraSettings',
@@ -196,15 +214,20 @@ __all__ = [
     'UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings',
     'UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings',
     'UserProfileUserSettingsCodeEditorAppSettings',
+    'UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement',
+    'UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings',
     'UserProfileUserSettingsCodeEditorAppSettingsCustomImage',
     'UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec',
     'UserProfileUserSettingsCustomFileSystemConfig',
     'UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfig',
     'UserProfileUserSettingsCustomPosixUserConfig',
     'UserProfileUserSettingsJupyterLabAppSettings',
+    'UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement',
+    'UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings',
     'UserProfileUserSettingsJupyterLabAppSettingsCodeRepository',
     'UserProfileUserSettingsJupyterLabAppSettingsCustomImage',
     'UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec',
+    'UserProfileUserSettingsJupyterLabAppSettingsEmrSettings',
     'UserProfileUserSettingsJupyterServerAppSettings',
     'UserProfileUserSettingsJupyterServerAppSettingsCodeRepository',
     'UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec',
@@ -2162,12 +2185,18 @@ class DomainDefaultSpaceSettingsJupyterLabAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "codeRepositories":
+        if key == "appLifecycleManagement":
+            suggest = "app_lifecycle_management"
+        elif key == "builtInLifecycleConfigArn":
+            suggest = "built_in_lifecycle_config_arn"
+        elif key == "codeRepositories":
             suggest = "code_repositories"
         elif key == "customImages":
             suggest = "custom_images"
         elif key == "defaultResourceSpec":
             suggest = "default_resource_spec"
+        elif key == "emrSettings":
+            suggest = "emr_settings"
         elif key == "lifecycleConfigArns":
             suggest = "lifecycle_config_arns"
 
@@ -2183,24 +2212,52 @@ class DomainDefaultSpaceSettingsJupyterLabAppSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 app_lifecycle_management: Optional['outputs.DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement'] = None,
+                 built_in_lifecycle_config_arn: Optional[str] = None,
                  code_repositories: Optional[Sequence['outputs.DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepository']] = None,
                  custom_images: Optional[Sequence['outputs.DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImage']] = None,
                  default_resource_spec: Optional['outputs.DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec'] = None,
+                 emr_settings: Optional['outputs.DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings'] = None,
                  lifecycle_config_arns: Optional[Sequence[str]] = None):
         """
+        :param 'DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs' app_lifecycle_management: Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+        :param str built_in_lifecycle_config_arn: The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
         :param Sequence['DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs'] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
         :param Sequence['DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImageArgs'] custom_images: A list of custom SageMaker images that are configured to run as a JupyterLab app. see `custom_image` Block below.
         :param 'DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+        :param 'DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsArgs' emr_settings: The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
         :param Sequence[str] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
+        if app_lifecycle_management is not None:
+            pulumi.set(__self__, "app_lifecycle_management", app_lifecycle_management)
+        if built_in_lifecycle_config_arn is not None:
+            pulumi.set(__self__, "built_in_lifecycle_config_arn", built_in_lifecycle_config_arn)
         if code_repositories is not None:
             pulumi.set(__self__, "code_repositories", code_repositories)
         if custom_images is not None:
             pulumi.set(__self__, "custom_images", custom_images)
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+        if emr_settings is not None:
+            pulumi.set(__self__, "emr_settings", emr_settings)
         if lifecycle_config_arns is not None:
             pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+
+    @property
+    @pulumi.getter(name="appLifecycleManagement")
+    def app_lifecycle_management(self) -> Optional['outputs.DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement']:
+        """
+        Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+        """
+        return pulumi.get(self, "app_lifecycle_management")
+
+    @property
+    @pulumi.getter(name="builtInLifecycleConfigArn")
+    def built_in_lifecycle_config_arn(self) -> Optional[str]:
+        """
+        The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+        """
+        return pulumi.get(self, "built_in_lifecycle_config_arn")
 
     @property
     @pulumi.getter(name="codeRepositories")
@@ -2227,12 +2284,134 @@ class DomainDefaultSpaceSettingsJupyterLabAppSettings(dict):
         return pulumi.get(self, "default_resource_spec")
 
     @property
+    @pulumi.getter(name="emrSettings")
+    def emr_settings(self) -> Optional['outputs.DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings']:
+        """
+        The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+        """
+        return pulumi.get(self, "emr_settings")
+
+    @property
     @pulumi.getter(name="lifecycleConfigArns")
     def lifecycle_config_arns(self) -> Optional[Sequence[str]]:
         """
         The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         return pulumi.get(self, "lifecycle_config_arns")
+
+
+@pulumi.output_type
+class DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleSettings":
+            suggest = "idle_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_settings: Optional['outputs.DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings'] = None):
+        """
+        :param 'DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs' idle_settings: Settings related to idle shutdown of Studio applications. see `idle_settings` Block below.
+        """
+        if idle_settings is not None:
+            pulumi.set(__self__, "idle_settings", idle_settings)
+
+    @property
+    @pulumi.getter(name="idleSettings")
+    def idle_settings(self) -> Optional['outputs.DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings']:
+        """
+        Settings related to idle shutdown of Studio applications. see `idle_settings` Block below.
+        """
+        return pulumi.get(self, "idle_settings")
+
+
+@pulumi.output_type
+class DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleTimeoutInMinutes":
+            suggest = "idle_timeout_in_minutes"
+        elif key == "lifecycleManagement":
+            suggest = "lifecycle_management"
+        elif key == "maxIdleTimeoutInMinutes":
+            suggest = "max_idle_timeout_in_minutes"
+        elif key == "minIdleTimeoutInMinutes":
+            suggest = "min_idle_timeout_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_timeout_in_minutes: Optional[int] = None,
+                 lifecycle_management: Optional[str] = None,
+                 max_idle_timeout_in_minutes: Optional[int] = None,
+                 min_idle_timeout_in_minutes: Optional[int] = None):
+        """
+        :param int idle_timeout_in_minutes: The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        :param str lifecycle_management: Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+        :param int max_idle_timeout_in_minutes: The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+        :param int min_idle_timeout_in_minutes: The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+        """
+        if idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+        if lifecycle_management is not None:
+            pulumi.set(__self__, "lifecycle_management", lifecycle_management)
+        if max_idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "max_idle_timeout_in_minutes", max_idle_timeout_in_minutes)
+        if min_idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "min_idle_timeout_in_minutes", min_idle_timeout_in_minutes)
+
+    @property
+    @pulumi.getter(name="idleTimeoutInMinutes")
+    def idle_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        """
+        return pulumi.get(self, "idle_timeout_in_minutes")
+
+    @property
+    @pulumi.getter(name="lifecycleManagement")
+    def lifecycle_management(self) -> Optional[str]:
+        """
+        Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+        """
+        return pulumi.get(self, "lifecycle_management")
+
+    @property
+    @pulumi.getter(name="maxIdleTimeoutInMinutes")
+    def max_idle_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+        """
+        return pulumi.get(self, "max_idle_timeout_in_minutes")
+
+    @property
+    @pulumi.getter(name="minIdleTimeoutInMinutes")
+    def min_idle_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+        """
+        return pulumi.get(self, "min_idle_timeout_in_minutes")
 
 
 @pulumi.output_type
@@ -2422,6 +2601,56 @@ class DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec(dict):
         The ARN of the image version created on the instance.
         """
         return pulumi.get(self, "sagemaker_image_version_arn")
+
+
+@pulumi.output_type
+class DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assumableRoleArns":
+            suggest = "assumable_role_arns"
+        elif key == "executionRoleArns":
+            suggest = "execution_role_arns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 assumable_role_arns: Optional[Sequence[str]] = None,
+                 execution_role_arns: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] assumable_role_arns: An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker domain.
+        :param Sequence[str] execution_role_arns: An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+        """
+        if assumable_role_arns is not None:
+            pulumi.set(__self__, "assumable_role_arns", assumable_role_arns)
+        if execution_role_arns is not None:
+            pulumi.set(__self__, "execution_role_arns", execution_role_arns)
+
+    @property
+    @pulumi.getter(name="assumableRoleArns")
+    def assumable_role_arns(self) -> Optional[Sequence[str]]:
+        """
+        An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker domain.
+        """
+        return pulumi.get(self, "assumable_role_arns")
+
+    @property
+    @pulumi.getter(name="executionRoleArns")
+    def execution_role_arns(self) -> Optional[Sequence[str]]:
+        """
+        An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+        """
+        return pulumi.get(self, "execution_role_arns")
 
 
 @pulumi.output_type
@@ -2924,6 +3153,8 @@ class DomainDefaultUserSettings(dict):
         suggest = None
         if key == "executionRole":
             suggest = "execution_role"
+        elif key == "autoMountHomeEfs":
+            suggest = "auto_mount_home_efs"
         elif key == "canvasAppSettings":
             suggest = "canvas_app_settings"
         elif key == "codeEditorAppSettings":
@@ -2970,6 +3201,7 @@ class DomainDefaultUserSettings(dict):
 
     def __init__(__self__, *,
                  execution_role: str,
+                 auto_mount_home_efs: Optional[str] = None,
                  canvas_app_settings: Optional['outputs.DomainDefaultUserSettingsCanvasAppSettings'] = None,
                  code_editor_app_settings: Optional['outputs.DomainDefaultUserSettingsCodeEditorAppSettings'] = None,
                  custom_file_system_configs: Optional[Sequence['outputs.DomainDefaultUserSettingsCustomFileSystemConfig']] = None,
@@ -2988,6 +3220,7 @@ class DomainDefaultUserSettings(dict):
                  tensor_board_app_settings: Optional['outputs.DomainDefaultUserSettingsTensorBoardAppSettings'] = None):
         """
         :param str execution_role: The execution role ARN for the user.
+        :param str auto_mount_home_efs: Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
         :param 'DomainDefaultUserSettingsCanvasAppSettingsArgs' canvas_app_settings: The Canvas app settings. See `canvas_app_settings` Block below.
         :param 'DomainDefaultUserSettingsCodeEditorAppSettingsArgs' code_editor_app_settings: The Code Editor application settings. See `code_editor_app_settings` Block below.
         :param Sequence['DomainDefaultUserSettingsCustomFileSystemConfigArgs'] custom_file_system_configs: The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See `custom_file_system_config` Block below.
@@ -3006,6 +3239,8 @@ class DomainDefaultUserSettings(dict):
         :param 'DomainDefaultUserSettingsTensorBoardAppSettingsArgs' tensor_board_app_settings: The TensorBoard app settings. See `tensor_board_app_settings` Block below.
         """
         pulumi.set(__self__, "execution_role", execution_role)
+        if auto_mount_home_efs is not None:
+            pulumi.set(__self__, "auto_mount_home_efs", auto_mount_home_efs)
         if canvas_app_settings is not None:
             pulumi.set(__self__, "canvas_app_settings", canvas_app_settings)
         if code_editor_app_settings is not None:
@@ -3046,6 +3281,14 @@ class DomainDefaultUserSettings(dict):
         The execution role ARN for the user.
         """
         return pulumi.get(self, "execution_role")
+
+    @property
+    @pulumi.getter(name="autoMountHomeEfs")
+    def auto_mount_home_efs(self) -> Optional[str]:
+        """
+        Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
+        """
+        return pulumi.get(self, "auto_mount_home_efs")
 
     @property
     @pulumi.getter(name="canvasAppSettings")
@@ -3183,6 +3426,8 @@ class DomainDefaultUserSettingsCanvasAppSettings(dict):
         suggest = None
         if key == "directDeploySettings":
             suggest = "direct_deploy_settings"
+        elif key == "emrServerlessSettings":
+            suggest = "emr_serverless_settings"
         elif key == "generativeAiSettings":
             suggest = "generative_ai_settings"
         elif key == "identityProviderOauthSettings":
@@ -3209,6 +3454,7 @@ class DomainDefaultUserSettingsCanvasAppSettings(dict):
 
     def __init__(__self__, *,
                  direct_deploy_settings: Optional['outputs.DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings'] = None,
+                 emr_serverless_settings: Optional['outputs.DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings'] = None,
                  generative_ai_settings: Optional['outputs.DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings'] = None,
                  identity_provider_oauth_settings: Optional[Sequence['outputs.DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting']] = None,
                  kendra_settings: Optional['outputs.DomainDefaultUserSettingsCanvasAppSettingsKendraSettings'] = None,
@@ -3217,6 +3463,7 @@ class DomainDefaultUserSettingsCanvasAppSettings(dict):
                  workspace_settings: Optional['outputs.DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings'] = None):
         """
         :param 'DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs' direct_deploy_settings: The model deployment settings for the SageMaker Canvas application. See `direct_deploy_settings` Block below.
+        :param 'DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs' emr_serverless_settings: The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emr_serverless_settings` Block below.
         :param Sequence['DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs'] identity_provider_oauth_settings: The settings for connecting to an external data source with OAuth. See `identity_provider_oauth_settings` Block below.
         :param 'DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs' kendra_settings: The settings for document querying. See `kendra_settings` Block below.
         :param 'DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs' model_register_settings: The model registry settings for the SageMaker Canvas application. See `model_register_settings` Block below.
@@ -3225,6 +3472,8 @@ class DomainDefaultUserSettingsCanvasAppSettings(dict):
         """
         if direct_deploy_settings is not None:
             pulumi.set(__self__, "direct_deploy_settings", direct_deploy_settings)
+        if emr_serverless_settings is not None:
+            pulumi.set(__self__, "emr_serverless_settings", emr_serverless_settings)
         if generative_ai_settings is not None:
             pulumi.set(__self__, "generative_ai_settings", generative_ai_settings)
         if identity_provider_oauth_settings is not None:
@@ -3245,6 +3494,14 @@ class DomainDefaultUserSettingsCanvasAppSettings(dict):
         The model deployment settings for the SageMaker Canvas application. See `direct_deploy_settings` Block below.
         """
         return pulumi.get(self, "direct_deploy_settings")
+
+    @property
+    @pulumi.getter(name="emrServerlessSettings")
+    def emr_serverless_settings(self) -> Optional['outputs.DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings']:
+        """
+        The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emr_serverless_settings` Block below.
+        """
+        return pulumi.get(self, "emr_serverless_settings")
 
     @property
     @pulumi.getter(name="generativeAiSettings")
@@ -3307,6 +3564,54 @@ class DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings(dict):
     def status(self) -> Optional[str]:
         """
         Describes whether model deployment permissions are enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "executionRoleArn":
+            suggest = "execution_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 execution_role_arn: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        :param str execution_role_arn: The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+        :param str status: Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker Canvas application. Valid values are: `ENABLED` and `DISABLED`.
+        """
+        if execution_role_arn is not None:
+            pulumi.set(__self__, "execution_role_arn", execution_role_arn)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="executionRoleArn")
+    def execution_role_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+        """
+        return pulumi.get(self, "execution_role_arn")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker Canvas application. Valid values are: `ENABLED` and `DISABLED`.
         """
         return pulumi.get(self, "status")
 
@@ -3572,7 +3877,11 @@ class DomainDefaultUserSettingsCodeEditorAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "customImages":
+        if key == "appLifecycleManagement":
+            suggest = "app_lifecycle_management"
+        elif key == "builtInLifecycleConfigArn":
+            suggest = "built_in_lifecycle_config_arn"
+        elif key == "customImages":
             suggest = "custom_images"
         elif key == "defaultResourceSpec":
             suggest = "default_resource_spec"
@@ -3591,20 +3900,44 @@ class DomainDefaultUserSettingsCodeEditorAppSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 app_lifecycle_management: Optional['outputs.DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement'] = None,
+                 built_in_lifecycle_config_arn: Optional[str] = None,
                  custom_images: Optional[Sequence['outputs.DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage']] = None,
                  default_resource_spec: Optional['outputs.DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec'] = None,
                  lifecycle_config_arns: Optional[Sequence[str]] = None):
         """
+        :param 'DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs' app_lifecycle_management: Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+        :param str built_in_lifecycle_config_arn: The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
         :param Sequence['DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs'] custom_images: A list of custom SageMaker images that are configured to run as a CodeEditor app. see `custom_image` Block below.
         :param 'DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
         :param Sequence[str] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
+        if app_lifecycle_management is not None:
+            pulumi.set(__self__, "app_lifecycle_management", app_lifecycle_management)
+        if built_in_lifecycle_config_arn is not None:
+            pulumi.set(__self__, "built_in_lifecycle_config_arn", built_in_lifecycle_config_arn)
         if custom_images is not None:
             pulumi.set(__self__, "custom_images", custom_images)
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
         if lifecycle_config_arns is not None:
             pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+
+    @property
+    @pulumi.getter(name="appLifecycleManagement")
+    def app_lifecycle_management(self) -> Optional['outputs.DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement']:
+        """
+        Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+        """
+        return pulumi.get(self, "app_lifecycle_management")
+
+    @property
+    @pulumi.getter(name="builtInLifecycleConfigArn")
+    def built_in_lifecycle_config_arn(self) -> Optional[str]:
+        """
+        The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+        """
+        return pulumi.get(self, "built_in_lifecycle_config_arn")
 
     @property
     @pulumi.getter(name="customImages")
@@ -3629,6 +3962,120 @@ class DomainDefaultUserSettingsCodeEditorAppSettings(dict):
         The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         return pulumi.get(self, "lifecycle_config_arns")
+
+
+@pulumi.output_type
+class DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleSettings":
+            suggest = "idle_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_settings: Optional['outputs.DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings'] = None):
+        """
+        :param 'DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs' idle_settings: Settings related to idle shutdown of Studio applications. see `idle_settings` Block below.
+        """
+        if idle_settings is not None:
+            pulumi.set(__self__, "idle_settings", idle_settings)
+
+    @property
+    @pulumi.getter(name="idleSettings")
+    def idle_settings(self) -> Optional['outputs.DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings']:
+        """
+        Settings related to idle shutdown of Studio applications. see `idle_settings` Block below.
+        """
+        return pulumi.get(self, "idle_settings")
+
+
+@pulumi.output_type
+class DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleTimeoutInMinutes":
+            suggest = "idle_timeout_in_minutes"
+        elif key == "lifecycleManagement":
+            suggest = "lifecycle_management"
+        elif key == "maxIdleTimeoutInMinutes":
+            suggest = "max_idle_timeout_in_minutes"
+        elif key == "minIdleTimeoutInMinutes":
+            suggest = "min_idle_timeout_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_timeout_in_minutes: Optional[int] = None,
+                 lifecycle_management: Optional[str] = None,
+                 max_idle_timeout_in_minutes: Optional[int] = None,
+                 min_idle_timeout_in_minutes: Optional[int] = None):
+        """
+        :param int idle_timeout_in_minutes: The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        :param str lifecycle_management: Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+        :param int max_idle_timeout_in_minutes: The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+        :param int min_idle_timeout_in_minutes: The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+        """
+        if idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+        if lifecycle_management is not None:
+            pulumi.set(__self__, "lifecycle_management", lifecycle_management)
+        if max_idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "max_idle_timeout_in_minutes", max_idle_timeout_in_minutes)
+        if min_idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "min_idle_timeout_in_minutes", min_idle_timeout_in_minutes)
+
+    @property
+    @pulumi.getter(name="idleTimeoutInMinutes")
+    def idle_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        """
+        return pulumi.get(self, "idle_timeout_in_minutes")
+
+    @property
+    @pulumi.getter(name="lifecycleManagement")
+    def lifecycle_management(self) -> Optional[str]:
+        """
+        Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+        """
+        return pulumi.get(self, "lifecycle_management")
+
+    @property
+    @pulumi.getter(name="maxIdleTimeoutInMinutes")
+    def max_idle_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+        """
+        return pulumi.get(self, "max_idle_timeout_in_minutes")
+
+    @property
+    @pulumi.getter(name="minIdleTimeoutInMinutes")
+    def min_idle_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+        """
+        return pulumi.get(self, "min_idle_timeout_in_minutes")
 
 
 @pulumi.output_type
@@ -3903,12 +4350,18 @@ class DomainDefaultUserSettingsJupyterLabAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "codeRepositories":
+        if key == "appLifecycleManagement":
+            suggest = "app_lifecycle_management"
+        elif key == "builtInLifecycleConfigArn":
+            suggest = "built_in_lifecycle_config_arn"
+        elif key == "codeRepositories":
             suggest = "code_repositories"
         elif key == "customImages":
             suggest = "custom_images"
         elif key == "defaultResourceSpec":
             suggest = "default_resource_spec"
+        elif key == "emrSettings":
+            suggest = "emr_settings"
         elif key == "lifecycleConfigArns":
             suggest = "lifecycle_config_arns"
 
@@ -3924,24 +4377,52 @@ class DomainDefaultUserSettingsJupyterLabAppSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 app_lifecycle_management: Optional['outputs.DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement'] = None,
+                 built_in_lifecycle_config_arn: Optional[str] = None,
                  code_repositories: Optional[Sequence['outputs.DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository']] = None,
                  custom_images: Optional[Sequence['outputs.DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage']] = None,
                  default_resource_spec: Optional['outputs.DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec'] = None,
+                 emr_settings: Optional['outputs.DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings'] = None,
                  lifecycle_config_arns: Optional[Sequence[str]] = None):
         """
+        :param 'DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs' app_lifecycle_management: Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+        :param str built_in_lifecycle_config_arn: The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
         :param Sequence['DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArgs'] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
         :param Sequence['DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgs'] custom_images: A list of custom SageMaker images that are configured to run as a JupyterLab app. see `custom_image` Block below.
         :param 'DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
+        :param 'DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsArgs' emr_settings: The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
         :param Sequence[str] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
+        if app_lifecycle_management is not None:
+            pulumi.set(__self__, "app_lifecycle_management", app_lifecycle_management)
+        if built_in_lifecycle_config_arn is not None:
+            pulumi.set(__self__, "built_in_lifecycle_config_arn", built_in_lifecycle_config_arn)
         if code_repositories is not None:
             pulumi.set(__self__, "code_repositories", code_repositories)
         if custom_images is not None:
             pulumi.set(__self__, "custom_images", custom_images)
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+        if emr_settings is not None:
+            pulumi.set(__self__, "emr_settings", emr_settings)
         if lifecycle_config_arns is not None:
             pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+
+    @property
+    @pulumi.getter(name="appLifecycleManagement")
+    def app_lifecycle_management(self) -> Optional['outputs.DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement']:
+        """
+        Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+        """
+        return pulumi.get(self, "app_lifecycle_management")
+
+    @property
+    @pulumi.getter(name="builtInLifecycleConfigArn")
+    def built_in_lifecycle_config_arn(self) -> Optional[str]:
+        """
+        The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+        """
+        return pulumi.get(self, "built_in_lifecycle_config_arn")
 
     @property
     @pulumi.getter(name="codeRepositories")
@@ -3968,12 +4449,134 @@ class DomainDefaultUserSettingsJupyterLabAppSettings(dict):
         return pulumi.get(self, "default_resource_spec")
 
     @property
+    @pulumi.getter(name="emrSettings")
+    def emr_settings(self) -> Optional['outputs.DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings']:
+        """
+        The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+        """
+        return pulumi.get(self, "emr_settings")
+
+    @property
     @pulumi.getter(name="lifecycleConfigArns")
     def lifecycle_config_arns(self) -> Optional[Sequence[str]]:
         """
         The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         return pulumi.get(self, "lifecycle_config_arns")
+
+
+@pulumi.output_type
+class DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleSettings":
+            suggest = "idle_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_settings: Optional['outputs.DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings'] = None):
+        """
+        :param 'DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs' idle_settings: Settings related to idle shutdown of Studio applications. see `idle_settings` Block below.
+        """
+        if idle_settings is not None:
+            pulumi.set(__self__, "idle_settings", idle_settings)
+
+    @property
+    @pulumi.getter(name="idleSettings")
+    def idle_settings(self) -> Optional['outputs.DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings']:
+        """
+        Settings related to idle shutdown of Studio applications. see `idle_settings` Block below.
+        """
+        return pulumi.get(self, "idle_settings")
+
+
+@pulumi.output_type
+class DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleTimeoutInMinutes":
+            suggest = "idle_timeout_in_minutes"
+        elif key == "lifecycleManagement":
+            suggest = "lifecycle_management"
+        elif key == "maxIdleTimeoutInMinutes":
+            suggest = "max_idle_timeout_in_minutes"
+        elif key == "minIdleTimeoutInMinutes":
+            suggest = "min_idle_timeout_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_timeout_in_minutes: Optional[int] = None,
+                 lifecycle_management: Optional[str] = None,
+                 max_idle_timeout_in_minutes: Optional[int] = None,
+                 min_idle_timeout_in_minutes: Optional[int] = None):
+        """
+        :param int idle_timeout_in_minutes: The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        :param str lifecycle_management: Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+        :param int max_idle_timeout_in_minutes: The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+        :param int min_idle_timeout_in_minutes: The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+        """
+        if idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+        if lifecycle_management is not None:
+            pulumi.set(__self__, "lifecycle_management", lifecycle_management)
+        if max_idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "max_idle_timeout_in_minutes", max_idle_timeout_in_minutes)
+        if min_idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "min_idle_timeout_in_minutes", min_idle_timeout_in_minutes)
+
+    @property
+    @pulumi.getter(name="idleTimeoutInMinutes")
+    def idle_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        """
+        return pulumi.get(self, "idle_timeout_in_minutes")
+
+    @property
+    @pulumi.getter(name="lifecycleManagement")
+    def lifecycle_management(self) -> Optional[str]:
+        """
+        Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+        """
+        return pulumi.get(self, "lifecycle_management")
+
+    @property
+    @pulumi.getter(name="maxIdleTimeoutInMinutes")
+    def max_idle_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+        """
+        return pulumi.get(self, "max_idle_timeout_in_minutes")
+
+    @property
+    @pulumi.getter(name="minIdleTimeoutInMinutes")
+    def min_idle_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+        """
+        return pulumi.get(self, "min_idle_timeout_in_minutes")
 
 
 @pulumi.output_type
@@ -4163,6 +4766,56 @@ class DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec(dict):
         The ARN of the image version created on the instance.
         """
         return pulumi.get(self, "sagemaker_image_version_arn")
+
+
+@pulumi.output_type
+class DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assumableRoleArns":
+            suggest = "assumable_role_arns"
+        elif key == "executionRoleArns":
+            suggest = "execution_role_arns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 assumable_role_arns: Optional[Sequence[str]] = None,
+                 execution_role_arns: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] assumable_role_arns: An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker domain.
+        :param Sequence[str] execution_role_arns: An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+        """
+        if assumable_role_arns is not None:
+            pulumi.set(__self__, "assumable_role_arns", assumable_role_arns)
+        if execution_role_arns is not None:
+            pulumi.set(__self__, "execution_role_arns", execution_role_arns)
+
+    @property
+    @pulumi.getter(name="assumableRoleArns")
+    def assumable_role_arns(self) -> Optional[Sequence[str]]:
+        """
+        An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker domain.
+        """
+        return pulumi.get(self, "assumable_role_arns")
+
+    @property
+    @pulumi.getter(name="executionRoleArns")
+    def execution_role_arns(self) -> Optional[Sequence[str]]:
+        """
+        An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+        """
+        return pulumi.get(self, "execution_role_arns")
 
 
 @pulumi.output_type
@@ -4983,6 +5636,8 @@ class DomainDefaultUserSettingsStudioWebPortalSettings(dict):
         suggest = None
         if key == "hiddenAppTypes":
             suggest = "hidden_app_types"
+        elif key == "hiddenInstanceTypes":
+            suggest = "hidden_instance_types"
         elif key == "hiddenMlTools":
             suggest = "hidden_ml_tools"
 
@@ -4999,13 +5654,17 @@ class DomainDefaultUserSettingsStudioWebPortalSettings(dict):
 
     def __init__(__self__, *,
                  hidden_app_types: Optional[Sequence[str]] = None,
+                 hidden_instance_types: Optional[Sequence[str]] = None,
                  hidden_ml_tools: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] hidden_app_types: The Applications supported in Studio that are hidden from the Studio left navigation pane.
+        :param Sequence[str] hidden_instance_types: The instance types you are hiding from the Studio user interface.
         :param Sequence[str] hidden_ml_tools: The machine learning tools that are hidden from the Studio left navigation pane.
         """
         if hidden_app_types is not None:
             pulumi.set(__self__, "hidden_app_types", hidden_app_types)
+        if hidden_instance_types is not None:
+            pulumi.set(__self__, "hidden_instance_types", hidden_instance_types)
         if hidden_ml_tools is not None:
             pulumi.set(__self__, "hidden_ml_tools", hidden_ml_tools)
 
@@ -5016,6 +5675,14 @@ class DomainDefaultUserSettingsStudioWebPortalSettings(dict):
         The Applications supported in Studio that are hidden from the Studio left navigation pane.
         """
         return pulumi.get(self, "hidden_app_types")
+
+    @property
+    @pulumi.getter(name="hiddenInstanceTypes")
+    def hidden_instance_types(self) -> Optional[Sequence[str]]:
+        """
+        The instance types you are hiding from the Studio user interface.
+        """
+        return pulumi.get(self, "hidden_instance_types")
 
     @property
     @pulumi.getter(name="hiddenMlTools")
@@ -7226,7 +7893,11 @@ class FeatureGroupFeatureDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "featureName":
+        if key == "collectionConfig":
+            suggest = "collection_config"
+        elif key == "collectionType":
+            suggest = "collection_type"
+        elif key == "featureName":
             suggest = "feature_name"
         elif key == "featureType":
             suggest = "feature_type"
@@ -7243,16 +7914,32 @@ class FeatureGroupFeatureDefinition(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 collection_config: Optional['outputs.FeatureGroupFeatureDefinitionCollectionConfig'] = None,
+                 collection_type: Optional[str] = None,
                  feature_name: Optional[str] = None,
                  feature_type: Optional[str] = None):
         """
         :param str feature_name: The name of a feature. `feature_name` cannot be any of the following: `is_deleted`, `write_time`, `api_invocation_time`.
         :param str feature_type: The value type of a feature. Valid values are `Integral`, `Fractional`, or `String`.
         """
+        if collection_config is not None:
+            pulumi.set(__self__, "collection_config", collection_config)
+        if collection_type is not None:
+            pulumi.set(__self__, "collection_type", collection_type)
         if feature_name is not None:
             pulumi.set(__self__, "feature_name", feature_name)
         if feature_type is not None:
             pulumi.set(__self__, "feature_type", feature_type)
+
+    @property
+    @pulumi.getter(name="collectionConfig")
+    def collection_config(self) -> Optional['outputs.FeatureGroupFeatureDefinitionCollectionConfig']:
+        return pulumi.get(self, "collection_config")
+
+    @property
+    @pulumi.getter(name="collectionType")
+    def collection_type(self) -> Optional[str]:
+        return pulumi.get(self, "collection_type")
 
     @property
     @pulumi.getter(name="featureName")
@@ -7269,6 +7956,49 @@ class FeatureGroupFeatureDefinition(dict):
         The value type of a feature. Valid values are `Integral`, `Fractional`, or `String`.
         """
         return pulumi.get(self, "feature_type")
+
+
+@pulumi.output_type
+class FeatureGroupFeatureDefinitionCollectionConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vectorConfig":
+            suggest = "vector_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FeatureGroupFeatureDefinitionCollectionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FeatureGroupFeatureDefinitionCollectionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FeatureGroupFeatureDefinitionCollectionConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 vector_config: Optional['outputs.FeatureGroupFeatureDefinitionCollectionConfigVectorConfig'] = None):
+        if vector_config is not None:
+            pulumi.set(__self__, "vector_config", vector_config)
+
+    @property
+    @pulumi.getter(name="vectorConfig")
+    def vector_config(self) -> Optional['outputs.FeatureGroupFeatureDefinitionCollectionConfigVectorConfig']:
+        return pulumi.get(self, "vector_config")
+
+
+@pulumi.output_type
+class FeatureGroupFeatureDefinitionCollectionConfigVectorConfig(dict):
+    def __init__(__self__, *,
+                 dimension: Optional[int] = None):
+        if dimension is not None:
+            pulumi.set(__self__, "dimension", dimension)
+
+    @property
+    @pulumi.getter
+    def dimension(self) -> Optional[int]:
+        return pulumi.get(self, "dimension")
 
 
 @pulumi.output_type
@@ -7614,6 +8344,56 @@ class FeatureGroupOnlineStoreConfigTtlDuration(dict):
         TtlDuration time value.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FeatureGroupThroughputConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisionedReadCapacityUnits":
+            suggest = "provisioned_read_capacity_units"
+        elif key == "provisionedWriteCapacityUnits":
+            suggest = "provisioned_write_capacity_units"
+        elif key == "throughputMode":
+            suggest = "throughput_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FeatureGroupThroughputConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FeatureGroupThroughputConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FeatureGroupThroughputConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioned_read_capacity_units: Optional[int] = None,
+                 provisioned_write_capacity_units: Optional[int] = None,
+                 throughput_mode: Optional[str] = None):
+        if provisioned_read_capacity_units is not None:
+            pulumi.set(__self__, "provisioned_read_capacity_units", provisioned_read_capacity_units)
+        if provisioned_write_capacity_units is not None:
+            pulumi.set(__self__, "provisioned_write_capacity_units", provisioned_write_capacity_units)
+        if throughput_mode is not None:
+            pulumi.set(__self__, "throughput_mode", throughput_mode)
+
+    @property
+    @pulumi.getter(name="provisionedReadCapacityUnits")
+    def provisioned_read_capacity_units(self) -> Optional[int]:
+        return pulumi.get(self, "provisioned_read_capacity_units")
+
+    @property
+    @pulumi.getter(name="provisionedWriteCapacityUnits")
+    def provisioned_write_capacity_units(self) -> Optional[int]:
+        return pulumi.get(self, "provisioned_write_capacity_units")
+
+    @property
+    @pulumi.getter(name="throughputMode")
+    def throughput_mode(self) -> Optional[str]:
+        return pulumi.get(self, "throughput_mode")
 
 
 @pulumi.output_type
@@ -8008,6 +8788,42 @@ class FlowDefinitionOutputConfig(dict):
         The Amazon Key Management Service (KMS) key ARN for server-side encryption.
         """
         return pulumi.get(self, "kms_key_id")
+
+
+@pulumi.output_type
+class HubS3StorageConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3OutputPath":
+            suggest = "s3_output_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HubS3StorageConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HubS3StorageConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HubS3StorageConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_output_path: Optional[str] = None):
+        """
+        :param str s3_output_path: The Amazon S3 bucket prefix for hosting hub content.interface.
+        """
+        if s3_output_path is not None:
+            pulumi.set(__self__, "s3_output_path", s3_output_path)
+
+    @property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> Optional[str]:
+        """
+        The Amazon S3 bucket prefix for hosting hub content.interface.
+        """
+        return pulumi.get(self, "s3_output_path")
 
 
 @pulumi.output_type
@@ -9467,6 +10283,8 @@ class SpaceSpaceSettingsCodeEditorAppSettings(dict):
         suggest = None
         if key == "defaultResourceSpec":
             suggest = "default_resource_spec"
+        elif key == "appLifecycleManagement":
+            suggest = "app_lifecycle_management"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SpaceSpaceSettingsCodeEditorAppSettings. Access the value via the '{suggest}' property getter instead.")
@@ -9480,11 +10298,15 @@ class SpaceSpaceSettingsCodeEditorAppSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 default_resource_spec: 'outputs.SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec'):
+                 default_resource_spec: 'outputs.SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec',
+                 app_lifecycle_management: Optional['outputs.SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement'] = None):
         """
         :param 'SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
+        :param 'SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs' app_lifecycle_management: Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
         """
         pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+        if app_lifecycle_management is not None:
+            pulumi.set(__self__, "app_lifecycle_management", app_lifecycle_management)
 
     @property
     @pulumi.getter(name="defaultResourceSpec")
@@ -9493,6 +10315,86 @@ class SpaceSpaceSettingsCodeEditorAppSettings(dict):
         The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
         """
         return pulumi.get(self, "default_resource_spec")
+
+    @property
+    @pulumi.getter(name="appLifecycleManagement")
+    def app_lifecycle_management(self) -> Optional['outputs.SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement']:
+        """
+        Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
+        """
+        return pulumi.get(self, "app_lifecycle_management")
+
+
+@pulumi.output_type
+class SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleSettings":
+            suggest = "idle_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_settings: Optional['outputs.SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings'] = None):
+        """
+        :param 'SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs' idle_settings: Settings related to idle shutdown of Studio applications. See `idle_settings` Block below.
+        """
+        if idle_settings is not None:
+            pulumi.set(__self__, "idle_settings", idle_settings)
+
+    @property
+    @pulumi.getter(name="idleSettings")
+    def idle_settings(self) -> Optional['outputs.SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings']:
+        """
+        Settings related to idle shutdown of Studio applications. See `idle_settings` Block below.
+        """
+        return pulumi.get(self, "idle_settings")
+
+
+@pulumi.output_type
+class SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleTimeoutInMinutes":
+            suggest = "idle_timeout_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_timeout_in_minutes: Optional[int] = None):
+        """
+        :param int idle_timeout_in_minutes: The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        """
+        if idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+
+    @property
+    @pulumi.getter(name="idleTimeoutInMinutes")
+    def idle_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        """
+        return pulumi.get(self, "idle_timeout_in_minutes")
 
 
 @pulumi.output_type
@@ -9664,6 +10566,8 @@ class SpaceSpaceSettingsJupyterLabAppSettings(dict):
         suggest = None
         if key == "defaultResourceSpec":
             suggest = "default_resource_spec"
+        elif key == "appLifecycleManagement":
+            suggest = "app_lifecycle_management"
         elif key == "codeRepositories":
             suggest = "code_repositories"
 
@@ -9680,12 +10584,16 @@ class SpaceSpaceSettingsJupyterLabAppSettings(dict):
 
     def __init__(__self__, *,
                  default_resource_spec: 'outputs.SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec',
+                 app_lifecycle_management: Optional['outputs.SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement'] = None,
                  code_repositories: Optional[Sequence['outputs.SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository']] = None):
         """
         :param 'SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
+        :param 'SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs' app_lifecycle_management: Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
         :param Sequence['SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs'] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
         """
         pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+        if app_lifecycle_management is not None:
+            pulumi.set(__self__, "app_lifecycle_management", app_lifecycle_management)
         if code_repositories is not None:
             pulumi.set(__self__, "code_repositories", code_repositories)
 
@@ -9698,12 +10606,92 @@ class SpaceSpaceSettingsJupyterLabAppSettings(dict):
         return pulumi.get(self, "default_resource_spec")
 
     @property
+    @pulumi.getter(name="appLifecycleManagement")
+    def app_lifecycle_management(self) -> Optional['outputs.SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement']:
+        """
+        Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
+        """
+        return pulumi.get(self, "app_lifecycle_management")
+
+    @property
     @pulumi.getter(name="codeRepositories")
     def code_repositories(self) -> Optional[Sequence['outputs.SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository']]:
         """
         A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
         """
         return pulumi.get(self, "code_repositories")
+
+
+@pulumi.output_type
+class SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleSettings":
+            suggest = "idle_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_settings: Optional['outputs.SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings'] = None):
+        """
+        :param 'SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs' idle_settings: Settings related to idle shutdown of Studio applications. See `idle_settings` Block below.
+        """
+        if idle_settings is not None:
+            pulumi.set(__self__, "idle_settings", idle_settings)
+
+    @property
+    @pulumi.getter(name="idleSettings")
+    def idle_settings(self) -> Optional['outputs.SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings']:
+        """
+        Settings related to idle shutdown of Studio applications. See `idle_settings` Block below.
+        """
+        return pulumi.get(self, "idle_settings")
+
+
+@pulumi.output_type
+class SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleTimeoutInMinutes":
+            suggest = "idle_timeout_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_timeout_in_minutes: Optional[int] = None):
+        """
+        :param int idle_timeout_in_minutes: The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        """
+        if idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+
+    @property
+    @pulumi.getter(name="idleTimeoutInMinutes")
+    def idle_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        """
+        return pulumi.get(self, "idle_timeout_in_minutes")
 
 
 @pulumi.output_type
@@ -10352,6 +11340,8 @@ class UserProfileUserSettings(dict):
         suggest = None
         if key == "executionRole":
             suggest = "execution_role"
+        elif key == "autoMountHomeEfs":
+            suggest = "auto_mount_home_efs"
         elif key == "canvasAppSettings":
             suggest = "canvas_app_settings"
         elif key == "codeEditorAppSettings":
@@ -10398,6 +11388,7 @@ class UserProfileUserSettings(dict):
 
     def __init__(__self__, *,
                  execution_role: str,
+                 auto_mount_home_efs: Optional[str] = None,
                  canvas_app_settings: Optional['outputs.UserProfileUserSettingsCanvasAppSettings'] = None,
                  code_editor_app_settings: Optional['outputs.UserProfileUserSettingsCodeEditorAppSettings'] = None,
                  custom_file_system_configs: Optional[Sequence['outputs.UserProfileUserSettingsCustomFileSystemConfig']] = None,
@@ -10416,6 +11407,7 @@ class UserProfileUserSettings(dict):
                  tensor_board_app_settings: Optional['outputs.UserProfileUserSettingsTensorBoardAppSettings'] = None):
         """
         :param str execution_role: The execution role ARN for the user.
+        :param str auto_mount_home_efs: Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
         :param 'UserProfileUserSettingsCanvasAppSettingsArgs' canvas_app_settings: The Canvas app settings. See Canvas App Settings below.
         :param 'UserProfileUserSettingsCodeEditorAppSettingsArgs' code_editor_app_settings: The Code Editor application settings. See Code Editor App Settings below.
         :param Sequence['UserProfileUserSettingsCustomFileSystemConfigArgs'] custom_file_system_configs: The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio. See Custom File System Config below.
@@ -10434,6 +11426,8 @@ class UserProfileUserSettings(dict):
         :param 'UserProfileUserSettingsTensorBoardAppSettingsArgs' tensor_board_app_settings: The TensorBoard app settings. See TensorBoard App Settings below.
         """
         pulumi.set(__self__, "execution_role", execution_role)
+        if auto_mount_home_efs is not None:
+            pulumi.set(__self__, "auto_mount_home_efs", auto_mount_home_efs)
         if canvas_app_settings is not None:
             pulumi.set(__self__, "canvas_app_settings", canvas_app_settings)
         if code_editor_app_settings is not None:
@@ -10474,6 +11468,14 @@ class UserProfileUserSettings(dict):
         The execution role ARN for the user.
         """
         return pulumi.get(self, "execution_role")
+
+    @property
+    @pulumi.getter(name="autoMountHomeEfs")
+    def auto_mount_home_efs(self) -> Optional[str]:
+        """
+        Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
+        """
+        return pulumi.get(self, "auto_mount_home_efs")
 
     @property
     @pulumi.getter(name="canvasAppSettings")
@@ -10611,6 +11613,8 @@ class UserProfileUserSettingsCanvasAppSettings(dict):
         suggest = None
         if key == "directDeploySettings":
             suggest = "direct_deploy_settings"
+        elif key == "emrServerlessSettings":
+            suggest = "emr_serverless_settings"
         elif key == "generativeAiSettings":
             suggest = "generative_ai_settings"
         elif key == "identityProviderOauthSettings":
@@ -10637,6 +11641,7 @@ class UserProfileUserSettingsCanvasAppSettings(dict):
 
     def __init__(__self__, *,
                  direct_deploy_settings: Optional['outputs.UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings'] = None,
+                 emr_serverless_settings: Optional['outputs.UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings'] = None,
                  generative_ai_settings: Optional['outputs.UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings'] = None,
                  identity_provider_oauth_settings: Optional[Sequence['outputs.UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting']] = None,
                  kendra_settings: Optional['outputs.UserProfileUserSettingsCanvasAppSettingsKendraSettings'] = None,
@@ -10645,6 +11650,7 @@ class UserProfileUserSettingsCanvasAppSettings(dict):
                  workspace_settings: Optional['outputs.UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings'] = None):
         """
         :param 'UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs' direct_deploy_settings: The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+        :param 'UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs' emr_serverless_settings: The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emr_serverless_settings` Block below.
         :param Sequence['UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs'] identity_provider_oauth_settings: The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
         :param 'UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs' kendra_settings: The settings for document querying. See Kendra Settings below.
         :param 'UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs' model_register_settings: The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
@@ -10653,6 +11659,8 @@ class UserProfileUserSettingsCanvasAppSettings(dict):
         """
         if direct_deploy_settings is not None:
             pulumi.set(__self__, "direct_deploy_settings", direct_deploy_settings)
+        if emr_serverless_settings is not None:
+            pulumi.set(__self__, "emr_serverless_settings", emr_serverless_settings)
         if generative_ai_settings is not None:
             pulumi.set(__self__, "generative_ai_settings", generative_ai_settings)
         if identity_provider_oauth_settings is not None:
@@ -10673,6 +11681,14 @@ class UserProfileUserSettingsCanvasAppSettings(dict):
         The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
         """
         return pulumi.get(self, "direct_deploy_settings")
+
+    @property
+    @pulumi.getter(name="emrServerlessSettings")
+    def emr_serverless_settings(self) -> Optional['outputs.UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings']:
+        """
+        The settings for running Amazon EMR Serverless jobs in SageMaker Canvas. See `emr_serverless_settings` Block below.
+        """
+        return pulumi.get(self, "emr_serverless_settings")
 
     @property
     @pulumi.getter(name="generativeAiSettings")
@@ -10735,6 +11751,54 @@ class UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings(dict):
     def status(self) -> Optional[str]:
         """
         Describes whether model deployment permissions are enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "executionRoleArn":
+            suggest = "execution_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 execution_role_arn: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        :param str execution_role_arn: The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+        :param str status: Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker Canvas application. Valid values are: `ENABLED` and `DISABLED`.
+        """
+        if execution_role_arn is not None:
+            pulumi.set(__self__, "execution_role_arn", execution_role_arn)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="executionRoleArn")
+    def execution_role_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+        """
+        return pulumi.get(self, "execution_role_arn")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Describes whether Amazon EMR Serverless job capabilities are enabled or disabled in the SageMaker Canvas application. Valid values are: `ENABLED` and `DISABLED`.
         """
         return pulumi.get(self, "status")
 
@@ -11000,7 +12064,11 @@ class UserProfileUserSettingsCodeEditorAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "customImages":
+        if key == "appLifecycleManagement":
+            suggest = "app_lifecycle_management"
+        elif key == "builtInLifecycleConfigArn":
+            suggest = "built_in_lifecycle_config_arn"
+        elif key == "customImages":
             suggest = "custom_images"
         elif key == "defaultResourceSpec":
             suggest = "default_resource_spec"
@@ -11019,20 +12087,44 @@ class UserProfileUserSettingsCodeEditorAppSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 app_lifecycle_management: Optional['outputs.UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement'] = None,
+                 built_in_lifecycle_config_arn: Optional[str] = None,
                  custom_images: Optional[Sequence['outputs.UserProfileUserSettingsCodeEditorAppSettingsCustomImage']] = None,
                  default_resource_spec: Optional['outputs.UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec'] = None,
                  lifecycle_config_arns: Optional[Sequence[str]] = None):
         """
+        :param 'UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs' app_lifecycle_management: Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+        :param str built_in_lifecycle_config_arn: The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
         :param Sequence['UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs'] custom_images: A list of custom SageMaker images that are configured to run as a CodeEditor app. see Custom Image below.
         :param 'UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         :param Sequence[str] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
+        if app_lifecycle_management is not None:
+            pulumi.set(__self__, "app_lifecycle_management", app_lifecycle_management)
+        if built_in_lifecycle_config_arn is not None:
+            pulumi.set(__self__, "built_in_lifecycle_config_arn", built_in_lifecycle_config_arn)
         if custom_images is not None:
             pulumi.set(__self__, "custom_images", custom_images)
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
         if lifecycle_config_arns is not None:
             pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+
+    @property
+    @pulumi.getter(name="appLifecycleManagement")
+    def app_lifecycle_management(self) -> Optional['outputs.UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement']:
+        """
+        Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+        """
+        return pulumi.get(self, "app_lifecycle_management")
+
+    @property
+    @pulumi.getter(name="builtInLifecycleConfigArn")
+    def built_in_lifecycle_config_arn(self) -> Optional[str]:
+        """
+        The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+        """
+        return pulumi.get(self, "built_in_lifecycle_config_arn")
 
     @property
     @pulumi.getter(name="customImages")
@@ -11057,6 +12149,120 @@ class UserProfileUserSettingsCodeEditorAppSettings(dict):
         The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         return pulumi.get(self, "lifecycle_config_arns")
+
+
+@pulumi.output_type
+class UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleSettings":
+            suggest = "idle_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_settings: Optional['outputs.UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings'] = None):
+        """
+        :param 'UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs' idle_settings: Settings related to idle shutdown of Studio applications. see `idle_settings` Block below.
+        """
+        if idle_settings is not None:
+            pulumi.set(__self__, "idle_settings", idle_settings)
+
+    @property
+    @pulumi.getter(name="idleSettings")
+    def idle_settings(self) -> Optional['outputs.UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings']:
+        """
+        Settings related to idle shutdown of Studio applications. see `idle_settings` Block below.
+        """
+        return pulumi.get(self, "idle_settings")
+
+
+@pulumi.output_type
+class UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleTimeoutInMinutes":
+            suggest = "idle_timeout_in_minutes"
+        elif key == "lifecycleManagement":
+            suggest = "lifecycle_management"
+        elif key == "maxIdleTimeoutInMinutes":
+            suggest = "max_idle_timeout_in_minutes"
+        elif key == "minIdleTimeoutInMinutes":
+            suggest = "min_idle_timeout_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_timeout_in_minutes: Optional[int] = None,
+                 lifecycle_management: Optional[str] = None,
+                 max_idle_timeout_in_minutes: Optional[int] = None,
+                 min_idle_timeout_in_minutes: Optional[int] = None):
+        """
+        :param int idle_timeout_in_minutes: The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        :param str lifecycle_management: Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+        :param int max_idle_timeout_in_minutes: The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+        :param int min_idle_timeout_in_minutes: The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+        """
+        if idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+        if lifecycle_management is not None:
+            pulumi.set(__self__, "lifecycle_management", lifecycle_management)
+        if max_idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "max_idle_timeout_in_minutes", max_idle_timeout_in_minutes)
+        if min_idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "min_idle_timeout_in_minutes", min_idle_timeout_in_minutes)
+
+    @property
+    @pulumi.getter(name="idleTimeoutInMinutes")
+    def idle_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        """
+        return pulumi.get(self, "idle_timeout_in_minutes")
+
+    @property
+    @pulumi.getter(name="lifecycleManagement")
+    def lifecycle_management(self) -> Optional[str]:
+        """
+        Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+        """
+        return pulumi.get(self, "lifecycle_management")
+
+    @property
+    @pulumi.getter(name="maxIdleTimeoutInMinutes")
+    def max_idle_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+        """
+        return pulumi.get(self, "max_idle_timeout_in_minutes")
+
+    @property
+    @pulumi.getter(name="minIdleTimeoutInMinutes")
+    def min_idle_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+        """
+        return pulumi.get(self, "min_idle_timeout_in_minutes")
 
 
 @pulumi.output_type
@@ -11332,12 +12538,18 @@ class UserProfileUserSettingsJupyterLabAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "codeRepositories":
+        if key == "appLifecycleManagement":
+            suggest = "app_lifecycle_management"
+        elif key == "builtInLifecycleConfigArn":
+            suggest = "built_in_lifecycle_config_arn"
+        elif key == "codeRepositories":
             suggest = "code_repositories"
         elif key == "customImages":
             suggest = "custom_images"
         elif key == "defaultResourceSpec":
             suggest = "default_resource_spec"
+        elif key == "emrSettings":
+            suggest = "emr_settings"
         elif key == "lifecycleConfigArns":
             suggest = "lifecycle_config_arns"
 
@@ -11353,23 +12565,51 @@ class UserProfileUserSettingsJupyterLabAppSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 app_lifecycle_management: Optional['outputs.UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement'] = None,
+                 built_in_lifecycle_config_arn: Optional[str] = None,
                  code_repositories: Optional[Sequence['outputs.UserProfileUserSettingsJupyterLabAppSettingsCodeRepository']] = None,
                  custom_images: Optional[Sequence['outputs.UserProfileUserSettingsJupyterLabAppSettingsCustomImage']] = None,
                  default_resource_spec: Optional['outputs.UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec'] = None,
+                 emr_settings: Optional['outputs.UserProfileUserSettingsJupyterLabAppSettingsEmrSettings'] = None,
                  lifecycle_config_arns: Optional[Sequence[str]] = None):
         """
+        :param 'UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs' app_lifecycle_management: Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+        :param str built_in_lifecycle_config_arn: The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
         :param Sequence['UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArgs'] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
         :param 'UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param 'UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgs' emr_settings: The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
         :param Sequence[str] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
+        if app_lifecycle_management is not None:
+            pulumi.set(__self__, "app_lifecycle_management", app_lifecycle_management)
+        if built_in_lifecycle_config_arn is not None:
+            pulumi.set(__self__, "built_in_lifecycle_config_arn", built_in_lifecycle_config_arn)
         if code_repositories is not None:
             pulumi.set(__self__, "code_repositories", code_repositories)
         if custom_images is not None:
             pulumi.set(__self__, "custom_images", custom_images)
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+        if emr_settings is not None:
+            pulumi.set(__self__, "emr_settings", emr_settings)
         if lifecycle_config_arns is not None:
             pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+
+    @property
+    @pulumi.getter(name="appLifecycleManagement")
+    def app_lifecycle_management(self) -> Optional['outputs.UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement']:
+        """
+        Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
+        """
+        return pulumi.get(self, "app_lifecycle_management")
+
+    @property
+    @pulumi.getter(name="builtInLifecycleConfigArn")
+    def built_in_lifecycle_config_arn(self) -> Optional[str]:
+        """
+        The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
+        """
+        return pulumi.get(self, "built_in_lifecycle_config_arn")
 
     @property
     @pulumi.getter(name="codeRepositories")
@@ -11393,12 +12633,134 @@ class UserProfileUserSettingsJupyterLabAppSettings(dict):
         return pulumi.get(self, "default_resource_spec")
 
     @property
+    @pulumi.getter(name="emrSettings")
+    def emr_settings(self) -> Optional['outputs.UserProfileUserSettingsJupyterLabAppSettingsEmrSettings']:
+        """
+        The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
+        """
+        return pulumi.get(self, "emr_settings")
+
+    @property
     @pulumi.getter(name="lifecycleConfigArns")
     def lifecycle_config_arns(self) -> Optional[Sequence[str]]:
         """
         The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         return pulumi.get(self, "lifecycle_config_arns")
+
+
+@pulumi.output_type
+class UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleSettings":
+            suggest = "idle_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_settings: Optional['outputs.UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings'] = None):
+        """
+        :param 'UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs' idle_settings: Settings related to idle shutdown of Studio applications. see `idle_settings` Block below.
+        """
+        if idle_settings is not None:
+            pulumi.set(__self__, "idle_settings", idle_settings)
+
+    @property
+    @pulumi.getter(name="idleSettings")
+    def idle_settings(self) -> Optional['outputs.UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings']:
+        """
+        Settings related to idle shutdown of Studio applications. see `idle_settings` Block below.
+        """
+        return pulumi.get(self, "idle_settings")
+
+
+@pulumi.output_type
+class UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleTimeoutInMinutes":
+            suggest = "idle_timeout_in_minutes"
+        elif key == "lifecycleManagement":
+            suggest = "lifecycle_management"
+        elif key == "maxIdleTimeoutInMinutes":
+            suggest = "max_idle_timeout_in_minutes"
+        elif key == "minIdleTimeoutInMinutes":
+            suggest = "min_idle_timeout_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_timeout_in_minutes: Optional[int] = None,
+                 lifecycle_management: Optional[str] = None,
+                 max_idle_timeout_in_minutes: Optional[int] = None,
+                 min_idle_timeout_in_minutes: Optional[int] = None):
+        """
+        :param int idle_timeout_in_minutes: The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        :param str lifecycle_management: Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+        :param int max_idle_timeout_in_minutes: The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+        :param int min_idle_timeout_in_minutes: The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+        """
+        if idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+        if lifecycle_management is not None:
+            pulumi.set(__self__, "lifecycle_management", lifecycle_management)
+        if max_idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "max_idle_timeout_in_minutes", max_idle_timeout_in_minutes)
+        if min_idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "min_idle_timeout_in_minutes", min_idle_timeout_in_minutes)
+
+    @property
+    @pulumi.getter(name="idleTimeoutInMinutes")
+    def idle_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The time that SageMaker waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
+        """
+        return pulumi.get(self, "idle_timeout_in_minutes")
+
+    @property
+    @pulumi.getter(name="lifecycleManagement")
+    def lifecycle_management(self) -> Optional[str]:
+        """
+        Indicates whether idle shutdown is activated for the application type. Valid values are `ENABLED` and `DISABLED`.
+        """
+        return pulumi.get(self, "lifecycle_management")
+
+    @property
+    @pulumi.getter(name="maxIdleTimeoutInMinutes")
+    def max_idle_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The maximum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+        """
+        return pulumi.get(self, "max_idle_timeout_in_minutes")
+
+    @property
+    @pulumi.getter(name="minIdleTimeoutInMinutes")
+    def min_idle_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The minimum value in minutes that custom idle shutdown can be set to by the user. Valid values are between `60` and `525600`.
+        """
+        return pulumi.get(self, "min_idle_timeout_in_minutes")
 
 
 @pulumi.output_type
@@ -11588,6 +12950,56 @@ class UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec(dict):
         The ARN of the image version created on the instance.
         """
         return pulumi.get(self, "sagemaker_image_version_arn")
+
+
+@pulumi.output_type
+class UserProfileUserSettingsJupyterLabAppSettingsEmrSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assumableRoleArns":
+            suggest = "assumable_role_arns"
+        elif key == "executionRoleArns":
+            suggest = "execution_role_arns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserProfileUserSettingsJupyterLabAppSettingsEmrSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserProfileUserSettingsJupyterLabAppSettingsEmrSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserProfileUserSettingsJupyterLabAppSettingsEmrSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 assumable_role_arns: Optional[Sequence[str]] = None,
+                 execution_role_arns: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] assumable_role_arns: An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker domain.
+        :param Sequence[str] execution_role_arns: An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+        """
+        if assumable_role_arns is not None:
+            pulumi.set(__self__, "assumable_role_arns", assumable_role_arns)
+        if execution_role_arns is not None:
+            pulumi.set(__self__, "execution_role_arns", execution_role_arns)
+
+    @property
+    @pulumi.getter(name="assumableRoleArns")
+    def assumable_role_arns(self) -> Optional[Sequence[str]]:
+        """
+        An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker domain.
+        """
+        return pulumi.get(self, "assumable_role_arns")
+
+    @property
+    @pulumi.getter(name="executionRoleArns")
+    def execution_role_arns(self) -> Optional[Sequence[str]]:
+        """
+        An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+        """
+        return pulumi.get(self, "execution_role_arns")
 
 
 @pulumi.output_type
@@ -12408,6 +13820,8 @@ class UserProfileUserSettingsStudioWebPortalSettings(dict):
         suggest = None
         if key == "hiddenAppTypes":
             suggest = "hidden_app_types"
+        elif key == "hiddenInstanceTypes":
+            suggest = "hidden_instance_types"
         elif key == "hiddenMlTools":
             suggest = "hidden_ml_tools"
 
@@ -12424,13 +13838,17 @@ class UserProfileUserSettingsStudioWebPortalSettings(dict):
 
     def __init__(__self__, *,
                  hidden_app_types: Optional[Sequence[str]] = None,
+                 hidden_instance_types: Optional[Sequence[str]] = None,
                  hidden_ml_tools: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] hidden_app_types: The Applications supported in Studio that are hidden from the Studio left navigation pane.
+        :param Sequence[str] hidden_instance_types: The instance types you are hiding from the Studio user interface.
         :param Sequence[str] hidden_ml_tools: The machine learning tools that are hidden from the Studio left navigation pane.
         """
         if hidden_app_types is not None:
             pulumi.set(__self__, "hidden_app_types", hidden_app_types)
+        if hidden_instance_types is not None:
+            pulumi.set(__self__, "hidden_instance_types", hidden_instance_types)
         if hidden_ml_tools is not None:
             pulumi.set(__self__, "hidden_ml_tools", hidden_ml_tools)
 
@@ -12441,6 +13859,14 @@ class UserProfileUserSettingsStudioWebPortalSettings(dict):
         The Applications supported in Studio that are hidden from the Studio left navigation pane.
         """
         return pulumi.get(self, "hidden_app_types")
+
+    @property
+    @pulumi.getter(name="hiddenInstanceTypes")
+    def hidden_instance_types(self) -> Optional[Sequence[str]]:
+        """
+        The instance types you are hiding from the Studio user interface.
+        """
+        return pulumi.get(self, "hidden_instance_types")
 
     @property
     @pulumi.getter(name="hiddenMlTools")

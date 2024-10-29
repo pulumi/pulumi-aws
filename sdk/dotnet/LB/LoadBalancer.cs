@@ -256,6 +256,12 @@ namespace Pulumi.Aws.LB
         public Output<bool?> EnableXffClientPort { get; private set; } = null!;
 
         /// <summary>
+        /// Whether zonal shift is enabled. Defaults to `false`.
+        /// </summary>
+        [Output("enableZonalShift")]
+        public Output<bool?> EnableZonalShift { get; private set; } = null!;
+
+        /// <summary>
         /// Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
         /// </summary>
         [Output("enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")]
@@ -477,6 +483,12 @@ namespace Pulumi.Aws.LB
         public Input<bool>? EnableXffClientPort { get; set; }
 
         /// <summary>
+        /// Whether zonal shift is enabled. Defaults to `false`.
+        /// </summary>
+        [Input("enableZonalShift")]
+        public Input<bool>? EnableZonalShift { get; set; }
+
+        /// <summary>
         /// Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
         /// </summary>
         [Input("enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")]
@@ -681,6 +693,12 @@ namespace Pulumi.Aws.LB
         /// </summary>
         [Input("enableXffClientPort")]
         public Input<bool>? EnableXffClientPort { get; set; }
+
+        /// <summary>
+        /// Whether zonal shift is enabled. Defaults to `false`.
+        /// </summary>
+        [Input("enableZonalShift")]
+        public Input<bool>? EnableZonalShift { get; set; }
 
         /// <summary>
         /// Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.

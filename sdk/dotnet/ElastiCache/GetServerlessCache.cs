@@ -106,7 +106,7 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly string CreateTime;
         /// <summary>
-        /// The daily time that snapshots will be created from the new serverless cache. Only available for engine type `"redis"`.
+        /// The daily time that snapshots will be created from the new serverless cache. Only available for engine types `"redis"` and `"valkey"`.
         /// </summary>
         public readonly string DailySnapshotTime;
         /// <summary>

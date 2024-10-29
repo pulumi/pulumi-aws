@@ -382,6 +382,20 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return this.subnetIds;
     }
     /**
+     * Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
+     * 
+     */
+    @Export(name="tagPropagation", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> tagPropagation;
+
+    /**
+     * @return Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
+     * 
+     */
+    public Output<Optional<String>> tagPropagation() {
+        return Codegen.optional(this.tagPropagation);
+    }
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */

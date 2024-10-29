@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### Redis Cluster Mode Disabled
+ * ### Redis OSS/Valkey Cluster Mode Disabled
  * 
  * To create a single shard primary with single read replica:
  * 
@@ -147,7 +147,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Redis Cluster Mode Enabled
+ * ### Redis OSS/Valkey Cluster Mode Enabled
  * 
  * To create two shards with a primary and a single read replica each:
  * 
@@ -440,7 +440,7 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
     }
     /**
      * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
-     * Only supported for engine type `&#34;redis&#34;` and if the engine version is 6 or higher.
+     * Only supported for engine types `&#34;redis&#34;` and `&#34;valkey&#34;` and if the engine version is 6 or higher.
      * Defaults to `true`.
      * 
      */
@@ -449,7 +449,7 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
-     * Only supported for engine type `&#34;redis&#34;` and if the engine version is 6 or higher.
+     * Only supported for engine types `&#34;redis&#34;` and `&#34;valkey&#34;` and if the engine version is 6 or higher.
      * Defaults to `true`.
      * 
      */
@@ -541,14 +541,14 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
         return this.description;
     }
     /**
-     * Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
+     * Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
      * 
      */
     @Export(name="engine", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> engine;
 
     /**
-     * @return Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
+     * @return Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
      * 
      */
     public Output<Optional<String>> engine() {
@@ -649,14 +649,14 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.kmsKeyId);
     }
     /**
-     * Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
+     * Specifies the destination and format of Redis OSS/Valkey [SLOWLOG](https://redis.io/commands/slowlog) or Redis OSS/Valkey [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
      * 
      */
     @Export(name="logDeliveryConfigurations", refs={List.class,ReplicationGroupLogDeliveryConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ReplicationGroupLogDeliveryConfiguration>> logDeliveryConfigurations;
 
     /**
-     * @return Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
+     * @return Specifies the destination and format of Redis OSS/Valkey [SLOWLOG](https://redis.io/commands/slowlog) or Redis OSS/Valkey [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
      * 
      */
     public Output<Optional<List<ReplicationGroupLogDeliveryConfiguration>>> logDeliveryConfigurations() {

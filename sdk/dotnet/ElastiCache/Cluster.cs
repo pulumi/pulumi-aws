@@ -265,7 +265,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> ConfigurationEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+        /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
         /// </summary>
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
@@ -513,7 +513,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? ClusterId { get; set; }
 
         /// <summary>
-        /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+        /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -765,7 +765,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? ConfigurationEndpoint { get; set; }
 
         /// <summary>
-        /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
+        /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }

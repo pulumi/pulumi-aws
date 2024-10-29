@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly ImmutableArray<string> HiddenAppTypes;
         /// <summary>
+        /// The instance types you are hiding from the Studio user interface.
+        /// </summary>
+        public readonly ImmutableArray<string> HiddenInstanceTypes;
+        /// <summary>
         /// The machine learning tools that are hidden from the Studio left navigation pane.
         /// </summary>
         public readonly ImmutableArray<string> HiddenMlTools;
@@ -26,9 +30,12 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         private DomainDefaultUserSettingsStudioWebPortalSettings(
             ImmutableArray<string> hiddenAppTypes,
 
+            ImmutableArray<string> hiddenInstanceTypes,
+
             ImmutableArray<string> hiddenMlTools)
         {
             HiddenAppTypes = hiddenAppTypes;
+            HiddenInstanceTypes = hiddenInstanceTypes;
             HiddenMlTools = hiddenMlTools;
         }
     }

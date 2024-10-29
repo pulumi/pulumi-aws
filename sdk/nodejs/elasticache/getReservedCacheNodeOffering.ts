@@ -55,7 +55,7 @@ export interface GetReservedCacheNodeOfferingArgs {
     offeringType: string;
     /**
      * Engine type for the reserved cache node.
-     * Valid values are `redis` and `memcached`.
+     * Valid values are `redis`, `valkey` and `memcached`.
      */
     productDescription: string;
 }
@@ -132,7 +132,7 @@ export interface GetReservedCacheNodeOfferingOutputArgs {
     offeringType: pulumi.Input<string>;
     /**
      * Engine type for the reserved cache node.
-     * Valid values are `redis` and `memcached`.
+     * Valid values are `redis`, `valkey` and `memcached`.
      */
     productDescription: pulumi.Input<string>;
 }

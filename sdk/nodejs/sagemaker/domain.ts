@@ -140,6 +140,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
     /**
+     * Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
+     */
+    public readonly tagPropagation!: pulumi.Output<string | undefined>;
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -188,6 +192,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["singleSignOnApplicationArn"] = state ? state.singleSignOnApplicationArn : undefined;
             resourceInputs["singleSignOnManagedApplicationInstanceId"] = state ? state.singleSignOnManagedApplicationInstanceId : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
+            resourceInputs["tagPropagation"] = state ? state.tagPropagation : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["url"] = state ? state.url : undefined;
@@ -219,6 +224,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["retentionPolicy"] = args ? args.retentionPolicy : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tagPropagation"] = args ? args.tagPropagation : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -299,6 +305,10 @@ export interface DomainState {
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
+     */
+    tagPropagation?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -364,6 +374,10 @@ export interface DomainArgs {
      * The VPC subnets that Studio uses for communication.
      */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
+     */
+    tagPropagation?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

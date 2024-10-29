@@ -73,6 +73,8 @@ type LookupDataLakeSettingsResult struct {
 	ExternalDataFilteringAllowLists []string `pulumi:"externalDataFilteringAllowLists"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// Key-value map of additional configuration. `CROSS_ACCOUNT_VERSION` will be set to values `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` will also be returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`.
+	Parameters map[string]string `pulumi:"parameters"`
 	// List of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
 	ReadOnlyAdmins []string `pulumi:"readOnlyAdmins"`
 	// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
@@ -169,6 +171,11 @@ func (o LookupDataLakeSettingsResultOutput) ExternalDataFilteringAllowLists() pu
 // The provider-assigned unique ID for this managed resource.
 func (o LookupDataLakeSettingsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDataLakeSettingsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Key-value map of additional configuration. `CROSS_ACCOUNT_VERSION` will be set to values `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` will also be returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`.
+func (o LookupDataLakeSettingsResultOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDataLakeSettingsResult) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
 // List of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.

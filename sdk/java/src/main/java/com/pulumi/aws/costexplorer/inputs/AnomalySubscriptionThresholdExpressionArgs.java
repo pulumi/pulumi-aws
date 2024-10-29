@@ -67,14 +67,14 @@ public final class AnomalySubscriptionThresholdExpressionArgs extends com.pulumi
     }
 
     /**
-     * Return results that match both Dimension object.
+     * Return results that do not match the Dimension object.
      * 
      */
     @Import(name="not")
     private @Nullable Output<AnomalySubscriptionThresholdExpressionNotArgs> not;
 
     /**
-     * @return Return results that match both Dimension object.
+     * @return Return results that do not match the Dimension object.
      * 
      */
     public Optional<Output<AnomalySubscriptionThresholdExpressionNotArgs>> not() {
@@ -82,14 +82,14 @@ public final class AnomalySubscriptionThresholdExpressionArgs extends com.pulumi
     }
 
     /**
-     * Return results that match both Dimension object.
+     * Return results that match either Dimension object.
      * 
      */
     @Import(name="ors")
     private @Nullable Output<List<AnomalySubscriptionThresholdExpressionOrArgs>> ors;
 
     /**
-     * @return Return results that match both Dimension object.
+     * @return Return results that match either Dimension object.
      * 
      */
     public Optional<Output<List<AnomalySubscriptionThresholdExpressionOrArgs>>> ors() {
@@ -214,7 +214,7 @@ public final class AnomalySubscriptionThresholdExpressionArgs extends com.pulumi
         }
 
         /**
-         * @param not Return results that match both Dimension object.
+         * @param not Return results that do not match the Dimension object.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class AnomalySubscriptionThresholdExpressionArgs extends com.pulumi
         }
 
         /**
-         * @param not Return results that match both Dimension object.
+         * @param not Return results that do not match the Dimension object.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class AnomalySubscriptionThresholdExpressionArgs extends com.pulumi
         }
 
         /**
-         * @param ors Return results that match both Dimension object.
+         * @param ors Return results that match either Dimension object.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class AnomalySubscriptionThresholdExpressionArgs extends com.pulumi
         }
 
         /**
-         * @param ors Return results that match both Dimension object.
+         * @param ors Return results that match either Dimension object.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class AnomalySubscriptionThresholdExpressionArgs extends com.pulumi
         }
 
         /**
-         * @param ors Return results that match both Dimension object.
+         * @param ors Return results that match either Dimension object.
          * 
          * @return builder
          * 

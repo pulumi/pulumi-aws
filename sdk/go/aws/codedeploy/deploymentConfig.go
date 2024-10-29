@@ -159,6 +159,8 @@ type DeploymentConfig struct {
 	MinimumHealthyHosts DeploymentConfigMinimumHealthyHostsPtrOutput `pulumi:"minimumHealthyHosts"`
 	// A trafficRoutingConfig block. Traffic Routing Config is documented below.
 	TrafficRoutingConfig DeploymentConfigTrafficRoutingConfigPtrOutput `pulumi:"trafficRoutingConfig"`
+	// A zonalConfig block. Zonal Config is documented below.
+	ZonalConfig DeploymentConfigZonalConfigPtrOutput `pulumi:"zonalConfig"`
 }
 
 // NewDeploymentConfig registers a new resource with the given unique name, arguments, and options.
@@ -203,6 +205,8 @@ type deploymentConfigState struct {
 	MinimumHealthyHosts *DeploymentConfigMinimumHealthyHosts `pulumi:"minimumHealthyHosts"`
 	// A trafficRoutingConfig block. Traffic Routing Config is documented below.
 	TrafficRoutingConfig *DeploymentConfigTrafficRoutingConfig `pulumi:"trafficRoutingConfig"`
+	// A zonalConfig block. Zonal Config is documented below.
+	ZonalConfig *DeploymentConfigZonalConfig `pulumi:"zonalConfig"`
 }
 
 type DeploymentConfigState struct {
@@ -218,6 +222,8 @@ type DeploymentConfigState struct {
 	MinimumHealthyHosts DeploymentConfigMinimumHealthyHostsPtrInput
 	// A trafficRoutingConfig block. Traffic Routing Config is documented below.
 	TrafficRoutingConfig DeploymentConfigTrafficRoutingConfigPtrInput
+	// A zonalConfig block. Zonal Config is documented below.
+	ZonalConfig DeploymentConfigZonalConfigPtrInput
 }
 
 func (DeploymentConfigState) ElementType() reflect.Type {
@@ -233,6 +239,8 @@ type deploymentConfigArgs struct {
 	MinimumHealthyHosts *DeploymentConfigMinimumHealthyHosts `pulumi:"minimumHealthyHosts"`
 	// A trafficRoutingConfig block. Traffic Routing Config is documented below.
 	TrafficRoutingConfig *DeploymentConfigTrafficRoutingConfig `pulumi:"trafficRoutingConfig"`
+	// A zonalConfig block. Zonal Config is documented below.
+	ZonalConfig *DeploymentConfigZonalConfig `pulumi:"zonalConfig"`
 }
 
 // The set of arguments for constructing a DeploymentConfig resource.
@@ -245,6 +253,8 @@ type DeploymentConfigArgs struct {
 	MinimumHealthyHosts DeploymentConfigMinimumHealthyHostsPtrInput
 	// A trafficRoutingConfig block. Traffic Routing Config is documented below.
 	TrafficRoutingConfig DeploymentConfigTrafficRoutingConfigPtrInput
+	// A zonalConfig block. Zonal Config is documented below.
+	ZonalConfig DeploymentConfigZonalConfigPtrInput
 }
 
 func (DeploymentConfigArgs) ElementType() reflect.Type {
@@ -362,6 +372,11 @@ func (o DeploymentConfigOutput) MinimumHealthyHosts() DeploymentConfigMinimumHea
 // A trafficRoutingConfig block. Traffic Routing Config is documented below.
 func (o DeploymentConfigOutput) TrafficRoutingConfig() DeploymentConfigTrafficRoutingConfigPtrOutput {
 	return o.ApplyT(func(v *DeploymentConfig) DeploymentConfigTrafficRoutingConfigPtrOutput { return v.TrafficRoutingConfig }).(DeploymentConfigTrafficRoutingConfigPtrOutput)
+}
+
+// A zonalConfig block. Zonal Config is documented below.
+func (o DeploymentConfigOutput) ZonalConfig() DeploymentConfigZonalConfigPtrOutput {
+	return o.ApplyT(func(v *DeploymentConfig) DeploymentConfigZonalConfigPtrOutput { return v.ZonalConfig }).(DeploymentConfigZonalConfigPtrOutput)
 }
 
 type DeploymentConfigArrayOutput struct{ *pulumi.OutputState }

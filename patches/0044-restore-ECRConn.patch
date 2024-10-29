@@ -4,26 +4,26 @@ Date: Wed, 10 Apr 2024 08:49:35 -0400
 Subject: [PATCH] restore ECRConn
 
 
-diff --git a/internal/conns/awsclient_gen.go b/internal/conns/awsclient_gen.go
-index cfbc51180e..2a8249e7d4 100644
---- a/internal/conns/awsclient_gen.go
-+++ b/internal/conns/awsclient_gen.go
-@@ -246,6 +246,7 @@ import (
- 	workspaces_sdkv2 "github.com/aws/aws-sdk-go-v2/service/workspaces"
- 	workspacesweb_sdkv2 "github.com/aws/aws-sdk-go-v2/service/workspacesweb"
- 	xray_sdkv2 "github.com/aws/aws-sdk-go-v2/service/xray"
-+	ecr_sdkv1 "github.com/aws/aws-sdk-go/service/ecr"
- 	imagebuilder_sdkv1 "github.com/aws/aws-sdk-go/service/imagebuilder"
- 	simpledb_sdkv1 "github.com/aws/aws-sdk-go/service/simpledb"
- 	"github.com/hashicorp/terraform-provider-aws/internal/errs"
-@@ -588,6 +589,10 @@ func (c *AWSClient) EC2Client(ctx context.Context) *ec2_sdkv2.Client {
- 	return errs.Must(client[*ec2_sdkv2.Client](ctx, c, names.EC2, make(map[string]any)))
- }
+diff --git a/internal/conns/awsclient_extra.go b/internal/conns/awsclient_extra.go
+index 96c809fc47..57bf4c7c94 100644
+--- a/internal/conns/awsclient_extra.go
++++ b/internal/conns/awsclient_extra.go
+@@ -6,7 +6,10 @@ package conns
+ import (
+ 	"context"
  
++	ecr_sdkv1 "github.com/aws/aws-sdk-go/service/ecr"
+ 	s3_sdkv1 "github.com/aws/aws-sdk-go/service/s3"
++	"github.com/hashicorp/terraform-provider-aws/internal/errs"
++	"github.com/hashicorp/terraform-provider-aws/names"
+ )
+ 
+ func (c *AWSClient) S3Conn(ctx context.Context) *s3_sdkv1.S3 {
+@@ -20,3 +23,7 @@ func (client *AWSClient) S3ConnURICleaningDisabled(ctx context.Context) *s3_sdkv
+ 
+ 	return s3_sdkv1.New(client.session.Copy(&config))
+ }
++
 +func (c *AWSClient) ECRConn(ctx context.Context) *ecr_sdkv1.ECR {
 +	return errs.Must(conn[*ecr_sdkv1.ECR](ctx, c, names.ECR, make(map[string]any)))
 +}
-+
- func (c *AWSClient) ECRClient(ctx context.Context) *ecr_sdkv2.Client {
- 	return errs.Must(client[*ecr_sdkv2.Client](ctx, c, names.ECR, make(map[string]any)))
- }

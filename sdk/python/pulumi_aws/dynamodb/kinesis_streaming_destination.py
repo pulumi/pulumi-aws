@@ -20,15 +20,18 @@ __all__ = ['KinesisStreamingDestinationArgs', 'KinesisStreamingDestination']
 class KinesisStreamingDestinationArgs:
     def __init__(__self__, *,
                  stream_arn: pulumi.Input[str],
-                 table_name: pulumi.Input[str]):
+                 table_name: pulumi.Input[str],
+                 approximate_creation_date_time_precision: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a KinesisStreamingDestination resource.
         :param pulumi.Input[str] stream_arn: The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
-        :param pulumi.Input[str] table_name: The name of the DynamoDB table. There
-               can only be one Kinesis streaming destination for a given DynamoDB table.
+        :param pulumi.Input[str] table_name: The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
+        :param pulumi.Input[str] approximate_creation_date_time_precision: Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
         """
         pulumi.set(__self__, "stream_arn", stream_arn)
         pulumi.set(__self__, "table_name", table_name)
+        if approximate_creation_date_time_precision is not None:
+            pulumi.set(__self__, "approximate_creation_date_time_precision", approximate_creation_date_time_precision)
 
     @property
     @pulumi.getter(name="streamArn")
@@ -46,8 +49,7 @@ class KinesisStreamingDestinationArgs:
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Input[str]:
         """
-        The name of the DynamoDB table. There
-        can only be one Kinesis streaming destination for a given DynamoDB table.
+        The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
         """
         return pulumi.get(self, "table_name")
 
@@ -55,22 +57,49 @@ class KinesisStreamingDestinationArgs:
     def table_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "table_name", value)
 
+    @property
+    @pulumi.getter(name="approximateCreationDateTimePrecision")
+    def approximate_creation_date_time_precision(self) -> Optional[pulumi.Input[str]]:
+        """
+        Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
+        """
+        return pulumi.get(self, "approximate_creation_date_time_precision")
+
+    @approximate_creation_date_time_precision.setter
+    def approximate_creation_date_time_precision(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "approximate_creation_date_time_precision", value)
+
 
 @pulumi.input_type
 class _KinesisStreamingDestinationState:
     def __init__(__self__, *,
+                 approximate_creation_date_time_precision: Optional[pulumi.Input[str]] = None,
                  stream_arn: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering KinesisStreamingDestination resources.
+        :param pulumi.Input[str] approximate_creation_date_time_precision: Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
         :param pulumi.Input[str] stream_arn: The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
-        :param pulumi.Input[str] table_name: The name of the DynamoDB table. There
-               can only be one Kinesis streaming destination for a given DynamoDB table.
+        :param pulumi.Input[str] table_name: The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
         """
+        if approximate_creation_date_time_precision is not None:
+            pulumi.set(__self__, "approximate_creation_date_time_precision", approximate_creation_date_time_precision)
         if stream_arn is not None:
             pulumi.set(__self__, "stream_arn", stream_arn)
         if table_name is not None:
             pulumi.set(__self__, "table_name", table_name)
+
+    @property
+    @pulumi.getter(name="approximateCreationDateTimePrecision")
+    def approximate_creation_date_time_precision(self) -> Optional[pulumi.Input[str]]:
+        """
+        Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
+        """
+        return pulumi.get(self, "approximate_creation_date_time_precision")
+
+    @approximate_creation_date_time_precision.setter
+    def approximate_creation_date_time_precision(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "approximate_creation_date_time_precision", value)
 
     @property
     @pulumi.getter(name="streamArn")
@@ -88,8 +117,7 @@ class _KinesisStreamingDestinationState:
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the DynamoDB table. There
-        can only be one Kinesis streaming destination for a given DynamoDB table.
+        The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
         """
         return pulumi.get(self, "table_name")
 
@@ -103,6 +131,7 @@ class KinesisStreamingDestination(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 approximate_creation_date_time_precision: Optional[pulumi.Input[str]] = None,
                  stream_arn: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -127,7 +156,8 @@ class KinesisStreamingDestination(pulumi.CustomResource):
             shard_count=1)
         example_kinesis_streaming_destination = aws.dynamodb.KinesisStreamingDestination("example",
             stream_arn=example_stream.arn,
-            table_name=example.name)
+            table_name=example.name,
+            approximate_creation_date_time_precision="MICROSECOND")
         ```
 
         ## Import
@@ -140,9 +170,9 @@ class KinesisStreamingDestination(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] approximate_creation_date_time_precision: Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
         :param pulumi.Input[str] stream_arn: The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
-        :param pulumi.Input[str] table_name: The name of the DynamoDB table. There
-               can only be one Kinesis streaming destination for a given DynamoDB table.
+        :param pulumi.Input[str] table_name: The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
         """
         ...
     @overload
@@ -171,7 +201,8 @@ class KinesisStreamingDestination(pulumi.CustomResource):
             shard_count=1)
         example_kinesis_streaming_destination = aws.dynamodb.KinesisStreamingDestination("example",
             stream_arn=example_stream.arn,
-            table_name=example.name)
+            table_name=example.name,
+            approximate_creation_date_time_precision="MICROSECOND")
         ```
 
         ## Import
@@ -197,6 +228,7 @@ class KinesisStreamingDestination(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 approximate_creation_date_time_precision: Optional[pulumi.Input[str]] = None,
                  stream_arn: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -208,6 +240,7 @@ class KinesisStreamingDestination(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = KinesisStreamingDestinationArgs.__new__(KinesisStreamingDestinationArgs)
 
+            __props__.__dict__["approximate_creation_date_time_precision"] = approximate_creation_date_time_precision
             if stream_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'stream_arn'")
             __props__.__dict__["stream_arn"] = stream_arn
@@ -224,6 +257,7 @@ class KinesisStreamingDestination(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            approximate_creation_date_time_precision: Optional[pulumi.Input[str]] = None,
             stream_arn: Optional[pulumi.Input[str]] = None,
             table_name: Optional[pulumi.Input[str]] = None) -> 'KinesisStreamingDestination':
         """
@@ -233,17 +267,26 @@ class KinesisStreamingDestination(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] approximate_creation_date_time_precision: Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
         :param pulumi.Input[str] stream_arn: The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
-        :param pulumi.Input[str] table_name: The name of the DynamoDB table. There
-               can only be one Kinesis streaming destination for a given DynamoDB table.
+        :param pulumi.Input[str] table_name: The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _KinesisStreamingDestinationState.__new__(_KinesisStreamingDestinationState)
 
+        __props__.__dict__["approximate_creation_date_time_precision"] = approximate_creation_date_time_precision
         __props__.__dict__["stream_arn"] = stream_arn
         __props__.__dict__["table_name"] = table_name
         return KinesisStreamingDestination(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="approximateCreationDateTimePrecision")
+    def approximate_creation_date_time_precision(self) -> pulumi.Output[str]:
+        """
+        Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
+        """
+        return pulumi.get(self, "approximate_creation_date_time_precision")
 
     @property
     @pulumi.getter(name="streamArn")
@@ -257,8 +300,7 @@ class KinesisStreamingDestination(pulumi.CustomResource):
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Output[str]:
         """
-        The name of the DynamoDB table. There
-        can only be one Kinesis streaming destination for a given DynamoDB table.
+        The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
         """
         return pulumi.get(self, "table_name")
 

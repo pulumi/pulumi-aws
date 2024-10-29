@@ -22,9 +22,9 @@ namespace Pulumi.Aws.Route53.Outputs
         /// </summary>
         public readonly string? Delete;
         /// <summary>
-        /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+        /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         /// </summary>
-        public readonly string? Read;
+        public readonly string? Update;
 
         [OutputConstructor]
         private ProfilesAssociationTimeouts(
@@ -32,11 +32,11 @@ namespace Pulumi.Aws.Route53.Outputs
 
             string? delete,
 
-            string? read)
+            string? update)
         {
             Create = create;
             Delete = delete;
-            Read = read;
+            Update = update;
         }
     }
 }

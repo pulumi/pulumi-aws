@@ -3,16 +3,23 @@
 
 package com.pulumi.aws.sagemaker.outputs;
 
+import com.pulumi.aws.sagemaker.outputs.SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement;
 import com.pulumi.aws.sagemaker.outputs.SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository;
 import com.pulumi.aws.sagemaker.outputs.SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class SpaceSpaceSettingsJupyterLabAppSettings {
+    /**
+     * @return Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
+     * 
+     */
+    private @Nullable SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement appLifecycleManagement;
     /**
      * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
      * 
@@ -25,6 +32,13 @@ public final class SpaceSpaceSettingsJupyterLabAppSettings {
     private SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec defaultResourceSpec;
 
     private SpaceSpaceSettingsJupyterLabAppSettings() {}
+    /**
+     * @return Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
+     * 
+     */
+    public Optional<SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement> appLifecycleManagement() {
+        return Optional.ofNullable(this.appLifecycleManagement);
+    }
     /**
      * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
      * 
@@ -49,15 +63,23 @@ public final class SpaceSpaceSettingsJupyterLabAppSettings {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement appLifecycleManagement;
         private @Nullable List<SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository> codeRepositories;
         private SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec defaultResourceSpec;
         public Builder() {}
         public Builder(SpaceSpaceSettingsJupyterLabAppSettings defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.appLifecycleManagement = defaults.appLifecycleManagement;
     	      this.codeRepositories = defaults.codeRepositories;
     	      this.defaultResourceSpec = defaults.defaultResourceSpec;
         }
 
+        @CustomType.Setter
+        public Builder appLifecycleManagement(@Nullable SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement appLifecycleManagement) {
+
+            this.appLifecycleManagement = appLifecycleManagement;
+            return this;
+        }
         @CustomType.Setter
         public Builder codeRepositories(@Nullable List<SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository> codeRepositories) {
 
@@ -77,6 +99,7 @@ public final class SpaceSpaceSettingsJupyterLabAppSettings {
         }
         public SpaceSpaceSettingsJupyterLabAppSettings build() {
             final var _resultValue = new SpaceSpaceSettingsJupyterLabAppSettings();
+            _resultValue.appLifecycleManagement = appLifecycleManagement;
             _resultValue.codeRepositories = codeRepositories;
             _resultValue.defaultResourceSpec = defaultResourceSpec;
             return _resultValue;

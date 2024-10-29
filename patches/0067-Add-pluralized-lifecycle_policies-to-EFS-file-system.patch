@@ -12,7 +12,7 @@ version to only return at most one element we're able to fix this
 panic without introducing breaking changes.
 
 diff --git a/internal/service/efs/file_system_data_source.go b/internal/service/efs/file_system_data_source.go
-index f045aa36a4..a7b710fe9b 100644
+index 680f0fb3cc..a4ed1a053a 100644
 --- a/internal/service/efs/file_system_data_source.go
 +++ b/internal/service/efs/file_system_data_source.go
 @@ -63,6 +63,28 @@ func dataSourceFileSystem() *schema.Resource {

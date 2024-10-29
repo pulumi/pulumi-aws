@@ -50,8 +50,9 @@ import (
 //				return err
 //			}
 //			_, err = dynamodb.NewKinesisStreamingDestination(ctx, "example", &dynamodb.KinesisStreamingDestinationArgs{
-//				StreamArn: exampleStream.Arn,
-//				TableName: example.Name,
+//				StreamArn:                            exampleStream.Arn,
+//				TableName:                            example.Name,
+//				ApproximateCreationDateTimePrecision: pulumi.String("MICROSECOND"),
 //			})
 //			if err != nil {
 //				return err
@@ -72,10 +73,11 @@ import (
 type KinesisStreamingDestination struct {
 	pulumi.CustomResourceState
 
+	// Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
+	ApproximateCreationDateTimePrecision pulumi.StringOutput `pulumi:"approximateCreationDateTimePrecision"`
 	// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
 	StreamArn pulumi.StringOutput `pulumi:"streamArn"`
-	// The name of the DynamoDB table. There
-	// can only be one Kinesis streaming destination for a given DynamoDB table.
+	// The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
 	TableName pulumi.StringOutput `pulumi:"tableName"`
 }
 
@@ -115,18 +117,20 @@ func GetKinesisStreamingDestination(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KinesisStreamingDestination resources.
 type kinesisStreamingDestinationState struct {
+	// Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
+	ApproximateCreationDateTimePrecision *string `pulumi:"approximateCreationDateTimePrecision"`
 	// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
 	StreamArn *string `pulumi:"streamArn"`
-	// The name of the DynamoDB table. There
-	// can only be one Kinesis streaming destination for a given DynamoDB table.
+	// The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
 	TableName *string `pulumi:"tableName"`
 }
 
 type KinesisStreamingDestinationState struct {
+	// Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
+	ApproximateCreationDateTimePrecision pulumi.StringPtrInput
 	// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
 	StreamArn pulumi.StringPtrInput
-	// The name of the DynamoDB table. There
-	// can only be one Kinesis streaming destination for a given DynamoDB table.
+	// The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
 	TableName pulumi.StringPtrInput
 }
 
@@ -135,19 +139,21 @@ func (KinesisStreamingDestinationState) ElementType() reflect.Type {
 }
 
 type kinesisStreamingDestinationArgs struct {
+	// Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
+	ApproximateCreationDateTimePrecision *string `pulumi:"approximateCreationDateTimePrecision"`
 	// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
 	StreamArn string `pulumi:"streamArn"`
-	// The name of the DynamoDB table. There
-	// can only be one Kinesis streaming destination for a given DynamoDB table.
+	// The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
 	TableName string `pulumi:"tableName"`
 }
 
 // The set of arguments for constructing a KinesisStreamingDestination resource.
 type KinesisStreamingDestinationArgs struct {
+	// Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
+	ApproximateCreationDateTimePrecision pulumi.StringPtrInput
 	// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
 	StreamArn pulumi.StringInput
-	// The name of the DynamoDB table. There
-	// can only be one Kinesis streaming destination for a given DynamoDB table.
+	// The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
 	TableName pulumi.StringInput
 }
 
@@ -238,13 +244,19 @@ func (o KinesisStreamingDestinationOutput) ToKinesisStreamingDestinationOutputWi
 	return o
 }
 
+// Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
+func (o KinesisStreamingDestinationOutput) ApproximateCreationDateTimePrecision() pulumi.StringOutput {
+	return o.ApplyT(func(v *KinesisStreamingDestination) pulumi.StringOutput {
+		return v.ApproximateCreationDateTimePrecision
+	}).(pulumi.StringOutput)
+}
+
 // The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
 func (o KinesisStreamingDestinationOutput) StreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KinesisStreamingDestination) pulumi.StringOutput { return v.StreamArn }).(pulumi.StringOutput)
 }
 
-// The name of the DynamoDB table. There
-// can only be one Kinesis streaming destination for a given DynamoDB table.
+// The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
 func (o KinesisStreamingDestinationOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v *KinesisStreamingDestination) pulumi.StringOutput { return v.TableName }).(pulumi.StringOutput)
 }

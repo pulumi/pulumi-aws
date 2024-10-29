@@ -3,16 +3,34 @@
 
 package com.pulumi.aws.sagemaker.inputs;
 
+import com.pulumi.aws.sagemaker.inputs.SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs;
 import com.pulumi.aws.sagemaker.inputs.SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class SpaceSpaceSettingsCodeEditorAppSettingsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SpaceSpaceSettingsCodeEditorAppSettingsArgs Empty = new SpaceSpaceSettingsCodeEditorAppSettingsArgs();
+
+    /**
+     * Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
+     * 
+     */
+    @Import(name="appLifecycleManagement")
+    private @Nullable Output<SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs> appLifecycleManagement;
+
+    /**
+     * @return Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
+     * 
+     */
+    public Optional<Output<SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs>> appLifecycleManagement() {
+        return Optional.ofNullable(this.appLifecycleManagement);
+    }
 
     /**
      * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `default_resource_spec` Block below.
@@ -32,6 +50,7 @@ public final class SpaceSpaceSettingsCodeEditorAppSettingsArgs extends com.pulum
     private SpaceSpaceSettingsCodeEditorAppSettingsArgs() {}
 
     private SpaceSpaceSettingsCodeEditorAppSettingsArgs(SpaceSpaceSettingsCodeEditorAppSettingsArgs $) {
+        this.appLifecycleManagement = $.appLifecycleManagement;
         this.defaultResourceSpec = $.defaultResourceSpec;
     }
 
@@ -51,6 +70,27 @@ public final class SpaceSpaceSettingsCodeEditorAppSettingsArgs extends com.pulum
 
         public Builder(SpaceSpaceSettingsCodeEditorAppSettingsArgs defaults) {
             $ = new SpaceSpaceSettingsCodeEditorAppSettingsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param appLifecycleManagement Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder appLifecycleManagement(@Nullable Output<SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs> appLifecycleManagement) {
+            $.appLifecycleManagement = appLifecycleManagement;
+            return this;
+        }
+
+        /**
+         * @param appLifecycleManagement Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder appLifecycleManagement(SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs appLifecycleManagement) {
+            return appLifecycleManagement(Output.of(appLifecycleManagement));
         }
 
         /**
