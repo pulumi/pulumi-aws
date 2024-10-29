@@ -14,8 +14,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * const current = aws.s3.getCanonicalUserId({});
  * const example = aws.cloudfront.getLogDeliveryCanonicalUserId({});
  * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("example", {
+ *     bucket: exampleBucketV2.id,
+ *     rule: {
+ *         objectOwnership: "BucketOwnerPreferred",
+ *     },
+ * });
  * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
  *     bucket: exampleBucketV2.id,
  *     accessControlPolicy: {
@@ -26,7 +33,12 @@ import * as utilities from "../utilities";
  *             },
  *             permission: "FULL_CONTROL",
  *         }],
+ *         owner: {
+ *             id: current.then(current => current.id),
+ *         },
  *     },
+ * }, {
+ *     dependsOn: [exampleBucketOwnershipControls],
  * });
  * ```
  */
@@ -68,8 +80,15 @@ export interface GetLogDeliveryCanonicalUserIdResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * const current = aws.s3.getCanonicalUserId({});
  * const example = aws.cloudfront.getLogDeliveryCanonicalUserId({});
  * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("example", {
+ *     bucket: exampleBucketV2.id,
+ *     rule: {
+ *         objectOwnership: "BucketOwnerPreferred",
+ *     },
+ * });
  * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
  *     bucket: exampleBucketV2.id,
  *     accessControlPolicy: {
@@ -80,7 +99,12 @@ export interface GetLogDeliveryCanonicalUserIdResult {
  *             },
  *             permission: "FULL_CONTROL",
  *         }],
+ *         owner: {
+ *             id: current.then(current => current.id),
+ *         },
  *     },
+ * }, {
+ *     dependsOn: [exampleBucketOwnershipControls],
  * });
  * ```
  */

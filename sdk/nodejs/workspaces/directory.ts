@@ -81,6 +81,10 @@ import * as utilities from "../utilities";
  *     tags: {
  *         Example: "true",
  *     },
+ *     samlProperties: {
+ *         userAccessUrl: "https://sso.example.com/",
+ *         status: "ENABLED",
+ *     },
  *     selfServicePermissions: {
  *         changeComputeType: true,
  *         increaseVolumeSize: true,
@@ -199,6 +203,10 @@ export class Directory extends pulumi.CustomResource {
      */
     public /*out*/ readonly registrationCode!: pulumi.Output<string>;
     /**
+     * Configuration of SAML authentication integration. Defined below.
+     */
+    public readonly samlProperties!: pulumi.Output<outputs.workspaces.DirectorySamlProperties>;
+    /**
      * Permissions to enable or disable self-service capabilities. Defined below.
      */
     public readonly selfServicePermissions!: pulumi.Output<outputs.workspaces.DirectorySelfServicePermissions>;
@@ -251,6 +259,7 @@ export class Directory extends pulumi.CustomResource {
             resourceInputs["iamRoleId"] = state ? state.iamRoleId : undefined;
             resourceInputs["ipGroupIds"] = state ? state.ipGroupIds : undefined;
             resourceInputs["registrationCode"] = state ? state.registrationCode : undefined;
+            resourceInputs["samlProperties"] = state ? state.samlProperties : undefined;
             resourceInputs["selfServicePermissions"] = state ? state.selfServicePermissions : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -265,6 +274,7 @@ export class Directory extends pulumi.CustomResource {
             }
             resourceInputs["directoryId"] = args ? args.directoryId : undefined;
             resourceInputs["ipGroupIds"] = args ? args.ipGroupIds : undefined;
+            resourceInputs["samlProperties"] = args ? args.samlProperties : undefined;
             resourceInputs["selfServicePermissions"] = args ? args.selfServicePermissions : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -326,6 +336,10 @@ export interface DirectoryState {
      */
     registrationCode?: pulumi.Input<string>;
     /**
+     * Configuration of SAML authentication integration. Defined below.
+     */
+    samlProperties?: pulumi.Input<inputs.workspaces.DirectorySamlProperties>;
+    /**
      * Permissions to enable or disable self-service capabilities. Defined below.
      */
     selfServicePermissions?: pulumi.Input<inputs.workspaces.DirectorySelfServicePermissions>;
@@ -369,6 +383,10 @@ export interface DirectoryArgs {
      * The identifiers of the IP access control groups associated with the directory.
      */
     ipGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Configuration of SAML authentication integration. Defined below.
+     */
+    samlProperties?: pulumi.Input<inputs.workspaces.DirectorySamlProperties>;
     /**
      * Permissions to enable or disable self-service capabilities. Defined below.
      */

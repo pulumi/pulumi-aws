@@ -26,7 +26,10 @@ class GetKeyResult:
     """
     A collection of values returned by getKey.
     """
-    def __init__(__self__, created_date=None, customer_id=None, description=None, enabled=None, id=None, last_updated_date=None, name=None, tags=None, value=None):
+    def __init__(__self__, arn=None, created_date=None, customer_id=None, description=None, enabled=None, id=None, last_updated_date=None, name=None, tags=None, value=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
@@ -54,6 +57,11 @@ class GetKeyResult:
         if value and not isinstance(value, str):
             raise TypeError("Expected argument 'value' to be a str")
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdDate")
@@ -134,6 +142,7 @@ class AwaitableGetKeyResult(GetKeyResult):
         if False:
             yield self
         return GetKeyResult(
+            arn=self.arn,
             created_date=self.created_date,
             customer_id=self.customer_id,
             description=self.description,
@@ -172,6 +181,7 @@ def get_key(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:apigateway/getKey:getKey', __args__, opts=opts, typ=GetKeyResult).value
 
     return AwaitableGetKeyResult(
+        arn=pulumi.get(__ret__, 'arn'),
         created_date=pulumi.get(__ret__, 'created_date'),
         customer_id=pulumi.get(__ret__, 'customer_id'),
         description=pulumi.get(__ret__, 'description'),
@@ -207,6 +217,7 @@ def get_key_output(id: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:apigateway/getKey:getKey', __args__, opts=opts, typ=GetKeyResult)
     return __ret__.apply(lambda __response__: GetKeyResult(
+        arn=pulumi.get(__response__, 'arn'),
         created_date=pulumi.get(__response__, 'created_date'),
         customer_id=pulumi.get(__response__, 'customer_id'),
         description=pulumi.get(__response__, 'description'),

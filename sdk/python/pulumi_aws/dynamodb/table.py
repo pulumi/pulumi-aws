@@ -29,6 +29,7 @@ class TableArgs:
                  import_table: Optional[pulumi.Input['TableImportTableArgs']] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 on_demand_throughput: Optional[pulumi.Input['TableOnDemandThroughputArgs']] = None,
                  point_in_time_recovery: Optional[pulumi.Input['TablePointInTimeRecoveryArgs']] = None,
                  range_key: Optional[pulumi.Input[str]] = None,
                  read_capacity: Optional[pulumi.Input[int]] = None,
@@ -56,6 +57,7 @@ class TableArgs:
         :param pulumi.Input[str] name: Unique within a region name of the table.
                
                Optional arguments:
+        :param pulumi.Input['TableOnDemandThroughputArgs'] on_demand_throughput: Sets the maximum number of read and write units for the specified on-demand table. See below.
         :param pulumi.Input['TablePointInTimeRecoveryArgs'] point_in_time_recovery: Enable point-in-time recovery options. See below.
         :param pulumi.Input[str] range_key: Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
         :param pulumi.Input[int] read_capacity: Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
@@ -90,6 +92,8 @@ class TableArgs:
             pulumi.set(__self__, "local_secondary_indexes", local_secondary_indexes)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if on_demand_throughput is not None:
+            pulumi.set(__self__, "on_demand_throughput", on_demand_throughput)
         if point_in_time_recovery is not None:
             pulumi.set(__self__, "point_in_time_recovery", point_in_time_recovery)
         if range_key is not None:
@@ -218,6 +222,18 @@ class TableArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="onDemandThroughput")
+    def on_demand_throughput(self) -> Optional[pulumi.Input['TableOnDemandThroughputArgs']]:
+        """
+        Sets the maximum number of read and write units for the specified on-demand table. See below.
+        """
+        return pulumi.get(self, "on_demand_throughput")
+
+    @on_demand_throughput.setter
+    def on_demand_throughput(self, value: Optional[pulumi.Input['TableOnDemandThroughputArgs']]):
+        pulumi.set(self, "on_demand_throughput", value)
 
     @property
     @pulumi.getter(name="pointInTimeRecovery")
@@ -414,6 +430,7 @@ class _TableState:
                  import_table: Optional[pulumi.Input['TableImportTableArgs']] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 on_demand_throughput: Optional[pulumi.Input['TableOnDemandThroughputArgs']] = None,
                  point_in_time_recovery: Optional[pulumi.Input['TablePointInTimeRecoveryArgs']] = None,
                  range_key: Optional[pulumi.Input[str]] = None,
                  read_capacity: Optional[pulumi.Input[int]] = None,
@@ -445,6 +462,7 @@ class _TableState:
         :param pulumi.Input[str] name: Unique within a region name of the table.
                
                Optional arguments:
+        :param pulumi.Input['TableOnDemandThroughputArgs'] on_demand_throughput: Sets the maximum number of read and write units for the specified on-demand table. See below.
         :param pulumi.Input['TablePointInTimeRecoveryArgs'] point_in_time_recovery: Enable point-in-time recovery options. See below.
         :param pulumi.Input[str] range_key: Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
         :param pulumi.Input[int] read_capacity: Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
@@ -484,6 +502,8 @@ class _TableState:
             pulumi.set(__self__, "local_secondary_indexes", local_secondary_indexes)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if on_demand_throughput is not None:
+            pulumi.set(__self__, "on_demand_throughput", on_demand_throughput)
         if point_in_time_recovery is not None:
             pulumi.set(__self__, "point_in_time_recovery", point_in_time_recovery)
         if range_key is not None:
@@ -633,6 +653,18 @@ class _TableState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="onDemandThroughput")
+    def on_demand_throughput(self) -> Optional[pulumi.Input['TableOnDemandThroughputArgs']]:
+        """
+        Sets the maximum number of read and write units for the specified on-demand table. See below.
+        """
+        return pulumi.get(self, "on_demand_throughput")
+
+    @on_demand_throughput.setter
+    def on_demand_throughput(self, value: Optional[pulumi.Input['TableOnDemandThroughputArgs']]):
+        pulumi.set(self, "on_demand_throughput", value)
 
     @property
     @pulumi.getter(name="pointInTimeRecovery")
@@ -867,6 +899,7 @@ class Table(pulumi.CustomResource):
                  import_table: Optional[pulumi.Input[Union['TableImportTableArgs', 'TableImportTableArgsDict']]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableLocalSecondaryIndexArgs', 'TableLocalSecondaryIndexArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 on_demand_throughput: Optional[pulumi.Input[Union['TableOnDemandThroughputArgs', 'TableOnDemandThroughputArgsDict']]] = None,
                  point_in_time_recovery: Optional[pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']]] = None,
                  range_key: Optional[pulumi.Input[str]] = None,
                  read_capacity: Optional[pulumi.Input[int]] = None,
@@ -1042,6 +1075,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[str] name: Unique within a region name of the table.
                
                Optional arguments:
+        :param pulumi.Input[Union['TableOnDemandThroughputArgs', 'TableOnDemandThroughputArgsDict']] on_demand_throughput: Sets the maximum number of read and write units for the specified on-demand table. See below.
         :param pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']] point_in_time_recovery: Enable point-in-time recovery options. See below.
         :param pulumi.Input[str] range_key: Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
         :param pulumi.Input[int] read_capacity: Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
@@ -1236,6 +1270,7 @@ class Table(pulumi.CustomResource):
                  import_table: Optional[pulumi.Input[Union['TableImportTableArgs', 'TableImportTableArgsDict']]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableLocalSecondaryIndexArgs', 'TableLocalSecondaryIndexArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 on_demand_throughput: Optional[pulumi.Input[Union['TableOnDemandThroughputArgs', 'TableOnDemandThroughputArgsDict']]] = None,
                  point_in_time_recovery: Optional[pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']]] = None,
                  range_key: Optional[pulumi.Input[str]] = None,
                  read_capacity: Optional[pulumi.Input[int]] = None,
@@ -1268,6 +1303,7 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["import_table"] = import_table
             __props__.__dict__["local_secondary_indexes"] = local_secondary_indexes
             __props__.__dict__["name"] = name
+            __props__.__dict__["on_demand_throughput"] = on_demand_throughput
             __props__.__dict__["point_in_time_recovery"] = point_in_time_recovery
             __props__.__dict__["range_key"] = range_key
             __props__.__dict__["read_capacity"] = read_capacity
@@ -1306,6 +1342,7 @@ class Table(pulumi.CustomResource):
             import_table: Optional[pulumi.Input[Union['TableImportTableArgs', 'TableImportTableArgsDict']]] = None,
             local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableLocalSecondaryIndexArgs', 'TableLocalSecondaryIndexArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            on_demand_throughput: Optional[pulumi.Input[Union['TableOnDemandThroughputArgs', 'TableOnDemandThroughputArgsDict']]] = None,
             point_in_time_recovery: Optional[pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']]] = None,
             range_key: Optional[pulumi.Input[str]] = None,
             read_capacity: Optional[pulumi.Input[int]] = None,
@@ -1342,6 +1379,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[str] name: Unique within a region name of the table.
                
                Optional arguments:
+        :param pulumi.Input[Union['TableOnDemandThroughputArgs', 'TableOnDemandThroughputArgsDict']] on_demand_throughput: Sets the maximum number of read and write units for the specified on-demand table. See below.
         :param pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']] point_in_time_recovery: Enable point-in-time recovery options. See below.
         :param pulumi.Input[str] range_key: Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
         :param pulumi.Input[int] read_capacity: Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
@@ -1376,6 +1414,7 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["import_table"] = import_table
         __props__.__dict__["local_secondary_indexes"] = local_secondary_indexes
         __props__.__dict__["name"] = name
+        __props__.__dict__["on_demand_throughput"] = on_demand_throughput
         __props__.__dict__["point_in_time_recovery"] = point_in_time_recovery
         __props__.__dict__["range_key"] = range_key
         __props__.__dict__["read_capacity"] = read_capacity
@@ -1469,6 +1508,14 @@ class Table(pulumi.CustomResource):
         Optional arguments:
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="onDemandThroughput")
+    def on_demand_throughput(self) -> pulumi.Output[Optional['outputs.TableOnDemandThroughput']]:
+        """
+        Sets the maximum number of read and write units for the specified on-demand table. See below.
+        """
+        return pulumi.get(self, "on_demand_throughput")
 
     @property
     @pulumi.getter(name="pointInTimeRecovery")

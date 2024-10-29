@@ -5,7 +5,7 @@ Subject: [PATCH] Change default descriptions to "Managed by Pulumi"
 
 
 diff --git a/internal/service/apigateway/api_key.go b/internal/service/apigateway/api_key.go
-index abc31f0d40..ebf1de5fb3 100644
+index d878a367ea..94cd5d3191 100644
 --- a/internal/service/apigateway/api_key.go
 +++ b/internal/service/apigateway/api_key.go
 @@ -56,7 +56,7 @@ func resourceAPIKey() *schema.Resource {
@@ -96,7 +96,7 @@ index c4ae847827..182682ea9f 100644
  			names.AttrFamily: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/elasticache/subnet_group.go b/internal/service/elasticache/subnet_group.go
-index 44f753bb0c..9820b8a602 100644
+index b261327be5..69e49f74c9 100644
 --- a/internal/service/elasticache/subnet_group.go
 +++ b/internal/service/elasticache/subnet_group.go
 @@ -48,7 +48,7 @@ func resourceSubnetGroup() *schema.Resource {

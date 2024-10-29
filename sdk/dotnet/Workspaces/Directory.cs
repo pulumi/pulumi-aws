@@ -128,6 +128,11 @@ namespace Pulumi.Aws.Workspaces
     ///         {
     ///             { "Example", "true" },
     ///         },
+    ///         SamlProperties = new Aws.Workspaces.Inputs.DirectorySamlPropertiesArgs
+    ///         {
+    ///             UserAccessUrl = "https://sso.example.com/",
+    ///             Status = "ENABLED",
+    ///         },
     ///         SelfServicePermissions = new Aws.Workspaces.Inputs.DirectorySelfServicePermissionsArgs
     ///         {
     ///             ChangeComputeType = true,
@@ -260,6 +265,12 @@ namespace Pulumi.Aws.Workspaces
         public Output<string> RegistrationCode { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration of SAML authentication integration. Defined below.
+        /// </summary>
+        [Output("samlProperties")]
+        public Output<Outputs.DirectorySamlProperties> SamlProperties { get; private set; } = null!;
+
+        /// <summary>
         /// Permissions to enable or disable self-service capabilities. Defined below.
         /// </summary>
         [Output("selfServicePermissions")]
@@ -364,6 +375,12 @@ namespace Pulumi.Aws.Workspaces
             get => _ipGroupIds ?? (_ipGroupIds = new InputList<string>());
             set => _ipGroupIds = value;
         }
+
+        /// <summary>
+        /// Configuration of SAML authentication integration. Defined below.
+        /// </summary>
+        [Input("samlProperties")]
+        public Input<Inputs.DirectorySamlPropertiesArgs>? SamlProperties { get; set; }
 
         /// <summary>
         /// Permissions to enable or disable self-service capabilities. Defined below.
@@ -480,6 +497,12 @@ namespace Pulumi.Aws.Workspaces
         /// </summary>
         [Input("registrationCode")]
         public Input<string>? RegistrationCode { get; set; }
+
+        /// <summary>
+        /// Configuration of SAML authentication integration. Defined below.
+        /// </summary>
+        [Input("samlProperties")]
+        public Input<Inputs.DirectorySamlPropertiesGetArgs>? SamlProperties { get; set; }
 
         /// <summary>
         /// Permissions to enable or disable self-service capabilities. Defined below.

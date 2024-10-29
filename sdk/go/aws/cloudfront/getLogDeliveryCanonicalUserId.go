@@ -29,12 +29,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := s3.GetCanonicalUserId(ctx, map[string]interface{}{}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			example, err := cloudfront.GetLogDeliveryCanonicalUserId(ctx, &cloudfront.GetLogDeliveryCanonicalUserIdArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
 //				Bucket: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleBucketOwnershipControls, err := s3.NewBucketOwnershipControls(ctx, "example", &s3.BucketOwnershipControlsArgs{
+//				Bucket: exampleBucketV2.ID(),
+//				Rule: &s3.BucketOwnershipControlsRuleArgs{
+//					ObjectOwnership: pulumi.String("BucketOwnerPreferred"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -51,8 +64,13 @@ import (
 //							Permission: pulumi.String("FULL_CONTROL"),
 //						},
 //					},
+//					Owner: &s3.BucketAclV2AccessControlPolicyOwnerArgs{
+//						Id: pulumi.String(current.Id),
+//					},
 //				},
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleBucketOwnershipControls,
+//			}))
 //			if err != nil {
 //				return err
 //			}

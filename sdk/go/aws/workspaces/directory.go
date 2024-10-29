@@ -136,6 +136,10 @@ import (
 //				Tags: pulumi.StringMap{
 //					"Example": pulumi.String("true"),
 //				},
+//				SamlProperties: &workspaces.DirectorySamlPropertiesArgs{
+//					UserAccessUrl: pulumi.String("https://sso.example.com/"),
+//					Status:        pulumi.String("ENABLED"),
+//				},
 //				SelfServicePermissions: &workspaces.DirectorySelfServicePermissionsArgs{
 //					ChangeComputeType:  pulumi.Bool(true),
 //					IncreaseVolumeSize: pulumi.Bool(true),
@@ -236,6 +240,8 @@ type Directory struct {
 	IpGroupIds pulumi.StringArrayOutput `pulumi:"ipGroupIds"`
 	// The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
 	RegistrationCode pulumi.StringOutput `pulumi:"registrationCode"`
+	// Configuration of SAML authentication integration. Defined below.
+	SamlProperties DirectorySamlPropertiesOutput `pulumi:"samlProperties"`
 	// Permissions to enable or disable self-service capabilities. Defined below.
 	SelfServicePermissions DirectorySelfServicePermissionsOutput `pulumi:"selfServicePermissions"`
 	// The identifiers of the subnets where the directory resides.
@@ -305,6 +311,8 @@ type directoryState struct {
 	IpGroupIds []string `pulumi:"ipGroupIds"`
 	// The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
 	RegistrationCode *string `pulumi:"registrationCode"`
+	// Configuration of SAML authentication integration. Defined below.
+	SamlProperties *DirectorySamlProperties `pulumi:"samlProperties"`
 	// Permissions to enable or disable self-service capabilities. Defined below.
 	SelfServicePermissions *DirectorySelfServicePermissions `pulumi:"selfServicePermissions"`
 	// The identifiers of the subnets where the directory resides.
@@ -342,6 +350,8 @@ type DirectoryState struct {
 	IpGroupIds pulumi.StringArrayInput
 	// The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
 	RegistrationCode pulumi.StringPtrInput
+	// Configuration of SAML authentication integration. Defined below.
+	SamlProperties DirectorySamlPropertiesPtrInput
 	// Permissions to enable or disable self-service capabilities. Defined below.
 	SelfServicePermissions DirectorySelfServicePermissionsPtrInput
 	// The identifiers of the subnets where the directory resides.
@@ -369,6 +379,8 @@ type directoryArgs struct {
 	DirectoryId string `pulumi:"directoryId"`
 	// The identifiers of the IP access control groups associated with the directory.
 	IpGroupIds []string `pulumi:"ipGroupIds"`
+	// Configuration of SAML authentication integration. Defined below.
+	SamlProperties *DirectorySamlProperties `pulumi:"samlProperties"`
 	// Permissions to enable or disable self-service capabilities. Defined below.
 	SelfServicePermissions *DirectorySelfServicePermissions `pulumi:"selfServicePermissions"`
 	// The identifiers of the subnets where the directory resides.
@@ -387,6 +399,8 @@ type DirectoryArgs struct {
 	DirectoryId pulumi.StringInput
 	// The identifiers of the IP access control groups associated with the directory.
 	IpGroupIds pulumi.StringArrayInput
+	// Configuration of SAML authentication integration. Defined below.
+	SamlProperties DirectorySamlPropertiesPtrInput
 	// Permissions to enable or disable self-service capabilities. Defined below.
 	SelfServicePermissions DirectorySelfServicePermissionsPtrInput
 	// The identifiers of the subnets where the directory resides.
@@ -529,6 +543,11 @@ func (o DirectoryOutput) IpGroupIds() pulumi.StringArrayOutput {
 // The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
 func (o DirectoryOutput) RegistrationCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Directory) pulumi.StringOutput { return v.RegistrationCode }).(pulumi.StringOutput)
+}
+
+// Configuration of SAML authentication integration. Defined below.
+func (o DirectoryOutput) SamlProperties() DirectorySamlPropertiesOutput {
+	return o.ApplyT(func(v *Directory) DirectorySamlPropertiesOutput { return v.SamlProperties }).(DirectorySamlPropertiesOutput)
 }
 
 // Permissions to enable or disable self-service capabilities. Defined below.

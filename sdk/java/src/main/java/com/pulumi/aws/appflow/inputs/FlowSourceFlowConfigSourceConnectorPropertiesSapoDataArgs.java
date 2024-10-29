@@ -3,11 +3,15 @@
 
 package com.pulumi.aws.appflow.inputs;
 
+import com.pulumi.aws.appflow.inputs.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs;
+import com.pulumi.aws.appflow.inputs.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs extends com.pulumi.resources.ResourceArgs {
@@ -21,10 +25,42 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs ext
         return this.objectPath;
     }
 
+    /**
+     * Sets the page size for each concurrent process that transfers OData records from your SAP instance.
+     * 
+     */
+    @Import(name="paginationConfig")
+    private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs> paginationConfig;
+
+    /**
+     * @return Sets the page size for each concurrent process that transfers OData records from your SAP instance.
+     * 
+     */
+    public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs>> paginationConfig() {
+        return Optional.ofNullable(this.paginationConfig);
+    }
+
+    /**
+     * Sets the number of concurrent processes that transfers OData records from your SAP instance.
+     * 
+     */
+    @Import(name="parallelismConfig")
+    private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs> parallelismConfig;
+
+    /**
+     * @return Sets the number of concurrent processes that transfers OData records from your SAP instance.
+     * 
+     */
+    public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs>> parallelismConfig() {
+        return Optional.ofNullable(this.parallelismConfig);
+    }
+
     private FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs() {}
 
     private FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs $) {
         this.objectPath = $.objectPath;
+        this.paginationConfig = $.paginationConfig;
+        this.parallelismConfig = $.parallelismConfig;
     }
 
     public static Builder builder() {
@@ -52,6 +88,48 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs ext
 
         public Builder objectPath(String objectPath) {
             return objectPath(Output.of(objectPath));
+        }
+
+        /**
+         * @param paginationConfig Sets the page size for each concurrent process that transfers OData records from your SAP instance.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder paginationConfig(@Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs> paginationConfig) {
+            $.paginationConfig = paginationConfig;
+            return this;
+        }
+
+        /**
+         * @param paginationConfig Sets the page size for each concurrent process that transfers OData records from your SAP instance.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder paginationConfig(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs paginationConfig) {
+            return paginationConfig(Output.of(paginationConfig));
+        }
+
+        /**
+         * @param parallelismConfig Sets the number of concurrent processes that transfers OData records from your SAP instance.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parallelismConfig(@Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs> parallelismConfig) {
+            $.parallelismConfig = parallelismConfig;
+            return this;
+        }
+
+        /**
+         * @param parallelismConfig Sets the number of concurrent processes that transfers OData records from your SAP instance.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parallelismConfig(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs parallelismConfig) {
+            return parallelismConfig(Output.of(parallelismConfig));
         }
 
         public FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs build() {

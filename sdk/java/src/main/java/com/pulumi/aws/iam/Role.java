@@ -240,6 +240,8 @@ import javax.annotation.Nullable;
  * 
  * ### Example of Exclusive Managed Policies
  * 
+ * &gt; The `managed_policy_arns` argument is deprecated. Use the `aws.iam.RolePolicyAttachmentsExclusive` resource instead.
+ * 
  * This example creates an IAM role and attaches two managed IAM policies. If someone attaches another managed policy out-of-band, on the next apply, this provider will detach that policy. If someone detaches these policies out-of-band, this provider will attach them again.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -313,6 +315,8 @@ import javax.annotation.Nullable;
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Example of Removing Managed Policies
+ * 
+ * &gt; The `managed_policy_arns` argument is deprecated. Use the `aws.iam.RolePolicyAttachmentsExclusive` resource instead.
  * 
  * This example creates an IAM role with an empty `managed_policy_arns` argument. If someone attaches a policy out-of-band, on the next apply, this provider will detach that policy.
  * 
@@ -458,9 +462,17 @@ public class Role extends com.pulumi.resources.CustomResource {
     public Output<List<RoleInlinePolicy>> inlinePolicies() {
         return this.inlinePolicies;
     }
+    /**
+     * Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, Pulumi will ignore policy attachments to this resource. When configured, Pulumi will align the role&#39;s managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managed_policy_arns = []`) will cause Pulumi to remove _all_ managed policy attachments.
+     * 
+     */
     @Export(name="managedPolicyArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> managedPolicyArns;
 
+    /**
+     * @return Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, Pulumi will ignore policy attachments to this resource. When configured, Pulumi will align the role&#39;s managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managed_policy_arns = []`) will cause Pulumi to remove _all_ managed policy attachments.
+     * 
+     */
     public Output<List<String>> managedPolicyArns() {
         return this.managedPolicyArns;
     }

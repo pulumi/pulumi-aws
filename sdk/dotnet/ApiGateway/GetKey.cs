@@ -119,6 +119,7 @@ namespace Pulumi.Aws.ApiGateway
     [OutputType]
     public sealed class GetKeyResult
     {
+        public readonly string Arn;
         /// <summary>
         /// Date and time when the API Key was created.
         /// </summary>
@@ -158,6 +159,8 @@ namespace Pulumi.Aws.ApiGateway
 
         [OutputConstructor]
         private GetKeyResult(
+            string arn,
+
             string createdDate,
 
             string customerId,
@@ -176,6 +179,7 @@ namespace Pulumi.Aws.ApiGateway
 
             string value)
         {
+            Arn = arn;
             CreatedDate = createdDate;
             CustomerId = customerId;
             Description = description;

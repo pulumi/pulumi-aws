@@ -7,7 +7,7 @@ Upstream has made changes that do not allow a resource to use both sdkv1
 & sdkv2 resources. This updates the gamelift resources to v2.
 
 diff --git a/internal/service/gamelift/matchmaking_configuration.go b/internal/service/gamelift/matchmaking_configuration.go
-index 89ecad9db0..4a680204d4 100644
+index 89ecad9db0..5811f1f884 100644
 --- a/internal/service/gamelift/matchmaking_configuration.go
 +++ b/internal/service/gamelift/matchmaking_configuration.go
 @@ -5,17 +5,20 @@ import (
@@ -67,8 +67,9 @@ index 89ecad9db0..4a680204d4 100644
  
  func resourceMatchmakingConfigurationCreate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
 -	conn := meta.(*conns.AWSClient).GameLiftConn(ctx)
+-	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig
 +	conn := meta.(*conns.AWSClient).GameLiftClient(ctx)
- 	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig
++	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig(ctx)
  	tags := defaultTagsConfig.MergeTags(tftags.New(ctx, d.Get("tags").(map[string]interface{})))
  
  	input := gamelift.CreateMatchmakingConfigurationInput{
@@ -129,8 +130,9 @@ index 89ecad9db0..4a680204d4 100644
  
  func resourceMatchmakingConfigurationRead(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
 -	conn := meta.(*conns.AWSClient).GameLiftConn(ctx)
+-	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig
 +	conn := meta.(*conns.AWSClient).GameLiftClient(ctx)
- 	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig
++	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig(ctx)
  	ignoreTagsConfig := meta.(*conns.AWSClient).IgnoreTagsConfig
  
  	log.Printf("[INFO] Describing GameLift Matchmaking Configuration: %s", d.Id())
@@ -409,7 +411,7 @@ index 6453fa75a0..480b62b36b 100644
  resource "aws_gamelift_game_session_queue" "test" {
  	name         = %[2]q
 diff --git a/internal/service/gamelift/matchmaking_rule_set.go b/internal/service/gamelift/matchmaking_rule_set.go
-index d9f2424b7a..edfcb269a7 100644
+index d9f2424b7a..5b34ab8669 100644
 --- a/internal/service/gamelift/matchmaking_rule_set.go
 +++ b/internal/service/gamelift/matchmaking_rule_set.go
 @@ -4,18 +4,20 @@ import (
@@ -436,15 +438,17 @@ index d9f2424b7a..edfcb269a7 100644
  func ResourceMatchmakingRuleSet() *schema.Resource {
  	return &schema.Resource{
  		CreateWithoutTimeout: resourceMatchmakingRuleSetCreate,
-@@ -58,7 +60,7 @@ func ResourceMatchmakingRuleSet() *schema.Resource {
+@@ -58,8 +60,8 @@ func ResourceMatchmakingRuleSet() *schema.Resource {
  }
  
  func resourceMatchmakingRuleSetCreate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
 -	conn := meta.(*conns.AWSClient).GameLiftConn(ctx)
+-	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig
 +	conn := meta.(*conns.AWSClient).GameLiftClient(ctx)
- 	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig
++	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig(ctx)
  	tags := defaultTagsConfig.MergeTags(tftags.New(ctx, d.Get("tags").(map[string]interface{})))
  
+ 	input := gamelift.CreateMatchmakingRuleSetInput{
 @@ -67,27 +69,28 @@ func resourceMatchmakingRuleSetCreate(ctx context.Context, d *schema.ResourceDat
  		RuleSetBody: aws.String(d.Get("rule_set_body").(string)),
  		Tags:        Tags(tags.IgnoreAWS()),
@@ -465,8 +469,9 @@ index d9f2424b7a..edfcb269a7 100644
  
  func resourceMatchmakingRuleSetRead(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
 -	conn := meta.(*conns.AWSClient).GameLiftConn(ctx)
+-	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig
 +	conn := meta.(*conns.AWSClient).GameLiftClient(ctx)
- 	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig
++	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig(ctx)
  
  	log.Printf("[INFO] Describing GameLift Matchmaking Rule Set: %s", d.Id())
 -	out, err := conn.DescribeMatchmakingRuleSets(&gamelift.DescribeMatchmakingRuleSetsInput{

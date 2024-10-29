@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.workspaces.inputs;
 
+import com.pulumi.aws.workspaces.inputs.DirectorySamlPropertiesArgs;
 import com.pulumi.aws.workspaces.inputs.DirectorySelfServicePermissionsArgs;
 import com.pulumi.aws.workspaces.inputs.DirectoryWorkspaceAccessPropertiesArgs;
 import com.pulumi.aws.workspaces.inputs.DirectoryWorkspaceCreationPropertiesArgs;
@@ -156,6 +157,21 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Configuration of SAML authentication integration. Defined below.
+     * 
+     */
+    @Import(name="samlProperties")
+    private @Nullable Output<DirectorySamlPropertiesArgs> samlProperties;
+
+    /**
+     * @return Configuration of SAML authentication integration. Defined below.
+     * 
+     */
+    public Optional<Output<DirectorySamlPropertiesArgs>> samlProperties() {
+        return Optional.ofNullable(this.samlProperties);
+    }
+
+    /**
      * Permissions to enable or disable self-service capabilities. Defined below.
      * 
      */
@@ -280,6 +296,7 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
         this.iamRoleId = $.iamRoleId;
         this.ipGroupIds = $.ipGroupIds;
         this.registrationCode = $.registrationCode;
+        this.samlProperties = $.samlProperties;
         this.selfServicePermissions = $.selfServicePermissions;
         this.subnetIds = $.subnetIds;
         this.tags = $.tags;
@@ -514,6 +531,27 @@ public final class DirectoryState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder registrationCode(String registrationCode) {
             return registrationCode(Output.of(registrationCode));
+        }
+
+        /**
+         * @param samlProperties Configuration of SAML authentication integration. Defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder samlProperties(@Nullable Output<DirectorySamlPropertiesArgs> samlProperties) {
+            $.samlProperties = samlProperties;
+            return this;
+        }
+
+        /**
+         * @param samlProperties Configuration of SAML authentication integration. Defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder samlProperties(DirectorySamlPropertiesArgs samlProperties) {
+            return samlProperties(Output.of(samlProperties));
         }
 
         /**

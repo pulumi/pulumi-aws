@@ -18,8 +18,6 @@ type ConnectionAliasTimeouts struct {
 	Create *string `pulumi:"create"`
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 	Delete *string `pulumi:"delete"`
-	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-	Update *string `pulumi:"update"`
 }
 
 // ConnectionAliasTimeoutsInput is an input type that accepts ConnectionAliasTimeoutsArgs and ConnectionAliasTimeoutsOutput values.
@@ -38,8 +36,6 @@ type ConnectionAliasTimeoutsArgs struct {
 	Create pulumi.StringPtrInput `pulumi:"create"`
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 	Delete pulumi.StringPtrInput `pulumi:"delete"`
-	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-	Update pulumi.StringPtrInput `pulumi:"update"`
 }
 
 func (ConnectionAliasTimeoutsArgs) ElementType() reflect.Type {
@@ -129,11 +125,6 @@ func (o ConnectionAliasTimeoutsOutput) Delete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionAliasTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
 }
 
-// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-func (o ConnectionAliasTimeoutsOutput) Update() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectionAliasTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
-}
-
 type ConnectionAliasTimeoutsPtrOutput struct{ *pulumi.OutputState }
 
 func (ConnectionAliasTimeoutsPtrOutput) ElementType() reflect.Type {
@@ -178,13 +169,178 @@ func (o ConnectionAliasTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-func (o ConnectionAliasTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectionAliasTimeouts) *string {
+type DirectorySamlProperties struct {
+	// The relay state parameter name supported by the SAML 2.0 identity provider (IdP). Default `RelayState`.
+	RelayStateParameterName *string `pulumi:"relayStateParameterName"`
+	// Status of SAML 2.0 authentication. Default `DISABLED`.
+	Status *string `pulumi:"status"`
+	// The SAML 2.0 identity provider (IdP) user access URL.
+	UserAccessUrl *string `pulumi:"userAccessUrl"`
+}
+
+// DirectorySamlPropertiesInput is an input type that accepts DirectorySamlPropertiesArgs and DirectorySamlPropertiesOutput values.
+// You can construct a concrete instance of `DirectorySamlPropertiesInput` via:
+//
+//	DirectorySamlPropertiesArgs{...}
+type DirectorySamlPropertiesInput interface {
+	pulumi.Input
+
+	ToDirectorySamlPropertiesOutput() DirectorySamlPropertiesOutput
+	ToDirectorySamlPropertiesOutputWithContext(context.Context) DirectorySamlPropertiesOutput
+}
+
+type DirectorySamlPropertiesArgs struct {
+	// The relay state parameter name supported by the SAML 2.0 identity provider (IdP). Default `RelayState`.
+	RelayStateParameterName pulumi.StringPtrInput `pulumi:"relayStateParameterName"`
+	// Status of SAML 2.0 authentication. Default `DISABLED`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// The SAML 2.0 identity provider (IdP) user access URL.
+	UserAccessUrl pulumi.StringPtrInput `pulumi:"userAccessUrl"`
+}
+
+func (DirectorySamlPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectorySamlProperties)(nil)).Elem()
+}
+
+func (i DirectorySamlPropertiesArgs) ToDirectorySamlPropertiesOutput() DirectorySamlPropertiesOutput {
+	return i.ToDirectorySamlPropertiesOutputWithContext(context.Background())
+}
+
+func (i DirectorySamlPropertiesArgs) ToDirectorySamlPropertiesOutputWithContext(ctx context.Context) DirectorySamlPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectorySamlPropertiesOutput)
+}
+
+func (i DirectorySamlPropertiesArgs) ToDirectorySamlPropertiesPtrOutput() DirectorySamlPropertiesPtrOutput {
+	return i.ToDirectorySamlPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DirectorySamlPropertiesArgs) ToDirectorySamlPropertiesPtrOutputWithContext(ctx context.Context) DirectorySamlPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectorySamlPropertiesOutput).ToDirectorySamlPropertiesPtrOutputWithContext(ctx)
+}
+
+// DirectorySamlPropertiesPtrInput is an input type that accepts DirectorySamlPropertiesArgs, DirectorySamlPropertiesPtr and DirectorySamlPropertiesPtrOutput values.
+// You can construct a concrete instance of `DirectorySamlPropertiesPtrInput` via:
+//
+//	        DirectorySamlPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DirectorySamlPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDirectorySamlPropertiesPtrOutput() DirectorySamlPropertiesPtrOutput
+	ToDirectorySamlPropertiesPtrOutputWithContext(context.Context) DirectorySamlPropertiesPtrOutput
+}
+
+type directorySamlPropertiesPtrType DirectorySamlPropertiesArgs
+
+func DirectorySamlPropertiesPtr(v *DirectorySamlPropertiesArgs) DirectorySamlPropertiesPtrInput {
+	return (*directorySamlPropertiesPtrType)(v)
+}
+
+func (*directorySamlPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectorySamlProperties)(nil)).Elem()
+}
+
+func (i *directorySamlPropertiesPtrType) ToDirectorySamlPropertiesPtrOutput() DirectorySamlPropertiesPtrOutput {
+	return i.ToDirectorySamlPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *directorySamlPropertiesPtrType) ToDirectorySamlPropertiesPtrOutputWithContext(ctx context.Context) DirectorySamlPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectorySamlPropertiesPtrOutput)
+}
+
+type DirectorySamlPropertiesOutput struct{ *pulumi.OutputState }
+
+func (DirectorySamlPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectorySamlProperties)(nil)).Elem()
+}
+
+func (o DirectorySamlPropertiesOutput) ToDirectorySamlPropertiesOutput() DirectorySamlPropertiesOutput {
+	return o
+}
+
+func (o DirectorySamlPropertiesOutput) ToDirectorySamlPropertiesOutputWithContext(ctx context.Context) DirectorySamlPropertiesOutput {
+	return o
+}
+
+func (o DirectorySamlPropertiesOutput) ToDirectorySamlPropertiesPtrOutput() DirectorySamlPropertiesPtrOutput {
+	return o.ToDirectorySamlPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DirectorySamlPropertiesOutput) ToDirectorySamlPropertiesPtrOutputWithContext(ctx context.Context) DirectorySamlPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectorySamlProperties) *DirectorySamlProperties {
+		return &v
+	}).(DirectorySamlPropertiesPtrOutput)
+}
+
+// The relay state parameter name supported by the SAML 2.0 identity provider (IdP). Default `RelayState`.
+func (o DirectorySamlPropertiesOutput) RelayStateParameterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectorySamlProperties) *string { return v.RelayStateParameterName }).(pulumi.StringPtrOutput)
+}
+
+// Status of SAML 2.0 authentication. Default `DISABLED`.
+func (o DirectorySamlPropertiesOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectorySamlProperties) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The SAML 2.0 identity provider (IdP) user access URL.
+func (o DirectorySamlPropertiesOutput) UserAccessUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectorySamlProperties) *string { return v.UserAccessUrl }).(pulumi.StringPtrOutput)
+}
+
+type DirectorySamlPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectorySamlPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectorySamlProperties)(nil)).Elem()
+}
+
+func (o DirectorySamlPropertiesPtrOutput) ToDirectorySamlPropertiesPtrOutput() DirectorySamlPropertiesPtrOutput {
+	return o
+}
+
+func (o DirectorySamlPropertiesPtrOutput) ToDirectorySamlPropertiesPtrOutputWithContext(ctx context.Context) DirectorySamlPropertiesPtrOutput {
+	return o
+}
+
+func (o DirectorySamlPropertiesPtrOutput) Elem() DirectorySamlPropertiesOutput {
+	return o.ApplyT(func(v *DirectorySamlProperties) DirectorySamlProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DirectorySamlProperties
+		return ret
+	}).(DirectorySamlPropertiesOutput)
+}
+
+// The relay state parameter name supported by the SAML 2.0 identity provider (IdP). Default `RelayState`.
+func (o DirectorySamlPropertiesPtrOutput) RelayStateParameterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectorySamlProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Update
+		return v.RelayStateParameterName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Status of SAML 2.0 authentication. Default `DISABLED`.
+func (o DirectorySamlPropertiesPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectorySamlProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SAML 2.0 identity provider (IdP) user access URL.
+func (o DirectorySamlPropertiesPtrOutput) UserAccessUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectorySamlProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAccessUrl
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1494,6 +1650,112 @@ func (o GetBundleUserStorageArrayOutput) Index(i pulumi.IntInput) GetBundleUserS
 	}).(GetBundleUserStorageOutput)
 }
 
+type GetDirectorySamlProperty struct {
+	RelayStateParameterName string `pulumi:"relayStateParameterName"`
+	Status                  string `pulumi:"status"`
+	UserAccessUrl           string `pulumi:"userAccessUrl"`
+}
+
+// GetDirectorySamlPropertyInput is an input type that accepts GetDirectorySamlPropertyArgs and GetDirectorySamlPropertyOutput values.
+// You can construct a concrete instance of `GetDirectorySamlPropertyInput` via:
+//
+//	GetDirectorySamlPropertyArgs{...}
+type GetDirectorySamlPropertyInput interface {
+	pulumi.Input
+
+	ToGetDirectorySamlPropertyOutput() GetDirectorySamlPropertyOutput
+	ToGetDirectorySamlPropertyOutputWithContext(context.Context) GetDirectorySamlPropertyOutput
+}
+
+type GetDirectorySamlPropertyArgs struct {
+	RelayStateParameterName pulumi.StringInput `pulumi:"relayStateParameterName"`
+	Status                  pulumi.StringInput `pulumi:"status"`
+	UserAccessUrl           pulumi.StringInput `pulumi:"userAccessUrl"`
+}
+
+func (GetDirectorySamlPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDirectorySamlProperty)(nil)).Elem()
+}
+
+func (i GetDirectorySamlPropertyArgs) ToGetDirectorySamlPropertyOutput() GetDirectorySamlPropertyOutput {
+	return i.ToGetDirectorySamlPropertyOutputWithContext(context.Background())
+}
+
+func (i GetDirectorySamlPropertyArgs) ToGetDirectorySamlPropertyOutputWithContext(ctx context.Context) GetDirectorySamlPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDirectorySamlPropertyOutput)
+}
+
+// GetDirectorySamlPropertyArrayInput is an input type that accepts GetDirectorySamlPropertyArray and GetDirectorySamlPropertyArrayOutput values.
+// You can construct a concrete instance of `GetDirectorySamlPropertyArrayInput` via:
+//
+//	GetDirectorySamlPropertyArray{ GetDirectorySamlPropertyArgs{...} }
+type GetDirectorySamlPropertyArrayInput interface {
+	pulumi.Input
+
+	ToGetDirectorySamlPropertyArrayOutput() GetDirectorySamlPropertyArrayOutput
+	ToGetDirectorySamlPropertyArrayOutputWithContext(context.Context) GetDirectorySamlPropertyArrayOutput
+}
+
+type GetDirectorySamlPropertyArray []GetDirectorySamlPropertyInput
+
+func (GetDirectorySamlPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDirectorySamlProperty)(nil)).Elem()
+}
+
+func (i GetDirectorySamlPropertyArray) ToGetDirectorySamlPropertyArrayOutput() GetDirectorySamlPropertyArrayOutput {
+	return i.ToGetDirectorySamlPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i GetDirectorySamlPropertyArray) ToGetDirectorySamlPropertyArrayOutputWithContext(ctx context.Context) GetDirectorySamlPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDirectorySamlPropertyArrayOutput)
+}
+
+type GetDirectorySamlPropertyOutput struct{ *pulumi.OutputState }
+
+func (GetDirectorySamlPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDirectorySamlProperty)(nil)).Elem()
+}
+
+func (o GetDirectorySamlPropertyOutput) ToGetDirectorySamlPropertyOutput() GetDirectorySamlPropertyOutput {
+	return o
+}
+
+func (o GetDirectorySamlPropertyOutput) ToGetDirectorySamlPropertyOutputWithContext(ctx context.Context) GetDirectorySamlPropertyOutput {
+	return o
+}
+
+func (o GetDirectorySamlPropertyOutput) RelayStateParameterName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectorySamlProperty) string { return v.RelayStateParameterName }).(pulumi.StringOutput)
+}
+
+func (o GetDirectorySamlPropertyOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectorySamlProperty) string { return v.Status }).(pulumi.StringOutput)
+}
+
+func (o GetDirectorySamlPropertyOutput) UserAccessUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectorySamlProperty) string { return v.UserAccessUrl }).(pulumi.StringOutput)
+}
+
+type GetDirectorySamlPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDirectorySamlPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDirectorySamlProperty)(nil)).Elem()
+}
+
+func (o GetDirectorySamlPropertyArrayOutput) ToGetDirectorySamlPropertyArrayOutput() GetDirectorySamlPropertyArrayOutput {
+	return o
+}
+
+func (o GetDirectorySamlPropertyArrayOutput) ToGetDirectorySamlPropertyArrayOutputWithContext(ctx context.Context) GetDirectorySamlPropertyArrayOutput {
+	return o
+}
+
+func (o GetDirectorySamlPropertyArrayOutput) Index(i pulumi.IntInput) GetDirectorySamlPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDirectorySamlProperty {
+		return vs[0].([]GetDirectorySamlProperty)[vs[1].(int)]
+	}).(GetDirectorySamlPropertyOutput)
+}
+
 type GetDirectorySelfServicePermission struct {
 	// Whether WorkSpaces directory users can change the compute type (bundle) for their workspace.
 	ChangeComputeType bool `pulumi:"changeComputeType"`
@@ -2056,6 +2318,8 @@ func (o GetWorkspaceWorkspacePropertyArrayOutput) Index(i pulumi.IntInput) GetWo
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAliasTimeoutsInput)(nil)).Elem(), ConnectionAliasTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAliasTimeoutsPtrInput)(nil)).Elem(), ConnectionAliasTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectorySamlPropertiesInput)(nil)).Elem(), DirectorySamlPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectorySamlPropertiesPtrInput)(nil)).Elem(), DirectorySamlPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectorySelfServicePermissionsInput)(nil)).Elem(), DirectorySelfServicePermissionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectorySelfServicePermissionsPtrInput)(nil)).Elem(), DirectorySelfServicePermissionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesInput)(nil)).Elem(), DirectoryWorkspaceAccessPropertiesArgs{})
@@ -2072,6 +2336,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBundleRootStorageArrayInput)(nil)).Elem(), GetBundleRootStorageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBundleUserStorageInput)(nil)).Elem(), GetBundleUserStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBundleUserStorageArrayInput)(nil)).Elem(), GetBundleUserStorageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectorySamlPropertyInput)(nil)).Elem(), GetDirectorySamlPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectorySamlPropertyArrayInput)(nil)).Elem(), GetDirectorySamlPropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectorySelfServicePermissionInput)(nil)).Elem(), GetDirectorySelfServicePermissionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectorySelfServicePermissionArrayInput)(nil)).Elem(), GetDirectorySelfServicePermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryWorkspaceAccessPropertyInput)(nil)).Elem(), GetDirectoryWorkspaceAccessPropertyArgs{})
@@ -2082,6 +2348,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceWorkspacePropertyArrayInput)(nil)).Elem(), GetWorkspaceWorkspacePropertyArray{})
 	pulumi.RegisterOutputType(ConnectionAliasTimeoutsOutput{})
 	pulumi.RegisterOutputType(ConnectionAliasTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(DirectorySamlPropertiesOutput{})
+	pulumi.RegisterOutputType(DirectorySamlPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DirectorySelfServicePermissionsOutput{})
 	pulumi.RegisterOutputType(DirectorySelfServicePermissionsPtrOutput{})
 	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesOutput{})
@@ -2098,6 +2366,8 @@ func init() {
 	pulumi.RegisterOutputType(GetBundleRootStorageArrayOutput{})
 	pulumi.RegisterOutputType(GetBundleUserStorageOutput{})
 	pulumi.RegisterOutputType(GetBundleUserStorageArrayOutput{})
+	pulumi.RegisterOutputType(GetDirectorySamlPropertyOutput{})
+	pulumi.RegisterOutputType(GetDirectorySamlPropertyArrayOutput{})
 	pulumi.RegisterOutputType(GetDirectorySelfServicePermissionOutput{})
 	pulumi.RegisterOutputType(GetDirectorySelfServicePermissionArrayOutput{})
 	pulumi.RegisterOutputType(GetDirectoryWorkspaceAccessPropertyOutput{})

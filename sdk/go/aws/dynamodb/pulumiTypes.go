@@ -223,6 +223,8 @@ type TableGlobalSecondaryIndex struct {
 	Name string `pulumi:"name"`
 	// Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
 	NonKeyAttributes []string `pulumi:"nonKeyAttributes"`
+	// Sets the maximum number of read and write units for the specified on-demand table. See below.
+	OnDemandThroughput *TableGlobalSecondaryIndexOnDemandThroughput `pulumi:"onDemandThroughput"`
 	// One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
 	ProjectionType string `pulumi:"projectionType"`
 	// Name of the range key; must be defined
@@ -251,6 +253,8 @@ type TableGlobalSecondaryIndexArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
 	NonKeyAttributes pulumi.StringArrayInput `pulumi:"nonKeyAttributes"`
+	// Sets the maximum number of read and write units for the specified on-demand table. See below.
+	OnDemandThroughput TableGlobalSecondaryIndexOnDemandThroughputPtrInput `pulumi:"onDemandThroughput"`
 	// One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
 	ProjectionType pulumi.StringInput `pulumi:"projectionType"`
 	// Name of the range key; must be defined
@@ -327,6 +331,13 @@ func (o TableGlobalSecondaryIndexOutput) NonKeyAttributes() pulumi.StringArrayOu
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) []string { return v.NonKeyAttributes }).(pulumi.StringArrayOutput)
 }
 
+// Sets the maximum number of read and write units for the specified on-demand table. See below.
+func (o TableGlobalSecondaryIndexOutput) OnDemandThroughput() TableGlobalSecondaryIndexOnDemandThroughputPtrOutput {
+	return o.ApplyT(func(v TableGlobalSecondaryIndex) *TableGlobalSecondaryIndexOnDemandThroughput {
+		return v.OnDemandThroughput
+	}).(TableGlobalSecondaryIndexOnDemandThroughputPtrOutput)
+}
+
 // One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
 func (o TableGlobalSecondaryIndexOutput) ProjectionType() pulumi.StringOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) string { return v.ProjectionType }).(pulumi.StringOutput)
@@ -365,6 +376,162 @@ func (o TableGlobalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) TableGlob
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableGlobalSecondaryIndex {
 		return vs[0].([]TableGlobalSecondaryIndex)[vs[1].(int)]
 	}).(TableGlobalSecondaryIndexOutput)
+}
+
+type TableGlobalSecondaryIndexOnDemandThroughput struct {
+	// Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+	MaxReadRequestUnits *int `pulumi:"maxReadRequestUnits"`
+	// Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+	MaxWriteRequestUnits *int `pulumi:"maxWriteRequestUnits"`
+}
+
+// TableGlobalSecondaryIndexOnDemandThroughputInput is an input type that accepts TableGlobalSecondaryIndexOnDemandThroughputArgs and TableGlobalSecondaryIndexOnDemandThroughputOutput values.
+// You can construct a concrete instance of `TableGlobalSecondaryIndexOnDemandThroughputInput` via:
+//
+//	TableGlobalSecondaryIndexOnDemandThroughputArgs{...}
+type TableGlobalSecondaryIndexOnDemandThroughputInput interface {
+	pulumi.Input
+
+	ToTableGlobalSecondaryIndexOnDemandThroughputOutput() TableGlobalSecondaryIndexOnDemandThroughputOutput
+	ToTableGlobalSecondaryIndexOnDemandThroughputOutputWithContext(context.Context) TableGlobalSecondaryIndexOnDemandThroughputOutput
+}
+
+type TableGlobalSecondaryIndexOnDemandThroughputArgs struct {
+	// Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+	MaxReadRequestUnits pulumi.IntPtrInput `pulumi:"maxReadRequestUnits"`
+	// Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+	MaxWriteRequestUnits pulumi.IntPtrInput `pulumi:"maxWriteRequestUnits"`
+}
+
+func (TableGlobalSecondaryIndexOnDemandThroughputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableGlobalSecondaryIndexOnDemandThroughput)(nil)).Elem()
+}
+
+func (i TableGlobalSecondaryIndexOnDemandThroughputArgs) ToTableGlobalSecondaryIndexOnDemandThroughputOutput() TableGlobalSecondaryIndexOnDemandThroughputOutput {
+	return i.ToTableGlobalSecondaryIndexOnDemandThroughputOutputWithContext(context.Background())
+}
+
+func (i TableGlobalSecondaryIndexOnDemandThroughputArgs) ToTableGlobalSecondaryIndexOnDemandThroughputOutputWithContext(ctx context.Context) TableGlobalSecondaryIndexOnDemandThroughputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableGlobalSecondaryIndexOnDemandThroughputOutput)
+}
+
+func (i TableGlobalSecondaryIndexOnDemandThroughputArgs) ToTableGlobalSecondaryIndexOnDemandThroughputPtrOutput() TableGlobalSecondaryIndexOnDemandThroughputPtrOutput {
+	return i.ToTableGlobalSecondaryIndexOnDemandThroughputPtrOutputWithContext(context.Background())
+}
+
+func (i TableGlobalSecondaryIndexOnDemandThroughputArgs) ToTableGlobalSecondaryIndexOnDemandThroughputPtrOutputWithContext(ctx context.Context) TableGlobalSecondaryIndexOnDemandThroughputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableGlobalSecondaryIndexOnDemandThroughputOutput).ToTableGlobalSecondaryIndexOnDemandThroughputPtrOutputWithContext(ctx)
+}
+
+// TableGlobalSecondaryIndexOnDemandThroughputPtrInput is an input type that accepts TableGlobalSecondaryIndexOnDemandThroughputArgs, TableGlobalSecondaryIndexOnDemandThroughputPtr and TableGlobalSecondaryIndexOnDemandThroughputPtrOutput values.
+// You can construct a concrete instance of `TableGlobalSecondaryIndexOnDemandThroughputPtrInput` via:
+//
+//	        TableGlobalSecondaryIndexOnDemandThroughputArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableGlobalSecondaryIndexOnDemandThroughputPtrInput interface {
+	pulumi.Input
+
+	ToTableGlobalSecondaryIndexOnDemandThroughputPtrOutput() TableGlobalSecondaryIndexOnDemandThroughputPtrOutput
+	ToTableGlobalSecondaryIndexOnDemandThroughputPtrOutputWithContext(context.Context) TableGlobalSecondaryIndexOnDemandThroughputPtrOutput
+}
+
+type tableGlobalSecondaryIndexOnDemandThroughputPtrType TableGlobalSecondaryIndexOnDemandThroughputArgs
+
+func TableGlobalSecondaryIndexOnDemandThroughputPtr(v *TableGlobalSecondaryIndexOnDemandThroughputArgs) TableGlobalSecondaryIndexOnDemandThroughputPtrInput {
+	return (*tableGlobalSecondaryIndexOnDemandThroughputPtrType)(v)
+}
+
+func (*tableGlobalSecondaryIndexOnDemandThroughputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableGlobalSecondaryIndexOnDemandThroughput)(nil)).Elem()
+}
+
+func (i *tableGlobalSecondaryIndexOnDemandThroughputPtrType) ToTableGlobalSecondaryIndexOnDemandThroughputPtrOutput() TableGlobalSecondaryIndexOnDemandThroughputPtrOutput {
+	return i.ToTableGlobalSecondaryIndexOnDemandThroughputPtrOutputWithContext(context.Background())
+}
+
+func (i *tableGlobalSecondaryIndexOnDemandThroughputPtrType) ToTableGlobalSecondaryIndexOnDemandThroughputPtrOutputWithContext(ctx context.Context) TableGlobalSecondaryIndexOnDemandThroughputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableGlobalSecondaryIndexOnDemandThroughputPtrOutput)
+}
+
+type TableGlobalSecondaryIndexOnDemandThroughputOutput struct{ *pulumi.OutputState }
+
+func (TableGlobalSecondaryIndexOnDemandThroughputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableGlobalSecondaryIndexOnDemandThroughput)(nil)).Elem()
+}
+
+func (o TableGlobalSecondaryIndexOnDemandThroughputOutput) ToTableGlobalSecondaryIndexOnDemandThroughputOutput() TableGlobalSecondaryIndexOnDemandThroughputOutput {
+	return o
+}
+
+func (o TableGlobalSecondaryIndexOnDemandThroughputOutput) ToTableGlobalSecondaryIndexOnDemandThroughputOutputWithContext(ctx context.Context) TableGlobalSecondaryIndexOnDemandThroughputOutput {
+	return o
+}
+
+func (o TableGlobalSecondaryIndexOnDemandThroughputOutput) ToTableGlobalSecondaryIndexOnDemandThroughputPtrOutput() TableGlobalSecondaryIndexOnDemandThroughputPtrOutput {
+	return o.ToTableGlobalSecondaryIndexOnDemandThroughputPtrOutputWithContext(context.Background())
+}
+
+func (o TableGlobalSecondaryIndexOnDemandThroughputOutput) ToTableGlobalSecondaryIndexOnDemandThroughputPtrOutputWithContext(ctx context.Context) TableGlobalSecondaryIndexOnDemandThroughputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableGlobalSecondaryIndexOnDemandThroughput) *TableGlobalSecondaryIndexOnDemandThroughput {
+		return &v
+	}).(TableGlobalSecondaryIndexOnDemandThroughputPtrOutput)
+}
+
+// Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+func (o TableGlobalSecondaryIndexOnDemandThroughputOutput) MaxReadRequestUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableGlobalSecondaryIndexOnDemandThroughput) *int { return v.MaxReadRequestUnits }).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+func (o TableGlobalSecondaryIndexOnDemandThroughputOutput) MaxWriteRequestUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableGlobalSecondaryIndexOnDemandThroughput) *int { return v.MaxWriteRequestUnits }).(pulumi.IntPtrOutput)
+}
+
+type TableGlobalSecondaryIndexOnDemandThroughputPtrOutput struct{ *pulumi.OutputState }
+
+func (TableGlobalSecondaryIndexOnDemandThroughputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableGlobalSecondaryIndexOnDemandThroughput)(nil)).Elem()
+}
+
+func (o TableGlobalSecondaryIndexOnDemandThroughputPtrOutput) ToTableGlobalSecondaryIndexOnDemandThroughputPtrOutput() TableGlobalSecondaryIndexOnDemandThroughputPtrOutput {
+	return o
+}
+
+func (o TableGlobalSecondaryIndexOnDemandThroughputPtrOutput) ToTableGlobalSecondaryIndexOnDemandThroughputPtrOutputWithContext(ctx context.Context) TableGlobalSecondaryIndexOnDemandThroughputPtrOutput {
+	return o
+}
+
+func (o TableGlobalSecondaryIndexOnDemandThroughputPtrOutput) Elem() TableGlobalSecondaryIndexOnDemandThroughputOutput {
+	return o.ApplyT(func(v *TableGlobalSecondaryIndexOnDemandThroughput) TableGlobalSecondaryIndexOnDemandThroughput {
+		if v != nil {
+			return *v
+		}
+		var ret TableGlobalSecondaryIndexOnDemandThroughput
+		return ret
+	}).(TableGlobalSecondaryIndexOnDemandThroughputOutput)
+}
+
+// Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+func (o TableGlobalSecondaryIndexOnDemandThroughputPtrOutput) MaxReadRequestUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableGlobalSecondaryIndexOnDemandThroughput) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxReadRequestUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+func (o TableGlobalSecondaryIndexOnDemandThroughputPtrOutput) MaxWriteRequestUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableGlobalSecondaryIndexOnDemandThroughput) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxWriteRequestUnits
+	}).(pulumi.IntPtrOutput)
 }
 
 type TableImportTable struct {
@@ -1171,6 +1338,162 @@ func (o TableLocalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) TableLocal
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableLocalSecondaryIndex {
 		return vs[0].([]TableLocalSecondaryIndex)[vs[1].(int)]
 	}).(TableLocalSecondaryIndexOutput)
+}
+
+type TableOnDemandThroughput struct {
+	// Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+	MaxReadRequestUnits *int `pulumi:"maxReadRequestUnits"`
+	// Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+	MaxWriteRequestUnits *int `pulumi:"maxWriteRequestUnits"`
+}
+
+// TableOnDemandThroughputInput is an input type that accepts TableOnDemandThroughputArgs and TableOnDemandThroughputOutput values.
+// You can construct a concrete instance of `TableOnDemandThroughputInput` via:
+//
+//	TableOnDemandThroughputArgs{...}
+type TableOnDemandThroughputInput interface {
+	pulumi.Input
+
+	ToTableOnDemandThroughputOutput() TableOnDemandThroughputOutput
+	ToTableOnDemandThroughputOutputWithContext(context.Context) TableOnDemandThroughputOutput
+}
+
+type TableOnDemandThroughputArgs struct {
+	// Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+	MaxReadRequestUnits pulumi.IntPtrInput `pulumi:"maxReadRequestUnits"`
+	// Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+	MaxWriteRequestUnits pulumi.IntPtrInput `pulumi:"maxWriteRequestUnits"`
+}
+
+func (TableOnDemandThroughputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOnDemandThroughput)(nil)).Elem()
+}
+
+func (i TableOnDemandThroughputArgs) ToTableOnDemandThroughputOutput() TableOnDemandThroughputOutput {
+	return i.ToTableOnDemandThroughputOutputWithContext(context.Background())
+}
+
+func (i TableOnDemandThroughputArgs) ToTableOnDemandThroughputOutputWithContext(ctx context.Context) TableOnDemandThroughputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOnDemandThroughputOutput)
+}
+
+func (i TableOnDemandThroughputArgs) ToTableOnDemandThroughputPtrOutput() TableOnDemandThroughputPtrOutput {
+	return i.ToTableOnDemandThroughputPtrOutputWithContext(context.Background())
+}
+
+func (i TableOnDemandThroughputArgs) ToTableOnDemandThroughputPtrOutputWithContext(ctx context.Context) TableOnDemandThroughputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOnDemandThroughputOutput).ToTableOnDemandThroughputPtrOutputWithContext(ctx)
+}
+
+// TableOnDemandThroughputPtrInput is an input type that accepts TableOnDemandThroughputArgs, TableOnDemandThroughputPtr and TableOnDemandThroughputPtrOutput values.
+// You can construct a concrete instance of `TableOnDemandThroughputPtrInput` via:
+//
+//	        TableOnDemandThroughputArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableOnDemandThroughputPtrInput interface {
+	pulumi.Input
+
+	ToTableOnDemandThroughputPtrOutput() TableOnDemandThroughputPtrOutput
+	ToTableOnDemandThroughputPtrOutputWithContext(context.Context) TableOnDemandThroughputPtrOutput
+}
+
+type tableOnDemandThroughputPtrType TableOnDemandThroughputArgs
+
+func TableOnDemandThroughputPtr(v *TableOnDemandThroughputArgs) TableOnDemandThroughputPtrInput {
+	return (*tableOnDemandThroughputPtrType)(v)
+}
+
+func (*tableOnDemandThroughputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableOnDemandThroughput)(nil)).Elem()
+}
+
+func (i *tableOnDemandThroughputPtrType) ToTableOnDemandThroughputPtrOutput() TableOnDemandThroughputPtrOutput {
+	return i.ToTableOnDemandThroughputPtrOutputWithContext(context.Background())
+}
+
+func (i *tableOnDemandThroughputPtrType) ToTableOnDemandThroughputPtrOutputWithContext(ctx context.Context) TableOnDemandThroughputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOnDemandThroughputPtrOutput)
+}
+
+type TableOnDemandThroughputOutput struct{ *pulumi.OutputState }
+
+func (TableOnDemandThroughputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOnDemandThroughput)(nil)).Elem()
+}
+
+func (o TableOnDemandThroughputOutput) ToTableOnDemandThroughputOutput() TableOnDemandThroughputOutput {
+	return o
+}
+
+func (o TableOnDemandThroughputOutput) ToTableOnDemandThroughputOutputWithContext(ctx context.Context) TableOnDemandThroughputOutput {
+	return o
+}
+
+func (o TableOnDemandThroughputOutput) ToTableOnDemandThroughputPtrOutput() TableOnDemandThroughputPtrOutput {
+	return o.ToTableOnDemandThroughputPtrOutputWithContext(context.Background())
+}
+
+func (o TableOnDemandThroughputOutput) ToTableOnDemandThroughputPtrOutputWithContext(ctx context.Context) TableOnDemandThroughputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableOnDemandThroughput) *TableOnDemandThroughput {
+		return &v
+	}).(TableOnDemandThroughputPtrOutput)
+}
+
+// Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+func (o TableOnDemandThroughputOutput) MaxReadRequestUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableOnDemandThroughput) *int { return v.MaxReadRequestUnits }).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+func (o TableOnDemandThroughputOutput) MaxWriteRequestUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableOnDemandThroughput) *int { return v.MaxWriteRequestUnits }).(pulumi.IntPtrOutput)
+}
+
+type TableOnDemandThroughputPtrOutput struct{ *pulumi.OutputState }
+
+func (TableOnDemandThroughputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableOnDemandThroughput)(nil)).Elem()
+}
+
+func (o TableOnDemandThroughputPtrOutput) ToTableOnDemandThroughputPtrOutput() TableOnDemandThroughputPtrOutput {
+	return o
+}
+
+func (o TableOnDemandThroughputPtrOutput) ToTableOnDemandThroughputPtrOutputWithContext(ctx context.Context) TableOnDemandThroughputPtrOutput {
+	return o
+}
+
+func (o TableOnDemandThroughputPtrOutput) Elem() TableOnDemandThroughputOutput {
+	return o.ApplyT(func(v *TableOnDemandThroughput) TableOnDemandThroughput {
+		if v != nil {
+			return *v
+		}
+		var ret TableOnDemandThroughput
+		return ret
+	}).(TableOnDemandThroughputOutput)
+}
+
+// Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+func (o TableOnDemandThroughputPtrOutput) MaxReadRequestUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableOnDemandThroughput) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxReadRequestUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+func (o TableOnDemandThroughputPtrOutput) MaxWriteRequestUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableOnDemandThroughput) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxWriteRequestUnits
+	}).(pulumi.IntPtrOutput)
 }
 
 type TablePointInTimeRecovery struct {
@@ -2491,6 +2814,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableAttributeArrayInput)(nil)).Elem(), TableAttributeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableGlobalSecondaryIndexInput)(nil)).Elem(), TableGlobalSecondaryIndexArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableGlobalSecondaryIndexArrayInput)(nil)).Elem(), TableGlobalSecondaryIndexArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableGlobalSecondaryIndexOnDemandThroughputInput)(nil)).Elem(), TableGlobalSecondaryIndexOnDemandThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableGlobalSecondaryIndexOnDemandThroughputPtrInput)(nil)).Elem(), TableGlobalSecondaryIndexOnDemandThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableImportTableInput)(nil)).Elem(), TableImportTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableImportTablePtrInput)(nil)).Elem(), TableImportTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableImportTableInputFormatOptionsInput)(nil)).Elem(), TableImportTableInputFormatOptionsArgs{})
@@ -2501,6 +2826,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableImportTableS3BucketSourcePtrInput)(nil)).Elem(), TableImportTableS3BucketSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableLocalSecondaryIndexInput)(nil)).Elem(), TableLocalSecondaryIndexArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableLocalSecondaryIndexArrayInput)(nil)).Elem(), TableLocalSecondaryIndexArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableOnDemandThroughputInput)(nil)).Elem(), TableOnDemandThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableOnDemandThroughputPtrInput)(nil)).Elem(), TableOnDemandThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TablePointInTimeRecoveryInput)(nil)).Elem(), TablePointInTimeRecoveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TablePointInTimeRecoveryPtrInput)(nil)).Elem(), TablePointInTimeRecoveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableReplicaTypeInput)(nil)).Elem(), TableReplicaTypeArgs{})
@@ -2527,6 +2854,8 @@ func init() {
 	pulumi.RegisterOutputType(TableAttributeArrayOutput{})
 	pulumi.RegisterOutputType(TableGlobalSecondaryIndexOutput{})
 	pulumi.RegisterOutputType(TableGlobalSecondaryIndexArrayOutput{})
+	pulumi.RegisterOutputType(TableGlobalSecondaryIndexOnDemandThroughputOutput{})
+	pulumi.RegisterOutputType(TableGlobalSecondaryIndexOnDemandThroughputPtrOutput{})
 	pulumi.RegisterOutputType(TableImportTableOutput{})
 	pulumi.RegisterOutputType(TableImportTablePtrOutput{})
 	pulumi.RegisterOutputType(TableImportTableInputFormatOptionsOutput{})
@@ -2537,6 +2866,8 @@ func init() {
 	pulumi.RegisterOutputType(TableImportTableS3BucketSourcePtrOutput{})
 	pulumi.RegisterOutputType(TableLocalSecondaryIndexOutput{})
 	pulumi.RegisterOutputType(TableLocalSecondaryIndexArrayOutput{})
+	pulumi.RegisterOutputType(TableOnDemandThroughputOutput{})
+	pulumi.RegisterOutputType(TableOnDemandThroughputPtrOutput{})
 	pulumi.RegisterOutputType(TablePointInTimeRecoveryOutput{})
 	pulumi.RegisterOutputType(TablePointInTimeRecoveryPtrOutput{})
 	pulumi.RegisterOutputType(TableReplicaTypeOutput{})

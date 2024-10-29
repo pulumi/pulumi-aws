@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudwatch;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.cloudwatch.EventTargetArgs;
 import com.pulumi.aws.cloudwatch.inputs.EventTargetState;
+import com.pulumi.aws.cloudwatch.outputs.EventTargetAppsyncTarget;
 import com.pulumi.aws.cloudwatch.outputs.EventTargetBatchTarget;
 import com.pulumi.aws.cloudwatch.outputs.EventTargetDeadLetterConfig;
 import com.pulumi.aws.cloudwatch.outputs.EventTargetEcsTarget;
@@ -725,6 +726,134 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### AppSync Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.EventRule;
+ * import com.pulumi.aws.cloudwatch.EventRuleArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.appsync.GraphQLApi;
+ * import com.pulumi.aws.appsync.GraphQLApiArgs;
+ * import com.pulumi.aws.cloudwatch.EventTarget;
+ * import com.pulumi.aws.cloudwatch.EventTargetArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.EventTargetInputTransformerArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.EventTargetAppsyncTargetArgs;
+ * import com.pulumi.aws.iam.Policy;
+ * import com.pulumi.aws.iam.PolicyArgs;
+ * import com.pulumi.aws.iam.RolePolicyAttachment;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var invokeAppsyncMutation = new EventRule("invokeAppsyncMutation", EventRuleArgs.builder()
+ *             .name("invoke-appsync-mutation")
+ *             .description("schedule_batch_test")
+ *             .scheduleExpression("rate(5 minutes)")
+ *             .build());
+ * 
+ *         final var appsyncMutationRoleTrust = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .actions("sts:AssumeRole")
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("Service")
+ *                     .identifiers("events.amazonaws.com")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var appsyncMutationRole = new Role("appsyncMutationRole", RoleArgs.builder()
+ *             .name("appsync-mutation-role")
+ *             .assumeRolePolicy(appsyncMutationRoleTrust.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
+ *             .build());
+ * 
+ *         var graphql_api = new GraphQLApi("graphql-api", GraphQLApiArgs.builder()
+ *             .name("api")
+ *             .authenticationType("AWS_IAM")
+ *             .schema("""
+ *     schema {
+ *       mutation: Mutation
+ *       query: Query
+ *     }
+ * 
+ *     type Query {
+ *       testQuery: String
+ *     }
+ * 
+ *     type Mutation {
+ *       testMutation(input: MutationInput!): TestMutationResult
+ *     }
+ * 
+ *     type TestMutationResult {
+ *       test: String
+ *     }
+ * 
+ *     input MutationInput {
+ *       testInput: String
+ *     }
+ *             """)
+ *             .build());
+ * 
+ *         var invokeAppsyncMutationEventTarget = new EventTarget("invokeAppsyncMutationEventTarget", EventTargetArgs.builder()
+ *             .arn(StdFunctions.replace().applyValue(invoke -> invoke.result()))
+ *             .rule(invokeAppsyncMutation.id())
+ *             .roleArn(appsyncMutationRole.arn())
+ *             .inputTransformer(EventTargetInputTransformerArgs.builder()
+ *                 .inputPaths(Map.of("input", "$.detail.input"))
+ *                 .inputTemplate("""
+ *       {
+ *         "input": <input>
+ *       }
+ *                 """)
+ *                 .build())
+ *             .appsyncTarget(EventTargetAppsyncTargetArgs.builder()
+ *                 .graphqlOperation("mutation TestMutation($input:MutationInput!){testMutation(input: $input) {test}}")
+ *                 .build())
+ *             .build());
+ * 
+ *         final var appsyncMutationRolePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .actions("appsync:GraphQL")
+ *                 .effect("Allow")
+ *                 .resources(graphql_api.arn())
+ *                 .build())
+ *             .build());
+ * 
+ *         var appsyncMutationRolePolicy = new Policy("appsyncMutationRolePolicy", PolicyArgs.builder()
+ *             .name("appsync-mutation-role-policy")
+ *             .policy(appsyncMutationRolePolicyDocument.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(appsyncMutationRolePolicyDocument -> appsyncMutationRolePolicyDocument.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+ *             .build());
+ * 
+ *         var appsyncMutationRoleAttachment = new RolePolicyAttachment("appsyncMutationRoleAttachment", RolePolicyAttachmentArgs.builder()
+ *             .policyArn(appsyncMutationRolePolicy.arn())
+ *             .role(appsyncMutationRole.name())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import EventBridge Targets using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
@@ -736,6 +865,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:cloudwatch/eventTarget:EventTarget")
 public class EventTarget extends com.pulumi.resources.CustomResource {
+    /**
+     * Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
+     * 
+     */
+    @Export(name="appsyncTarget", refs={EventTargetAppsyncTarget.class}, tree="[0]")
+    private Output</* @Nullable */ EventTargetAppsyncTarget> appsyncTarget;
+
+    /**
+     * @return Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
+     * 
+     */
+    public Output<Optional<EventTargetAppsyncTarget>> appsyncTarget() {
+        return Codegen.optional(this.appsyncTarget);
+    }
     /**
      * The Amazon Resource Name (ARN) of the target.
      * 

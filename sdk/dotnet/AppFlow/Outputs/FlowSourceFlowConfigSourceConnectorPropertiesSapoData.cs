@@ -14,11 +14,26 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class FlowSourceFlowConfigSourceConnectorPropertiesSapoData
     {
         public readonly string ObjectPath;
+        /// <summary>
+        /// Sets the page size for each concurrent process that transfers OData records from your SAP instance.
+        /// </summary>
+        public readonly Outputs.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig? PaginationConfig;
+        /// <summary>
+        /// Sets the number of concurrent processes that transfers OData records from your SAP instance.
+        /// </summary>
+        public readonly Outputs.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig? ParallelismConfig;
 
         [OutputConstructor]
-        private FlowSourceFlowConfigSourceConnectorPropertiesSapoData(string objectPath)
+        private FlowSourceFlowConfigSourceConnectorPropertiesSapoData(
+            string objectPath,
+
+            Outputs.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig? paginationConfig,
+
+            Outputs.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig? parallelismConfig)
         {
             ObjectPath = objectPath;
+            PaginationConfig = paginationConfig;
+            ParallelismConfig = parallelismConfig;
         }
     }
 }
