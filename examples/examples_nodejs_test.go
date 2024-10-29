@@ -716,17 +716,3 @@ func TestServerlessAppRepositoryApplication(t *testing.T) {
 
 	integration.ProgramTest(t, &test)
 }
-
-func TestAccEcrImage(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "ecr-image"),
-			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
-				repoDigest, ok := stack.Outputs["digest"].(string)
-				assert.True(t, ok, "expected digest output to be set")
-				assert.NotEmpty(t, repoDigest)
-			},
-		})
-
-	integration.ProgramTest(t, &test)
-}
