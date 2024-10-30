@@ -597,12 +597,12 @@ class Pipe(pulumi.CustomResource):
                 "http_parameters": {
                     "path_parameter_values": "example-path-param",
                     "header_parameters": {
-                        "example_header": "example-value",
-                        "second_example_header": "second-example-value",
+                        "example-header": "example-value",
+                        "second-example-header": "second-example-value",
                     },
                     "query_string_parameters": {
-                        "example_query_string": "example-value",
-                        "second_example_query_string": "second-example-value",
+                        "example-query-string": "example-value",
+                        "second-example-query-string": "second-example-value",
                     },
                 },
             })
@@ -800,12 +800,12 @@ class Pipe(pulumi.CustomResource):
                 "http_parameters": {
                     "path_parameter_values": "example-path-param",
                     "header_parameters": {
-                        "example_header": "example-value",
-                        "second_example_header": "second-example-value",
+                        "example-header": "example-value",
+                        "second-example-header": "second-example-value",
                     },
                     "query_string_parameters": {
-                        "example_query_string": "example-value",
-                        "second_example_query_string": "second-example-value",
+                        "example-query-string": "example-value",
+                        "second-example-query-string": "second-example-value",
                     },
                 },
             })
