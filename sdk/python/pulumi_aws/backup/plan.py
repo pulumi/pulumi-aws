@@ -244,7 +244,7 @@ class Plan(pulumi.CustomResource):
             }],
             advanced_backup_settings=[{
                 "backup_options": {
-                    "windows_vss": "enabled",
+                    "WindowsVSS": "enabled",
                 },
                 "resource_type": "EC2",
             }])
@@ -292,7 +292,7 @@ class Plan(pulumi.CustomResource):
             }],
             advanced_backup_settings=[{
                 "backup_options": {
-                    "windows_vss": "enabled",
+                    "WindowsVSS": "enabled",
                 },
                 "resource_type": "EC2",
             }])
