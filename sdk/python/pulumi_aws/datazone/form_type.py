@@ -387,16 +387,16 @@ class FormType(pulumi.CustomResource):
             inline_policies=[{
                 "name": "example-policy",
                 "policy": json.dumps({
-                    "version": "2012-10-17",
-                    "statement": [{
-                        "action": [
+                    "Version": "2012-10-17",
+                    "Statement": [{
+                        "Action": [
                             "datazone:*",
                             "ram:*",
                             "sso:*",
                             "kms:*",
                         ],
-                        "effect": "Allow",
-                        "resource": "*",
+                        "Effect": "Allow",
+                        "Resource": "*",
                     }],
                 }),
             }])
@@ -496,16 +496,16 @@ class FormType(pulumi.CustomResource):
             inline_policies=[{
                 "name": "example-policy",
                 "policy": json.dumps({
-                    "version": "2012-10-17",
-                    "statement": [{
-                        "action": [
+                    "Version": "2012-10-17",
+                    "Statement": [{
+                        "Action": [
                             "datazone:*",
                             "ram:*",
                             "sso:*",
                             "kms:*",
                         ],
-                        "effect": "Allow",
-                        "resource": "*",
+                        "Effect": "Allow",
+                        "Resource": "*",
                     }],
                 }),
             }])
