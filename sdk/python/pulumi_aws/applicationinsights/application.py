@@ -359,10 +359,10 @@ class Application(pulumi.CustomResource):
             name="example",
             resource_query={
                 "query": json.dumps({
-                    "resource_type_filters": ["AWS::EC2::Instance"],
-                    "tag_filters": [{
-                        "key": "Stage",
-                        "values": ["Test"],
+                    "ResourceTypeFilters": ["AWS::EC2::Instance"],
+                    "TagFilters": [{
+                        "Key": "Stage",
+                        "Values": ["Test"],
                     }],
                 }),
             })
@@ -410,10 +410,10 @@ class Application(pulumi.CustomResource):
             name="example",
             resource_query={
                 "query": json.dumps({
-                    "resource_type_filters": ["AWS::EC2::Instance"],
-                    "tag_filters": [{
-                        "key": "Stage",
-                        "values": ["Test"],
+                    "ResourceTypeFilters": ["AWS::EC2::Instance"],
+                    "TagFilters": [{
+                        "Key": "Stage",
+                        "Values": ["Test"],
                     }],
                 }),
             })
