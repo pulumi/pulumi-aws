@@ -73,6 +73,8 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Setup tools
         uses: ./.github/actions/setup-tools
         with:
