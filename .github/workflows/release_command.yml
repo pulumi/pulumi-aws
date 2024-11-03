@@ -12,6 +12,8 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v4
+      with:
+        persist-credentials: false
     - name: Should release PR
       uses: pulumi/action-release-by-pr-label@main
       with:
