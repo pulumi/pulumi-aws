@@ -506,14 +506,14 @@ class Application(pulumi.CustomResource):
                         {
                             "property_group_id": "PROPERTY-GROUP-1",
                             "property_map": {
-                                "Key1": "Value1",
+                                "key1": "Value1",
                             },
                         },
                         {
                             "property_group_id": "PROPERTY-GROUP-2",
                             "property_map": {
-                                "KeyA": "ValueA",
-                                "KeyB": "ValueB",
+                                "key_a": "ValueA",
+                                "key_b": "ValueB",
                             },
                         },
                     ],
@@ -742,14 +742,14 @@ class Application(pulumi.CustomResource):
                         {
                             "property_group_id": "PROPERTY-GROUP-1",
                             "property_map": {
-                                "Key1": "Value1",
+                                "key1": "Value1",
                             },
                         },
                         {
                             "property_group_id": "PROPERTY-GROUP-2",
                             "property_map": {
-                                "KeyA": "ValueA",
-                                "KeyB": "ValueB",
+                                "key_a": "ValueA",
+                                "key_b": "ValueB",
                             },
                         },
                     ],

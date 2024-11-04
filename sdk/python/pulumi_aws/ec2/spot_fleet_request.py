@@ -1067,7 +1067,7 @@ class SpotFleetRequest(pulumi.CustomResource):
                         "volume_type": "gp2",
                     }],
                     "tags": {
-                        "Name": "spot-fleet-example",
+                        "name": "spot-fleet-example",
                     },
                 },
             ])
@@ -1148,7 +1148,7 @@ class SpotFleetRequest(pulumi.CustomResource):
                     "delete_on_termination": True,
                 }],
                 "tags": {
-                    "Name": "Spot Node",
+                    "name": "Spot Node",
                     "tag_builder": "builder",
                 },
             } for entry in [{"key": k, "value": v} for k, v in [{
@@ -1317,7 +1317,7 @@ class SpotFleetRequest(pulumi.CustomResource):
                         "volume_type": "gp2",
                     }],
                     "tags": {
-                        "Name": "spot-fleet-example",
+                        "name": "spot-fleet-example",
                     },
                 },
             ])
@@ -1398,7 +1398,7 @@ class SpotFleetRequest(pulumi.CustomResource):
                     "delete_on_termination": True,
                 }],
                 "tags": {
-                    "Name": "Spot Node",
+                    "name": "Spot Node",
                     "tag_builder": "builder",
                 },
             } for entry in [{"key": k, "value": v} for k, v in [{

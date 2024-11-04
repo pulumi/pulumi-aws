@@ -466,12 +466,12 @@ class StreamProcessor(pulumi.CustomResource):
             inline_policies=[{
                 "name": "Rekognition-Access",
                 "policy": pulumi.Output.json_dumps({
-                    "Version": "2012-10-17",
-                    "Statement": [
+                    "version": "2012-10-17",
+                    "statement": [
                         {
-                            "Action": ["s3:PutObject"],
-                            "Effect": "Allow",
-                            "Resource": [example.arn.apply(lambda arn: f"{arn}/*")],
+                            "action": ["s3:PutObject"],
+                            "effect": "Allow",
+                            "resource": [example.arn.apply(lambda arn: f"{arn}/*")],
                         },
                         {
                             "Action": ["sns:Publish"],
@@ -548,15 +548,15 @@ class StreamProcessor(pulumi.CustomResource):
             inline_policies=[{
                 "name": "Rekognition-Access",
                 "policy": pulumi.Output.json_dumps({
-                    "Version": "2012-10-17",
-                    "Statement": [
+                    "version": "2012-10-17",
+                    "statement": [
                         {
-                            "Action": [
+                            "action": [
                                 "kinesis:Get*",
                                 "kinesis:DescribeStreamSummary",
                             ],
-                            "Effect": "Allow",
-                            "Resource": [example.arn],
+                            "effect": "Allow",
+                            "resource": [example.arn],
                         },
                         {
                             "Action": ["kinesis:PutRecord"],
@@ -673,12 +673,12 @@ class StreamProcessor(pulumi.CustomResource):
             inline_policies=[{
                 "name": "Rekognition-Access",
                 "policy": pulumi.Output.json_dumps({
-                    "Version": "2012-10-17",
-                    "Statement": [
+                    "version": "2012-10-17",
+                    "statement": [
                         {
-                            "Action": ["s3:PutObject"],
-                            "Effect": "Allow",
-                            "Resource": [example.arn.apply(lambda arn: f"{arn}/*")],
+                            "action": ["s3:PutObject"],
+                            "effect": "Allow",
+                            "resource": [example.arn.apply(lambda arn: f"{arn}/*")],
                         },
                         {
                             "Action": ["sns:Publish"],
@@ -755,15 +755,15 @@ class StreamProcessor(pulumi.CustomResource):
             inline_policies=[{
                 "name": "Rekognition-Access",
                 "policy": pulumi.Output.json_dumps({
-                    "Version": "2012-10-17",
-                    "Statement": [
+                    "version": "2012-10-17",
+                    "statement": [
                         {
-                            "Action": [
+                            "action": [
                                 "kinesis:Get*",
                                 "kinesis:DescribeStreamSummary",
                             ],
-                            "Effect": "Allow",
-                            "Resource": [example.arn],
+                            "effect": "Allow",
+                            "resource": [example.arn],
                         },
                         {
                             "Action": ["kinesis:PutRecord"],

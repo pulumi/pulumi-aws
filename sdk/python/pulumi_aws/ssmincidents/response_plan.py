@@ -354,8 +354,8 @@ class ResponsePlan(pulumi.CustomResource):
                         },
                     ],
                     "dynamic_parameters": {
-                        "someKey": "INVOLVED_RESOURCES",
-                        "anotherKey": "INCIDENT_RECORD_ARN",
+                        "some_key": "INVOLVED_RESOURCES",
+                        "another_key": "INCIDENT_RECORD_ARN",
                     },
                 }],
             },
@@ -461,8 +461,8 @@ class ResponsePlan(pulumi.CustomResource):
                         },
                     ],
                     "dynamic_parameters": {
-                        "someKey": "INVOLVED_RESOURCES",
-                        "anotherKey": "INCIDENT_RECORD_ARN",
+                        "some_key": "INVOLVED_RESOURCES",
+                        "another_key": "INCIDENT_RECORD_ARN",
                     },
                 }],
             },

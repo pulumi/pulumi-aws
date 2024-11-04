@@ -1056,7 +1056,7 @@ class EventSourceMapping(pulumi.CustomResource):
             starting_position="TRIM_HORIZON",
             self_managed_event_source={
                 "endpoints": {
-                    "KAFKA_BOOTSTRAP_SERVERS": "kafka1.example.com:9092,kafka2.example.com:9092",
+                    "kafk_a__bootstra_p__servers": "kafka1.example.com:9092,kafka2.example.com:9092",
                 },
             },
             source_access_configurations=[
@@ -1100,7 +1100,7 @@ class EventSourceMapping(pulumi.CustomResource):
                 "filters": [{
                     "pattern": json.dumps({
                         "body": {
-                            "Temperature": [{
+                            "temperature": [{
                                 "numeric": [
                                     ">",
                                     0,
@@ -1108,7 +1108,7 @@ class EventSourceMapping(pulumi.CustomResource):
                                     100,
                                 ],
                             }],
-                            "Location": ["New York"],
+                            "location": ["New York"],
                         },
                     }),
                 }],
@@ -1259,7 +1259,7 @@ class EventSourceMapping(pulumi.CustomResource):
             starting_position="TRIM_HORIZON",
             self_managed_event_source={
                 "endpoints": {
-                    "KAFKA_BOOTSTRAP_SERVERS": "kafka1.example.com:9092,kafka2.example.com:9092",
+                    "kafk_a__bootstra_p__servers": "kafka1.example.com:9092,kafka2.example.com:9092",
                 },
             },
             source_access_configurations=[
@@ -1303,7 +1303,7 @@ class EventSourceMapping(pulumi.CustomResource):
                 "filters": [{
                     "pattern": json.dumps({
                         "body": {
-                            "Temperature": [{
+                            "temperature": [{
                                 "numeric": [
                                     ">",
                                     0,
@@ -1311,7 +1311,7 @@ class EventSourceMapping(pulumi.CustomResource):
                                     100,
                                 ],
                             }],
-                            "Location": ["New York"],
+                            "location": ["New York"],
                         },
                     }),
                 }],

@@ -206,10 +206,10 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
                 "image": "amazon/amazon-lightsail:hello-world",
                 "commands": [],
                 "environment": {
-                    "MY_ENVIRONMENT_VARIABLE": "my_value",
+                    "m_y__environmen_t__variable": "my_value",
                 },
                 "ports": {
-                    "80": "HTTP",
+                    "_80": "HTTP",
                 },
             }],
             public_endpoint={
@@ -268,10 +268,10 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
                 "image": "amazon/amazon-lightsail:hello-world",
                 "commands": [],
                 "environment": {
-                    "MY_ENVIRONMENT_VARIABLE": "my_value",
+                    "m_y__environmen_t__variable": "my_value",
                 },
                 "ports": {
-                    "80": "HTTP",
+                    "_80": "HTTP",
                 },
             }],
             public_endpoint={

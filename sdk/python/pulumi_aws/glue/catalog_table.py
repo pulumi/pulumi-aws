@@ -596,7 +596,7 @@ class CatalogTable(pulumi.CustomResource):
                     "name": "my-stream",
                     "serialization_library": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
                     "parameters": {
-                        "serialization.format": "1",
+                        "serialization_format": "1",
                     },
                 },
                 "columns": [
@@ -699,7 +699,7 @@ class CatalogTable(pulumi.CustomResource):
                     "name": "my-stream",
                     "serialization_library": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
                     "parameters": {
-                        "serialization.format": "1",
+                        "serialization_format": "1",
                     },
                 },
                 "columns": [

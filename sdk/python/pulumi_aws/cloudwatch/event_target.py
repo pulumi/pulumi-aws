@@ -921,10 +921,10 @@ class EventTarget(pulumi.CustomResource):
             rule=example_event_rule.id,
             http_target={
                 "query_string_parameters": {
-                    "Body": "$.detail.body",
+                    "body": "$.detail.body",
                 },
                 "header_parameters": {
-                    "Env": "Test",
+                    "env": "Test",
                 },
             })
         ```
@@ -1395,10 +1395,10 @@ class EventTarget(pulumi.CustomResource):
             rule=example_event_rule.id,
             http_target={
                 "query_string_parameters": {
-                    "Body": "$.detail.body",
+                    "body": "$.detail.body",
                 },
                 "header_parameters": {
-                    "Env": "Test",
+                    "env": "Test",
                 },
             })
         ```

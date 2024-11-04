@@ -803,11 +803,11 @@ class TaskDefinition(pulumi.CustomResource):
                 "type": "APPMESH",
                 "container_name": "applicationContainerName",
                 "properties": {
-                    "AppPorts": "8080",
-                    "EgressIgnoredIPs": "169.254.170.2,169.254.169.254",
-                    "IgnoredUID": "1337",
-                    "ProxyEgressPort": "15001",
-                    "ProxyIngressPort": "15000",
+                    "app_ports": "8080",
+                    "egress_ignored_ips": "169.254.170.2,169.254.169.254",
+                    "ignored_uid": "1337",
+                    "proxy_egress_port": "15001",
+                    "proxy_ingress_port": "15000",
                 },
             })
         ```
@@ -1061,11 +1061,11 @@ class TaskDefinition(pulumi.CustomResource):
                 "type": "APPMESH",
                 "container_name": "applicationContainerName",
                 "properties": {
-                    "AppPorts": "8080",
-                    "EgressIgnoredIPs": "169.254.170.2,169.254.169.254",
-                    "IgnoredUID": "1337",
-                    "ProxyEgressPort": "15001",
-                    "ProxyIngressPort": "15000",
+                    "app_ports": "8080",
+                    "egress_ignored_ips": "169.254.170.2,169.254.169.254",
+                    "ignored_uid": "1337",
+                    "proxy_egress_port": "15001",
+                    "proxy_ingress_port": "15000",
                 },
             })
         ```

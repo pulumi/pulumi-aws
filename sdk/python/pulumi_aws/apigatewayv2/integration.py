@@ -764,13 +764,13 @@ class Integration(pulumi.CustomResource):
                 {
                     "status_code": "403",
                     "mappings": {
-                        "append:header.auth": "$context.authorizer.authorizerResponse",
+                        "append_header_auth": "$context.authorizer.authorizerResponse",
                     },
                 },
                 {
                     "status_code": "200",
                     "mappings": {
-                        "overwrite:statuscode": "204",
+                        "overwrite_statuscode": "204",
                     },
                 },
             ])
@@ -904,13 +904,13 @@ class Integration(pulumi.CustomResource):
                 {
                     "status_code": "403",
                     "mappings": {
-                        "append:header.auth": "$context.authorizer.authorizerResponse",
+                        "append_header_auth": "$context.authorizer.authorizerResponse",
                     },
                 },
                 {
                     "status_code": "200",
                     "mappings": {
-                        "overwrite:statuscode": "204",
+                        "overwrite_statuscode": "204",
                     },
                 },
             ])

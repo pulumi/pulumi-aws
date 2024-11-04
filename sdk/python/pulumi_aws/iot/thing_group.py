@@ -248,8 +248,8 @@ class ThingGroup(pulumi.CustomResource):
             properties={
                 "attribute_payload": {
                     "attributes": {
-                        "One": "11111",
-                        "Two": "TwoTwo",
+                        "one": "11111",
+                        "two": "TwoTwo",
                     },
                 },
                 "description": "This is my thing group",
@@ -296,8 +296,8 @@ class ThingGroup(pulumi.CustomResource):
             properties={
                 "attribute_payload": {
                     "attributes": {
-                        "One": "11111",
-                        "Two": "TwoTwo",
+                        "one": "11111",
+                        "two": "TwoTwo",
                     },
                 },
                 "description": "This is my thing group",

@@ -171,7 +171,7 @@ class BucketMetric(pulumi.CustomResource):
                 "prefix": "documents/",
                 "tags": {
                     "priority": "high",
-                    "class": "blue",
+                    "class_": "blue",
                 },
             })
         ```
@@ -193,7 +193,7 @@ class BucketMetric(pulumi.CustomResource):
                 "access_point": example_access_point.arn,
                 "tags": {
                     "priority": "high",
-                    "class": "blue",
+                    "class_": "blue",
                 },
             })
         ```
@@ -251,7 +251,7 @@ class BucketMetric(pulumi.CustomResource):
                 "prefix": "documents/",
                 "tags": {
                     "priority": "high",
-                    "class": "blue",
+                    "class_": "blue",
                 },
             })
         ```
@@ -273,7 +273,7 @@ class BucketMetric(pulumi.CustomResource):
                 "access_point": example_access_point.arn,
                 "tags": {
                     "priority": "high",
-                    "class": "blue",
+                    "class_": "blue",
                 },
             })
         ```

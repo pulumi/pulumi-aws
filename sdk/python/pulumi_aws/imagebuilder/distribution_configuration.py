@@ -261,7 +261,7 @@ class DistributionConfiguration(pulumi.CustomResource):
             distributions=[{
                 "ami_distribution_configuration": {
                     "ami_tags": {
-                        "CostCenter": "IT",
+                        "cost_center": "IT",
                     },
                     "name": "example-{{ imagebuilder:buildDate }}",
                     "launch_permission": {
@@ -312,7 +312,7 @@ class DistributionConfiguration(pulumi.CustomResource):
             distributions=[{
                 "ami_distribution_configuration": {
                     "ami_tags": {
-                        "CostCenter": "IT",
+                        "cost_center": "IT",
                     },
                     "name": "example-{{ imagebuilder:buildDate }}",
                     "launch_permission": {

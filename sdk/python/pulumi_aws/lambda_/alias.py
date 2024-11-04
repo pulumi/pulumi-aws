@@ -254,7 +254,7 @@ class Alias(pulumi.CustomResource):
             function_version="1",
             routing_config={
                 "additional_version_weights": {
-                    "2": 0.5,
+                    "_2": 0.5,
                 },
             })
         ```
@@ -300,7 +300,7 @@ class Alias(pulumi.CustomResource):
             function_version="1",
             routing_config={
                 "additional_version_weights": {
-                    "2": 0.5,
+                    "_2": 0.5,
                 },
             })
         ```

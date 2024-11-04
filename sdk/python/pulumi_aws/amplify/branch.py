@@ -771,8 +771,8 @@ class Branch(pulumi.CustomResource):
             arn=amplify_app_master_topic.arn,
             input_transformer={
                 "input_paths": {
-                    "jobId": "$.detail.jobId",
-                    "appId": "$.detail.appId",
+                    "job_id": "$.detail.jobId",
+                    "app_id": "$.detail.appId",
                     "region": "$.region",
                     "branch": "$.detail.branchName",
                     "status": "$.detail.jobStatus",
@@ -910,8 +910,8 @@ class Branch(pulumi.CustomResource):
             arn=amplify_app_master_topic.arn,
             input_transformer={
                 "input_paths": {
-                    "jobId": "$.detail.jobId",
-                    "appId": "$.detail.appId",
+                    "job_id": "$.detail.jobId",
+                    "app_id": "$.detail.appId",
                     "region": "$.region",
                     "branch": "$.detail.branchName",
                     "status": "$.detail.jobStatus",
