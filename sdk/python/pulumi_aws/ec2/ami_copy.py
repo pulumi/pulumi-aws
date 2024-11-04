@@ -782,7 +782,6 @@ class AmiCopy(pulumi.CustomResource):
 
         example = aws.ec2.AmiCopy("example",
             name="example",
-            description="A copy of ami-xxxxxxxx",
             source_ami_id="ami-xxxxxxxx",
             source_ami_region="us-west-1",
             tags={
@@ -836,7 +835,6 @@ class AmiCopy(pulumi.CustomResource):
 
         example = aws.ec2.AmiCopy("example",
             name="example",
-            description="A copy of ami-xxxxxxxx",
             source_ami_id="ami-xxxxxxxx",
             source_ami_region="us-west-1",
             tags={

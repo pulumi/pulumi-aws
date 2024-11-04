@@ -288,7 +288,7 @@ import (
 //			_, err := ec2.NewInstance(ctx, "this", &ec2.InstanceArgs{
 //				Ami:                  pulumi.String("ami-0dcc1e21636832c5d"),
 //				InstanceType:         pulumi.String(ec2.InstanceType_M5_Large),
-//				HostResourceGroupArn: pulumi.String("arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost"),
+//				HostResourceGroupArn: pulumi.String("arn:aws:resource-groups:us-west-2:123456789012:group/win-testhost"),
 //				Tenancy:              pulumi.String("host"),
 //			})
 //			if err != nil {

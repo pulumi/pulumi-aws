@@ -202,6 +202,10 @@ namespace Pulumi.Aws.Eks
         /// Nested list containing VPC configuration for the cluster.
         /// </summary>
         public readonly Outputs.GetClusterVpcConfigResult VpcConfig;
+        /// <summary>
+        /// Contains Zonal Shift Configuration.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetClusterZonalShiftConfigResult> ZonalShiftConfigs;
 
         [OutputConstructor]
         private GetClusterResult(
@@ -241,7 +245,9 @@ namespace Pulumi.Aws.Eks
 
             string version,
 
-            Outputs.GetClusterVpcConfigResult vpcConfig)
+            Outputs.GetClusterVpcConfigResult vpcConfig,
+
+            ImmutableArray<Outputs.GetClusterZonalShiftConfigResult> zonalShiftConfigs)
         {
             AccessConfigs = accessConfigs;
             Arn = arn;
@@ -262,6 +268,7 @@ namespace Pulumi.Aws.Eks
             UpgradePolicies = upgradePolicies;
             Version = version;
             VpcConfig = vpcConfig;
+            ZonalShiftConfigs = zonalShiftConfigs;
         }
     }
 }

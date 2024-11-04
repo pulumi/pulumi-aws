@@ -46,6 +46,9 @@ __all__ = [
     'PatchBaselineApprovalRulePatchFilter',
     'PatchBaselineGlobalFilter',
     'PatchBaselineSource',
+    'QuicksetupConfigurationManagerConfigurationDefinition',
+    'QuicksetupConfigurationManagerStatusSummary',
+    'QuicksetupConfigurationManagerTimeouts',
     'ResourceDataSyncS3Destination',
     'GetContactsRotationRecurrenceResult',
     'GetContactsRotationRecurrenceDailySettingResult',
@@ -1430,7 +1433,7 @@ class PatchBaselineApprovalRule(dict):
                  enable_non_security: Optional[bool] = None):
         """
         :param Sequence['PatchBaselineApprovalRulePatchFilterArgs'] patch_filters: Patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html). Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values. `PATCH_SET` defaults to `OS` if unspecified
-        :param int approve_after_days: Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approve_until_date`.
+        :param int approve_after_days: Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 360. Conflicts with `approve_until_date`.
         :param str approve_until_date: Cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
         :param str compliance_level: Compliance level for patches approved by this rule. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, and `UNSPECIFIED`. The default value is `UNSPECIFIED`.
         :param bool enable_non_security: Boolean enabling the application of non-security updates. The default value is `false`. Valid for Linux instances only.
@@ -1457,7 +1460,7 @@ class PatchBaselineApprovalRule(dict):
     @pulumi.getter(name="approveAfterDays")
     def approve_after_days(self) -> Optional[int]:
         """
-        Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approve_until_date`.
+        Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 360. Conflicts with `approve_until_date`.
         """
         return pulumi.get(self, "approve_after_days")
 
@@ -1562,6 +1565,198 @@ class PatchBaselineSource(dict):
         Specific operating system versions a patch repository applies to, such as `"Ubuntu16.04"`, `"AmazonLinux2016.09"`, `"RedhatEnterpriseLinux7.2"` or `"Suse12.7"`. For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
         """
         return pulumi.get(self, "products")
+
+
+@pulumi.output_type
+class QuicksetupConfigurationManagerConfigurationDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "localDeploymentAdministrationRoleArn":
+            suggest = "local_deployment_administration_role_arn"
+        elif key == "localDeploymentExecutionRoleName":
+            suggest = "local_deployment_execution_role_name"
+        elif key == "typeVersion":
+            suggest = "type_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QuicksetupConfigurationManagerConfigurationDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QuicksetupConfigurationManagerConfigurationDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QuicksetupConfigurationManagerConfigurationDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 parameters: Mapping[str, str],
+                 type: str,
+                 id: Optional[str] = None,
+                 local_deployment_administration_role_arn: Optional[str] = None,
+                 local_deployment_execution_role_name: Optional[str] = None,
+                 type_version: Optional[str] = None):
+        """
+        :param Mapping[str, str] parameters: Parameters for the configuration definition type. Parameters for configuration definitions vary based the configuration type. See the [AWS API documentation](https://docs.aws.amazon.com/quick-setup/latest/APIReference/API_ConfigurationDefinitionInput.html) for a complete list of parameters for each configuration type.
+        :param str type: Type of the Quick Setup configuration.
+        :param str local_deployment_execution_role_name: Name of the IAM role used to deploy local configurations.
+        :param str type_version: Version of the Quick Setup type to use.
+        """
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if local_deployment_administration_role_arn is not None:
+            pulumi.set(__self__, "local_deployment_administration_role_arn", local_deployment_administration_role_arn)
+        if local_deployment_execution_role_name is not None:
+            pulumi.set(__self__, "local_deployment_execution_role_name", local_deployment_execution_role_name)
+        if type_version is not None:
+            pulumi.set(__self__, "type_version", type_version)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Mapping[str, str]:
+        """
+        Parameters for the configuration definition type. Parameters for configuration definitions vary based the configuration type. See the [AWS API documentation](https://docs.aws.amazon.com/quick-setup/latest/APIReference/API_ConfigurationDefinitionInput.html) for a complete list of parameters for each configuration type.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the Quick Setup configuration.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="localDeploymentAdministrationRoleArn")
+    def local_deployment_administration_role_arn(self) -> Optional[str]:
+        return pulumi.get(self, "local_deployment_administration_role_arn")
+
+    @property
+    @pulumi.getter(name="localDeploymentExecutionRoleName")
+    def local_deployment_execution_role_name(self) -> Optional[str]:
+        """
+        Name of the IAM role used to deploy local configurations.
+        """
+        return pulumi.get(self, "local_deployment_execution_role_name")
+
+    @property
+    @pulumi.getter(name="typeVersion")
+    def type_version(self) -> Optional[str]:
+        """
+        Version of the Quick Setup type to use.
+        """
+        return pulumi.get(self, "type_version")
+
+
+@pulumi.output_type
+class QuicksetupConfigurationManagerStatusSummary(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statusMessage":
+            suggest = "status_message"
+        elif key == "statusType":
+            suggest = "status_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QuicksetupConfigurationManagerStatusSummary. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QuicksetupConfigurationManagerStatusSummary.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QuicksetupConfigurationManagerStatusSummary.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status: str,
+                 status_message: str,
+                 status_type: str):
+        """
+        :param str status: Current status.
+        :param str status_message: When applicable, returns an informational message relevant to the current status and status type of the status summary object.
+        :param str status_type: Type of a status summary.
+        """
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "status_message", status_message)
+        pulumi.set(__self__, "status_type", status_type)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Current status.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> str:
+        """
+        When applicable, returns an informational message relevant to the current status and status type of the status summary object.
+        """
+        return pulumi.get(self, "status_message")
+
+    @property
+    @pulumi.getter(name="statusType")
+    def status_type(self) -> str:
+        """
+        Type of a status summary.
+        """
+        return pulumi.get(self, "status_type")
+
+
+@pulumi.output_type
+class QuicksetupConfigurationManagerTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None,
+                 update: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
 
 
 @pulumi.output_type

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Alb.Inputs
         private InputList<Inputs.ListenerRuleActionForwardTargetGroupArgs>? _targetGroups;
 
         /// <summary>
-        /// One or more target groups block.
+        /// One or more target group blocks.
         /// </summary>
         public InputList<Inputs.ListenerRuleActionForwardTargetGroupArgs> TargetGroups
         {

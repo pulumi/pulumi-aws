@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ssoadmin.getApplication({
- *     applicationArn: "arn:aws:sso::012345678901:application/ssoins-1234/apl-5678",
+ *     applicationArn: "arn:aws:sso::123456789012:application/ssoins-1234/apl-5678",
  * });
  * ```
  */
@@ -95,7 +95,7 @@ export interface GetApplicationResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ssoadmin.getApplication({
- *     applicationArn: "arn:aws:sso::012345678901:application/ssoins-1234/apl-5678",
+ *     applicationArn: "arn:aws:sso::123456789012:application/ssoins-1234/apl-5678",
  * });
  * ```
  */

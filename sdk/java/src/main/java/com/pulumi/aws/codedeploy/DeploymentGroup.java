@@ -20,6 +20,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -591,6 +592,20 @@ public class DeploymentGroup extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    /**
+     * Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
+     * 
+     */
+    @Export(name="terminationHookEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> terminationHookEnabled;
+
+    /**
+     * @return Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
+     * 
+     */
+    public Output<Optional<Boolean>> terminationHookEnabled() {
+        return Codegen.optional(this.terminationHookEnabled);
     }
     /**
      * Configuration block(s) of the triggers for the deployment group (documented below).

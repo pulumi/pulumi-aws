@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Ebs
     public partial class Volume : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+        /// The volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -269,7 +269,7 @@ namespace Pulumi.Aws.Ebs
     public sealed class VolumeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+        /// The volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

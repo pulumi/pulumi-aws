@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.shield.getProtection({
- *     resourceArn: "arn:aws:globalaccelerator::012345678901:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh",
+ *     resourceArn: "arn:aws:globalaccelerator::123456789012:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh",
  * });
  * ```
  */
@@ -93,7 +93,7 @@ export interface GetProtectionResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.shield.getProtection({
- *     resourceArn: "arn:aws:globalaccelerator::012345678901:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh",
+ *     resourceArn: "arn:aws:globalaccelerator::123456789012:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh",
  * });
  * ```
  */

@@ -1918,7 +1918,7 @@ export namespace alb {
          */
         stickiness?: pulumi.Input<inputs.alb.ListenerRuleActionForwardStickiness>;
         /**
-         * One or more target groups block.
+         * One or more target group blocks.
          */
         targetGroups: pulumi.Input<pulumi.Input<inputs.alb.ListenerRuleActionForwardTargetGroup>[]>;
     }
@@ -27918,6 +27918,13 @@ export namespace eks {
         vpcId?: pulumi.Input<string>;
     }
 
+    export interface ClusterZonalShiftConfig {
+        /**
+         * Whether zonal shift is enabled for the cluster.
+         */
+        enabled?: pulumi.Input<boolean>;
+    }
+
     export interface FargateProfileSelector {
         /**
          * Key-value map of Kubernetes labels for selection.
@@ -33566,6 +33573,10 @@ export namespace imagebuilder {
          * The following arguments are optional:
          */
         region: pulumi.Input<string>;
+        /**
+         * Configuration block with S3 export settings. Detailed below.
+         */
+        s3ExportConfiguration?: pulumi.Input<inputs.imagebuilder.DistributionConfigurationDistributionS3ExportConfiguration>;
     }
 
     export interface DistributionConfigurationDistributionAmiDistributionConfiguration {
@@ -33698,6 +33709,25 @@ export namespace imagebuilder {
          * The ID of the Amazon EC2 launch template to use.
          */
         launchTemplateId: pulumi.Input<string>;
+    }
+
+    export interface DistributionConfigurationDistributionS3ExportConfiguration {
+        /**
+         * The disk image format of the exported image (`RAW`, `VHD`, or `VMDK`)
+         */
+        diskImageFormat: pulumi.Input<string>;
+        /**
+         * The name of the IAM role to use for exporting.
+         */
+        roleName: pulumi.Input<string>;
+        /**
+         * The name of the S3 bucket to store the exported image in. The bucket needs to exist before the export configuration is created.
+         */
+        s3Bucket: pulumi.Input<string>;
+        /**
+         * The prefix for the exported image.
+         */
+        s3Prefix?: pulumi.Input<string>;
     }
 
     export interface GetComponentsFilter {
@@ -36052,6 +36082,17 @@ export namespace kendra {
 }
 
 export namespace keyspaces {
+    export interface KeyspaceReplicationSpecification {
+        /**
+         * Replication regions. If `replicationStrategy` is `MULTI_REGION`, `regionList` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
+         */
+        regionLists?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Replication strategy. Valid values: `SINGLE_REGION` and `MULTI_REGION`.
+         */
+        replicationStrategy?: pulumi.Input<string>;
+    }
+
     export interface TableCapacitySpecification {
         /**
          * The throughput capacity specified for read operations defined in read capacity units (RCUs).
@@ -39997,6 +40038,566 @@ export namespace lambda {
 }
 
 export namespace lb {
+    export interface GetListenerRuleAction {
+        /**
+         * An action to authenticate using Amazon Cognito.
+         * Detailed below.
+         */
+        authenticateCognito?: inputs.lb.GetListenerRuleActionAuthenticateCognito;
+        /**
+         * An action to authenticate using OIDC.
+         * Detailed below.
+         */
+        authenticateOidc?: inputs.lb.GetListenerRuleActionAuthenticateOidc;
+        /**
+         * An action to return a fixed response.
+         * Detailed below.
+         */
+        fixedResponse?: inputs.lb.GetListenerRuleActionFixedResponse;
+        /**
+         * An action to forward the request.
+         * Detailed below.
+         */
+        forward?: inputs.lb.GetListenerRuleActionForward;
+        /**
+         * The evaluation order of the action.
+         */
+        order?: number;
+        /**
+         * An action to redirect the request.
+         * Detailed below.
+         */
+        redirect?: inputs.lb.GetListenerRuleActionRedirect;
+        /**
+         * The type of the action, indicates which sub-block will be populated.
+         */
+        type?: string;
+    }
+
+    export interface GetListenerRuleActionArgs {
+        /**
+         * An action to authenticate using Amazon Cognito.
+         * Detailed below.
+         */
+        authenticateCognito?: pulumi.Input<inputs.lb.GetListenerRuleActionAuthenticateCognitoArgs>;
+        /**
+         * An action to authenticate using OIDC.
+         * Detailed below.
+         */
+        authenticateOidc?: pulumi.Input<inputs.lb.GetListenerRuleActionAuthenticateOidcArgs>;
+        /**
+         * An action to return a fixed response.
+         * Detailed below.
+         */
+        fixedResponse?: pulumi.Input<inputs.lb.GetListenerRuleActionFixedResponseArgs>;
+        /**
+         * An action to forward the request.
+         * Detailed below.
+         */
+        forward?: pulumi.Input<inputs.lb.GetListenerRuleActionForwardArgs>;
+        /**
+         * The evaluation order of the action.
+         */
+        order?: pulumi.Input<number>;
+        /**
+         * An action to redirect the request.
+         * Detailed below.
+         */
+        redirect?: pulumi.Input<inputs.lb.GetListenerRuleActionRedirectArgs>;
+        /**
+         * The type of the action, indicates which sub-block will be populated.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface GetListenerRuleActionAuthenticateCognito {
+        /**
+         * Set of additional parameters for the request.
+         * Detailed below.
+         */
+        authenticationRequestExtraParams?: {[key: string]: string};
+        /**
+         * Behavior when the client is not authenticated.
+         */
+        onUnauthenticatedRequest?: string;
+        /**
+         * Set of user claims requested.
+         */
+        scope?: string;
+        /**
+         * Name of the cookie used to maintain session information.
+         */
+        sessionCookieName?: string;
+        /**
+         * Maximum duration of the authentication session in seconds.
+         */
+        sessionTimeout?: number;
+        /**
+         * ARN of the Cognito user pool.
+         */
+        userPoolArn?: string;
+        /**
+         * ID of the Cognito user pool client.
+         */
+        userPoolClientId?: string;
+        /**
+         * Domain prefix or fully-qualified domain name of the Cognito user pool.
+         */
+        userPoolDomain?: string;
+    }
+
+    export interface GetListenerRuleActionAuthenticateCognitoArgs {
+        /**
+         * Set of additional parameters for the request.
+         * Detailed below.
+         */
+        authenticationRequestExtraParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Behavior when the client is not authenticated.
+         */
+        onUnauthenticatedRequest?: pulumi.Input<string>;
+        /**
+         * Set of user claims requested.
+         */
+        scope?: pulumi.Input<string>;
+        /**
+         * Name of the cookie used to maintain session information.
+         */
+        sessionCookieName?: pulumi.Input<string>;
+        /**
+         * Maximum duration of the authentication session in seconds.
+         */
+        sessionTimeout?: pulumi.Input<number>;
+        /**
+         * ARN of the Cognito user pool.
+         */
+        userPoolArn?: pulumi.Input<string>;
+        /**
+         * ID of the Cognito user pool client.
+         */
+        userPoolClientId?: pulumi.Input<string>;
+        /**
+         * Domain prefix or fully-qualified domain name of the Cognito user pool.
+         */
+        userPoolDomain?: pulumi.Input<string>;
+    }
+
+    export interface GetListenerRuleActionAuthenticateOidc {
+        /**
+         * Set of additional parameters for the request.
+         * Detailed below.
+         */
+        authenticationRequestExtraParams?: {[key: string]: string};
+        /**
+         * The authorization endpoint of the IdP.
+         */
+        authorizationEndpoint?: string;
+        /**
+         * OAuth 2.0 client identifier.
+         */
+        clientId?: string;
+        /**
+         * OIDC issuer identifier of the IdP.
+         */
+        issuer?: string;
+        /**
+         * Behavior when the client is not authenticated.
+         */
+        onUnauthenticatedRequest?: string;
+        /**
+         * Set of user claims requested.
+         */
+        scope?: string;
+        /**
+         * Name of the cookie used to maintain session information.
+         */
+        sessionCookieName?: string;
+        /**
+         * Maximum duration of the authentication session in seconds.
+         */
+        sessionTimeout?: number;
+        /**
+         * The token endpoint of the IdP.
+         */
+        tokenEndpoint?: string;
+        /**
+         * The user info endpoint of the IdP.
+         */
+        userInfoEndpoint?: string;
+    }
+
+    export interface GetListenerRuleActionAuthenticateOidcArgs {
+        /**
+         * Set of additional parameters for the request.
+         * Detailed below.
+         */
+        authenticationRequestExtraParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The authorization endpoint of the IdP.
+         */
+        authorizationEndpoint?: pulumi.Input<string>;
+        /**
+         * OAuth 2.0 client identifier.
+         */
+        clientId?: pulumi.Input<string>;
+        /**
+         * OIDC issuer identifier of the IdP.
+         */
+        issuer?: pulumi.Input<string>;
+        /**
+         * Behavior when the client is not authenticated.
+         */
+        onUnauthenticatedRequest?: pulumi.Input<string>;
+        /**
+         * Set of user claims requested.
+         */
+        scope?: pulumi.Input<string>;
+        /**
+         * Name of the cookie used to maintain session information.
+         */
+        sessionCookieName?: pulumi.Input<string>;
+        /**
+         * Maximum duration of the authentication session in seconds.
+         */
+        sessionTimeout?: pulumi.Input<number>;
+        /**
+         * The token endpoint of the IdP.
+         */
+        tokenEndpoint?: pulumi.Input<string>;
+        /**
+         * The user info endpoint of the IdP.
+         */
+        userInfoEndpoint?: pulumi.Input<string>;
+    }
+
+    export interface GetListenerRuleActionFixedResponse {
+        /**
+         * Content type of the response.
+         */
+        contentType?: string;
+        /**
+         * Message body of the response.
+         */
+        messageBody?: string;
+        /**
+         * The HTTP redirect code.
+         */
+        statusCode?: string;
+    }
+
+    export interface GetListenerRuleActionFixedResponseArgs {
+        /**
+         * Content type of the response.
+         */
+        contentType?: pulumi.Input<string>;
+        /**
+         * Message body of the response.
+         */
+        messageBody?: pulumi.Input<string>;
+        /**
+         * The HTTP redirect code.
+         */
+        statusCode?: pulumi.Input<string>;
+    }
+
+    export interface GetListenerRuleActionForward {
+        /**
+         * Target group stickiness for the rule.
+         * Detailed below.
+         */
+        stickiness?: inputs.lb.GetListenerRuleActionForwardStickiness;
+        /**
+         * Set of target groups for the action.
+         * Detailed below.
+         */
+        targetGroups?: inputs.lb.GetListenerRuleActionForwardTargetGroup[];
+    }
+
+    export interface GetListenerRuleActionForwardArgs {
+        /**
+         * Target group stickiness for the rule.
+         * Detailed below.
+         */
+        stickiness?: pulumi.Input<inputs.lb.GetListenerRuleActionForwardStickinessArgs>;
+        /**
+         * Set of target groups for the action.
+         * Detailed below.
+         */
+        targetGroups?: pulumi.Input<pulumi.Input<inputs.lb.GetListenerRuleActionForwardTargetGroupArgs>[]>;
+    }
+
+    export interface GetListenerRuleActionForwardStickiness {
+        /**
+         * The time period, in seconds, during which requests from a client should be routed to the same target group.
+         */
+        duration?: number;
+        /**
+         * Indicates whether target group stickiness is enabled.
+         */
+        enabled?: boolean;
+    }
+
+    export interface GetListenerRuleActionForwardStickinessArgs {
+        /**
+         * The time period, in seconds, during which requests from a client should be routed to the same target group.
+         */
+        duration?: pulumi.Input<number>;
+        /**
+         * Indicates whether target group stickiness is enabled.
+         */
+        enabled?: pulumi.Input<boolean>;
+    }
+
+    export interface GetListenerRuleActionForwardTargetGroup {
+        /**
+         * ARN of the Listener Rule.
+         * Either `arn` or `listenerArn` must be set.
+         */
+        arn?: string;
+        /**
+         * Weight of the target group.
+         */
+        weight?: number;
+    }
+
+    export interface GetListenerRuleActionForwardTargetGroupArgs {
+        /**
+         * ARN of the Listener Rule.
+         * Either `arn` or `listenerArn` must be set.
+         */
+        arn?: pulumi.Input<string>;
+        /**
+         * Weight of the target group.
+         */
+        weight?: pulumi.Input<number>;
+    }
+
+    export interface GetListenerRuleActionRedirect {
+        /**
+         * The hostname.
+         */
+        host?: string;
+        /**
+         * The absolute path, starting with `/`.
+         */
+        path?: string;
+        /**
+         * The port.
+         */
+        port?: string;
+        /**
+         * The protocol.
+         */
+        protocol?: string;
+        /**
+         * The query parameters.
+         */
+        query?: string;
+        /**
+         * The HTTP redirect code.
+         */
+        statusCode?: string;
+    }
+
+    export interface GetListenerRuleActionRedirectArgs {
+        /**
+         * The hostname.
+         */
+        host?: pulumi.Input<string>;
+        /**
+         * The absolute path, starting with `/`.
+         */
+        path?: pulumi.Input<string>;
+        /**
+         * The port.
+         */
+        port?: pulumi.Input<string>;
+        /**
+         * The protocol.
+         */
+        protocol?: pulumi.Input<string>;
+        /**
+         * The query parameters.
+         */
+        query?: pulumi.Input<string>;
+        /**
+         * The HTTP redirect code.
+         */
+        statusCode?: pulumi.Input<string>;
+    }
+
+    export interface GetListenerRuleCondition {
+        /**
+         * Contains a single attribute `values`, which contains a set of host names.
+         */
+        hostHeader?: inputs.lb.GetListenerRuleConditionHostHeader;
+        /**
+         * HTTP header and values to match.
+         * Detailed below.
+         */
+        httpHeader?: inputs.lb.GetListenerRuleConditionHttpHeader;
+        /**
+         * Contains a single attribute `values`, which contains a set of HTTP request methods.
+         */
+        httpRequestMethod?: inputs.lb.GetListenerRuleConditionHttpRequestMethod;
+        /**
+         * Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
+         */
+        pathPattern?: inputs.lb.GetListenerRuleConditionPathPattern;
+        /**
+         * Query string parameters to match.
+         * Detailed below.
+         */
+        queryString?: inputs.lb.GetListenerRuleConditionQueryString;
+        /**
+         * Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
+         */
+        sourceIp?: inputs.lb.GetListenerRuleConditionSourceIp;
+    }
+
+    export interface GetListenerRuleConditionArgs {
+        /**
+         * Contains a single attribute `values`, which contains a set of host names.
+         */
+        hostHeader?: pulumi.Input<inputs.lb.GetListenerRuleConditionHostHeaderArgs>;
+        /**
+         * HTTP header and values to match.
+         * Detailed below.
+         */
+        httpHeader?: pulumi.Input<inputs.lb.GetListenerRuleConditionHttpHeaderArgs>;
+        /**
+         * Contains a single attribute `values`, which contains a set of HTTP request methods.
+         */
+        httpRequestMethod?: pulumi.Input<inputs.lb.GetListenerRuleConditionHttpRequestMethodArgs>;
+        /**
+         * Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
+         */
+        pathPattern?: pulumi.Input<inputs.lb.GetListenerRuleConditionPathPatternArgs>;
+        /**
+         * Query string parameters to match.
+         * Detailed below.
+         */
+        queryString?: pulumi.Input<inputs.lb.GetListenerRuleConditionQueryStringArgs>;
+        /**
+         * Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
+         */
+        sourceIp?: pulumi.Input<inputs.lb.GetListenerRuleConditionSourceIpArgs>;
+    }
+
+    export interface GetListenerRuleConditionHostHeader {
+        /**
+         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         */
+        values?: string[];
+    }
+
+    export interface GetListenerRuleConditionHostHeaderArgs {
+        /**
+         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetListenerRuleConditionHttpHeader {
+        /**
+         * Name of the HTTP header to match.
+         */
+        httpHeaderName?: string;
+        /**
+         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         */
+        values?: string[];
+    }
+
+    export interface GetListenerRuleConditionHttpHeaderArgs {
+        /**
+         * Name of the HTTP header to match.
+         */
+        httpHeaderName?: pulumi.Input<string>;
+        /**
+         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetListenerRuleConditionHttpRequestMethod {
+        /**
+         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         */
+        values?: string[];
+    }
+
+    export interface GetListenerRuleConditionHttpRequestMethodArgs {
+        /**
+         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetListenerRuleConditionPathPattern {
+        /**
+         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         */
+        values?: string[];
+    }
+
+    export interface GetListenerRuleConditionPathPatternArgs {
+        /**
+         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetListenerRuleConditionQueryString {
+        /**
+         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         */
+        values?: inputs.lb.GetListenerRuleConditionQueryStringValue[];
+    }
+
+    export interface GetListenerRuleConditionQueryStringArgs {
+        /**
+         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         */
+        values?: pulumi.Input<pulumi.Input<inputs.lb.GetListenerRuleConditionQueryStringValueArgs>[]>;
+    }
+
+    export interface GetListenerRuleConditionQueryStringValue {
+        /**
+         * Key of query parameter
+         */
+        key?: string;
+        /**
+         * Value of query parameter
+         */
+        value?: string;
+    }
+
+    export interface GetListenerRuleConditionQueryStringValueArgs {
+        /**
+         * Key of query parameter
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Value of query parameter
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface GetListenerRuleConditionSourceIp {
+        /**
+         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         */
+        values?: string[];
+    }
+
+    export interface GetListenerRuleConditionSourceIpArgs {
+        /**
+         * Set of `key`-`value` pairs indicating the query string parameters to match.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface ListenerDefaultAction {
         /**
          * Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. See below.
@@ -40366,7 +40967,7 @@ export namespace lb {
          */
         stickiness?: pulumi.Input<inputs.lb.ListenerRuleActionForwardStickiness>;
         /**
-         * One or more target groups block.
+         * One or more target group blocks.
          */
         targetGroups: pulumi.Input<pulumi.Input<inputs.lb.ListenerRuleActionForwardTargetGroup>[]>;
     }
@@ -59129,6 +59730,17 @@ export namespace oam {
 }
 
 export namespace opensearch {
+    export interface AuthorizeVpcEndpointAccessAuthorizedPrincipal {
+        /**
+         * IAM principal that is allowed to access to the domain.
+         */
+        principal: pulumi.Input<string>;
+        /**
+         * Type of principal.
+         */
+        principalType: pulumi.Input<string>;
+    }
+
     export interface DomainAdvancedSecurityOptions {
         /**
          * Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advancedSecurityOptions` are enabled. _Can only be enabled on an existing domain._
@@ -74970,7 +75582,7 @@ export namespace ssm {
 
     export interface PatchBaselineApprovalRule {
         /**
-         * Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approveUntilDate`.
+         * Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 360. Conflicts with `approveUntilDate`.
          */
         approveAfterDays?: pulumi.Input<number>;
         /**
@@ -75014,6 +75626,57 @@ export namespace ssm {
          * Specific operating system versions a patch repository applies to, such as `"Ubuntu16.04"`, `"AmazonLinux2016.09"`, `"RedhatEnterpriseLinux7.2"` or `"Suse12.7"`. For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
          */
         products: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface QuicksetupConfigurationManagerConfigurationDefinition {
+        id?: pulumi.Input<string>;
+        localDeploymentAdministrationRoleArn?: pulumi.Input<string>;
+        /**
+         * Name of the IAM role used to deploy local configurations.
+         */
+        localDeploymentExecutionRoleName?: pulumi.Input<string>;
+        /**
+         * Parameters for the configuration definition type. Parameters for configuration definitions vary based the configuration type. See the [AWS API documentation](https://docs.aws.amazon.com/quick-setup/latest/APIReference/API_ConfigurationDefinitionInput.html) for a complete list of parameters for each configuration type.
+         */
+        parameters: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Type of the Quick Setup configuration.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * Version of the Quick Setup type to use.
+         */
+        typeVersion?: pulumi.Input<string>;
+    }
+
+    export interface QuicksetupConfigurationManagerStatusSummary {
+        /**
+         * Current status.
+         */
+        status: pulumi.Input<string>;
+        /**
+         * When applicable, returns an informational message relevant to the current status and status type of the status summary object.
+         */
+        statusMessage: pulumi.Input<string>;
+        /**
+         * Type of a status summary.
+         */
+        statusType: pulumi.Input<string>;
+    }
+
+    export interface QuicksetupConfigurationManagerTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string>;
     }
 
     export interface ResourceDataSyncS3Destination {

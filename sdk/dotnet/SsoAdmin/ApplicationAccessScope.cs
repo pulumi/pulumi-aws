@@ -38,7 +38,7 @@ namespace Pulumi.Aws.SsoAdmin
     ///         ApplicationArn = exampleApplication.ApplicationArn,
     ///         AuthorizedTargets = new[]
     ///         {
-    ///             "arn:aws:sso::012345678901:application/ssoins-012345678901/apl-012345678901",
+    ///             "arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012",
     ///         },
     ///         Scope = "sso:account:access",
     ///     });
@@ -51,7 +51,7 @@ namespace Pulumi.Aws.SsoAdmin
     /// Using `pulumi import`, import SSO Admin Application Access Scope using the `id`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:ssoadmin/applicationAccessScope:ApplicationAccessScope example arn:aws:sso::012345678901:application/ssoins-012345678901/apl-012345678901,sso:account:access
+    /// $ pulumi import aws:ssoadmin/applicationAccessScope:ApplicationAccessScope example arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012,sso:account:access
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssoadmin/applicationAccessScope:ApplicationAccessScope")]

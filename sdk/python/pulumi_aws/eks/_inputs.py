@@ -39,6 +39,8 @@ __all__ = [
     'ClusterUpgradePolicyArgsDict',
     'ClusterVpcConfigArgs',
     'ClusterVpcConfigArgsDict',
+    'ClusterZonalShiftConfigArgs',
+    'ClusterZonalShiftConfigArgsDict',
     'FargateProfileSelectorArgs',
     'FargateProfileSelectorArgsDict',
     'IdentityProviderConfigOidcArgs',
@@ -740,6 +742,38 @@ class ClusterVpcConfigArgs:
     @vpc_id.setter
     def vpc_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vpc_id", value)
+
+
+if not MYPY:
+    class ClusterZonalShiftConfigArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether zonal shift is enabled for the cluster.
+        """
+elif False:
+    ClusterZonalShiftConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterZonalShiftConfigArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Whether zonal shift is enabled for the cluster.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether zonal shift is enabled for the cluster.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 if not MYPY:

@@ -45,7 +45,7 @@ import (
 //			_, err = ssoadmin.NewApplicationAccessScope(ctx, "example", &ssoadmin.ApplicationAccessScopeArgs{
 //				ApplicationArn: exampleApplication.ApplicationArn,
 //				AuthorizedTargets: pulumi.StringArray{
-//					pulumi.String("arn:aws:sso::012345678901:application/ssoins-012345678901/apl-012345678901"),
+//					pulumi.String("arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012"),
 //				},
 //				Scope: pulumi.String("sso:account:access"),
 //			})
@@ -63,7 +63,7 @@ import (
 // Using `pulumi import`, import SSO Admin Application Access Scope using the `id`. For example:
 //
 // ```sh
-// $ pulumi import aws:ssoadmin/applicationAccessScope:ApplicationAccessScope example arn:aws:sso::012345678901:application/ssoins-012345678901/apl-012345678901,sso:account:access
+// $ pulumi import aws:ssoadmin/applicationAccessScope:ApplicationAccessScope example arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012,sso:account:access
 // ```
 type ApplicationAccessScope struct {
 	pulumi.CustomResourceState

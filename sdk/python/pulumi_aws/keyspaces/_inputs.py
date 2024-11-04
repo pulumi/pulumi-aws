@@ -15,6 +15,8 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'KeyspaceReplicationSpecificationArgs',
+    'KeyspaceReplicationSpecificationArgsDict',
     'TableCapacitySpecificationArgs',
     'TableCapacitySpecificationArgsDict',
     'TableClientSideTimestampsArgs',
@@ -40,6 +42,58 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class KeyspaceReplicationSpecificationArgsDict(TypedDict):
+        region_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Replication regions. If `replication_strategy` is `MULTI_REGION`, `region_list` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
+        """
+        replication_strategy: NotRequired[pulumi.Input[str]]
+        """
+        Replication strategy. Valid values: `SINGLE_REGION` and `MULTI_REGION`.
+        """
+elif False:
+    KeyspaceReplicationSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KeyspaceReplicationSpecificationArgs:
+    def __init__(__self__, *,
+                 region_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 replication_strategy: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] region_lists: Replication regions. If `replication_strategy` is `MULTI_REGION`, `region_list` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
+        :param pulumi.Input[str] replication_strategy: Replication strategy. Valid values: `SINGLE_REGION` and `MULTI_REGION`.
+        """
+        if region_lists is not None:
+            pulumi.set(__self__, "region_lists", region_lists)
+        if replication_strategy is not None:
+            pulumi.set(__self__, "replication_strategy", replication_strategy)
+
+    @property
+    @pulumi.getter(name="regionLists")
+    def region_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Replication regions. If `replication_strategy` is `MULTI_REGION`, `region_list` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
+        """
+        return pulumi.get(self, "region_lists")
+
+    @region_lists.setter
+    def region_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "region_lists", value)
+
+    @property
+    @pulumi.getter(name="replicationStrategy")
+    def replication_strategy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Replication strategy. Valid values: `SINGLE_REGION` and `MULTI_REGION`.
+        """
+        return pulumi.get(self, "replication_strategy")
+
+    @replication_strategy.setter
+    def replication_strategy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "replication_strategy", value)
+
 
 if not MYPY:
     class TableCapacitySpecificationArgsDict(TypedDict):

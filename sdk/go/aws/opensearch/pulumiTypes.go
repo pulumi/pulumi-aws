@@ -13,6 +13,112 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AuthorizeVpcEndpointAccessAuthorizedPrincipal struct {
+	// IAM principal that is allowed to access to the domain.
+	Principal string `pulumi:"principal"`
+	// Type of principal.
+	PrincipalType string `pulumi:"principalType"`
+}
+
+// AuthorizeVpcEndpointAccessAuthorizedPrincipalInput is an input type that accepts AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs and AuthorizeVpcEndpointAccessAuthorizedPrincipalOutput values.
+// You can construct a concrete instance of `AuthorizeVpcEndpointAccessAuthorizedPrincipalInput` via:
+//
+//	AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs{...}
+type AuthorizeVpcEndpointAccessAuthorizedPrincipalInput interface {
+	pulumi.Input
+
+	ToAuthorizeVpcEndpointAccessAuthorizedPrincipalOutput() AuthorizeVpcEndpointAccessAuthorizedPrincipalOutput
+	ToAuthorizeVpcEndpointAccessAuthorizedPrincipalOutputWithContext(context.Context) AuthorizeVpcEndpointAccessAuthorizedPrincipalOutput
+}
+
+type AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs struct {
+	// IAM principal that is allowed to access to the domain.
+	Principal pulumi.StringInput `pulumi:"principal"`
+	// Type of principal.
+	PrincipalType pulumi.StringInput `pulumi:"principalType"`
+}
+
+func (AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizeVpcEndpointAccessAuthorizedPrincipal)(nil)).Elem()
+}
+
+func (i AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs) ToAuthorizeVpcEndpointAccessAuthorizedPrincipalOutput() AuthorizeVpcEndpointAccessAuthorizedPrincipalOutput {
+	return i.ToAuthorizeVpcEndpointAccessAuthorizedPrincipalOutputWithContext(context.Background())
+}
+
+func (i AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs) ToAuthorizeVpcEndpointAccessAuthorizedPrincipalOutputWithContext(ctx context.Context) AuthorizeVpcEndpointAccessAuthorizedPrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizeVpcEndpointAccessAuthorizedPrincipalOutput)
+}
+
+// AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayInput is an input type that accepts AuthorizeVpcEndpointAccessAuthorizedPrincipalArray and AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutput values.
+// You can construct a concrete instance of `AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayInput` via:
+//
+//	AuthorizeVpcEndpointAccessAuthorizedPrincipalArray{ AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs{...} }
+type AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayInput interface {
+	pulumi.Input
+
+	ToAuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutput() AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutput
+	ToAuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutputWithContext(context.Context) AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutput
+}
+
+type AuthorizeVpcEndpointAccessAuthorizedPrincipalArray []AuthorizeVpcEndpointAccessAuthorizedPrincipalInput
+
+func (AuthorizeVpcEndpointAccessAuthorizedPrincipalArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AuthorizeVpcEndpointAccessAuthorizedPrincipal)(nil)).Elem()
+}
+
+func (i AuthorizeVpcEndpointAccessAuthorizedPrincipalArray) ToAuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutput() AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutput {
+	return i.ToAuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutputWithContext(context.Background())
+}
+
+func (i AuthorizeVpcEndpointAccessAuthorizedPrincipalArray) ToAuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutputWithContext(ctx context.Context) AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutput)
+}
+
+type AuthorizeVpcEndpointAccessAuthorizedPrincipalOutput struct{ *pulumi.OutputState }
+
+func (AuthorizeVpcEndpointAccessAuthorizedPrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizeVpcEndpointAccessAuthorizedPrincipal)(nil)).Elem()
+}
+
+func (o AuthorizeVpcEndpointAccessAuthorizedPrincipalOutput) ToAuthorizeVpcEndpointAccessAuthorizedPrincipalOutput() AuthorizeVpcEndpointAccessAuthorizedPrincipalOutput {
+	return o
+}
+
+func (o AuthorizeVpcEndpointAccessAuthorizedPrincipalOutput) ToAuthorizeVpcEndpointAccessAuthorizedPrincipalOutputWithContext(ctx context.Context) AuthorizeVpcEndpointAccessAuthorizedPrincipalOutput {
+	return o
+}
+
+// IAM principal that is allowed to access to the domain.
+func (o AuthorizeVpcEndpointAccessAuthorizedPrincipalOutput) Principal() pulumi.StringOutput {
+	return o.ApplyT(func(v AuthorizeVpcEndpointAccessAuthorizedPrincipal) string { return v.Principal }).(pulumi.StringOutput)
+}
+
+// Type of principal.
+func (o AuthorizeVpcEndpointAccessAuthorizedPrincipalOutput) PrincipalType() pulumi.StringOutput {
+	return o.ApplyT(func(v AuthorizeVpcEndpointAccessAuthorizedPrincipal) string { return v.PrincipalType }).(pulumi.StringOutput)
+}
+
+type AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutput struct{ *pulumi.OutputState }
+
+func (AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AuthorizeVpcEndpointAccessAuthorizedPrincipal)(nil)).Elem()
+}
+
+func (o AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutput) ToAuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutput() AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutput {
+	return o
+}
+
+func (o AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutput) ToAuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutputWithContext(ctx context.Context) AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutput {
+	return o
+}
+
+func (o AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutput) Index(i pulumi.IntInput) AuthorizeVpcEndpointAccessAuthorizedPrincipalOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AuthorizeVpcEndpointAccessAuthorizedPrincipal {
+		return vs[0].([]AuthorizeVpcEndpointAccessAuthorizedPrincipal)[vs[1].(int)]
+	}).(AuthorizeVpcEndpointAccessAuthorizedPrincipalOutput)
+}
+
 type DomainAdvancedSecurityOptions struct {
 	// Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advancedSecurityOptions` are enabled. _Can only be enabled on an existing domain._
 	AnonymousAuthEnabled *bool `pulumi:"anonymousAuthEnabled"`
@@ -7548,6 +7654,8 @@ func (o GetServerlessSecurityConfigSamlOptionsPtrOutput) UserAttribute() pulumi.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizeVpcEndpointAccessAuthorizedPrincipalInput)(nil)).Elem(), AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayInput)(nil)).Elem(), AuthorizeVpcEndpointAccessAuthorizedPrincipalArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAdvancedSecurityOptionsInput)(nil)).Elem(), DomainAdvancedSecurityOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAdvancedSecurityOptionsPtrInput)(nil)).Elem(), DomainAdvancedSecurityOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAdvancedSecurityOptionsMasterUserOptionsInput)(nil)).Elem(), DomainAdvancedSecurityOptionsMasterUserOptionsArgs{})
@@ -7647,6 +7755,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainVpcOptionArrayInput)(nil)).Elem(), GetDomainVpcOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessSecurityConfigSamlOptionsInput)(nil)).Elem(), GetServerlessSecurityConfigSamlOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessSecurityConfigSamlOptionsPtrInput)(nil)).Elem(), GetServerlessSecurityConfigSamlOptionsArgs{})
+	pulumi.RegisterOutputType(AuthorizeVpcEndpointAccessAuthorizedPrincipalOutput{})
+	pulumi.RegisterOutputType(AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutput{})
 	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsOutput{})
 	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsMasterUserOptionsOutput{})

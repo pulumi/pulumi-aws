@@ -56,7 +56,7 @@ import (
 type Volume struct {
 	pulumi.CustomResourceState
 
-	// The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+	// The volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The AZ where the EBS volume will exist.
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
@@ -123,7 +123,7 @@ func GetVolume(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Volume resources.
 type volumeState struct {
-	// The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+	// The volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
 	Arn *string `pulumi:"arn"`
 	// The AZ where the EBS volume will exist.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
@@ -158,7 +158,7 @@ type volumeState struct {
 }
 
 type VolumeState struct {
-	// The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+	// The volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
 	Arn pulumi.StringPtrInput
 	// The AZ where the EBS volume will exist.
 	AvailabilityZone pulumi.StringPtrInput
@@ -342,7 +342,7 @@ func (o VolumeOutput) ToVolumeOutputWithContext(ctx context.Context) VolumeOutpu
 	return o
 }
 
-// The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+// The volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
 func (o VolumeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

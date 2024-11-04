@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PatchBaselineApprovalRule {
     /**
-     * @return Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approve_until_date`.
+     * @return Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 360. Conflicts with `approve_until_date`.
      * 
      */
     private @Nullable Integer approveAfterDays;
@@ -44,7 +44,7 @@ public final class PatchBaselineApprovalRule {
 
     private PatchBaselineApprovalRule() {}
     /**
-     * @return Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approve_until_date`.
+     * @return Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 360. Conflicts with `approve_until_date`.
      * 
      */
     public Optional<Integer> approveAfterDays() {

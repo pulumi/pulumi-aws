@@ -97,7 +97,7 @@ class OrganizationAdminAccountRegistration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.auditmanager.OrganizationAdminAccountRegistration("example", admin_account_id="012345678901")
+        example = aws.auditmanager.OrganizationAdminAccountRegistration("example", admin_account_id="123456789012")
         ```
 
         ## Import
@@ -105,7 +105,7 @@ class OrganizationAdminAccountRegistration(pulumi.CustomResource):
         Using `pulumi import`, import Audit Manager Organization Admin Account Registration using the `id`. For example:
 
         ```sh
-        $ pulumi import aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration example 012345678901
+        $ pulumi import aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration example 123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -129,7 +129,7 @@ class OrganizationAdminAccountRegistration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.auditmanager.OrganizationAdminAccountRegistration("example", admin_account_id="012345678901")
+        example = aws.auditmanager.OrganizationAdminAccountRegistration("example", admin_account_id="123456789012")
         ```
 
         ## Import
@@ -137,7 +137,7 @@ class OrganizationAdminAccountRegistration(pulumi.CustomResource):
         Using `pulumi import`, import Audit Manager Organization Admin Account Registration using the `id`. For example:
 
         ```sh
-        $ pulumi import aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration example 012345678901
+        $ pulumi import aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration example 123456789012
         ```
 
         :param str resource_name: The name of the resource.

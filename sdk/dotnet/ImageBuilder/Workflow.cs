@@ -12,6 +12,8 @@ namespace Pulumi.Aws.ImageBuilder
     /// <summary>
     /// Resource for managing an AWS EC2 Image Builder Workflow.
     /// 
+    /// &gt; Image Builder manages the workflows for the distribution stage. Therefore, using the DISTRIBUTION workflow type results in an error.
+    /// 
     /// ## Example Usage
     /// 
     /// ### Basic Usage
@@ -131,7 +133,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the workflow. Valid values: `BUILD`, `TEST`, `DISTRIBUTION`.
+        /// Type of the workflow. Valid values: `BUILD`, `TEST`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -239,7 +241,7 @@ namespace Pulumi.Aws.ImageBuilder
         }
 
         /// <summary>
-        /// Type of the workflow. Valid values: `BUILD`, `TEST`, `DISTRIBUTION`.
+        /// Type of the workflow. Valid values: `BUILD`, `TEST`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -336,7 +338,7 @@ namespace Pulumi.Aws.ImageBuilder
         }
 
         /// <summary>
-        /// Type of the workflow. Valid values: `BUILD`, `TEST`, `DISTRIBUTION`.
+        /// Type of the workflow. Valid values: `BUILD`, `TEST`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

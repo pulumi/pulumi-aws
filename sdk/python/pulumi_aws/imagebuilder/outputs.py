@@ -31,6 +31,7 @@ __all__ = [
     'DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate',
     'DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration',
     'DistributionConfigurationDistributionLaunchTemplateConfiguration',
+    'DistributionConfigurationDistributionS3ExportConfiguration',
     'ImageImageScanningConfiguration',
     'ImageImageScanningConfigurationEcrConfiguration',
     'ImageImageTestsConfiguration',
@@ -79,6 +80,7 @@ __all__ = [
     'GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateResult',
     'GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationResult',
     'GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult',
+    'GetDistributionConfigurationDistributionS3ExportConfigurationResult',
     'GetDistributionConfigurationsFilterResult',
     'GetImageImageScanningConfigurationResult',
     'GetImageImageScanningConfigurationEcrConfigurationResult',
@@ -491,6 +493,8 @@ class DistributionConfigurationDistribution(dict):
             suggest = "launch_template_configurations"
         elif key == "licenseConfigurationArns":
             suggest = "license_configuration_arns"
+        elif key == "s3ExportConfiguration":
+            suggest = "s3_export_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DistributionConfigurationDistribution. Access the value via the '{suggest}' property getter instead.")
@@ -509,7 +513,8 @@ class DistributionConfigurationDistribution(dict):
                  container_distribution_configuration: Optional['outputs.DistributionConfigurationDistributionContainerDistributionConfiguration'] = None,
                  fast_launch_configurations: Optional[Sequence['outputs.DistributionConfigurationDistributionFastLaunchConfiguration']] = None,
                  launch_template_configurations: Optional[Sequence['outputs.DistributionConfigurationDistributionLaunchTemplateConfiguration']] = None,
-                 license_configuration_arns: Optional[Sequence[str]] = None):
+                 license_configuration_arns: Optional[Sequence[str]] = None,
+                 s3_export_configuration: Optional['outputs.DistributionConfigurationDistributionS3ExportConfiguration'] = None):
         """
         :param str region: AWS Region for the distribution.
                
@@ -519,6 +524,7 @@ class DistributionConfigurationDistribution(dict):
         :param Sequence['DistributionConfigurationDistributionFastLaunchConfigurationArgs'] fast_launch_configurations: Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
         :param Sequence['DistributionConfigurationDistributionLaunchTemplateConfigurationArgs'] launch_template_configurations: Set of launch template configuration settings that apply to image distribution. Detailed below.
         :param Sequence[str] license_configuration_arns: Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+        :param 'DistributionConfigurationDistributionS3ExportConfigurationArgs' s3_export_configuration: Configuration block with S3 export settings. Detailed below.
         """
         pulumi.set(__self__, "region", region)
         if ami_distribution_configuration is not None:
@@ -531,6 +537,8 @@ class DistributionConfigurationDistribution(dict):
             pulumi.set(__self__, "launch_template_configurations", launch_template_configurations)
         if license_configuration_arns is not None:
             pulumi.set(__self__, "license_configuration_arns", license_configuration_arns)
+        if s3_export_configuration is not None:
+            pulumi.set(__self__, "s3_export_configuration", s3_export_configuration)
 
     @property
     @pulumi.getter
@@ -581,6 +589,14 @@ class DistributionConfigurationDistribution(dict):
         Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
         """
         return pulumi.get(self, "license_configuration_arns")
+
+    @property
+    @pulumi.getter(name="s3ExportConfiguration")
+    def s3_export_configuration(self) -> Optional['outputs.DistributionConfigurationDistributionS3ExportConfiguration']:
+        """
+        Configuration block with S3 export settings. Detailed below.
+        """
+        return pulumi.get(self, "s3_export_configuration")
 
 
 @pulumi.output_type
@@ -1117,6 +1133,81 @@ class DistributionConfigurationDistributionLaunchTemplateConfiguration(dict):
         Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `true`.
         """
         return pulumi.get(self, "default")
+
+
+@pulumi.output_type
+class DistributionConfigurationDistributionS3ExportConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskImageFormat":
+            suggest = "disk_image_format"
+        elif key == "roleName":
+            suggest = "role_name"
+        elif key == "s3Bucket":
+            suggest = "s3_bucket"
+        elif key == "s3Prefix":
+            suggest = "s3_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionConfigurationDistributionS3ExportConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionConfigurationDistributionS3ExportConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionConfigurationDistributionS3ExportConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 disk_image_format: str,
+                 role_name: str,
+                 s3_bucket: str,
+                 s3_prefix: Optional[str] = None):
+        """
+        :param str disk_image_format: The disk image format of the exported image (`RAW`, `VHD`, or `VMDK`)
+        :param str role_name: The name of the IAM role to use for exporting.
+        :param str s3_bucket: The name of the S3 bucket to store the exported image in. The bucket needs to exist before the export configuration is created.
+        :param str s3_prefix: The prefix for the exported image.
+        """
+        pulumi.set(__self__, "disk_image_format", disk_image_format)
+        pulumi.set(__self__, "role_name", role_name)
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        if s3_prefix is not None:
+            pulumi.set(__self__, "s3_prefix", s3_prefix)
+
+    @property
+    @pulumi.getter(name="diskImageFormat")
+    def disk_image_format(self) -> str:
+        """
+        The disk image format of the exported image (`RAW`, `VHD`, or `VMDK`)
+        """
+        return pulumi.get(self, "disk_image_format")
+
+    @property
+    @pulumi.getter(name="roleName")
+    def role_name(self) -> str:
+        """
+        The name of the IAM role to use for exporting.
+        """
+        return pulumi.get(self, "role_name")
+
+    @property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> str:
+        """
+        The name of the S3 bucket to store the exported image in. The bucket needs to exist before the export configuration is created.
+        """
+        return pulumi.get(self, "s3_bucket")
+
+    @property
+    @pulumi.getter(name="s3Prefix")
+    def s3_prefix(self) -> Optional[str]:
+        """
+        The prefix for the exported image.
+        """
+        return pulumi.get(self, "s3_prefix")
 
 
 @pulumi.output_type
@@ -3133,7 +3224,8 @@ class GetDistributionConfigurationDistributionResult(dict):
                  fast_launch_configurations: Sequence['outputs.GetDistributionConfigurationDistributionFastLaunchConfigurationResult'],
                  launch_template_configurations: Sequence['outputs.GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult'],
                  license_configuration_arns: Sequence[str],
-                 region: str):
+                 region: str,
+                 s3_export_configurations: Sequence['outputs.GetDistributionConfigurationDistributionS3ExportConfigurationResult']):
         """
         :param Sequence['GetDistributionConfigurationDistributionAmiDistributionConfigurationArgs'] ami_distribution_configurations: Nested list of AMI distribution configuration.
         :param Sequence['GetDistributionConfigurationDistributionContainerDistributionConfigurationArgs'] container_distribution_configurations: Nested list of container distribution configurations.
@@ -3141,6 +3233,7 @@ class GetDistributionConfigurationDistributionResult(dict):
         :param Sequence['GetDistributionConfigurationDistributionLaunchTemplateConfigurationArgs'] launch_template_configurations: Nested list of launch template configurations.
         :param Sequence[str] license_configuration_arns: Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
         :param str region: AWS Region of distribution.
+        :param Sequence['GetDistributionConfigurationDistributionS3ExportConfigurationArgs'] s3_export_configurations: Nested list of S3 export configuration.
         """
         pulumi.set(__self__, "ami_distribution_configurations", ami_distribution_configurations)
         pulumi.set(__self__, "container_distribution_configurations", container_distribution_configurations)
@@ -3148,6 +3241,7 @@ class GetDistributionConfigurationDistributionResult(dict):
         pulumi.set(__self__, "launch_template_configurations", launch_template_configurations)
         pulumi.set(__self__, "license_configuration_arns", license_configuration_arns)
         pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "s3_export_configurations", s3_export_configurations)
 
     @property
     @pulumi.getter(name="amiDistributionConfigurations")
@@ -3196,6 +3290,14 @@ class GetDistributionConfigurationDistributionResult(dict):
         AWS Region of distribution.
         """
         return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="s3ExportConfigurations")
+    def s3_export_configurations(self) -> Sequence['outputs.GetDistributionConfigurationDistributionS3ExportConfigurationResult']:
+        """
+        Nested list of S3 export configuration.
+        """
+        return pulumi.get(self, "s3_export_configurations")
 
 
 @pulumi.output_type
@@ -3549,6 +3651,57 @@ class GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult(
         ID of the Amazon EC2 launch template.
         """
         return pulumi.get(self, "launch_template_id")
+
+
+@pulumi.output_type
+class GetDistributionConfigurationDistributionS3ExportConfigurationResult(dict):
+    def __init__(__self__, *,
+                 disk_image_format: str,
+                 role_name: str,
+                 s3_bucket: str,
+                 s3_prefix: str):
+        """
+        :param str disk_image_format: The disk image format of the exported image (`RAW`, `VHD`, or `VMDK`)
+        :param str role_name: The name of the IAM role to use for exporting.
+        :param str s3_bucket: The name of the S3 bucket to store the exported image in.
+        :param str s3_prefix: The prefix for the exported image.
+        """
+        pulumi.set(__self__, "disk_image_format", disk_image_format)
+        pulumi.set(__self__, "role_name", role_name)
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        pulumi.set(__self__, "s3_prefix", s3_prefix)
+
+    @property
+    @pulumi.getter(name="diskImageFormat")
+    def disk_image_format(self) -> str:
+        """
+        The disk image format of the exported image (`RAW`, `VHD`, or `VMDK`)
+        """
+        return pulumi.get(self, "disk_image_format")
+
+    @property
+    @pulumi.getter(name="roleName")
+    def role_name(self) -> str:
+        """
+        The name of the IAM role to use for exporting.
+        """
+        return pulumi.get(self, "role_name")
+
+    @property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> str:
+        """
+        The name of the S3 bucket to store the exported image in.
+        """
+        return pulumi.get(self, "s3_bucket")
+
+    @property
+    @pulumi.getter(name="s3Prefix")
+    def s3_prefix(self) -> str:
+        """
+        The prefix for the exported image.
+        """
+        return pulumi.get(self, "s3_prefix")
 
 
 @pulumi.output_type
@@ -3986,8 +4139,8 @@ class GetImageRecipeBlockDeviceMappingResult(dict):
 @pulumi.output_type
 class GetImageRecipeBlockDeviceMappingEbResult(dict):
     def __init__(__self__, *,
-                 delete_on_termination: bool,
-                 encrypted: bool,
+                 delete_on_termination: str,
+                 encrypted: str,
                  iops: int,
                  kms_key_id: str,
                  snapshot_id: str,
@@ -3995,8 +4148,8 @@ class GetImageRecipeBlockDeviceMappingEbResult(dict):
                  volume_size: int,
                  volume_type: str):
         """
-        :param bool delete_on_termination: Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
-        :param bool encrypted: Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+        :param str delete_on_termination: Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+        :param str encrypted: Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
         :param int iops: Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
         :param str kms_key_id: ARN of the Key Management Service (KMS) Key for encryption.
         :param str snapshot_id: Identifier of the EC2 Volume Snapshot.
@@ -4015,7 +4168,7 @@ class GetImageRecipeBlockDeviceMappingEbResult(dict):
 
     @property
     @pulumi.getter(name="deleteOnTermination")
-    def delete_on_termination(self) -> bool:
+    def delete_on_termination(self) -> str:
         """
         Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
         """
@@ -4023,7 +4176,7 @@ class GetImageRecipeBlockDeviceMappingEbResult(dict):
 
     @property
     @pulumi.getter
-    def encrypted(self) -> bool:
+    def encrypted(self) -> str:
         """
         Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
         """

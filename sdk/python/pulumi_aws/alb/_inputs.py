@@ -1793,7 +1793,7 @@ if not MYPY:
     class ListenerRuleActionForwardArgsDict(TypedDict):
         target_groups: pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArgsDict']]]
         """
-        One or more target groups block.
+        One or more target group blocks.
         """
         stickiness: NotRequired[pulumi.Input['ListenerRuleActionForwardStickinessArgsDict']]
         """
@@ -1808,7 +1808,7 @@ class ListenerRuleActionForwardArgs:
                  target_groups: pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArgs']]],
                  stickiness: Optional[pulumi.Input['ListenerRuleActionForwardStickinessArgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArgs']]] target_groups: One or more target groups block.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArgs']]] target_groups: One or more target group blocks.
         :param pulumi.Input['ListenerRuleActionForwardStickinessArgs'] stickiness: The target group stickiness for the rule.
         """
         pulumi.set(__self__, "target_groups", target_groups)
@@ -1819,7 +1819,7 @@ class ListenerRuleActionForwardArgs:
     @pulumi.getter(name="targetGroups")
     def target_groups(self) -> pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArgs']]]:
         """
-        One or more target groups block.
+        One or more target group blocks.
         """
         return pulumi.get(self, "target_groups")
 

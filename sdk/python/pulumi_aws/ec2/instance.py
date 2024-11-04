@@ -1936,7 +1936,7 @@ class Instance(pulumi.CustomResource):
         this = aws.ec2.Instance("this",
             ami="ami-0dcc1e21636832c5d",
             instance_type=aws.ec2.InstanceType.M5_LARGE,
-            host_resource_group_arn="arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost",
+            host_resource_group_arn="arn:aws:resource-groups:us-west-2:123456789012:group/win-testhost",
             tenancy="host")
         ```
 
@@ -2170,7 +2170,7 @@ class Instance(pulumi.CustomResource):
         this = aws.ec2.Instance("this",
             ami="ami-0dcc1e21636832c5d",
             instance_type=aws.ec2.InstanceType.M5_LARGE,
-            host_resource_group_arn="arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost",
+            host_resource_group_arn="arn:aws:resource-groups:us-west-2:123456789012:group/win-testhost",
             tenancy="host")
         ```
 

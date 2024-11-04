@@ -101,6 +101,11 @@ export type PatchGroup = import("./patchGroup").PatchGroup;
 export const PatchGroup: typeof import("./patchGroup").PatchGroup = null as any;
 utilities.lazyLoad(exports, ["PatchGroup"], () => require("./patchGroup"));
 
+export { QuicksetupConfigurationManagerArgs, QuicksetupConfigurationManagerState } from "./quicksetupConfigurationManager";
+export type QuicksetupConfigurationManager = import("./quicksetupConfigurationManager").QuicksetupConfigurationManager;
+export const QuicksetupConfigurationManager: typeof import("./quicksetupConfigurationManager").QuicksetupConfigurationManager = null as any;
+utilities.lazyLoad(exports, ["QuicksetupConfigurationManager"], () => require("./quicksetupConfigurationManager"));
+
 export { ResourceDataSyncArgs, ResourceDataSyncState } from "./resourceDataSync";
 export type ResourceDataSync = import("./resourceDataSync").ResourceDataSync;
 export const ResourceDataSync: typeof import("./resourceDataSync").ResourceDataSync = null as any;
@@ -141,6 +146,8 @@ const _module = {
                 return new PatchBaseline(name, <any>undefined, { urn })
             case "aws:ssm/patchGroup:PatchGroup":
                 return new PatchGroup(name, <any>undefined, { urn })
+            case "aws:ssm/quicksetupConfigurationManager:QuicksetupConfigurationManager":
+                return new QuicksetupConfigurationManager(name, <any>undefined, { urn })
             case "aws:ssm/resourceDataSync:ResourceDataSync":
                 return new ResourceDataSync(name, <any>undefined, { urn })
             case "aws:ssm/serviceSetting:ServiceSetting":
@@ -161,5 +168,6 @@ pulumi.runtime.registerResourceModule("aws", "ssm/maintenanceWindowTask", _modul
 pulumi.runtime.registerResourceModule("aws", "ssm/parameter", _module)
 pulumi.runtime.registerResourceModule("aws", "ssm/patchBaseline", _module)
 pulumi.runtime.registerResourceModule("aws", "ssm/patchGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "ssm/quicksetupConfigurationManager", _module)
 pulumi.runtime.registerResourceModule("aws", "ssm/resourceDataSync", _module)
 pulumi.runtime.registerResourceModule("aws", "ssm/serviceSetting", _module)

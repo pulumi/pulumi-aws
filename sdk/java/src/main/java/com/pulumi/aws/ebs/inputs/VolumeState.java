@@ -19,14 +19,14 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
     public static final VolumeState Empty = new VolumeState();
 
     /**
-     * The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+     * The volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+     * @return The volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
      * 
      */
     public Optional<Output<String>> arn() {
@@ -278,7 +278,7 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+         * @param arn The volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+         * @param arn The volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
          * 
          * @return builder
          * 

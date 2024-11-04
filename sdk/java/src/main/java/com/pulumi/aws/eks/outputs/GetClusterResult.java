@@ -10,6 +10,7 @@ import com.pulumi.aws.eks.outputs.GetClusterKubernetesNetworkConfig;
 import com.pulumi.aws.eks.outputs.GetClusterOutpostConfig;
 import com.pulumi.aws.eks.outputs.GetClusterUpgradePolicy;
 import com.pulumi.aws.eks.outputs.GetClusterVpcConfig;
+import com.pulumi.aws.eks.outputs.GetClusterZonalShiftConfig;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -110,6 +111,11 @@ public final class GetClusterResult {
      * 
      */
     private GetClusterVpcConfig vpcConfig;
+    /**
+     * @return Contains Zonal Shift Configuration.
+     * 
+     */
+    private List<GetClusterZonalShiftConfig> zonalShiftConfigs;
 
     private GetClusterResult() {}
     /**
@@ -241,6 +247,13 @@ public final class GetClusterResult {
     public GetClusterVpcConfig vpcConfig() {
         return this.vpcConfig;
     }
+    /**
+     * @return Contains Zonal Shift Configuration.
+     * 
+     */
+    public List<GetClusterZonalShiftConfig> zonalShiftConfigs() {
+        return this.zonalShiftConfigs;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -270,6 +283,7 @@ public final class GetClusterResult {
         private List<GetClusterUpgradePolicy> upgradePolicies;
         private String version;
         private GetClusterVpcConfig vpcConfig;
+        private List<GetClusterZonalShiftConfig> zonalShiftConfigs;
         public Builder() {}
         public Builder(GetClusterResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -292,6 +306,7 @@ public final class GetClusterResult {
     	      this.upgradePolicies = defaults.upgradePolicies;
     	      this.version = defaults.version;
     	      this.vpcConfig = defaults.vpcConfig;
+    	      this.zonalShiftConfigs = defaults.zonalShiftConfigs;
         }
 
         @CustomType.Setter
@@ -467,6 +482,17 @@ public final class GetClusterResult {
             this.vpcConfig = vpcConfig;
             return this;
         }
+        @CustomType.Setter
+        public Builder zonalShiftConfigs(List<GetClusterZonalShiftConfig> zonalShiftConfigs) {
+            if (zonalShiftConfigs == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "zonalShiftConfigs");
+            }
+            this.zonalShiftConfigs = zonalShiftConfigs;
+            return this;
+        }
+        public Builder zonalShiftConfigs(GetClusterZonalShiftConfig... zonalShiftConfigs) {
+            return zonalShiftConfigs(List.of(zonalShiftConfigs));
+        }
         public GetClusterResult build() {
             final var _resultValue = new GetClusterResult();
             _resultValue.accessConfigs = accessConfigs;
@@ -488,6 +514,7 @@ public final class GetClusterResult {
             _resultValue.upgradePolicies = upgradePolicies;
             _resultValue.version = version;
             _resultValue.vpcConfig = vpcConfig;
+            _resultValue.zonalShiftConfigs = zonalShiftConfigs;
             return _resultValue;
         }
     }

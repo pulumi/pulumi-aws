@@ -83,6 +83,38 @@ __all__ = [
     'TargetGroupTargetGroupHealthUnhealthyStateRoutingArgsDict',
     'TargetGroupTargetHealthStateArgs',
     'TargetGroupTargetHealthStateArgsDict',
+    'GetListenerRuleActionArgs',
+    'GetListenerRuleActionArgsDict',
+    'GetListenerRuleActionAuthenticateCognitoArgs',
+    'GetListenerRuleActionAuthenticateCognitoArgsDict',
+    'GetListenerRuleActionAuthenticateOidcArgs',
+    'GetListenerRuleActionAuthenticateOidcArgsDict',
+    'GetListenerRuleActionFixedResponseArgs',
+    'GetListenerRuleActionFixedResponseArgsDict',
+    'GetListenerRuleActionForwardArgs',
+    'GetListenerRuleActionForwardArgsDict',
+    'GetListenerRuleActionForwardStickinessArgs',
+    'GetListenerRuleActionForwardStickinessArgsDict',
+    'GetListenerRuleActionForwardTargetGroupArgs',
+    'GetListenerRuleActionForwardTargetGroupArgsDict',
+    'GetListenerRuleActionRedirectArgs',
+    'GetListenerRuleActionRedirectArgsDict',
+    'GetListenerRuleConditionArgs',
+    'GetListenerRuleConditionArgsDict',
+    'GetListenerRuleConditionHostHeaderArgs',
+    'GetListenerRuleConditionHostHeaderArgsDict',
+    'GetListenerRuleConditionHttpHeaderArgs',
+    'GetListenerRuleConditionHttpHeaderArgsDict',
+    'GetListenerRuleConditionHttpRequestMethodArgs',
+    'GetListenerRuleConditionHttpRequestMethodArgsDict',
+    'GetListenerRuleConditionPathPatternArgs',
+    'GetListenerRuleConditionPathPatternArgsDict',
+    'GetListenerRuleConditionQueryStringArgs',
+    'GetListenerRuleConditionQueryStringArgsDict',
+    'GetListenerRuleConditionQueryStringValueArgs',
+    'GetListenerRuleConditionQueryStringValueArgsDict',
+    'GetListenerRuleConditionSourceIpArgs',
+    'GetListenerRuleConditionSourceIpArgsDict',
 ]
 
 MYPY = False
@@ -1792,7 +1824,7 @@ if not MYPY:
     class ListenerRuleActionForwardArgsDict(TypedDict):
         target_groups: pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArgsDict']]]
         """
-        One or more target groups block.
+        One or more target group blocks.
         """
         stickiness: NotRequired[pulumi.Input['ListenerRuleActionForwardStickinessArgsDict']]
         """
@@ -1807,7 +1839,7 @@ class ListenerRuleActionForwardArgs:
                  target_groups: pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArgs']]],
                  stickiness: Optional[pulumi.Input['ListenerRuleActionForwardStickinessArgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArgs']]] target_groups: One or more target groups block.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArgs']]] target_groups: One or more target group blocks.
         :param pulumi.Input['ListenerRuleActionForwardStickinessArgs'] stickiness: The target group stickiness for the rule.
         """
         pulumi.set(__self__, "target_groups", target_groups)
@@ -1818,7 +1850,7 @@ class ListenerRuleActionForwardArgs:
     @pulumi.getter(name="targetGroups")
     def target_groups(self) -> pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArgs']]]:
         """
-        One or more target groups block.
+        One or more target group blocks.
         """
         return pulumi.get(self, "target_groups")
 
@@ -3225,5 +3257,1292 @@ class TargetGroupTargetHealthStateArgs:
     @unhealthy_draining_interval.setter
     def unhealthy_draining_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "unhealthy_draining_interval", value)
+
+
+if not MYPY:
+    class GetListenerRuleActionArgsDict(TypedDict):
+        order: float
+        """
+        The evaluation order of the action.
+        """
+        type: str
+        """
+        The type of the action, indicates which sub-block will be populated.
+        """
+        authenticate_cognito: NotRequired['GetListenerRuleActionAuthenticateCognitoArgsDict']
+        """
+        An action to authenticate using Amazon Cognito.
+        Detailed below.
+        """
+        authenticate_oidc: NotRequired['GetListenerRuleActionAuthenticateOidcArgsDict']
+        """
+        An action to authenticate using OIDC.
+        Detailed below.
+        """
+        fixed_response: NotRequired['GetListenerRuleActionFixedResponseArgsDict']
+        """
+        An action to return a fixed response.
+        Detailed below.
+        """
+        forward: NotRequired['GetListenerRuleActionForwardArgsDict']
+        """
+        An action to forward the request.
+        Detailed below.
+        """
+        redirect: NotRequired['GetListenerRuleActionRedirectArgsDict']
+        """
+        An action to redirect the request.
+        Detailed below.
+        """
+elif False:
+    GetListenerRuleActionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetListenerRuleActionArgs:
+    def __init__(__self__, *,
+                 order: float,
+                 type: str,
+                 authenticate_cognito: Optional['GetListenerRuleActionAuthenticateCognitoArgs'] = None,
+                 authenticate_oidc: Optional['GetListenerRuleActionAuthenticateOidcArgs'] = None,
+                 fixed_response: Optional['GetListenerRuleActionFixedResponseArgs'] = None,
+                 forward: Optional['GetListenerRuleActionForwardArgs'] = None,
+                 redirect: Optional['GetListenerRuleActionRedirectArgs'] = None):
+        """
+        :param float order: The evaluation order of the action.
+        :param str type: The type of the action, indicates which sub-block will be populated.
+        :param 'GetListenerRuleActionAuthenticateCognitoArgs' authenticate_cognito: An action to authenticate using Amazon Cognito.
+               Detailed below.
+        :param 'GetListenerRuleActionAuthenticateOidcArgs' authenticate_oidc: An action to authenticate using OIDC.
+               Detailed below.
+        :param 'GetListenerRuleActionFixedResponseArgs' fixed_response: An action to return a fixed response.
+               Detailed below.
+        :param 'GetListenerRuleActionForwardArgs' forward: An action to forward the request.
+               Detailed below.
+        :param 'GetListenerRuleActionRedirectArgs' redirect: An action to redirect the request.
+               Detailed below.
+        """
+        pulumi.set(__self__, "order", order)
+        pulumi.set(__self__, "type", type)
+        if authenticate_cognito is not None:
+            pulumi.set(__self__, "authenticate_cognito", authenticate_cognito)
+        if authenticate_oidc is not None:
+            pulumi.set(__self__, "authenticate_oidc", authenticate_oidc)
+        if fixed_response is not None:
+            pulumi.set(__self__, "fixed_response", fixed_response)
+        if forward is not None:
+            pulumi.set(__self__, "forward", forward)
+        if redirect is not None:
+            pulumi.set(__self__, "redirect", redirect)
+
+    @property
+    @pulumi.getter
+    def order(self) -> float:
+        """
+        The evaluation order of the action.
+        """
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: float):
+        pulumi.set(self, "order", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the action, indicates which sub-block will be populated.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: str):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="authenticateCognito")
+    def authenticate_cognito(self) -> Optional['GetListenerRuleActionAuthenticateCognitoArgs']:
+        """
+        An action to authenticate using Amazon Cognito.
+        Detailed below.
+        """
+        return pulumi.get(self, "authenticate_cognito")
+
+    @authenticate_cognito.setter
+    def authenticate_cognito(self, value: Optional['GetListenerRuleActionAuthenticateCognitoArgs']):
+        pulumi.set(self, "authenticate_cognito", value)
+
+    @property
+    @pulumi.getter(name="authenticateOidc")
+    def authenticate_oidc(self) -> Optional['GetListenerRuleActionAuthenticateOidcArgs']:
+        """
+        An action to authenticate using OIDC.
+        Detailed below.
+        """
+        return pulumi.get(self, "authenticate_oidc")
+
+    @authenticate_oidc.setter
+    def authenticate_oidc(self, value: Optional['GetListenerRuleActionAuthenticateOidcArgs']):
+        pulumi.set(self, "authenticate_oidc", value)
+
+    @property
+    @pulumi.getter(name="fixedResponse")
+    def fixed_response(self) -> Optional['GetListenerRuleActionFixedResponseArgs']:
+        """
+        An action to return a fixed response.
+        Detailed below.
+        """
+        return pulumi.get(self, "fixed_response")
+
+    @fixed_response.setter
+    def fixed_response(self, value: Optional['GetListenerRuleActionFixedResponseArgs']):
+        pulumi.set(self, "fixed_response", value)
+
+    @property
+    @pulumi.getter
+    def forward(self) -> Optional['GetListenerRuleActionForwardArgs']:
+        """
+        An action to forward the request.
+        Detailed below.
+        """
+        return pulumi.get(self, "forward")
+
+    @forward.setter
+    def forward(self, value: Optional['GetListenerRuleActionForwardArgs']):
+        pulumi.set(self, "forward", value)
+
+    @property
+    @pulumi.getter
+    def redirect(self) -> Optional['GetListenerRuleActionRedirectArgs']:
+        """
+        An action to redirect the request.
+        Detailed below.
+        """
+        return pulumi.get(self, "redirect")
+
+    @redirect.setter
+    def redirect(self, value: Optional['GetListenerRuleActionRedirectArgs']):
+        pulumi.set(self, "redirect", value)
+
+
+if not MYPY:
+    class GetListenerRuleActionAuthenticateCognitoArgsDict(TypedDict):
+        authentication_request_extra_params: Mapping[str, str]
+        """
+        Set of additional parameters for the request.
+        Detailed below.
+        """
+        on_unauthenticated_request: str
+        """
+        Behavior when the client is not authenticated.
+        """
+        scope: str
+        """
+        Set of user claims requested.
+        """
+        session_cookie_name: str
+        """
+        Name of the cookie used to maintain session information.
+        """
+        session_timeout: int
+        """
+        Maximum duration of the authentication session in seconds.
+        """
+        user_pool_arn: str
+        """
+        ARN of the Cognito user pool.
+        """
+        user_pool_client_id: str
+        """
+        ID of the Cognito user pool client.
+        """
+        user_pool_domain: str
+        """
+        Domain prefix or fully-qualified domain name of the Cognito user pool.
+        """
+elif False:
+    GetListenerRuleActionAuthenticateCognitoArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetListenerRuleActionAuthenticateCognitoArgs:
+    def __init__(__self__, *,
+                 authentication_request_extra_params: Mapping[str, str],
+                 on_unauthenticated_request: str,
+                 scope: str,
+                 session_cookie_name: str,
+                 session_timeout: int,
+                 user_pool_arn: str,
+                 user_pool_client_id: str,
+                 user_pool_domain: str):
+        """
+        :param Mapping[str, str] authentication_request_extra_params: Set of additional parameters for the request.
+               Detailed below.
+        :param str on_unauthenticated_request: Behavior when the client is not authenticated.
+        :param str scope: Set of user claims requested.
+        :param str session_cookie_name: Name of the cookie used to maintain session information.
+        :param int session_timeout: Maximum duration of the authentication session in seconds.
+        :param str user_pool_arn: ARN of the Cognito user pool.
+        :param str user_pool_client_id: ID of the Cognito user pool client.
+        :param str user_pool_domain: Domain prefix or fully-qualified domain name of the Cognito user pool.
+        """
+        pulumi.set(__self__, "authentication_request_extra_params", authentication_request_extra_params)
+        pulumi.set(__self__, "on_unauthenticated_request", on_unauthenticated_request)
+        pulumi.set(__self__, "scope", scope)
+        pulumi.set(__self__, "session_cookie_name", session_cookie_name)
+        pulumi.set(__self__, "session_timeout", session_timeout)
+        pulumi.set(__self__, "user_pool_arn", user_pool_arn)
+        pulumi.set(__self__, "user_pool_client_id", user_pool_client_id)
+        pulumi.set(__self__, "user_pool_domain", user_pool_domain)
+
+    @property
+    @pulumi.getter(name="authenticationRequestExtraParams")
+    def authentication_request_extra_params(self) -> Mapping[str, str]:
+        """
+        Set of additional parameters for the request.
+        Detailed below.
+        """
+        return pulumi.get(self, "authentication_request_extra_params")
+
+    @authentication_request_extra_params.setter
+    def authentication_request_extra_params(self, value: Mapping[str, str]):
+        pulumi.set(self, "authentication_request_extra_params", value)
+
+    @property
+    @pulumi.getter(name="onUnauthenticatedRequest")
+    def on_unauthenticated_request(self) -> str:
+        """
+        Behavior when the client is not authenticated.
+        """
+        return pulumi.get(self, "on_unauthenticated_request")
+
+    @on_unauthenticated_request.setter
+    def on_unauthenticated_request(self, value: str):
+        pulumi.set(self, "on_unauthenticated_request", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> str:
+        """
+        Set of user claims requested.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: str):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter(name="sessionCookieName")
+    def session_cookie_name(self) -> str:
+        """
+        Name of the cookie used to maintain session information.
+        """
+        return pulumi.get(self, "session_cookie_name")
+
+    @session_cookie_name.setter
+    def session_cookie_name(self, value: str):
+        pulumi.set(self, "session_cookie_name", value)
+
+    @property
+    @pulumi.getter(name="sessionTimeout")
+    def session_timeout(self) -> int:
+        """
+        Maximum duration of the authentication session in seconds.
+        """
+        return pulumi.get(self, "session_timeout")
+
+    @session_timeout.setter
+    def session_timeout(self, value: int):
+        pulumi.set(self, "session_timeout", value)
+
+    @property
+    @pulumi.getter(name="userPoolArn")
+    def user_pool_arn(self) -> str:
+        """
+        ARN of the Cognito user pool.
+        """
+        return pulumi.get(self, "user_pool_arn")
+
+    @user_pool_arn.setter
+    def user_pool_arn(self, value: str):
+        pulumi.set(self, "user_pool_arn", value)
+
+    @property
+    @pulumi.getter(name="userPoolClientId")
+    def user_pool_client_id(self) -> str:
+        """
+        ID of the Cognito user pool client.
+        """
+        return pulumi.get(self, "user_pool_client_id")
+
+    @user_pool_client_id.setter
+    def user_pool_client_id(self, value: str):
+        pulumi.set(self, "user_pool_client_id", value)
+
+    @property
+    @pulumi.getter(name="userPoolDomain")
+    def user_pool_domain(self) -> str:
+        """
+        Domain prefix or fully-qualified domain name of the Cognito user pool.
+        """
+        return pulumi.get(self, "user_pool_domain")
+
+    @user_pool_domain.setter
+    def user_pool_domain(self, value: str):
+        pulumi.set(self, "user_pool_domain", value)
+
+
+if not MYPY:
+    class GetListenerRuleActionAuthenticateOidcArgsDict(TypedDict):
+        authentication_request_extra_params: Mapping[str, str]
+        """
+        Set of additional parameters for the request.
+        Detailed below.
+        """
+        authorization_endpoint: str
+        """
+        The authorization endpoint of the IdP.
+        """
+        client_id: str
+        """
+        OAuth 2.0 client identifier.
+        """
+        issuer: str
+        """
+        OIDC issuer identifier of the IdP.
+        """
+        on_unauthenticated_request: str
+        """
+        Behavior when the client is not authenticated.
+        """
+        scope: str
+        """
+        Set of user claims requested.
+        """
+        session_cookie_name: str
+        """
+        Name of the cookie used to maintain session information.
+        """
+        session_timeout: int
+        """
+        Maximum duration of the authentication session in seconds.
+        """
+        token_endpoint: str
+        """
+        The token endpoint of the IdP.
+        """
+        user_info_endpoint: str
+        """
+        The user info endpoint of the IdP.
+        """
+elif False:
+    GetListenerRuleActionAuthenticateOidcArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetListenerRuleActionAuthenticateOidcArgs:
+    def __init__(__self__, *,
+                 authentication_request_extra_params: Mapping[str, str],
+                 authorization_endpoint: str,
+                 client_id: str,
+                 issuer: str,
+                 on_unauthenticated_request: str,
+                 scope: str,
+                 session_cookie_name: str,
+                 session_timeout: int,
+                 token_endpoint: str,
+                 user_info_endpoint: str):
+        """
+        :param Mapping[str, str] authentication_request_extra_params: Set of additional parameters for the request.
+               Detailed below.
+        :param str authorization_endpoint: The authorization endpoint of the IdP.
+        :param str client_id: OAuth 2.0 client identifier.
+        :param str issuer: OIDC issuer identifier of the IdP.
+        :param str on_unauthenticated_request: Behavior when the client is not authenticated.
+        :param str scope: Set of user claims requested.
+        :param str session_cookie_name: Name of the cookie used to maintain session information.
+        :param int session_timeout: Maximum duration of the authentication session in seconds.
+        :param str token_endpoint: The token endpoint of the IdP.
+        :param str user_info_endpoint: The user info endpoint of the IdP.
+        """
+        pulumi.set(__self__, "authentication_request_extra_params", authentication_request_extra_params)
+        pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "on_unauthenticated_request", on_unauthenticated_request)
+        pulumi.set(__self__, "scope", scope)
+        pulumi.set(__self__, "session_cookie_name", session_cookie_name)
+        pulumi.set(__self__, "session_timeout", session_timeout)
+        pulumi.set(__self__, "token_endpoint", token_endpoint)
+        pulumi.set(__self__, "user_info_endpoint", user_info_endpoint)
+
+    @property
+    @pulumi.getter(name="authenticationRequestExtraParams")
+    def authentication_request_extra_params(self) -> Mapping[str, str]:
+        """
+        Set of additional parameters for the request.
+        Detailed below.
+        """
+        return pulumi.get(self, "authentication_request_extra_params")
+
+    @authentication_request_extra_params.setter
+    def authentication_request_extra_params(self, value: Mapping[str, str]):
+        pulumi.set(self, "authentication_request_extra_params", value)
+
+    @property
+    @pulumi.getter(name="authorizationEndpoint")
+    def authorization_endpoint(self) -> str:
+        """
+        The authorization endpoint of the IdP.
+        """
+        return pulumi.get(self, "authorization_endpoint")
+
+    @authorization_endpoint.setter
+    def authorization_endpoint(self, value: str):
+        pulumi.set(self, "authorization_endpoint", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        OAuth 2.0 client identifier.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: str):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> str:
+        """
+        OIDC issuer identifier of the IdP.
+        """
+        return pulumi.get(self, "issuer")
+
+    @issuer.setter
+    def issuer(self, value: str):
+        pulumi.set(self, "issuer", value)
+
+    @property
+    @pulumi.getter(name="onUnauthenticatedRequest")
+    def on_unauthenticated_request(self) -> str:
+        """
+        Behavior when the client is not authenticated.
+        """
+        return pulumi.get(self, "on_unauthenticated_request")
+
+    @on_unauthenticated_request.setter
+    def on_unauthenticated_request(self, value: str):
+        pulumi.set(self, "on_unauthenticated_request", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> str:
+        """
+        Set of user claims requested.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: str):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter(name="sessionCookieName")
+    def session_cookie_name(self) -> str:
+        """
+        Name of the cookie used to maintain session information.
+        """
+        return pulumi.get(self, "session_cookie_name")
+
+    @session_cookie_name.setter
+    def session_cookie_name(self, value: str):
+        pulumi.set(self, "session_cookie_name", value)
+
+    @property
+    @pulumi.getter(name="sessionTimeout")
+    def session_timeout(self) -> int:
+        """
+        Maximum duration of the authentication session in seconds.
+        """
+        return pulumi.get(self, "session_timeout")
+
+    @session_timeout.setter
+    def session_timeout(self, value: int):
+        pulumi.set(self, "session_timeout", value)
+
+    @property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> str:
+        """
+        The token endpoint of the IdP.
+        """
+        return pulumi.get(self, "token_endpoint")
+
+    @token_endpoint.setter
+    def token_endpoint(self, value: str):
+        pulumi.set(self, "token_endpoint", value)
+
+    @property
+    @pulumi.getter(name="userInfoEndpoint")
+    def user_info_endpoint(self) -> str:
+        """
+        The user info endpoint of the IdP.
+        """
+        return pulumi.get(self, "user_info_endpoint")
+
+    @user_info_endpoint.setter
+    def user_info_endpoint(self, value: str):
+        pulumi.set(self, "user_info_endpoint", value)
+
+
+if not MYPY:
+    class GetListenerRuleActionFixedResponseArgsDict(TypedDict):
+        content_type: str
+        """
+        Content type of the response.
+        """
+        message_body: str
+        """
+        Message body of the response.
+        """
+        status_code: str
+        """
+        The HTTP redirect code.
+        """
+elif False:
+    GetListenerRuleActionFixedResponseArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetListenerRuleActionFixedResponseArgs:
+    def __init__(__self__, *,
+                 content_type: str,
+                 message_body: str,
+                 status_code: str):
+        """
+        :param str content_type: Content type of the response.
+        :param str message_body: Message body of the response.
+        :param str status_code: The HTTP redirect code.
+        """
+        pulumi.set(__self__, "content_type", content_type)
+        pulumi.set(__self__, "message_body", message_body)
+        pulumi.set(__self__, "status_code", status_code)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> str:
+        """
+        Content type of the response.
+        """
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: str):
+        pulumi.set(self, "content_type", value)
+
+    @property
+    @pulumi.getter(name="messageBody")
+    def message_body(self) -> str:
+        """
+        Message body of the response.
+        """
+        return pulumi.get(self, "message_body")
+
+    @message_body.setter
+    def message_body(self, value: str):
+        pulumi.set(self, "message_body", value)
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> str:
+        """
+        The HTTP redirect code.
+        """
+        return pulumi.get(self, "status_code")
+
+    @status_code.setter
+    def status_code(self, value: str):
+        pulumi.set(self, "status_code", value)
+
+
+if not MYPY:
+    class GetListenerRuleActionForwardArgsDict(TypedDict):
+        stickiness: NotRequired['GetListenerRuleActionForwardStickinessArgsDict']
+        """
+        Target group stickiness for the rule.
+        Detailed below.
+        """
+        target_groups: NotRequired[Sequence['GetListenerRuleActionForwardTargetGroupArgsDict']]
+        """
+        Set of target groups for the action.
+        Detailed below.
+        """
+elif False:
+    GetListenerRuleActionForwardArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetListenerRuleActionForwardArgs:
+    def __init__(__self__, *,
+                 stickiness: Optional['GetListenerRuleActionForwardStickinessArgs'] = None,
+                 target_groups: Optional[Sequence['GetListenerRuleActionForwardTargetGroupArgs']] = None):
+        """
+        :param 'GetListenerRuleActionForwardStickinessArgs' stickiness: Target group stickiness for the rule.
+               Detailed below.
+        :param Sequence['GetListenerRuleActionForwardTargetGroupArgs'] target_groups: Set of target groups for the action.
+               Detailed below.
+        """
+        if stickiness is not None:
+            pulumi.set(__self__, "stickiness", stickiness)
+        if target_groups is not None:
+            pulumi.set(__self__, "target_groups", target_groups)
+
+    @property
+    @pulumi.getter
+    def stickiness(self) -> Optional['GetListenerRuleActionForwardStickinessArgs']:
+        """
+        Target group stickiness for the rule.
+        Detailed below.
+        """
+        return pulumi.get(self, "stickiness")
+
+    @stickiness.setter
+    def stickiness(self, value: Optional['GetListenerRuleActionForwardStickinessArgs']):
+        pulumi.set(self, "stickiness", value)
+
+    @property
+    @pulumi.getter(name="targetGroups")
+    def target_groups(self) -> Optional[Sequence['GetListenerRuleActionForwardTargetGroupArgs']]:
+        """
+        Set of target groups for the action.
+        Detailed below.
+        """
+        return pulumi.get(self, "target_groups")
+
+    @target_groups.setter
+    def target_groups(self, value: Optional[Sequence['GetListenerRuleActionForwardTargetGroupArgs']]):
+        pulumi.set(self, "target_groups", value)
+
+
+if not MYPY:
+    class GetListenerRuleActionForwardStickinessArgsDict(TypedDict):
+        duration: float
+        """
+        The time period, in seconds, during which requests from a client should be routed to the same target group.
+        """
+        enabled: bool
+        """
+        Indicates whether target group stickiness is enabled.
+        """
+elif False:
+    GetListenerRuleActionForwardStickinessArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetListenerRuleActionForwardStickinessArgs:
+    def __init__(__self__, *,
+                 duration: float,
+                 enabled: bool):
+        """
+        :param float duration: The time period, in seconds, during which requests from a client should be routed to the same target group.
+        :param bool enabled: Indicates whether target group stickiness is enabled.
+        """
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> float:
+        """
+        The time period, in seconds, during which requests from a client should be routed to the same target group.
+        """
+        return pulumi.get(self, "duration")
+
+    @duration.setter
+    def duration(self, value: float):
+        pulumi.set(self, "duration", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Indicates whether target group stickiness is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: bool):
+        pulumi.set(self, "enabled", value)
+
+
+if not MYPY:
+    class GetListenerRuleActionForwardTargetGroupArgsDict(TypedDict):
+        arn: str
+        """
+        ARN of the Listener Rule.
+        Either `arn` or `listener_arn` must be set.
+        """
+        weight: float
+        """
+        Weight of the target group.
+        """
+elif False:
+    GetListenerRuleActionForwardTargetGroupArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetListenerRuleActionForwardTargetGroupArgs:
+    def __init__(__self__, *,
+                 arn: str,
+                 weight: float):
+        """
+        :param str arn: ARN of the Listener Rule.
+               Either `arn` or `listener_arn` must be set.
+        :param float weight: Weight of the target group.
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        ARN of the Listener Rule.
+        Either `arn` or `listener_arn` must be set.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: str):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def weight(self) -> float:
+        """
+        Weight of the target group.
+        """
+        return pulumi.get(self, "weight")
+
+    @weight.setter
+    def weight(self, value: float):
+        pulumi.set(self, "weight", value)
+
+
+if not MYPY:
+    class GetListenerRuleActionRedirectArgsDict(TypedDict):
+        host: str
+        """
+        The hostname.
+        """
+        path: str
+        """
+        The absolute path, starting with `/`.
+        """
+        port: str
+        """
+        The port.
+        """
+        protocol: str
+        """
+        The protocol.
+        """
+        query: str
+        """
+        The query parameters.
+        """
+        status_code: str
+        """
+        The HTTP redirect code.
+        """
+elif False:
+    GetListenerRuleActionRedirectArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetListenerRuleActionRedirectArgs:
+    def __init__(__self__, *,
+                 host: str,
+                 path: str,
+                 port: str,
+                 protocol: str,
+                 query: str,
+                 status_code: str):
+        """
+        :param str host: The hostname.
+        :param str path: The absolute path, starting with `/`.
+        :param str port: The port.
+        :param str protocol: The protocol.
+        :param str query: The query parameters.
+        :param str status_code: The HTTP redirect code.
+        """
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "query", query)
+        pulumi.set(__self__, "status_code", status_code)
+
+    @property
+    @pulumi.getter
+    def host(self) -> str:
+        """
+        The hostname.
+        """
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: str):
+        pulumi.set(self, "host", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        The absolute path, starting with `/`.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: str):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> str:
+        """
+        The port.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: str):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        """
+        The protocol.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: str):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        """
+        The query parameters.
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: str):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> str:
+        """
+        The HTTP redirect code.
+        """
+        return pulumi.get(self, "status_code")
+
+    @status_code.setter
+    def status_code(self, value: str):
+        pulumi.set(self, "status_code", value)
+
+
+if not MYPY:
+    class GetListenerRuleConditionArgsDict(TypedDict):
+        host_header: NotRequired['GetListenerRuleConditionHostHeaderArgsDict']
+        """
+        Contains a single attribute `values`, which contains a set of host names.
+        """
+        http_header: NotRequired['GetListenerRuleConditionHttpHeaderArgsDict']
+        """
+        HTTP header and values to match.
+        Detailed below.
+        """
+        http_request_method: NotRequired['GetListenerRuleConditionHttpRequestMethodArgsDict']
+        """
+        Contains a single attribute `values`, which contains a set of HTTP request methods.
+        """
+        path_pattern: NotRequired['GetListenerRuleConditionPathPatternArgsDict']
+        """
+        Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
+        """
+        query_string: NotRequired['GetListenerRuleConditionQueryStringArgsDict']
+        """
+        Query string parameters to match.
+        Detailed below.
+        """
+        source_ip: NotRequired['GetListenerRuleConditionSourceIpArgsDict']
+        """
+        Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
+        """
+elif False:
+    GetListenerRuleConditionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetListenerRuleConditionArgs:
+    def __init__(__self__, *,
+                 host_header: Optional['GetListenerRuleConditionHostHeaderArgs'] = None,
+                 http_header: Optional['GetListenerRuleConditionHttpHeaderArgs'] = None,
+                 http_request_method: Optional['GetListenerRuleConditionHttpRequestMethodArgs'] = None,
+                 path_pattern: Optional['GetListenerRuleConditionPathPatternArgs'] = None,
+                 query_string: Optional['GetListenerRuleConditionQueryStringArgs'] = None,
+                 source_ip: Optional['GetListenerRuleConditionSourceIpArgs'] = None):
+        """
+        :param 'GetListenerRuleConditionHostHeaderArgs' host_header: Contains a single attribute `values`, which contains a set of host names.
+        :param 'GetListenerRuleConditionHttpHeaderArgs' http_header: HTTP header and values to match.
+               Detailed below.
+        :param 'GetListenerRuleConditionHttpRequestMethodArgs' http_request_method: Contains a single attribute `values`, which contains a set of HTTP request methods.
+        :param 'GetListenerRuleConditionPathPatternArgs' path_pattern: Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
+        :param 'GetListenerRuleConditionQueryStringArgs' query_string: Query string parameters to match.
+               Detailed below.
+        :param 'GetListenerRuleConditionSourceIpArgs' source_ip: Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
+        """
+        if host_header is not None:
+            pulumi.set(__self__, "host_header", host_header)
+        if http_header is not None:
+            pulumi.set(__self__, "http_header", http_header)
+        if http_request_method is not None:
+            pulumi.set(__self__, "http_request_method", http_request_method)
+        if path_pattern is not None:
+            pulumi.set(__self__, "path_pattern", path_pattern)
+        if query_string is not None:
+            pulumi.set(__self__, "query_string", query_string)
+        if source_ip is not None:
+            pulumi.set(__self__, "source_ip", source_ip)
+
+    @property
+    @pulumi.getter(name="hostHeader")
+    def host_header(self) -> Optional['GetListenerRuleConditionHostHeaderArgs']:
+        """
+        Contains a single attribute `values`, which contains a set of host names.
+        """
+        return pulumi.get(self, "host_header")
+
+    @host_header.setter
+    def host_header(self, value: Optional['GetListenerRuleConditionHostHeaderArgs']):
+        pulumi.set(self, "host_header", value)
+
+    @property
+    @pulumi.getter(name="httpHeader")
+    def http_header(self) -> Optional['GetListenerRuleConditionHttpHeaderArgs']:
+        """
+        HTTP header and values to match.
+        Detailed below.
+        """
+        return pulumi.get(self, "http_header")
+
+    @http_header.setter
+    def http_header(self, value: Optional['GetListenerRuleConditionHttpHeaderArgs']):
+        pulumi.set(self, "http_header", value)
+
+    @property
+    @pulumi.getter(name="httpRequestMethod")
+    def http_request_method(self) -> Optional['GetListenerRuleConditionHttpRequestMethodArgs']:
+        """
+        Contains a single attribute `values`, which contains a set of HTTP request methods.
+        """
+        return pulumi.get(self, "http_request_method")
+
+    @http_request_method.setter
+    def http_request_method(self, value: Optional['GetListenerRuleConditionHttpRequestMethodArgs']):
+        pulumi.set(self, "http_request_method", value)
+
+    @property
+    @pulumi.getter(name="pathPattern")
+    def path_pattern(self) -> Optional['GetListenerRuleConditionPathPatternArgs']:
+        """
+        Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
+        """
+        return pulumi.get(self, "path_pattern")
+
+    @path_pattern.setter
+    def path_pattern(self, value: Optional['GetListenerRuleConditionPathPatternArgs']):
+        pulumi.set(self, "path_pattern", value)
+
+    @property
+    @pulumi.getter(name="queryString")
+    def query_string(self) -> Optional['GetListenerRuleConditionQueryStringArgs']:
+        """
+        Query string parameters to match.
+        Detailed below.
+        """
+        return pulumi.get(self, "query_string")
+
+    @query_string.setter
+    def query_string(self, value: Optional['GetListenerRuleConditionQueryStringArgs']):
+        pulumi.set(self, "query_string", value)
+
+    @property
+    @pulumi.getter(name="sourceIp")
+    def source_ip(self) -> Optional['GetListenerRuleConditionSourceIpArgs']:
+        """
+        Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
+        """
+        return pulumi.get(self, "source_ip")
+
+    @source_ip.setter
+    def source_ip(self, value: Optional['GetListenerRuleConditionSourceIpArgs']):
+        pulumi.set(self, "source_ip", value)
+
+
+if not MYPY:
+    class GetListenerRuleConditionHostHeaderArgsDict(TypedDict):
+        values: Sequence[str]
+        """
+        Set of `key`-`value` pairs indicating the query string parameters to match.
+        """
+elif False:
+    GetListenerRuleConditionHostHeaderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetListenerRuleConditionHostHeaderArgs:
+    def __init__(__self__, *,
+                 values: Sequence[str]):
+        """
+        :param Sequence[str] values: Set of `key`-`value` pairs indicating the query string parameters to match.
+        """
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of `key`-`value` pairs indicating the query string parameters to match.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
+
+
+if not MYPY:
+    class GetListenerRuleConditionHttpHeaderArgsDict(TypedDict):
+        http_header_name: str
+        """
+        Name of the HTTP header to match.
+        """
+        values: Sequence[str]
+        """
+        Set of `key`-`value` pairs indicating the query string parameters to match.
+        """
+elif False:
+    GetListenerRuleConditionHttpHeaderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetListenerRuleConditionHttpHeaderArgs:
+    def __init__(__self__, *,
+                 http_header_name: str,
+                 values: Sequence[str]):
+        """
+        :param str http_header_name: Name of the HTTP header to match.
+        :param Sequence[str] values: Set of `key`-`value` pairs indicating the query string parameters to match.
+        """
+        pulumi.set(__self__, "http_header_name", http_header_name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="httpHeaderName")
+    def http_header_name(self) -> str:
+        """
+        Name of the HTTP header to match.
+        """
+        return pulumi.get(self, "http_header_name")
+
+    @http_header_name.setter
+    def http_header_name(self, value: str):
+        pulumi.set(self, "http_header_name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of `key`-`value` pairs indicating the query string parameters to match.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
+
+
+if not MYPY:
+    class GetListenerRuleConditionHttpRequestMethodArgsDict(TypedDict):
+        values: Sequence[str]
+        """
+        Set of `key`-`value` pairs indicating the query string parameters to match.
+        """
+elif False:
+    GetListenerRuleConditionHttpRequestMethodArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetListenerRuleConditionHttpRequestMethodArgs:
+    def __init__(__self__, *,
+                 values: Sequence[str]):
+        """
+        :param Sequence[str] values: Set of `key`-`value` pairs indicating the query string parameters to match.
+        """
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of `key`-`value` pairs indicating the query string parameters to match.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
+
+
+if not MYPY:
+    class GetListenerRuleConditionPathPatternArgsDict(TypedDict):
+        values: Sequence[str]
+        """
+        Set of `key`-`value` pairs indicating the query string parameters to match.
+        """
+elif False:
+    GetListenerRuleConditionPathPatternArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetListenerRuleConditionPathPatternArgs:
+    def __init__(__self__, *,
+                 values: Sequence[str]):
+        """
+        :param Sequence[str] values: Set of `key`-`value` pairs indicating the query string parameters to match.
+        """
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of `key`-`value` pairs indicating the query string parameters to match.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
+
+
+if not MYPY:
+    class GetListenerRuleConditionQueryStringArgsDict(TypedDict):
+        values: NotRequired[Sequence['GetListenerRuleConditionQueryStringValueArgsDict']]
+        """
+        Set of `key`-`value` pairs indicating the query string parameters to match.
+        """
+elif False:
+    GetListenerRuleConditionQueryStringArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetListenerRuleConditionQueryStringArgs:
+    def __init__(__self__, *,
+                 values: Optional[Sequence['GetListenerRuleConditionQueryStringValueArgs']] = None):
+        """
+        :param Sequence['GetListenerRuleConditionQueryStringValueArgs'] values: Set of `key`-`value` pairs indicating the query string parameters to match.
+        """
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence['GetListenerRuleConditionQueryStringValueArgs']]:
+        """
+        Set of `key`-`value` pairs indicating the query string parameters to match.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[Sequence['GetListenerRuleConditionQueryStringValueArgs']]):
+        pulumi.set(self, "values", value)
+
+
+if not MYPY:
+    class GetListenerRuleConditionQueryStringValueArgsDict(TypedDict):
+        key: str
+        """
+        Key of query parameter
+        """
+        value: str
+        """
+        Value of query parameter
+        """
+elif False:
+    GetListenerRuleConditionQueryStringValueArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetListenerRuleConditionQueryStringValueArgs:
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        :param str key: Key of query parameter
+        :param str value: Value of query parameter
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        Key of query parameter
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: str):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of query parameter
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: str):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class GetListenerRuleConditionSourceIpArgsDict(TypedDict):
+        values: Sequence[str]
+        """
+        Set of `key`-`value` pairs indicating the query string parameters to match.
+        """
+elif False:
+    GetListenerRuleConditionSourceIpArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetListenerRuleConditionSourceIpArgs:
+    def __init__(__self__, *,
+                 values: Sequence[str]):
+        """
+        :param Sequence[str] values: Set of `key`-`value` pairs indicating the query string parameters to match.
+        """
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of `key`-`value` pairs indicating the query string parameters to match.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
 
 

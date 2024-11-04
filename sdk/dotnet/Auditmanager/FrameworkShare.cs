@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Auditmanager
     /// {
     ///     var example = new Aws.Auditmanager.FrameworkShare("example", new()
     ///     {
-    ///         DestinationAccount = "012345678901",
+    ///         DestinationAccount = "123456789012",
     ///         DestinationRegion = "us-east-1",
     ///         FrameworkId = exampleAwsAuditmanagerFramework.Id,
     ///     });

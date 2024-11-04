@@ -21,14 +21,14 @@ public final class PatchBaselineApprovalRuleArgs extends com.pulumi.resources.Re
     public static final PatchBaselineApprovalRuleArgs Empty = new PatchBaselineApprovalRuleArgs();
 
     /**
-     * Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approve_until_date`.
+     * Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 360. Conflicts with `approve_until_date`.
      * 
      */
     @Import(name="approveAfterDays")
     private @Nullable Output<Integer> approveAfterDays;
 
     /**
-     * @return Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approve_until_date`.
+     * @return Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 360. Conflicts with `approve_until_date`.
      * 
      */
     public Optional<Output<Integer>> approveAfterDays() {
@@ -124,7 +124,7 @@ public final class PatchBaselineApprovalRuleArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param approveAfterDays Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approve_until_date`.
+         * @param approveAfterDays Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 360. Conflicts with `approve_until_date`.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class PatchBaselineApprovalRuleArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param approveAfterDays Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approve_until_date`.
+         * @param approveAfterDays Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 360. Conflicts with `approve_until_date`.
          * 
          * @return builder
          * 

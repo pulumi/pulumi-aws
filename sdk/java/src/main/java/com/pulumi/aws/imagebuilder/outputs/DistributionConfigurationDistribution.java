@@ -7,6 +7,7 @@ import com.pulumi.aws.imagebuilder.outputs.DistributionConfigurationDistribution
 import com.pulumi.aws.imagebuilder.outputs.DistributionConfigurationDistributionContainerDistributionConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.DistributionConfigurationDistributionFastLaunchConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.DistributionConfigurationDistributionLaunchTemplateConfiguration;
+import com.pulumi.aws.imagebuilder.outputs.DistributionConfigurationDistributionS3ExportConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -49,6 +50,11 @@ public final class DistributionConfigurationDistribution {
      * 
      */
     private String region;
+    /**
+     * @return Configuration block with S3 export settings. Detailed below.
+     * 
+     */
+    private @Nullable DistributionConfigurationDistributionS3ExportConfiguration s3ExportConfiguration;
 
     private DistributionConfigurationDistribution() {}
     /**
@@ -95,6 +101,13 @@ public final class DistributionConfigurationDistribution {
     public String region() {
         return this.region;
     }
+    /**
+     * @return Configuration block with S3 export settings. Detailed below.
+     * 
+     */
+    public Optional<DistributionConfigurationDistributionS3ExportConfiguration> s3ExportConfiguration() {
+        return Optional.ofNullable(this.s3ExportConfiguration);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -111,6 +124,7 @@ public final class DistributionConfigurationDistribution {
         private @Nullable List<DistributionConfigurationDistributionLaunchTemplateConfiguration> launchTemplateConfigurations;
         private @Nullable List<String> licenseConfigurationArns;
         private String region;
+        private @Nullable DistributionConfigurationDistributionS3ExportConfiguration s3ExportConfiguration;
         public Builder() {}
         public Builder(DistributionConfigurationDistribution defaults) {
     	      Objects.requireNonNull(defaults);
@@ -120,6 +134,7 @@ public final class DistributionConfigurationDistribution {
     	      this.launchTemplateConfigurations = defaults.launchTemplateConfigurations;
     	      this.licenseConfigurationArns = defaults.licenseConfigurationArns;
     	      this.region = defaults.region;
+    	      this.s3ExportConfiguration = defaults.s3ExportConfiguration;
         }
 
         @CustomType.Setter
@@ -169,6 +184,12 @@ public final class DistributionConfigurationDistribution {
             this.region = region;
             return this;
         }
+        @CustomType.Setter
+        public Builder s3ExportConfiguration(@Nullable DistributionConfigurationDistributionS3ExportConfiguration s3ExportConfiguration) {
+
+            this.s3ExportConfiguration = s3ExportConfiguration;
+            return this;
+        }
         public DistributionConfigurationDistribution build() {
             final var _resultValue = new DistributionConfigurationDistribution();
             _resultValue.amiDistributionConfiguration = amiDistributionConfiguration;
@@ -177,6 +198,7 @@ public final class DistributionConfigurationDistribution {
             _resultValue.launchTemplateConfigurations = launchTemplateConfigurations;
             _resultValue.licenseConfigurationArns = licenseConfigurationArns;
             _resultValue.region = region;
+            _resultValue.s3ExportConfiguration = s3ExportConfiguration;
             return _resultValue;
         }
     }

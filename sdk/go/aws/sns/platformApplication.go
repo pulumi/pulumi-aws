@@ -109,7 +109,7 @@ import (
 // Using `pulumi import`, import SNS platform applications using the ARN. For example:
 //
 // ```sh
-// $ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:0123456789012:app/GCM/gcm_application
+// $ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:123456789012:app/GCM/gcm_application
 // ```
 type PlatformApplication struct {
 	pulumi.CustomResourceState

@@ -71,14 +71,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ebs/volume:Volume")
 public class Volume extends com.pulumi.resources.CustomResource {
     /**
-     * The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+     * The volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+     * @return The volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
      * 
      */
     public Output<String> arn() {

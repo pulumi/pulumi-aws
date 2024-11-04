@@ -43,6 +43,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PatchBaseline{}
 	case "aws:ssm/patchGroup:PatchGroup":
 		r = &PatchGroup{}
+	case "aws:ssm/quicksetupConfigurationManager:QuicksetupConfigurationManager":
+		r = &QuicksetupConfigurationManager{}
 	case "aws:ssm/resourceDataSync:ResourceDataSync":
 		r = &ResourceDataSync{}
 	case "aws:ssm/serviceSetting:ServiceSetting":
@@ -113,6 +115,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ssm/patchGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ssm/quicksetupConfigurationManager",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

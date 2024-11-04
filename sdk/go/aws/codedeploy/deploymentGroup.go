@@ -316,6 +316,8 @@ type DeploymentGroup struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
+	TerminationHookEnabled pulumi.BoolPtrOutput `pulumi:"terminationHookEnabled"`
 	// Configuration block(s) of the triggers for the deployment group (documented below).
 	TriggerConfigurations DeploymentGroupTriggerConfigurationArrayOutput `pulumi:"triggerConfigurations"`
 }
@@ -401,6 +403,8 @@ type deploymentGroupState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
+	TerminationHookEnabled *bool `pulumi:"terminationHookEnabled"`
 	// Configuration block(s) of the triggers for the deployment group (documented below).
 	TriggerConfigurations []DeploymentGroupTriggerConfiguration `pulumi:"triggerConfigurations"`
 }
@@ -448,6 +452,8 @@ type DeploymentGroupState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
+	// Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
+	TerminationHookEnabled pulumi.BoolPtrInput
 	// Configuration block(s) of the triggers for the deployment group (documented below).
 	TriggerConfigurations DeploymentGroupTriggerConfigurationArrayInput
 }
@@ -489,6 +495,8 @@ type deploymentGroupArgs struct {
 	ServiceRoleArn string `pulumi:"serviceRoleArn"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
+	TerminationHookEnabled *bool `pulumi:"terminationHookEnabled"`
 	// Configuration block(s) of the triggers for the deployment group (documented below).
 	TriggerConfigurations []DeploymentGroupTriggerConfiguration `pulumi:"triggerConfigurations"`
 }
@@ -527,6 +535,8 @@ type DeploymentGroupArgs struct {
 	ServiceRoleArn pulumi.StringInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
+	TerminationHookEnabled pulumi.BoolPtrInput
 	// Configuration block(s) of the triggers for the deployment group (documented below).
 	TriggerConfigurations DeploymentGroupTriggerConfigurationArrayInput
 }
@@ -724,6 +734,11 @@ func (o DeploymentGroupOutput) Tags() pulumi.StringMapOutput {
 // Deprecated: Please use `tags` instead.
 func (o DeploymentGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DeploymentGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
+func (o DeploymentGroupOutput) TerminationHookEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroup) pulumi.BoolPtrOutput { return v.TerminationHookEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Configuration block(s) of the triggers for the deployment group (documented below).

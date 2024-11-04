@@ -281,6 +281,10 @@ export class DeploymentGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
+     * Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
+     */
+    public readonly terminationHookEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Configuration block(s) of the triggers for the deployment group (documented below).
      */
     public readonly triggerConfigurations!: pulumi.Output<outputs.codedeploy.DeploymentGroupTriggerConfiguration[] | undefined>;
@@ -318,6 +322,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
             resourceInputs["serviceRoleArn"] = state ? state.serviceRoleArn : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["terminationHookEnabled"] = state ? state.terminationHookEnabled : undefined;
             resourceInputs["triggerConfigurations"] = state ? state.triggerConfigurations : undefined;
         } else {
             const args = argsOrState as DeploymentGroupArgs | undefined;
@@ -346,6 +351,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
             resourceInputs["outdatedInstancesStrategy"] = args ? args.outdatedInstancesStrategy : undefined;
             resourceInputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["terminationHookEnabled"] = args ? args.terminationHookEnabled : undefined;
             resourceInputs["triggerConfigurations"] = args ? args.triggerConfigurations : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["computePlatform"] = undefined /*out*/;
@@ -444,6 +450,10 @@ export interface DeploymentGroupState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
+     */
+    terminationHookEnabled?: pulumi.Input<boolean>;
+    /**
      * Configuration block(s) of the triggers for the deployment group (documented below).
      */
     triggerConfigurations?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupTriggerConfiguration>[]>;
@@ -517,6 +527,10 @@ export interface DeploymentGroupArgs {
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
+     */
+    terminationHookEnabled?: pulumi.Input<boolean>;
     /**
      * Configuration block(s) of the triggers for the deployment group (documented below).
      */

@@ -31,7 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := auditmanager.NewFrameworkShare(ctx, "example", &auditmanager.FrameworkShareArgs{
-//				DestinationAccount: pulumi.String("012345678901"),
+//				DestinationAccount: pulumi.String("123456789012"),
 //				DestinationRegion:  pulumi.String("us-east-1"),
 //				FrameworkId:        pulumi.Any(exampleAwsAuditmanagerFramework.Id),
 //			})

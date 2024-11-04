@@ -203,7 +203,7 @@ class FrameworkShare(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.auditmanager.FrameworkShare("example",
-            destination_account="012345678901",
+            destination_account="123456789012",
             destination_region="us-east-1",
             framework_id=example_aws_auditmanager_framework["id"])
         ```
@@ -243,7 +243,7 @@ class FrameworkShare(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.auditmanager.FrameworkShare("example",
-            destination_account="012345678901",
+            destination_account="123456789012",
             destination_region="us-east-1",
             framework_id=example_aws_auditmanager_framework["id"])
         ```

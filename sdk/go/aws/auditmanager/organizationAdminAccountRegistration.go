@@ -31,7 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := auditmanager.NewOrganizationAdminAccountRegistration(ctx, "example", &auditmanager.OrganizationAdminAccountRegistrationArgs{
-//				AdminAccountId: pulumi.String("012345678901"),
+//				AdminAccountId: pulumi.String("123456789012"),
 //			})
 //			if err != nil {
 //				return err
@@ -47,7 +47,7 @@ import (
 // Using `pulumi import`, import Audit Manager Organization Admin Account Registration using the `id`. For example:
 //
 // ```sh
-// $ pulumi import aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration example 012345678901
+// $ pulumi import aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration example 123456789012
 // ```
 type OrganizationAdminAccountRegistration struct {
 	pulumi.CustomResourceState

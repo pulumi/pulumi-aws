@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleApplicationAccessScope = new aws.ssoadmin.ApplicationAccessScope("example", {
  *     applicationArn: exampleApplication.applicationArn,
- *     authorizedTargets: ["arn:aws:sso::012345678901:application/ssoins-012345678901/apl-012345678901"],
+ *     authorizedTargets: ["arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012"],
  *     scope: "sso:account:access",
  * });
  * ```
@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import SSO Admin Application Access Scope using the `id`. For example:
  *
  * ```sh
- * $ pulumi import aws:ssoadmin/applicationAccessScope:ApplicationAccessScope example arn:aws:sso::012345678901:application/ssoins-012345678901/apl-012345678901,sso:account:access
+ * $ pulumi import aws:ssoadmin/applicationAccessScope:ApplicationAccessScope example arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012,sso:account:access
  * ```
  */
 export class ApplicationAccessScope extends pulumi.CustomResource {

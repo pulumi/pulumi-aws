@@ -1367,7 +1367,7 @@ class ListenerRuleActionForward(dict):
                  target_groups: Sequence['outputs.ListenerRuleActionForwardTargetGroup'],
                  stickiness: Optional['outputs.ListenerRuleActionForwardStickiness'] = None):
         """
-        :param Sequence['ListenerRuleActionForwardTargetGroupArgs'] target_groups: One or more target groups block.
+        :param Sequence['ListenerRuleActionForwardTargetGroupArgs'] target_groups: One or more target group blocks.
         :param 'ListenerRuleActionForwardStickinessArgs' stickiness: The target group stickiness for the rule.
         """
         pulumi.set(__self__, "target_groups", target_groups)
@@ -1378,7 +1378,7 @@ class ListenerRuleActionForward(dict):
     @pulumi.getter(name="targetGroups")
     def target_groups(self) -> Sequence['outputs.ListenerRuleActionForwardTargetGroup']:
         """
-        One or more target groups block.
+        One or more target group blocks.
         """
         return pulumi.get(self, "target_groups")
 

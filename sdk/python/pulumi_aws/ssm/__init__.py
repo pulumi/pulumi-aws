@@ -25,6 +25,7 @@ from .maintenance_window_task import *
 from .parameter import *
 from .patch_baseline import *
 from .patch_group import *
+from .quicksetup_configuration_manager import *
 from .resource_data_sync import *
 from .service_setting import *
 from ._inputs import *

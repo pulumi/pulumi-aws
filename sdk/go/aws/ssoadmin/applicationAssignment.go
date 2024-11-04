@@ -77,7 +77,7 @@ import (
 // Using `pulumi import`, import SSO Admin Application Assignment using the `id`. For example:
 //
 // ```sh
-// $ pulumi import aws:ssoadmin/applicationAssignment:ApplicationAssignment example arn:aws:sso::012345678901:application/id-12345678,abcd1234,USER
+// $ pulumi import aws:ssoadmin/applicationAssignment:ApplicationAssignment example arn:aws:sso::123456789012:application/id-12345678,abcd1234,USER
 // ```
 type ApplicationAssignment struct {
 	pulumi.CustomResourceState

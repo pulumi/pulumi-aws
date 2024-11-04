@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetVolumeResult {
     /**
-     * @return Volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+     * @return Volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
      * 
      */
     private String arn;
@@ -92,7 +92,7 @@ public final class GetVolumeResult {
 
     private GetVolumeResult() {}
     /**
-     * @return Volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+     * @return Volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
      * 
      */
     public String arn() {

@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import Shield Subscription using the `id`. For example:
  *
  * ```sh
- * $ pulumi import aws:shield/subscription:Subscription example 012345678901
+ * $ pulumi import aws:shield/subscription:Subscription example 123456789012
  * ```
  */
 export class Subscription extends pulumi.CustomResource {

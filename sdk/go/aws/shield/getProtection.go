@@ -56,7 +56,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := shield.LookupProtection(ctx, &shield.LookupProtectionArgs{
-//				ResourceArn: pulumi.StringRef("arn:aws:globalaccelerator::012345678901:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh"),
+//				ResourceArn: pulumi.StringRef("arn:aws:globalaccelerator::123456789012:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh"),
 //			}, nil)
 //			if err != nil {
 //				return err

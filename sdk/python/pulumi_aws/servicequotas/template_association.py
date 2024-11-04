@@ -100,7 +100,7 @@ class TemplateAssociation(pulumi.CustomResource):
         Using `pulumi import`, import Service Quotas Template Association using the `id`. For example:
 
         ```sh
-        $ pulumi import aws:servicequotas/templateAssociation:TemplateAssociation example 012345678901
+        $ pulumi import aws:servicequotas/templateAssociation:TemplateAssociation example 123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -133,7 +133,7 @@ class TemplateAssociation(pulumi.CustomResource):
         Using `pulumi import`, import Service Quotas Template Association using the `id`. For example:
 
         ```sh
-        $ pulumi import aws:servicequotas/templateAssociation:TemplateAssociation example 012345678901
+        $ pulumi import aws:servicequotas/templateAssociation:TemplateAssociation example 123456789012
         ```
 
         :param str resource_name: The name of the resource.

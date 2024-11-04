@@ -78,7 +78,7 @@ type LookupVolumeArgs struct {
 
 // A collection of values returned by getVolume.
 type LookupVolumeResult struct {
-	// Volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+	// Volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
 	Arn string `pulumi:"arn"`
 	// AZ where the EBS volume exists.
 	AvailabilityZone string `pulumi:"availabilityZone"`
@@ -161,7 +161,7 @@ func (o LookupVolumeResultOutput) ToLookupVolumeResultOutputWithContext(ctx cont
 	return o
 }
 
-// Volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+// Volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
 func (o LookupVolumeResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeResult) string { return v.Arn }).(pulumi.StringOutput)
 }

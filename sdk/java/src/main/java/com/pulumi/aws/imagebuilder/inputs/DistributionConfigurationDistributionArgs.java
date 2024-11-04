@@ -7,6 +7,7 @@ import com.pulumi.aws.imagebuilder.inputs.DistributionConfigurationDistributionA
 import com.pulumi.aws.imagebuilder.inputs.DistributionConfigurationDistributionContainerDistributionConfigurationArgs;
 import com.pulumi.aws.imagebuilder.inputs.DistributionConfigurationDistributionFastLaunchConfigurationArgs;
 import com.pulumi.aws.imagebuilder.inputs.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs;
+import com.pulumi.aws.imagebuilder.inputs.DistributionConfigurationDistributionS3ExportConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -115,6 +116,21 @@ public final class DistributionConfigurationDistributionArgs extends com.pulumi.
         return this.region;
     }
 
+    /**
+     * Configuration block with S3 export settings. Detailed below.
+     * 
+     */
+    @Import(name="s3ExportConfiguration")
+    private @Nullable Output<DistributionConfigurationDistributionS3ExportConfigurationArgs> s3ExportConfiguration;
+
+    /**
+     * @return Configuration block with S3 export settings. Detailed below.
+     * 
+     */
+    public Optional<Output<DistributionConfigurationDistributionS3ExportConfigurationArgs>> s3ExportConfiguration() {
+        return Optional.ofNullable(this.s3ExportConfiguration);
+    }
+
     private DistributionConfigurationDistributionArgs() {}
 
     private DistributionConfigurationDistributionArgs(DistributionConfigurationDistributionArgs $) {
@@ -124,6 +140,7 @@ public final class DistributionConfigurationDistributionArgs extends com.pulumi.
         this.launchTemplateConfigurations = $.launchTemplateConfigurations;
         this.licenseConfigurationArns = $.licenseConfigurationArns;
         this.region = $.region;
+        this.s3ExportConfiguration = $.s3ExportConfiguration;
     }
 
     public static Builder builder() {
@@ -302,6 +319,27 @@ public final class DistributionConfigurationDistributionArgs extends com.pulumi.
          */
         public Builder region(String region) {
             return region(Output.of(region));
+        }
+
+        /**
+         * @param s3ExportConfiguration Configuration block with S3 export settings. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder s3ExportConfiguration(@Nullable Output<DistributionConfigurationDistributionS3ExportConfigurationArgs> s3ExportConfiguration) {
+            $.s3ExportConfiguration = s3ExportConfiguration;
+            return this;
+        }
+
+        /**
+         * @param s3ExportConfiguration Configuration block with S3 export settings. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder s3ExportConfiguration(DistributionConfigurationDistributionS3ExportConfigurationArgs s3ExportConfiguration) {
+            return s3ExportConfiguration(Output.of(s3ExportConfiguration));
         }
 
         public DistributionConfigurationDistributionArgs build() {

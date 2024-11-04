@@ -161,7 +161,7 @@ class ApplicationAccessScope(pulumi.CustomResource):
             instance_arn=example.arns[0])
         example_application_access_scope = aws.ssoadmin.ApplicationAccessScope("example",
             application_arn=example_application.application_arn,
-            authorized_targets=["arn:aws:sso::012345678901:application/ssoins-012345678901/apl-012345678901"],
+            authorized_targets=["arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012"],
             scope="sso:account:access")
         ```
 
@@ -170,7 +170,7 @@ class ApplicationAccessScope(pulumi.CustomResource):
         Using `pulumi import`, import SSO Admin Application Access Scope using the `id`. For example:
 
         ```sh
-        $ pulumi import aws:ssoadmin/applicationAccessScope:ApplicationAccessScope example arn:aws:sso::012345678901:application/ssoins-012345678901/apl-012345678901,sso:account:access
+        $ pulumi import aws:ssoadmin/applicationAccessScope:ApplicationAccessScope example arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012,sso:account:access
         ```
 
         :param str resource_name: The name of the resource.
@@ -205,7 +205,7 @@ class ApplicationAccessScope(pulumi.CustomResource):
             instance_arn=example.arns[0])
         example_application_access_scope = aws.ssoadmin.ApplicationAccessScope("example",
             application_arn=example_application.application_arn,
-            authorized_targets=["arn:aws:sso::012345678901:application/ssoins-012345678901/apl-012345678901"],
+            authorized_targets=["arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012"],
             scope="sso:account:access")
         ```
 
@@ -214,7 +214,7 @@ class ApplicationAccessScope(pulumi.CustomResource):
         Using `pulumi import`, import SSO Admin Application Access Scope using the `id`. For example:
 
         ```sh
-        $ pulumi import aws:ssoadmin/applicationAccessScope:ApplicationAccessScope example arn:aws:sso::012345678901:application/ssoins-012345678901/apl-012345678901,sso:account:access
+        $ pulumi import aws:ssoadmin/applicationAccessScope:ApplicationAccessScope example arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012,sso:account:access
         ```
 
         :param str resource_name: The name of the resource.

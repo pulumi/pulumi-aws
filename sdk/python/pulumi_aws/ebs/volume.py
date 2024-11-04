@@ -238,7 +238,7 @@ class _VolumeState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Volume resources.
-        :param pulumi.Input[str] arn: The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+        :param pulumi.Input[str] arn: The volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
         :param pulumi.Input[str] availability_zone: The AZ where the EBS volume will exist.
         :param pulumi.Input[bool] encrypted: If true, the disk will be encrypted.
         :param pulumi.Input[bool] final_snapshot: If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
@@ -291,7 +291,7 @@ class _VolumeState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+        The volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
         """
         return pulumi.get(self, "arn")
 
@@ -637,7 +637,7 @@ class Volume(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+        :param pulumi.Input[str] arn: The volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
         :param pulumi.Input[str] availability_zone: The AZ where the EBS volume will exist.
         :param pulumi.Input[bool] encrypted: If true, the disk will be encrypted.
         :param pulumi.Input[bool] final_snapshot: If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
@@ -678,7 +678,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+        The volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
         """
         return pulumi.get(self, "arn")
 

@@ -285,6 +285,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
      * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
      * * `TransferSecurityPolicy-Restricted-2018-11`
      * * `TransferSecurityPolicy-Restricted-2020-06`
+     * * `TransferSecurityPolicy-Restricted-2024-06`
      * 
      * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
      * 
@@ -307,6 +308,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
      * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
      * * `TransferSecurityPolicy-Restricted-2018-11`
      * * `TransferSecurityPolicy-Restricted-2020-06`
+     * * `TransferSecurityPolicy-Restricted-2024-06`
      * 
      * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
      * 
@@ -808,6 +810,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
          * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
          * * `TransferSecurityPolicy-Restricted-2018-11`
          * * `TransferSecurityPolicy-Restricted-2020-06`
+         * * `TransferSecurityPolicy-Restricted-2024-06`
          * 
          * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
          * 
@@ -834,6 +837,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
          * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
          * * `TransferSecurityPolicy-Restricted-2018-11`
          * * `TransferSecurityPolicy-Restricted-2020-06`
+         * * `TransferSecurityPolicy-Restricted-2024-06`
          * 
          * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
          * 

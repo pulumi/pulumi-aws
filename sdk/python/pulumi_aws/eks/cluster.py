@@ -33,7 +33,8 @@ class ClusterArgs:
                  outpost_config: Optional[pulumi.Input['ClusterOutpostConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upgrade_policy: Optional[pulumi.Input['ClusterUpgradePolicyArgs']] = None,
-                 version: Optional[pulumi.Input[str]] = None):
+                 version: Optional[pulumi.Input[str]] = None,
+                 zonal_shift_config: Optional[pulumi.Input['ClusterZonalShiftConfigArgs']] = None):
         """
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[str] role_arn: ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `iam.RolePolicy` resource or `iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
@@ -43,13 +44,14 @@ class ClusterArgs:
         :param pulumi.Input['ClusterAccessConfigArgs'] access_config: Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
         :param pulumi.Input[bool] bootstrap_self_managed_addons: Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
-        :param pulumi.Input['ClusterEncryptionConfigArgs'] encryption_config: Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+        :param pulumi.Input['ClusterEncryptionConfigArgs'] encryption_config: Configuration block with encryption configuration for the cluster. Detailed below.
         :param pulumi.Input['ClusterKubernetesNetworkConfigArgs'] kubernetes_network_config: Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[str] name: Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]*$`).
         :param pulumi.Input['ClusterOutpostConfigArgs'] outpost_config: Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['ClusterUpgradePolicyArgs'] upgrade_policy: Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
         :param pulumi.Input[str] version: Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
+        :param pulumi.Input['ClusterZonalShiftConfigArgs'] zonal_shift_config: Configuration block with zonal shift configuration for the cluster. Detailed below.
         """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "vpc_config", vpc_config)
@@ -75,6 +77,8 @@ class ClusterArgs:
             pulumi.set(__self__, "upgrade_policy", upgrade_policy)
         if version is not None:
             pulumi.set(__self__, "version", version)
+        if zonal_shift_config is not None:
+            pulumi.set(__self__, "zonal_shift_config", zonal_shift_config)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -151,7 +155,7 @@ class ClusterArgs:
     @pulumi.getter(name="encryptionConfig")
     def encryption_config(self) -> Optional[pulumi.Input['ClusterEncryptionConfigArgs']]:
         """
-        Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+        Configuration block with encryption configuration for the cluster. Detailed below.
         """
         return pulumi.get(self, "encryption_config")
 
@@ -231,6 +235,18 @@ class ClusterArgs:
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
 
+    @property
+    @pulumi.getter(name="zonalShiftConfig")
+    def zonal_shift_config(self) -> Optional[pulumi.Input['ClusterZonalShiftConfigArgs']]:
+        """
+        Configuration block with zonal shift configuration for the cluster. Detailed below.
+        """
+        return pulumi.get(self, "zonal_shift_config")
+
+    @zonal_shift_config.setter
+    def zonal_shift_config(self, value: Optional[pulumi.Input['ClusterZonalShiftConfigArgs']]):
+        pulumi.set(self, "zonal_shift_config", value)
+
 
 @pulumi.input_type
 class _ClusterState:
@@ -257,7 +273,8 @@ class _ClusterState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upgrade_policy: Optional[pulumi.Input['ClusterUpgradePolicyArgs']] = None,
                  version: Optional[pulumi.Input[str]] = None,
-                 vpc_config: Optional[pulumi.Input['ClusterVpcConfigArgs']] = None):
+                 vpc_config: Optional[pulumi.Input['ClusterVpcConfigArgs']] = None,
+                 zonal_shift_config: Optional[pulumi.Input['ClusterZonalShiftConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
         :param pulumi.Input['ClusterAccessConfigArgs'] access_config: Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
@@ -267,7 +284,7 @@ class _ClusterState:
         :param pulumi.Input[str] cluster_id: The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
         :param pulumi.Input[str] created_at: Unix epoch timestamp in seconds for when the cluster was created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
-        :param pulumi.Input['ClusterEncryptionConfigArgs'] encryption_config: Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+        :param pulumi.Input['ClusterEncryptionConfigArgs'] encryption_config: Configuration block with encryption configuration for the cluster. Detailed below.
         :param pulumi.Input[str] endpoint: Endpoint for your Kubernetes API server.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterIdentityArgs']]] identities: Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
         :param pulumi.Input['ClusterKubernetesNetworkConfigArgs'] kubernetes_network_config: Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
@@ -283,6 +300,7 @@ class _ClusterState:
         :param pulumi.Input['ClusterVpcConfigArgs'] vpc_config: Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
                
                The following arguments are optional:
+        :param pulumi.Input['ClusterZonalShiftConfigArgs'] zonal_shift_config: Configuration block with zonal shift configuration for the cluster. Detailed below.
         """
         if access_config is not None:
             pulumi.set(__self__, "access_config", access_config)
@@ -333,6 +351,8 @@ class _ClusterState:
             pulumi.set(__self__, "version", version)
         if vpc_config is not None:
             pulumi.set(__self__, "vpc_config", vpc_config)
+        if zonal_shift_config is not None:
+            pulumi.set(__self__, "zonal_shift_config", zonal_shift_config)
 
     @property
     @pulumi.getter(name="accessConfig")
@@ -440,7 +460,7 @@ class _ClusterState:
     @pulumi.getter(name="encryptionConfig")
     def encryption_config(self) -> Optional[pulumi.Input['ClusterEncryptionConfigArgs']]:
         """
-        Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+        Configuration block with encryption configuration for the cluster. Detailed below.
         """
         return pulumi.get(self, "encryption_config")
 
@@ -607,6 +627,18 @@ class _ClusterState:
     def vpc_config(self, value: Optional[pulumi.Input['ClusterVpcConfigArgs']]):
         pulumi.set(self, "vpc_config", value)
 
+    @property
+    @pulumi.getter(name="zonalShiftConfig")
+    def zonal_shift_config(self) -> Optional[pulumi.Input['ClusterZonalShiftConfigArgs']]:
+        """
+        Configuration block with zonal shift configuration for the cluster. Detailed below.
+        """
+        return pulumi.get(self, "zonal_shift_config")
+
+    @zonal_shift_config.setter
+    def zonal_shift_config(self, value: Optional[pulumi.Input['ClusterZonalShiftConfigArgs']]):
+        pulumi.set(self, "zonal_shift_config", value)
+
 
 class Cluster(pulumi.CustomResource):
     @overload
@@ -626,6 +658,7 @@ class Cluster(pulumi.CustomResource):
                  upgrade_policy: Optional[pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  vpc_config: Optional[pulumi.Input[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict']]] = None,
+                 zonal_shift_config: Optional[pulumi.Input[Union['ClusterZonalShiftConfigArgs', 'ClusterZonalShiftConfigArgsDict']]] = None,
                  __props__=None):
         """
         Manages an EKS Cluster.
@@ -805,7 +838,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']] access_config: Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
         :param pulumi.Input[bool] bootstrap_self_managed_addons: Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
-        :param pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']] encryption_config: Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+        :param pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']] encryption_config: Configuration block with encryption configuration for the cluster. Detailed below.
         :param pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']] kubernetes_network_config: Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[str] name: Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]*$`).
         :param pulumi.Input[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict']] outpost_config: Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
@@ -816,6 +849,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict']] vpc_config: Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
                
                The following arguments are optional:
+        :param pulumi.Input[Union['ClusterZonalShiftConfigArgs', 'ClusterZonalShiftConfigArgsDict']] zonal_shift_config: Configuration block with zonal shift configuration for the cluster. Detailed below.
         """
         ...
     @overload
@@ -1024,6 +1058,7 @@ class Cluster(pulumi.CustomResource):
                  upgrade_policy: Optional[pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  vpc_config: Optional[pulumi.Input[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict']]] = None,
+                 zonal_shift_config: Optional[pulumi.Input[Union['ClusterZonalShiftConfigArgs', 'ClusterZonalShiftConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1050,6 +1085,7 @@ class Cluster(pulumi.CustomResource):
             if vpc_config is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_config'")
             __props__.__dict__["vpc_config"] = vpc_config
+            __props__.__dict__["zonal_shift_config"] = zonal_shift_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["certificate_authorities"] = None
             __props__.__dict__["certificate_authority"] = None
@@ -1092,7 +1128,8 @@ class Cluster(pulumi.CustomResource):
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             upgrade_policy: Optional[pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']]] = None,
             version: Optional[pulumi.Input[str]] = None,
-            vpc_config: Optional[pulumi.Input[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict']]] = None) -> 'Cluster':
+            vpc_config: Optional[pulumi.Input[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict']]] = None,
+            zonal_shift_config: Optional[pulumi.Input[Union['ClusterZonalShiftConfigArgs', 'ClusterZonalShiftConfigArgsDict']]] = None) -> 'Cluster':
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1107,7 +1144,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_id: The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
         :param pulumi.Input[str] created_at: Unix epoch timestamp in seconds for when the cluster was created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
-        :param pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']] encryption_config: Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+        :param pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']] encryption_config: Configuration block with encryption configuration for the cluster. Detailed below.
         :param pulumi.Input[str] endpoint: Endpoint for your Kubernetes API server.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']]]] identities: Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
         :param pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']] kubernetes_network_config: Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
@@ -1123,6 +1160,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict']] vpc_config: Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
                
                The following arguments are optional:
+        :param pulumi.Input[Union['ClusterZonalShiftConfigArgs', 'ClusterZonalShiftConfigArgsDict']] zonal_shift_config: Configuration block with zonal shift configuration for the cluster. Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1151,6 +1189,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["upgrade_policy"] = upgrade_policy
         __props__.__dict__["version"] = version
         __props__.__dict__["vpc_config"] = vpc_config
+        __props__.__dict__["zonal_shift_config"] = zonal_shift_config
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1223,7 +1262,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="encryptionConfig")
     def encryption_config(self) -> pulumi.Output[Optional['outputs.ClusterEncryptionConfig']]:
         """
-        Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+        Configuration block with encryption configuration for the cluster. Detailed below.
         """
         return pulumi.get(self, "encryption_config")
 
@@ -1333,4 +1372,12 @@ class Cluster(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "vpc_config")
+
+    @property
+    @pulumi.getter(name="zonalShiftConfig")
+    def zonal_shift_config(self) -> pulumi.Output[Optional['outputs.ClusterZonalShiftConfig']]:
+        """
+        Configuration block with zonal shift configuration for the cluster. Detailed below.
+        """
+        return pulumi.get(self, "zonal_shift_config")
 

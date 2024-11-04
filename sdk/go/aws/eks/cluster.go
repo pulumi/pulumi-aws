@@ -384,7 +384,7 @@ type Cluster struct {
 	DefaultAddonsToRemoves pulumi.StringArrayOutput `pulumi:"defaultAddonsToRemoves"`
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes pulumi.StringArrayOutput `pulumi:"enabledClusterLogTypes"`
-	// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+	// Configuration block with encryption configuration for the cluster. Detailed below.
 	EncryptionConfig ClusterEncryptionConfigPtrOutput `pulumi:"encryptionConfig"`
 	// Endpoint for your Kubernetes API server.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
@@ -416,6 +416,8 @@ type Cluster struct {
 	//
 	// The following arguments are optional:
 	VpcConfig ClusterVpcConfigOutput `pulumi:"vpcConfig"`
+	// Configuration block with zonal shift configuration for the cluster. Detailed below.
+	ZonalShiftConfig ClusterZonalShiftConfigPtrOutput `pulumi:"zonalShiftConfig"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -470,7 +472,7 @@ type clusterState struct {
 	DefaultAddonsToRemoves []string `pulumi:"defaultAddonsToRemoves"`
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes []string `pulumi:"enabledClusterLogTypes"`
-	// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+	// Configuration block with encryption configuration for the cluster. Detailed below.
 	EncryptionConfig *ClusterEncryptionConfig `pulumi:"encryptionConfig"`
 	// Endpoint for your Kubernetes API server.
 	Endpoint *string `pulumi:"endpoint"`
@@ -502,6 +504,8 @@ type clusterState struct {
 	//
 	// The following arguments are optional:
 	VpcConfig *ClusterVpcConfig `pulumi:"vpcConfig"`
+	// Configuration block with zonal shift configuration for the cluster. Detailed below.
+	ZonalShiftConfig *ClusterZonalShiftConfig `pulumi:"zonalShiftConfig"`
 }
 
 type ClusterState struct {
@@ -521,7 +525,7 @@ type ClusterState struct {
 	DefaultAddonsToRemoves pulumi.StringArrayInput
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes pulumi.StringArrayInput
-	// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+	// Configuration block with encryption configuration for the cluster. Detailed below.
 	EncryptionConfig ClusterEncryptionConfigPtrInput
 	// Endpoint for your Kubernetes API server.
 	Endpoint pulumi.StringPtrInput
@@ -553,6 +557,8 @@ type ClusterState struct {
 	//
 	// The following arguments are optional:
 	VpcConfig ClusterVpcConfigPtrInput
+	// Configuration block with zonal shift configuration for the cluster. Detailed below.
+	ZonalShiftConfig ClusterZonalShiftConfigPtrInput
 }
 
 func (ClusterState) ElementType() reflect.Type {
@@ -567,7 +573,7 @@ type clusterArgs struct {
 	DefaultAddonsToRemoves     []string `pulumi:"defaultAddonsToRemoves"`
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes []string `pulumi:"enabledClusterLogTypes"`
-	// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+	// Configuration block with encryption configuration for the cluster. Detailed below.
 	EncryptionConfig *ClusterEncryptionConfig `pulumi:"encryptionConfig"`
 	// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
 	KubernetesNetworkConfig *ClusterKubernetesNetworkConfig `pulumi:"kubernetesNetworkConfig"`
@@ -587,6 +593,8 @@ type clusterArgs struct {
 	//
 	// The following arguments are optional:
 	VpcConfig ClusterVpcConfig `pulumi:"vpcConfig"`
+	// Configuration block with zonal shift configuration for the cluster. Detailed below.
+	ZonalShiftConfig *ClusterZonalShiftConfig `pulumi:"zonalShiftConfig"`
 }
 
 // The set of arguments for constructing a Cluster resource.
@@ -598,7 +606,7 @@ type ClusterArgs struct {
 	DefaultAddonsToRemoves     pulumi.StringArrayInput
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes pulumi.StringArrayInput
-	// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+	// Configuration block with encryption configuration for the cluster. Detailed below.
 	EncryptionConfig ClusterEncryptionConfigPtrInput
 	// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
 	KubernetesNetworkConfig ClusterKubernetesNetworkConfigPtrInput
@@ -618,6 +626,8 @@ type ClusterArgs struct {
 	//
 	// The following arguments are optional:
 	VpcConfig ClusterVpcConfigInput
+	// Configuration block with zonal shift configuration for the cluster. Detailed below.
+	ZonalShiftConfig ClusterZonalShiftConfigPtrInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {
@@ -750,7 +760,7 @@ func (o ClusterOutput) EnabledClusterLogTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.EnabledClusterLogTypes }).(pulumi.StringArrayOutput)
 }
 
-// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+// Configuration block with encryption configuration for the cluster. Detailed below.
 func (o ClusterOutput) EncryptionConfig() ClusterEncryptionConfigPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterEncryptionConfigPtrOutput { return v.EncryptionConfig }).(ClusterEncryptionConfigPtrOutput)
 }
@@ -822,6 +832,11 @@ func (o ClusterOutput) Version() pulumi.StringOutput {
 // The following arguments are optional:
 func (o ClusterOutput) VpcConfig() ClusterVpcConfigOutput {
 	return o.ApplyT(func(v *Cluster) ClusterVpcConfigOutput { return v.VpcConfig }).(ClusterVpcConfigOutput)
+}
+
+// Configuration block with zonal shift configuration for the cluster. Detailed below.
+func (o ClusterOutput) ZonalShiftConfig() ClusterZonalShiftConfigPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterZonalShiftConfigPtrOutput { return v.ZonalShiftConfig }).(ClusterZonalShiftConfigPtrOutput)
 }
 
 type ClusterArrayOutput struct{ *pulumi.OutputState }

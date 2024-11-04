@@ -15,6 +15,7 @@ import com.pulumi.aws.codedeploy.inputs.DeploymentGroupOnPremisesInstanceTagFilt
 import com.pulumi.aws.codedeploy.inputs.DeploymentGroupTriggerConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -336,6 +337,21 @@ public final class DeploymentGroupState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
+     * 
+     */
+    @Import(name="terminationHookEnabled")
+    private @Nullable Output<Boolean> terminationHookEnabled;
+
+    /**
+     * @return Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
+     * 
+     */
+    public Optional<Output<Boolean>> terminationHookEnabled() {
+        return Optional.ofNullable(this.terminationHookEnabled);
+    }
+
+    /**
      * Configuration block(s) of the triggers for the deployment group (documented below).
      * 
      */
@@ -373,6 +389,7 @@ public final class DeploymentGroupState extends com.pulumi.resources.ResourceArg
         this.serviceRoleArn = $.serviceRoleArn;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.terminationHookEnabled = $.terminationHookEnabled;
         this.triggerConfigurations = $.triggerConfigurations;
     }
 
@@ -860,6 +877,27 @@ public final class DeploymentGroupState extends com.pulumi.resources.ResourceArg
         @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param terminationHookEnabled Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder terminationHookEnabled(@Nullable Output<Boolean> terminationHookEnabled) {
+            $.terminationHookEnabled = terminationHookEnabled;
+            return this;
+        }
+
+        /**
+         * @param terminationHookEnabled Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder terminationHookEnabled(Boolean terminationHookEnabled) {
+            return terminationHookEnabled(Output.of(terminationHookEnabled));
         }
 
         /**

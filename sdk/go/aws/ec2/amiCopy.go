@@ -40,7 +40,6 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewAmiCopy(ctx, "example", &ec2.AmiCopyArgs{
 //				Name:            pulumi.String("example"),
-//				Description:     pulumi.String("A copy of ami-xxxxxxxx"),
 //				SourceAmiId:     pulumi.String("ami-xxxxxxxx"),
 //				SourceAmiRegion: pulumi.String("us-west-1"),
 //				Tags: pulumi.StringMap{

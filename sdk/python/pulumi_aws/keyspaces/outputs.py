@@ -16,6 +16,7 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'KeyspaceReplicationSpecification',
     'TableCapacitySpecification',
     'TableClientSideTimestamps',
     'TableComment',
@@ -28,6 +29,56 @@ __all__ = [
     'TableSchemaDefinitionStaticColumn',
     'TableTtl',
 ]
+
+@pulumi.output_type
+class KeyspaceReplicationSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "regionLists":
+            suggest = "region_lists"
+        elif key == "replicationStrategy":
+            suggest = "replication_strategy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyspaceReplicationSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyspaceReplicationSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyspaceReplicationSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 region_lists: Optional[Sequence[str]] = None,
+                 replication_strategy: Optional[str] = None):
+        """
+        :param Sequence[str] region_lists: Replication regions. If `replication_strategy` is `MULTI_REGION`, `region_list` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
+        :param str replication_strategy: Replication strategy. Valid values: `SINGLE_REGION` and `MULTI_REGION`.
+        """
+        if region_lists is not None:
+            pulumi.set(__self__, "region_lists", region_lists)
+        if replication_strategy is not None:
+            pulumi.set(__self__, "replication_strategy", replication_strategy)
+
+    @property
+    @pulumi.getter(name="regionLists")
+    def region_lists(self) -> Optional[Sequence[str]]:
+        """
+        Replication regions. If `replication_strategy` is `MULTI_REGION`, `region_list` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
+        """
+        return pulumi.get(self, "region_lists")
+
+    @property
+    @pulumi.getter(name="replicationStrategy")
+    def replication_strategy(self) -> Optional[str]:
+        """
+        Replication strategy. Valid values: `SINGLE_REGION` and `MULTI_REGION`.
+        """
+        return pulumi.get(self, "replication_strategy")
+
 
 @pulumi.output_type
 class TableCapacitySpecification(dict):

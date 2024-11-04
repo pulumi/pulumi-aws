@@ -2797,7 +2797,7 @@ func (o ListenerRuleActionFixedResponsePtrOutput) StatusCode() pulumi.StringPtrO
 type ListenerRuleActionForward struct {
 	// The target group stickiness for the rule.
 	Stickiness *ListenerRuleActionForwardStickiness `pulumi:"stickiness"`
-	// One or more target groups block.
+	// One or more target group blocks.
 	TargetGroups []ListenerRuleActionForwardTargetGroup `pulumi:"targetGroups"`
 }
 
@@ -2815,7 +2815,7 @@ type ListenerRuleActionForwardInput interface {
 type ListenerRuleActionForwardArgs struct {
 	// The target group stickiness for the rule.
 	Stickiness ListenerRuleActionForwardStickinessPtrInput `pulumi:"stickiness"`
-	// One or more target groups block.
+	// One or more target group blocks.
 	TargetGroups ListenerRuleActionForwardTargetGroupArrayInput `pulumi:"targetGroups"`
 }
 
@@ -2901,7 +2901,7 @@ func (o ListenerRuleActionForwardOutput) Stickiness() ListenerRuleActionForwardS
 	return o.ApplyT(func(v ListenerRuleActionForward) *ListenerRuleActionForwardStickiness { return v.Stickiness }).(ListenerRuleActionForwardStickinessPtrOutput)
 }
 
-// One or more target groups block.
+// One or more target group blocks.
 func (o ListenerRuleActionForwardOutput) TargetGroups() ListenerRuleActionForwardTargetGroupArrayOutput {
 	return o.ApplyT(func(v ListenerRuleActionForward) []ListenerRuleActionForwardTargetGroup { return v.TargetGroups }).(ListenerRuleActionForwardTargetGroupArrayOutput)
 }
@@ -2940,7 +2940,7 @@ func (o ListenerRuleActionForwardPtrOutput) Stickiness() ListenerRuleActionForwa
 	}).(ListenerRuleActionForwardStickinessPtrOutput)
 }
 
-// One or more target groups block.
+// One or more target group blocks.
 func (o ListenerRuleActionForwardPtrOutput) TargetGroups() ListenerRuleActionForwardTargetGroupArrayOutput {
 	return o.ApplyT(func(v *ListenerRuleActionForward) []ListenerRuleActionForwardTargetGroup {
 		if v == nil {

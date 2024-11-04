@@ -321,7 +321,7 @@ import javax.annotation.Nullable;
  *         var this_ = new Instance("this", InstanceArgs.builder()
  *             .ami("ami-0dcc1e21636832c5d")
  *             .instanceType("m5.large")
- *             .hostResourceGroupArn("arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost")
+ *             .hostResourceGroupArn("arn:aws:resource-groups:us-west-2:123456789012:group/win-testhost")
  *             .tenancy("host")
  *             .build());
  * 

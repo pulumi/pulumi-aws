@@ -14,6 +14,7 @@ import com.pulumi.aws.eks.outputs.ClusterKubernetesNetworkConfig;
 import com.pulumi.aws.eks.outputs.ClusterOutpostConfig;
 import com.pulumi.aws.eks.outputs.ClusterUpgradePolicy;
 import com.pulumi.aws.eks.outputs.ClusterVpcConfig;
+import com.pulumi.aws.eks.outputs.ClusterZonalShiftConfig;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -501,14 +502,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enabledClusterLogTypes);
     }
     /**
-     * Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+     * Configuration block with encryption configuration for the cluster. Detailed below.
      * 
      */
     @Export(name="encryptionConfig", refs={ClusterEncryptionConfig.class}, tree="[0]")
     private Output</* @Nullable */ ClusterEncryptionConfig> encryptionConfig;
 
     /**
-     * @return Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+     * @return Configuration block with encryption configuration for the cluster. Detailed below.
      * 
      */
     public Output<Optional<ClusterEncryptionConfig>> encryptionConfig() {
@@ -703,6 +704,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<ClusterVpcConfig> vpcConfig() {
         return this.vpcConfig;
+    }
+    /**
+     * Configuration block with zonal shift configuration for the cluster. Detailed below.
+     * 
+     */
+    @Export(name="zonalShiftConfig", refs={ClusterZonalShiftConfig.class}, tree="[0]")
+    private Output</* @Nullable */ ClusterZonalShiftConfig> zonalShiftConfig;
+
+    /**
+     * @return Configuration block with zonal shift configuration for the cluster. Detailed below.
+     * 
+     */
+    public Output<Optional<ClusterZonalShiftConfig>> zonalShiftConfig() {
+        return Codegen.optional(this.zonalShiftConfig);
     }
 
     /**

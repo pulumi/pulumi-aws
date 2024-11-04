@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -65,6 +68,10 @@ export class Keyspace extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The replication specification of the keyspace.
+     */
+    public readonly replicationSpecification!: pulumi.Output<outputs.keyspaces.KeyspaceReplicationSpecification>;
+    /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -90,11 +97,13 @@ export class Keyspace extends pulumi.CustomResource {
             const state = argsOrState as KeyspaceState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["replicationSpecification"] = state ? state.replicationSpecification : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as KeyspaceArgs | undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["replicationSpecification"] = args ? args.replicationSpecification : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -119,6 +128,10 @@ export interface KeyspaceState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The replication specification of the keyspace.
+     */
+    replicationSpecification?: pulumi.Input<inputs.keyspaces.KeyspaceReplicationSpecification>;
+    /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -140,6 +153,10 @@ export interface KeyspaceArgs {
      * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
+    /**
+     * The replication specification of the keyspace.
+     */
+    replicationSpecification?: pulumi.Input<inputs.keyspaces.KeyspaceReplicationSpecification>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

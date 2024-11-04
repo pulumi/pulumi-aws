@@ -61,7 +61,7 @@ export class Volume extends pulumi.CustomResource {
     }
 
     /**
-     * The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+     * The volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -178,7 +178,7 @@ export class Volume extends pulumi.CustomResource {
  */
 export interface VolumeState {
     /**
-     * The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+     * The volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
      */
     arn?: pulumi.Input<string>;
     /**

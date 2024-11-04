@@ -28,6 +28,7 @@ __all__ = [
     'ClusterOutpostConfigControlPlanePlacement',
     'ClusterUpgradePolicy',
     'ClusterVpcConfig',
+    'ClusterZonalShiftConfig',
     'FargateProfileSelector',
     'IdentityProviderConfigOidc',
     'NodeGroupLaunchTemplate',
@@ -46,6 +47,7 @@ __all__ = [
     'GetClusterOutpostConfigControlPlanePlacementResult',
     'GetClusterUpgradePolicyResult',
     'GetClusterVpcConfigResult',
+    'GetClusterZonalShiftConfigResult',
     'GetNodeGroupLaunchTemplateResult',
     'GetNodeGroupRemoteAccessResult',
     'GetNodeGroupResourceResult',
@@ -599,6 +601,25 @@ class ClusterVpcConfig(dict):
         ID of the VPC associated with your cluster.
         """
         return pulumi.get(self, "vpc_id")
+
+
+@pulumi.output_type
+class ClusterZonalShiftConfig(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        :param bool enabled: Whether zonal shift is enabled for the cluster.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Whether zonal shift is enabled for the cluster.
+        """
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
@@ -1360,6 +1381,24 @@ class GetClusterVpcConfigResult(dict):
         The VPC associated with your cluster.
         """
         return pulumi.get(self, "vpc_id")
+
+
+@pulumi.output_type
+class GetClusterZonalShiftConfigResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool):
+        """
+        :param bool enabled: Whether zonal shift is enabled.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Whether zonal shift is enabled.
+        """
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type

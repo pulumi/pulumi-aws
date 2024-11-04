@@ -26,7 +26,7 @@ namespace Pulumi.Aws.RedShift
     /// {
     ///     var example = new Aws.RedShift.DataShareConsumerAssociation("example", new()
     ///     {
-    ///         DataShareArn = "arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example",
+    ///         DataShareArn = "arn:aws:redshift:us-west-2:123456789012:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example",
     ///         AssociateEntireAccount = true,
     ///     });
     /// 
@@ -45,7 +45,7 @@ namespace Pulumi.Aws.RedShift
     /// {
     ///     var example = new Aws.RedShift.DataShareConsumerAssociation("example", new()
     ///     {
-    ///         DataShareArn = "arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example",
+    ///         DataShareArn = "arn:aws:redshift:us-west-2:123456789012:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example",
     ///         ConsumerRegion = "us-west-2",
     ///     });
     /// 
@@ -57,7 +57,7 @@ namespace Pulumi.Aws.RedShift
     /// Using `pulumi import`, import Redshift Data Share Consumer Association using the `id`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation example arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example,,,us-west-2
+    /// $ pulumi import aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation example arn:aws:redshift:us-west-2:123456789012:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example,,,us-west-2
     /// ```
     /// </summary>
     [AwsResourceType("aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation")]

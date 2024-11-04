@@ -39,6 +39,10 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// The following arguments are optional:
         /// </summary>
         public readonly string Region;
+        /// <summary>
+        /// Configuration block with S3 export settings. Detailed below.
+        /// </summary>
+        public readonly Outputs.DistributionConfigurationDistributionS3ExportConfiguration? S3ExportConfiguration;
 
         [OutputConstructor]
         private DistributionConfigurationDistribution(
@@ -52,7 +56,9 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
 
             ImmutableArray<string> licenseConfigurationArns,
 
-            string region)
+            string region,
+
+            Outputs.DistributionConfigurationDistributionS3ExportConfiguration? s3ExportConfiguration)
         {
             AmiDistributionConfiguration = amiDistributionConfiguration;
             ContainerDistributionConfiguration = containerDistributionConfiguration;
@@ -60,6 +66,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
             LaunchTemplateConfigurations = launchTemplateConfigurations;
             LicenseConfigurationArns = licenseConfigurationArns;
             Region = region;
+            S3ExportConfiguration = s3ExportConfiguration;
         }
     }
 }

@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess":
+		r = &AuthorizeVpcEndpointAccess{}
 	case "aws:opensearch/domain:Domain":
 		r = &Domain{}
 	case "aws:opensearch/domainPolicy:DomainPolicy":
@@ -62,6 +64,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"opensearch/authorizeVpcEndpointAccess",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"opensearch/domain",

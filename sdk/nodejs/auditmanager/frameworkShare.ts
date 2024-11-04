@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.auditmanager.FrameworkShare("example", {
- *     destinationAccount: "012345678901",
+ *     destinationAccount: "123456789012",
  *     destinationRegion: "us-east-1",
  *     frameworkId: exampleAwsAuditmanagerFramework.id,
  * });

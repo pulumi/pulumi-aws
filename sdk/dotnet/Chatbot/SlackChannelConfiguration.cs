@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Chatbot
     /// Using `pulumi import`, import Chatbot Slack Channel Configuration using the `chat_configuration_arn`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:chatbot/slackChannelConfiguration:SlackChannelConfiguration example arn:aws:chatbot::012345678901:chat-configuration/slack-channel/min-slaka-kanal
+    /// $ pulumi import aws:chatbot/slackChannelConfiguration:SlackChannelConfiguration example arn:aws:chatbot::123456789012:chat-configuration/slack-channel/min-slaka-kanal
     /// ```
     /// </summary>
     [AwsResourceType("aws:chatbot/slackChannelConfiguration:SlackChannelConfiguration")]
