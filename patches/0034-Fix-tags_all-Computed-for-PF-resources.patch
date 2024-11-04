@@ -96,10 +96,10 @@ index 2a36dacdc9..56e99b5bc8 100644
  		Blocks: map[string]schema.Block{
  			names.AttrConfiguration: schema.ListNestedBlock{
 diff --git a/internal/service/ssmcontacts/rotation.go b/internal/service/ssmcontacts/rotation.go
-index 65e308761c..e3660e9b72 100644
+index 11948143a7..e8f145f886 100644
 --- a/internal/service/ssmcontacts/rotation.go
 +++ b/internal/service/ssmcontacts/rotation.go
-@@ -70,7 +70,7 @@ func (r *resourceRotation) Schema(ctx context.Context, request resource.SchemaRe
+@@ -72,7 +72,7 @@ func (r *resourceRotation) Schema(ctx context.Context, request resource.SchemaRe
  				Optional:   true,
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -122,7 +122,7 @@ index 63a02f6ed6..ae5c3b3b8a 100644
  		Blocks: map[string]schema.Block{
  			"portal_options": schema.ListNestedBlock{
 diff --git a/internal/service/ssoadmin/trusted_token_issuer.go b/internal/service/ssoadmin/trusted_token_issuer.go
-index c54807a8eb..b34e6641c7 100644
+index 2d53c30eb3..cac1815b0f 100644
 --- a/internal/service/ssoadmin/trusted_token_issuer.go
 +++ b/internal/service/ssoadmin/trusted_token_issuer.go
 @@ -86,7 +86,7 @@ func (r *resourceTrustedTokenIssuer) Schema(ctx context.Context, req resource.Sc

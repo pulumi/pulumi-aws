@@ -18,7 +18,7 @@ index 04e3c61c21..e8630c6850 100644
  				Computed: true,
  				PlanModifiers: []planmodifier.String{
 diff --git a/internal/service/pinpoint/email_template.go b/internal/service/pinpoint/email_template.go
-index 327794f8e1..b186e9814a 100644
+index e20b0d1c10..dd70f5a417 100644
 --- a/internal/service/pinpoint/email_template.go
 +++ b/internal/service/pinpoint/email_template.go
 @@ -63,7 +63,7 @@ func (r *resourceEmailTemplate) Schema(ctx context.Context, req resource.SchemaR

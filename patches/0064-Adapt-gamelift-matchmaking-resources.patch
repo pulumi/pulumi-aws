@@ -619,7 +619,7 @@ index 4295987ae6..377b46816e 100644
  		return nil
  	}
 diff --git a/names/data/names_data.hcl b/names/data/names_data.hcl
-index 16f5a38e8f..95f154aecd 100644
+index df6c37ac61..5e0b59762e 100644
 --- a/names/data/names_data.hcl
 +++ b/names/data/names_data.hcl
 @@ -3883,7 +3883,8 @@ service "fsx" {
