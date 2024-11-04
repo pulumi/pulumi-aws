@@ -5899,4 +5899,14 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	) (resource.ID, error) {
 		return attrWithSeparator(state, "arn"), nil
 	}
+	prov.Resources["aws_ssmquicksetup_configuration_manager"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attrWithSeparator(state, "managerARN"), nil
+	}
+	prov.Resources["aws_opensearch_authorize_vpc_endpoint_access"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attrWithSeparator(state, "domainName"), nil
+	}
 }
