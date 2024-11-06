@@ -30,6 +30,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         submodules: true
+        persist-credentials: false
     - name: Comment PR
       uses: thollander/actions-comment-pull-request@v2
       with:
