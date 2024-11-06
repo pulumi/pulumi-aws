@@ -456,7 +456,7 @@ class Launch(pulumi.CustomResource):
             scheduled_splits_config={
                 "steps": [{
                     "group_weights": {
-                        "variation1": 0,
+                        "Variation1": 0,
                     },
                     "start_time": "2024-01-07 01:43:59+00:00",
                 }],
@@ -481,7 +481,7 @@ class Launch(pulumi.CustomResource):
             scheduled_splits_config={
                 "steps": [{
                     "group_weights": {
-                        "variation1": 0,
+                        "Variation1": 0,
                     },
                     "start_time": "2024-01-07 01:43:59+00:00",
                 }],
@@ -514,8 +514,8 @@ class Launch(pulumi.CustomResource):
             scheduled_splits_config={
                 "steps": [{
                     "group_weights": {
-                        "variation1": 0,
-                        "variation2": 0,
+                        "Variation1": 0,
+                        "Variation2": 0,
                     },
                     "start_time": "2024-01-07 01:43:59+00:00",
                 }],
@@ -559,7 +559,7 @@ class Launch(pulumi.CustomResource):
             scheduled_splits_config={
                 "steps": [{
                     "group_weights": {
-                        "variation1": 0,
+                        "Variation1": 0,
                     },
                     "start_time": "2024-01-07 01:43:59+00:00",
                 }],
@@ -584,7 +584,7 @@ class Launch(pulumi.CustomResource):
             scheduled_splits_config={
                 "steps": [{
                     "group_weights": {
-                        "variation1": 0,
+                        "Variation1": 0,
                     },
                     "start_time": "2024-01-07 01:43:59+00:00",
                 }],
@@ -616,15 +616,15 @@ class Launch(pulumi.CustomResource):
                 "steps": [
                     {
                         "group_weights": {
-                            "variation1": 15,
-                            "variation2": 10,
+                            "Variation1": 15,
+                            "Variation2": 10,
                         },
                         "start_time": "2024-01-07 01:43:59+00:00",
                     },
                     {
                         "group_weights": {
-                            "variation1": 20,
-                            "variation2": 25,
+                            "Variation1": 20,
+                            "Variation2": 25,
                         },
                         "start_time": "2024-01-08 01:43:59+00:00",
                     },
@@ -656,23 +656,23 @@ class Launch(pulumi.CustomResource):
             scheduled_splits_config={
                 "steps": [{
                     "group_weights": {
-                        "variation1": 0,
-                        "variation2": 0,
+                        "Variation1": 0,
+                        "Variation2": 0,
                     },
                     "segment_overrides": [
                         {
                             "evaluation_order": 1,
                             "segment": example_aws_evidently_segment["name"],
                             "weights": {
-                                "variation2": 10000,
+                                "Variation2": 10000,
                             },
                         },
                         {
                             "evaluation_order": 2,
                             "segment": example_aws_evidently_segment["name"],
                             "weights": {
-                                "variation1": 40000,
-                                "variation2": 30000,
+                                "Variation1": 40000,
+                                "Variation2": 30000,
                             },
                         },
                     ],
@@ -737,7 +737,7 @@ class Launch(pulumi.CustomResource):
             scheduled_splits_config={
                 "steps": [{
                     "group_weights": {
-                        "variation1": 0,
+                        "Variation1": 0,
                     },
                     "start_time": "2024-01-07 01:43:59+00:00",
                 }],
@@ -762,7 +762,7 @@ class Launch(pulumi.CustomResource):
             scheduled_splits_config={
                 "steps": [{
                     "group_weights": {
-                        "variation1": 0,
+                        "Variation1": 0,
                     },
                     "start_time": "2024-01-07 01:43:59+00:00",
                 }],
@@ -795,8 +795,8 @@ class Launch(pulumi.CustomResource):
             scheduled_splits_config={
                 "steps": [{
                     "group_weights": {
-                        "variation1": 0,
-                        "variation2": 0,
+                        "Variation1": 0,
+                        "Variation2": 0,
                     },
                     "start_time": "2024-01-07 01:43:59+00:00",
                 }],
@@ -840,7 +840,7 @@ class Launch(pulumi.CustomResource):
             scheduled_splits_config={
                 "steps": [{
                     "group_weights": {
-                        "variation1": 0,
+                        "Variation1": 0,
                     },
                     "start_time": "2024-01-07 01:43:59+00:00",
                 }],
@@ -865,7 +865,7 @@ class Launch(pulumi.CustomResource):
             scheduled_splits_config={
                 "steps": [{
                     "group_weights": {
-                        "variation1": 0,
+                        "Variation1": 0,
                     },
                     "start_time": "2024-01-07 01:43:59+00:00",
                 }],
@@ -897,15 +897,15 @@ class Launch(pulumi.CustomResource):
                 "steps": [
                     {
                         "group_weights": {
-                            "variation1": 15,
-                            "variation2": 10,
+                            "Variation1": 15,
+                            "Variation2": 10,
                         },
                         "start_time": "2024-01-07 01:43:59+00:00",
                     },
                     {
                         "group_weights": {
-                            "variation1": 20,
-                            "variation2": 25,
+                            "Variation1": 20,
+                            "Variation2": 25,
                         },
                         "start_time": "2024-01-08 01:43:59+00:00",
                     },
@@ -937,23 +937,23 @@ class Launch(pulumi.CustomResource):
             scheduled_splits_config={
                 "steps": [{
                     "group_weights": {
-                        "variation1": 0,
-                        "variation2": 0,
+                        "Variation1": 0,
+                        "Variation2": 0,
                     },
                     "segment_overrides": [
                         {
                             "evaluation_order": 1,
                             "segment": example_aws_evidently_segment["name"],
                             "weights": {
-                                "variation2": 10000,
+                                "Variation2": 10000,
                             },
                         },
                         {
                             "evaluation_order": 2,
                             "segment": example_aws_evidently_segment["name"],
                             "weights": {
-                                "variation1": 40000,
-                                "variation2": 30000,
+                                "Variation1": 40000,
+                                "Variation2": 30000,
                             },
                         },
                     ],
