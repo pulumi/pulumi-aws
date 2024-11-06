@@ -52,6 +52,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         submodules: true
+        persist-credentials: false
     - name: Setup tools
       uses: ./.github/actions/setup-tools
       with:
@@ -77,7 +78,7 @@ jobs:
         merge-multiple: true
     - name: Calculate checksums
       working-directory: dist
-      run: shasum ./*.tar.gz > pulumi-aws_${{ inputs.version }}_checksums.txt
+      run: shasum ./*.tar.gz > "pulumi-aws_${{ inputs.version }}_checksums.txt"
     - name: Get Schema Change Summary
       id: schema-summary
       shell: bash
@@ -94,7 +95,7 @@ jobs:
     - name: Upload Provider Binaries
       run: aws s3 cp dist s3://get.pulumi.com/releases/plugins/ --recursive
     - name: Create GH Release
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v2
       if: inputs.isPrerelease == false
       with:
         tag_name: v${{ inputs.version }}
@@ -116,6 +117,8 @@ jobs:
       uses: actions/checkout@v4
       with:
         submodules: true
+        # Persist credentials so we can push back to the repo
+        persist-credentials: true
     - name: Setup tools
       uses: ./.github/actions/setup-tools
       with:
@@ -173,6 +176,8 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v4
+      with:
+        persist-credentials: false
     - name: Clean up release labels
       uses: pulumi/action-release-by-pr-label@main
       with:

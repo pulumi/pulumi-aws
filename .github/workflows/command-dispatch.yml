@@ -29,6 +29,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         submodules: true
+        persist-credentials: false
     - uses: peter-evans/slash-command-dispatch@v4
       with:
         commands: |

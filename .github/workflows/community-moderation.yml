@@ -11,6 +11,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         submodules: true
+        persist-credentials: false
     - id: schema_changed
       name: Check for diff in schema
       uses: dorny/paths-filter@v2
