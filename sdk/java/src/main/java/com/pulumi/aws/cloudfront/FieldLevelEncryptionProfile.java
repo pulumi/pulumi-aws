@@ -18,62 +18,6 @@ import javax.annotation.Nullable;
 /**
  * Provides a CloudFront Field-level Encryption Profile resource.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudfront.PublicKey;
- * import com.pulumi.aws.cloudfront.PublicKeyArgs;
- * import com.pulumi.aws.cloudfront.FieldLevelEncryptionProfile;
- * import com.pulumi.aws.cloudfront.FieldLevelEncryptionProfileArgs;
- * import com.pulumi.aws.cloudfront.inputs.FieldLevelEncryptionProfileEncryptionEntitiesArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new PublicKey("example", PublicKeyArgs.builder()
- *             .comment("test public key")
- *             .encodedKey(StdFunctions.file(FileArgs.builder()
- *                 .input("public_key.pem")
- *                 .build()).result())
- *             .name("test_key")
- *             .build());
- * 
- *         var test = new FieldLevelEncryptionProfile("test", FieldLevelEncryptionProfileArgs.builder()
- *             .comment("test comment")
- *             .name("test profile")
- *             .encryptionEntities(FieldLevelEncryptionProfileEncryptionEntitiesArgs.builder()
- *                 .items(FieldLevelEncryptionProfileEncryptionEntitiesItemArgs.builder()
- *                     .publicKeyId(example.id())
- *                     .providerId("test provider")
- *                     .fieldPatterns(FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs.builder()
- *                         .items("DateOfBirth")
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Using `pulumi import`, import Cloudfront Field Level Encryption Profile using the `id`. For example:

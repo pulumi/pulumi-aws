@@ -12,64 +12,6 @@ namespace Pulumi.Aws.Cognito
     /// <summary>
     /// Provides an AWS Cognito Identity Pool.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @default = new Aws.Iam.SamlProvider("default", new()
-    ///     {
-    ///         Name = "my-saml-provider",
-    ///         SamlMetadataDocument = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "saml-metadata.xml",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///     });
-    /// 
-    ///     var main = new Aws.Cognito.IdentityPool("main", new()
-    ///     {
-    ///         IdentityPoolName = "identity pool",
-    ///         AllowUnauthenticatedIdentities = false,
-    ///         AllowClassicFlow = false,
-    ///         CognitoIdentityProviders = new[]
-    ///         {
-    ///             new Aws.Cognito.Inputs.IdentityPoolCognitoIdentityProviderArgs
-    ///             {
-    ///                 ClientId = "6lhlkkfbfb4q5kpp90urffae",
-    ///                 ProviderName = "cognito-idp.us-east-1.amazonaws.com/us-east-1_Tv0493apJ",
-    ///                 ServerSideTokenCheck = false,
-    ///             },
-    ///             new Aws.Cognito.Inputs.IdentityPoolCognitoIdentityProviderArgs
-    ///             {
-    ///                 ClientId = "7kodkvfqfb4qfkp39eurffae",
-    ///                 ProviderName = "cognito-idp.us-east-1.amazonaws.com/eu-west-1_Zr231apJu",
-    ///                 ServerSideTokenCheck = false,
-    ///             },
-    ///         },
-    ///         SupportedLoginProviders = 
-    ///         {
-    ///             { "graph.facebook.com", "7346241598935552" },
-    ///             { "accounts.google.com", "123456789012.apps.googleusercontent.com" },
-    ///         },
-    ///         SamlProviderArns = new[]
-    ///         {
-    ///             @default.Arn,
-    ///         },
-    ///         OpenidConnectProviderArns = new[]
-    ///         {
-    ///             "arn:aws:iam::123456789012:oidc-provider/id.example.com",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Cognito Identity Pool using its ID. For example:

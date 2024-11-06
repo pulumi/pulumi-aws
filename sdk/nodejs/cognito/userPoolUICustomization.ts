@@ -11,53 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### UI customization settings for a single client
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = new aws.cognito.UserPool("example", {name: "example"});
- * const exampleUserPoolDomain = new aws.cognito.UserPoolDomain("example", {
- *     domain: "example",
- *     userPoolId: example.id,
- * });
- * const exampleUserPoolClient = new aws.cognito.UserPoolClient("example", {
- *     name: "example",
- *     userPoolId: example.id,
- * });
- * const exampleUserPoolUICustomization = new aws.cognito.UserPoolUICustomization("example", {
- *     clientId: exampleUserPoolClient.id,
- *     css: ".label-customizable {font-weight: 400;}",
- *     imageFile: std.filebase64({
- *         input: "logo.png",
- *     }).then(invoke => invoke.result),
- *     userPoolId: exampleUserPoolDomain.userPoolId,
- * });
- * ```
- *
- * ### UI customization settings for all clients
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = new aws.cognito.UserPool("example", {name: "example"});
- * const exampleUserPoolDomain = new aws.cognito.UserPoolDomain("example", {
- *     domain: "example",
- *     userPoolId: example.id,
- * });
- * const exampleUserPoolUICustomization = new aws.cognito.UserPoolUICustomization("example", {
- *     css: ".label-customizable {font-weight: 400;}",
- *     imageFile: std.filebase64({
- *         input: "logo.png",
- *     }).then(invoke => invoke.result),
- *     userPoolId: exampleUserPoolDomain.userPoolId,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Cognito User Pool UI Customizations using the `user_pool_id` and `client_id` separated by `,`. For example:

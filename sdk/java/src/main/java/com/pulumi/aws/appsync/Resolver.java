@@ -140,56 +140,6 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### JS
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appsync.Resolver;
- * import com.pulumi.aws.appsync.ResolverArgs;
- * import com.pulumi.aws.appsync.inputs.ResolverRuntimeArgs;
- * import com.pulumi.aws.appsync.inputs.ResolverPipelineConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Resolver("example", ResolverArgs.builder()
- *             .type("Query")
- *             .apiId(testAwsAppsyncGraphqlApi.id())
- *             .field("pipelineTest")
- *             .kind("PIPELINE")
- *             .code(StdFunctions.file(FileArgs.builder()
- *                 .input("some-code-dir")
- *                 .build()).result())
- *             .runtime(ResolverRuntimeArgs.builder()
- *                 .name("APPSYNC_JS")
- *                 .runtimeVersion("1.0.0")
- *                 .build())
- *             .pipelineConfig(ResolverPipelineConfigArgs.builder()
- *                 .functions(test.functionId())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_appsync_resolver` using the `api_id`, a hyphen, `type`, a hypen and `field`. For example:

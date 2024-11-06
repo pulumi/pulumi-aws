@@ -118,36 +118,6 @@ class DomainSamlOptions(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.opensearch.Domain("example",
-            domain_name="example",
-            engine_version="OpenSearch_1.1",
-            cluster_config={
-                "instance_type": "r4.large.search",
-            },
-            snapshot_options={
-                "automated_snapshot_start_hour": 23,
-            },
-            tags={
-                "Domain": "TestDomain",
-            })
-        example_domain_saml_options = aws.opensearch.DomainSamlOptions("example",
-            domain_name=example.domain_name,
-            saml_options={
-                "enabled": True,
-                "idp": {
-                    "entity_id": "https://example.com",
-                    "metadata_content": std.file(input="./saml-metadata.xml").result,
-                },
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import OpenSearch domains using the `domain_name`. For example:
@@ -173,36 +143,6 @@ class DomainSamlOptions(pulumi.CustomResource):
         Manages SAML authentication options for an AWS OpenSearch Domain.
 
         ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.opensearch.Domain("example",
-            domain_name="example",
-            engine_version="OpenSearch_1.1",
-            cluster_config={
-                "instance_type": "r4.large.search",
-            },
-            snapshot_options={
-                "automated_snapshot_start_hour": 23,
-            },
-            tags={
-                "Domain": "TestDomain",
-            })
-        example_domain_saml_options = aws.opensearch.DomainSamlOptions("example",
-            domain_name=example.domain_name,
-            saml_options={
-                "enabled": True,
-                "idp": {
-                    "entity_id": "https://example.com",
-                    "metadata_content": std.file(input="./saml-metadata.xml").result,
-                },
-            })
-        ```
 
         ## Import
 

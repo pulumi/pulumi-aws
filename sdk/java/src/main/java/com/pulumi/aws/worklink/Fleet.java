@@ -102,46 +102,6 @@ import javax.annotation.Nullable;
  * 
  * Identity Provider Configuration Usage:
  * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.worklink.Fleet;
- * import com.pulumi.aws.worklink.FleetArgs;
- * import com.pulumi.aws.worklink.inputs.FleetIdentityProviderArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new Fleet("test", FleetArgs.builder()
- *             .name("tf-worklink-fleet")
- *             .identityProvider(FleetIdentityProviderArgs.builder()
- *                 .type("SAML")
- *                 .samlMetadata(StdFunctions.file(FileArgs.builder()
- *                     .input("saml-metadata.xml")
- *                     .build()).result())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Using `pulumi import`, import WorkLink using the ARN. For example:

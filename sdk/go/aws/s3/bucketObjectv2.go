@@ -16,42 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// ### Uploading a file to a bucket
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFilemd5, err := std.Filemd5(ctx, &std.Filemd5Args{
-//				Input: "path/to/file",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketObjectv2(ctx, "object", &s3.BucketObjectv2Args{
-//				Bucket: pulumi.Any("your_bucket_name"),
-//				Key:    pulumi.String("new_object_key"),
-//				Source: pulumi.NewFileAsset("path/to/file"),
-//				Etag:   pulumi.String(invokeFilemd5.Result),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ### Encrypting with KMS Key
 //
 // ```go

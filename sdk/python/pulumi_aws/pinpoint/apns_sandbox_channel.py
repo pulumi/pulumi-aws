@@ -374,20 +374,6 @@ class ApnsSandboxChannel(pulumi.CustomResource):
         Provides a Pinpoint APNs Sandbox Channel resource.
 
         > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        app = aws.pinpoint.App("app")
-        apns_sandbox = aws.pinpoint.ApnsSandboxChannel("apns_sandbox",
-            application_id=app.application_id,
-            certificate=std.file(input="./certificate.pem").result,
-            private_key=std.file(input="./private_key.key").result)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Pinpoint APNs Sandbox Channel using the `application-id`. For example:
@@ -427,20 +413,6 @@ class ApnsSandboxChannel(pulumi.CustomResource):
         Provides a Pinpoint APNs Sandbox Channel resource.
 
         > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        app = aws.pinpoint.App("app")
-        apns_sandbox = aws.pinpoint.ApnsSandboxChannel("apns_sandbox",
-            application_id=app.application_id,
-            certificate=std.file(input="./certificate.pem").result,
-            private_key=std.file(input="./private_key.key").result)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Pinpoint APNs Sandbox Channel using the `application-id`. For example:

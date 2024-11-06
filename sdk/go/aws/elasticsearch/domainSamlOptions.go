@@ -16,62 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticsearch"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := elasticsearch.NewDomain(ctx, "example", &elasticsearch.DomainArgs{
-//				DomainName:           pulumi.String("example"),
-//				ElasticsearchVersion: pulumi.String("1.5"),
-//				ClusterConfig: &elasticsearch.DomainClusterConfigArgs{
-//					InstanceType: pulumi.String("r4.large.elasticsearch"),
-//				},
-//				SnapshotOptions: &elasticsearch.DomainSnapshotOptionsArgs{
-//					AutomatedSnapshotStartHour: pulumi.Int(23),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Domain": pulumi.String("TestDomain"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "./saml-metadata.xml",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticsearch.NewDomainSamlOptions(ctx, "example", &elasticsearch.DomainSamlOptionsArgs{
-//				DomainName: example.DomainName,
-//				SamlOptions: &elasticsearch.DomainSamlOptionsSamlOptionsArgs{
-//					Enabled: pulumi.Bool(true),
-//					Idp: &elasticsearch.DomainSamlOptionsSamlOptionsIdpArgs{
-//						EntityId:        pulumi.String("https://example.com"),
-//						MetadataContent: pulumi.String(invokeFile.Result),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For example:

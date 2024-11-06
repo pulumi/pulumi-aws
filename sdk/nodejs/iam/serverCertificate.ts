@@ -16,54 +16,6 @@ import * as utilities from "../utilities";
  * For information about server certificates in IAM, see [Managing Server
  * Certificates][2] in AWS Documentation.
  *
- * ## Example Usage
- *
- * **Using certs on file:**
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const testCert = new aws.iam.ServerCertificate("test_cert", {
- *     name: "some_test_cert",
- *     certificateBody: std.file({
- *         input: "self-ca-cert.pem",
- *     }).then(invoke => invoke.result),
- *     privateKey: std.file({
- *         input: "test-key.pem",
- *     }).then(invoke => invoke.result),
- * });
- * ```
- *
- * **Example with cert in-line:**
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testCertAlt = new aws.iam.ServerCertificate("test_cert_alt", {
- *     name: "alt_test_cert",
- *     certificateBody: `-----BEGIN CERTIFICATE-----
- * [......] # cert contents
- * -----END CERTIFICATE-----
- * `,
- *     privateKey: `-----BEGIN RSA PRIVATE KEY-----
- * [......] # cert contents
- * -----END RSA PRIVATE KEY-----
- * `,
- * });
- * ```
- *
- * **Use in combination with an AWS ELB resource:**
- *
- * Some properties of an IAM Server Certificates cannot be updated while they are
- * in use. In order for the provider to effectively manage a Certificate in this situation, it is
- * recommended you utilize the `namePrefix` attribute and enable the
- * `createBeforeDestroy`. This will allow this provider
- * to create a new, updated `aws.iam.ServerCertificate` resource and replace it in
- * dependant resources before attempting to destroy the old version.
- *
  * ## Import
  *
  * Using `pulumi import`, import IAM Server Certificates using the `name`. For example:

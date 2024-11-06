@@ -7,30 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Creates and manages an AWS IoT Authorizer.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = new aws.iot.Authorizer("example", {
- *     name: "example",
- *     authorizerFunctionArn: exampleAwsLambdaFunction.arn,
- *     signingDisabled: false,
- *     status: "ACTIVE",
- *     tokenKeyName: "Token-Header",
- *     tokenSigningPublicKeys: {
- *         Key1: std.file({
- *             input: "test-fixtures/iot-authorizer-signing-key.pem",
- *         }).then(invoke => invoke.result),
- *     },
- *     tags: {
- *         Name: "example",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import IOT Authorizers using the name. For example:

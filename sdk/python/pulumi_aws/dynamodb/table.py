@@ -1012,49 +1012,6 @@ class Table(pulumi.CustomResource):
             ])
         ```
 
-        ### Replica Tagging
-
-        You can manage global table replicas' tags in various ways. This example shows using `replica.*.propagate_tags` for the first replica and the `dynamodb.Tag` resource for the other.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        current = aws.get_region()
-        alternate = aws.get_region()
-        third = aws.get_region()
-        example = aws.dynamodb.Table("example",
-            billing_mode="PAY_PER_REQUEST",
-            hash_key="TestTableHashKey",
-            name="example-13281",
-            stream_enabled=True,
-            stream_view_type="NEW_AND_OLD_IMAGES",
-            attributes=[{
-                "name": "TestTableHashKey",
-                "type": "S",
-            }],
-            replicas=[
-                {
-                    "region_name": alternate.name,
-                },
-                {
-                    "region_name": third.name,
-                    "propagate_tags": True,
-                },
-            ],
-            tags={
-                "Architect": "Eleanor",
-                "Zone": "SW",
-            })
-        example_tag = aws.dynamodb.Tag("example",
-            resource_arn=example.arn.apply(lambda arn: std.replace_output(text=arn,
-                search=current.name,
-                replace=alternate.name)).apply(lambda invoke: invoke.result),
-            key="Architect",
-            value="Gigi")
-        ```
-
         ## Import
 
         Using `pulumi import`, import DynamoDB tables using the `name`. For example:
@@ -1194,49 +1151,6 @@ class Table(pulumi.CustomResource):
                     "region_name": "us-west-2",
                 },
             ])
-        ```
-
-        ### Replica Tagging
-
-        You can manage global table replicas' tags in various ways. This example shows using `replica.*.propagate_tags` for the first replica and the `dynamodb.Tag` resource for the other.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        current = aws.get_region()
-        alternate = aws.get_region()
-        third = aws.get_region()
-        example = aws.dynamodb.Table("example",
-            billing_mode="PAY_PER_REQUEST",
-            hash_key="TestTableHashKey",
-            name="example-13281",
-            stream_enabled=True,
-            stream_view_type="NEW_AND_OLD_IMAGES",
-            attributes=[{
-                "name": "TestTableHashKey",
-                "type": "S",
-            }],
-            replicas=[
-                {
-                    "region_name": alternate.name,
-                },
-                {
-                    "region_name": third.name,
-                    "propagate_tags": True,
-                },
-            ],
-            tags={
-                "Architect": "Eleanor",
-                "Zone": "SW",
-            })
-        example_tag = aws.dynamodb.Tag("example",
-            resource_arn=example.arn.apply(lambda arn: std.replace_output(text=arn,
-                search=current.name,
-                replace=alternate.name)).apply(lambda invoke: invoke.result),
-            key="Architect",
-            value="Gigi")
         ```
 
         ## Import

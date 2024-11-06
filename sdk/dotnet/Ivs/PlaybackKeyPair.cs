@@ -14,28 +14,6 @@ namespace Pulumi.Aws.Ivs
     /// 
     /// ## Example Usage
     /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ivs.PlaybackKeyPair("example", new()
-    ///     {
-    ///         PublicKey = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "./public-key.pem",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IVS (Interactive Video) Playback Key Pair using the ARN. For example:

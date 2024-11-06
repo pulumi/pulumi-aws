@@ -12,32 +12,6 @@ namespace Pulumi.Aws.Sagemaker
     /// <summary>
     /// Provides a SageMaker Human Task UI resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Sagemaker.HumanTaskUI("example", new()
-    ///     {
-    ///         HumanTaskUiName = "example",
-    ///         UiTemplate = new Aws.Sagemaker.Inputs.HumanTaskUIUiTemplateArgs
-    ///         {
-    ///             Content = Std.File.Invoke(new()
-    ///             {
-    ///                 Input = "sagemaker-human-task-ui-template.html",
-    ///             }).Apply(invoke =&gt; invoke.Result),
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SageMaker Human Task UIs using the `human_task_ui_name`. For example:

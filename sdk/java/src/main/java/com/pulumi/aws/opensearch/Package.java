@@ -20,65 +20,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### Basic Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
- * import com.pulumi.aws.s3.BucketObjectv2;
- * import com.pulumi.aws.s3.BucketObjectv2Args;
- * import com.pulumi.aws.opensearch.Package;
- * import com.pulumi.aws.opensearch.PackageArgs;
- * import com.pulumi.aws.opensearch.inputs.PackagePackageSourceArgs;
- * import com.pulumi.asset.FileAsset;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var myOpensearchPackages = new BucketV2("myOpensearchPackages", BucketV2Args.builder()
- *             .bucket("my-opensearch-packages")
- *             .build());
- * 
- *         var example = new BucketObjectv2("example", BucketObjectv2Args.builder()
- *             .bucket(myOpensearchPackages.bucket())
- *             .key("example.txt")
- *             .source(new FileAsset("./example.txt"))
- *             .etag(StdFunctions.filemd5(Filemd5Args.builder()
- *                 .input("./example.txt")
- *                 .build()).result())
- *             .build());
- * 
- *         var examplePackage = new Package("examplePackage", PackageArgs.builder()
- *             .packageName("example-txt")
- *             .packageSource(PackagePackageSourceArgs.builder()
- *                 .s3BucketName(myOpensearchPackages.bucket())
- *                 .s3Key(example.key())
- *                 .build())
- *             .packageType("TXT-DICTIONARY")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Using `pulumi import`, import AWS Opensearch Packages using the Package ID. For example:

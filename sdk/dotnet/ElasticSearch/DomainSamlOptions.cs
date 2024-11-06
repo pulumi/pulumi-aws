@@ -14,55 +14,6 @@ namespace Pulumi.Aws.ElasticSearch
     /// 
     /// ## Example Usage
     /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ElasticSearch.Domain("example", new()
-    ///     {
-    ///         DomainName = "example",
-    ///         ElasticsearchVersion = "1.5",
-    ///         ClusterConfig = new Aws.ElasticSearch.Inputs.DomainClusterConfigArgs
-    ///         {
-    ///             InstanceType = "r4.large.elasticsearch",
-    ///         },
-    ///         SnapshotOptions = new Aws.ElasticSearch.Inputs.DomainSnapshotOptionsArgs
-    ///         {
-    ///             AutomatedSnapshotStartHour = 23,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Domain", "TestDomain" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleDomainSamlOptions = new Aws.ElasticSearch.DomainSamlOptions("example", new()
-    ///     {
-    ///         DomainName = example.DomainName,
-    ///         SamlOptions = new Aws.ElasticSearch.Inputs.DomainSamlOptionsSamlOptionsArgs
-    ///         {
-    ///             Enabled = true,
-    ///             Idp = new Aws.ElasticSearch.Inputs.DomainSamlOptionsSamlOptionsIdpArgs
-    ///             {
-    ///                 EntityId = "https://example.com",
-    ///                 MetadataContent = Std.File.Invoke(new()
-    ///                 {
-    ///                     Input = "./saml-metadata.xml",
-    ///                 }).Apply(invoke =&gt; invoke.Result),
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For example:

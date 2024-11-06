@@ -20,51 +20,6 @@ import javax.annotation.Nullable;
  * 
  * The following example below creates a CloudFront key group.
  * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudfront.PublicKey;
- * import com.pulumi.aws.cloudfront.PublicKeyArgs;
- * import com.pulumi.aws.cloudfront.KeyGroup;
- * import com.pulumi.aws.cloudfront.KeyGroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new PublicKey("example", PublicKeyArgs.builder()
- *             .comment("example public key")
- *             .encodedKey(StdFunctions.file(FileArgs.builder()
- *                 .input("public_key.pem")
- *                 .build()).result())
- *             .name("example-key")
- *             .build());
- * 
- *         var exampleKeyGroup = new KeyGroup("exampleKeyGroup", KeyGroupArgs.builder()
- *             .comment("example key group")
- *             .items(example.id())
- *             .name("example-key-group")
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Using `pulumi import`, import CloudFront Key Group using the `id`. For example:

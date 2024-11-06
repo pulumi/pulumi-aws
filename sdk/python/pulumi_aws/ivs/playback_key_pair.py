@@ -201,16 +201,6 @@ class PlaybackKeyPair(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.ivs.PlaybackKeyPair("example", public_key=std.file(input="./public-key.pem").result)
-        ```
-
         ## Import
 
         Using `pulumi import`, import IVS (Interactive Video) Playback Key Pair using the ARN. For example:
@@ -237,16 +227,6 @@ class PlaybackKeyPair(pulumi.CustomResource):
         Resource for managing an AWS IVS (Interactive Video) Playback Key Pair.
 
         ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.ivs.PlaybackKeyPair("example", public_key=std.file(input="./public-key.pem").result)
-        ```
 
         ## Import
 

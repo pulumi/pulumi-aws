@@ -576,28 +576,6 @@ class CustomDbEngineVersion(pulumi.CustomResource):
             })
         ```
 
-        ### RDS Custom for Oracle External Manifest Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.kms.Key("example", description="KMS symmetric key for RDS Custom for Oracle")
-        example_custom_db_engine_version = aws.rds.CustomDbEngineVersion("example",
-            database_installation_files_s3_bucket_name="DOC-EXAMPLE-BUCKET",
-            database_installation_files_s3_prefix="1915_GI/",
-            engine="custom-oracle-ee-cdb",
-            engine_version="19.cdb_cev1",
-            kms_key_id=example.arn,
-            filename="manifest_1915_GI.json",
-            manifest_hash=std.filebase64sha256(input=json).result,
-            tags={
-                "Name": "example",
-                "Key": "value",
-            })
-        ```
-
         ### RDS Custom for SQL Server Usage
 
         ```python
@@ -680,28 +658,6 @@ class CustomDbEngineVersion(pulumi.CustomResource):
         \\x09"databaseInstallationFileNames":["V982063-01.zip"]
           }
         \"\"\",
-            tags={
-                "Name": "example",
-                "Key": "value",
-            })
-        ```
-
-        ### RDS Custom for Oracle External Manifest Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.kms.Key("example", description="KMS symmetric key for RDS Custom for Oracle")
-        example_custom_db_engine_version = aws.rds.CustomDbEngineVersion("example",
-            database_installation_files_s3_bucket_name="DOC-EXAMPLE-BUCKET",
-            database_installation_files_s3_prefix="1915_GI/",
-            engine="custom-oracle-ee-cdb",
-            engine_version="19.cdb_cev1",
-            kms_key_id=example.arn,
-            filename="manifest_1915_GI.json",
-            manifest_hash=std.filebase64sha256(input=json).result,
             tags={
                 "Name": "example",
                 "Key": "value",

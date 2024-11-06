@@ -105,29 +105,6 @@ class PolicyAttachment(pulumi.CustomResource):
         """
         Provides an IoT policy attachment.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        pubsub = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["iot:*"],
-            "resources": ["*"],
-        }])
-        pubsub_policy = aws.iot.Policy("pubsub",
-            name="PubSubToAnyTopic",
-            policy=pubsub.json)
-        cert = aws.iot.Certificate("cert",
-            csr=std.file(input="csr.pem").result,
-            active=True)
-        att = aws.iot.PolicyAttachment("att",
-            policy=pubsub_policy.name,
-            target=cert.arn)
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy: The name of the policy to attach.
@@ -141,29 +118,6 @@ class PolicyAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an IoT policy attachment.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        pubsub = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["iot:*"],
-            "resources": ["*"],
-        }])
-        pubsub_policy = aws.iot.Policy("pubsub",
-            name="PubSubToAnyTopic",
-            policy=pubsub.json)
-        cert = aws.iot.Certificate("cert",
-            csr=std.file(input="csr.pem").result,
-            active=True)
-        att = aws.iot.PolicyAttachment("att",
-            policy=pubsub_policy.name,
-            target=cert.arn)
-        ```
 
         :param str resource_name: The name of the resource.
         :param PolicyAttachmentArgs args: The arguments to use to populate this resource's properties.

@@ -9,21 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### With CSR
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const cert = new aws.iot.Certificate("cert", {
- *     csr: std.file({
- *         input: "/my/csr.pem",
- *     }).then(invoke => invoke.result),
- *     active: true,
- * });
- * ```
- *
  * ### Without CSR
  *
  * ```typescript
@@ -31,21 +16,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const cert = new aws.iot.Certificate("cert", {active: true});
- * ```
- *
- * ### From existing certificate without a CA
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const cert = new aws.iot.Certificate("cert", {
- *     certificatePem: std.file({
- *         input: "/my/cert.pem",
- *     }).then(invoke => invoke.result),
- *     active: true,
- * });
  * ```
  */
 export class Certificate extends pulumi.CustomResource {

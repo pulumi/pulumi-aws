@@ -23,18 +23,18 @@ namespace Pulumi.Aws.Iot
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var caPrivateKey = new Tls.PrivateKey("ca", new()
+    ///     var caPrivateKey = new Tls.Index.PrivateKey.PrivateKey("ca", new()
     ///     {
     ///         Algorithm = "RSA",
     ///     });
     /// 
-    ///     var ca = new Tls.SelfSignedCert("ca", new()
+    ///     var ca = new Tls.Index.SelfSignedCert.SelfSignedCert("ca", new()
     ///     {
     ///         PrivateKeyPem = caPrivateKey.PrivateKeyPem,
-    ///         Subject = new Tls.Inputs.SelfSignedCertSubjectArgs
+    ///         Subject = 
     ///         {
-    ///             CommonName = "example.com",
-    ///             Organization = "ACME Examples, Inc",
+    ///             { "commonName", "example.com" },
+    ///             { "organization", "ACME Examples, Inc" },
     ///         },
     ///         ValidityPeriodHours = 12,
     ///         AllowedUses = new[]
@@ -46,23 +46,23 @@ namespace Pulumi.Aws.Iot
     ///         IsCaCertificate = true,
     ///     });
     /// 
-    ///     var verificationPrivateKey = new Tls.PrivateKey("verification", new()
+    ///     var verificationPrivateKey = new Tls.Index.PrivateKey.PrivateKey("verification", new()
     ///     {
     ///         Algorithm = "RSA",
     ///     });
     /// 
     ///     var example = Aws.Iot.GetRegistrationCode.Invoke();
     /// 
-    ///     var verification = new Tls.CertRequest("verification", new()
+    ///     var verification = new Tls.Index.CertRequest.CertRequest("verification", new()
     ///     {
     ///         PrivateKeyPem = verificationPrivateKey.PrivateKeyPem,
-    ///         Subject = new Tls.Inputs.CertRequestSubjectArgs
+    ///         Subject = 
     ///         {
-    ///             CommonName = example.Apply(getRegistrationCodeResult =&gt; getRegistrationCodeResult.RegistrationCode),
+    ///             { "commonName", example.Apply(getRegistrationCodeResult =&gt; getRegistrationCodeResult.RegistrationCode) },
     ///         },
     ///     });
     /// 
-    ///     var verificationLocallySignedCert = new Tls.LocallySignedCert("verification", new()
+    ///     var verificationLocallySignedCert = new Tls.Index.LocallySignedCert.LocallySignedCert("verification", new()
     ///     {
     ///         CertRequestPem = verification.CertRequestPem,
     ///         CaPrivateKeyPem = caPrivateKey.PrivateKeyPem,

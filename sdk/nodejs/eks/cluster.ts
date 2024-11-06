@@ -100,50 +100,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Enabling IAM Roles for Service Accounts
- *
- * For more information about this feature, see the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html).
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- * import * as tls from "@pulumi/tls";
- *
- * const exampleCluster = new aws.eks.Cluster("example", {});
- * const example = exampleCluster.identities.apply(identities => tls.getCertificateOutput({
- *     url: identities[0].oidcs?.[0]?.issuer,
- * }));
- * const exampleOpenIdConnectProvider = new aws.iam.OpenIdConnectProvider("example", {
- *     clientIdLists: ["sts.amazonaws.com"],
- *     thumbprintLists: [example.apply(example => example.certificates?.[0]?.sha1Fingerprint)],
- *     url: example.apply(example => example.url),
- * });
- * const exampleAssumeRolePolicy = aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         actions: ["sts:AssumeRoleWithWebIdentity"],
- *         effect: "Allow",
- *         conditions: [{
- *             test: "StringEquals",
- *             variable: std.replaceOutput({
- *                 text: exampleOpenIdConnectProvider.url,
- *                 search: "https://",
- *                 replace: "",
- *             }).apply(invoke => `${invoke.result}:sub`),
- *             values: ["system:serviceaccount:kube-system:aws-node"],
- *         }],
- *         principals: [{
- *             identifiers: [exampleOpenIdConnectProvider.arn],
- *             type: "Federated",
- *         }],
- *     }],
- * });
- * const exampleRole = new aws.iam.Role("example", {
- *     assumeRolePolicy: exampleAssumeRolePolicy.apply(exampleAssumeRolePolicy => exampleAssumeRolePolicy.json),
- *     name: "example",
- * });
- * ```
- *
  * ### EKS Cluster on AWS Outpost
  *
  * [Creating a local Amazon EKS cluster on an AWS Outpost](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html)

@@ -21,44 +21,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### With CSR
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iot.Certificate;
- * import com.pulumi.aws.iot.CertificateArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var cert = new Certificate("cert", CertificateArgs.builder()
- *             .csr(StdFunctions.file(FileArgs.builder()
- *                 .input("/my/csr.pem")
- *                 .build()).result())
- *             .active(true)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ### Without CSR
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -85,44 +47,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var cert = new Certificate("cert", CertificateArgs.builder()
- *             .active(true)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
- * ### From existing certificate without a CA
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iot.Certificate;
- * import com.pulumi.aws.iot.CertificateArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var cert = new Certificate("cert", CertificateArgs.builder()
- *             .certificatePem(StdFunctions.file(FileArgs.builder()
- *                 .input("/my/cert.pem")
- *                 .build()).result())
  *             .active(true)
  *             .build());
  * 

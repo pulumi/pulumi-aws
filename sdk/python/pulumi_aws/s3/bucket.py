@@ -847,32 +847,6 @@ class Bucket(pulumi.CustomResource):
             })
         ```
 
-        ### Static Website Hosting
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        b = aws.s3.Bucket("b",
-            bucket="s3-website-test.mydomain.com",
-            acl=aws.s3.CannedAcl.PUBLIC_READ,
-            policy=std.file(input="policy.json").result,
-            website={
-                "index_document": "index.html",
-                "error_document": "error.html",
-                "routing_rules": \"\"\"[{
-            "Condition": {
-                "KeyPrefixEquals": "docs/"
-            },
-            "Redirect": {
-                "ReplaceKeyPrefixWith": "documents/"
-            }
-        }]
-        \"\"\",
-            })
-        ```
-
         ### Using CORS
 
         ```python
@@ -1210,32 +1184,6 @@ class Bucket(pulumi.CustomResource):
             tags={
                 "Name": "My bucket",
                 "Environment": "Dev",
-            })
-        ```
-
-        ### Static Website Hosting
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        b = aws.s3.Bucket("b",
-            bucket="s3-website-test.mydomain.com",
-            acl=aws.s3.CannedAcl.PUBLIC_READ,
-            policy=std.file(input="policy.json").result,
-            website={
-                "index_document": "index.html",
-                "error_document": "error.html",
-                "routing_rules": \"\"\"[{
-            "Condition": {
-                "KeyPrefixEquals": "docs/"
-            },
-            "Redirect": {
-                "ReplaceKeyPrefixWith": "documents/"
-            }
-        }]
-        \"\"\",
             })
         ```
 

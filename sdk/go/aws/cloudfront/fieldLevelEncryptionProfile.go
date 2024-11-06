@@ -14,61 +14,6 @@ import (
 
 // Provides a CloudFront Field-level Encryption Profile resource.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "public_key.pem",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := cloudfront.NewPublicKey(ctx, "example", &cloudfront.PublicKeyArgs{
-//				Comment:    pulumi.String("test public key"),
-//				EncodedKey: pulumi.String(invokeFile.Result),
-//				Name:       pulumi.String("test_key"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudfront.NewFieldLevelEncryptionProfile(ctx, "test", &cloudfront.FieldLevelEncryptionProfileArgs{
-//				Comment: pulumi.String("test comment"),
-//				Name:    pulumi.String("test profile"),
-//				EncryptionEntities: &cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesArgs{
-//					Items: cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemArray{
-//						&cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemArgs{
-//							PublicKeyId: example.ID(),
-//							ProviderId:  pulumi.String("test provider"),
-//							FieldPatterns: &cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs{
-//								Items: pulumi.StringArray{
-//									pulumi.String("DateOfBirth"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Cloudfront Field Level Encryption Profile using the `id`. For example:

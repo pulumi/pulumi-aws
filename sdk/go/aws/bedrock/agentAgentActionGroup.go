@@ -16,48 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/bedrock"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "path/to/schema.yaml",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = bedrock.NewAgentAgentActionGroup(ctx, "example", &bedrock.AgentAgentActionGroupArgs{
-//				ActionGroupName:        pulumi.String("example"),
-//				AgentId:                pulumi.String("GGRRAED6JP"),
-//				AgentVersion:           pulumi.String("DRAFT"),
-//				SkipResourceInUseCheck: pulumi.Bool(true),
-//				ActionGroupExecutor: &bedrock.AgentAgentActionGroupActionGroupExecutorArgs{
-//					Lambda: pulumi.String("arn:aws:lambda:us-west-2:123456789012:function:example-function"),
-//				},
-//				ApiSchema: &bedrock.AgentAgentActionGroupApiSchemaArgs{
-//					Payload: pulumi.String(invokeFile.Result),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ### API Schema in S3 Bucket
 //
 // ```go
@@ -141,48 +99,6 @@ import (
 //							},
 //						},
 //					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### Return of Control
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/bedrock"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "path/to/schema.yaml",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = bedrock.NewAgentAgentActionGroup(ctx, "example", &bedrock.AgentAgentActionGroupArgs{
-//				ActionGroupName:        pulumi.String("example"),
-//				AgentId:                pulumi.String("GGRRAED6JP"),
-//				AgentVersion:           pulumi.String("DRAFT"),
-//				SkipResourceInUseCheck: pulumi.Bool(true),
-//				ActionGroupExecutor: &bedrock.AgentAgentActionGroupActionGroupExecutorArgs{
-//					CustomControl: pulumi.String("RETURN_CONTROL"),
-//				},
-//				ApiSchema: &bedrock.AgentAgentActionGroupApiSchemaArgs{
-//					Payload: pulumi.String(invokeFile.Result),
 //				},
 //			})
 //			if err != nil {

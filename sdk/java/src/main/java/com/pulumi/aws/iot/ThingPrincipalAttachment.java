@@ -16,57 +16,6 @@ import javax.annotation.Nullable;
 /**
  * Attaches Principal to AWS IoT Thing.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iot.Thing;
- * import com.pulumi.aws.iot.ThingArgs;
- * import com.pulumi.aws.iot.Certificate;
- * import com.pulumi.aws.iot.CertificateArgs;
- * import com.pulumi.aws.iot.ThingPrincipalAttachment;
- * import com.pulumi.aws.iot.ThingPrincipalAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Thing("example", ThingArgs.builder()
- *             .name("example")
- *             .build());
- * 
- *         var cert = new Certificate("cert", CertificateArgs.builder()
- *             .csr(StdFunctions.file(FileArgs.builder()
- *                 .input("csr.pem")
- *                 .build()).result())
- *             .active(true)
- *             .build());
- * 
- *         var att = new ThingPrincipalAttachment("att", ThingPrincipalAttachmentArgs.builder()
- *             .principal(cert.arn())
- *             .thing(example.name())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  */
 @ResourceType(type="aws:iot/thingPrincipalAttachment:ThingPrincipalAttachment")
 public class ThingPrincipalAttachment extends com.pulumi.resources.CustomResource {

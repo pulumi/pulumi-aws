@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as tls from "@pulumi/tls";
  *
- * const caPrivateKey = new tls.PrivateKey("ca", {algorithm: "RSA"});
- * const ca = new tls.SelfSignedCert("ca", {
+ * const caPrivateKey = new tls.index/privateKey.PrivateKey("ca", {algorithm: "RSA"});
+ * const ca = new tls.index/selfSignedCert.SelfSignedCert("ca", {
  *     privateKeyPem: caPrivateKey.privateKeyPem,
  *     subject: {
  *         commonName: "example.com",
@@ -32,15 +32,15 @@ import * as utilities from "../utilities";
  *     ],
  *     isCaCertificate: true,
  * });
- * const verificationPrivateKey = new tls.PrivateKey("verification", {algorithm: "RSA"});
+ * const verificationPrivateKey = new tls.index/privateKey.PrivateKey("verification", {algorithm: "RSA"});
  * const example = aws.iot.getRegistrationCode({});
- * const verification = new tls.CertRequest("verification", {
+ * const verification = new tls.index/certRequest.CertRequest("verification", {
  *     privateKeyPem: verificationPrivateKey.privateKeyPem,
  *     subject: {
- *         commonName: example.then(example => example.registrationCode),
+ *         commonName: example.registrationCode,
  *     },
  * });
- * const verificationLocallySignedCert = new tls.LocallySignedCert("verification", {
+ * const verificationLocallySignedCert = new tls.index/locallySignedCert.LocallySignedCert("verification", {
  *     certRequestPem: verification.certRequestPem,
  *     caPrivateKeyPem: caPrivateKey.privateKeyPem,
  *     caCertPem: ca.certPem,

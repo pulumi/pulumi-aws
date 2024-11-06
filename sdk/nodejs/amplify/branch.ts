@@ -25,24 +25,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Basic Authentication
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = new aws.amplify.App("example", {name: "app"});
- * const master = new aws.amplify.Branch("master", {
- *     appId: example.id,
- *     branchName: "master",
- *     enableBasicAuth: true,
- *     basicAuthCredentials: std.base64encode({
- *         input: "username:password",
- *     }).then(invoke => invoke.result),
- * });
- * ```
- *
  * ### Notifications
  *
  * Amplify Console uses EventBridge (formerly known as CloudWatch Events) and SNS for email notifications.  To implement the same functionality, you need to set `enableNotification` in a `aws.amplify.Branch` resource, as well as creating an EventBridge Rule, an SNS topic, and SNS subscriptions.

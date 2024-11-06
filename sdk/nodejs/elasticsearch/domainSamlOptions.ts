@@ -12,40 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = new aws.elasticsearch.Domain("example", {
- *     domainName: "example",
- *     elasticsearchVersion: "1.5",
- *     clusterConfig: {
- *         instanceType: "r4.large.elasticsearch",
- *     },
- *     snapshotOptions: {
- *         automatedSnapshotStartHour: 23,
- *     },
- *     tags: {
- *         Domain: "TestDomain",
- *     },
- * });
- * const exampleDomainSamlOptions = new aws.elasticsearch.DomainSamlOptions("example", {
- *     domainName: example.domainName,
- *     samlOptions: {
- *         enabled: true,
- *         idp: {
- *             entityId: "https://example.com",
- *             metadataContent: std.file({
- *                 input: "./saml-metadata.xml",
- *             }).then(invoke => invoke.result),
- *         },
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For example:

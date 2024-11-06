@@ -12,54 +12,6 @@ namespace Pulumi.Aws.CloudFront
     /// <summary>
     /// Provides a CloudFront Field-level Encryption Profile resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudFront.PublicKey("example", new()
-    ///     {
-    ///         Comment = "test public key",
-    ///         EncodedKey = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "public_key.pem",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         Name = "test_key",
-    ///     });
-    /// 
-    ///     var test = new Aws.CloudFront.FieldLevelEncryptionProfile("test", new()
-    ///     {
-    ///         Comment = "test comment",
-    ///         Name = "test profile",
-    ///         EncryptionEntities = new Aws.CloudFront.Inputs.FieldLevelEncryptionProfileEncryptionEntitiesArgs
-    ///         {
-    ///             Items = new[]
-    ///             {
-    ///                 new Aws.CloudFront.Inputs.FieldLevelEncryptionProfileEncryptionEntitiesItemArgs
-    ///                 {
-    ///                     PublicKeyId = example.Id,
-    ///                     ProviderId = "test provider",
-    ///                     FieldPatterns = new Aws.CloudFront.Inputs.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs
-    ///                     {
-    ///                         Items = new[]
-    ///                         {
-    ///                             "DateOfBirth",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Cloudfront Field Level Encryption Profile using the `id`. For example:

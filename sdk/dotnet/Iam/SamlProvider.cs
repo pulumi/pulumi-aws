@@ -12,29 +12,6 @@ namespace Pulumi.Aws.Iam
     /// <summary>
     /// Provides an IAM SAML provider.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @default = new Aws.Iam.SamlProvider("default", new()
-    ///     {
-    ///         Name = "myprovider",
-    ///         SamlMetadataDocument = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "saml-metadata.xml",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IAM SAML Providers using the `arn`. For example:

@@ -14,30 +14,6 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Example Usage
     /// 
-    /// ### Basic usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Sagemaker.StudioLifecycleConfig("example", new()
-    ///     {
-    ///         StudioLifecycleConfigName = "example",
-    ///         StudioLifecycleConfigAppType = "JupyterServer",
-    ///         StudioLifecycleConfigContent = Std.Base64encode.Invoke(new()
-    ///         {
-    ///             Input = "echo Hello",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SageMaker Studio Lifecycle Configs using the `studio_lifecycle_config_name`. For example:

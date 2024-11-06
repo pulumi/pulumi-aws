@@ -228,68 +228,6 @@ public final class AwsFunctions {
      * This is different from the `aws.getAvailabilityZones` (plural) data source,
      * which provides a list of the available zones.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how this data source might be used to derive
-     * VPC and subnet CIDR prefixes systematically for an availability zone.
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetAvailabilityZoneArgs;
-     * import com.pulumi.aws.ec2.Vpc;
-     * import com.pulumi.aws.ec2.VpcArgs;
-     * import com.pulumi.aws.ec2.Subnet;
-     * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var regionNumber = config.get("regionNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
-     *         final var azNumber = config.get("azNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
-     *         // Retrieve the AZ where we want to create network resources
-     *         // This must be in the region selected on the AWS provider.
-     *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
-     *             .name("eu-central-1a")
-     *             .build());
-     * 
-     *         // Create a VPC for the region associated with the AZ
-     *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()
-     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input("10.0.0.0/8")
-     *                 .newbits(4)
-     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -> getAvailabilityZoneResult.region())])
-     *                 .build()).result())
-     *             .build());
-     * 
-     *         // Create a subnet for the AZ within the regional VPC
-     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
-     *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
      */
     public static Output<GetAvailabilityZoneResult> getAvailabilityZone() {
         return getAvailabilityZone(GetAvailabilityZoneArgs.Empty, InvokeOptions.Empty);
@@ -306,68 +244,6 @@ public final class AwsFunctions {
      * 
      * This is different from the `aws.getAvailabilityZones` (plural) data source,
      * which provides a list of the available zones.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how this data source might be used to derive
-     * VPC and subnet CIDR prefixes systematically for an availability zone.
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetAvailabilityZoneArgs;
-     * import com.pulumi.aws.ec2.Vpc;
-     * import com.pulumi.aws.ec2.VpcArgs;
-     * import com.pulumi.aws.ec2.Subnet;
-     * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var regionNumber = config.get("regionNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
-     *         final var azNumber = config.get("azNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
-     *         // Retrieve the AZ where we want to create network resources
-     *         // This must be in the region selected on the AWS provider.
-     *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
-     *             .name("eu-central-1a")
-     *             .build());
-     * 
-     *         // Create a VPC for the region associated with the AZ
-     *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()
-     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input("10.0.0.0/8")
-     *                 .newbits(4)
-     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -> getAvailabilityZoneResult.region())])
-     *                 .build()).result())
-     *             .build());
-     * 
-     *         // Create a subnet for the AZ within the regional VPC
-     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
-     *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAvailabilityZoneResult> getAvailabilityZonePlain() {
@@ -386,68 +262,6 @@ public final class AwsFunctions {
      * This is different from the `aws.getAvailabilityZones` (plural) data source,
      * which provides a list of the available zones.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how this data source might be used to derive
-     * VPC and subnet CIDR prefixes systematically for an availability zone.
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetAvailabilityZoneArgs;
-     * import com.pulumi.aws.ec2.Vpc;
-     * import com.pulumi.aws.ec2.VpcArgs;
-     * import com.pulumi.aws.ec2.Subnet;
-     * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var regionNumber = config.get("regionNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
-     *         final var azNumber = config.get("azNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
-     *         // Retrieve the AZ where we want to create network resources
-     *         // This must be in the region selected on the AWS provider.
-     *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
-     *             .name("eu-central-1a")
-     *             .build());
-     * 
-     *         // Create a VPC for the region associated with the AZ
-     *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()
-     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input("10.0.0.0/8")
-     *                 .newbits(4)
-     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -> getAvailabilityZoneResult.region())])
-     *                 .build()).result())
-     *             .build());
-     * 
-     *         // Create a subnet for the AZ within the regional VPC
-     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
-     *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
      */
     public static Output<GetAvailabilityZoneResult> getAvailabilityZone(GetAvailabilityZoneArgs args) {
         return getAvailabilityZone(args, InvokeOptions.Empty);
@@ -464,68 +278,6 @@ public final class AwsFunctions {
      * 
      * This is different from the `aws.getAvailabilityZones` (plural) data source,
      * which provides a list of the available zones.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how this data source might be used to derive
-     * VPC and subnet CIDR prefixes systematically for an availability zone.
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetAvailabilityZoneArgs;
-     * import com.pulumi.aws.ec2.Vpc;
-     * import com.pulumi.aws.ec2.VpcArgs;
-     * import com.pulumi.aws.ec2.Subnet;
-     * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var regionNumber = config.get("regionNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
-     *         final var azNumber = config.get("azNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
-     *         // Retrieve the AZ where we want to create network resources
-     *         // This must be in the region selected on the AWS provider.
-     *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
-     *             .name("eu-central-1a")
-     *             .build());
-     * 
-     *         // Create a VPC for the region associated with the AZ
-     *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()
-     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input("10.0.0.0/8")
-     *                 .newbits(4)
-     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -> getAvailabilityZoneResult.region())])
-     *                 .build()).result())
-     *             .build());
-     * 
-     *         // Create a subnet for the AZ within the regional VPC
-     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
-     *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAvailabilityZoneResult> getAvailabilityZonePlain(GetAvailabilityZonePlainArgs args) {
@@ -544,68 +296,6 @@ public final class AwsFunctions {
      * This is different from the `aws.getAvailabilityZones` (plural) data source,
      * which provides a list of the available zones.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how this data source might be used to derive
-     * VPC and subnet CIDR prefixes systematically for an availability zone.
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetAvailabilityZoneArgs;
-     * import com.pulumi.aws.ec2.Vpc;
-     * import com.pulumi.aws.ec2.VpcArgs;
-     * import com.pulumi.aws.ec2.Subnet;
-     * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var regionNumber = config.get("regionNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
-     *         final var azNumber = config.get("azNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
-     *         // Retrieve the AZ where we want to create network resources
-     *         // This must be in the region selected on the AWS provider.
-     *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
-     *             .name("eu-central-1a")
-     *             .build());
-     * 
-     *         // Create a VPC for the region associated with the AZ
-     *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()
-     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input("10.0.0.0/8")
-     *                 .newbits(4)
-     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -> getAvailabilityZoneResult.region())])
-     *                 .build()).result())
-     *             .build());
-     * 
-     *         // Create a subnet for the AZ within the regional VPC
-     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
-     *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
      */
     public static Output<GetAvailabilityZoneResult> getAvailabilityZone(GetAvailabilityZoneArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:index/getAvailabilityZone:getAvailabilityZone", TypeShape.of(GetAvailabilityZoneResult.class), args, Utilities.withVersion(options));
@@ -622,68 +312,6 @@ public final class AwsFunctions {
      * 
      * This is different from the `aws.getAvailabilityZones` (plural) data source,
      * which provides a list of the available zones.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how this data source might be used to derive
-     * VPC and subnet CIDR prefixes systematically for an availability zone.
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.AwsFunctions;
-     * import com.pulumi.aws.inputs.GetAvailabilityZoneArgs;
-     * import com.pulumi.aws.ec2.Vpc;
-     * import com.pulumi.aws.ec2.VpcArgs;
-     * import com.pulumi.aws.ec2.Subnet;
-     * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var regionNumber = config.get("regionNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
-     *         final var azNumber = config.get("azNumber").orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
-     *         // Retrieve the AZ where we want to create network resources
-     *         // This must be in the region selected on the AWS provider.
-     *         final var example = AwsFunctions.getAvailabilityZone(GetAvailabilityZoneArgs.builder()
-     *             .name("eu-central-1a")
-     *             .build());
-     * 
-     *         // Create a VPC for the region associated with the AZ
-     *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()
-     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input("10.0.0.0/8")
-     *                 .newbits(4)
-     *                 .netnum(regionNumber[example.applyValue(getAvailabilityZoneResult -> getAvailabilityZoneResult.region())])
-     *                 .build()).result())
-     *             .build());
-     * 
-     *         // Create a subnet for the AZ within the regional VPC
-     *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
-     *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(cidrBlock -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAvailabilityZoneResult> getAvailabilityZonePlain(GetAvailabilityZonePlainArgs args, InvokeOptions options) {

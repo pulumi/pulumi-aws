@@ -7,68 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a AWS Transfer User SSH Key resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- * import * as tls from "@pulumi/tls";
- *
- * const examplePrivateKey = new tls.PrivateKey("example", {
- *     algorithm: "RSA",
- *     rsaBits: 4096,
- * });
- * const exampleServer = new aws.transfer.Server("example", {
- *     identityProviderType: "SERVICE_MANAGED",
- *     tags: {
- *         NAME: "tf-acc-test-transfer-server",
- *     },
- * });
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["transfer.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const exampleRole = new aws.iam.Role("example", {
- *     name: "tf-test-transfer-user-iam-role",
- *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
- * });
- * const exampleUser = new aws.transfer.User("example", {
- *     serverId: exampleServer.id,
- *     userName: "tftestuser",
- *     role: exampleRole.arn,
- *     tags: {
- *         NAME: "tftestuser",
- *     },
- * });
- * const exampleSshKey = new aws.transfer.SshKey("example", {
- *     serverId: exampleServer.id,
- *     userName: exampleUser.userName,
- *     body: std.trimspaceOutput({
- *         input: examplePrivateKey.publicKeyOpenssh,
- *     }).apply(invoke => invoke.result),
- * });
- * const example = aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "AllowFullAccesstoS3",
- *         effect: "Allow",
- *         actions: ["s3:*"],
- *         resources: ["*"],
- *     }],
- * });
- * const exampleRolePolicy = new aws.iam.RolePolicy("example", {
- *     name: "tf-test-transfer-user-iam-policy",
- *     role: exampleRole.id,
- *     policy: example.then(example => example.json),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Transfer SSH Public Key using the `server_id` and `user_name` and `ssh_public_key_id` separated by `/`. For example:

@@ -41,35 +41,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Lambda Tasks
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = new aws.ssm.MaintenanceWindowTask("example", {
- *     maxConcurrency: "2",
- *     maxErrors: "1",
- *     priority: 1,
- *     taskArn: exampleAwsLambdaFunction.arn,
- *     taskType: "LAMBDA",
- *     windowId: exampleAwsSsmMaintenanceWindow.id,
- *     targets: [{
- *         key: "InstanceIds",
- *         values: [exampleAwsInstance.id],
- *     }],
- *     taskInvocationParameters: {
- *         lambdaParameters: {
- *             clientContext: std.base64encode({
- *                 input: "{\"key1\":\"value1\"}",
- *             }).then(invoke => invoke.result),
- *             payload: "{\"key1\":\"value1\"}",
- *         },
- *     },
- * });
- * ```
- *
  * ### Run Command Tasks
  *
  * ```typescript

@@ -115,30 +115,6 @@ namespace Pulumi.Aws.Amplify
     /// });
     /// ```
     /// 
-    /// ### Basic Authorization
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Amplify.App("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         EnableBasicAuth = true,
-    ///         BasicAuthCredentials = Std.Base64encode.Invoke(new()
-    ///         {
-    ///             Input = "username1:password1",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ### Rewrites and Redirects
     /// 
     /// ```csharp

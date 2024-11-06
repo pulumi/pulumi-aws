@@ -13,35 +13,6 @@ namespace Pulumi.Aws.Pinpoint
     /// Provides a Pinpoint APNs VoIP Sandbox Channel resource.
     /// 
     /// &gt; **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var app = new Aws.Pinpoint.App("app");
-    /// 
-    ///     var apnsVoipSandbox = new Aws.Pinpoint.ApnsVoipSandboxChannel("apns_voip_sandbox", new()
-    ///     {
-    ///         ApplicationId = app.ApplicationId,
-    ///         Certificate = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "./certificate.pem",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         PrivateKey = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "./private_key.key",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Pinpoint APNs VoIP Sandbox Channel using the `application-id`. For example:

@@ -50,44 +50,6 @@ namespace Pulumi.Aws.Rds
     /// });
     /// ```
     /// 
-    /// ### RDS Custom for Oracle External Manifest Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Kms.Key("example", new()
-    ///     {
-    ///         Description = "KMS symmetric key for RDS Custom for Oracle",
-    ///     });
-    /// 
-    ///     var exampleCustomDbEngineVersion = new Aws.Rds.CustomDbEngineVersion("example", new()
-    ///     {
-    ///         DatabaseInstallationFilesS3BucketName = "DOC-EXAMPLE-BUCKET",
-    ///         DatabaseInstallationFilesS3Prefix = "1915_GI/",
-    ///         Engine = "custom-oracle-ee-cdb",
-    ///         EngineVersion = "19.cdb_cev1",
-    ///         KmsKeyId = example.Arn,
-    ///         Filename = "manifest_1915_GI.json",
-    ///         ManifestHash = Std.Filebase64sha256.Invoke(new()
-    ///         {
-    ///             Input = json,
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "example" },
-    ///             { "Key", "value" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ### RDS Custom for SQL Server Usage
     /// 
     /// ```csharp

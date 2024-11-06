@@ -10,35 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a CloudFront Field-level Encryption Profile resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = new aws.cloudfront.PublicKey("example", {
- *     comment: "test public key",
- *     encodedKey: std.file({
- *         input: "public_key.pem",
- *     }).then(invoke => invoke.result),
- *     name: "test_key",
- * });
- * const test = new aws.cloudfront.FieldLevelEncryptionProfile("test", {
- *     comment: "test comment",
- *     name: "test profile",
- *     encryptionEntities: {
- *         items: [{
- *             publicKeyId: example.id,
- *             providerId: "test provider",
- *             fieldPatterns: {
- *                 items: ["DateOfBirth"],
- *             },
- *         }],
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Cloudfront Field Level Encryption Profile using the `id`. For example:

@@ -140,50 +140,6 @@ import * as utilities from "../utilities";
  * const example = new aws.ec2.SecurityGroup("example", {name: "izizavle"});
  * ```
  *
- * ### Provisioners
- *
- * (This example is one approach to recreating security groups. For more information on the challenges and the _Security Group Deletion Problem_, see the section above.)
- *
- * **DISCLAIMER:** We **_HIGHLY_** recommend using one of the above approaches and _NOT_ using local provisioners. Provisioners, like the one shown below, should be considered a **last resort** since they are _not readable_, _require skills outside standard configuration_, are _error prone_ and _difficult to maintain_, are not compatible with cloud environments and upgrade tools, require AWS CLI installation, and are subject to changes outside the AWS Provider.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as _null from "@pulumi/null";
- * import * as aws from "@pulumi/aws";
- * import * as command from "@pulumi/command";
- * import * as std from "@pulumi/std";
- *
- * const default = aws.ec2.getSecurityGroup({
- *     name: "default",
- * });
- * const example = new aws.ec2.SecurityGroup("example", {
- *     name: "sg",
- *     tags: {
- *         workaround1: "tagged-name",
- *         workaround2: _default.then(_default => _default.id),
- *     },
- * });
- * const exampleProvisioner0 = new command.local.Command("exampleProvisioner0", {
- *     create: "true",
- *     update: "true",
- *     "delete": `            ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters "Name=tag:Name,Values=${tags.workaround1}" --query "VpcEndpoints[0].VpcEndpointId" --output text` &&
- *             aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${ENDPOINT_ID} --add-security-group-ids ${tags.workaround2} --remove-security-group-ids ${id}
- * `,
- * }, {
- *     dependsOn: [example],
- * });
- * const exampleResource = new _null.Resource("example", {triggers: {
- *     rerun_upon_change_of: std.join({
- *         separator: ",",
- *         input: exampleAwsVpcEndpoint.securityGroupIds,
- *     }).then(invoke => invoke.result),
- * }});
- * const exampleResourceProvisioner0 = new command.local.Command("exampleResourceProvisioner0", {create: `            aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${exampleAwsVpcEndpoint.id} --remove-security-group-ids ${_default.id}
- * `}, {
- *     dependsOn: [exampleResource],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Security Groups using the security group `id`. For example:

@@ -14,29 +14,6 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ## Example Usage
     /// 
-    /// ### With CSR
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var cert = new Aws.Iot.Certificate("cert", new()
-    ///     {
-    ///         Csr = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "/my/csr.pem",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         Active = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ### Without CSR
     /// 
     /// ```csharp
@@ -49,29 +26,6 @@ namespace Pulumi.Aws.Iot
     /// {
     ///     var cert = new Aws.Iot.Certificate("cert", new()
     ///     {
-    ///         Active = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### From existing certificate without a CA
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var cert = new Aws.Iot.Certificate("cert", new()
-    ///     {
-    ///         CertificatePem = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "/my/cert.pem",
-    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Active = true,
     ///     });
     /// 

@@ -113,44 +113,6 @@ namespace Pulumi.Aws.AppSync
     /// });
     /// ```
     /// 
-    /// ### JS
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppSync.Resolver("example", new()
-    ///     {
-    ///         Type = "Query",
-    ///         ApiId = testAwsAppsyncGraphqlApi.Id,
-    ///         Field = "pipelineTest",
-    ///         Kind = "PIPELINE",
-    ///         Code = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "some-code-dir",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         Runtime = new Aws.AppSync.Inputs.ResolverRuntimeArgs
-    ///         {
-    ///             Name = "APPSYNC_JS",
-    ///             RuntimeVersion = "1.0.0",
-    ///         },
-    ///         PipelineConfig = new Aws.AppSync.Inputs.ResolverPipelineConfigArgs
-    ///         {
-    ///             Functions = new[]
-    ///             {
-    ///                 test.FunctionId,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_appsync_resolver` using the `api_id`, a hyphen, `type`, a hypen and `field`. For example:

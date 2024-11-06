@@ -65,28 +65,6 @@ import * as utilities from "../utilities";
  *
  * Use the generated file as input:
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const test = new aws.connect.ContactFlow("test", {
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     name: "Test",
- *     description: "Test Contact Flow Description",
- *     type: "CONTACT_FLOW",
- *     filename: "contact_flow.json",
- *     contentHash: std.filebase64sha256({
- *         input: "contact_flow.json",
- *     }).then(invoke => invoke.result),
- *     tags: {
- *         Name: "Test Contact Flow",
- *         Application: "Example",
- *         Method: "Create",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Amazon Connect Contact Flows using the `instance_id` and `contact_flow_id` separated by a colon (`:`). For example:

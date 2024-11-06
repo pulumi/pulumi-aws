@@ -9,22 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### Basic usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = new aws.sagemaker.StudioLifecycleConfig("example", {
- *     studioLifecycleConfigName: "example",
- *     studioLifecycleConfigAppType: "JupyterServer",
- *     studioLifecycleConfigContent: std.base64encode({
- *         input: "echo Hello",
- *     }).then(invoke => invoke.result),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import SageMaker Studio Lifecycle Configs using the `studio_lifecycle_config_name`. For example:

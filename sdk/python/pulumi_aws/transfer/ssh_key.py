@@ -149,56 +149,6 @@ class SshKey(pulumi.CustomResource):
         """
         Provides a AWS Transfer User SSH Key resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-        import pulumi_tls as tls
-
-        example_private_key = tls.PrivateKey("example",
-            algorithm="RSA",
-            rsa_bits=4096)
-        example_server = aws.transfer.Server("example",
-            identity_provider_type="SERVICE_MANAGED",
-            tags={
-                "NAME": "tf-acc-test-transfer-server",
-            })
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["transfer.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        example_role = aws.iam.Role("example",
-            name="tf-test-transfer-user-iam-role",
-            assume_role_policy=assume_role.json)
-        example_user = aws.transfer.User("example",
-            server_id=example_server.id,
-            user_name="tftestuser",
-            role=example_role.arn,
-            tags={
-                "NAME": "tftestuser",
-            })
-        example_ssh_key = aws.transfer.SshKey("example",
-            server_id=example_server.id,
-            user_name=example_user.user_name,
-            body=std.trimspace_output(input=example_private_key.public_key_openssh).apply(lambda invoke: invoke.result))
-        example = aws.iam.get_policy_document(statements=[{
-            "sid": "AllowFullAccesstoS3",
-            "effect": "Allow",
-            "actions": ["s3:*"],
-            "resources": ["*"],
-        }])
-        example_role_policy = aws.iam.RolePolicy("example",
-            name="tf-test-transfer-user-iam-policy",
-            role=example_role.id,
-            policy=example.json)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Transfer SSH Public Key using the `server_id` and `user_name` and `ssh_public_key_id` separated by `/`. For example:
@@ -221,56 +171,6 @@ class SshKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a AWS Transfer User SSH Key resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-        import pulumi_tls as tls
-
-        example_private_key = tls.PrivateKey("example",
-            algorithm="RSA",
-            rsa_bits=4096)
-        example_server = aws.transfer.Server("example",
-            identity_provider_type="SERVICE_MANAGED",
-            tags={
-                "NAME": "tf-acc-test-transfer-server",
-            })
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["transfer.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        example_role = aws.iam.Role("example",
-            name="tf-test-transfer-user-iam-role",
-            assume_role_policy=assume_role.json)
-        example_user = aws.transfer.User("example",
-            server_id=example_server.id,
-            user_name="tftestuser",
-            role=example_role.arn,
-            tags={
-                "NAME": "tftestuser",
-            })
-        example_ssh_key = aws.transfer.SshKey("example",
-            server_id=example_server.id,
-            user_name=example_user.user_name,
-            body=std.trimspace_output(input=example_private_key.public_key_openssh).apply(lambda invoke: invoke.result))
-        example = aws.iam.get_policy_document(statements=[{
-            "sid": "AllowFullAccesstoS3",
-            "effect": "Allow",
-            "actions": ["s3:*"],
-            "resources": ["*"],
-        }])
-        example_role_policy = aws.iam.RolePolicy("example",
-            name="tf-test-transfer-user-iam-policy",
-            role=example_role.id,
-            policy=example.json)
-        ```
 
         ## Import
 

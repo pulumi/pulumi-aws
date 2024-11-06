@@ -74,59 +74,6 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### RDS Custom for Oracle External Manifest Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.rds.CustomDbEngineVersion;
- * import com.pulumi.aws.rds.CustomDbEngineVersionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Key("example", KeyArgs.builder()
- *             .description("KMS symmetric key for RDS Custom for Oracle")
- *             .build());
- * 
- *         var exampleCustomDbEngineVersion = new CustomDbEngineVersion("exampleCustomDbEngineVersion", CustomDbEngineVersionArgs.builder()
- *             .databaseInstallationFilesS3BucketName("DOC-EXAMPLE-BUCKET")
- *             .databaseInstallationFilesS3Prefix("1915_GI/")
- *             .engine("custom-oracle-ee-cdb")
- *             .engineVersion("19.cdb_cev1")
- *             .kmsKeyId(example.arn())
- *             .filename("manifest_1915_GI.json")
- *             .manifestHash(StdFunctions.filebase64sha256(Filebase64sha256Args.builder()
- *                 .input(json)
- *                 .build()).result())
- *             .tags(Map.ofEntries(
- *                 Map.entry("Name", "example"),
- *                 Map.entry("Key", "value")
- *             ))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ### RDS Custom for SQL Server Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;

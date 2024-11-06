@@ -270,18 +270,6 @@ class Certificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### With CSR
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        cert = aws.iot.Certificate("cert",
-            csr=std.file(input="/my/csr.pem").result,
-            active=True)
-        ```
-
         ### Without CSR
 
         ```python
@@ -289,18 +277,6 @@ class Certificate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         cert = aws.iot.Certificate("cert", active=True)
-        ```
-
-        ### From existing certificate without a CA
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        cert = aws.iot.Certificate("cert",
-            certificate_pem=std.file(input="/my/cert.pem").result,
-            active=True)
         ```
 
         :param str resource_name: The name of the resource.
@@ -329,18 +305,6 @@ class Certificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### With CSR
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        cert = aws.iot.Certificate("cert",
-            csr=std.file(input="/my/csr.pem").result,
-            active=True)
-        ```
-
         ### Without CSR
 
         ```python
@@ -348,18 +312,6 @@ class Certificate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         cert = aws.iot.Certificate("cert", active=True)
-        ```
-
-        ### From existing certificate without a CA
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        cert = aws.iot.Certificate("cert",
-            certificate_pem=std.file(input="/my/cert.pem").result,
-            active=True)
         ```
 
         :param str resource_name: The name of the resource.

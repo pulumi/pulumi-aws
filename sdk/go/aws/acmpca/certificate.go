@@ -29,7 +29,7 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acmpca"
-//	"github.com/pulumi/pulumi-tls/sdk/v4/go/tls"
+//	"github.com/pulumi/pulumi-tls/sdk/go/tls"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,16 +49,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			key, err := tls.NewPrivateKey(ctx, "key", &tls.PrivateKeyArgs{
-//				Algorithm: pulumi.String("RSA"),
+//			key, err := index / privateKey.NewPrivateKey(ctx, "key", &index/privateKey.PrivateKeyArgs{
+//				Algorithm: "RSA",
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			csr, err := tls.NewCertRequest(ctx, "csr", &tls.CertRequestArgs{
+//			csr, err := index / certRequest.NewCertRequest(ctx, "csr", &index/certRequest.CertRequestArgs{
 //				PrivateKeyPem: key.PrivateKeyPem,
-//				Subject: &tls.CertRequestSubjectArgs{
-//					CommonName: pulumi.String("example"),
+//				Subject: map[string]interface{}{
+//					"commonName": "example",
 //				},
 //			})
 //			if err != nil {

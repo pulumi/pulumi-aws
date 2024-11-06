@@ -18,41 +18,6 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// ## Example Usage
     /// 
-    /// ### Dynamic Invocation Example Using Triggers
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Lambda.Invocation("example", new()
-    ///     {
-    ///         FunctionName = lambdaFunctionTest.FunctionName,
-    ///         Triggers = 
-    ///         {
-    ///             { "redeployment", Std.Sha1.Invoke(new()
-    ///             {
-    ///                 Input = JsonSerializer.Serialize(new[]
-    ///                 {
-    ///                     exampleAwsLambdaFunction.Environment,
-    ///                 }),
-    ///             }).Apply(invoke =&gt; invoke.Result) },
-    ///         },
-    ///         Input = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["key1"] = "value1",
-    ///             ["key2"] = "value2",
-    ///         }),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ### CRUD Lifecycle Scope
     /// 
     /// ```csharp

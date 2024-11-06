@@ -105,53 +105,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Replica Tagging
- *
- * You can manage global table replicas' tags in various ways. This example shows using `replica.*.propagate_tags` for the first replica and the `aws.dynamodb.Tag` resource for the other.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const current = aws.getRegion({});
- * const alternate = aws.getRegion({});
- * const third = aws.getRegion({});
- * const example = new aws.dynamodb.Table("example", {
- *     billingMode: "PAY_PER_REQUEST",
- *     hashKey: "TestTableHashKey",
- *     name: "example-13281",
- *     streamEnabled: true,
- *     streamViewType: "NEW_AND_OLD_IMAGES",
- *     attributes: [{
- *         name: "TestTableHashKey",
- *         type: "S",
- *     }],
- *     replicas: [
- *         {
- *             regionName: alternate.then(alternate => alternate.name),
- *         },
- *         {
- *             regionName: third.then(third => third.name),
- *             propagateTags: true,
- *         },
- *     ],
- *     tags: {
- *         Architect: "Eleanor",
- *         Zone: "SW",
- *     },
- * });
- * const exampleTag = new aws.dynamodb.Tag("example", {
- *     resourceArn: pulumi.all([example.arn, current, alternate]).apply(([arn, current, alternate]) => std.replaceOutput({
- *         text: arn,
- *         search: current.name,
- *         replace: alternate.name,
- *     })).apply(invoke => invoke.result),
- *     key: "Architect",
- *     value: "Gigi",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import DynamoDB tables using the `name`. For example:

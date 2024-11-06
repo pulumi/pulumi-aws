@@ -708,42 +708,6 @@ class Cluster(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[example_log_group]))
         ```
 
-        ### Enabling IAM Roles for Service Accounts
-
-        For more information about this feature, see the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html).
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-        import pulumi_tls as tls
-
-        example_cluster = aws.eks.Cluster("example")
-        example = example_cluster.identities.apply(lambda identities: tls.get_certificate_output(url=identities[0].oidcs[0].issuer))
-        example_open_id_connect_provider = aws.iam.OpenIdConnectProvider("example",
-            client_id_lists=["sts.amazonaws.com"],
-            thumbprint_lists=[example.certificates[0].sha1_fingerprint],
-            url=example.url)
-        example_assume_role_policy = aws.iam.get_policy_document_output(statements=[{
-            "actions": ["sts:AssumeRoleWithWebIdentity"],
-            "effect": "Allow",
-            "conditions": [{
-                "test": "StringEquals",
-                "variable": std.replace_output(text=example_open_id_connect_provider.url,
-                    search="https://",
-                    replace="").apply(lambda invoke: f"{invoke.result}:sub"),
-                "values": ["system:serviceaccount:kube-system:aws-node"],
-            }],
-            "principals": [{
-                "identifiers": [example_open_id_connect_provider.arn],
-                "type": "Federated",
-            }],
-        }])
-        example_role = aws.iam.Role("example",
-            assume_role_policy=example_assume_role_policy.json,
-            name="example")
-        ```
-
         ### EKS Cluster on AWS Outpost
 
         [Creating a local Amazon EKS cluster on an AWS Outpost](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html)
@@ -902,42 +866,6 @@ class Cluster(pulumi.CustomResource):
             ],
             name=cluster_name,
             opts = pulumi.ResourceOptions(depends_on=[example_log_group]))
-        ```
-
-        ### Enabling IAM Roles for Service Accounts
-
-        For more information about this feature, see the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html).
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-        import pulumi_tls as tls
-
-        example_cluster = aws.eks.Cluster("example")
-        example = example_cluster.identities.apply(lambda identities: tls.get_certificate_output(url=identities[0].oidcs[0].issuer))
-        example_open_id_connect_provider = aws.iam.OpenIdConnectProvider("example",
-            client_id_lists=["sts.amazonaws.com"],
-            thumbprint_lists=[example.certificates[0].sha1_fingerprint],
-            url=example.url)
-        example_assume_role_policy = aws.iam.get_policy_document_output(statements=[{
-            "actions": ["sts:AssumeRoleWithWebIdentity"],
-            "effect": "Allow",
-            "conditions": [{
-                "test": "StringEquals",
-                "variable": std.replace_output(text=example_open_id_connect_provider.url,
-                    search="https://",
-                    replace="").apply(lambda invoke: f"{invoke.result}:sub"),
-                "values": ["system:serviceaccount:kube-system:aws-node"],
-            }],
-            "principals": [{
-                "identifiers": [example_open_id_connect_provider.arn],
-                "type": "Federated",
-            }],
-        }])
-        example_role = aws.iam.Role("example",
-            assume_role_policy=example_assume_role_policy.json,
-            name="example")
         ```
 
         ### EKS Cluster on AWS Outpost

@@ -191,18 +191,6 @@ class SamlProvider(pulumi.CustomResource):
         """
         Provides an IAM SAML provider.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        default = aws.iam.SamlProvider("default",
-            name="myprovider",
-            saml_metadata_document=std.file(input="saml-metadata.xml").result)
-        ```
-
         ## Import
 
         Using `pulumi import`, import IAM SAML Providers using the `arn`. For example:
@@ -225,18 +213,6 @@ class SamlProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an IAM SAML provider.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        default = aws.iam.SamlProvider("default",
-            name="myprovider",
-            saml_metadata_document=std.file(input="saml-metadata.xml").result)
-        ```
 
         ## Import
 

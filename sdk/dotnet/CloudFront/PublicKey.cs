@@ -14,28 +14,6 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// The following example below creates a CloudFront public key.
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.CloudFront.PublicKey("example", new()
-    ///     {
-    ///         Comment = "test public key",
-    ///         EncodedKey = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "public_key.pem",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         Name = "test_key",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudFront Public Key using the `id`. For example:

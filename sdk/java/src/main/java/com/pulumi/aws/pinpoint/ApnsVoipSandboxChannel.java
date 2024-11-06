@@ -20,50 +20,6 @@ import javax.annotation.Nullable;
  * Provides a Pinpoint APNs VoIP Sandbox Channel resource.
  * 
  * &gt; **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.pinpoint.App;
- * import com.pulumi.aws.pinpoint.ApnsVoipSandboxChannel;
- * import com.pulumi.aws.pinpoint.ApnsVoipSandboxChannelArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var app = new App("app");
- * 
- *         var apnsVoipSandbox = new ApnsVoipSandboxChannel("apnsVoipSandbox", ApnsVoipSandboxChannelArgs.builder()
- *             .applicationId(app.applicationId())
- *             .certificate(StdFunctions.file(FileArgs.builder()
- *                 .input("./certificate.pem")
- *                 .build()).result())
- *             .privateKey(StdFunctions.file(FileArgs.builder()
- *                 .input("./private_key.key")
- *                 .build()).result())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Using `pulumi import`, import Pinpoint APNs VoIP Sandbox Channel using the `application-id`. For example:

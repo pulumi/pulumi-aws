@@ -11,29 +11,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** This tagging resource does not use the provider `ignoreTags` configuration.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const replica = aws.getRegion({});
- * const current = aws.getRegion({});
- * const example = new aws.dynamodb.Table("example", {replicas: [{
- *     regionName: replica.then(replica => replica.name),
- * }]});
- * const test = new aws.dynamodb.Tag("test", {
- *     resourceArn: pulumi.all([example.arn, current, replica]).apply(([arn, current, replica]) => std.replaceOutput({
- *         text: arn,
- *         search: current.name,
- *         replace: replica.name,
- *     })).apply(invoke => invoke.result),
- *     key: "testkey",
- *     value: "testvalue",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_dynamodb_tag` using the DynamoDB resource identifier and key, separated by a comma (`,`). For example:

@@ -19,47 +19,6 @@ import javax.annotation.Nullable;
 /**
  * Provides a SageMaker Human Task UI resource.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sagemaker.HumanTaskUI;
- * import com.pulumi.aws.sagemaker.HumanTaskUIArgs;
- * import com.pulumi.aws.sagemaker.inputs.HumanTaskUIUiTemplateArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new HumanTaskUI("example", HumanTaskUIArgs.builder()
- *             .humanTaskUiName("example")
- *             .uiTemplate(HumanTaskUIUiTemplateArgs.builder()
- *                 .content(StdFunctions.file(FileArgs.builder()
- *                     .input("sagemaker-human-task-ui-template.html")
- *                     .build()).result())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Using `pulumi import`, import SageMaker Human Task UIs using the `human_task_ui_name`. For example:

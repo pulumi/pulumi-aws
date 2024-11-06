@@ -139,41 +139,6 @@ import (
 //
 // ```
 //
-// ### Basic Authorization
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeBase64encode, err := std.Base64encode(ctx, &std.Base64encodeArgs{
-//				Input: "username1:password1",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = amplify.NewApp(ctx, "example", &amplify.AppArgs{
-//				Name:                 pulumi.String("example"),
-//				EnableBasicAuth:      pulumi.Bool(true),
-//				BasicAuthCredentials: pulumi.String(invokeBase64encode.Result),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ### Rewrites and Redirects
 //
 // ```go

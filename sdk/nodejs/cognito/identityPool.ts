@@ -10,44 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AWS Cognito Identity Pool.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const _default = new aws.iam.SamlProvider("default", {
- *     name: "my-saml-provider",
- *     samlMetadataDocument: std.file({
- *         input: "saml-metadata.xml",
- *     }).then(invoke => invoke.result),
- * });
- * const main = new aws.cognito.IdentityPool("main", {
- *     identityPoolName: "identity pool",
- *     allowUnauthenticatedIdentities: false,
- *     allowClassicFlow: false,
- *     cognitoIdentityProviders: [
- *         {
- *             clientId: "6lhlkkfbfb4q5kpp90urffae",
- *             providerName: "cognito-idp.us-east-1.amazonaws.com/us-east-1_Tv0493apJ",
- *             serverSideTokenCheck: false,
- *         },
- *         {
- *             clientId: "7kodkvfqfb4qfkp39eurffae",
- *             providerName: "cognito-idp.us-east-1.amazonaws.com/eu-west-1_Zr231apJu",
- *             serverSideTokenCheck: false,
- *         },
- *     ],
- *     supportedLoginProviders: {
- *         "graph.facebook.com": "7346241598935552",
- *         "accounts.google.com": "123456789012.apps.googleusercontent.com",
- *     },
- *     samlProviderArns: [_default.arn],
- *     openidConnectProviderArns: ["arn:aws:iam::123456789012:oidc-provider/id.example.com"],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Cognito Identity Pool using its ID. For example:

@@ -138,48 +138,6 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
         """
         Attaches a load balancer policy to an ELB backend server.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        wu_tang = aws.elb.LoadBalancer("wu-tang",
-            name="wu-tang",
-            availability_zones=["us-east-1a"],
-            listeners=[{
-                "instance_port": 443,
-                "instance_protocol": "http",
-                "lb_port": 443,
-                "lb_protocol": "https",
-                "ssl_certificate_id": "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
-            }],
-            tags={
-                "Name": "wu-tang",
-            })
-        wu_tang_ca_pubkey_policy = aws.elb.LoadBalancerPolicy("wu-tang-ca-pubkey-policy",
-            load_balancer_name=wu_tang.name,
-            policy_name="wu-tang-ca-pubkey-policy",
-            policy_type_name="PublicKeyPolicyType",
-            policy_attributes=[{
-                "name": "PublicKey",
-                "value": std.file(input="wu-tang-pubkey").result,
-            }])
-        wu_tang_root_ca_backend_auth_policy = aws.elb.LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy",
-            load_balancer_name=wu_tang.name,
-            policy_name="wu-tang-root-ca-backend-auth-policy",
-            policy_type_name="BackendServerAuthenticationPolicyType",
-            policy_attributes=[{
-                "name": "PublicKeyPolicyName",
-                "value": wu_tang_root_ca_pubkey_policy["policyName"],
-            }])
-        wu_tang_backend_auth_policies_443 = aws.elb.LoadBalancerBackendServerPolicy("wu-tang-backend-auth-policies-443",
-            load_balancer_name=wu_tang.name,
-            instance_port=443,
-            policy_names=[wu_tang_root_ca_backend_auth_policy.policy_name])
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] instance_port: The instance port to apply the policy to.
@@ -194,48 +152,6 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Attaches a load balancer policy to an ELB backend server.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        wu_tang = aws.elb.LoadBalancer("wu-tang",
-            name="wu-tang",
-            availability_zones=["us-east-1a"],
-            listeners=[{
-                "instance_port": 443,
-                "instance_protocol": "http",
-                "lb_port": 443,
-                "lb_protocol": "https",
-                "ssl_certificate_id": "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
-            }],
-            tags={
-                "Name": "wu-tang",
-            })
-        wu_tang_ca_pubkey_policy = aws.elb.LoadBalancerPolicy("wu-tang-ca-pubkey-policy",
-            load_balancer_name=wu_tang.name,
-            policy_name="wu-tang-ca-pubkey-policy",
-            policy_type_name="PublicKeyPolicyType",
-            policy_attributes=[{
-                "name": "PublicKey",
-                "value": std.file(input="wu-tang-pubkey").result,
-            }])
-        wu_tang_root_ca_backend_auth_policy = aws.elb.LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy",
-            load_balancer_name=wu_tang.name,
-            policy_name="wu-tang-root-ca-backend-auth-policy",
-            policy_type_name="BackendServerAuthenticationPolicyType",
-            policy_attributes=[{
-                "name": "PublicKeyPolicyName",
-                "value": wu_tang_root_ca_pubkey_policy["policyName"],
-            }])
-        wu_tang_backend_auth_policies_443 = aws.elb.LoadBalancerBackendServerPolicy("wu-tang-backend-auth-policies-443",
-            load_balancer_name=wu_tang.name,
-            instance_port=443,
-            policy_names=[wu_tang_root_ca_backend_auth_policy.policy_name])
-        ```
 
         :param str resource_name: The name of the resource.
         :param LoadBalancerBackendServerPolicyArgs args: The arguments to use to populate this resource's properties.

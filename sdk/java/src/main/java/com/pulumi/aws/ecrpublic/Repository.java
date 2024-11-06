@@ -22,53 +22,6 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE:** This resource can only be used in the `us-east-1` region.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ecrpublic.Repository;
- * import com.pulumi.aws.ecrpublic.RepositoryArgs;
- * import com.pulumi.aws.ecrpublic.inputs.RepositoryCatalogDataArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new Repository("foo", RepositoryArgs.builder()
- *             .repositoryName("bar")
- *             .catalogData(RepositoryCatalogDataArgs.builder()
- *                 .aboutText("About Text")
- *                 .architectures("ARM")
- *                 .description("Description")
- *                 .logoImageBlob(StdFunctions.filebase64(Filebase64Args.builder()
- *                     .input(png)
- *                     .build()).result())
- *                 .operatingSystems("Linux")
- *                 .usageText("Usage Text")
- *                 .build())
- *             .tags(Map.of("env", "production"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Using `pulumi import`, import ECR Public Repositories using the `repository_name`. For example:

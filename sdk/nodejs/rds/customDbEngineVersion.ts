@@ -33,31 +33,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### RDS Custom for Oracle External Manifest Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = new aws.kms.Key("example", {description: "KMS symmetric key for RDS Custom for Oracle"});
- * const exampleCustomDbEngineVersion = new aws.rds.CustomDbEngineVersion("example", {
- *     databaseInstallationFilesS3BucketName: "DOC-EXAMPLE-BUCKET",
- *     databaseInstallationFilesS3Prefix: "1915_GI/",
- *     engine: "custom-oracle-ee-cdb",
- *     engineVersion: "19.cdb_cev1",
- *     kmsKeyId: example.arn,
- *     filename: "manifest_1915_GI.json",
- *     manifestHash: std.filebase64sha256({
- *         input: json,
- *     }).then(invoke => invoke.result),
- *     tags: {
- *         Name: "example",
- *         Key: "value",
- *     },
- * });
- * ```
- *
  * ### RDS Custom for SQL Server Usage
  *
  * ```typescript

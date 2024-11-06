@@ -41,22 +41,6 @@ import * as utilities from "../utilities";
  *
  * Identity Provider Configuration Usage:
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const test = new aws.worklink.Fleet("test", {
- *     name: "tf-worklink-fleet",
- *     identityProvider: {
- *         type: "SAML",
- *         samlMetadata: std.file({
- *             input: "saml-metadata.xml",
- *         }).then(invoke => invoke.result),
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import WorkLink using the ARN. For example:

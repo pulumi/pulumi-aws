@@ -24,51 +24,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### Dynamic Invocation Example Using Triggers
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lambda.Invocation;
- * import com.pulumi.aws.lambda.InvocationArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Invocation("example", InvocationArgs.builder()
- *             .functionName(lambdaFunctionTest.functionName())
- *             .triggers(Map.of("redeployment", StdFunctions.sha1(Sha1Args.builder()
- *                 .input(serializeJson(
- *                     jsonArray(exampleAwsLambdaFunction.environment())))
- *                 .build()).result()))
- *             .input(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("key1", "value1"),
- *                     jsonProperty("key2", "value2")
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ### CRUD Lifecycle Scope
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;

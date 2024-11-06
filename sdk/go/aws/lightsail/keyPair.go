@@ -72,44 +72,6 @@ import (
 //	}
 //
 // ```
-//
-// ### Existing Public Key Import
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "~/.ssh/id_rsa.pub",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lightsail.NewKeyPair(ctx, "lg_key_pair", &lightsail.KeyPairArgs{
-//				Name:      pulumi.String("importing"),
-//				PublicKey: pulumi.String(invokeFile.Result),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// You cannot import Lightsail Key Pairs because the private and public key are only available on initial creation.
 type KeyPair struct {
 	pulumi.CustomResourceState
 

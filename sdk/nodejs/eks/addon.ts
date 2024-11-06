@@ -71,52 +71,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Example IAM Role for EKS Addon "vpc-cni" with AWS managed policy
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- * import * as tls from "@pulumi/tls";
- *
- * const exampleCluster = new aws.eks.Cluster("example", {});
- * const example = exampleCluster.identities.apply(identities => tls.getCertificateOutput({
- *     url: identities[0].oidcs?.[0]?.issuer,
- * }));
- * const exampleOpenIdConnectProvider = new aws.iam.OpenIdConnectProvider("example", {
- *     clientIdLists: ["sts.amazonaws.com"],
- *     thumbprintLists: [example.apply(example => example.certificates?.[0]?.sha1Fingerprint)],
- *     url: exampleCluster.identities.apply(identities => identities[0].oidcs?.[0]?.issuer),
- * });
- * const exampleAssumeRolePolicy = aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         actions: ["sts:AssumeRoleWithWebIdentity"],
- *         effect: "Allow",
- *         conditions: [{
- *             test: "StringEquals",
- *             variable: std.replaceOutput({
- *                 text: exampleOpenIdConnectProvider.url,
- *                 search: "https://",
- *                 replace: "",
- *             }).apply(invoke => `${invoke.result}:sub`),
- *             values: ["system:serviceaccount:kube-system:aws-node"],
- *         }],
- *         principals: [{
- *             identifiers: [exampleOpenIdConnectProvider.arn],
- *             type: "Federated",
- *         }],
- *     }],
- * });
- * const exampleRole = new aws.iam.Role("example", {
- *     assumeRolePolicy: exampleAssumeRolePolicy.apply(exampleAssumeRolePolicy => exampleAssumeRolePolicy.json),
- *     name: "example-vpc-cni-role",
- * });
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
- *     policyArn: "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
- *     role: exampleRole.name,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import EKS add-on using the `cluster_name` and `addon_name` separated by a colon (`:`). For example:

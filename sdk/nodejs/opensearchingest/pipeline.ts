@@ -53,23 +53,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Using file function
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = new aws.opensearchingest.Pipeline("example", {
- *     pipelineName: "example",
- *     pipelineConfigurationBody: std.file({
- *         input: "example.yaml",
- *     }).then(invoke => invoke.result),
- *     maxUnits: 1,
- *     minUnits: 1,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import OpenSearch Ingestion Pipeline using the `id`. For example:

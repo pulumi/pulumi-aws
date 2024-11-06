@@ -498,32 +498,6 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             })
         ```
 
-        ### Lambda Tasks
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.ssm.MaintenanceWindowTask("example",
-            max_concurrency="2",
-            max_errors="1",
-            priority=1,
-            task_arn=example_aws_lambda_function["arn"],
-            task_type="LAMBDA",
-            window_id=example_aws_ssm_maintenance_window["id"],
-            targets=[{
-                "key": "InstanceIds",
-                "values": [example_aws_instance["id"]],
-            }],
-            task_invocation_parameters={
-                "lambda_parameters": {
-                    "client_context": std.base64encode(input="{\\"key1\\":\\"value1\\"}").result,
-                    "payload": "{\\"key1\\":\\"value1\\"}",
-                },
-            })
-        ```
-
         ### Run Command Tasks
 
         ```python
@@ -643,32 +617,6 @@ class MaintenanceWindowTask(pulumi.CustomResource):
                         "name": "InstanceId",
                         "values": [example_aws_instance["id"]],
                     }],
-                },
-            })
-        ```
-
-        ### Lambda Tasks
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.ssm.MaintenanceWindowTask("example",
-            max_concurrency="2",
-            max_errors="1",
-            priority=1,
-            task_arn=example_aws_lambda_function["arn"],
-            task_type="LAMBDA",
-            window_id=example_aws_ssm_maintenance_window["id"],
-            targets=[{
-                "key": "InstanceIds",
-                "values": [example_aws_instance["id"]],
-            }],
-            task_invocation_parameters={
-                "lambda_parameters": {
-                    "client_context": std.base64encode(input="{\\"key1\\":\\"value1\\"}").result,
-                    "payload": "{\\"key1\\":\\"value1\\"}",
                 },
             })
         ```

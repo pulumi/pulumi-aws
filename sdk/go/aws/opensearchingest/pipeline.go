@@ -98,42 +98,6 @@ import (
 //
 // ```
 //
-// ### Using file function
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearchingest"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "example.yaml",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = opensearchingest.NewPipeline(ctx, "example", &opensearchingest.PipelineArgs{
-//				PipelineName:              pulumi.String("example"),
-//				PipelineConfigurationBody: pulumi.String(invokeFile.Result),
-//				MaxUnits:                  pulumi.Int(1),
-//				MinUnits:                  pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import OpenSearch Ingestion Pipeline using the `id`. For example:

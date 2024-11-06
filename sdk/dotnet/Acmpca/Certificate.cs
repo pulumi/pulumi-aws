@@ -44,17 +44,17 @@ namespace Pulumi.Aws.Acmpca
     ///         PermanentDeletionTimeInDays = 7,
     ///     });
     /// 
-    ///     var key = new Tls.PrivateKey("key", new()
+    ///     var key = new Tls.Index.PrivateKey.PrivateKey("key", new()
     ///     {
     ///         Algorithm = "RSA",
     ///     });
     /// 
-    ///     var csr = new Tls.CertRequest("csr", new()
+    ///     var csr = new Tls.Index.CertRequest.CertRequest("csr", new()
     ///     {
     ///         PrivateKeyPem = key.PrivateKeyPem,
-    ///         Subject = new Tls.Inputs.CertRequestSubjectArgs
+    ///         Subject = 
     ///         {
-    ///             CommonName = "example",
+    ///             { "commonName", "example" },
     ///         },
     ///     });
     /// 

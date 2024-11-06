@@ -491,24 +491,6 @@ class Function(pulumi.CustomResource):
         \"\"\")
         ```
 
-        ### With Code
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.appsync.Function("example",
-            api_id=example_aws_appsync_graphql_api["id"],
-            data_source=example_aws_appsync_datasource["name"],
-            name="example",
-            code=std.file(input="some-code-dir").result,
-            runtime={
-                "name": "APPSYNC_JS",
-                "runtime_version": "1.0.0",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_appsync_function` using the AppSync API ID and Function ID separated by `-`. For example:
@@ -593,24 +575,6 @@ class Function(pulumi.CustomResource):
             $utils.appendError($ctx.result.body, $ctx.result.statusCode)
         #end
         \"\"\")
-        ```
-
-        ### With Code
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.appsync.Function("example",
-            api_id=example_aws_appsync_graphql_api["id"],
-            data_source=example_aws_appsync_datasource["name"],
-            name="example",
-            code=std.file(input="some-code-dir").result,
-            runtime={
-                "name": "APPSYNC_JS",
-                "runtime_version": "1.0.0",
-            })
         ```
 
         ## Import

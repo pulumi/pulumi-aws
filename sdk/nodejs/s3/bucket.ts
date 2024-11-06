@@ -36,35 +36,6 @@ import {RoutingRule} from "./index";
  * });
  * ```
  *
- * ### Static Website Hosting
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const b = new aws.s3.Bucket("b", {
- *     bucket: "s3-website-test.mydomain.com",
- *     acl: aws.s3.CannedAcl.PublicRead,
- *     policy: std.file({
- *         input: "policy.json",
- *     }).then(invoke => invoke.result),
- *     website: {
- *         indexDocument: "index.html",
- *         errorDocument: "error.html",
- *         routingRules: `[{
- *     "Condition": {
- *         "KeyPrefixEquals": "docs/"
- *     },
- *     "Redirect": {
- *         "ReplaceKeyPrefixWith": "documents/"
- *     }
- * }]
- * `,
- *     },
- * });
- * ```
- *
  * ### Using CORS
  *
  * ```typescript

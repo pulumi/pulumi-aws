@@ -387,48 +387,6 @@ class ServerCertificate(pulumi.CustomResource):
         For information about server certificates in IAM, see [Managing Server
         Certificates][2] in AWS Documentation.
 
-        ## Example Usage
-
-        **Using certs on file:**
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        test_cert = aws.iam.ServerCertificate("test_cert",
-            name="some_test_cert",
-            certificate_body=std.file(input="self-ca-cert.pem").result,
-            private_key=std.file(input="test-key.pem").result)
-        ```
-
-        **Example with cert in-line:**
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_cert_alt = aws.iam.ServerCertificate("test_cert_alt",
-            name="alt_test_cert",
-            certificate_body=\"\"\"-----BEGIN CERTIFICATE-----
-        [......] # cert contents
-        -----END CERTIFICATE-----
-        \"\"\",
-            private_key=\"\"\"-----BEGIN RSA PRIVATE KEY-----
-        [......] # cert contents
-        -----END RSA PRIVATE KEY-----
-        \"\"\")
-        ```
-
-        **Use in combination with an AWS ELB resource:**
-
-        Some properties of an IAM Server Certificates cannot be updated while they are
-        in use. In order for the provider to effectively manage a Certificate in this situation, it is
-        recommended you utilize the `name_prefix` attribute and enable the
-        `create_before_destroy`. This will allow this provider
-        to create a new, updated `iam.ServerCertificate` resource and replace it in
-        dependant resources before attempting to destroy the old version.
-
         ## Import
 
         Using `pulumi import`, import IAM Server Certificates using the `name`. For example:
@@ -474,48 +432,6 @@ class ServerCertificate(pulumi.CustomResource):
 
         For information about server certificates in IAM, see [Managing Server
         Certificates][2] in AWS Documentation.
-
-        ## Example Usage
-
-        **Using certs on file:**
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        test_cert = aws.iam.ServerCertificate("test_cert",
-            name="some_test_cert",
-            certificate_body=std.file(input="self-ca-cert.pem").result,
-            private_key=std.file(input="test-key.pem").result)
-        ```
-
-        **Example with cert in-line:**
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_cert_alt = aws.iam.ServerCertificate("test_cert_alt",
-            name="alt_test_cert",
-            certificate_body=\"\"\"-----BEGIN CERTIFICATE-----
-        [......] # cert contents
-        -----END CERTIFICATE-----
-        \"\"\",
-            private_key=\"\"\"-----BEGIN RSA PRIVATE KEY-----
-        [......] # cert contents
-        -----END RSA PRIVATE KEY-----
-        \"\"\")
-        ```
-
-        **Use in combination with an AWS ELB resource:**
-
-        Some properties of an IAM Server Certificates cannot be updated while they are
-        in use. In order for the provider to effectively manage a Certificate in this situation, it is
-        recommended you utilize the `name_prefix` attribute and enable the
-        `create_before_destroy`. This will allow this provider
-        to create a new, updated `iam.ServerCertificate` resource and replace it in
-        dependant resources before attempting to destroy the old version.
 
         ## Import
 

@@ -79,31 +79,6 @@ namespace Pulumi.Aws.OpenSearchIngest
     /// });
     /// ```
     /// 
-    /// ### Using file function
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.OpenSearchIngest.Pipeline("example", new()
-    ///     {
-    ///         PipelineName = "example",
-    ///         PipelineConfigurationBody = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "example.yaml",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         MaxUnits = 1,
-    ///         MinUnits = 1,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import OpenSearch Ingestion Pipeline using the `id`. For example:

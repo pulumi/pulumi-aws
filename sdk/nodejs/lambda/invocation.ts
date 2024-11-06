@@ -13,27 +13,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### Dynamic Invocation Example Using Triggers
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = new aws.lambda.Invocation("example", {
- *     functionName: lambdaFunctionTest.functionName,
- *     triggers: {
- *         redeployment: std.sha1({
- *             input: JSON.stringify([exampleAwsLambdaFunction.environment]),
- *         }).then(invoke => invoke.result),
- *     },
- *     input: JSON.stringify({
- *         key1: "value1",
- *         key2: "value2",
- *     }),
- * });
- * ```
- *
  * ### CRUD Lifecycle Scope
  *
  * ```typescript

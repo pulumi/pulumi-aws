@@ -43,44 +43,6 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// 
-    /// ### Static Website Hosting
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var b = new Aws.S3.Bucket("b", new()
-    ///     {
-    ///         BucketName = "s3-website-test.mydomain.com",
-    ///         Acl = Aws.S3.CannedAcl.PublicRead,
-    ///         Policy = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "policy.json",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         Website = new Aws.S3.Inputs.BucketWebsiteArgs
-    ///         {
-    ///             IndexDocument = "index.html",
-    ///             ErrorDocument = "error.html",
-    ///             RoutingRules = @"[{
-    ///     ""Condition"": {
-    ///         ""KeyPrefixEquals"": ""docs/""
-    ///     },
-    ///     ""Redirect"": {
-    ///         ""ReplaceKeyPrefixWith"": ""documents/""
-    ///     }
-    /// }]
-    /// ",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ### Using CORS
     /// 
     /// ```csharp

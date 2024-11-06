@@ -22,47 +22,6 @@ import {ARN} from "..";
  *
  * ## Example Usage
  *
- * ### Basic Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as archive from "@pulumi/archive";
- * import * as aws from "@pulumi/aws";
- *
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["lambda.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const iamForLambda = new aws.iam.Role("iam_for_lambda", {
- *     name: "iam_for_lambda",
- *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
- * });
- * const lambda = archive.getFile({
- *     type: "zip",
- *     sourceFile: "lambda.js",
- *     outputPath: "lambda_function_payload.zip",
- * });
- * const testLambda = new aws.lambda.Function("test_lambda", {
- *     code: new pulumi.asset.FileArchive("lambda_function_payload.zip"),
- *     name: "lambda_function_name",
- *     role: iamForLambda.arn,
- *     handler: "index.test",
- *     sourceCodeHash: lambda.then(lambda => lambda.outputBase64sha256),
- *     runtime: aws.lambda.Runtime.NodeJS18dX,
- *     environment: {
- *         variables: {
- *             foo: "bar",
- *         },
- *     },
- * });
- * ```
- *
  * ### Lambda Layers
  *
  * ```typescript

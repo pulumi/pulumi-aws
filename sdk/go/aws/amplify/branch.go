@@ -52,48 +52,6 @@ import (
 //
 // ```
 //
-// ### Basic Authentication
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
-//				Name: pulumi.String("app"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			invokeBase64encode, err := std.Base64encode(ctx, &std.Base64encodeArgs{
-//				Input: "username:password",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = amplify.NewBranch(ctx, "master", &amplify.BranchArgs{
-//				AppId:                example.ID(),
-//				BranchName:           pulumi.String("master"),
-//				EnableBasicAuth:      pulumi.Bool(true),
-//				BasicAuthCredentials: pulumi.String(invokeBase64encode.Result),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ### Notifications
 //
 // Amplify Console uses EventBridge (formerly known as CloudWatch Events) and SNS for email notifications.  To implement the same functionality, you need to set `enableNotification` in a `amplify.Branch` resource, as well as creating an EventBridge Rule, an SNS topic, and SNS subscriptions.

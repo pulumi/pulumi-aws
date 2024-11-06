@@ -160,56 +160,6 @@ import (
 //
 // ```
 //
-// ### Example Subnets for EKS Node Group
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
-//				State: pulumi.StringRef("available"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			invokeCidrsubnet, err := std.Cidrsubnet(ctx, &std.CidrsubnetArgs{
-//				Input:   exampleAwsVpc.CidrBlock,
-//				Newbits: 8,
-//				Netnum:  val0,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			var example []*ec2.Subnet
-//			for index := 0; index < 2; index++ {
-//				key0 := index
-//				val0 := index
-//				__res, err := ec2.NewSubnet(ctx, fmt.Sprintf("example-%v", key0), &ec2.SubnetArgs{
-//					AvailabilityZone: pulumi.String(available.Names[val0]),
-//					CidrBlock:        pulumi.String(invokeCidrsubnet.Result),
-//					VpcId:            pulumi.Any(exampleAwsVpc.Id),
-//				})
-//				if err != nil {
-//					return err
-//				}
-//				example = append(example, __res)
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import EKS Node Groups using the `cluster_name` and `node_group_name` separated by a colon (`:`). For example:

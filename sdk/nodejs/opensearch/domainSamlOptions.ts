@@ -12,40 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = new aws.opensearch.Domain("example", {
- *     domainName: "example",
- *     engineVersion: "OpenSearch_1.1",
- *     clusterConfig: {
- *         instanceType: "r4.large.search",
- *     },
- *     snapshotOptions: {
- *         automatedSnapshotStartHour: 23,
- *     },
- *     tags: {
- *         Domain: "TestDomain",
- *     },
- * });
- * const exampleDomainSamlOptions = new aws.opensearch.DomainSamlOptions("example", {
- *     domainName: example.domainName,
- *     samlOptions: {
- *         enabled: true,
- *         idp: {
- *             entityId: "https://example.com",
- *             metadataContent: std.file({
- *                 input: "./saml-metadata.xml",
- *             }).then(invoke => invoke.result),
- *         },
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import OpenSearch domains using the `domain_name`. For example:

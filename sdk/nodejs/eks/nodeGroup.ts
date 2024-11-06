@@ -84,30 +84,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Example Subnets for EKS Node Group
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const available = aws.getAvailabilityZones({
- *     state: "available",
- * });
- * const example: aws.ec2.Subnet[] = [];
- * for (const range = {value: 0}; range.value < 2; range.value++) {
- *     example.push(new aws.ec2.Subnet(`example-${range.value}`, {
- *         availabilityZone: available.then(available => available.names[range.value]),
- *         cidrBlock: std.cidrsubnet({
- *             input: exampleAwsVpc.cidrBlock,
- *             newbits: 8,
- *             netnum: range.value,
- *         }).then(invoke => invoke.result),
- *         vpcId: exampleAwsVpc.id,
- *     }));
- * }
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import EKS Node Groups using the `cluster_name` and `node_group_name` separated by a colon (`:`). For example:

@@ -21,7 +21,7 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
-//	"github.com/pulumi/pulumi-tls/sdk/v4/go/tls"
+//	"github.com/pulumi/pulumi-tls/sdk/go/tls"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -32,17 +32,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			verification, err := tls.NewPrivateKey(ctx, "verification", &tls.PrivateKeyArgs{
-//				Algorithm: pulumi.String("RSA"),
+//			verification, err := index / privateKey.NewPrivateKey(ctx, "verification", &index/privateKey.PrivateKeyArgs{
+//				Algorithm: "RSA",
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = tls.NewCertRequest(ctx, "verification", &tls.CertRequestArgs{
-//				KeyAlgorithm:  pulumi.String("RSA"),
+//			_, err = index / certRequest.NewCertRequest(ctx, "verification", &index/certRequest.CertRequestArgs{
+//				KeyAlgorithm:  "RSA",
 //				PrivateKeyPem: verification.PrivateKeyPem,
-//				Subject: &tls.CertRequestSubjectArgs{
-//					CommonName: pulumi.String(example.RegistrationCode),
+//				Subject: map[string]interface{}{
+//					"commonName": example.RegistrationCode,
 //				},
 //			})
 //			if err != nil {

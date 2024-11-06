@@ -13,53 +13,6 @@ namespace Pulumi.Aws.Iam
     /// Provides an IAM Signing Certificate resource to upload Signing Certificates.
     /// 
     /// &gt; **Note:** All arguments including the certificate body will be stored in the raw state as plain-text.
-    /// ## Example Usage
-    /// 
-    /// **Using certs on file:**
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testCert = new Aws.Iam.SigningCertificate("test_cert", new()
-    ///     {
-    ///         Username = "some_test_cert",
-    ///         CertificateBody = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "self-ca-cert.pem",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// **Example with cert in-line:**
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testCertAlt = new Aws.Iam.SigningCertificate("test_cert_alt", new()
-    ///     {
-    ///         Username = "some_test_cert",
-    ///         CertificateBody = @"-----BEGIN CERTIFICATE-----
-    /// [......] # cert contents
-    /// -----END CERTIFICATE-----
-    /// ",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IAM Signing Certificates using the `id`. For example:

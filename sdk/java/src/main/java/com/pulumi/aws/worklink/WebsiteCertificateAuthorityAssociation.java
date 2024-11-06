@@ -19,50 +19,6 @@ import javax.annotation.Nullable;
  * 
  * !&gt; **WARNING:** The `aws.worklink.WebsiteCertificateAuthorityAssociation` resource has been deprecated and will be removed in a future version. Use Amazon WorkSpaces Secure Browser instead.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.worklink.Fleet;
- * import com.pulumi.aws.worklink.FleetArgs;
- * import com.pulumi.aws.worklink.WebsiteCertificateAuthorityAssociation;
- * import com.pulumi.aws.worklink.WebsiteCertificateAuthorityAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Fleet("example", FleetArgs.builder()
- *             .name("example")
- *             .build());
- * 
- *         var test = new WebsiteCertificateAuthorityAssociation("test", WebsiteCertificateAuthorityAssociationArgs.builder()
- *             .fleetArn(testAwsWorklinkFleet.arn())
- *             .certificate(StdFunctions.file(FileArgs.builder()
- *                 .input("certificate.pem")
- *                 .build()).result())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Using `pulumi import`, import WorkLink Website Certificate Authority using `FLEET-ARN,WEBSITE-CA-ID`. For example:

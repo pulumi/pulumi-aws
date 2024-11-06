@@ -460,20 +460,6 @@ class Pipeline(pulumi.CustomResource):
             min_units=1)
         ```
 
-        ### Using file function
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.opensearchingest.Pipeline("example",
-            pipeline_name="example",
-            pipeline_configuration_body=std.file(input="example.yaml").result,
-            max_units=1,
-            min_units=1)
-        ```
-
         ## Import
 
         Using `pulumi import`, import OpenSearch Ingestion Pipeline using the `id`. For example:
@@ -544,20 +530,6 @@ class Pipeline(pulumi.CustomResource):
                 codec:
                   ndjson:
         \"\"\"),
-            max_units=1,
-            min_units=1)
-        ```
-
-        ### Using file function
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.opensearchingest.Pipeline("example",
-            pipeline_name="example",
-            pipeline_configuration_body=std.file(input="example.yaml").result,
             max_units=1,
             min_units=1)
         ```

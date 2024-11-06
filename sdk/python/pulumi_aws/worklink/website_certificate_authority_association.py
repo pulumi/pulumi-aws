@@ -156,19 +156,6 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
 
         !> **WARNING:** The `worklink.WebsiteCertificateAuthorityAssociation` resource has been deprecated and will be removed in a future version. Use Amazon WorkSpaces Secure Browser instead.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.worklink.Fleet("example", name="example")
-        test = aws.worklink.WebsiteCertificateAuthorityAssociation("test",
-            fleet_arn=test_aws_worklink_fleet["arn"],
-            certificate=std.file(input="certificate.pem").result)
-        ```
-
         ## Import
 
         Using `pulumi import`, import WorkLink Website Certificate Authority using `FLEET-ARN,WEBSITE-CA-ID`. For example:
@@ -193,19 +180,6 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
         Provides a AWS WorkLink Website Certificate Authority Association resource.
 
         !> **WARNING:** The `worklink.WebsiteCertificateAuthorityAssociation` resource has been deprecated and will be removed in a future version. Use Amazon WorkSpaces Secure Browser instead.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.worklink.Fleet("example", name="example")
-        test = aws.worklink.WebsiteCertificateAuthorityAssociation("test",
-            fleet_arn=test_aws_worklink_fleet["arn"],
-            certificate=std.file(input="certificate.pem").result)
-        ```
 
         ## Import
 

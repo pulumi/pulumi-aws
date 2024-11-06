@@ -14,31 +14,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Example Usage
     /// 
-    /// ### Uploading a file to a bucket
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @object = new Aws.S3.BucketObjectv2("object", new()
-    ///     {
-    ///         Bucket = "your_bucket_name",
-    ///         Key = "new_object_key",
-    ///         Source = new FileAsset("path/to/file"),
-    ///         Etag = Std.Filemd5.Invoke(new()
-    ///         {
-    ///             Input = "path/to/file",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ### Encrypting with KMS Key
     /// 
     /// ```csharp

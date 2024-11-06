@@ -12,40 +12,6 @@ namespace Pulumi.Aws.Iot
     /// <summary>
     /// Creates and manages an AWS IoT Authorizer.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Iot.Authorizer("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         AuthorizerFunctionArn = exampleAwsLambdaFunction.Arn,
-    ///         SigningDisabled = false,
-    ///         Status = "ACTIVE",
-    ///         TokenKeyName = "Token-Header",
-    ///         TokenSigningPublicKeys = 
-    ///         {
-    ///             { "Key1", Std.File.Invoke(new()
-    ///             {
-    ///                 Input = "test-fixtures/iot-authorizer-signing-key.pem",
-    ///             }).Apply(invoke =&gt; invoke.Result) },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "example" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IOT Authorizers using the name. For example:

@@ -66,52 +66,6 @@ namespace Pulumi.Aws.Ssm
     /// });
     /// ```
     /// 
-    /// ### Lambda Tasks
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ssm.MaintenanceWindowTask("example", new()
-    ///     {
-    ///         MaxConcurrency = "2",
-    ///         MaxErrors = "1",
-    ///         Priority = 1,
-    ///         TaskArn = exampleAwsLambdaFunction.Arn,
-    ///         TaskType = "LAMBDA",
-    ///         WindowId = exampleAwsSsmMaintenanceWindow.Id,
-    ///         Targets = new[]
-    ///         {
-    ///             new Aws.Ssm.Inputs.MaintenanceWindowTaskTargetArgs
-    ///             {
-    ///                 Key = "InstanceIds",
-    ///                 Values = new[]
-    ///                 {
-    ///                     exampleAwsInstance.Id,
-    ///                 },
-    ///             },
-    ///         },
-    ///         TaskInvocationParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersArgs
-    ///         {
-    ///             LambdaParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs
-    ///             {
-    ///                 ClientContext = Std.Base64encode.Invoke(new()
-    ///                 {
-    ///                     Input = "{\"key1\":\"value1\"}",
-    ///                 }).Apply(invoke =&gt; invoke.Result),
-    ///                 Payload = "{\"key1\":\"value1\"}",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ### Run Command Tasks
     /// 
     /// ```csharp

@@ -14,40 +14,6 @@ import (
 
 // Provides an IAM SAML provider.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "saml-metadata.xml",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewSamlProvider(ctx, "default", &iam.SamlProviderArgs{
-//				Name:                 pulumi.String("myprovider"),
-//				SamlMetadataDocument: pulumi.String(invokeFile.Result),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import IAM SAML Providers using the `arn`. For example:

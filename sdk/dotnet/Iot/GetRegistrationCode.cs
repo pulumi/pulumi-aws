@@ -27,18 +27,18 @@ namespace Pulumi.Aws.Iot
         /// {
         ///     var example = Aws.Iot.GetRegistrationCode.Invoke();
         /// 
-        ///     var verification = new Tls.PrivateKey("verification", new()
+        ///     var verification = new Tls.Index.PrivateKey.PrivateKey("verification", new()
         ///     {
         ///         Algorithm = "RSA",
         ///     });
         /// 
-        ///     var verificationCertRequest = new Tls.CertRequest("verification", new()
+        ///     var verificationCertRequest = new Tls.Index.CertRequest.CertRequest("verification", new()
         ///     {
         ///         KeyAlgorithm = "RSA",
         ///         PrivateKeyPem = verification.PrivateKeyPem,
-        ///         Subject = new Tls.Inputs.CertRequestSubjectArgs
+        ///         Subject = 
         ///         {
-        ///             CommonName = example.Apply(getRegistrationCodeResult =&gt; getRegistrationCodeResult.RegistrationCode),
+        ///             { "commonName", example.Apply(getRegistrationCodeResult =&gt; getRegistrationCodeResult.RegistrationCode) },
         ///         },
         ///     });
         /// 
@@ -64,18 +64,18 @@ namespace Pulumi.Aws.Iot
         /// {
         ///     var example = Aws.Iot.GetRegistrationCode.Invoke();
         /// 
-        ///     var verification = new Tls.PrivateKey("verification", new()
+        ///     var verification = new Tls.Index.PrivateKey.PrivateKey("verification", new()
         ///     {
         ///         Algorithm = "RSA",
         ///     });
         /// 
-        ///     var verificationCertRequest = new Tls.CertRequest("verification", new()
+        ///     var verificationCertRequest = new Tls.Index.CertRequest.CertRequest("verification", new()
         ///     {
         ///         KeyAlgorithm = "RSA",
         ///         PrivateKeyPem = verification.PrivateKeyPem,
-        ///         Subject = new Tls.Inputs.CertRequestSubjectArgs
+        ///         Subject = 
         ///         {
-        ///             CommonName = example.Apply(getRegistrationCodeResult =&gt; getRegistrationCodeResult.RegistrationCode),
+        ///             { "commonName", example.Apply(getRegistrationCodeResult =&gt; getRegistrationCodeResult.RegistrationCode) },
         ///         },
         ///     });
         /// 

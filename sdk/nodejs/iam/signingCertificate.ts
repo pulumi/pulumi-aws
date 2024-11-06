@@ -8,38 +8,6 @@ import * as utilities from "../utilities";
  * Provides an IAM Signing Certificate resource to upload Signing Certificates.
  *
  * > **Note:** All arguments including the certificate body will be stored in the raw state as plain-text.
- * ## Example Usage
- *
- * **Using certs on file:**
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const testCert = new aws.iam.SigningCertificate("test_cert", {
- *     username: "some_test_cert",
- *     certificateBody: std.file({
- *         input: "self-ca-cert.pem",
- *     }).then(invoke => invoke.result),
- * });
- * ```
- *
- * **Example with cert in-line:**
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testCertAlt = new aws.iam.SigningCertificate("test_cert_alt", {
- *     username: "some_test_cert",
- *     certificateBody: `-----BEGIN CERTIFICATE-----
- * [......] # cert contents
- * -----END CERTIFICATE-----
- * `,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import IAM Signing Certificates using the `id`. For example:

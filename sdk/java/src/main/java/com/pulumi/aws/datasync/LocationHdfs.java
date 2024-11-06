@@ -66,54 +66,6 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Kerberos Authentication
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.datasync.LocationHdfs;
- * import com.pulumi.aws.datasync.LocationHdfsArgs;
- * import com.pulumi.aws.datasync.inputs.LocationHdfsNameNodeArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App }{{@code
- *     public static void main(String[] args) }{{@code
- *         Pulumi.run(App::stack);
- *     }}{@code
- * 
- *     public static void stack(Context ctx) }{{@code
- *         var example = new LocationHdfs("example", LocationHdfsArgs.builder()
- *             .agentArns(exampleAwsDatasyncAgent.arn())
- *             .authenticationType("KERBEROS")
- *             .nameNodes(LocationHdfsNameNodeArgs.builder()
- *                 .hostname(exampleAwsInstance.privateDns())
- *                 .port(80)
- *                 .build())
- *             .kerberosPrincipal("user}{@literal @}{@code example.com")
- *             .kerberosKeytabBase64(StdFunctions.filebase64(Filebase64Args.builder()
- *                 .input("user.keytab")
- *                 .build()).result())
- *             .kerberosKrb5Conf(StdFunctions.file(FileArgs.builder()
- *                 .input("krb5.conf")
- *                 .build()).result())
- *             .build());
- * 
- *     }}{@code
- * }}{@code
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_datasync_location_hdfs` using the Amazon Resource Name (ARN). For example:

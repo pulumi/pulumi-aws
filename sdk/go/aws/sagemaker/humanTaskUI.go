@@ -14,42 +14,6 @@ import (
 
 // Provides a SageMaker Human Task UI resource.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "sagemaker-human-task-ui-template.html",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = sagemaker.NewHumanTaskUI(ctx, "example", &sagemaker.HumanTaskUIArgs{
-//				HumanTaskUiName: pulumi.String("example"),
-//				UiTemplate: &sagemaker.HumanTaskUIUiTemplateArgs{
-//					Content: pulumi.String(invokeFile.Result),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import SageMaker Human Task UIs using the `human_task_ui_name`. For example:

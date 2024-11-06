@@ -65,52 +65,6 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Basic Authentication
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.amplify.App;
- * import com.pulumi.aws.amplify.AppArgs;
- * import com.pulumi.aws.amplify.Branch;
- * import com.pulumi.aws.amplify.BranchArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new App("example", AppArgs.builder()
- *             .name("app")
- *             .build());
- * 
- *         var master = new Branch("master", BranchArgs.builder()
- *             .appId(example.id())
- *             .branchName("master")
- *             .enableBasicAuth(true)
- *             .basicAuthCredentials(StdFunctions.base64encode(Base64encodeArgs.builder()
- *                 .input("username:password")
- *                 .build()).result())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ### Notifications
  * 
  * Amplify Console uses EventBridge (formerly known as CloudWatch Events) and SNS for email notifications.  To implement the same functionality, you need to set `enable_notification` in a `aws.amplify.Branch` resource, as well as creating an EventBridge Rule, an SNS topic, and SNS subscriptions.

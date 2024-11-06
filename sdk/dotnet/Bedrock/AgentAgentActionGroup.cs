@@ -14,39 +14,6 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// ## Example Usage
     /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Bedrock.AgentAgentActionGroup("example", new()
-    ///     {
-    ///         ActionGroupName = "example",
-    ///         AgentId = "GGRRAED6JP",
-    ///         AgentVersion = "DRAFT",
-    ///         SkipResourceInUseCheck = true,
-    ///         ActionGroupExecutor = new Aws.Bedrock.Inputs.AgentAgentActionGroupActionGroupExecutorArgs
-    ///         {
-    ///             Lambda = "arn:aws:lambda:us-west-2:123456789012:function:example-function",
-    ///         },
-    ///         ApiSchema = new Aws.Bedrock.Inputs.AgentAgentActionGroupApiSchemaArgs
-    ///         {
-    ///             Payload = Std.File.Invoke(new()
-    ///             {
-    ///                 Input = "path/to/schema.yaml",
-    ///             }).Apply(invoke =&gt; invoke.Result),
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ### API Schema in S3 Bucket
     /// 
     /// ```csharp
@@ -130,39 +97,6 @@ namespace Pulumi.Aws.Bedrock
     ///                     },
     ///                 },
     ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Return of Control
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Bedrock.AgentAgentActionGroup("example", new()
-    ///     {
-    ///         ActionGroupName = "example",
-    ///         AgentId = "GGRRAED6JP",
-    ///         AgentVersion = "DRAFT",
-    ///         SkipResourceInUseCheck = true,
-    ///         ActionGroupExecutor = new Aws.Bedrock.Inputs.AgentAgentActionGroupActionGroupExecutorArgs
-    ///         {
-    ///             CustomControl = "RETURN_CONTROL",
-    ///         },
-    ///         ApiSchema = new Aws.Bedrock.Inputs.AgentAgentActionGroupApiSchemaArgs
-    ///         {
-    ///             Payload = Std.File.Invoke(new()
-    ///             {
-    ///                 Input = "path/to/schema.yaml",
-    ///             }).Apply(invoke =&gt; invoke.Result),
     ///         },
     ///     });
     /// 

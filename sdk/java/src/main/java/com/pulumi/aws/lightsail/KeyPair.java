@@ -96,48 +96,6 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Existing Public Key Import
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lightsail.KeyPair;
- * import com.pulumi.aws.lightsail.KeyPairArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var lgKeyPair = new KeyPair("lgKeyPair", KeyPairArgs.builder()
- *             .name("importing")
- *             .publicKey(StdFunctions.file(FileArgs.builder()
- *                 .input("~/.ssh/id_rsa.pub")
- *                 .build()).result())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
- * ## Import
- * 
- * You cannot import Lightsail Key Pairs because the private and public key are only available on initial creation.
- * 
  */
 @ResourceType(type="aws:lightsail/keyPair:KeyPair")
 public class KeyPair extends com.pulumi.resources.CustomResource {

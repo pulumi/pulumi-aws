@@ -29,30 +29,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Kerberos Authentication
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = new aws.datasync.LocationHdfs("example", {
- *     agentArns: [exampleAwsDatasyncAgent.arn],
- *     authenticationType: "KERBEROS",
- *     nameNodes: [{
- *         hostname: exampleAwsInstance.privateDns,
- *         port: 80,
- *     }],
- *     kerberosPrincipal: "user@example.com",
- *     kerberosKeytabBase64: std.filebase64({
- *         input: "user.keytab",
- *     }).then(invoke => invoke.result),
- *     kerberosKrb5Conf: std.file({
- *         input: "krb5.conf",
- *     }).then(invoke => invoke.result),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_datasync_location_hdfs` using the Amazon Resource Name (ARN). For example:

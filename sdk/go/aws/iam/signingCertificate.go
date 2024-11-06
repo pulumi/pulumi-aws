@@ -15,69 +15,6 @@ import (
 // Provides an IAM Signing Certificate resource to upload Signing Certificates.
 //
 // > **Note:** All arguments including the certificate body will be stored in the raw state as plain-text.
-// ## Example Usage
-//
-// **Using certs on file:**
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "self-ca-cert.pem",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewSigningCertificate(ctx, "test_cert", &iam.SigningCertificateArgs{
-//				Username:        pulumi.String("some_test_cert"),
-//				CertificateBody: pulumi.String(invokeFile.Result),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// **Example with cert in-line:**
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iam.NewSigningCertificate(ctx, "test_cert_alt", &iam.SigningCertificateArgs{
-//				Username:        pulumi.String("some_test_cert"),
-//				CertificateBody: pulumi.String("-----BEGIN CERTIFICATE-----\n[......] # cert contents\n-----END CERTIFICATE-----\n"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import IAM Signing Certificates using the `id`. For example:

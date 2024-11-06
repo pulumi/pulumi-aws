@@ -11,23 +11,6 @@ import {Bucket} from "./index";
  *
  * ## Example Usage
  *
- * ### Uploading a file to a bucket
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const object = new aws.s3.BucketObject("object", {
- *     bucket: "your_bucket_name",
- *     key: "new_object_key",
- *     source: new pulumi.asset.FileAsset("path/to/file"),
- *     etag: std.filemd5({
- *         input: "path/to/file",
- *     }).then(invoke => invoke.result),
- * });
- * ```
- *
  * ### Encrypting with KMS Key
  *
  * ```typescript

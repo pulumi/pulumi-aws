@@ -22,38 +22,38 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
-//	"github.com/pulumi/pulumi-tls/sdk/v4/go/tls"
+//	"github.com/pulumi/pulumi-tls/sdk/go/tls"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			caPrivateKey, err := tls.NewPrivateKey(ctx, "ca", &tls.PrivateKeyArgs{
-//				Algorithm: pulumi.String("RSA"),
+//			caPrivateKey, err := index / privateKey.NewPrivateKey(ctx, "ca", &index/privateKey.PrivateKeyArgs{
+//				Algorithm: "RSA",
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			ca, err := tls.NewSelfSignedCert(ctx, "ca", &tls.SelfSignedCertArgs{
+//			ca, err := index / selfSignedCert.NewSelfSignedCert(ctx, "ca", &index/selfSignedCert.SelfSignedCertArgs{
 //				PrivateKeyPem: caPrivateKey.PrivateKeyPem,
-//				Subject: &tls.SelfSignedCertSubjectArgs{
-//					CommonName:   pulumi.String("example.com"),
-//					Organization: pulumi.String("ACME Examples, Inc"),
+//				Subject: map[string]interface{}{
+//					"commonName":   "example.com",
+//					"organization": "ACME Examples, Inc",
 //				},
-//				ValidityPeriodHours: pulumi.Int(12),
-//				AllowedUses: pulumi.StringArray{
-//					pulumi.String("key_encipherment"),
-//					pulumi.String("digital_signature"),
-//					pulumi.String("server_auth"),
+//				ValidityPeriodHours: 12,
+//				AllowedUses: []string{
+//					"key_encipherment",
+//					"digital_signature",
+//					"server_auth",
 //				},
-//				IsCaCertificate: pulumi.Bool(true),
+//				IsCaCertificate: true,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			verificationPrivateKey, err := tls.NewPrivateKey(ctx, "verification", &tls.PrivateKeyArgs{
-//				Algorithm: pulumi.String("RSA"),
+//			verificationPrivateKey, err := index / privateKey.NewPrivateKey(ctx, "verification", &index/privateKey.PrivateKeyArgs{
+//				Algorithm: "RSA",
 //			})
 //			if err != nil {
 //				return err
@@ -62,24 +62,24 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			verification, err := tls.NewCertRequest(ctx, "verification", &tls.CertRequestArgs{
+//			verification, err := index / certRequest.NewCertRequest(ctx, "verification", &index/certRequest.CertRequestArgs{
 //				PrivateKeyPem: verificationPrivateKey.PrivateKeyPem,
-//				Subject: &tls.CertRequestSubjectArgs{
-//					CommonName: pulumi.String(example.RegistrationCode),
+//				Subject: map[string]interface{}{
+//					"commonName": example.RegistrationCode,
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			verificationLocallySignedCert, err := tls.NewLocallySignedCert(ctx, "verification", &tls.LocallySignedCertArgs{
+//			verificationLocallySignedCert, err := index / locallySignedCert.NewLocallySignedCert(ctx, "verification", &index/locallySignedCert.LocallySignedCertArgs{
 //				CertRequestPem:      verification.CertRequestPem,
 //				CaPrivateKeyPem:     caPrivateKey.PrivateKeyPem,
 //				CaCertPem:           ca.CertPem,
-//				ValidityPeriodHours: pulumi.Int(12),
-//				AllowedUses: pulumi.StringArray{
-//					pulumi.String("key_encipherment"),
-//					pulumi.String("digital_signature"),
-//					pulumi.String("server_auth"),
+//				ValidityPeriodHours: 12,
+//				AllowedUses: []string{
+//					"key_encipherment",
+//					"digital_signature",
+//					"server_auth",
 //				},
 //			})
 //			if err != nil {

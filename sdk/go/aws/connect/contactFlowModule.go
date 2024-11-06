@@ -109,46 +109,6 @@ import (
 //
 // Use the generated file as input:
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFilebase64sha256, err := std.Filebase64sha256(ctx, &std.Filebase64sha256Args{
-//				Input: "contact_flow_module.json",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = connect.NewContactFlowModule(ctx, "example", &connect.ContactFlowModuleArgs{
-//				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				Name:        pulumi.String("Example"),
-//				Description: pulumi.String("Example Contact Flow Module Description"),
-//				Filename:    pulumi.String("contact_flow_module.json"),
-//				ContentHash: pulumi.String(invokeFilebase64sha256.Result),
-//				Tags: pulumi.StringMap{
-//					"Name":        pulumi.String("Example Contact Flow Module"),
-//					"Application": pulumi.String("Example"),
-//					"Method":      pulumi.String("Create"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Amazon Connect Contact Flow Modules using the `instance_id` and `contact_flow_module_id` separated by a colon (`:`). For example:

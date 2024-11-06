@@ -396,24 +396,6 @@ class ContactFlowModule(pulumi.CustomResource):
 
         Use the generated file as input:
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.connect.ContactFlowModule("example",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-            name="Example",
-            description="Example Contact Flow Module Description",
-            filename="contact_flow_module.json",
-            content_hash=std.filebase64sha256(input="contact_flow_module.json").result,
-            tags={
-                "Name": "Example Contact Flow Module",
-                "Application": "Example",
-                "Method": "Create",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import Amazon Connect Contact Flow Modules using the `instance_id` and `contact_flow_module_id` separated by a colon (`:`). For example:
@@ -513,24 +495,6 @@ class ContactFlowModule(pulumi.CustomResource):
         Use the AWS CLI to extract Contact Flow Content:
 
         Use the generated file as input:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.connect.ContactFlowModule("example",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-            name="Example",
-            description="Example Contact Flow Module Description",
-            filename="contact_flow_module.json",
-            content_hash=std.filebase64sha256(input="contact_flow_module.json").result,
-            tags={
-                "Name": "Example Contact Flow Module",
-                "Application": "Example",
-                "Method": "Create",
-            })
-        ```
 
         ## Import
 

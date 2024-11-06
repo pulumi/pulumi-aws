@@ -384,19 +384,6 @@ class Fleet(pulumi.CustomResource):
 
         Identity Provider Configuration Usage:
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        test = aws.worklink.Fleet("test",
-            name="tf-worklink-fleet",
-            identity_provider={
-                "type": "SAML",
-                "saml_metadata": std.file(input="saml-metadata.xml").result,
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import WorkLink using the ARN. For example:
@@ -457,19 +444,6 @@ class Fleet(pulumi.CustomResource):
         ```
 
         Identity Provider Configuration Usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        test = aws.worklink.Fleet("test",
-            name="tf-worklink-fleet",
-            identity_provider={
-                "type": "SAML",
-                "saml_metadata": std.file(input="saml-metadata.xml").result,
-            })
-        ```
 
         ## Import
 

@@ -157,21 +157,6 @@ class KeyGroup(pulumi.CustomResource):
 
         The following example below creates a CloudFront key group.
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.cloudfront.PublicKey("example",
-            comment="example public key",
-            encoded_key=std.file(input="public_key.pem").result,
-            name="example-key")
-        example_key_group = aws.cloudfront.KeyGroup("example",
-            comment="example key group",
-            items=[example.id],
-            name="example-key-group")
-        ```
-
         ## Import
 
         Using `pulumi import`, import CloudFront Key Group using the `id`. For example:
@@ -196,21 +181,6 @@ class KeyGroup(pulumi.CustomResource):
         ## Example Usage
 
         The following example below creates a CloudFront key group.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.cloudfront.PublicKey("example",
-            comment="example public key",
-            encoded_key=std.file(input="public_key.pem").result,
-            name="example-key")
-        example_key_group = aws.cloudfront.KeyGroup("example",
-            comment="example key group",
-            items=[example.id],
-            name="example-key-group")
-        ```
 
         ## Import
 

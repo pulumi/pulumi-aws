@@ -14,34 +14,6 @@ namespace Pulumi.Aws.WorkLink
     /// 
     /// !&gt; **WARNING:** The `aws.worklink.WebsiteCertificateAuthorityAssociation` resource has been deprecated and will be removed in a future version. Use Amazon WorkSpaces Secure Browser instead.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.WorkLink.Fleet("example", new()
-    ///     {
-    ///         Name = "example",
-    ///     });
-    /// 
-    ///     var test = new Aws.WorkLink.WebsiteCertificateAuthorityAssociation("test", new()
-    ///     {
-    ///         FleetArn = testAwsWorklinkFleet.Arn,
-    ///         Certificate = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "certificate.pem",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WorkLink Website Certificate Authority using `FLEET-ARN,WEBSITE-CA-ID`. For example:

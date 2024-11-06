@@ -16,42 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "anchor-certificate.crt",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = kms.NewCustomKeyStore(ctx, "test", &kms.CustomKeyStoreArgs{
-//				CloudHsmClusterId:      pulumi.Any(cloudHsmClusterId),
-//				CustomKeyStoreName:     pulumi.String("kms-custom-key-store-test"),
-//				KeyStorePassword:       pulumi.String("noplaintextpasswords1"),
-//				TrustAnchorCertificate: pulumi.String(invokeFile.Result),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import KMS (Key Management) Custom Key Store using the `id`. For example:

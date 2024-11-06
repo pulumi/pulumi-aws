@@ -80,6 +80,30 @@ def get_endpoint(endpoint_type: Optional[str] = None,
     """
     Returns a unique endpoint specific to the AWS account making the call.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_kubernetes as kubernetes
+
+    example = aws.iot.get_endpoint()
+    agent = kubernetes.core.v1.Pod("agent",
+        metadata={
+            name: my-device,
+        },
+        spec={
+            container: [{
+                image: gcr.io/my-project/image-name,
+                name: image-name,
+                env: [{
+                    name: IOT_ENDPOINT,
+                    value: example.endpoint_address,
+                }],
+            }],
+        })
+    ```
+
 
     :param str endpoint_type: Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Jobs`.
     """
@@ -96,6 +120,30 @@ def get_endpoint_output(endpoint_type: Optional[pulumi.Input[Optional[str]]] = N
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointResult]:
     """
     Returns a unique endpoint specific to the AWS account making the call.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+    import pulumi_kubernetes as kubernetes
+
+    example = aws.iot.get_endpoint()
+    agent = kubernetes.core.v1.Pod("agent",
+        metadata={
+            name: my-device,
+        },
+        spec={
+            container: [{
+                image: gcr.io/my-project/image-name,
+                name: image-name,
+                env: [{
+                    name: IOT_ENDPOINT,
+                    value: example.endpoint_address,
+                }],
+            }],
+        })
+    ```
 
 
     :param str endpoint_type: Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Jobs`.

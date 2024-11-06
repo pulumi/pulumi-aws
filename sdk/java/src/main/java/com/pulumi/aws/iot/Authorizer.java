@@ -20,49 +20,6 @@ import javax.annotation.Nullable;
 /**
  * Creates and manages an AWS IoT Authorizer.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iot.Authorizer;
- * import com.pulumi.aws.iot.AuthorizerArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Authorizer("example", AuthorizerArgs.builder()
- *             .name("example")
- *             .authorizerFunctionArn(exampleAwsLambdaFunction.arn())
- *             .signingDisabled(false)
- *             .status("ACTIVE")
- *             .tokenKeyName("Token-Header")
- *             .tokenSigningPublicKeys(Map.of("Key1", StdFunctions.file(FileArgs.builder()
- *                 .input("test-fixtures/iot-authorizer-signing-key.pem")
- *                 .build()).result()))
- *             .tags(Map.of("Name", "example"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Using `pulumi import`, import IOT Authorizers using the name. For example:

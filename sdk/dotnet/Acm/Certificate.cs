@@ -88,19 +88,19 @@ namespace Pulumi.Aws.Acm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Tls.PrivateKey("example", new()
+    ///     var example = new Tls.Index.PrivateKey.PrivateKey("example", new()
     ///     {
     ///         Algorithm = "RSA",
     ///     });
     /// 
-    ///     var exampleSelfSignedCert = new Tls.SelfSignedCert("example", new()
+    ///     var exampleSelfSignedCert = new Tls.Index.SelfSignedCert.SelfSignedCert("example", new()
     ///     {
     ///         KeyAlgorithm = "RSA",
     ///         PrivateKeyPem = example.PrivateKeyPem,
-    ///         Subject = new Tls.Inputs.SelfSignedCertSubjectArgs
+    ///         Subject = 
     ///         {
-    ///             CommonName = "example.com",
-    ///             Organization = "ACME Examples, Inc",
+    ///             { "commonName", "example.com" },
+    ///             { "organization", "ACME Examples, Inc" },
     ///         },
     ///         ValidityPeriodHours = 12,
     ///         AllowedUses = new[]

@@ -564,28 +564,6 @@ class Resolver(pulumi.CustomResource):
             })
         ```
 
-        ### JS
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.appsync.Resolver("example",
-            type="Query",
-            api_id=test_aws_appsync_graphql_api["id"],
-            field="pipelineTest",
-            kind="PIPELINE",
-            code=std.file(input="some-code-dir").result,
-            runtime={
-                "name": "APPSYNC_JS",
-                "runtime_version": "1.0.0",
-            },
-            pipeline_config={
-                "functions": [test["functionId"]],
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import `aws_appsync_resolver` using the `api_id`, a hyphen, `type`, a hypen and `field`. For example:
@@ -695,28 +673,6 @@ class Resolver(pulumi.CustomResource):
                     test2["functionId"],
                     test3["functionId"],
                 ],
-            })
-        ```
-
-        ### JS
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.appsync.Resolver("example",
-            type="Query",
-            api_id=test_aws_appsync_graphql_api["id"],
-            field="pipelineTest",
-            kind="PIPELINE",
-            code=std.file(input="some-code-dir").result,
-            runtime={
-                "name": "APPSYNC_JS",
-                "runtime_version": "1.0.0",
-            },
-            pipeline_config={
-                "functions": [test["functionId"]],
             })
         ```
 

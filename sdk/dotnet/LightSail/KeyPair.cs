@@ -55,33 +55,6 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// });
     /// ```
-    /// 
-    /// ### Existing Public Key Import
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var lgKeyPair = new Aws.LightSail.KeyPair("lg_key_pair", new()
-    ///     {
-    ///         Name = "importing",
-    ///         PublicKey = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "~/.ssh/id_rsa.pub",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// You cannot import Lightsail Key Pairs because the private and public key are only available on initial creation.
     /// </summary>
     [AwsResourceType("aws:lightsail/keyPair:KeyPair")]
     public partial class KeyPair : global::Pulumi.CustomResource

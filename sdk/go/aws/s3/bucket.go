@@ -51,57 +51,6 @@ import (
 //
 // ```
 //
-// ### Static Website Hosting
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "policy.json",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucket(ctx, "b", &s3.BucketArgs{
-//				Bucket: pulumi.String("s3-website-test.mydomain.com"),
-//				Acl:    pulumi.String(s3.CannedAclPublicRead),
-//				Policy: pulumi.String(invokeFile.Result),
-//				Website: &s3.BucketWebsiteArgs{
-//					IndexDocument: pulumi.String("index.html"),
-//					ErrorDocument: pulumi.String("error.html"),
-//					RoutingRules: pulumi.Any(`[{
-//	    "Condition": {
-//	        "KeyPrefixEquals": "docs/"
-//	    },
-//	    "Redirect": {
-//	        "ReplaceKeyPrefixWith": "documents/"
-//	    }
-//	}]
-//
-// `),
-//
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ### Using CORS
 //
 // ```go

@@ -85,22 +85,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Basic Authorization
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = new aws.amplify.App("example", {
- *     name: "example",
- *     enableBasicAuth: true,
- *     basicAuthCredentials: std.base64encode({
- *         input: "username1:password1",
- *     }).then(invoke => invoke.result),
- * });
- * ```
- *
  * ### Rewrites and Redirects
  *
  * ```typescript

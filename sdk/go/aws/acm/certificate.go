@@ -92,31 +92,31 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acm"
-//	"github.com/pulumi/pulumi-tls/sdk/v4/go/tls"
+//	"github.com/pulumi/pulumi-tls/sdk/go/tls"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := tls.NewPrivateKey(ctx, "example", &tls.PrivateKeyArgs{
-//				Algorithm: pulumi.String("RSA"),
+//			example, err := index / privateKey.NewPrivateKey(ctx, "example", &index/privateKey.PrivateKeyArgs{
+//				Algorithm: "RSA",
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSelfSignedCert, err := tls.NewSelfSignedCert(ctx, "example", &tls.SelfSignedCertArgs{
-//				KeyAlgorithm:  pulumi.String("RSA"),
+//			exampleSelfSignedCert, err := index / selfSignedCert.NewSelfSignedCert(ctx, "example", &index/selfSignedCert.SelfSignedCertArgs{
+//				KeyAlgorithm:  "RSA",
 //				PrivateKeyPem: example.PrivateKeyPem,
-//				Subject: &tls.SelfSignedCertSubjectArgs{
-//					CommonName:   pulumi.String("example.com"),
-//					Organization: pulumi.String("ACME Examples, Inc"),
+//				Subject: map[string]interface{}{
+//					"commonName":   "example.com",
+//					"organization": "ACME Examples, Inc",
 //				},
-//				ValidityPeriodHours: pulumi.Int(12),
-//				AllowedUses: pulumi.StringArray{
-//					pulumi.String("key_encipherment"),
-//					pulumi.String("digital_signature"),
-//					pulumi.String("server_auth"),
+//				ValidityPeriodHours: 12,
+//				AllowedUses: []string{
+//					"key_encipherment",
+//					"digital_signature",
+//					"server_auth",
 //				},
 //			})
 //			if err != nil {

@@ -78,41 +78,6 @@ import (
 //
 // Identity Provider Configuration Usage:
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/worklink"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "saml-metadata.xml",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = worklink.NewFleet(ctx, "test", &worklink.FleetArgs{
-//				Name: pulumi.String("tf-worklink-fleet"),
-//				IdentityProvider: &worklink.FleetIdentityProviderArgs{
-//					Type:         pulumi.String("SAML"),
-//					SamlMetadata: pulumi.String(invokeFile.Result),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import WorkLink using the ARN. For example:

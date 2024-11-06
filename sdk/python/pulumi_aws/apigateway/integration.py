@@ -669,67 +669,6 @@ class Integration(pulumi.CustomResource):
             })
         ```
 
-        ## Lambda integration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        config = pulumi.Config()
-        myregion = config.require_object("myregion")
-        account_id = config.require_object("accountId")
-        # API Gateway
-        api = aws.apigateway.RestApi("api", name="myapi")
-        resource = aws.apigateway.Resource("resource",
-            path_part="resource",
-            parent_id=api.root_resource_id,
-            rest_api=api.id)
-        method = aws.apigateway.Method("method",
-            rest_api=api.id,
-            resource_id=resource.id,
-            http_method="GET",
-            authorization="NONE")
-        # IAM
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["lambda.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        role = aws.iam.Role("role",
-            name="myrole",
-            assume_role_policy=assume_role.json)
-        lambda_ = aws.lambda_.Function("lambda",
-            code=pulumi.FileArchive("lambda.zip"),
-            name="mylambda",
-            role=role.arn,
-            handler="lambda.lambda_handler",
-            runtime=aws.lambda_.Runtime.PYTHON3D12,
-            source_code_hash=std.filebase64sha256(input="lambda.zip").result)
-        integration = aws.apigateway.Integration("integration",
-            rest_api=api.id,
-            resource_id=resource.id,
-            http_method=method.http_method,
-            integration_http_method="POST",
-            type="AWS_PROXY",
-            uri=lambda_.invoke_arn)
-        # Lambda
-        apigw_lambda = aws.lambda_.Permission("apigw_lambda",
-            statement_id="AllowExecutionFromAPIGateway",
-            action="lambda:InvokeFunction",
-            function=lambda_.name,
-            principal="apigateway.amazonaws.com",
-            source_arn=pulumi.Output.all(
-                id=api.id,
-                http_method=method.http_method,
-                path=resource.path
-        ).apply(lambda resolved_outputs: f"arn:aws:execute-api:{myregion}:{account_id}:{resolved_outputs['id']}/*/{resolved_outputs['http_method']}{resolved_outputs['path']}")
-        )
-        ```
-
         ## VPC Link
 
         ```python
@@ -862,67 +801,6 @@ class Integration(pulumi.CustomResource):
         }
         \"\"\",
             })
-        ```
-
-        ## Lambda integration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        config = pulumi.Config()
-        myregion = config.require_object("myregion")
-        account_id = config.require_object("accountId")
-        # API Gateway
-        api = aws.apigateway.RestApi("api", name="myapi")
-        resource = aws.apigateway.Resource("resource",
-            path_part="resource",
-            parent_id=api.root_resource_id,
-            rest_api=api.id)
-        method = aws.apigateway.Method("method",
-            rest_api=api.id,
-            resource_id=resource.id,
-            http_method="GET",
-            authorization="NONE")
-        # IAM
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["lambda.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        role = aws.iam.Role("role",
-            name="myrole",
-            assume_role_policy=assume_role.json)
-        lambda_ = aws.lambda_.Function("lambda",
-            code=pulumi.FileArchive("lambda.zip"),
-            name="mylambda",
-            role=role.arn,
-            handler="lambda.lambda_handler",
-            runtime=aws.lambda_.Runtime.PYTHON3D12,
-            source_code_hash=std.filebase64sha256(input="lambda.zip").result)
-        integration = aws.apigateway.Integration("integration",
-            rest_api=api.id,
-            resource_id=resource.id,
-            http_method=method.http_method,
-            integration_http_method="POST",
-            type="AWS_PROXY",
-            uri=lambda_.invoke_arn)
-        # Lambda
-        apigw_lambda = aws.lambda_.Permission("apigw_lambda",
-            statement_id="AllowExecutionFromAPIGateway",
-            action="lambda:InvokeFunction",
-            function=lambda_.name,
-            principal="apigateway.amazonaws.com",
-            source_arn=pulumi.Output.all(
-                id=api.id,
-                http_method=method.http_method,
-                path=resource.path
-        ).apply(lambda resolved_outputs: f"arn:aws:execute-api:{myregion}:{account_id}:{resolved_outputs['id']}/*/{resolved_outputs['http_method']}{resolved_outputs['path']}")
-        )
         ```
 
         ## VPC Link

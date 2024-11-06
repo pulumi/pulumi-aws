@@ -82,36 +82,6 @@ namespace Pulumi.Aws.AppSync
     /// });
     /// ```
     /// 
-    /// ### With Code
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.AppSync.Function("example", new()
-    ///     {
-    ///         ApiId = exampleAwsAppsyncGraphqlApi.Id,
-    ///         DataSource = exampleAwsAppsyncDatasource.Name,
-    ///         Name = "example",
-    ///         Code = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "some-code-dir",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         Runtime = new Aws.AppSync.Inputs.FunctionRuntimeArgs
-    ///         {
-    ///             Name = "APPSYNC_JS",
-    ///             RuntimeVersion = "1.0.0",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_appsync_function` using the AppSync API ID and Function ID separated by `-`. For example:

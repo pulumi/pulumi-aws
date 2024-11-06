@@ -66,31 +66,6 @@ namespace Pulumi.Aws.WorkLink
     /// 
     /// Identity Provider Configuration Usage:
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.WorkLink.Fleet("test", new()
-    ///     {
-    ///         Name = "tf-worklink-fleet",
-    ///         IdentityProvider = new Aws.WorkLink.Inputs.FleetIdentityProviderArgs
-    ///         {
-    ///             Type = "SAML",
-    ///             SamlMetadata = Std.File.Invoke(new()
-    ///             {
-    ///                 Input = "saml-metadata.xml",
-    ///             }).Apply(invoke =&gt; invoke.Result),
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WorkLink using the ARN. For example:

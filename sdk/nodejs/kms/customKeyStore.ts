@@ -9,23 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const test = new aws.kms.CustomKeyStore("test", {
- *     cloudHsmClusterId: cloudHsmClusterId,
- *     customKeyStoreName: "kms-custom-key-store-test",
- *     keyStorePassword: "noplaintextpasswords1",
- *     trustAnchorCertificate: std.file({
- *         input: "anchor-certificate.crt",
- *     }).then(invoke => invoke.result),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import KMS (Key Management) Custom Key Store using the `id`. For example:

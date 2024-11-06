@@ -18,46 +18,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### Basic Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kms.CustomKeyStore;
- * import com.pulumi.aws.kms.CustomKeyStoreArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new CustomKeyStore("test", CustomKeyStoreArgs.builder()
- *             .cloudHsmClusterId(cloudHsmClusterId)
- *             .customKeyStoreName("kms-custom-key-store-test")
- *             .keyStorePassword("noplaintextpasswords1")
- *             .trustAnchorCertificate(StdFunctions.file(FileArgs.builder()
- *                 .input("anchor-certificate.crt")
- *                 .build()).result())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Using `pulumi import`, import KMS (Key Management) Custom Key Store using the `id`. For example:

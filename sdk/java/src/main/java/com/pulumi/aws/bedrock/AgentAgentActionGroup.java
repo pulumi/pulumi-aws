@@ -24,54 +24,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### Basic Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.bedrock.AgentAgentActionGroup;
- * import com.pulumi.aws.bedrock.AgentAgentActionGroupArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentAgentActionGroupActionGroupExecutorArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentAgentActionGroupApiSchemaArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AgentAgentActionGroup("example", AgentAgentActionGroupArgs.builder()
- *             .actionGroupName("example")
- *             .agentId("GGRRAED6JP")
- *             .agentVersion("DRAFT")
- *             .skipResourceInUseCheck(true)
- *             .actionGroupExecutor(AgentAgentActionGroupActionGroupExecutorArgs.builder()
- *                 .lambda("arn:aws:lambda:us-west-2:123456789012:function:example-function")
- *                 .build())
- *             .apiSchema(AgentAgentActionGroupApiSchemaArgs.builder()
- *                 .payload(StdFunctions.file(FileArgs.builder()
- *                     .input("path/to/schema.yaml")
- *                     .build()).result())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ### API Schema in S3 Bucket
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -178,54 +130,6 @@ import javax.annotation.Nullable;
  *                                 .build())
  *                         .build())
  *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
- * ### Return of Control
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.bedrock.AgentAgentActionGroup;
- * import com.pulumi.aws.bedrock.AgentAgentActionGroupArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentAgentActionGroupActionGroupExecutorArgs;
- * import com.pulumi.aws.bedrock.inputs.AgentAgentActionGroupApiSchemaArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AgentAgentActionGroup("example", AgentAgentActionGroupArgs.builder()
- *             .actionGroupName("example")
- *             .agentId("GGRRAED6JP")
- *             .agentVersion("DRAFT")
- *             .skipResourceInUseCheck(true)
- *             .actionGroupExecutor(AgentAgentActionGroupActionGroupExecutorArgs.builder()
- *                 .customControl("RETURN_CONTROL")
- *                 .build())
- *             .apiSchema(AgentAgentActionGroupApiSchemaArgs.builder()
- *                 .payload(StdFunctions.file(FileArgs.builder()
- *                     .input("path/to/schema.yaml")
- *                     .build()).result())
  *                 .build())
  *             .build());
  * 

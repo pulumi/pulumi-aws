@@ -68,58 +68,6 @@ import (
 //
 // ```
 //
-// ### Lambda Tasks
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeBase64encode, err := std.Base64encode(ctx, &std.Base64encodeArgs{
-//				Input: "{\"key1\":\"value1\"}",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssm.NewMaintenanceWindowTask(ctx, "example", &ssm.MaintenanceWindowTaskArgs{
-//				MaxConcurrency: pulumi.String("2"),
-//				MaxErrors:      pulumi.String("1"),
-//				Priority:       pulumi.Int(1),
-//				TaskArn:        pulumi.Any(exampleAwsLambdaFunction.Arn),
-//				TaskType:       pulumi.String("LAMBDA"),
-//				WindowId:       pulumi.Any(exampleAwsSsmMaintenanceWindow.Id),
-//				Targets: ssm.MaintenanceWindowTaskTargetArray{
-//					&ssm.MaintenanceWindowTaskTargetArgs{
-//						Key: pulumi.String("InstanceIds"),
-//						Values: pulumi.StringArray{
-//							exampleAwsInstance.Id,
-//						},
-//					},
-//				},
-//				TaskInvocationParameters: &ssm.MaintenanceWindowTaskTaskInvocationParametersArgs{
-//					LambdaParameters: &ssm.MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs{
-//						ClientContext: pulumi.String(invokeBase64encode.Result),
-//						Payload:       pulumi.String("{\"key1\":\"value1\"}"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ### Run Command Tasks
 //
 // ```go

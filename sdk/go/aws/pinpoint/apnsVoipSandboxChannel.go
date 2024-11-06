@@ -15,51 +15,6 @@ import (
 // Provides a Pinpoint APNs VoIP Sandbox Channel resource.
 //
 // > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/pinpoint"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			app, err := pinpoint.NewApp(ctx, "app", nil)
-//			if err != nil {
-//				return err
-//			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "./certificate.pem",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			invokeFile1, err := std.File(ctx, &std.FileArgs{
-//				Input: "./private_key.key",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pinpoint.NewApnsVoipSandboxChannel(ctx, "apns_voip_sandbox", &pinpoint.ApnsVoipSandboxChannelArgs{
-//				ApplicationId: app.ApplicationId,
-//				Certificate:   pulumi.String(invokeFile.Result),
-//				PrivateKey:    pulumi.String(invokeFile1.Result),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Pinpoint APNs VoIP Sandbox Channel using the `application-id`. For example:

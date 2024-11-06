@@ -248,66 +248,6 @@ namespace Pulumi.Aws.Glue
     /// });
     /// ```
     /// 
-    /// ### Google BigQuery Connection
-    /// 
-    /// For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-bigquery).
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.SecretsManager.Secret("example", new()
-    ///     {
-    ///         Name = "example-secret",
-    ///     });
-    /// 
-    ///     var exampleSecretVersion = new Aws.SecretsManager.SecretVersion("example", new()
-    ///     {
-    ///         SecretId = example.Id,
-    ///         SecretString = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///         {
-    ///             ["credentials"] = Std.Base64encode.Invoke(new()
-    ///             {
-    ///                 Input = @"{
-    ///   ""type"": ""service_account"",
-    ///   ""project_id"": ""example-project"",
-    ///   ""private_key_id"": ""example-key"",
-    ///   ""private_key"": ""-----BEGIN RSA PRIVATE KEY-----\nREDACTED\n-----END RSA PRIVATE KEY-----"",
-    ///   ""client_email"": ""example-project@appspot.gserviceaccount.com"",
-    ///   ""client_id"": example-client"",
-    ///   ""auth_uri"": ""https://accounts.google.com/o/oauth2/auth"",
-    ///   ""token_uri"": ""https://oauth2.googleapis.com/token"",
-    ///   ""auth_provider_x509_cert_url"": ""https://www.googleapis.com/oauth2/v1/certs"",
-    ///   ""client_x509_cert_url"": ""https://www.googleapis.com/robot/v1/metadata/x509/example-project%%40appspot.gserviceaccount.com"",
-    ///   ""universe_domain"": ""googleapis.com""
-    /// }
-    /// ",
-    ///             }).Apply(invoke =&gt; invoke.Result),
-    ///         }),
-    ///     });
-    /// 
-    ///     var exampleConnection = new Aws.Glue.Connection("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         ConnectionType = "BIGQUERY",
-    ///         ConnectionProperties = 
-    ///         {
-    ///             { "SparkProperties", Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 ["secretId"] = example.Name,
-    ///             })) },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ### OpenSearch Service Connection
     /// 
     /// For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-opensearch).

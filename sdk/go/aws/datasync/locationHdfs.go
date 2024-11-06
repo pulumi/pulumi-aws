@@ -52,57 +52,6 @@ import (
 //
 // ```
 //
-// ### Kerberos Authentication
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
-//				Input: "user.keytab",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			invokeFile1, err := std.File(ctx, &std.FileArgs{
-//				Input: "krb5.conf",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = datasync.NewLocationHdfs(ctx, "example", &datasync.LocationHdfsArgs{
-//				AgentArns: pulumi.StringArray{
-//					exampleAwsDatasyncAgent.Arn,
-//				},
-//				AuthenticationType: pulumi.String("KERBEROS"),
-//				NameNodes: datasync.LocationHdfsNameNodeArray{
-//					&datasync.LocationHdfsNameNodeArgs{
-//						Hostname: pulumi.Any(exampleAwsInstance.PrivateDns),
-//						Port:     pulumi.Int(80),
-//					},
-//				},
-//				KerberosPrincipal:    pulumi.String("user@example.com"),
-//				KerberosKeytabBase64: pulumi.String(invokeFilebase64.Result),
-//				KerberosKrb5Conf:     pulumi.String(invokeFile1.Result),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import `aws_datasync_location_hdfs` using the Amazon Resource Name (ARN). For example:

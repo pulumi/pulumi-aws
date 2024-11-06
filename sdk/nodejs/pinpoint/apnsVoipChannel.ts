@@ -8,25 +8,6 @@ import * as utilities from "../utilities";
  * Provides a Pinpoint APNs VoIP Channel resource.
  *
  * > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const app = new aws.pinpoint.App("app", {});
- * const apnsVoip = new aws.pinpoint.ApnsVoipChannel("apns_voip", {
- *     applicationId: app.applicationId,
- *     certificate: std.file({
- *         input: "./certificate.pem",
- *     }).then(invoke => invoke.result),
- *     privateKey: std.file({
- *         input: "./private_key.key",
- *     }).then(invoke => invoke.result),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import Pinpoint APNs VoIP Channel using the `application-id`. For example:

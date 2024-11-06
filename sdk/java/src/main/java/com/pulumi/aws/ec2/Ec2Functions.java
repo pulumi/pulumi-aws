@@ -16220,59 +16220,6 @@ public final class Ec2Functions {
      * an input variable and needs to, for example, determine the CIDR block of that
      * VPC.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might accept a VPC id as a variable
-     * and use this data source to obtain the data necessary to create a subnet
-     * within it.
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcArgs;
-     * import com.pulumi.aws.ec2.Subnet;
-     * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var vpcId = config.get("vpcId");
-     *         final var selected = Ec2Functions.getVpc(GetVpcArgs.builder()
-     *             .id(vpcId)
-     *             .build());
-     * 
-     *         var example = new Subnet("example", SubnetArgs.builder()
-     *             .vpcId(selected.applyValue(getVpcResult -> getVpcResult.id()))
-     *             .availabilityZone("us-west-2a")
-     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(selected.applyValue(getVpcResult -> getVpcResult.cidrBlock()))
-     *                 .newbits(4)
-     *                 .netnum(1)
-     *                 .build()).result())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
      */
     public static Output<GetVpcResult> getVpc() {
         return getVpc(GetVpcArgs.Empty, InvokeOptions.Empty);
@@ -16283,59 +16230,6 @@ public final class Ec2Functions {
      * This resource can prove useful when a module accepts a vpc id as
      * an input variable and needs to, for example, determine the CIDR block of that
      * VPC.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might accept a VPC id as a variable
-     * and use this data source to obtain the data necessary to create a subnet
-     * within it.
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcArgs;
-     * import com.pulumi.aws.ec2.Subnet;
-     * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var vpcId = config.get("vpcId");
-     *         final var selected = Ec2Functions.getVpc(GetVpcArgs.builder()
-     *             .id(vpcId)
-     *             .build());
-     * 
-     *         var example = new Subnet("example", SubnetArgs.builder()
-     *             .vpcId(selected.applyValue(getVpcResult -> getVpcResult.id()))
-     *             .availabilityZone("us-west-2a")
-     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(selected.applyValue(getVpcResult -> getVpcResult.cidrBlock()))
-     *                 .newbits(4)
-     *                 .netnum(1)
-     *                 .build()).result())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVpcResult> getVpcPlain() {
@@ -16348,59 +16242,6 @@ public final class Ec2Functions {
      * an input variable and needs to, for example, determine the CIDR block of that
      * VPC.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might accept a VPC id as a variable
-     * and use this data source to obtain the data necessary to create a subnet
-     * within it.
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcArgs;
-     * import com.pulumi.aws.ec2.Subnet;
-     * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var vpcId = config.get("vpcId");
-     *         final var selected = Ec2Functions.getVpc(GetVpcArgs.builder()
-     *             .id(vpcId)
-     *             .build());
-     * 
-     *         var example = new Subnet("example", SubnetArgs.builder()
-     *             .vpcId(selected.applyValue(getVpcResult -> getVpcResult.id()))
-     *             .availabilityZone("us-west-2a")
-     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(selected.applyValue(getVpcResult -> getVpcResult.cidrBlock()))
-     *                 .newbits(4)
-     *                 .netnum(1)
-     *                 .build()).result())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
      */
     public static Output<GetVpcResult> getVpc(GetVpcArgs args) {
         return getVpc(args, InvokeOptions.Empty);
@@ -16411,59 +16252,6 @@ public final class Ec2Functions {
      * This resource can prove useful when a module accepts a vpc id as
      * an input variable and needs to, for example, determine the CIDR block of that
      * VPC.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might accept a VPC id as a variable
-     * and use this data source to obtain the data necessary to create a subnet
-     * within it.
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcArgs;
-     * import com.pulumi.aws.ec2.Subnet;
-     * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var vpcId = config.get("vpcId");
-     *         final var selected = Ec2Functions.getVpc(GetVpcArgs.builder()
-     *             .id(vpcId)
-     *             .build());
-     * 
-     *         var example = new Subnet("example", SubnetArgs.builder()
-     *             .vpcId(selected.applyValue(getVpcResult -> getVpcResult.id()))
-     *             .availabilityZone("us-west-2a")
-     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(selected.applyValue(getVpcResult -> getVpcResult.cidrBlock()))
-     *                 .newbits(4)
-     *                 .netnum(1)
-     *                 .build()).result())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVpcResult> getVpcPlain(GetVpcPlainArgs args) {
@@ -16476,59 +16264,6 @@ public final class Ec2Functions {
      * an input variable and needs to, for example, determine the CIDR block of that
      * VPC.
      * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might accept a VPC id as a variable
-     * and use this data source to obtain the data necessary to create a subnet
-     * within it.
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcArgs;
-     * import com.pulumi.aws.ec2.Subnet;
-     * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var vpcId = config.get("vpcId");
-     *         final var selected = Ec2Functions.getVpc(GetVpcArgs.builder()
-     *             .id(vpcId)
-     *             .build());
-     * 
-     *         var example = new Subnet("example", SubnetArgs.builder()
-     *             .vpcId(selected.applyValue(getVpcResult -> getVpcResult.id()))
-     *             .availabilityZone("us-west-2a")
-     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(selected.applyValue(getVpcResult -> getVpcResult.cidrBlock()))
-     *                 .newbits(4)
-     *                 .netnum(1)
-     *                 .build()).result())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
      */
     public static Output<GetVpcResult> getVpc(GetVpcArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getVpc:getVpc", TypeShape.of(GetVpcResult.class), args, Utilities.withVersion(options));
@@ -16539,59 +16274,6 @@ public final class Ec2Functions {
      * This resource can prove useful when a module accepts a vpc id as
      * an input variable and needs to, for example, determine the CIDR block of that
      * VPC.
-     * 
-     * ## Example Usage
-     * 
-     * The following example shows how one might accept a VPC id as a variable
-     * and use this data source to obtain the data necessary to create a subnet
-     * within it.
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetVpcArgs;
-     * import com.pulumi.aws.ec2.Subnet;
-     * import com.pulumi.aws.ec2.SubnetArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var vpcId = config.get("vpcId");
-     *         final var selected = Ec2Functions.getVpc(GetVpcArgs.builder()
-     *             .id(vpcId)
-     *             .build());
-     * 
-     *         var example = new Subnet("example", SubnetArgs.builder()
-     *             .vpcId(selected.applyValue(getVpcResult -> getVpcResult.id()))
-     *             .availabilityZone("us-west-2a")
-     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(selected.applyValue(getVpcResult -> getVpcResult.cidrBlock()))
-     *                 .newbits(4)
-     *                 .netnum(1)
-     *                 .build()).result())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVpcResult> getVpcPlain(GetVpcPlainArgs args, InvokeOptions options) {

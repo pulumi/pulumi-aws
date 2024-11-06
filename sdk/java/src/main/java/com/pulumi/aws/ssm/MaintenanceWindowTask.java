@@ -79,61 +79,6 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Lambda Tasks
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ssm.MaintenanceWindowTask;
- * import com.pulumi.aws.ssm.MaintenanceWindowTaskArgs;
- * import com.pulumi.aws.ssm.inputs.MaintenanceWindowTaskTargetArgs;
- * import com.pulumi.aws.ssm.inputs.MaintenanceWindowTaskTaskInvocationParametersArgs;
- * import com.pulumi.aws.ssm.inputs.MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new MaintenanceWindowTask("example", MaintenanceWindowTaskArgs.builder()
- *             .maxConcurrency(2)
- *             .maxErrors(1)
- *             .priority(1)
- *             .taskArn(exampleAwsLambdaFunction.arn())
- *             .taskType("LAMBDA")
- *             .windowId(exampleAwsSsmMaintenanceWindow.id())
- *             .targets(MaintenanceWindowTaskTargetArgs.builder()
- *                 .key("InstanceIds")
- *                 .values(exampleAwsInstance.id())
- *                 .build())
- *             .taskInvocationParameters(MaintenanceWindowTaskTaskInvocationParametersArgs.builder()
- *                 .lambdaParameters(MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs.builder()
- *                     .clientContext(StdFunctions.base64encode(Base64encodeArgs.builder()
- *                         .input("{\"key1\":\"value1\"}")
- *                         .build()).result())
- *                     .payload("{\"key1\":\"value1\"}")
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ### Run Command Tasks
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;

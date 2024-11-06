@@ -214,17 +214,6 @@ class PublicKey(pulumi.CustomResource):
 
         The following example below creates a CloudFront public key.
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.cloudfront.PublicKey("example",
-            comment="test public key",
-            encoded_key=std.file(input="public_key.pem").result,
-            name="test_key")
-        ```
-
         ## Import
 
         Using `pulumi import`, import CloudFront Public Key using the `id`. For example:
@@ -252,17 +241,6 @@ class PublicKey(pulumi.CustomResource):
         ## Example Usage
 
         The following example below creates a CloudFront public key.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.cloudfront.PublicKey("example",
-            comment="test public key",
-            encoded_key=std.file(input="public_key.pem").result,
-            name="test_key")
-        ```
 
         ## Import
 

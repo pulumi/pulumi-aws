@@ -173,31 +173,6 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
         """
         Provides a CloudFront Field-level Encryption Profile resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.cloudfront.PublicKey("example",
-            comment="test public key",
-            encoded_key=std.file(input="public_key.pem").result,
-            name="test_key")
-        test = aws.cloudfront.FieldLevelEncryptionProfile("test",
-            comment="test comment",
-            name="test profile",
-            encryption_entities={
-                "items": [{
-                    "public_key_id": example.id,
-                    "provider_id": "test provider",
-                    "field_patterns": {
-                        "items": ["DateOfBirth"],
-                    },
-                }],
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import Cloudfront Field Level Encryption Profile using the `id`. For example:
@@ -220,31 +195,6 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CloudFront Field-level Encryption Profile resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.cloudfront.PublicKey("example",
-            comment="test public key",
-            encoded_key=std.file(input="public_key.pem").result,
-            name="test_key")
-        test = aws.cloudfront.FieldLevelEncryptionProfile("test",
-            comment="test comment",
-            name="test profile",
-            encryption_entities={
-                "items": [{
-                    "public_key_id": example.id,
-                    "provider_id": "test provider",
-                    "field_patterns": {
-                        "items": ["DateOfBirth"],
-                    },
-                }],
-            })
-        ```
 
         ## Import
 

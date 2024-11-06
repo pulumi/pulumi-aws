@@ -602,43 +602,6 @@ class Application(pulumi.CustomResource):
         """
         Provides an OpsWorks application resource.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        foo_app = aws.opsworks.Application("foo-app",
-            name="foobar application",
-            short_name="foobar",
-            stack_id=main["id"],
-            type="rails",
-            description="This is a Rails application",
-            domains=[
-                "example.com",
-                "sub.example.com",
-            ],
-            environments=[{
-                "key": "key",
-                "value": "value",
-                "secure": False,
-            }],
-            app_sources=[{
-                "type": "git",
-                "revision": "master",
-                "url": "https://github.com/example.git",
-            }],
-            enable_ssl=True,
-            ssl_configurations=[{
-                "private_key": std.file(input="./foobar.key").result,
-                "certificate": std.file(input="./foobar.crt").result,
-            }],
-            document_root="public",
-            auto_bundle_on_deploy="true",
-            rails_env="staging")
-        ```
-
         ## Import
 
         Using `pulumi import`, import Opsworks Application using the `id`. For example:
@@ -675,43 +638,6 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an OpsWorks application resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        foo_app = aws.opsworks.Application("foo-app",
-            name="foobar application",
-            short_name="foobar",
-            stack_id=main["id"],
-            type="rails",
-            description="This is a Rails application",
-            domains=[
-                "example.com",
-                "sub.example.com",
-            ],
-            environments=[{
-                "key": "key",
-                "value": "value",
-                "secure": False,
-            }],
-            app_sources=[{
-                "type": "git",
-                "revision": "master",
-                "url": "https://github.com/example.git",
-            }],
-            enable_ssl=True,
-            ssl_configurations=[{
-                "private_key": std.file(input="./foobar.key").result,
-                "certificate": std.file(input="./foobar.crt").result,
-            }],
-            document_root="public",
-            auto_bundle_on_deploy="true",
-            rails_env="staging")
-        ```
 
         ## Import
 

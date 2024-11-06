@@ -165,48 +165,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Google BigQuery Connection
- *
- * For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-bigquery).
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = new aws.secretsmanager.Secret("example", {name: "example-secret"});
- * const exampleSecretVersion = new aws.secretsmanager.SecretVersion("example", {
- *     secretId: example.id,
- *     secretString: JSON.stringify({
- *         credentials: std.base64encode({
- *             input: `{
- *   "type": "service_account",
- *   "project_id": "example-project",
- *   "private_key_id": "example-key",
- *   "private_key": "-----BEGIN RSA PRIVATE KEY-----\\nREDACTED\\n-----END RSA PRIVATE KEY-----",
- *   "client_email": "example-project@appspot.gserviceaccount.com",
- *   "client_id": example-client",
- *   "auth_uri": "https://accounts.google.com/o/oauth2/auth",
- *   "token_uri": "https://oauth2.googleapis.com/token",
- *   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
- *   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/example-project%%40appspot.gserviceaccount.com",
- *   "universe_domain": "googleapis.com"
- * }
- * `,
- *         }).then(invoke => invoke.result),
- *     }),
- * });
- * const exampleConnection = new aws.glue.Connection("example", {
- *     name: "example",
- *     connectionType: "BIGQUERY",
- *     connectionProperties: {
- *         SparkProperties: pulumi.jsonStringify({
- *             secretId: example.name,
- *         }),
- *     },
- * });
- * ```
- *
  * ### OpenSearch Service Connection
  *
  * For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-opensearch).

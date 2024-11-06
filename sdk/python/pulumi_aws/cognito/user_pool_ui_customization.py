@@ -240,44 +240,6 @@ class UserPoolUICustomization(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### UI customization settings for a single client
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.cognito.UserPool("example", name="example")
-        example_user_pool_domain = aws.cognito.UserPoolDomain("example",
-            domain="example",
-            user_pool_id=example.id)
-        example_user_pool_client = aws.cognito.UserPoolClient("example",
-            name="example",
-            user_pool_id=example.id)
-        example_user_pool_ui_customization = aws.cognito.UserPoolUICustomization("example",
-            client_id=example_user_pool_client.id,
-            css=".label-customizable {font-weight: 400;}",
-            image_file=std.filebase64(input="logo.png").result,
-            user_pool_id=example_user_pool_domain.user_pool_id)
-        ```
-
-        ### UI customization settings for all clients
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.cognito.UserPool("example", name="example")
-        example_user_pool_domain = aws.cognito.UserPoolDomain("example",
-            domain="example",
-            user_pool_id=example.id)
-        example_user_pool_ui_customization = aws.cognito.UserPoolUICustomization("example",
-            css=".label-customizable {font-weight: 400;}",
-            image_file=std.filebase64(input="logo.png").result,
-            user_pool_id=example_user_pool_domain.user_pool_id)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Cognito User Pool UI Customizations using the `user_pool_id` and `client_id` separated by `,`. For example:
@@ -305,44 +267,6 @@ class UserPoolUICustomization(pulumi.CustomResource):
         > **Note:** To use this resource, the user pool must have a domain associated with it. For more information, see the Amazon Cognito Developer Guide on [Customizing the Built-in Sign-In and Sign-up Webpages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-ui-customization.html).
 
         ## Example Usage
-
-        ### UI customization settings for a single client
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.cognito.UserPool("example", name="example")
-        example_user_pool_domain = aws.cognito.UserPoolDomain("example",
-            domain="example",
-            user_pool_id=example.id)
-        example_user_pool_client = aws.cognito.UserPoolClient("example",
-            name="example",
-            user_pool_id=example.id)
-        example_user_pool_ui_customization = aws.cognito.UserPoolUICustomization("example",
-            client_id=example_user_pool_client.id,
-            css=".label-customizable {font-weight: 400;}",
-            image_file=std.filebase64(input="logo.png").result,
-            user_pool_id=example_user_pool_domain.user_pool_id)
-        ```
-
-        ### UI customization settings for all clients
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.cognito.UserPool("example", name="example")
-        example_user_pool_domain = aws.cognito.UserPoolDomain("example",
-            domain="example",
-            user_pool_id=example.id)
-        example_user_pool_ui_customization = aws.cognito.UserPoolUICustomization("example",
-            css=".label-customizable {font-weight: 400;}",
-            image_file=std.filebase64(input="logo.png").result,
-            user_pool_id=example_user_pool_domain.user_pool_id)
-        ```
 
         ## Import
 

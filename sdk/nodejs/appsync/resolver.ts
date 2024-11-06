@@ -93,31 +93,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### JS
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = new aws.appsync.Resolver("example", {
- *     type: "Query",
- *     apiId: testAwsAppsyncGraphqlApi.id,
- *     field: "pipelineTest",
- *     kind: "PIPELINE",
- *     code: std.file({
- *         input: "some-code-dir",
- *     }).then(invoke => invoke.result),
- *     runtime: {
- *         name: "APPSYNC_JS",
- *         runtimeVersion: "1.0.0",
- *     },
- *     pipelineConfig: {
- *         functions: [test.functionId],
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_appsync_resolver` using the `api_id`, a hyphen, `type`, a hypen and `field`. For example:

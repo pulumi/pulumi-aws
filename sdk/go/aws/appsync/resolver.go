@@ -129,52 +129,6 @@ import (
 //
 // ```
 //
-// ### JS
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appsync"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "some-code-dir",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appsync.NewResolver(ctx, "example", &appsync.ResolverArgs{
-//				Type:  pulumi.String("Query"),
-//				ApiId: pulumi.Any(testAwsAppsyncGraphqlApi.Id),
-//				Field: pulumi.String("pipelineTest"),
-//				Kind:  pulumi.String("PIPELINE"),
-//				Code:  pulumi.String(invokeFile.Result),
-//				Runtime: &appsync.ResolverRuntimeArgs{
-//					Name:           pulumi.String("APPSYNC_JS"),
-//					RuntimeVersion: pulumi.String("1.0.0"),
-//				},
-//				PipelineConfig: &appsync.ResolverPipelineConfigArgs{
-//					Functions: pulumi.StringArray{
-//						test.FunctionId,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import `aws_appsync_resolver` using the `api_id`, a hyphen, `type`, a hypen and `field`. For example:

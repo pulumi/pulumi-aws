@@ -9,18 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = new aws.ivs.PlaybackKeyPair("example", {publicKey: std.file({
- *     input: "./public-key.pem",
- * }).then(invoke => invoke.result)});
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import IVS (Interactive Video) Playback Key Pair using the ARN. For example:

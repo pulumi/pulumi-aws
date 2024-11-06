@@ -45,46 +45,6 @@ namespace Pulumi.Aws.DataSync
     /// });
     /// ```
     /// 
-    /// ### Kerberos Authentication
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.DataSync.LocationHdfs("example", new()
-    ///     {
-    ///         AgentArns = new[]
-    ///         {
-    ///             exampleAwsDatasyncAgent.Arn,
-    ///         },
-    ///         AuthenticationType = "KERBEROS",
-    ///         NameNodes = new[]
-    ///         {
-    ///             new Aws.DataSync.Inputs.LocationHdfsNameNodeArgs
-    ///             {
-    ///                 Hostname = exampleAwsInstance.PrivateDns,
-    ///                 Port = 80,
-    ///             },
-    ///         },
-    ///         KerberosPrincipal = "user@example.com",
-    ///         KerberosKeytabBase64 = Std.Filebase64.Invoke(new()
-    ///         {
-    ///             Input = "user.keytab",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         KerberosKrb5Conf = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "krb5.conf",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_datasync_location_hdfs` using the Amazon Resource Name (ARN). For example:

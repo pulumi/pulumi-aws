@@ -20,60 +20,6 @@ import (
 //
 // ## Example Usage
 //
-// ### Dynamic Invocation Example Using Triggers
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal([]interface{}{
-//				exampleAwsLambdaFunction.Environment,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			invokeSha1, err := std.Sha1(ctx, &std.Sha1Args{
-//				Input: json0,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON1, err := json.Marshal(map[string]interface{}{
-//				"key1": "value1",
-//				"key2": "value2",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json1 := string(tmpJSON1)
-//			_, err = lambda.NewInvocation(ctx, "example", &lambda.InvocationArgs{
-//				FunctionName: pulumi.Any(lambdaFunctionTest.FunctionName),
-//				Triggers: pulumi.StringMap{
-//					"redeployment": pulumi.String(invokeSha1.Result),
-//				},
-//				Input: pulumi.String(json1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ### CRUD Lifecycle Scope
 //
 // ```go

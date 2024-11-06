@@ -208,19 +208,6 @@ class StudioLifecycleConfig(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Basic usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.sagemaker.StudioLifecycleConfig("example",
-            studio_lifecycle_config_name="example",
-            studio_lifecycle_config_app_type="JupyterServer",
-            studio_lifecycle_config_content=std.base64encode(input="echo Hello").result)
-        ```
-
         ## Import
 
         Using `pulumi import`, import SageMaker Studio Lifecycle Configs using the `studio_lifecycle_config_name`. For example:
@@ -246,19 +233,6 @@ class StudioLifecycleConfig(pulumi.CustomResource):
         Provides a SageMaker Studio Lifecycle Config resource.
 
         ## Example Usage
-
-        ### Basic usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.sagemaker.StudioLifecycleConfig("example",
-            studio_lifecycle_config_name="example",
-            studio_lifecycle_config_app_type="JupyterServer",
-            studio_lifecycle_config_content=std.base64encode(input="echo Hello").result)
-        ```
 
         ## Import
 

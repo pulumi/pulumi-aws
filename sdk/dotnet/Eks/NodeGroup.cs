@@ -127,41 +127,6 @@ namespace Pulumi.Aws.Eks
     /// });
     /// ```
     /// 
-    /// ### Example Subnets for EKS Node Group
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var available = Aws.GetAvailabilityZones.Invoke(new()
-    ///     {
-    ///         State = "available",
-    ///     });
-    /// 
-    ///     var example = new List&lt;Aws.Ec2.Subnet&gt;();
-    ///     for (var rangeIndex = 0; rangeIndex &lt; 2; rangeIndex++)
-    ///     {
-    ///         var range = new { Value = rangeIndex };
-    ///         example.Add(new Aws.Ec2.Subnet($"example-{range.Value}", new()
-    ///         {
-    ///             AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names)[range.Value],
-    ///             CidrBlock = Std.Cidrsubnet.Invoke(new()
-    ///             {
-    ///                 Input = exampleAwsVpc.CidrBlock,
-    ///                 Newbits = 8,
-    ///                 Netnum = range.Value,
-    ///             }).Apply(invoke =&gt; invoke.Result),
-    ///             VpcId = exampleAwsVpc.Id,
-    ///         }));
-    ///     }
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EKS Node Groups using the `cluster_name` and `node_group_name` separated by a colon (`:`). For example:

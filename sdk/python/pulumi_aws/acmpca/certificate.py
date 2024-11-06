@@ -312,15 +312,15 @@ class Certificate(pulumi.CustomResource):
                 },
             },
             permanent_deletion_time_in_days=7)
-        key = tls.PrivateKey("key", algorithm="RSA")
-        csr = tls.CertRequest("csr",
+        key = tls.index.private_key.PrivateKey("key", algorithm=RSA)
+        csr = tls.index.cert_request.CertRequest("csr",
             private_key_pem=key.private_key_pem,
             subject={
-                "common_name": "example",
+                commonName: example,
             })
         example = aws.acmpca.Certificate("example",
             certificate_authority_arn=example_certificate_authority.arn,
-            certificate_signing_request=csr.cert_request_pem,
+            certificate_signing_request=csr["certRequestPem"],
             signing_algorithm="SHA256WITHRSA",
             validity={
                 "type": "YEARS",
@@ -378,15 +378,15 @@ class Certificate(pulumi.CustomResource):
                 },
             },
             permanent_deletion_time_in_days=7)
-        key = tls.PrivateKey("key", algorithm="RSA")
-        csr = tls.CertRequest("csr",
+        key = tls.index.private_key.PrivateKey("key", algorithm=RSA)
+        csr = tls.index.cert_request.CertRequest("csr",
             private_key_pem=key.private_key_pem,
             subject={
-                "common_name": "example",
+                commonName: example,
             })
         example = aws.acmpca.Certificate("example",
             certificate_authority_arn=example_certificate_authority.arn,
-            certificate_signing_request=csr.cert_request_pem,
+            certificate_signing_request=csr["certRequestPem"],
             signing_algorithm="SHA256WITHRSA",
             validity={
                 "type": "YEARS",

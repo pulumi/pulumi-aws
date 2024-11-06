@@ -14,49 +14,6 @@ import (
 
 // Creates and manages an AWS IoT Authorizer.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "test-fixtures/iot-authorizer-signing-key.pem",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iot.NewAuthorizer(ctx, "example", &iot.AuthorizerArgs{
-//				Name:                  pulumi.String("example"),
-//				AuthorizerFunctionArn: pulumi.Any(exampleAwsLambdaFunction.Arn),
-//				SigningDisabled:       pulumi.Bool(false),
-//				Status:                pulumi.String("ACTIVE"),
-//				TokenKeyName:          pulumi.String("Token-Header"),
-//				TokenSigningPublicKeys: pulumi.StringMap{
-//					"Key1": pulumi.String(invokeFile.Result),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import IOT Authorizers using the name. For example:

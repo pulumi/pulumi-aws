@@ -12,6 +12,53 @@ import (
 )
 
 // Returns a unique endpoint specific to the AWS account making the call.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
+//	"github.com/pulumi/pulumi-kubernetes/sdk/go/kubernetes/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := iot.GetEndpoint(ctx, &iot.GetEndpointArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = core / v1.NewPod(ctx, "agent", &core/v1.PodArgs{
+//				Metadata: map[string]interface{}{
+//					"name": "my-device",
+//				},
+//				Spec: map[string]interface{}{
+//					"container": []map[string]interface{}{
+//						map[string]interface{}{
+//							"image": "gcr.io/my-project/image-name",
+//							"name":  "image-name",
+//							"env": []map[string]interface{}{
+//								map[string]interface{}{
+//									"name":  "IOT_ENDPOINT",
+//									"value": example.EndpointAddress,
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetEndpoint(ctx *pulumi.Context, args *GetEndpointArgs, opts ...pulumi.InvokeOption) (*GetEndpointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEndpointResult

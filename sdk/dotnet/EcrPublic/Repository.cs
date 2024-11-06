@@ -14,47 +14,6 @@ namespace Pulumi.Aws.EcrPublic
     /// 
     /// &gt; **NOTE:** This resource can only be used in the `us-east-1` region.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var foo = new Aws.EcrPublic.Repository("foo", new()
-    ///     {
-    ///         RepositoryName = "bar",
-    ///         CatalogData = new Aws.EcrPublic.Inputs.RepositoryCatalogDataArgs
-    ///         {
-    ///             AboutText = "About Text",
-    ///             Architectures = new[]
-    ///             {
-    ///                 "ARM",
-    ///             },
-    ///             Description = "Description",
-    ///             LogoImageBlob = Std.Filebase64.Invoke(new()
-    ///             {
-    ///                 Input = png,
-    ///             }).Apply(invoke =&gt; invoke.Result),
-    ///             OperatingSystems = new[]
-    ///             {
-    ///                 "Linux",
-    ///             },
-    ///             UsageText = "Usage Text",
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "env", "production" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ECR Public Repositories using the `repository_name`. For example:

@@ -16,68 +16,6 @@ import javax.annotation.Nullable;
 /**
  * Provides an IoT policy attachment.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iot.Policy;
- * import com.pulumi.aws.iot.PolicyArgs;
- * import com.pulumi.aws.iot.Certificate;
- * import com.pulumi.aws.iot.CertificateArgs;
- * import com.pulumi.aws.iot.PolicyAttachment;
- * import com.pulumi.aws.iot.PolicyAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var pubsub = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .actions("iot:*")
- *                 .resources("*")
- *                 .build())
- *             .build());
- * 
- *         var pubsubPolicy = new Policy("pubsubPolicy", PolicyArgs.builder()
- *             .name("PubSubToAnyTopic")
- *             .policy(pubsub.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var cert = new Certificate("cert", CertificateArgs.builder()
- *             .csr(StdFunctions.file(FileArgs.builder()
- *                 .input("csr.pem")
- *                 .build()).result())
- *             .active(true)
- *             .build());
- * 
- *         var att = new PolicyAttachment("att", PolicyAttachmentArgs.builder()
- *             .policy(pubsubPolicy.name())
- *             .target(cert.arn())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  */
 @ResourceType(type="aws:iot/policyAttachment:PolicyAttachment")
 public class PolicyAttachment extends com.pulumi.resources.CustomResource {

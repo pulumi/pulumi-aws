@@ -34,25 +34,6 @@ import * as utilities from "../utilities";
  *     pgpKey: "keybase:keybaseusername",
  * });
  * ```
- *
- * ### Existing Public Key Import
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const lgKeyPair = new aws.lightsail.KeyPair("lg_key_pair", {
- *     name: "importing",
- *     publicKey: std.file({
- *         input: "~/.ssh/id_rsa.pub",
- *     }).then(invoke => invoke.result),
- * });
- * ```
- *
- * ## Import
- *
- * You cannot import Lightsail Key Pairs because the private and public key are only available on initial creation.
  */
 export class KeyPair extends pulumi.CustomResource {
     /**

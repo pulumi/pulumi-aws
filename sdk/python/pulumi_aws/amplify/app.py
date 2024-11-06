@@ -843,19 +843,6 @@ class App(pulumi.CustomResource):
             })
         ```
 
-        ### Basic Authorization
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.amplify.App("example",
-            name="example",
-            enable_basic_auth=True,
-            basic_auth_credentials=std.base64encode(input="username1:password1").result)
-        ```
-
         ### Rewrites and Redirects
 
         ```python
@@ -1026,19 +1013,6 @@ class App(pulumi.CustomResource):
             auto_branch_creation_config={
                 "enable_auto_build": True,
             })
-        ```
-
-        ### Basic Authorization
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.amplify.App("example",
-            name="example",
-            enable_basic_auth=True,
-            basic_auth_credentials=std.base64encode(input="username1:password1").result)
         ```
 
         ### Rewrites and Redirects

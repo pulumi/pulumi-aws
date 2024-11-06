@@ -12,29 +12,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = new aws.bedrock.AgentAgentActionGroup("example", {
- *     actionGroupName: "example",
- *     agentId: "GGRRAED6JP",
- *     agentVersion: "DRAFT",
- *     skipResourceInUseCheck: true,
- *     actionGroupExecutor: {
- *         lambda: "arn:aws:lambda:us-west-2:123456789012:function:example-function",
- *     },
- *     apiSchema: {
- *         payload: std.file({
- *             input: "path/to/schema.yaml",
- *         }).then(invoke => invoke.result),
- *     },
- * });
- * ```
- *
  * ### API Schema in S3 Bucket
  *
  * ```typescript
@@ -93,29 +70,6 @@ import * as utilities from "../utilities";
  *                 ],
  *             }],
  *         },
- *     },
- * });
- * ```
- *
- * ### Return of Control
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = new aws.bedrock.AgentAgentActionGroup("example", {
- *     actionGroupName: "example",
- *     agentId: "GGRRAED6JP",
- *     agentVersion: "DRAFT",
- *     skipResourceInUseCheck: true,
- *     actionGroupExecutor: {
- *         customControl: "RETURN_CONTROL",
- *     },
- *     apiSchema: {
- *         payload: std.file({
- *             input: "path/to/schema.yaml",
- *         }).then(invoke => invoke.result),
  *     },
  * });
  * ```

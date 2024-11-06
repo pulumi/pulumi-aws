@@ -108,51 +108,6 @@ import javax.annotation.Nullable;
  * 
  * Use the generated file as input:
  * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.connect.ContactFlow;
- * import com.pulumi.aws.connect.ContactFlowArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new ContactFlow("test", ContactFlowArgs.builder()
- *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
- *             .name("Test")
- *             .description("Test Contact Flow Description")
- *             .type("CONTACT_FLOW")
- *             .filename("contact_flow.json")
- *             .contentHash(StdFunctions.filebase64sha256(Filebase64sha256Args.builder()
- *                 .input("contact_flow.json")
- *                 .build()).result())
- *             .tags(Map.ofEntries(
- *                 Map.entry("Name", "Test Contact Flow"),
- *                 Map.entry("Application", "Example"),
- *                 Map.entry("Method", "Create")
- *             ))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Using `pulumi import`, import Amazon Connect Contact Flows using the `instance_id` and `contact_flow_id` separated by a colon (`:`). For example:

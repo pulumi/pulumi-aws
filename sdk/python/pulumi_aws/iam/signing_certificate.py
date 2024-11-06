@@ -155,34 +155,6 @@ class SigningCertificate(pulumi.CustomResource):
         Provides an IAM Signing Certificate resource to upload Signing Certificates.
 
         > **Note:** All arguments including the certificate body will be stored in the raw state as plain-text.
-        ## Example Usage
-
-        **Using certs on file:**
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        test_cert = aws.iam.SigningCertificate("test_cert",
-            username="some_test_cert",
-            certificate_body=std.file(input="self-ca-cert.pem").result)
-        ```
-
-        **Example with cert in-line:**
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_cert_alt = aws.iam.SigningCertificate("test_cert_alt",
-            username="some_test_cert",
-            certificate_body=\"\"\"-----BEGIN CERTIFICATE-----
-        [......] # cert contents
-        -----END CERTIFICATE-----
-        \"\"\")
-        ```
-
         ## Import
 
         Using `pulumi import`, import IAM Signing Certificates using the `id`. For example:
@@ -207,34 +179,6 @@ class SigningCertificate(pulumi.CustomResource):
         Provides an IAM Signing Certificate resource to upload Signing Certificates.
 
         > **Note:** All arguments including the certificate body will be stored in the raw state as plain-text.
-        ## Example Usage
-
-        **Using certs on file:**
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        test_cert = aws.iam.SigningCertificate("test_cert",
-            username="some_test_cert",
-            certificate_body=std.file(input="self-ca-cert.pem").result)
-        ```
-
-        **Example with cert in-line:**
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_cert_alt = aws.iam.SigningCertificate("test_cert_alt",
-            username="some_test_cert",
-            certificate_body=\"\"\"-----BEGIN CERTIFICATE-----
-        [......] # cert contents
-        -----END CERTIFICATE-----
-        \"\"\")
-        ```
-
         ## Import
 
         Using `pulumi import`, import IAM Signing Certificates using the `id`. For example:

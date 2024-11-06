@@ -101,46 +101,6 @@ import (
 //
 // ```
 //
-// ### With Code
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appsync"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "some-code-dir",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appsync.NewFunction(ctx, "example", &appsync.FunctionArgs{
-//				ApiId:      pulumi.Any(exampleAwsAppsyncGraphqlApi.Id),
-//				DataSource: pulumi.Any(exampleAwsAppsyncDatasource.Name),
-//				Name:       pulumi.String("example"),
-//				Code:       pulumi.String(invokeFile.Result),
-//				Runtime: &appsync.FunctionRuntimeArgs{
-//					Name:           pulumi.String("APPSYNC_JS"),
-//					RuntimeVersion: pulumi.String("1.0.0"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import `aws_appsync_function` using the AppSync API ID and Function ID separated by `-`. For example:

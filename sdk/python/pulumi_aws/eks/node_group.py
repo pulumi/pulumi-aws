@@ -811,24 +811,6 @@ class NodeGroup(pulumi.CustomResource):
             role=example.name)
         ```
 
-        ### Example Subnets for EKS Node Group
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        available = aws.get_availability_zones(state="available")
-        example = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example.append(aws.ec2.Subnet(f"example-{range['value']}",
-                availability_zone=available.names[range["value"]],
-                cidr_block=std.cidrsubnet(input=example_aws_vpc["cidrBlock"],
-                    newbits=8,
-                    netnum=range["value"]).result,
-                vpc_id=example_aws_vpc["id"]))
-        ```
-
         ## Import
 
         Using `pulumi import`, import EKS Node Groups using the `cluster_name` and `node_group_name` separated by a colon (`:`). For example:
@@ -937,24 +919,6 @@ class NodeGroup(pulumi.CustomResource):
         example__amazon_ec2_container_registry_read_only = aws.iam.RolePolicyAttachment("example-AmazonEC2ContainerRegistryReadOnly",
             policy_arn="arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
             role=example.name)
-        ```
-
-        ### Example Subnets for EKS Node Group
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        available = aws.get_availability_zones(state="available")
-        example = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example.append(aws.ec2.Subnet(f"example-{range['value']}",
-                availability_zone=available.names[range["value"]],
-                cidr_block=std.cidrsubnet(input=example_aws_vpc["cidrBlock"],
-                    newbits=8,
-                    netnum=range["value"]).result,
-                vpc_id=example_aws_vpc["id"]))
         ```
 
         ## Import

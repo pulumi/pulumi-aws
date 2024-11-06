@@ -1042,20 +1042,6 @@ class BucketObjectv2(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Uploading a file to a bucket
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        object = aws.s3.BucketObjectv2("object",
-            bucket="your_bucket_name",
-            key="new_object_key",
-            source=pulumi.FileAsset("path/to/file"),
-            etag=std.filemd5(input="path/to/file").result)
-        ```
-
         ### Encrypting with KMS Key
 
         ```python
@@ -1226,20 +1212,6 @@ class BucketObjectv2(pulumi.CustomResource):
         Provides an S3 object resource.
 
         ## Example Usage
-
-        ### Uploading a file to a bucket
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        object = aws.s3.BucketObjectv2("object",
-            bucket="your_bucket_name",
-            key="new_object_key",
-            source=pulumi.FileAsset("path/to/file"),
-            etag=std.filemd5(input="path/to/file").result)
-        ```
 
         ### Encrypting with KMS Key
 

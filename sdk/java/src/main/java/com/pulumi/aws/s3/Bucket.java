@@ -76,60 +76,6 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Static Website Hosting
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.Bucket;
- * import com.pulumi.aws.s3.BucketArgs;
- * import com.pulumi.aws.s3.inputs.BucketWebsiteArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var b = new Bucket("b", BucketArgs.builder()
- *             .bucket("s3-website-test.mydomain.com")
- *             .acl("public-read")
- *             .policy(StdFunctions.file(FileArgs.builder()
- *                 .input("policy.json")
- *                 .build()).result())
- *             .website(BucketWebsiteArgs.builder()
- *                 .indexDocument("index.html")
- *                 .errorDocument("error.html")
- *                 .routingRules("""
- * [{
- *     "Condition": {
- *         "KeyPrefixEquals": "docs/"
- *     },
- *     "Redirect": {
- *         "ReplaceKeyPrefixWith": "documents/"
- *     }
- * }]
- *                 """)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ### Using CORS
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;

@@ -68,27 +68,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### With Code
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = new aws.appsync.Function("example", {
- *     apiId: exampleAwsAppsyncGraphqlApi.id,
- *     dataSource: exampleAwsAppsyncDatasource.name,
- *     name: "example",
- *     code: std.file({
- *         input: "some-code-dir",
- *     }).then(invoke => invoke.result),
- *     runtime: {
- *         name: "APPSYNC_JS",
- *         runtimeVersion: "1.0.0",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_appsync_function` using the AppSync API ID and Function ID separated by `-`. For example:

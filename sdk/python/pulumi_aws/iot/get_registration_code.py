@@ -73,12 +73,12 @@ def get_registration_code(opts: Optional[pulumi.InvokeOptions] = None) -> Awaita
     import pulumi_tls as tls
 
     example = aws.iot.get_registration_code()
-    verification = tls.PrivateKey("verification", algorithm="RSA")
-    verification_cert_request = tls.CertRequest("verification",
-        key_algorithm="RSA",
+    verification = tls.index.private_key.PrivateKey("verification", algorithm=RSA)
+    verification_cert_request = tls.index.cert_request.CertRequest("verification",
+        key_algorithm=RSA,
         private_key_pem=verification.private_key_pem,
         subject={
-            "common_name": example.registration_code,
+            commonName: example.registration_code,
         })
     ```
     """
@@ -101,12 +101,12 @@ def get_registration_code_output(opts: Optional[pulumi.InvokeOptions] = None) ->
     import pulumi_tls as tls
 
     example = aws.iot.get_registration_code()
-    verification = tls.PrivateKey("verification", algorithm="RSA")
-    verification_cert_request = tls.CertRequest("verification",
-        key_algorithm="RSA",
+    verification = tls.index.private_key.PrivateKey("verification", algorithm=RSA)
+    verification_cert_request = tls.index.cert_request.CertRequest("verification",
+        key_algorithm=RSA,
         private_key_pem=verification.private_key_pem,
         subject={
-            "common_name": example.registration_code,
+            commonName: example.registration_code,
         })
     ```
     """

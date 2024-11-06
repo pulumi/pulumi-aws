@@ -503,45 +503,6 @@ class Connection(pulumi.CustomResource):
             })
         ```
 
-        ### Google BigQuery Connection
-
-        For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-bigquery).
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.secretsmanager.Secret("example", name="example-secret")
-        example_secret_version = aws.secretsmanager.SecretVersion("example",
-            secret_id=example.id,
-            secret_string=json.dumps({
-                "credentials": std.base64encode(input=\"\"\"{
-          "type": "service_account",
-          "project_id": "example-project",
-          "private_key_id": "example-key",
-          "private_key": "-----BEGIN RSA PRIVATE KEY-----\\nREDACTED\\n-----END RSA PRIVATE KEY-----",
-          "client_email": "example-project@appspot.gserviceaccount.com",
-          "client_id": example-client",
-          "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-          "token_uri": "https://oauth2.googleapis.com/token",
-          "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-          "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/example-project%%40appspot.gserviceaccount.com",
-          "universe_domain": "googleapis.com"
-        }
-        \"\"\").result,
-            }))
-        example_connection = aws.glue.Connection("example",
-            name="example",
-            connection_type="BIGQUERY",
-            connection_properties={
-                "SparkProperties": pulumi.Output.json_dumps({
-                    "secretId": example.name,
-                }),
-            })
-        ```
-
         ### OpenSearch Service Connection
 
         For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-opensearch).
@@ -773,45 +734,6 @@ class Connection(pulumi.CustomResource):
                 "SparkProperties": pulumi.Output.json_dumps({
                     "secretId": example.name,
                     "url": "jdbc:sqlserver:exampledbserver.database.windows.net:1433;database=exampledatabase",
-                }),
-            })
-        ```
-
-        ### Google BigQuery Connection
-
-        For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html#connection-properties-bigquery).
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.secretsmanager.Secret("example", name="example-secret")
-        example_secret_version = aws.secretsmanager.SecretVersion("example",
-            secret_id=example.id,
-            secret_string=json.dumps({
-                "credentials": std.base64encode(input=\"\"\"{
-          "type": "service_account",
-          "project_id": "example-project",
-          "private_key_id": "example-key",
-          "private_key": "-----BEGIN RSA PRIVATE KEY-----\\nREDACTED\\n-----END RSA PRIVATE KEY-----",
-          "client_email": "example-project@appspot.gserviceaccount.com",
-          "client_id": example-client",
-          "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-          "token_uri": "https://oauth2.googleapis.com/token",
-          "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-          "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/example-project%%40appspot.gserviceaccount.com",
-          "universe_domain": "googleapis.com"
-        }
-        \"\"\").result,
-            }))
-        example_connection = aws.glue.Connection("example",
-            name="example",
-            connection_type="BIGQUERY",
-            connection_properties={
-                "SparkProperties": pulumi.Output.json_dumps({
-                    "secretId": example.name,
                 }),
             })
         ```

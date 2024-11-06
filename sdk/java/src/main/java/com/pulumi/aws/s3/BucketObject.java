@@ -22,47 +22,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### Uploading a file to a bucket
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketObject;
- * import com.pulumi.aws.s3.BucketObjectArgs;
- * import com.pulumi.asset.FileAsset;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var object = new BucketObject("object", BucketObjectArgs.builder()
- *             .bucket("your_bucket_name")
- *             .key("new_object_key")
- *             .source(new FileAsset("path/to/file"))
- *             .etag(StdFunctions.filemd5(Filemd5Args.builder()
- *                 .input("path/to/file")
- *                 .build()).result())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ### Encrypting with KMS Key
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;

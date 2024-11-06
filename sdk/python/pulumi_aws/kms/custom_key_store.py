@@ -171,20 +171,6 @@ class CustomKeyStore(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        test = aws.kms.CustomKeyStore("test",
-            cloud_hsm_cluster_id=cloud_hsm_cluster_id,
-            custom_key_store_name="kms-custom-key-store-test",
-            key_store_password="noplaintextpasswords1",
-            trust_anchor_certificate=std.file(input="anchor-certificate.crt").result)
-        ```
-
         ## Import
 
         Using `pulumi import`, import KMS (Key Management) Custom Key Store using the `id`. For example:
@@ -210,20 +196,6 @@ class CustomKeyStore(pulumi.CustomResource):
         Resource for managing an AWS KMS (Key Management) Custom Key Store.
 
         ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        test = aws.kms.CustomKeyStore("test",
-            cloud_hsm_cluster_id=cloud_hsm_cluster_id,
-            custom_key_store_name="kms-custom-key-store-test",
-            key_store_password="noplaintextpasswords1",
-            trust_anchor_certificate=std.file(input="anchor-certificate.crt").result)
-        ```
 
         ## Import
 

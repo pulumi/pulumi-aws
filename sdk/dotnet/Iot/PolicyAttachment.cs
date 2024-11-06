@@ -11,60 +11,6 @@ namespace Pulumi.Aws.Iot
 {
     /// <summary>
     /// Provides an IoT policy attachment.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var pubsub = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "iot:*",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     "*",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var pubsubPolicy = new Aws.Iot.Policy("pubsub", new()
-    ///     {
-    ///         Name = "PubSubToAnyTopic",
-    ///         PolicyDocument = pubsub.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var cert = new Aws.Iot.Certificate("cert", new()
-    ///     {
-    ///         Csr = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "csr.pem",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         Active = true,
-    ///     });
-    /// 
-    ///     var att = new Aws.Iot.PolicyAttachment("att", new()
-    ///     {
-    ///         Policy = pubsubPolicy.Name,
-    ///         Target = cert.Arn,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [AwsResourceType("aws:iot/policyAttachment:PolicyAttachment")]
     public partial class PolicyAttachment : global::Pulumi.CustomResource

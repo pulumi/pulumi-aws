@@ -116,36 +116,6 @@ namespace Pulumi.Aws.Connect
     /// 
     /// Use the generated file as input:
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Connect.ContactFlowModule("example", new()
-    ///     {
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///         Name = "Example",
-    ///         Description = "Example Contact Flow Module Description",
-    ///         Filename = "contact_flow_module.json",
-    ///         ContentHash = Std.Filebase64sha256.Invoke(new()
-    ///         {
-    ///             Input = "contact_flow_module.json",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "Example Contact Flow Module" },
-    ///             { "Application", "Example" },
-    ///             { "Method", "Create" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amazon Connect Contact Flow Modules using the `instance_id` and `contact_flow_module_id` separated by a colon (`:`). For example:

@@ -717,21 +717,6 @@ class Branch(pulumi.CustomResource):
             })
         ```
 
-        ### Basic Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.amplify.App("example", name="app")
-        master = aws.amplify.Branch("master",
-            app_id=example.id,
-            branch_name="master",
-            enable_basic_auth=True,
-            basic_auth_credentials=std.base64encode(input="username:password").result)
-        ```
-
         ### Notifications
 
         Amplify Console uses EventBridge (formerly known as CloudWatch Events) and SNS for email notifications.  To implement the same functionality, you need to set `enable_notification` in a `amplify.Branch` resource, as well as creating an EventBridge Rule, an SNS topic, and SNS subscriptions.
@@ -771,8 +756,8 @@ class Branch(pulumi.CustomResource):
             arn=amplify_app_master_topic.arn,
             input_transformer={
                 "input_paths": {
-                    "job_id": "$.detail.jobId",
-                    "app_id": "$.detail.appId",
+                    "jobId": "$.detail.jobId",
+                    "appId": "$.detail.appId",
                     "region": "$.region",
                     "branch": "$.detail.branchName",
                     "status": "$.detail.jobStatus",
@@ -856,21 +841,6 @@ class Branch(pulumi.CustomResource):
             })
         ```
 
-        ### Basic Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.amplify.App("example", name="app")
-        master = aws.amplify.Branch("master",
-            app_id=example.id,
-            branch_name="master",
-            enable_basic_auth=True,
-            basic_auth_credentials=std.base64encode(input="username:password").result)
-        ```
-
         ### Notifications
 
         Amplify Console uses EventBridge (formerly known as CloudWatch Events) and SNS for email notifications.  To implement the same functionality, you need to set `enable_notification` in a `amplify.Branch` resource, as well as creating an EventBridge Rule, an SNS topic, and SNS subscriptions.
@@ -910,8 +880,8 @@ class Branch(pulumi.CustomResource):
             arn=amplify_app_master_topic.arn,
             input_transformer={
                 "input_paths": {
-                    "job_id": "$.detail.jobId",
-                    "app_id": "$.detail.appId",
+                    "jobId": "$.detail.jobId",
+                    "appId": "$.detail.appId",
                     "region": "$.region",
                     "branch": "$.detail.branchName",
                     "status": "$.detail.jobStatus",

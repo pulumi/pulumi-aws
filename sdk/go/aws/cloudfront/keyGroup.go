@@ -16,49 +16,6 @@ import (
 //
 // The following example below creates a CloudFront key group.
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "public_key.pem",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := cloudfront.NewPublicKey(ctx, "example", &cloudfront.PublicKeyArgs{
-//				Comment:    pulumi.String("example public key"),
-//				EncodedKey: pulumi.String(invokeFile.Result),
-//				Name:       pulumi.String("example-key"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudfront.NewKeyGroup(ctx, "example", &cloudfront.KeyGroupArgs{
-//				Comment: pulumi.String("example key group"),
-//				Items: pulumi.StringArray{
-//					example.ID(),
-//				},
-//				Name: pulumi.String("example-key-group"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import CloudFront Key Group using the `id`. For example:

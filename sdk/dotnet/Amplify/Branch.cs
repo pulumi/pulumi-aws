@@ -42,36 +42,6 @@ namespace Pulumi.Aws.Amplify
     /// });
     /// ```
     /// 
-    /// ### Basic Authentication
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Amplify.App("example", new()
-    ///     {
-    ///         Name = "app",
-    ///     });
-    /// 
-    ///     var master = new Aws.Amplify.Branch("master", new()
-    ///     {
-    ///         AppId = example.Id,
-    ///         BranchName = "master",
-    ///         EnableBasicAuth = true,
-    ///         BasicAuthCredentials = Std.Base64encode.Invoke(new()
-    ///         {
-    ///             Input = "username:password",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ### Notifications
     /// 
     /// Amplify Console uses EventBridge (formerly known as CloudWatch Events) and SNS for email notifications.  To implement the same functionality, you need to set `enable_notification` in a `aws.amplify.Branch` resource, as well as creating an EventBridge Rule, an SNS topic, and SNS subscriptions.

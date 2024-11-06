@@ -848,63 +848,6 @@ class EventTarget(pulumi.CustomResource):
             }])
         ```
 
-        ### ECS Run Task with Role and Task Override Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["events.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        ecs_events = aws.iam.Role("ecs_events",
-            name="ecs_events",
-            assume_role_policy=assume_role.json)
-        ecs_events_run_task_with_any_role = aws.iam.get_policy_document(statements=[
-            {
-                "effect": "Allow",
-                "actions": ["iam:PassRole"],
-                "resources": ["*"],
-            },
-            {
-                "effect": "Allow",
-                "actions": ["ecs:RunTask"],
-                "resources": [std.replace(text=task_name["arn"],
-                    search="/:\\\\d+$/",
-                    replace=":*").result],
-            },
-        ])
-        ecs_events_run_task_with_any_role_role_policy = aws.iam.RolePolicy("ecs_events_run_task_with_any_role",
-            name="ecs_events_run_task_with_any_role",
-            role=ecs_events.id,
-            policy=ecs_events_run_task_with_any_role.json)
-        ecs_scheduled_task = aws.cloudwatch.EventTarget("ecs_scheduled_task",
-            target_id="run-scheduled-task-every-hour",
-            arn=cluster_name["arn"],
-            rule=every_hour["name"],
-            role_arn=ecs_events.arn,
-            ecs_target={
-                "task_count": 1,
-                "task_definition_arn": task_name["arn"],
-            },
-            input=json.dumps({
-                "containerOverrides": [{
-                    "name": "name-of-container-to-override",
-                    "command": [
-                        "bin/console",
-                        "scheduled-task",
-                    ],
-                }],
-            }))
-        ```
-
         ### API Gateway target
 
         ```python
@@ -921,10 +864,10 @@ class EventTarget(pulumi.CustomResource):
             rule=example_event_rule.id,
             http_target={
                 "query_string_parameters": {
-                    "body": "$.detail.body",
+                    "Body": "$.detail.body",
                 },
                 "header_parameters": {
-                    "env": "Test",
+                    "Env": "Test",
                 },
             })
         ```
@@ -1066,82 +1009,6 @@ class EventTarget(pulumi.CustomResource):
         example_event_target = aws.cloudwatch.EventTarget("example",
             rule=example_event_rule.name,
             arn=example.arn)
-        ```
-
-        ### AppSync Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        invoke_appsync_mutation = aws.cloudwatch.EventRule("invoke_appsync_mutation",
-            name="invoke-appsync-mutation",
-            description="schedule_batch_test",
-            schedule_expression="rate(5 minutes)")
-        appsync_mutation_role_trust = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["events.amazonaws.com"],
-            }],
-        }])
-        appsync_mutation_role = aws.iam.Role("appsync_mutation_role",
-            name="appsync-mutation-role",
-            assume_role_policy=appsync_mutation_role_trust.json)
-        graphql_api = aws.appsync.GraphQLApi("graphql-api",
-            name="api",
-            authentication_type="AWS_IAM",
-            schema=\"\"\"    schema {
-              mutation: Mutation
-              query: Query
-            }
-
-            type Query {
-              testQuery: String
-            }
-
-            type Mutation {
-              testMutation(input: MutationInput!): TestMutationResult
-            }
-
-            type TestMutationResult {
-              test: String
-            }
-
-            input MutationInput {
-              testInput: String
-            }
-        \"\"\")
-        invoke_appsync_mutation_event_target = aws.cloudwatch.EventTarget("invoke_appsync_mutation",
-            arn=std.replace_output(text=graphql_api.arn,
-                search="apis",
-                replace="endpoints/graphql-api").apply(lambda invoke: invoke.result),
-            rule=invoke_appsync_mutation.id,
-            role_arn=appsync_mutation_role.arn,
-            input_transformer={
-                "input_paths": {
-                    "input": "$.detail.input",
-                },
-                "input_template": \"\"\"      {
-                "input": <input>
-              }
-        \"\"\",
-            },
-            appsync_target={
-                "graphql_operation": "mutation TestMutation($input:MutationInput!){testMutation(input: $input) {test}}",
-            })
-        appsync_mutation_role_policy_document = aws.iam.get_policy_document_output(statements=[{
-            "actions": ["appsync:GraphQL"],
-            "effect": "Allow",
-            "resources": [graphql_api.arn],
-        }])
-        appsync_mutation_role_policy = aws.iam.Policy("appsync_mutation_role_policy",
-            name="appsync-mutation-role-policy",
-            policy=appsync_mutation_role_policy_document.json)
-        appsync_mutation_role_attachment = aws.iam.RolePolicyAttachment("appsync_mutation_role_attachment",
-            policy_arn=appsync_mutation_role_policy.arn,
-            role=appsync_mutation_role.name)
         ```
 
         ## Import
@@ -1322,63 +1189,6 @@ class EventTarget(pulumi.CustomResource):
             }])
         ```
 
-        ### ECS Run Task with Role and Task Override Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["events.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        ecs_events = aws.iam.Role("ecs_events",
-            name="ecs_events",
-            assume_role_policy=assume_role.json)
-        ecs_events_run_task_with_any_role = aws.iam.get_policy_document(statements=[
-            {
-                "effect": "Allow",
-                "actions": ["iam:PassRole"],
-                "resources": ["*"],
-            },
-            {
-                "effect": "Allow",
-                "actions": ["ecs:RunTask"],
-                "resources": [std.replace(text=task_name["arn"],
-                    search="/:\\\\d+$/",
-                    replace=":*").result],
-            },
-        ])
-        ecs_events_run_task_with_any_role_role_policy = aws.iam.RolePolicy("ecs_events_run_task_with_any_role",
-            name="ecs_events_run_task_with_any_role",
-            role=ecs_events.id,
-            policy=ecs_events_run_task_with_any_role.json)
-        ecs_scheduled_task = aws.cloudwatch.EventTarget("ecs_scheduled_task",
-            target_id="run-scheduled-task-every-hour",
-            arn=cluster_name["arn"],
-            rule=every_hour["name"],
-            role_arn=ecs_events.arn,
-            ecs_target={
-                "task_count": 1,
-                "task_definition_arn": task_name["arn"],
-            },
-            input=json.dumps({
-                "containerOverrides": [{
-                    "name": "name-of-container-to-override",
-                    "command": [
-                        "bin/console",
-                        "scheduled-task",
-                    ],
-                }],
-            }))
-        ```
-
         ### API Gateway target
 
         ```python
@@ -1395,10 +1205,10 @@ class EventTarget(pulumi.CustomResource):
             rule=example_event_rule.id,
             http_target={
                 "query_string_parameters": {
-                    "body": "$.detail.body",
+                    "Body": "$.detail.body",
                 },
                 "header_parameters": {
-                    "env": "Test",
+                    "Env": "Test",
                 },
             })
         ```
@@ -1540,82 +1350,6 @@ class EventTarget(pulumi.CustomResource):
         example_event_target = aws.cloudwatch.EventTarget("example",
             rule=example_event_rule.name,
             arn=example.arn)
-        ```
-
-        ### AppSync Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        invoke_appsync_mutation = aws.cloudwatch.EventRule("invoke_appsync_mutation",
-            name="invoke-appsync-mutation",
-            description="schedule_batch_test",
-            schedule_expression="rate(5 minutes)")
-        appsync_mutation_role_trust = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["events.amazonaws.com"],
-            }],
-        }])
-        appsync_mutation_role = aws.iam.Role("appsync_mutation_role",
-            name="appsync-mutation-role",
-            assume_role_policy=appsync_mutation_role_trust.json)
-        graphql_api = aws.appsync.GraphQLApi("graphql-api",
-            name="api",
-            authentication_type="AWS_IAM",
-            schema=\"\"\"    schema {
-              mutation: Mutation
-              query: Query
-            }
-
-            type Query {
-              testQuery: String
-            }
-
-            type Mutation {
-              testMutation(input: MutationInput!): TestMutationResult
-            }
-
-            type TestMutationResult {
-              test: String
-            }
-
-            input MutationInput {
-              testInput: String
-            }
-        \"\"\")
-        invoke_appsync_mutation_event_target = aws.cloudwatch.EventTarget("invoke_appsync_mutation",
-            arn=std.replace_output(text=graphql_api.arn,
-                search="apis",
-                replace="endpoints/graphql-api").apply(lambda invoke: invoke.result),
-            rule=invoke_appsync_mutation.id,
-            role_arn=appsync_mutation_role.arn,
-            input_transformer={
-                "input_paths": {
-                    "input": "$.detail.input",
-                },
-                "input_template": \"\"\"      {
-                "input": <input>
-              }
-        \"\"\",
-            },
-            appsync_target={
-                "graphql_operation": "mutation TestMutation($input:MutationInput!){testMutation(input: $input) {test}}",
-            })
-        appsync_mutation_role_policy_document = aws.iam.get_policy_document_output(statements=[{
-            "actions": ["appsync:GraphQL"],
-            "effect": "Allow",
-            "resources": [graphql_api.arn],
-        }])
-        appsync_mutation_role_policy = aws.iam.Policy("appsync_mutation_role_policy",
-            name="appsync-mutation-role-policy",
-            policy=appsync_mutation_role_policy_document.json)
-        appsync_mutation_role_attachment = aws.iam.RolePolicyAttachment("appsync_mutation_role_attachment",
-            policy_arn=appsync_mutation_role_policy.arn,
-            role=appsync_mutation_role.name)
         ```
 
         ## Import

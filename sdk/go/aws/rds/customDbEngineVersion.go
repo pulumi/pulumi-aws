@@ -58,56 +58,6 @@ import (
 //
 // ```
 //
-// ### RDS Custom for Oracle External Manifest Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
-//				Description: pulumi.String("KMS symmetric key for RDS Custom for Oracle"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			invokeFilebase64sha256, err := std.Filebase64sha256(ctx, &std.Filebase64sha256Args{
-//				Input: json,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = rds.NewCustomDbEngineVersion(ctx, "example", &rds.CustomDbEngineVersionArgs{
-//				DatabaseInstallationFilesS3BucketName: pulumi.String("DOC-EXAMPLE-BUCKET"),
-//				DatabaseInstallationFilesS3Prefix:     pulumi.String("1915_GI/"),
-//				Engine:                                pulumi.String("custom-oracle-ee-cdb"),
-//				EngineVersion:                         pulumi.String("19.cdb_cev1"),
-//				KmsKeyId:                              example.Arn,
-//				Filename:                              pulumi.String("manifest_1915_GI.json"),
-//				ManifestHash:                          pulumi.String(invokeFilebase64sha256.Result),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example"),
-//					"Key":  pulumi.String("value"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ### RDS Custom for SQL Server Usage
 //
 // ```go

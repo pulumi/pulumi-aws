@@ -340,27 +340,6 @@ class Authorizer(pulumi.CustomResource):
         """
         Creates and manages an AWS IoT Authorizer.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.iot.Authorizer("example",
-            name="example",
-            authorizer_function_arn=example_aws_lambda_function["arn"],
-            signing_disabled=False,
-            status="ACTIVE",
-            token_key_name="Token-Header",
-            token_signing_public_keys={
-                "Key1": std.file(input="test-fixtures/iot-authorizer-signing-key.pem").result,
-            },
-            tags={
-                "Name": "example",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import IOT Authorizers using the name. For example:
@@ -388,27 +367,6 @@ class Authorizer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates and manages an AWS IoT Authorizer.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        example = aws.iot.Authorizer("example",
-            name="example",
-            authorizer_function_arn=example_aws_lambda_function["arn"],
-            signing_disabled=False,
-            status="ACTIVE",
-            token_key_name="Token-Header",
-            token_signing_public_keys={
-                "Key1": std.file(input="test-fixtures/iot-authorizer-signing-key.pem").result,
-            },
-            tags={
-                "Name": "example",
-            })
-        ```
 
         ## Import
 

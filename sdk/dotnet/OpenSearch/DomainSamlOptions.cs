@@ -14,55 +14,6 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// ## Example Usage
     /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.OpenSearch.Domain("example", new()
-    ///     {
-    ///         DomainName = "example",
-    ///         EngineVersion = "OpenSearch_1.1",
-    ///         ClusterConfig = new Aws.OpenSearch.Inputs.DomainClusterConfigArgs
-    ///         {
-    ///             InstanceType = "r4.large.search",
-    ///         },
-    ///         SnapshotOptions = new Aws.OpenSearch.Inputs.DomainSnapshotOptionsArgs
-    ///         {
-    ///             AutomatedSnapshotStartHour = 23,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Domain", "TestDomain" },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleDomainSamlOptions = new Aws.OpenSearch.DomainSamlOptions("example", new()
-    ///     {
-    ///         DomainName = example.DomainName,
-    ///         SamlOptions = new Aws.OpenSearch.Inputs.DomainSamlOptionsSamlOptionsArgs
-    ///         {
-    ///             Enabled = true,
-    ///             Idp = new Aws.OpenSearch.Inputs.DomainSamlOptionsSamlOptionsIdpArgs
-    ///             {
-    ///                 EntityId = "https://example.com",
-    ///                 MetadataContent = Std.File.Invoke(new()
-    ///                 {
-    ///                     Input = "./saml-metadata.xml",
-    ///                 }).Apply(invoke =&gt; invoke.Result),
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import OpenSearch domains using the `domain_name`. For example:

@@ -20,68 +20,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### Basic Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.elasticsearch.Domain;
- * import com.pulumi.aws.elasticsearch.DomainArgs;
- * import com.pulumi.aws.elasticsearch.inputs.DomainClusterConfigArgs;
- * import com.pulumi.aws.elasticsearch.inputs.DomainSnapshotOptionsArgs;
- * import com.pulumi.aws.elasticsearch.DomainSamlOptions;
- * import com.pulumi.aws.elasticsearch.DomainSamlOptionsArgs;
- * import com.pulumi.aws.elasticsearch.inputs.DomainSamlOptionsSamlOptionsArgs;
- * import com.pulumi.aws.elasticsearch.inputs.DomainSamlOptionsSamlOptionsIdpArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Domain("example", DomainArgs.builder()
- *             .domainName("example")
- *             .elasticsearchVersion("1.5")
- *             .clusterConfig(DomainClusterConfigArgs.builder()
- *                 .instanceType("r4.large.elasticsearch")
- *                 .build())
- *             .snapshotOptions(DomainSnapshotOptionsArgs.builder()
- *                 .automatedSnapshotStartHour(23)
- *                 .build())
- *             .tags(Map.of("Domain", "TestDomain"))
- *             .build());
- * 
- *         var exampleDomainSamlOptions = new DomainSamlOptions("exampleDomainSamlOptions", DomainSamlOptionsArgs.builder()
- *             .domainName(example.domainName())
- *             .samlOptions(DomainSamlOptionsSamlOptionsArgs.builder()
- *                 .enabled(true)
- *                 .idp(DomainSamlOptionsSamlOptionsIdpArgs.builder()
- *                     .entityId("https://example.com")
- *                     .metadataContent(StdFunctions.file(FileArgs.builder()
- *                         .input("./saml-metadata.xml")
- *                         .build()).result())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For example:

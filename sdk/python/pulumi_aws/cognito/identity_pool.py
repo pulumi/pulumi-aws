@@ -379,40 +379,6 @@ class IdentityPool(pulumi.CustomResource):
         """
         Provides an AWS Cognito Identity Pool.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        default = aws.iam.SamlProvider("default",
-            name="my-saml-provider",
-            saml_metadata_document=std.file(input="saml-metadata.xml").result)
-        main = aws.cognito.IdentityPool("main",
-            identity_pool_name="identity pool",
-            allow_unauthenticated_identities=False,
-            allow_classic_flow=False,
-            cognito_identity_providers=[
-                {
-                    "client_id": "6lhlkkfbfb4q5kpp90urffae",
-                    "provider_name": "cognito-idp.us-east-1.amazonaws.com/us-east-1_Tv0493apJ",
-                    "server_side_token_check": False,
-                },
-                {
-                    "client_id": "7kodkvfqfb4qfkp39eurffae",
-                    "provider_name": "cognito-idp.us-east-1.amazonaws.com/eu-west-1_Zr231apJu",
-                    "server_side_token_check": False,
-                },
-            ],
-            supported_login_providers={
-                "graph.facebook.com": "7346241598935552",
-                "accounts.google.com": "123456789012.apps.googleusercontent.com",
-            },
-            saml_provider_arns=[default.arn],
-            openid_connect_provider_arns=["arn:aws:iam::123456789012:oidc-provider/id.example.com"])
-        ```
-
         ## Import
 
         Using `pulumi import`, import Cognito Identity Pool using its ID. For example:
@@ -442,40 +408,6 @@ class IdentityPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AWS Cognito Identity Pool.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        default = aws.iam.SamlProvider("default",
-            name="my-saml-provider",
-            saml_metadata_document=std.file(input="saml-metadata.xml").result)
-        main = aws.cognito.IdentityPool("main",
-            identity_pool_name="identity pool",
-            allow_unauthenticated_identities=False,
-            allow_classic_flow=False,
-            cognito_identity_providers=[
-                {
-                    "client_id": "6lhlkkfbfb4q5kpp90urffae",
-                    "provider_name": "cognito-idp.us-east-1.amazonaws.com/us-east-1_Tv0493apJ",
-                    "server_side_token_check": False,
-                },
-                {
-                    "client_id": "7kodkvfqfb4qfkp39eurffae",
-                    "provider_name": "cognito-idp.us-east-1.amazonaws.com/eu-west-1_Zr231apJu",
-                    "server_side_token_check": False,
-                },
-            ],
-            supported_login_providers={
-                "graph.facebook.com": "7346241598935552",
-                "accounts.google.com": "123456789012.apps.googleusercontent.com",
-            },
-            saml_provider_arns=[default.arn],
-            openid_connect_provider_arns=["arn:aws:iam::123456789012:oidc-provider/id.example.com"])
-        ```
 
         ## Import
 

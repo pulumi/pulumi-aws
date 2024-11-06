@@ -17,49 +17,6 @@ import javax.annotation.Nullable;
 /**
  * Provides a lifecycle configuration for SageMaker Notebook Instances.
  * 
- * ## Example Usage
- * 
- * Usage:
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sagemaker.NotebookInstanceLifecycleConfiguration;
- * import com.pulumi.aws.sagemaker.NotebookInstanceLifecycleConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var lc = new NotebookInstanceLifecycleConfiguration("lc", NotebookInstanceLifecycleConfigurationArgs.builder()
- *             .name("foo")
- *             .onCreate(StdFunctions.base64encode(Base64encodeArgs.builder()
- *                 .input("echo foo")
- *                 .build()).result())
- *             .onStart(StdFunctions.base64encode(Base64encodeArgs.builder()
- *                 .input("echo bar")
- *                 .build()).result())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Using `pulumi import`, import models using the `name`. For example:

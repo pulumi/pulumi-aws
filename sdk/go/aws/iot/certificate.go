@@ -16,40 +16,6 @@ import (
 //
 // ## Example Usage
 //
-// ### With CSR
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "/my/csr.pem",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iot.NewCertificate(ctx, "cert", &iot.CertificateArgs{
-//				Csr:    pulumi.String(invokeFile.Result),
-//				Active: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ### Without CSR
 //
 // ```go
@@ -66,40 +32,6 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := iot.NewCertificate(ctx, "cert", &iot.CertificateArgs{
 //				Active: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### From existing certificate without a CA
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "/my/cert.pem",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iot.NewCertificate(ctx, "cert", &iot.CertificateArgs{
-//				CertificatePem: pulumi.String(invokeFile.Result),
-//				Active:         pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

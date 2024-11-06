@@ -9,22 +9,6 @@ import * as utilities from "../utilities";
  *
  * !> **WARNING:** The `aws.worklink.WebsiteCertificateAuthorityAssociation` resource has been deprecated and will be removed in a future version. Use Amazon WorkSpaces Secure Browser instead.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * const example = new aws.worklink.Fleet("example", {name: "example"});
- * const test = new aws.worklink.WebsiteCertificateAuthorityAssociation("test", {
- *     fleetArn: testAwsWorklinkFleet.arn,
- *     certificate: std.file({
- *         input: "certificate.pem",
- *     }).then(invoke => invoke.result),
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import WorkLink Website Certificate Authority using `FLEET-ARN,WEBSITE-CA-ID`. For example:

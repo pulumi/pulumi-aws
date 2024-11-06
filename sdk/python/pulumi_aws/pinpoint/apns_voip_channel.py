@@ -374,20 +374,6 @@ class ApnsVoipChannel(pulumi.CustomResource):
         Provides a Pinpoint APNs VoIP Channel resource.
 
         > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        app = aws.pinpoint.App("app")
-        apns_voip = aws.pinpoint.ApnsVoipChannel("apns_voip",
-            application_id=app.application_id,
-            certificate=std.file(input="./certificate.pem").result,
-            private_key=std.file(input="./private_key.key").result)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Pinpoint APNs VoIP Channel using the `application-id`. For example:
@@ -427,20 +413,6 @@ class ApnsVoipChannel(pulumi.CustomResource):
         Provides a Pinpoint APNs VoIP Channel resource.
 
         > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        app = aws.pinpoint.App("app")
-        apns_voip = aws.pinpoint.ApnsVoipChannel("apns_voip",
-            application_id=app.application_id,
-            certificate=std.file(input="./certificate.pem").result,
-            private_key=std.file(input="./private_key.key").result)
-        ```
-
         ## Import
 
         Using `pulumi import`, import Pinpoint APNs VoIP Channel using the `application-id`. For example:

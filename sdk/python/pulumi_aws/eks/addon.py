@@ -563,43 +563,6 @@ class Addon(pulumi.CustomResource):
             }))
         ```
 
-        ### Example IAM Role for EKS Addon "vpc-cni" with AWS managed policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-        import pulumi_tls as tls
-
-        example_cluster = aws.eks.Cluster("example")
-        example = example_cluster.identities.apply(lambda identities: tls.get_certificate_output(url=identities[0].oidcs[0].issuer))
-        example_open_id_connect_provider = aws.iam.OpenIdConnectProvider("example",
-            client_id_lists=["sts.amazonaws.com"],
-            thumbprint_lists=[example.certificates[0].sha1_fingerprint],
-            url=example_cluster.identities[0].oidcs[0].issuer)
-        example_assume_role_policy = aws.iam.get_policy_document_output(statements=[{
-            "actions": ["sts:AssumeRoleWithWebIdentity"],
-            "effect": "Allow",
-            "conditions": [{
-                "test": "StringEquals",
-                "variable": std.replace_output(text=example_open_id_connect_provider.url,
-                    search="https://",
-                    replace="").apply(lambda invoke: f"{invoke.result}:sub"),
-                "values": ["system:serviceaccount:kube-system:aws-node"],
-            }],
-            "principals": [{
-                "identifiers": [example_open_id_connect_provider.arn],
-                "type": "Federated",
-            }],
-        }])
-        example_role = aws.iam.Role("example",
-            assume_role_policy=example_assume_role_policy.json,
-            name="example-vpc-cni-role")
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
-            policy_arn="arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
-            role=example_role.name)
-        ```
-
         ## Import
 
         Using `pulumi import`, import EKS add-on using the `cluster_name` and `addon_name` separated by a colon (`:`). For example:
@@ -704,43 +667,6 @@ class Addon(pulumi.CustomResource):
                     },
                 },
             }))
-        ```
-
-        ### Example IAM Role for EKS Addon "vpc-cni" with AWS managed policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-        import pulumi_tls as tls
-
-        example_cluster = aws.eks.Cluster("example")
-        example = example_cluster.identities.apply(lambda identities: tls.get_certificate_output(url=identities[0].oidcs[0].issuer))
-        example_open_id_connect_provider = aws.iam.OpenIdConnectProvider("example",
-            client_id_lists=["sts.amazonaws.com"],
-            thumbprint_lists=[example.certificates[0].sha1_fingerprint],
-            url=example_cluster.identities[0].oidcs[0].issuer)
-        example_assume_role_policy = aws.iam.get_policy_document_output(statements=[{
-            "actions": ["sts:AssumeRoleWithWebIdentity"],
-            "effect": "Allow",
-            "conditions": [{
-                "test": "StringEquals",
-                "variable": std.replace_output(text=example_open_id_connect_provider.url,
-                    search="https://",
-                    replace="").apply(lambda invoke: f"{invoke.result}:sub"),
-                "values": ["system:serviceaccount:kube-system:aws-node"],
-            }],
-            "principals": [{
-                "identifiers": [example_open_id_connect_provider.arn],
-                "type": "Federated",
-            }],
-        }])
-        example_role = aws.iam.Role("example",
-            assume_role_policy=example_assume_role_policy.json,
-            name="example-vpc-cni-role")
-        example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
-            policy_arn="arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
-            role=example_role.name)
         ```
 
         ## Import

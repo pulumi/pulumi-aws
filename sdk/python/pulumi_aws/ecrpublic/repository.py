@@ -236,28 +236,6 @@ class Repository(pulumi.CustomResource):
 
         > **NOTE:** This resource can only be used in the `us-east-1` region.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        foo = aws.ecrpublic.Repository("foo",
-            repository_name="bar",
-            catalog_data={
-                "about_text": "About Text",
-                "architectures": ["ARM"],
-                "description": "Description",
-                "logo_image_blob": std.filebase64(input=png).result,
-                "operating_systems": ["Linux"],
-                "usage_text": "Usage Text",
-            },
-            tags={
-                "env": "production",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import ECR Public Repositories using the `repository_name`. For example:
@@ -282,28 +260,6 @@ class Repository(pulumi.CustomResource):
         Provides a Public Elastic Container Registry Repository.
 
         > **NOTE:** This resource can only be used in the `us-east-1` region.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-        foo = aws.ecrpublic.Repository("foo",
-            repository_name="bar",
-            catalog_data={
-                "about_text": "About Text",
-                "architectures": ["ARM"],
-                "description": "Description",
-                "logo_image_blob": std.filebase64(input=png).result,
-                "operating_systems": ["Linux"],
-                "usage_text": "Usage Text",
-            },
-            tags={
-                "env": "production",
-            })
-        ```
 
         ## Import
 
