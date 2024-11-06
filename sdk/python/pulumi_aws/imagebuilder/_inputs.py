@@ -45,6 +45,8 @@ __all__ = [
     'DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgsDict',
     'DistributionConfigurationDistributionLaunchTemplateConfigurationArgs',
     'DistributionConfigurationDistributionLaunchTemplateConfigurationArgsDict',
+    'DistributionConfigurationDistributionS3ExportConfigurationArgs',
+    'DistributionConfigurationDistributionS3ExportConfigurationArgsDict',
     'ImageImageScanningConfigurationArgs',
     'ImageImageScanningConfigurationArgsDict',
     'ImageImageScanningConfigurationEcrConfigurationArgs',
@@ -618,6 +620,10 @@ if not MYPY:
         """
         Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
         """
+        s3_export_configuration: NotRequired[pulumi.Input['DistributionConfigurationDistributionS3ExportConfigurationArgsDict']]
+        """
+        Configuration block with S3 export settings. Detailed below.
+        """
 elif False:
     DistributionConfigurationDistributionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -629,7 +635,8 @@ class DistributionConfigurationDistributionArgs:
                  container_distribution_configuration: Optional[pulumi.Input['DistributionConfigurationDistributionContainerDistributionConfigurationArgs']] = None,
                  fast_launch_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionFastLaunchConfigurationArgs']]]] = None,
                  launch_template_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionLaunchTemplateConfigurationArgs']]]] = None,
-                 license_configuration_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 license_configuration_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 s3_export_configuration: Optional[pulumi.Input['DistributionConfigurationDistributionS3ExportConfigurationArgs']] = None):
         """
         :param pulumi.Input[str] region: AWS Region for the distribution.
                
@@ -639,6 +646,7 @@ class DistributionConfigurationDistributionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionFastLaunchConfigurationArgs']]] fast_launch_configurations: Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionLaunchTemplateConfigurationArgs']]] launch_template_configurations: Set of launch template configuration settings that apply to image distribution. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] license_configuration_arns: Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+        :param pulumi.Input['DistributionConfigurationDistributionS3ExportConfigurationArgs'] s3_export_configuration: Configuration block with S3 export settings. Detailed below.
         """
         pulumi.set(__self__, "region", region)
         if ami_distribution_configuration is not None:
@@ -651,6 +659,8 @@ class DistributionConfigurationDistributionArgs:
             pulumi.set(__self__, "launch_template_configurations", launch_template_configurations)
         if license_configuration_arns is not None:
             pulumi.set(__self__, "license_configuration_arns", license_configuration_arns)
+        if s3_export_configuration is not None:
+            pulumi.set(__self__, "s3_export_configuration", s3_export_configuration)
 
     @property
     @pulumi.getter
@@ -725,6 +735,18 @@ class DistributionConfigurationDistributionArgs:
     @license_configuration_arns.setter
     def license_configuration_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "license_configuration_arns", value)
+
+    @property
+    @pulumi.getter(name="s3ExportConfiguration")
+    def s3_export_configuration(self) -> Optional[pulumi.Input['DistributionConfigurationDistributionS3ExportConfigurationArgs']]:
+        """
+        Configuration block with S3 export settings. Detailed below.
+        """
+        return pulumi.get(self, "s3_export_configuration")
+
+    @s3_export_configuration.setter
+    def s3_export_configuration(self, value: Optional[pulumi.Input['DistributionConfigurationDistributionS3ExportConfigurationArgs']]):
+        pulumi.set(self, "s3_export_configuration", value)
 
 
 if not MYPY:
@@ -1355,6 +1377,95 @@ class DistributionConfigurationDistributionLaunchTemplateConfigurationArgs:
     @default.setter
     def default(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "default", value)
+
+
+if not MYPY:
+    class DistributionConfigurationDistributionS3ExportConfigurationArgsDict(TypedDict):
+        disk_image_format: pulumi.Input[str]
+        """
+        The disk image format of the exported image (`RAW`, `VHD`, or `VMDK`)
+        """
+        role_name: pulumi.Input[str]
+        """
+        The name of the IAM role to use for exporting.
+        """
+        s3_bucket: pulumi.Input[str]
+        """
+        The name of the S3 bucket to store the exported image in. The bucket needs to exist before the export configuration is created.
+        """
+        s3_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The prefix for the exported image.
+        """
+elif False:
+    DistributionConfigurationDistributionS3ExportConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DistributionConfigurationDistributionS3ExportConfigurationArgs:
+    def __init__(__self__, *,
+                 disk_image_format: pulumi.Input[str],
+                 role_name: pulumi.Input[str],
+                 s3_bucket: pulumi.Input[str],
+                 s3_prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] disk_image_format: The disk image format of the exported image (`RAW`, `VHD`, or `VMDK`)
+        :param pulumi.Input[str] role_name: The name of the IAM role to use for exporting.
+        :param pulumi.Input[str] s3_bucket: The name of the S3 bucket to store the exported image in. The bucket needs to exist before the export configuration is created.
+        :param pulumi.Input[str] s3_prefix: The prefix for the exported image.
+        """
+        pulumi.set(__self__, "disk_image_format", disk_image_format)
+        pulumi.set(__self__, "role_name", role_name)
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        if s3_prefix is not None:
+            pulumi.set(__self__, "s3_prefix", s3_prefix)
+
+    @property
+    @pulumi.getter(name="diskImageFormat")
+    def disk_image_format(self) -> pulumi.Input[str]:
+        """
+        The disk image format of the exported image (`RAW`, `VHD`, or `VMDK`)
+        """
+        return pulumi.get(self, "disk_image_format")
+
+    @disk_image_format.setter
+    def disk_image_format(self, value: pulumi.Input[str]):
+        pulumi.set(self, "disk_image_format", value)
+
+    @property
+    @pulumi.getter(name="roleName")
+    def role_name(self) -> pulumi.Input[str]:
+        """
+        The name of the IAM role to use for exporting.
+        """
+        return pulumi.get(self, "role_name")
+
+    @role_name.setter
+    def role_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_name", value)
+
+    @property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> pulumi.Input[str]:
+        """
+        The name of the S3 bucket to store the exported image in. The bucket needs to exist before the export configuration is created.
+        """
+        return pulumi.get(self, "s3_bucket")
+
+    @s3_bucket.setter
+    def s3_bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_bucket", value)
+
+    @property
+    @pulumi.getter(name="s3Prefix")
+    def s3_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The prefix for the exported image.
+        """
+        return pulumi.get(self, "s3_prefix")
+
+    @s3_prefix.setter
+    def s3_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_prefix", value)
 
 
 if not MYPY:

@@ -108,14 +108,14 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Type of the workflow. Valid values: `BUILD`, `TEST`, `DISTRIBUTION`.
+     * Type of the workflow. Valid values: `BUILD`, `TEST`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Type of the workflow. Valid values: `BUILD`, `TEST`, `DISTRIBUTION`.
+     * @return Type of the workflow. Valid values: `BUILD`, `TEST`.
      * 
      */
     public Output<String> type() {
@@ -315,7 +315,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of the workflow. Valid values: `BUILD`, `TEST`, `DISTRIBUTION`.
+         * @param type Type of the workflow. Valid values: `BUILD`, `TEST`.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of the workflow. Valid values: `BUILD`, `TEST`, `DISTRIBUTION`.
+         * @param type Type of the workflow. Valid values: `BUILD`, `TEST`.
          * 
          * @return builder
          * 

@@ -188,7 +188,7 @@ namespace Pulumi.Aws.Ebs
     public sealed class GetVolumeResult
     {
         /// <summary>
-        /// Volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+        /// Volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
         /// </summary>
         public readonly string Arn;
         /// <summary>

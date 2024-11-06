@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new OrganizationAdminAccountRegistration("example", OrganizationAdminAccountRegistrationArgs.builder()
- *             .adminAccountId("012345678901")
+ *             .adminAccountId("123456789012")
  *             .build());
  * 
  *     }
@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import Audit Manager Organization Admin Account Registration using the `id`. For example:
  * 
  * ```sh
- * $ pulumi import aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration example 012345678901
+ * $ pulumi import aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration example 123456789012
  * ```
  * 
  */

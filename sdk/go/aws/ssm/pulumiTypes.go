@@ -3737,7 +3737,7 @@ func (o MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersPtrO
 }
 
 type PatchBaselineApprovalRule struct {
-	// Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approveUntilDate`.
+	// Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 360. Conflicts with `approveUntilDate`.
 	ApproveAfterDays *int `pulumi:"approveAfterDays"`
 	// Cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approveAfterDays`
 	ApproveUntilDate *string `pulumi:"approveUntilDate"`
@@ -3761,7 +3761,7 @@ type PatchBaselineApprovalRuleInput interface {
 }
 
 type PatchBaselineApprovalRuleArgs struct {
-	// Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approveUntilDate`.
+	// Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 360. Conflicts with `approveUntilDate`.
 	ApproveAfterDays pulumi.IntPtrInput `pulumi:"approveAfterDays"`
 	// Cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approveAfterDays`
 	ApproveUntilDate pulumi.StringPtrInput `pulumi:"approveUntilDate"`
@@ -3824,7 +3824,7 @@ func (o PatchBaselineApprovalRuleOutput) ToPatchBaselineApprovalRuleOutputWithCo
 	return o
 }
 
-// Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approveUntilDate`.
+// Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 360. Conflicts with `approveUntilDate`.
 func (o PatchBaselineApprovalRuleOutput) ApproveAfterDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PatchBaselineApprovalRule) *int { return v.ApproveAfterDays }).(pulumi.IntPtrOutput)
 }
@@ -4182,6 +4182,524 @@ func (o PatchBaselineSourceArrayOutput) Index(i pulumi.IntInput) PatchBaselineSo
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PatchBaselineSource {
 		return vs[0].([]PatchBaselineSource)[vs[1].(int)]
 	}).(PatchBaselineSourceOutput)
+}
+
+type QuicksetupConfigurationManagerConfigurationDefinition struct {
+	Id                                   *string `pulumi:"id"`
+	LocalDeploymentAdministrationRoleArn *string `pulumi:"localDeploymentAdministrationRoleArn"`
+	// Name of the IAM role used to deploy local configurations.
+	LocalDeploymentExecutionRoleName *string `pulumi:"localDeploymentExecutionRoleName"`
+	// Parameters for the configuration definition type. Parameters for configuration definitions vary based the configuration type. See the [AWS API documentation](https://docs.aws.amazon.com/quick-setup/latest/APIReference/API_ConfigurationDefinitionInput.html) for a complete list of parameters for each configuration type.
+	Parameters map[string]string `pulumi:"parameters"`
+	// Type of the Quick Setup configuration.
+	Type string `pulumi:"type"`
+	// Version of the Quick Setup type to use.
+	TypeVersion *string `pulumi:"typeVersion"`
+}
+
+// QuicksetupConfigurationManagerConfigurationDefinitionInput is an input type that accepts QuicksetupConfigurationManagerConfigurationDefinitionArgs and QuicksetupConfigurationManagerConfigurationDefinitionOutput values.
+// You can construct a concrete instance of `QuicksetupConfigurationManagerConfigurationDefinitionInput` via:
+//
+//	QuicksetupConfigurationManagerConfigurationDefinitionArgs{...}
+type QuicksetupConfigurationManagerConfigurationDefinitionInput interface {
+	pulumi.Input
+
+	ToQuicksetupConfigurationManagerConfigurationDefinitionOutput() QuicksetupConfigurationManagerConfigurationDefinitionOutput
+	ToQuicksetupConfigurationManagerConfigurationDefinitionOutputWithContext(context.Context) QuicksetupConfigurationManagerConfigurationDefinitionOutput
+}
+
+type QuicksetupConfigurationManagerConfigurationDefinitionArgs struct {
+	Id                                   pulumi.StringPtrInput `pulumi:"id"`
+	LocalDeploymentAdministrationRoleArn pulumi.StringPtrInput `pulumi:"localDeploymentAdministrationRoleArn"`
+	// Name of the IAM role used to deploy local configurations.
+	LocalDeploymentExecutionRoleName pulumi.StringPtrInput `pulumi:"localDeploymentExecutionRoleName"`
+	// Parameters for the configuration definition type. Parameters for configuration definitions vary based the configuration type. See the [AWS API documentation](https://docs.aws.amazon.com/quick-setup/latest/APIReference/API_ConfigurationDefinitionInput.html) for a complete list of parameters for each configuration type.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	// Type of the Quick Setup configuration.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Version of the Quick Setup type to use.
+	TypeVersion pulumi.StringPtrInput `pulumi:"typeVersion"`
+}
+
+func (QuicksetupConfigurationManagerConfigurationDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuicksetupConfigurationManagerConfigurationDefinition)(nil)).Elem()
+}
+
+func (i QuicksetupConfigurationManagerConfigurationDefinitionArgs) ToQuicksetupConfigurationManagerConfigurationDefinitionOutput() QuicksetupConfigurationManagerConfigurationDefinitionOutput {
+	return i.ToQuicksetupConfigurationManagerConfigurationDefinitionOutputWithContext(context.Background())
+}
+
+func (i QuicksetupConfigurationManagerConfigurationDefinitionArgs) ToQuicksetupConfigurationManagerConfigurationDefinitionOutputWithContext(ctx context.Context) QuicksetupConfigurationManagerConfigurationDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuicksetupConfigurationManagerConfigurationDefinitionOutput)
+}
+
+func (i QuicksetupConfigurationManagerConfigurationDefinitionArgs) ToQuicksetupConfigurationManagerConfigurationDefinitionPtrOutput() QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput {
+	return i.ToQuicksetupConfigurationManagerConfigurationDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i QuicksetupConfigurationManagerConfigurationDefinitionArgs) ToQuicksetupConfigurationManagerConfigurationDefinitionPtrOutputWithContext(ctx context.Context) QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuicksetupConfigurationManagerConfigurationDefinitionOutput).ToQuicksetupConfigurationManagerConfigurationDefinitionPtrOutputWithContext(ctx)
+}
+
+// QuicksetupConfigurationManagerConfigurationDefinitionPtrInput is an input type that accepts QuicksetupConfigurationManagerConfigurationDefinitionArgs, QuicksetupConfigurationManagerConfigurationDefinitionPtr and QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput values.
+// You can construct a concrete instance of `QuicksetupConfigurationManagerConfigurationDefinitionPtrInput` via:
+//
+//	        QuicksetupConfigurationManagerConfigurationDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type QuicksetupConfigurationManagerConfigurationDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToQuicksetupConfigurationManagerConfigurationDefinitionPtrOutput() QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput
+	ToQuicksetupConfigurationManagerConfigurationDefinitionPtrOutputWithContext(context.Context) QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput
+}
+
+type quicksetupConfigurationManagerConfigurationDefinitionPtrType QuicksetupConfigurationManagerConfigurationDefinitionArgs
+
+func QuicksetupConfigurationManagerConfigurationDefinitionPtr(v *QuicksetupConfigurationManagerConfigurationDefinitionArgs) QuicksetupConfigurationManagerConfigurationDefinitionPtrInput {
+	return (*quicksetupConfigurationManagerConfigurationDefinitionPtrType)(v)
+}
+
+func (*quicksetupConfigurationManagerConfigurationDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**QuicksetupConfigurationManagerConfigurationDefinition)(nil)).Elem()
+}
+
+func (i *quicksetupConfigurationManagerConfigurationDefinitionPtrType) ToQuicksetupConfigurationManagerConfigurationDefinitionPtrOutput() QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput {
+	return i.ToQuicksetupConfigurationManagerConfigurationDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *quicksetupConfigurationManagerConfigurationDefinitionPtrType) ToQuicksetupConfigurationManagerConfigurationDefinitionPtrOutputWithContext(ctx context.Context) QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput)
+}
+
+type QuicksetupConfigurationManagerConfigurationDefinitionOutput struct{ *pulumi.OutputState }
+
+func (QuicksetupConfigurationManagerConfigurationDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuicksetupConfigurationManagerConfigurationDefinition)(nil)).Elem()
+}
+
+func (o QuicksetupConfigurationManagerConfigurationDefinitionOutput) ToQuicksetupConfigurationManagerConfigurationDefinitionOutput() QuicksetupConfigurationManagerConfigurationDefinitionOutput {
+	return o
+}
+
+func (o QuicksetupConfigurationManagerConfigurationDefinitionOutput) ToQuicksetupConfigurationManagerConfigurationDefinitionOutputWithContext(ctx context.Context) QuicksetupConfigurationManagerConfigurationDefinitionOutput {
+	return o
+}
+
+func (o QuicksetupConfigurationManagerConfigurationDefinitionOutput) ToQuicksetupConfigurationManagerConfigurationDefinitionPtrOutput() QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput {
+	return o.ToQuicksetupConfigurationManagerConfigurationDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o QuicksetupConfigurationManagerConfigurationDefinitionOutput) ToQuicksetupConfigurationManagerConfigurationDefinitionPtrOutputWithContext(ctx context.Context) QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QuicksetupConfigurationManagerConfigurationDefinition) *QuicksetupConfigurationManagerConfigurationDefinition {
+		return &v
+	}).(QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput)
+}
+
+func (o QuicksetupConfigurationManagerConfigurationDefinitionOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v QuicksetupConfigurationManagerConfigurationDefinition) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o QuicksetupConfigurationManagerConfigurationDefinitionOutput) LocalDeploymentAdministrationRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v QuicksetupConfigurationManagerConfigurationDefinition) *string {
+		return v.LocalDeploymentAdministrationRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the IAM role used to deploy local configurations.
+func (o QuicksetupConfigurationManagerConfigurationDefinitionOutput) LocalDeploymentExecutionRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v QuicksetupConfigurationManagerConfigurationDefinition) *string {
+		return v.LocalDeploymentExecutionRoleName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Parameters for the configuration definition type. Parameters for configuration definitions vary based the configuration type. See the [AWS API documentation](https://docs.aws.amazon.com/quick-setup/latest/APIReference/API_ConfigurationDefinitionInput.html) for a complete list of parameters for each configuration type.
+func (o QuicksetupConfigurationManagerConfigurationDefinitionOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v QuicksetupConfigurationManagerConfigurationDefinition) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+// Type of the Quick Setup configuration.
+func (o QuicksetupConfigurationManagerConfigurationDefinitionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v QuicksetupConfigurationManagerConfigurationDefinition) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Version of the Quick Setup type to use.
+func (o QuicksetupConfigurationManagerConfigurationDefinitionOutput) TypeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v QuicksetupConfigurationManagerConfigurationDefinition) *string { return v.TypeVersion }).(pulumi.StringPtrOutput)
+}
+
+type QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QuicksetupConfigurationManagerConfigurationDefinition)(nil)).Elem()
+}
+
+func (o QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput) ToQuicksetupConfigurationManagerConfigurationDefinitionPtrOutput() QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput {
+	return o
+}
+
+func (o QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput) ToQuicksetupConfigurationManagerConfigurationDefinitionPtrOutputWithContext(ctx context.Context) QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput {
+	return o
+}
+
+func (o QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput) Elem() QuicksetupConfigurationManagerConfigurationDefinitionOutput {
+	return o.ApplyT(func(v *QuicksetupConfigurationManagerConfigurationDefinition) QuicksetupConfigurationManagerConfigurationDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret QuicksetupConfigurationManagerConfigurationDefinition
+		return ret
+	}).(QuicksetupConfigurationManagerConfigurationDefinitionOutput)
+}
+
+func (o QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QuicksetupConfigurationManagerConfigurationDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput) LocalDeploymentAdministrationRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QuicksetupConfigurationManagerConfigurationDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalDeploymentAdministrationRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the IAM role used to deploy local configurations.
+func (o QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput) LocalDeploymentExecutionRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QuicksetupConfigurationManagerConfigurationDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalDeploymentExecutionRoleName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Parameters for the configuration definition type. Parameters for configuration definitions vary based the configuration type. See the [AWS API documentation](https://docs.aws.amazon.com/quick-setup/latest/APIReference/API_ConfigurationDefinitionInput.html) for a complete list of parameters for each configuration type.
+func (o QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *QuicksetupConfigurationManagerConfigurationDefinition) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+// Type of the Quick Setup configuration.
+func (o QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QuicksetupConfigurationManagerConfigurationDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Version of the Quick Setup type to use.
+func (o QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput) TypeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QuicksetupConfigurationManagerConfigurationDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TypeVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type QuicksetupConfigurationManagerStatusSummary struct {
+	// Current status.
+	Status string `pulumi:"status"`
+	// When applicable, returns an informational message relevant to the current status and status type of the status summary object.
+	StatusMessage string `pulumi:"statusMessage"`
+	// Type of a status summary.
+	StatusType string `pulumi:"statusType"`
+}
+
+// QuicksetupConfigurationManagerStatusSummaryInput is an input type that accepts QuicksetupConfigurationManagerStatusSummaryArgs and QuicksetupConfigurationManagerStatusSummaryOutput values.
+// You can construct a concrete instance of `QuicksetupConfigurationManagerStatusSummaryInput` via:
+//
+//	QuicksetupConfigurationManagerStatusSummaryArgs{...}
+type QuicksetupConfigurationManagerStatusSummaryInput interface {
+	pulumi.Input
+
+	ToQuicksetupConfigurationManagerStatusSummaryOutput() QuicksetupConfigurationManagerStatusSummaryOutput
+	ToQuicksetupConfigurationManagerStatusSummaryOutputWithContext(context.Context) QuicksetupConfigurationManagerStatusSummaryOutput
+}
+
+type QuicksetupConfigurationManagerStatusSummaryArgs struct {
+	// Current status.
+	Status pulumi.StringInput `pulumi:"status"`
+	// When applicable, returns an informational message relevant to the current status and status type of the status summary object.
+	StatusMessage pulumi.StringInput `pulumi:"statusMessage"`
+	// Type of a status summary.
+	StatusType pulumi.StringInput `pulumi:"statusType"`
+}
+
+func (QuicksetupConfigurationManagerStatusSummaryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuicksetupConfigurationManagerStatusSummary)(nil)).Elem()
+}
+
+func (i QuicksetupConfigurationManagerStatusSummaryArgs) ToQuicksetupConfigurationManagerStatusSummaryOutput() QuicksetupConfigurationManagerStatusSummaryOutput {
+	return i.ToQuicksetupConfigurationManagerStatusSummaryOutputWithContext(context.Background())
+}
+
+func (i QuicksetupConfigurationManagerStatusSummaryArgs) ToQuicksetupConfigurationManagerStatusSummaryOutputWithContext(ctx context.Context) QuicksetupConfigurationManagerStatusSummaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuicksetupConfigurationManagerStatusSummaryOutput)
+}
+
+// QuicksetupConfigurationManagerStatusSummaryArrayInput is an input type that accepts QuicksetupConfigurationManagerStatusSummaryArray and QuicksetupConfigurationManagerStatusSummaryArrayOutput values.
+// You can construct a concrete instance of `QuicksetupConfigurationManagerStatusSummaryArrayInput` via:
+//
+//	QuicksetupConfigurationManagerStatusSummaryArray{ QuicksetupConfigurationManagerStatusSummaryArgs{...} }
+type QuicksetupConfigurationManagerStatusSummaryArrayInput interface {
+	pulumi.Input
+
+	ToQuicksetupConfigurationManagerStatusSummaryArrayOutput() QuicksetupConfigurationManagerStatusSummaryArrayOutput
+	ToQuicksetupConfigurationManagerStatusSummaryArrayOutputWithContext(context.Context) QuicksetupConfigurationManagerStatusSummaryArrayOutput
+}
+
+type QuicksetupConfigurationManagerStatusSummaryArray []QuicksetupConfigurationManagerStatusSummaryInput
+
+func (QuicksetupConfigurationManagerStatusSummaryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]QuicksetupConfigurationManagerStatusSummary)(nil)).Elem()
+}
+
+func (i QuicksetupConfigurationManagerStatusSummaryArray) ToQuicksetupConfigurationManagerStatusSummaryArrayOutput() QuicksetupConfigurationManagerStatusSummaryArrayOutput {
+	return i.ToQuicksetupConfigurationManagerStatusSummaryArrayOutputWithContext(context.Background())
+}
+
+func (i QuicksetupConfigurationManagerStatusSummaryArray) ToQuicksetupConfigurationManagerStatusSummaryArrayOutputWithContext(ctx context.Context) QuicksetupConfigurationManagerStatusSummaryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuicksetupConfigurationManagerStatusSummaryArrayOutput)
+}
+
+type QuicksetupConfigurationManagerStatusSummaryOutput struct{ *pulumi.OutputState }
+
+func (QuicksetupConfigurationManagerStatusSummaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuicksetupConfigurationManagerStatusSummary)(nil)).Elem()
+}
+
+func (o QuicksetupConfigurationManagerStatusSummaryOutput) ToQuicksetupConfigurationManagerStatusSummaryOutput() QuicksetupConfigurationManagerStatusSummaryOutput {
+	return o
+}
+
+func (o QuicksetupConfigurationManagerStatusSummaryOutput) ToQuicksetupConfigurationManagerStatusSummaryOutputWithContext(ctx context.Context) QuicksetupConfigurationManagerStatusSummaryOutput {
+	return o
+}
+
+// Current status.
+func (o QuicksetupConfigurationManagerStatusSummaryOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v QuicksetupConfigurationManagerStatusSummary) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// When applicable, returns an informational message relevant to the current status and status type of the status summary object.
+func (o QuicksetupConfigurationManagerStatusSummaryOutput) StatusMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v QuicksetupConfigurationManagerStatusSummary) string { return v.StatusMessage }).(pulumi.StringOutput)
+}
+
+// Type of a status summary.
+func (o QuicksetupConfigurationManagerStatusSummaryOutput) StatusType() pulumi.StringOutput {
+	return o.ApplyT(func(v QuicksetupConfigurationManagerStatusSummary) string { return v.StatusType }).(pulumi.StringOutput)
+}
+
+type QuicksetupConfigurationManagerStatusSummaryArrayOutput struct{ *pulumi.OutputState }
+
+func (QuicksetupConfigurationManagerStatusSummaryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]QuicksetupConfigurationManagerStatusSummary)(nil)).Elem()
+}
+
+func (o QuicksetupConfigurationManagerStatusSummaryArrayOutput) ToQuicksetupConfigurationManagerStatusSummaryArrayOutput() QuicksetupConfigurationManagerStatusSummaryArrayOutput {
+	return o
+}
+
+func (o QuicksetupConfigurationManagerStatusSummaryArrayOutput) ToQuicksetupConfigurationManagerStatusSummaryArrayOutputWithContext(ctx context.Context) QuicksetupConfigurationManagerStatusSummaryArrayOutput {
+	return o
+}
+
+func (o QuicksetupConfigurationManagerStatusSummaryArrayOutput) Index(i pulumi.IntInput) QuicksetupConfigurationManagerStatusSummaryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) QuicksetupConfigurationManagerStatusSummary {
+		return vs[0].([]QuicksetupConfigurationManagerStatusSummary)[vs[1].(int)]
+	}).(QuicksetupConfigurationManagerStatusSummaryOutput)
+}
+
+type QuicksetupConfigurationManagerTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// QuicksetupConfigurationManagerTimeoutsInput is an input type that accepts QuicksetupConfigurationManagerTimeoutsArgs and QuicksetupConfigurationManagerTimeoutsOutput values.
+// You can construct a concrete instance of `QuicksetupConfigurationManagerTimeoutsInput` via:
+//
+//	QuicksetupConfigurationManagerTimeoutsArgs{...}
+type QuicksetupConfigurationManagerTimeoutsInput interface {
+	pulumi.Input
+
+	ToQuicksetupConfigurationManagerTimeoutsOutput() QuicksetupConfigurationManagerTimeoutsOutput
+	ToQuicksetupConfigurationManagerTimeoutsOutputWithContext(context.Context) QuicksetupConfigurationManagerTimeoutsOutput
+}
+
+type QuicksetupConfigurationManagerTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (QuicksetupConfigurationManagerTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuicksetupConfigurationManagerTimeouts)(nil)).Elem()
+}
+
+func (i QuicksetupConfigurationManagerTimeoutsArgs) ToQuicksetupConfigurationManagerTimeoutsOutput() QuicksetupConfigurationManagerTimeoutsOutput {
+	return i.ToQuicksetupConfigurationManagerTimeoutsOutputWithContext(context.Background())
+}
+
+func (i QuicksetupConfigurationManagerTimeoutsArgs) ToQuicksetupConfigurationManagerTimeoutsOutputWithContext(ctx context.Context) QuicksetupConfigurationManagerTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuicksetupConfigurationManagerTimeoutsOutput)
+}
+
+func (i QuicksetupConfigurationManagerTimeoutsArgs) ToQuicksetupConfigurationManagerTimeoutsPtrOutput() QuicksetupConfigurationManagerTimeoutsPtrOutput {
+	return i.ToQuicksetupConfigurationManagerTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i QuicksetupConfigurationManagerTimeoutsArgs) ToQuicksetupConfigurationManagerTimeoutsPtrOutputWithContext(ctx context.Context) QuicksetupConfigurationManagerTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuicksetupConfigurationManagerTimeoutsOutput).ToQuicksetupConfigurationManagerTimeoutsPtrOutputWithContext(ctx)
+}
+
+// QuicksetupConfigurationManagerTimeoutsPtrInput is an input type that accepts QuicksetupConfigurationManagerTimeoutsArgs, QuicksetupConfigurationManagerTimeoutsPtr and QuicksetupConfigurationManagerTimeoutsPtrOutput values.
+// You can construct a concrete instance of `QuicksetupConfigurationManagerTimeoutsPtrInput` via:
+//
+//	        QuicksetupConfigurationManagerTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type QuicksetupConfigurationManagerTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToQuicksetupConfigurationManagerTimeoutsPtrOutput() QuicksetupConfigurationManagerTimeoutsPtrOutput
+	ToQuicksetupConfigurationManagerTimeoutsPtrOutputWithContext(context.Context) QuicksetupConfigurationManagerTimeoutsPtrOutput
+}
+
+type quicksetupConfigurationManagerTimeoutsPtrType QuicksetupConfigurationManagerTimeoutsArgs
+
+func QuicksetupConfigurationManagerTimeoutsPtr(v *QuicksetupConfigurationManagerTimeoutsArgs) QuicksetupConfigurationManagerTimeoutsPtrInput {
+	return (*quicksetupConfigurationManagerTimeoutsPtrType)(v)
+}
+
+func (*quicksetupConfigurationManagerTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**QuicksetupConfigurationManagerTimeouts)(nil)).Elem()
+}
+
+func (i *quicksetupConfigurationManagerTimeoutsPtrType) ToQuicksetupConfigurationManagerTimeoutsPtrOutput() QuicksetupConfigurationManagerTimeoutsPtrOutput {
+	return i.ToQuicksetupConfigurationManagerTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *quicksetupConfigurationManagerTimeoutsPtrType) ToQuicksetupConfigurationManagerTimeoutsPtrOutputWithContext(ctx context.Context) QuicksetupConfigurationManagerTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuicksetupConfigurationManagerTimeoutsPtrOutput)
+}
+
+type QuicksetupConfigurationManagerTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (QuicksetupConfigurationManagerTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuicksetupConfigurationManagerTimeouts)(nil)).Elem()
+}
+
+func (o QuicksetupConfigurationManagerTimeoutsOutput) ToQuicksetupConfigurationManagerTimeoutsOutput() QuicksetupConfigurationManagerTimeoutsOutput {
+	return o
+}
+
+func (o QuicksetupConfigurationManagerTimeoutsOutput) ToQuicksetupConfigurationManagerTimeoutsOutputWithContext(ctx context.Context) QuicksetupConfigurationManagerTimeoutsOutput {
+	return o
+}
+
+func (o QuicksetupConfigurationManagerTimeoutsOutput) ToQuicksetupConfigurationManagerTimeoutsPtrOutput() QuicksetupConfigurationManagerTimeoutsPtrOutput {
+	return o.ToQuicksetupConfigurationManagerTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o QuicksetupConfigurationManagerTimeoutsOutput) ToQuicksetupConfigurationManagerTimeoutsPtrOutputWithContext(ctx context.Context) QuicksetupConfigurationManagerTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QuicksetupConfigurationManagerTimeouts) *QuicksetupConfigurationManagerTimeouts {
+		return &v
+	}).(QuicksetupConfigurationManagerTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o QuicksetupConfigurationManagerTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v QuicksetupConfigurationManagerTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o QuicksetupConfigurationManagerTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v QuicksetupConfigurationManagerTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o QuicksetupConfigurationManagerTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v QuicksetupConfigurationManagerTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type QuicksetupConfigurationManagerTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (QuicksetupConfigurationManagerTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QuicksetupConfigurationManagerTimeouts)(nil)).Elem()
+}
+
+func (o QuicksetupConfigurationManagerTimeoutsPtrOutput) ToQuicksetupConfigurationManagerTimeoutsPtrOutput() QuicksetupConfigurationManagerTimeoutsPtrOutput {
+	return o
+}
+
+func (o QuicksetupConfigurationManagerTimeoutsPtrOutput) ToQuicksetupConfigurationManagerTimeoutsPtrOutputWithContext(ctx context.Context) QuicksetupConfigurationManagerTimeoutsPtrOutput {
+	return o
+}
+
+func (o QuicksetupConfigurationManagerTimeoutsPtrOutput) Elem() QuicksetupConfigurationManagerTimeoutsOutput {
+	return o.ApplyT(func(v *QuicksetupConfigurationManagerTimeouts) QuicksetupConfigurationManagerTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret QuicksetupConfigurationManagerTimeouts
+		return ret
+	}).(QuicksetupConfigurationManagerTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o QuicksetupConfigurationManagerTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QuicksetupConfigurationManagerTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o QuicksetupConfigurationManagerTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QuicksetupConfigurationManagerTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o QuicksetupConfigurationManagerTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QuicksetupConfigurationManagerTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
 }
 
 type ResourceDataSyncS3Destination struct {
@@ -6409,6 +6927,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineGlobalFilterArrayInput)(nil)).Elem(), PatchBaselineGlobalFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineSourceInput)(nil)).Elem(), PatchBaselineSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineSourceArrayInput)(nil)).Elem(), PatchBaselineSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QuicksetupConfigurationManagerConfigurationDefinitionInput)(nil)).Elem(), QuicksetupConfigurationManagerConfigurationDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QuicksetupConfigurationManagerConfigurationDefinitionPtrInput)(nil)).Elem(), QuicksetupConfigurationManagerConfigurationDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QuicksetupConfigurationManagerStatusSummaryInput)(nil)).Elem(), QuicksetupConfigurationManagerStatusSummaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QuicksetupConfigurationManagerStatusSummaryArrayInput)(nil)).Elem(), QuicksetupConfigurationManagerStatusSummaryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QuicksetupConfigurationManagerTimeoutsInput)(nil)).Elem(), QuicksetupConfigurationManagerTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QuicksetupConfigurationManagerTimeoutsPtrInput)(nil)).Elem(), QuicksetupConfigurationManagerTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDataSyncS3DestinationInput)(nil)).Elem(), ResourceDataSyncS3DestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDataSyncS3DestinationPtrInput)(nil)).Elem(), ResourceDataSyncS3DestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetContactsRotationRecurrenceInput)(nil)).Elem(), GetContactsRotationRecurrenceArgs{})
@@ -6505,6 +7029,12 @@ func init() {
 	pulumi.RegisterOutputType(PatchBaselineGlobalFilterArrayOutput{})
 	pulumi.RegisterOutputType(PatchBaselineSourceOutput{})
 	pulumi.RegisterOutputType(PatchBaselineSourceArrayOutput{})
+	pulumi.RegisterOutputType(QuicksetupConfigurationManagerConfigurationDefinitionOutput{})
+	pulumi.RegisterOutputType(QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(QuicksetupConfigurationManagerStatusSummaryOutput{})
+	pulumi.RegisterOutputType(QuicksetupConfigurationManagerStatusSummaryArrayOutput{})
+	pulumi.RegisterOutputType(QuicksetupConfigurationManagerTimeoutsOutput{})
+	pulumi.RegisterOutputType(QuicksetupConfigurationManagerTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ResourceDataSyncS3DestinationOutput{})
 	pulumi.RegisterOutputType(ResourceDataSyncS3DestinationPtrOutput{})
 	pulumi.RegisterOutputType(GetContactsRotationRecurrenceOutput{})

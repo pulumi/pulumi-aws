@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import SSO Admin Application Assignment Configuration using the `id`. For example:
  * 
  * ```sh
- * $ pulumi import aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration example arn:aws:sso::012345678901:application/id-12345678
+ * $ pulumi import aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration example arn:aws:sso::123456789012:application/id-12345678
  * ```
  * 
  */

@@ -52,7 +52,7 @@ import (
 // Using `pulumi import`, import Inspector Delegated Admin Account using the `account_id`. For example:
 //
 // ```sh
-// $ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 012345678901
+// $ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 123456789012
 // ```
 type DelegatedAdminAccount struct {
 	pulumi.CustomResourceState

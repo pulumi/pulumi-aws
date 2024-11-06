@@ -28,7 +28,6 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.ec2.AmiCopy("example", {
  *     name: "example",
- *     description: "A copy of ami-xxxxxxxx",
  *     sourceAmiId: "ami-xxxxxxxx",
  *     sourceAmiRegion: "us-west-1",
  *     tags: {

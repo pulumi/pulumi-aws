@@ -137,7 +137,7 @@ class RedrivePolicy(pulumi.CustomResource):
         Using `pulumi import`, import SQS Queue Redrive Policies using the queue URL. For example:
 
         ```sh
-        $ pulumi import aws:sqs/redrivePolicy:RedrivePolicy test https://queue.amazonaws.com/0123456789012/myqueue
+        $ pulumi import aws:sqs/redrivePolicy:RedrivePolicy test https://queue.amazonaws.com/123456789012/myqueue
         ```
 
         :param str resource_name: The name of the resource.
@@ -186,7 +186,7 @@ class RedrivePolicy(pulumi.CustomResource):
         Using `pulumi import`, import SQS Queue Redrive Policies using the queue URL. For example:
 
         ```sh
-        $ pulumi import aws:sqs/redrivePolicy:RedrivePolicy test https://queue.amazonaws.com/0123456789012/myqueue
+        $ pulumi import aws:sqs/redrivePolicy:RedrivePolicy test https://queue.amazonaws.com/123456789012/myqueue
         ```
 
         :param str resource_name: The name of the resource.

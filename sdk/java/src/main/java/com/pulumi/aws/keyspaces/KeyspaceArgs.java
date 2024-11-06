@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.keyspaces;
 
+import com.pulumi.aws.keyspaces.inputs.KeyspaceReplicationSpecificationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -36,6 +37,21 @@ public final class KeyspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The replication specification of the keyspace.
+     * 
+     */
+    @Import(name="replicationSpecification")
+    private @Nullable Output<KeyspaceReplicationSpecificationArgs> replicationSpecification;
+
+    /**
+     * @return The replication specification of the keyspace.
+     * 
+     */
+    public Optional<Output<KeyspaceReplicationSpecificationArgs>> replicationSpecification() {
+        return Optional.ofNullable(this.replicationSpecification);
+    }
+
+    /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -54,6 +70,7 @@ public final class KeyspaceArgs extends com.pulumi.resources.ResourceArgs {
 
     private KeyspaceArgs(KeyspaceArgs $) {
         this.name = $.name;
+        this.replicationSpecification = $.replicationSpecification;
         this.tags = $.tags;
     }
 
@@ -98,6 +115,27 @@ public final class KeyspaceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param replicationSpecification The replication specification of the keyspace.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder replicationSpecification(@Nullable Output<KeyspaceReplicationSpecificationArgs> replicationSpecification) {
+            $.replicationSpecification = replicationSpecification;
+            return this;
+        }
+
+        /**
+         * @param replicationSpecification The replication specification of the keyspace.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder replicationSpecification(KeyspaceReplicationSpecificationArgs replicationSpecification) {
+            return replicationSpecification(Output.of(replicationSpecification));
         }
 
         /**

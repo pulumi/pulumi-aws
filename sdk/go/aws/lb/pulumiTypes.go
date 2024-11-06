@@ -2797,7 +2797,7 @@ func (o ListenerRuleActionFixedResponsePtrOutput) StatusCode() pulumi.StringPtrO
 type ListenerRuleActionForward struct {
 	// The target group stickiness for the rule.
 	Stickiness *ListenerRuleActionForwardStickiness `pulumi:"stickiness"`
-	// One or more target groups block.
+	// One or more target group blocks.
 	TargetGroups []ListenerRuleActionForwardTargetGroup `pulumi:"targetGroups"`
 }
 
@@ -2815,7 +2815,7 @@ type ListenerRuleActionForwardInput interface {
 type ListenerRuleActionForwardArgs struct {
 	// The target group stickiness for the rule.
 	Stickiness ListenerRuleActionForwardStickinessPtrInput `pulumi:"stickiness"`
-	// One or more target groups block.
+	// One or more target group blocks.
 	TargetGroups ListenerRuleActionForwardTargetGroupArrayInput `pulumi:"targetGroups"`
 }
 
@@ -2901,7 +2901,7 @@ func (o ListenerRuleActionForwardOutput) Stickiness() ListenerRuleActionForwardS
 	return o.ApplyT(func(v ListenerRuleActionForward) *ListenerRuleActionForwardStickiness { return v.Stickiness }).(ListenerRuleActionForwardStickinessPtrOutput)
 }
 
-// One or more target groups block.
+// One or more target group blocks.
 func (o ListenerRuleActionForwardOutput) TargetGroups() ListenerRuleActionForwardTargetGroupArrayOutput {
 	return o.ApplyT(func(v ListenerRuleActionForward) []ListenerRuleActionForwardTargetGroup { return v.TargetGroups }).(ListenerRuleActionForwardTargetGroupArrayOutput)
 }
@@ -2940,7 +2940,7 @@ func (o ListenerRuleActionForwardPtrOutput) Stickiness() ListenerRuleActionForwa
 	}).(ListenerRuleActionForwardStickinessPtrOutput)
 }
 
-// One or more target groups block.
+// One or more target group blocks.
 func (o ListenerRuleActionForwardPtrOutput) TargetGroups() ListenerRuleActionForwardTargetGroupArrayOutput {
 	return o.ApplyT(func(v *ListenerRuleActionForward) []ListenerRuleActionForwardTargetGroup {
 		if v == nil {
@@ -7169,6 +7169,2697 @@ func (o GetListenerMutualAuthenticationArrayOutput) Index(i pulumi.IntInput) Get
 	}).(GetListenerMutualAuthenticationOutput)
 }
 
+type GetListenerRuleAction struct {
+	// An action to authenticate using Amazon Cognito.
+	// Detailed below.
+	AuthenticateCognito *GetListenerRuleActionAuthenticateCognito `pulumi:"authenticateCognito"`
+	// An action to authenticate using OIDC.
+	// Detailed below.
+	AuthenticateOidc *GetListenerRuleActionAuthenticateOidc `pulumi:"authenticateOidc"`
+	// An action to return a fixed response.
+	// Detailed below.
+	FixedResponse *GetListenerRuleActionFixedResponse `pulumi:"fixedResponse"`
+	// An action to forward the request.
+	// Detailed below.
+	Forward *GetListenerRuleActionForward `pulumi:"forward"`
+	// The evaluation order of the action.
+	Order float64 `pulumi:"order"`
+	// An action to redirect the request.
+	// Detailed below.
+	Redirect *GetListenerRuleActionRedirect `pulumi:"redirect"`
+	// The type of the action, indicates which sub-block will be populated.
+	Type string `pulumi:"type"`
+}
+
+// GetListenerRuleActionInput is an input type that accepts GetListenerRuleActionArgs and GetListenerRuleActionOutput values.
+// You can construct a concrete instance of `GetListenerRuleActionInput` via:
+//
+//	GetListenerRuleActionArgs{...}
+type GetListenerRuleActionInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleActionOutput() GetListenerRuleActionOutput
+	ToGetListenerRuleActionOutputWithContext(context.Context) GetListenerRuleActionOutput
+}
+
+type GetListenerRuleActionArgs struct {
+	// An action to authenticate using Amazon Cognito.
+	// Detailed below.
+	AuthenticateCognito GetListenerRuleActionAuthenticateCognitoPtrInput `pulumi:"authenticateCognito"`
+	// An action to authenticate using OIDC.
+	// Detailed below.
+	AuthenticateOidc GetListenerRuleActionAuthenticateOidcPtrInput `pulumi:"authenticateOidc"`
+	// An action to return a fixed response.
+	// Detailed below.
+	FixedResponse GetListenerRuleActionFixedResponsePtrInput `pulumi:"fixedResponse"`
+	// An action to forward the request.
+	// Detailed below.
+	Forward GetListenerRuleActionForwardPtrInput `pulumi:"forward"`
+	// The evaluation order of the action.
+	Order pulumi.Float64Input `pulumi:"order"`
+	// An action to redirect the request.
+	// Detailed below.
+	Redirect GetListenerRuleActionRedirectPtrInput `pulumi:"redirect"`
+	// The type of the action, indicates which sub-block will be populated.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetListenerRuleActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleAction)(nil)).Elem()
+}
+
+func (i GetListenerRuleActionArgs) ToGetListenerRuleActionOutput() GetListenerRuleActionOutput {
+	return i.ToGetListenerRuleActionOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleActionArgs) ToGetListenerRuleActionOutputWithContext(ctx context.Context) GetListenerRuleActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleActionOutput)
+}
+
+// GetListenerRuleActionArrayInput is an input type that accepts GetListenerRuleActionArray and GetListenerRuleActionArrayOutput values.
+// You can construct a concrete instance of `GetListenerRuleActionArrayInput` via:
+//
+//	GetListenerRuleActionArray{ GetListenerRuleActionArgs{...} }
+type GetListenerRuleActionArrayInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleActionArrayOutput() GetListenerRuleActionArrayOutput
+	ToGetListenerRuleActionArrayOutputWithContext(context.Context) GetListenerRuleActionArrayOutput
+}
+
+type GetListenerRuleActionArray []GetListenerRuleActionInput
+
+func (GetListenerRuleActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerRuleAction)(nil)).Elem()
+}
+
+func (i GetListenerRuleActionArray) ToGetListenerRuleActionArrayOutput() GetListenerRuleActionArrayOutput {
+	return i.ToGetListenerRuleActionArrayOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleActionArray) ToGetListenerRuleActionArrayOutputWithContext(ctx context.Context) GetListenerRuleActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleActionArrayOutput)
+}
+
+type GetListenerRuleActionOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleAction)(nil)).Elem()
+}
+
+func (o GetListenerRuleActionOutput) ToGetListenerRuleActionOutput() GetListenerRuleActionOutput {
+	return o
+}
+
+func (o GetListenerRuleActionOutput) ToGetListenerRuleActionOutputWithContext(ctx context.Context) GetListenerRuleActionOutput {
+	return o
+}
+
+// An action to authenticate using Amazon Cognito.
+// Detailed below.
+func (o GetListenerRuleActionOutput) AuthenticateCognito() GetListenerRuleActionAuthenticateCognitoPtrOutput {
+	return o.ApplyT(func(v GetListenerRuleAction) *GetListenerRuleActionAuthenticateCognito { return v.AuthenticateCognito }).(GetListenerRuleActionAuthenticateCognitoPtrOutput)
+}
+
+// An action to authenticate using OIDC.
+// Detailed below.
+func (o GetListenerRuleActionOutput) AuthenticateOidc() GetListenerRuleActionAuthenticateOidcPtrOutput {
+	return o.ApplyT(func(v GetListenerRuleAction) *GetListenerRuleActionAuthenticateOidc { return v.AuthenticateOidc }).(GetListenerRuleActionAuthenticateOidcPtrOutput)
+}
+
+// An action to return a fixed response.
+// Detailed below.
+func (o GetListenerRuleActionOutput) FixedResponse() GetListenerRuleActionFixedResponsePtrOutput {
+	return o.ApplyT(func(v GetListenerRuleAction) *GetListenerRuleActionFixedResponse { return v.FixedResponse }).(GetListenerRuleActionFixedResponsePtrOutput)
+}
+
+// An action to forward the request.
+// Detailed below.
+func (o GetListenerRuleActionOutput) Forward() GetListenerRuleActionForwardPtrOutput {
+	return o.ApplyT(func(v GetListenerRuleAction) *GetListenerRuleActionForward { return v.Forward }).(GetListenerRuleActionForwardPtrOutput)
+}
+
+// The evaluation order of the action.
+func (o GetListenerRuleActionOutput) Order() pulumi.Float64Output {
+	return o.ApplyT(func(v GetListenerRuleAction) float64 { return v.Order }).(pulumi.Float64Output)
+}
+
+// An action to redirect the request.
+// Detailed below.
+func (o GetListenerRuleActionOutput) Redirect() GetListenerRuleActionRedirectPtrOutput {
+	return o.ApplyT(func(v GetListenerRuleAction) *GetListenerRuleActionRedirect { return v.Redirect }).(GetListenerRuleActionRedirectPtrOutput)
+}
+
+// The type of the action, indicates which sub-block will be populated.
+func (o GetListenerRuleActionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleAction) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetListenerRuleActionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerRuleAction)(nil)).Elem()
+}
+
+func (o GetListenerRuleActionArrayOutput) ToGetListenerRuleActionArrayOutput() GetListenerRuleActionArrayOutput {
+	return o
+}
+
+func (o GetListenerRuleActionArrayOutput) ToGetListenerRuleActionArrayOutputWithContext(ctx context.Context) GetListenerRuleActionArrayOutput {
+	return o
+}
+
+func (o GetListenerRuleActionArrayOutput) Index(i pulumi.IntInput) GetListenerRuleActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetListenerRuleAction {
+		return vs[0].([]GetListenerRuleAction)[vs[1].(int)]
+	}).(GetListenerRuleActionOutput)
+}
+
+type GetListenerRuleActionAuthenticateCognito struct {
+	// Set of additional parameters for the request.
+	// Detailed below.
+	AuthenticationRequestExtraParams map[string]string `pulumi:"authenticationRequestExtraParams"`
+	// Behavior when the client is not authenticated.
+	OnUnauthenticatedRequest string `pulumi:"onUnauthenticatedRequest"`
+	// Set of user claims requested.
+	Scope string `pulumi:"scope"`
+	// Name of the cookie used to maintain session information.
+	SessionCookieName string `pulumi:"sessionCookieName"`
+	// Maximum duration of the authentication session in seconds.
+	SessionTimeout int `pulumi:"sessionTimeout"`
+	// ARN of the Cognito user pool.
+	UserPoolArn string `pulumi:"userPoolArn"`
+	// ID of the Cognito user pool client.
+	UserPoolClientId string `pulumi:"userPoolClientId"`
+	// Domain prefix or fully-qualified domain name of the Cognito user pool.
+	UserPoolDomain string `pulumi:"userPoolDomain"`
+}
+
+// GetListenerRuleActionAuthenticateCognitoInput is an input type that accepts GetListenerRuleActionAuthenticateCognitoArgs and GetListenerRuleActionAuthenticateCognitoOutput values.
+// You can construct a concrete instance of `GetListenerRuleActionAuthenticateCognitoInput` via:
+//
+//	GetListenerRuleActionAuthenticateCognitoArgs{...}
+type GetListenerRuleActionAuthenticateCognitoInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleActionAuthenticateCognitoOutput() GetListenerRuleActionAuthenticateCognitoOutput
+	ToGetListenerRuleActionAuthenticateCognitoOutputWithContext(context.Context) GetListenerRuleActionAuthenticateCognitoOutput
+}
+
+type GetListenerRuleActionAuthenticateCognitoArgs struct {
+	// Set of additional parameters for the request.
+	// Detailed below.
+	AuthenticationRequestExtraParams pulumi.StringMapInput `pulumi:"authenticationRequestExtraParams"`
+	// Behavior when the client is not authenticated.
+	OnUnauthenticatedRequest pulumi.StringInput `pulumi:"onUnauthenticatedRequest"`
+	// Set of user claims requested.
+	Scope pulumi.StringInput `pulumi:"scope"`
+	// Name of the cookie used to maintain session information.
+	SessionCookieName pulumi.StringInput `pulumi:"sessionCookieName"`
+	// Maximum duration of the authentication session in seconds.
+	SessionTimeout pulumi.IntInput `pulumi:"sessionTimeout"`
+	// ARN of the Cognito user pool.
+	UserPoolArn pulumi.StringInput `pulumi:"userPoolArn"`
+	// ID of the Cognito user pool client.
+	UserPoolClientId pulumi.StringInput `pulumi:"userPoolClientId"`
+	// Domain prefix or fully-qualified domain name of the Cognito user pool.
+	UserPoolDomain pulumi.StringInput `pulumi:"userPoolDomain"`
+}
+
+func (GetListenerRuleActionAuthenticateCognitoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleActionAuthenticateCognito)(nil)).Elem()
+}
+
+func (i GetListenerRuleActionAuthenticateCognitoArgs) ToGetListenerRuleActionAuthenticateCognitoOutput() GetListenerRuleActionAuthenticateCognitoOutput {
+	return i.ToGetListenerRuleActionAuthenticateCognitoOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleActionAuthenticateCognitoArgs) ToGetListenerRuleActionAuthenticateCognitoOutputWithContext(ctx context.Context) GetListenerRuleActionAuthenticateCognitoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleActionAuthenticateCognitoOutput)
+}
+
+func (i GetListenerRuleActionAuthenticateCognitoArgs) ToGetListenerRuleActionAuthenticateCognitoPtrOutput() GetListenerRuleActionAuthenticateCognitoPtrOutput {
+	return i.ToGetListenerRuleActionAuthenticateCognitoPtrOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleActionAuthenticateCognitoArgs) ToGetListenerRuleActionAuthenticateCognitoPtrOutputWithContext(ctx context.Context) GetListenerRuleActionAuthenticateCognitoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleActionAuthenticateCognitoOutput).ToGetListenerRuleActionAuthenticateCognitoPtrOutputWithContext(ctx)
+}
+
+// GetListenerRuleActionAuthenticateCognitoPtrInput is an input type that accepts GetListenerRuleActionAuthenticateCognitoArgs, GetListenerRuleActionAuthenticateCognitoPtr and GetListenerRuleActionAuthenticateCognitoPtrOutput values.
+// You can construct a concrete instance of `GetListenerRuleActionAuthenticateCognitoPtrInput` via:
+//
+//	        GetListenerRuleActionAuthenticateCognitoArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetListenerRuleActionAuthenticateCognitoPtrInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleActionAuthenticateCognitoPtrOutput() GetListenerRuleActionAuthenticateCognitoPtrOutput
+	ToGetListenerRuleActionAuthenticateCognitoPtrOutputWithContext(context.Context) GetListenerRuleActionAuthenticateCognitoPtrOutput
+}
+
+type getListenerRuleActionAuthenticateCognitoPtrType GetListenerRuleActionAuthenticateCognitoArgs
+
+func GetListenerRuleActionAuthenticateCognitoPtr(v *GetListenerRuleActionAuthenticateCognitoArgs) GetListenerRuleActionAuthenticateCognitoPtrInput {
+	return (*getListenerRuleActionAuthenticateCognitoPtrType)(v)
+}
+
+func (*getListenerRuleActionAuthenticateCognitoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetListenerRuleActionAuthenticateCognito)(nil)).Elem()
+}
+
+func (i *getListenerRuleActionAuthenticateCognitoPtrType) ToGetListenerRuleActionAuthenticateCognitoPtrOutput() GetListenerRuleActionAuthenticateCognitoPtrOutput {
+	return i.ToGetListenerRuleActionAuthenticateCognitoPtrOutputWithContext(context.Background())
+}
+
+func (i *getListenerRuleActionAuthenticateCognitoPtrType) ToGetListenerRuleActionAuthenticateCognitoPtrOutputWithContext(ctx context.Context) GetListenerRuleActionAuthenticateCognitoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleActionAuthenticateCognitoPtrOutput)
+}
+
+type GetListenerRuleActionAuthenticateCognitoOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleActionAuthenticateCognitoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleActionAuthenticateCognito)(nil)).Elem()
+}
+
+func (o GetListenerRuleActionAuthenticateCognitoOutput) ToGetListenerRuleActionAuthenticateCognitoOutput() GetListenerRuleActionAuthenticateCognitoOutput {
+	return o
+}
+
+func (o GetListenerRuleActionAuthenticateCognitoOutput) ToGetListenerRuleActionAuthenticateCognitoOutputWithContext(ctx context.Context) GetListenerRuleActionAuthenticateCognitoOutput {
+	return o
+}
+
+func (o GetListenerRuleActionAuthenticateCognitoOutput) ToGetListenerRuleActionAuthenticateCognitoPtrOutput() GetListenerRuleActionAuthenticateCognitoPtrOutput {
+	return o.ToGetListenerRuleActionAuthenticateCognitoPtrOutputWithContext(context.Background())
+}
+
+func (o GetListenerRuleActionAuthenticateCognitoOutput) ToGetListenerRuleActionAuthenticateCognitoPtrOutputWithContext(ctx context.Context) GetListenerRuleActionAuthenticateCognitoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetListenerRuleActionAuthenticateCognito) *GetListenerRuleActionAuthenticateCognito {
+		return &v
+	}).(GetListenerRuleActionAuthenticateCognitoPtrOutput)
+}
+
+// Set of additional parameters for the request.
+// Detailed below.
+func (o GetListenerRuleActionAuthenticateCognitoOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetListenerRuleActionAuthenticateCognito) map[string]string {
+		return v.AuthenticationRequestExtraParams
+	}).(pulumi.StringMapOutput)
+}
+
+// Behavior when the client is not authenticated.
+func (o GetListenerRuleActionAuthenticateCognitoOutput) OnUnauthenticatedRequest() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleActionAuthenticateCognito) string { return v.OnUnauthenticatedRequest }).(pulumi.StringOutput)
+}
+
+// Set of user claims requested.
+func (o GetListenerRuleActionAuthenticateCognitoOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleActionAuthenticateCognito) string { return v.Scope }).(pulumi.StringOutput)
+}
+
+// Name of the cookie used to maintain session information.
+func (o GetListenerRuleActionAuthenticateCognitoOutput) SessionCookieName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleActionAuthenticateCognito) string { return v.SessionCookieName }).(pulumi.StringOutput)
+}
+
+// Maximum duration of the authentication session in seconds.
+func (o GetListenerRuleActionAuthenticateCognitoOutput) SessionTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v GetListenerRuleActionAuthenticateCognito) int { return v.SessionTimeout }).(pulumi.IntOutput)
+}
+
+// ARN of the Cognito user pool.
+func (o GetListenerRuleActionAuthenticateCognitoOutput) UserPoolArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleActionAuthenticateCognito) string { return v.UserPoolArn }).(pulumi.StringOutput)
+}
+
+// ID of the Cognito user pool client.
+func (o GetListenerRuleActionAuthenticateCognitoOutput) UserPoolClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleActionAuthenticateCognito) string { return v.UserPoolClientId }).(pulumi.StringOutput)
+}
+
+// Domain prefix or fully-qualified domain name of the Cognito user pool.
+func (o GetListenerRuleActionAuthenticateCognitoOutput) UserPoolDomain() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleActionAuthenticateCognito) string { return v.UserPoolDomain }).(pulumi.StringOutput)
+}
+
+type GetListenerRuleActionAuthenticateCognitoPtrOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleActionAuthenticateCognitoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetListenerRuleActionAuthenticateCognito)(nil)).Elem()
+}
+
+func (o GetListenerRuleActionAuthenticateCognitoPtrOutput) ToGetListenerRuleActionAuthenticateCognitoPtrOutput() GetListenerRuleActionAuthenticateCognitoPtrOutput {
+	return o
+}
+
+func (o GetListenerRuleActionAuthenticateCognitoPtrOutput) ToGetListenerRuleActionAuthenticateCognitoPtrOutputWithContext(ctx context.Context) GetListenerRuleActionAuthenticateCognitoPtrOutput {
+	return o
+}
+
+func (o GetListenerRuleActionAuthenticateCognitoPtrOutput) Elem() GetListenerRuleActionAuthenticateCognitoOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionAuthenticateCognito) GetListenerRuleActionAuthenticateCognito {
+		if v != nil {
+			return *v
+		}
+		var ret GetListenerRuleActionAuthenticateCognito
+		return ret
+	}).(GetListenerRuleActionAuthenticateCognitoOutput)
+}
+
+// Set of additional parameters for the request.
+// Detailed below.
+func (o GetListenerRuleActionAuthenticateCognitoPtrOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionAuthenticateCognito) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticationRequestExtraParams
+	}).(pulumi.StringMapOutput)
+}
+
+// Behavior when the client is not authenticated.
+func (o GetListenerRuleActionAuthenticateCognitoPtrOutput) OnUnauthenticatedRequest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionAuthenticateCognito) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OnUnauthenticatedRequest
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set of user claims requested.
+func (o GetListenerRuleActionAuthenticateCognitoPtrOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionAuthenticateCognito) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Scope
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the cookie used to maintain session information.
+func (o GetListenerRuleActionAuthenticateCognitoPtrOutput) SessionCookieName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionAuthenticateCognito) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SessionCookieName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Maximum duration of the authentication session in seconds.
+func (o GetListenerRuleActionAuthenticateCognitoPtrOutput) SessionTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionAuthenticateCognito) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SessionTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// ARN of the Cognito user pool.
+func (o GetListenerRuleActionAuthenticateCognitoPtrOutput) UserPoolArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionAuthenticateCognito) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UserPoolArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// ID of the Cognito user pool client.
+func (o GetListenerRuleActionAuthenticateCognitoPtrOutput) UserPoolClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionAuthenticateCognito) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UserPoolClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Domain prefix or fully-qualified domain name of the Cognito user pool.
+func (o GetListenerRuleActionAuthenticateCognitoPtrOutput) UserPoolDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionAuthenticateCognito) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UserPoolDomain
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetListenerRuleActionAuthenticateOidc struct {
+	// Set of additional parameters for the request.
+	// Detailed below.
+	AuthenticationRequestExtraParams map[string]string `pulumi:"authenticationRequestExtraParams"`
+	// The authorization endpoint of the IdP.
+	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`
+	// OAuth 2.0 client identifier.
+	ClientId string `pulumi:"clientId"`
+	// OIDC issuer identifier of the IdP.
+	Issuer string `pulumi:"issuer"`
+	// Behavior when the client is not authenticated.
+	OnUnauthenticatedRequest string `pulumi:"onUnauthenticatedRequest"`
+	// Set of user claims requested.
+	Scope string `pulumi:"scope"`
+	// Name of the cookie used to maintain session information.
+	SessionCookieName string `pulumi:"sessionCookieName"`
+	// Maximum duration of the authentication session in seconds.
+	SessionTimeout int `pulumi:"sessionTimeout"`
+	// The token endpoint of the IdP.
+	TokenEndpoint string `pulumi:"tokenEndpoint"`
+	// The user info endpoint of the IdP.
+	UserInfoEndpoint string `pulumi:"userInfoEndpoint"`
+}
+
+// GetListenerRuleActionAuthenticateOidcInput is an input type that accepts GetListenerRuleActionAuthenticateOidcArgs and GetListenerRuleActionAuthenticateOidcOutput values.
+// You can construct a concrete instance of `GetListenerRuleActionAuthenticateOidcInput` via:
+//
+//	GetListenerRuleActionAuthenticateOidcArgs{...}
+type GetListenerRuleActionAuthenticateOidcInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleActionAuthenticateOidcOutput() GetListenerRuleActionAuthenticateOidcOutput
+	ToGetListenerRuleActionAuthenticateOidcOutputWithContext(context.Context) GetListenerRuleActionAuthenticateOidcOutput
+}
+
+type GetListenerRuleActionAuthenticateOidcArgs struct {
+	// Set of additional parameters for the request.
+	// Detailed below.
+	AuthenticationRequestExtraParams pulumi.StringMapInput `pulumi:"authenticationRequestExtraParams"`
+	// The authorization endpoint of the IdP.
+	AuthorizationEndpoint pulumi.StringInput `pulumi:"authorizationEndpoint"`
+	// OAuth 2.0 client identifier.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// OIDC issuer identifier of the IdP.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+	// Behavior when the client is not authenticated.
+	OnUnauthenticatedRequest pulumi.StringInput `pulumi:"onUnauthenticatedRequest"`
+	// Set of user claims requested.
+	Scope pulumi.StringInput `pulumi:"scope"`
+	// Name of the cookie used to maintain session information.
+	SessionCookieName pulumi.StringInput `pulumi:"sessionCookieName"`
+	// Maximum duration of the authentication session in seconds.
+	SessionTimeout pulumi.IntInput `pulumi:"sessionTimeout"`
+	// The token endpoint of the IdP.
+	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
+	// The user info endpoint of the IdP.
+	UserInfoEndpoint pulumi.StringInput `pulumi:"userInfoEndpoint"`
+}
+
+func (GetListenerRuleActionAuthenticateOidcArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleActionAuthenticateOidc)(nil)).Elem()
+}
+
+func (i GetListenerRuleActionAuthenticateOidcArgs) ToGetListenerRuleActionAuthenticateOidcOutput() GetListenerRuleActionAuthenticateOidcOutput {
+	return i.ToGetListenerRuleActionAuthenticateOidcOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleActionAuthenticateOidcArgs) ToGetListenerRuleActionAuthenticateOidcOutputWithContext(ctx context.Context) GetListenerRuleActionAuthenticateOidcOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleActionAuthenticateOidcOutput)
+}
+
+func (i GetListenerRuleActionAuthenticateOidcArgs) ToGetListenerRuleActionAuthenticateOidcPtrOutput() GetListenerRuleActionAuthenticateOidcPtrOutput {
+	return i.ToGetListenerRuleActionAuthenticateOidcPtrOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleActionAuthenticateOidcArgs) ToGetListenerRuleActionAuthenticateOidcPtrOutputWithContext(ctx context.Context) GetListenerRuleActionAuthenticateOidcPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleActionAuthenticateOidcOutput).ToGetListenerRuleActionAuthenticateOidcPtrOutputWithContext(ctx)
+}
+
+// GetListenerRuleActionAuthenticateOidcPtrInput is an input type that accepts GetListenerRuleActionAuthenticateOidcArgs, GetListenerRuleActionAuthenticateOidcPtr and GetListenerRuleActionAuthenticateOidcPtrOutput values.
+// You can construct a concrete instance of `GetListenerRuleActionAuthenticateOidcPtrInput` via:
+//
+//	        GetListenerRuleActionAuthenticateOidcArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetListenerRuleActionAuthenticateOidcPtrInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleActionAuthenticateOidcPtrOutput() GetListenerRuleActionAuthenticateOidcPtrOutput
+	ToGetListenerRuleActionAuthenticateOidcPtrOutputWithContext(context.Context) GetListenerRuleActionAuthenticateOidcPtrOutput
+}
+
+type getListenerRuleActionAuthenticateOidcPtrType GetListenerRuleActionAuthenticateOidcArgs
+
+func GetListenerRuleActionAuthenticateOidcPtr(v *GetListenerRuleActionAuthenticateOidcArgs) GetListenerRuleActionAuthenticateOidcPtrInput {
+	return (*getListenerRuleActionAuthenticateOidcPtrType)(v)
+}
+
+func (*getListenerRuleActionAuthenticateOidcPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetListenerRuleActionAuthenticateOidc)(nil)).Elem()
+}
+
+func (i *getListenerRuleActionAuthenticateOidcPtrType) ToGetListenerRuleActionAuthenticateOidcPtrOutput() GetListenerRuleActionAuthenticateOidcPtrOutput {
+	return i.ToGetListenerRuleActionAuthenticateOidcPtrOutputWithContext(context.Background())
+}
+
+func (i *getListenerRuleActionAuthenticateOidcPtrType) ToGetListenerRuleActionAuthenticateOidcPtrOutputWithContext(ctx context.Context) GetListenerRuleActionAuthenticateOidcPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleActionAuthenticateOidcPtrOutput)
+}
+
+type GetListenerRuleActionAuthenticateOidcOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleActionAuthenticateOidcOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleActionAuthenticateOidc)(nil)).Elem()
+}
+
+func (o GetListenerRuleActionAuthenticateOidcOutput) ToGetListenerRuleActionAuthenticateOidcOutput() GetListenerRuleActionAuthenticateOidcOutput {
+	return o
+}
+
+func (o GetListenerRuleActionAuthenticateOidcOutput) ToGetListenerRuleActionAuthenticateOidcOutputWithContext(ctx context.Context) GetListenerRuleActionAuthenticateOidcOutput {
+	return o
+}
+
+func (o GetListenerRuleActionAuthenticateOidcOutput) ToGetListenerRuleActionAuthenticateOidcPtrOutput() GetListenerRuleActionAuthenticateOidcPtrOutput {
+	return o.ToGetListenerRuleActionAuthenticateOidcPtrOutputWithContext(context.Background())
+}
+
+func (o GetListenerRuleActionAuthenticateOidcOutput) ToGetListenerRuleActionAuthenticateOidcPtrOutputWithContext(ctx context.Context) GetListenerRuleActionAuthenticateOidcPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetListenerRuleActionAuthenticateOidc) *GetListenerRuleActionAuthenticateOidc {
+		return &v
+	}).(GetListenerRuleActionAuthenticateOidcPtrOutput)
+}
+
+// Set of additional parameters for the request.
+// Detailed below.
+func (o GetListenerRuleActionAuthenticateOidcOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetListenerRuleActionAuthenticateOidc) map[string]string {
+		return v.AuthenticationRequestExtraParams
+	}).(pulumi.StringMapOutput)
+}
+
+// The authorization endpoint of the IdP.
+func (o GetListenerRuleActionAuthenticateOidcOutput) AuthorizationEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleActionAuthenticateOidc) string { return v.AuthorizationEndpoint }).(pulumi.StringOutput)
+}
+
+// OAuth 2.0 client identifier.
+func (o GetListenerRuleActionAuthenticateOidcOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleActionAuthenticateOidc) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// OIDC issuer identifier of the IdP.
+func (o GetListenerRuleActionAuthenticateOidcOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleActionAuthenticateOidc) string { return v.Issuer }).(pulumi.StringOutput)
+}
+
+// Behavior when the client is not authenticated.
+func (o GetListenerRuleActionAuthenticateOidcOutput) OnUnauthenticatedRequest() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleActionAuthenticateOidc) string { return v.OnUnauthenticatedRequest }).(pulumi.StringOutput)
+}
+
+// Set of user claims requested.
+func (o GetListenerRuleActionAuthenticateOidcOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleActionAuthenticateOidc) string { return v.Scope }).(pulumi.StringOutput)
+}
+
+// Name of the cookie used to maintain session information.
+func (o GetListenerRuleActionAuthenticateOidcOutput) SessionCookieName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleActionAuthenticateOidc) string { return v.SessionCookieName }).(pulumi.StringOutput)
+}
+
+// Maximum duration of the authentication session in seconds.
+func (o GetListenerRuleActionAuthenticateOidcOutput) SessionTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v GetListenerRuleActionAuthenticateOidc) int { return v.SessionTimeout }).(pulumi.IntOutput)
+}
+
+// The token endpoint of the IdP.
+func (o GetListenerRuleActionAuthenticateOidcOutput) TokenEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleActionAuthenticateOidc) string { return v.TokenEndpoint }).(pulumi.StringOutput)
+}
+
+// The user info endpoint of the IdP.
+func (o GetListenerRuleActionAuthenticateOidcOutput) UserInfoEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleActionAuthenticateOidc) string { return v.UserInfoEndpoint }).(pulumi.StringOutput)
+}
+
+type GetListenerRuleActionAuthenticateOidcPtrOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleActionAuthenticateOidcPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetListenerRuleActionAuthenticateOidc)(nil)).Elem()
+}
+
+func (o GetListenerRuleActionAuthenticateOidcPtrOutput) ToGetListenerRuleActionAuthenticateOidcPtrOutput() GetListenerRuleActionAuthenticateOidcPtrOutput {
+	return o
+}
+
+func (o GetListenerRuleActionAuthenticateOidcPtrOutput) ToGetListenerRuleActionAuthenticateOidcPtrOutputWithContext(ctx context.Context) GetListenerRuleActionAuthenticateOidcPtrOutput {
+	return o
+}
+
+func (o GetListenerRuleActionAuthenticateOidcPtrOutput) Elem() GetListenerRuleActionAuthenticateOidcOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionAuthenticateOidc) GetListenerRuleActionAuthenticateOidc {
+		if v != nil {
+			return *v
+		}
+		var ret GetListenerRuleActionAuthenticateOidc
+		return ret
+	}).(GetListenerRuleActionAuthenticateOidcOutput)
+}
+
+// Set of additional parameters for the request.
+// Detailed below.
+func (o GetListenerRuleActionAuthenticateOidcPtrOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionAuthenticateOidc) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticationRequestExtraParams
+	}).(pulumi.StringMapOutput)
+}
+
+// The authorization endpoint of the IdP.
+func (o GetListenerRuleActionAuthenticateOidcPtrOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionAuthenticateOidc) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthorizationEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth 2.0 client identifier.
+func (o GetListenerRuleActionAuthenticateOidcPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionAuthenticateOidc) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// OIDC issuer identifier of the IdP.
+func (o GetListenerRuleActionAuthenticateOidcPtrOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionAuthenticateOidc) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Issuer
+	}).(pulumi.StringPtrOutput)
+}
+
+// Behavior when the client is not authenticated.
+func (o GetListenerRuleActionAuthenticateOidcPtrOutput) OnUnauthenticatedRequest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionAuthenticateOidc) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OnUnauthenticatedRequest
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set of user claims requested.
+func (o GetListenerRuleActionAuthenticateOidcPtrOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionAuthenticateOidc) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Scope
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the cookie used to maintain session information.
+func (o GetListenerRuleActionAuthenticateOidcPtrOutput) SessionCookieName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionAuthenticateOidc) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SessionCookieName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Maximum duration of the authentication session in seconds.
+func (o GetListenerRuleActionAuthenticateOidcPtrOutput) SessionTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionAuthenticateOidc) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SessionTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// The token endpoint of the IdP.
+func (o GetListenerRuleActionAuthenticateOidcPtrOutput) TokenEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionAuthenticateOidc) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TokenEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user info endpoint of the IdP.
+func (o GetListenerRuleActionAuthenticateOidcPtrOutput) UserInfoEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionAuthenticateOidc) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UserInfoEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetListenerRuleActionFixedResponse struct {
+	// Content type of the response.
+	ContentType string `pulumi:"contentType"`
+	// Message body of the response.
+	MessageBody string `pulumi:"messageBody"`
+	// The HTTP redirect code.
+	StatusCode string `pulumi:"statusCode"`
+}
+
+// GetListenerRuleActionFixedResponseInput is an input type that accepts GetListenerRuleActionFixedResponseArgs and GetListenerRuleActionFixedResponseOutput values.
+// You can construct a concrete instance of `GetListenerRuleActionFixedResponseInput` via:
+//
+//	GetListenerRuleActionFixedResponseArgs{...}
+type GetListenerRuleActionFixedResponseInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleActionFixedResponseOutput() GetListenerRuleActionFixedResponseOutput
+	ToGetListenerRuleActionFixedResponseOutputWithContext(context.Context) GetListenerRuleActionFixedResponseOutput
+}
+
+type GetListenerRuleActionFixedResponseArgs struct {
+	// Content type of the response.
+	ContentType pulumi.StringInput `pulumi:"contentType"`
+	// Message body of the response.
+	MessageBody pulumi.StringInput `pulumi:"messageBody"`
+	// The HTTP redirect code.
+	StatusCode pulumi.StringInput `pulumi:"statusCode"`
+}
+
+func (GetListenerRuleActionFixedResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleActionFixedResponse)(nil)).Elem()
+}
+
+func (i GetListenerRuleActionFixedResponseArgs) ToGetListenerRuleActionFixedResponseOutput() GetListenerRuleActionFixedResponseOutput {
+	return i.ToGetListenerRuleActionFixedResponseOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleActionFixedResponseArgs) ToGetListenerRuleActionFixedResponseOutputWithContext(ctx context.Context) GetListenerRuleActionFixedResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleActionFixedResponseOutput)
+}
+
+func (i GetListenerRuleActionFixedResponseArgs) ToGetListenerRuleActionFixedResponsePtrOutput() GetListenerRuleActionFixedResponsePtrOutput {
+	return i.ToGetListenerRuleActionFixedResponsePtrOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleActionFixedResponseArgs) ToGetListenerRuleActionFixedResponsePtrOutputWithContext(ctx context.Context) GetListenerRuleActionFixedResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleActionFixedResponseOutput).ToGetListenerRuleActionFixedResponsePtrOutputWithContext(ctx)
+}
+
+// GetListenerRuleActionFixedResponsePtrInput is an input type that accepts GetListenerRuleActionFixedResponseArgs, GetListenerRuleActionFixedResponsePtr and GetListenerRuleActionFixedResponsePtrOutput values.
+// You can construct a concrete instance of `GetListenerRuleActionFixedResponsePtrInput` via:
+//
+//	        GetListenerRuleActionFixedResponseArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetListenerRuleActionFixedResponsePtrInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleActionFixedResponsePtrOutput() GetListenerRuleActionFixedResponsePtrOutput
+	ToGetListenerRuleActionFixedResponsePtrOutputWithContext(context.Context) GetListenerRuleActionFixedResponsePtrOutput
+}
+
+type getListenerRuleActionFixedResponsePtrType GetListenerRuleActionFixedResponseArgs
+
+func GetListenerRuleActionFixedResponsePtr(v *GetListenerRuleActionFixedResponseArgs) GetListenerRuleActionFixedResponsePtrInput {
+	return (*getListenerRuleActionFixedResponsePtrType)(v)
+}
+
+func (*getListenerRuleActionFixedResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetListenerRuleActionFixedResponse)(nil)).Elem()
+}
+
+func (i *getListenerRuleActionFixedResponsePtrType) ToGetListenerRuleActionFixedResponsePtrOutput() GetListenerRuleActionFixedResponsePtrOutput {
+	return i.ToGetListenerRuleActionFixedResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *getListenerRuleActionFixedResponsePtrType) ToGetListenerRuleActionFixedResponsePtrOutputWithContext(ctx context.Context) GetListenerRuleActionFixedResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleActionFixedResponsePtrOutput)
+}
+
+type GetListenerRuleActionFixedResponseOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleActionFixedResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleActionFixedResponse)(nil)).Elem()
+}
+
+func (o GetListenerRuleActionFixedResponseOutput) ToGetListenerRuleActionFixedResponseOutput() GetListenerRuleActionFixedResponseOutput {
+	return o
+}
+
+func (o GetListenerRuleActionFixedResponseOutput) ToGetListenerRuleActionFixedResponseOutputWithContext(ctx context.Context) GetListenerRuleActionFixedResponseOutput {
+	return o
+}
+
+func (o GetListenerRuleActionFixedResponseOutput) ToGetListenerRuleActionFixedResponsePtrOutput() GetListenerRuleActionFixedResponsePtrOutput {
+	return o.ToGetListenerRuleActionFixedResponsePtrOutputWithContext(context.Background())
+}
+
+func (o GetListenerRuleActionFixedResponseOutput) ToGetListenerRuleActionFixedResponsePtrOutputWithContext(ctx context.Context) GetListenerRuleActionFixedResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetListenerRuleActionFixedResponse) *GetListenerRuleActionFixedResponse {
+		return &v
+	}).(GetListenerRuleActionFixedResponsePtrOutput)
+}
+
+// Content type of the response.
+func (o GetListenerRuleActionFixedResponseOutput) ContentType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleActionFixedResponse) string { return v.ContentType }).(pulumi.StringOutput)
+}
+
+// Message body of the response.
+func (o GetListenerRuleActionFixedResponseOutput) MessageBody() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleActionFixedResponse) string { return v.MessageBody }).(pulumi.StringOutput)
+}
+
+// The HTTP redirect code.
+func (o GetListenerRuleActionFixedResponseOutput) StatusCode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleActionFixedResponse) string { return v.StatusCode }).(pulumi.StringOutput)
+}
+
+type GetListenerRuleActionFixedResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleActionFixedResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetListenerRuleActionFixedResponse)(nil)).Elem()
+}
+
+func (o GetListenerRuleActionFixedResponsePtrOutput) ToGetListenerRuleActionFixedResponsePtrOutput() GetListenerRuleActionFixedResponsePtrOutput {
+	return o
+}
+
+func (o GetListenerRuleActionFixedResponsePtrOutput) ToGetListenerRuleActionFixedResponsePtrOutputWithContext(ctx context.Context) GetListenerRuleActionFixedResponsePtrOutput {
+	return o
+}
+
+func (o GetListenerRuleActionFixedResponsePtrOutput) Elem() GetListenerRuleActionFixedResponseOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionFixedResponse) GetListenerRuleActionFixedResponse {
+		if v != nil {
+			return *v
+		}
+		var ret GetListenerRuleActionFixedResponse
+		return ret
+	}).(GetListenerRuleActionFixedResponseOutput)
+}
+
+// Content type of the response.
+func (o GetListenerRuleActionFixedResponsePtrOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionFixedResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ContentType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Message body of the response.
+func (o GetListenerRuleActionFixedResponsePtrOutput) MessageBody() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionFixedResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MessageBody
+	}).(pulumi.StringPtrOutput)
+}
+
+// The HTTP redirect code.
+func (o GetListenerRuleActionFixedResponsePtrOutput) StatusCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionFixedResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StatusCode
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetListenerRuleActionForward struct {
+	// Target group stickiness for the rule.
+	// Detailed below.
+	Stickiness *GetListenerRuleActionForwardStickiness `pulumi:"stickiness"`
+	// Set of target groups for the action.
+	// Detailed below.
+	TargetGroups []GetListenerRuleActionForwardTargetGroup `pulumi:"targetGroups"`
+}
+
+// GetListenerRuleActionForwardInput is an input type that accepts GetListenerRuleActionForwardArgs and GetListenerRuleActionForwardOutput values.
+// You can construct a concrete instance of `GetListenerRuleActionForwardInput` via:
+//
+//	GetListenerRuleActionForwardArgs{...}
+type GetListenerRuleActionForwardInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleActionForwardOutput() GetListenerRuleActionForwardOutput
+	ToGetListenerRuleActionForwardOutputWithContext(context.Context) GetListenerRuleActionForwardOutput
+}
+
+type GetListenerRuleActionForwardArgs struct {
+	// Target group stickiness for the rule.
+	// Detailed below.
+	Stickiness GetListenerRuleActionForwardStickinessPtrInput `pulumi:"stickiness"`
+	// Set of target groups for the action.
+	// Detailed below.
+	TargetGroups GetListenerRuleActionForwardTargetGroupArrayInput `pulumi:"targetGroups"`
+}
+
+func (GetListenerRuleActionForwardArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleActionForward)(nil)).Elem()
+}
+
+func (i GetListenerRuleActionForwardArgs) ToGetListenerRuleActionForwardOutput() GetListenerRuleActionForwardOutput {
+	return i.ToGetListenerRuleActionForwardOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleActionForwardArgs) ToGetListenerRuleActionForwardOutputWithContext(ctx context.Context) GetListenerRuleActionForwardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleActionForwardOutput)
+}
+
+func (i GetListenerRuleActionForwardArgs) ToGetListenerRuleActionForwardPtrOutput() GetListenerRuleActionForwardPtrOutput {
+	return i.ToGetListenerRuleActionForwardPtrOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleActionForwardArgs) ToGetListenerRuleActionForwardPtrOutputWithContext(ctx context.Context) GetListenerRuleActionForwardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleActionForwardOutput).ToGetListenerRuleActionForwardPtrOutputWithContext(ctx)
+}
+
+// GetListenerRuleActionForwardPtrInput is an input type that accepts GetListenerRuleActionForwardArgs, GetListenerRuleActionForwardPtr and GetListenerRuleActionForwardPtrOutput values.
+// You can construct a concrete instance of `GetListenerRuleActionForwardPtrInput` via:
+//
+//	        GetListenerRuleActionForwardArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetListenerRuleActionForwardPtrInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleActionForwardPtrOutput() GetListenerRuleActionForwardPtrOutput
+	ToGetListenerRuleActionForwardPtrOutputWithContext(context.Context) GetListenerRuleActionForwardPtrOutput
+}
+
+type getListenerRuleActionForwardPtrType GetListenerRuleActionForwardArgs
+
+func GetListenerRuleActionForwardPtr(v *GetListenerRuleActionForwardArgs) GetListenerRuleActionForwardPtrInput {
+	return (*getListenerRuleActionForwardPtrType)(v)
+}
+
+func (*getListenerRuleActionForwardPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetListenerRuleActionForward)(nil)).Elem()
+}
+
+func (i *getListenerRuleActionForwardPtrType) ToGetListenerRuleActionForwardPtrOutput() GetListenerRuleActionForwardPtrOutput {
+	return i.ToGetListenerRuleActionForwardPtrOutputWithContext(context.Background())
+}
+
+func (i *getListenerRuleActionForwardPtrType) ToGetListenerRuleActionForwardPtrOutputWithContext(ctx context.Context) GetListenerRuleActionForwardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleActionForwardPtrOutput)
+}
+
+type GetListenerRuleActionForwardOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleActionForwardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleActionForward)(nil)).Elem()
+}
+
+func (o GetListenerRuleActionForwardOutput) ToGetListenerRuleActionForwardOutput() GetListenerRuleActionForwardOutput {
+	return o
+}
+
+func (o GetListenerRuleActionForwardOutput) ToGetListenerRuleActionForwardOutputWithContext(ctx context.Context) GetListenerRuleActionForwardOutput {
+	return o
+}
+
+func (o GetListenerRuleActionForwardOutput) ToGetListenerRuleActionForwardPtrOutput() GetListenerRuleActionForwardPtrOutput {
+	return o.ToGetListenerRuleActionForwardPtrOutputWithContext(context.Background())
+}
+
+func (o GetListenerRuleActionForwardOutput) ToGetListenerRuleActionForwardPtrOutputWithContext(ctx context.Context) GetListenerRuleActionForwardPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetListenerRuleActionForward) *GetListenerRuleActionForward {
+		return &v
+	}).(GetListenerRuleActionForwardPtrOutput)
+}
+
+// Target group stickiness for the rule.
+// Detailed below.
+func (o GetListenerRuleActionForwardOutput) Stickiness() GetListenerRuleActionForwardStickinessPtrOutput {
+	return o.ApplyT(func(v GetListenerRuleActionForward) *GetListenerRuleActionForwardStickiness { return v.Stickiness }).(GetListenerRuleActionForwardStickinessPtrOutput)
+}
+
+// Set of target groups for the action.
+// Detailed below.
+func (o GetListenerRuleActionForwardOutput) TargetGroups() GetListenerRuleActionForwardTargetGroupArrayOutput {
+	return o.ApplyT(func(v GetListenerRuleActionForward) []GetListenerRuleActionForwardTargetGroup { return v.TargetGroups }).(GetListenerRuleActionForwardTargetGroupArrayOutput)
+}
+
+type GetListenerRuleActionForwardPtrOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleActionForwardPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetListenerRuleActionForward)(nil)).Elem()
+}
+
+func (o GetListenerRuleActionForwardPtrOutput) ToGetListenerRuleActionForwardPtrOutput() GetListenerRuleActionForwardPtrOutput {
+	return o
+}
+
+func (o GetListenerRuleActionForwardPtrOutput) ToGetListenerRuleActionForwardPtrOutputWithContext(ctx context.Context) GetListenerRuleActionForwardPtrOutput {
+	return o
+}
+
+func (o GetListenerRuleActionForwardPtrOutput) Elem() GetListenerRuleActionForwardOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionForward) GetListenerRuleActionForward {
+		if v != nil {
+			return *v
+		}
+		var ret GetListenerRuleActionForward
+		return ret
+	}).(GetListenerRuleActionForwardOutput)
+}
+
+// Target group stickiness for the rule.
+// Detailed below.
+func (o GetListenerRuleActionForwardPtrOutput) Stickiness() GetListenerRuleActionForwardStickinessPtrOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionForward) *GetListenerRuleActionForwardStickiness {
+		if v == nil {
+			return nil
+		}
+		return v.Stickiness
+	}).(GetListenerRuleActionForwardStickinessPtrOutput)
+}
+
+// Set of target groups for the action.
+// Detailed below.
+func (o GetListenerRuleActionForwardPtrOutput) TargetGroups() GetListenerRuleActionForwardTargetGroupArrayOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionForward) []GetListenerRuleActionForwardTargetGroup {
+		if v == nil {
+			return nil
+		}
+		return v.TargetGroups
+	}).(GetListenerRuleActionForwardTargetGroupArrayOutput)
+}
+
+type GetListenerRuleActionForwardStickiness struct {
+	// The time period, in seconds, during which requests from a client should be routed to the same target group.
+	Duration float64 `pulumi:"duration"`
+	// Indicates whether target group stickiness is enabled.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// GetListenerRuleActionForwardStickinessInput is an input type that accepts GetListenerRuleActionForwardStickinessArgs and GetListenerRuleActionForwardStickinessOutput values.
+// You can construct a concrete instance of `GetListenerRuleActionForwardStickinessInput` via:
+//
+//	GetListenerRuleActionForwardStickinessArgs{...}
+type GetListenerRuleActionForwardStickinessInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleActionForwardStickinessOutput() GetListenerRuleActionForwardStickinessOutput
+	ToGetListenerRuleActionForwardStickinessOutputWithContext(context.Context) GetListenerRuleActionForwardStickinessOutput
+}
+
+type GetListenerRuleActionForwardStickinessArgs struct {
+	// The time period, in seconds, during which requests from a client should be routed to the same target group.
+	Duration pulumi.Float64Input `pulumi:"duration"`
+	// Indicates whether target group stickiness is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (GetListenerRuleActionForwardStickinessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleActionForwardStickiness)(nil)).Elem()
+}
+
+func (i GetListenerRuleActionForwardStickinessArgs) ToGetListenerRuleActionForwardStickinessOutput() GetListenerRuleActionForwardStickinessOutput {
+	return i.ToGetListenerRuleActionForwardStickinessOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleActionForwardStickinessArgs) ToGetListenerRuleActionForwardStickinessOutputWithContext(ctx context.Context) GetListenerRuleActionForwardStickinessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleActionForwardStickinessOutput)
+}
+
+func (i GetListenerRuleActionForwardStickinessArgs) ToGetListenerRuleActionForwardStickinessPtrOutput() GetListenerRuleActionForwardStickinessPtrOutput {
+	return i.ToGetListenerRuleActionForwardStickinessPtrOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleActionForwardStickinessArgs) ToGetListenerRuleActionForwardStickinessPtrOutputWithContext(ctx context.Context) GetListenerRuleActionForwardStickinessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleActionForwardStickinessOutput).ToGetListenerRuleActionForwardStickinessPtrOutputWithContext(ctx)
+}
+
+// GetListenerRuleActionForwardStickinessPtrInput is an input type that accepts GetListenerRuleActionForwardStickinessArgs, GetListenerRuleActionForwardStickinessPtr and GetListenerRuleActionForwardStickinessPtrOutput values.
+// You can construct a concrete instance of `GetListenerRuleActionForwardStickinessPtrInput` via:
+//
+//	        GetListenerRuleActionForwardStickinessArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetListenerRuleActionForwardStickinessPtrInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleActionForwardStickinessPtrOutput() GetListenerRuleActionForwardStickinessPtrOutput
+	ToGetListenerRuleActionForwardStickinessPtrOutputWithContext(context.Context) GetListenerRuleActionForwardStickinessPtrOutput
+}
+
+type getListenerRuleActionForwardStickinessPtrType GetListenerRuleActionForwardStickinessArgs
+
+func GetListenerRuleActionForwardStickinessPtr(v *GetListenerRuleActionForwardStickinessArgs) GetListenerRuleActionForwardStickinessPtrInput {
+	return (*getListenerRuleActionForwardStickinessPtrType)(v)
+}
+
+func (*getListenerRuleActionForwardStickinessPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetListenerRuleActionForwardStickiness)(nil)).Elem()
+}
+
+func (i *getListenerRuleActionForwardStickinessPtrType) ToGetListenerRuleActionForwardStickinessPtrOutput() GetListenerRuleActionForwardStickinessPtrOutput {
+	return i.ToGetListenerRuleActionForwardStickinessPtrOutputWithContext(context.Background())
+}
+
+func (i *getListenerRuleActionForwardStickinessPtrType) ToGetListenerRuleActionForwardStickinessPtrOutputWithContext(ctx context.Context) GetListenerRuleActionForwardStickinessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleActionForwardStickinessPtrOutput)
+}
+
+type GetListenerRuleActionForwardStickinessOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleActionForwardStickinessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleActionForwardStickiness)(nil)).Elem()
+}
+
+func (o GetListenerRuleActionForwardStickinessOutput) ToGetListenerRuleActionForwardStickinessOutput() GetListenerRuleActionForwardStickinessOutput {
+	return o
+}
+
+func (o GetListenerRuleActionForwardStickinessOutput) ToGetListenerRuleActionForwardStickinessOutputWithContext(ctx context.Context) GetListenerRuleActionForwardStickinessOutput {
+	return o
+}
+
+func (o GetListenerRuleActionForwardStickinessOutput) ToGetListenerRuleActionForwardStickinessPtrOutput() GetListenerRuleActionForwardStickinessPtrOutput {
+	return o.ToGetListenerRuleActionForwardStickinessPtrOutputWithContext(context.Background())
+}
+
+func (o GetListenerRuleActionForwardStickinessOutput) ToGetListenerRuleActionForwardStickinessPtrOutputWithContext(ctx context.Context) GetListenerRuleActionForwardStickinessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetListenerRuleActionForwardStickiness) *GetListenerRuleActionForwardStickiness {
+		return &v
+	}).(GetListenerRuleActionForwardStickinessPtrOutput)
+}
+
+// The time period, in seconds, during which requests from a client should be routed to the same target group.
+func (o GetListenerRuleActionForwardStickinessOutput) Duration() pulumi.Float64Output {
+	return o.ApplyT(func(v GetListenerRuleActionForwardStickiness) float64 { return v.Duration }).(pulumi.Float64Output)
+}
+
+// Indicates whether target group stickiness is enabled.
+func (o GetListenerRuleActionForwardStickinessOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetListenerRuleActionForwardStickiness) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type GetListenerRuleActionForwardStickinessPtrOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleActionForwardStickinessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetListenerRuleActionForwardStickiness)(nil)).Elem()
+}
+
+func (o GetListenerRuleActionForwardStickinessPtrOutput) ToGetListenerRuleActionForwardStickinessPtrOutput() GetListenerRuleActionForwardStickinessPtrOutput {
+	return o
+}
+
+func (o GetListenerRuleActionForwardStickinessPtrOutput) ToGetListenerRuleActionForwardStickinessPtrOutputWithContext(ctx context.Context) GetListenerRuleActionForwardStickinessPtrOutput {
+	return o
+}
+
+func (o GetListenerRuleActionForwardStickinessPtrOutput) Elem() GetListenerRuleActionForwardStickinessOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionForwardStickiness) GetListenerRuleActionForwardStickiness {
+		if v != nil {
+			return *v
+		}
+		var ret GetListenerRuleActionForwardStickiness
+		return ret
+	}).(GetListenerRuleActionForwardStickinessOutput)
+}
+
+// The time period, in seconds, during which requests from a client should be routed to the same target group.
+func (o GetListenerRuleActionForwardStickinessPtrOutput) Duration() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionForwardStickiness) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Duration
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Indicates whether target group stickiness is enabled.
+func (o GetListenerRuleActionForwardStickinessPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionForwardStickiness) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetListenerRuleActionForwardTargetGroup struct {
+	// ARN of the Listener Rule.
+	// Either `arn` or `listenerArn` must be set.
+	Arn string `pulumi:"arn"`
+	// Weight of the target group.
+	Weight float64 `pulumi:"weight"`
+}
+
+// GetListenerRuleActionForwardTargetGroupInput is an input type that accepts GetListenerRuleActionForwardTargetGroupArgs and GetListenerRuleActionForwardTargetGroupOutput values.
+// You can construct a concrete instance of `GetListenerRuleActionForwardTargetGroupInput` via:
+//
+//	GetListenerRuleActionForwardTargetGroupArgs{...}
+type GetListenerRuleActionForwardTargetGroupInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleActionForwardTargetGroupOutput() GetListenerRuleActionForwardTargetGroupOutput
+	ToGetListenerRuleActionForwardTargetGroupOutputWithContext(context.Context) GetListenerRuleActionForwardTargetGroupOutput
+}
+
+type GetListenerRuleActionForwardTargetGroupArgs struct {
+	// ARN of the Listener Rule.
+	// Either `arn` or `listenerArn` must be set.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Weight of the target group.
+	Weight pulumi.Float64Input `pulumi:"weight"`
+}
+
+func (GetListenerRuleActionForwardTargetGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleActionForwardTargetGroup)(nil)).Elem()
+}
+
+func (i GetListenerRuleActionForwardTargetGroupArgs) ToGetListenerRuleActionForwardTargetGroupOutput() GetListenerRuleActionForwardTargetGroupOutput {
+	return i.ToGetListenerRuleActionForwardTargetGroupOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleActionForwardTargetGroupArgs) ToGetListenerRuleActionForwardTargetGroupOutputWithContext(ctx context.Context) GetListenerRuleActionForwardTargetGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleActionForwardTargetGroupOutput)
+}
+
+// GetListenerRuleActionForwardTargetGroupArrayInput is an input type that accepts GetListenerRuleActionForwardTargetGroupArray and GetListenerRuleActionForwardTargetGroupArrayOutput values.
+// You can construct a concrete instance of `GetListenerRuleActionForwardTargetGroupArrayInput` via:
+//
+//	GetListenerRuleActionForwardTargetGroupArray{ GetListenerRuleActionForwardTargetGroupArgs{...} }
+type GetListenerRuleActionForwardTargetGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleActionForwardTargetGroupArrayOutput() GetListenerRuleActionForwardTargetGroupArrayOutput
+	ToGetListenerRuleActionForwardTargetGroupArrayOutputWithContext(context.Context) GetListenerRuleActionForwardTargetGroupArrayOutput
+}
+
+type GetListenerRuleActionForwardTargetGroupArray []GetListenerRuleActionForwardTargetGroupInput
+
+func (GetListenerRuleActionForwardTargetGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerRuleActionForwardTargetGroup)(nil)).Elem()
+}
+
+func (i GetListenerRuleActionForwardTargetGroupArray) ToGetListenerRuleActionForwardTargetGroupArrayOutput() GetListenerRuleActionForwardTargetGroupArrayOutput {
+	return i.ToGetListenerRuleActionForwardTargetGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleActionForwardTargetGroupArray) ToGetListenerRuleActionForwardTargetGroupArrayOutputWithContext(ctx context.Context) GetListenerRuleActionForwardTargetGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleActionForwardTargetGroupArrayOutput)
+}
+
+type GetListenerRuleActionForwardTargetGroupOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleActionForwardTargetGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleActionForwardTargetGroup)(nil)).Elem()
+}
+
+func (o GetListenerRuleActionForwardTargetGroupOutput) ToGetListenerRuleActionForwardTargetGroupOutput() GetListenerRuleActionForwardTargetGroupOutput {
+	return o
+}
+
+func (o GetListenerRuleActionForwardTargetGroupOutput) ToGetListenerRuleActionForwardTargetGroupOutputWithContext(ctx context.Context) GetListenerRuleActionForwardTargetGroupOutput {
+	return o
+}
+
+// ARN of the Listener Rule.
+// Either `arn` or `listenerArn` must be set.
+func (o GetListenerRuleActionForwardTargetGroupOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleActionForwardTargetGroup) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Weight of the target group.
+func (o GetListenerRuleActionForwardTargetGroupOutput) Weight() pulumi.Float64Output {
+	return o.ApplyT(func(v GetListenerRuleActionForwardTargetGroup) float64 { return v.Weight }).(pulumi.Float64Output)
+}
+
+type GetListenerRuleActionForwardTargetGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleActionForwardTargetGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerRuleActionForwardTargetGroup)(nil)).Elem()
+}
+
+func (o GetListenerRuleActionForwardTargetGroupArrayOutput) ToGetListenerRuleActionForwardTargetGroupArrayOutput() GetListenerRuleActionForwardTargetGroupArrayOutput {
+	return o
+}
+
+func (o GetListenerRuleActionForwardTargetGroupArrayOutput) ToGetListenerRuleActionForwardTargetGroupArrayOutputWithContext(ctx context.Context) GetListenerRuleActionForwardTargetGroupArrayOutput {
+	return o
+}
+
+func (o GetListenerRuleActionForwardTargetGroupArrayOutput) Index(i pulumi.IntInput) GetListenerRuleActionForwardTargetGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetListenerRuleActionForwardTargetGroup {
+		return vs[0].([]GetListenerRuleActionForwardTargetGroup)[vs[1].(int)]
+	}).(GetListenerRuleActionForwardTargetGroupOutput)
+}
+
+type GetListenerRuleActionRedirect struct {
+	// The hostname.
+	Host string `pulumi:"host"`
+	// The absolute path, starting with `/`.
+	Path string `pulumi:"path"`
+	// The port.
+	Port string `pulumi:"port"`
+	// The protocol.
+	Protocol string `pulumi:"protocol"`
+	// The query parameters.
+	Query string `pulumi:"query"`
+	// The HTTP redirect code.
+	StatusCode string `pulumi:"statusCode"`
+}
+
+// GetListenerRuleActionRedirectInput is an input type that accepts GetListenerRuleActionRedirectArgs and GetListenerRuleActionRedirectOutput values.
+// You can construct a concrete instance of `GetListenerRuleActionRedirectInput` via:
+//
+//	GetListenerRuleActionRedirectArgs{...}
+type GetListenerRuleActionRedirectInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleActionRedirectOutput() GetListenerRuleActionRedirectOutput
+	ToGetListenerRuleActionRedirectOutputWithContext(context.Context) GetListenerRuleActionRedirectOutput
+}
+
+type GetListenerRuleActionRedirectArgs struct {
+	// The hostname.
+	Host pulumi.StringInput `pulumi:"host"`
+	// The absolute path, starting with `/`.
+	Path pulumi.StringInput `pulumi:"path"`
+	// The port.
+	Port pulumi.StringInput `pulumi:"port"`
+	// The protocol.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// The query parameters.
+	Query pulumi.StringInput `pulumi:"query"`
+	// The HTTP redirect code.
+	StatusCode pulumi.StringInput `pulumi:"statusCode"`
+}
+
+func (GetListenerRuleActionRedirectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleActionRedirect)(nil)).Elem()
+}
+
+func (i GetListenerRuleActionRedirectArgs) ToGetListenerRuleActionRedirectOutput() GetListenerRuleActionRedirectOutput {
+	return i.ToGetListenerRuleActionRedirectOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleActionRedirectArgs) ToGetListenerRuleActionRedirectOutputWithContext(ctx context.Context) GetListenerRuleActionRedirectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleActionRedirectOutput)
+}
+
+func (i GetListenerRuleActionRedirectArgs) ToGetListenerRuleActionRedirectPtrOutput() GetListenerRuleActionRedirectPtrOutput {
+	return i.ToGetListenerRuleActionRedirectPtrOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleActionRedirectArgs) ToGetListenerRuleActionRedirectPtrOutputWithContext(ctx context.Context) GetListenerRuleActionRedirectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleActionRedirectOutput).ToGetListenerRuleActionRedirectPtrOutputWithContext(ctx)
+}
+
+// GetListenerRuleActionRedirectPtrInput is an input type that accepts GetListenerRuleActionRedirectArgs, GetListenerRuleActionRedirectPtr and GetListenerRuleActionRedirectPtrOutput values.
+// You can construct a concrete instance of `GetListenerRuleActionRedirectPtrInput` via:
+//
+//	        GetListenerRuleActionRedirectArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetListenerRuleActionRedirectPtrInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleActionRedirectPtrOutput() GetListenerRuleActionRedirectPtrOutput
+	ToGetListenerRuleActionRedirectPtrOutputWithContext(context.Context) GetListenerRuleActionRedirectPtrOutput
+}
+
+type getListenerRuleActionRedirectPtrType GetListenerRuleActionRedirectArgs
+
+func GetListenerRuleActionRedirectPtr(v *GetListenerRuleActionRedirectArgs) GetListenerRuleActionRedirectPtrInput {
+	return (*getListenerRuleActionRedirectPtrType)(v)
+}
+
+func (*getListenerRuleActionRedirectPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetListenerRuleActionRedirect)(nil)).Elem()
+}
+
+func (i *getListenerRuleActionRedirectPtrType) ToGetListenerRuleActionRedirectPtrOutput() GetListenerRuleActionRedirectPtrOutput {
+	return i.ToGetListenerRuleActionRedirectPtrOutputWithContext(context.Background())
+}
+
+func (i *getListenerRuleActionRedirectPtrType) ToGetListenerRuleActionRedirectPtrOutputWithContext(ctx context.Context) GetListenerRuleActionRedirectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleActionRedirectPtrOutput)
+}
+
+type GetListenerRuleActionRedirectOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleActionRedirectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleActionRedirect)(nil)).Elem()
+}
+
+func (o GetListenerRuleActionRedirectOutput) ToGetListenerRuleActionRedirectOutput() GetListenerRuleActionRedirectOutput {
+	return o
+}
+
+func (o GetListenerRuleActionRedirectOutput) ToGetListenerRuleActionRedirectOutputWithContext(ctx context.Context) GetListenerRuleActionRedirectOutput {
+	return o
+}
+
+func (o GetListenerRuleActionRedirectOutput) ToGetListenerRuleActionRedirectPtrOutput() GetListenerRuleActionRedirectPtrOutput {
+	return o.ToGetListenerRuleActionRedirectPtrOutputWithContext(context.Background())
+}
+
+func (o GetListenerRuleActionRedirectOutput) ToGetListenerRuleActionRedirectPtrOutputWithContext(ctx context.Context) GetListenerRuleActionRedirectPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetListenerRuleActionRedirect) *GetListenerRuleActionRedirect {
+		return &v
+	}).(GetListenerRuleActionRedirectPtrOutput)
+}
+
+// The hostname.
+func (o GetListenerRuleActionRedirectOutput) Host() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleActionRedirect) string { return v.Host }).(pulumi.StringOutput)
+}
+
+// The absolute path, starting with `/`.
+func (o GetListenerRuleActionRedirectOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleActionRedirect) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// The port.
+func (o GetListenerRuleActionRedirectOutput) Port() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleActionRedirect) string { return v.Port }).(pulumi.StringOutput)
+}
+
+// The protocol.
+func (o GetListenerRuleActionRedirectOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleActionRedirect) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// The query parameters.
+func (o GetListenerRuleActionRedirectOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleActionRedirect) string { return v.Query }).(pulumi.StringOutput)
+}
+
+// The HTTP redirect code.
+func (o GetListenerRuleActionRedirectOutput) StatusCode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleActionRedirect) string { return v.StatusCode }).(pulumi.StringOutput)
+}
+
+type GetListenerRuleActionRedirectPtrOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleActionRedirectPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetListenerRuleActionRedirect)(nil)).Elem()
+}
+
+func (o GetListenerRuleActionRedirectPtrOutput) ToGetListenerRuleActionRedirectPtrOutput() GetListenerRuleActionRedirectPtrOutput {
+	return o
+}
+
+func (o GetListenerRuleActionRedirectPtrOutput) ToGetListenerRuleActionRedirectPtrOutputWithContext(ctx context.Context) GetListenerRuleActionRedirectPtrOutput {
+	return o
+}
+
+func (o GetListenerRuleActionRedirectPtrOutput) Elem() GetListenerRuleActionRedirectOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionRedirect) GetListenerRuleActionRedirect {
+		if v != nil {
+			return *v
+		}
+		var ret GetListenerRuleActionRedirect
+		return ret
+	}).(GetListenerRuleActionRedirectOutput)
+}
+
+// The hostname.
+func (o GetListenerRuleActionRedirectPtrOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionRedirect) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Host
+	}).(pulumi.StringPtrOutput)
+}
+
+// The absolute path, starting with `/`.
+func (o GetListenerRuleActionRedirectPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionRedirect) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// The port.
+func (o GetListenerRuleActionRedirectPtrOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionRedirect) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.StringPtrOutput)
+}
+
+// The protocol.
+func (o GetListenerRuleActionRedirectPtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionRedirect) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
+// The query parameters.
+func (o GetListenerRuleActionRedirectPtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionRedirect) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+// The HTTP redirect code.
+func (o GetListenerRuleActionRedirectPtrOutput) StatusCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetListenerRuleActionRedirect) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StatusCode
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetListenerRuleCondition struct {
+	// Contains a single attribute `values`, which contains a set of host names.
+	HostHeader *GetListenerRuleConditionHostHeader `pulumi:"hostHeader"`
+	// HTTP header and values to match.
+	// Detailed below.
+	HttpHeader *GetListenerRuleConditionHttpHeader `pulumi:"httpHeader"`
+	// Contains a single attribute `values`, which contains a set of HTTP request methods.
+	HttpRequestMethod *GetListenerRuleConditionHttpRequestMethod `pulumi:"httpRequestMethod"`
+	// Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
+	PathPattern *GetListenerRuleConditionPathPattern `pulumi:"pathPattern"`
+	// Query string parameters to match.
+	// Detailed below.
+	QueryString *GetListenerRuleConditionQueryString `pulumi:"queryString"`
+	// Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
+	SourceIp *GetListenerRuleConditionSourceIp `pulumi:"sourceIp"`
+}
+
+// GetListenerRuleConditionInput is an input type that accepts GetListenerRuleConditionArgs and GetListenerRuleConditionOutput values.
+// You can construct a concrete instance of `GetListenerRuleConditionInput` via:
+//
+//	GetListenerRuleConditionArgs{...}
+type GetListenerRuleConditionInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleConditionOutput() GetListenerRuleConditionOutput
+	ToGetListenerRuleConditionOutputWithContext(context.Context) GetListenerRuleConditionOutput
+}
+
+type GetListenerRuleConditionArgs struct {
+	// Contains a single attribute `values`, which contains a set of host names.
+	HostHeader GetListenerRuleConditionHostHeaderPtrInput `pulumi:"hostHeader"`
+	// HTTP header and values to match.
+	// Detailed below.
+	HttpHeader GetListenerRuleConditionHttpHeaderPtrInput `pulumi:"httpHeader"`
+	// Contains a single attribute `values`, which contains a set of HTTP request methods.
+	HttpRequestMethod GetListenerRuleConditionHttpRequestMethodPtrInput `pulumi:"httpRequestMethod"`
+	// Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
+	PathPattern GetListenerRuleConditionPathPatternPtrInput `pulumi:"pathPattern"`
+	// Query string parameters to match.
+	// Detailed below.
+	QueryString GetListenerRuleConditionQueryStringPtrInput `pulumi:"queryString"`
+	// Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
+	SourceIp GetListenerRuleConditionSourceIpPtrInput `pulumi:"sourceIp"`
+}
+
+func (GetListenerRuleConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleCondition)(nil)).Elem()
+}
+
+func (i GetListenerRuleConditionArgs) ToGetListenerRuleConditionOutput() GetListenerRuleConditionOutput {
+	return i.ToGetListenerRuleConditionOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleConditionArgs) ToGetListenerRuleConditionOutputWithContext(ctx context.Context) GetListenerRuleConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleConditionOutput)
+}
+
+// GetListenerRuleConditionArrayInput is an input type that accepts GetListenerRuleConditionArray and GetListenerRuleConditionArrayOutput values.
+// You can construct a concrete instance of `GetListenerRuleConditionArrayInput` via:
+//
+//	GetListenerRuleConditionArray{ GetListenerRuleConditionArgs{...} }
+type GetListenerRuleConditionArrayInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleConditionArrayOutput() GetListenerRuleConditionArrayOutput
+	ToGetListenerRuleConditionArrayOutputWithContext(context.Context) GetListenerRuleConditionArrayOutput
+}
+
+type GetListenerRuleConditionArray []GetListenerRuleConditionInput
+
+func (GetListenerRuleConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerRuleCondition)(nil)).Elem()
+}
+
+func (i GetListenerRuleConditionArray) ToGetListenerRuleConditionArrayOutput() GetListenerRuleConditionArrayOutput {
+	return i.ToGetListenerRuleConditionArrayOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleConditionArray) ToGetListenerRuleConditionArrayOutputWithContext(ctx context.Context) GetListenerRuleConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleConditionArrayOutput)
+}
+
+type GetListenerRuleConditionOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleCondition)(nil)).Elem()
+}
+
+func (o GetListenerRuleConditionOutput) ToGetListenerRuleConditionOutput() GetListenerRuleConditionOutput {
+	return o
+}
+
+func (o GetListenerRuleConditionOutput) ToGetListenerRuleConditionOutputWithContext(ctx context.Context) GetListenerRuleConditionOutput {
+	return o
+}
+
+// Contains a single attribute `values`, which contains a set of host names.
+func (o GetListenerRuleConditionOutput) HostHeader() GetListenerRuleConditionHostHeaderPtrOutput {
+	return o.ApplyT(func(v GetListenerRuleCondition) *GetListenerRuleConditionHostHeader { return v.HostHeader }).(GetListenerRuleConditionHostHeaderPtrOutput)
+}
+
+// HTTP header and values to match.
+// Detailed below.
+func (o GetListenerRuleConditionOutput) HttpHeader() GetListenerRuleConditionHttpHeaderPtrOutput {
+	return o.ApplyT(func(v GetListenerRuleCondition) *GetListenerRuleConditionHttpHeader { return v.HttpHeader }).(GetListenerRuleConditionHttpHeaderPtrOutput)
+}
+
+// Contains a single attribute `values`, which contains a set of HTTP request methods.
+func (o GetListenerRuleConditionOutput) HttpRequestMethod() GetListenerRuleConditionHttpRequestMethodPtrOutput {
+	return o.ApplyT(func(v GetListenerRuleCondition) *GetListenerRuleConditionHttpRequestMethod {
+		return v.HttpRequestMethod
+	}).(GetListenerRuleConditionHttpRequestMethodPtrOutput)
+}
+
+// Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
+func (o GetListenerRuleConditionOutput) PathPattern() GetListenerRuleConditionPathPatternPtrOutput {
+	return o.ApplyT(func(v GetListenerRuleCondition) *GetListenerRuleConditionPathPattern { return v.PathPattern }).(GetListenerRuleConditionPathPatternPtrOutput)
+}
+
+// Query string parameters to match.
+// Detailed below.
+func (o GetListenerRuleConditionOutput) QueryString() GetListenerRuleConditionQueryStringPtrOutput {
+	return o.ApplyT(func(v GetListenerRuleCondition) *GetListenerRuleConditionQueryString { return v.QueryString }).(GetListenerRuleConditionQueryStringPtrOutput)
+}
+
+// Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
+func (o GetListenerRuleConditionOutput) SourceIp() GetListenerRuleConditionSourceIpPtrOutput {
+	return o.ApplyT(func(v GetListenerRuleCondition) *GetListenerRuleConditionSourceIp { return v.SourceIp }).(GetListenerRuleConditionSourceIpPtrOutput)
+}
+
+type GetListenerRuleConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerRuleCondition)(nil)).Elem()
+}
+
+func (o GetListenerRuleConditionArrayOutput) ToGetListenerRuleConditionArrayOutput() GetListenerRuleConditionArrayOutput {
+	return o
+}
+
+func (o GetListenerRuleConditionArrayOutput) ToGetListenerRuleConditionArrayOutputWithContext(ctx context.Context) GetListenerRuleConditionArrayOutput {
+	return o
+}
+
+func (o GetListenerRuleConditionArrayOutput) Index(i pulumi.IntInput) GetListenerRuleConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetListenerRuleCondition {
+		return vs[0].([]GetListenerRuleCondition)[vs[1].(int)]
+	}).(GetListenerRuleConditionOutput)
+}
+
+type GetListenerRuleConditionHostHeader struct {
+	// Set of `key`-`value` pairs indicating the query string parameters to match.
+	Values []string `pulumi:"values"`
+}
+
+// GetListenerRuleConditionHostHeaderInput is an input type that accepts GetListenerRuleConditionHostHeaderArgs and GetListenerRuleConditionHostHeaderOutput values.
+// You can construct a concrete instance of `GetListenerRuleConditionHostHeaderInput` via:
+//
+//	GetListenerRuleConditionHostHeaderArgs{...}
+type GetListenerRuleConditionHostHeaderInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleConditionHostHeaderOutput() GetListenerRuleConditionHostHeaderOutput
+	ToGetListenerRuleConditionHostHeaderOutputWithContext(context.Context) GetListenerRuleConditionHostHeaderOutput
+}
+
+type GetListenerRuleConditionHostHeaderArgs struct {
+	// Set of `key`-`value` pairs indicating the query string parameters to match.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetListenerRuleConditionHostHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleConditionHostHeader)(nil)).Elem()
+}
+
+func (i GetListenerRuleConditionHostHeaderArgs) ToGetListenerRuleConditionHostHeaderOutput() GetListenerRuleConditionHostHeaderOutput {
+	return i.ToGetListenerRuleConditionHostHeaderOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleConditionHostHeaderArgs) ToGetListenerRuleConditionHostHeaderOutputWithContext(ctx context.Context) GetListenerRuleConditionHostHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleConditionHostHeaderOutput)
+}
+
+func (i GetListenerRuleConditionHostHeaderArgs) ToGetListenerRuleConditionHostHeaderPtrOutput() GetListenerRuleConditionHostHeaderPtrOutput {
+	return i.ToGetListenerRuleConditionHostHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleConditionHostHeaderArgs) ToGetListenerRuleConditionHostHeaderPtrOutputWithContext(ctx context.Context) GetListenerRuleConditionHostHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleConditionHostHeaderOutput).ToGetListenerRuleConditionHostHeaderPtrOutputWithContext(ctx)
+}
+
+// GetListenerRuleConditionHostHeaderPtrInput is an input type that accepts GetListenerRuleConditionHostHeaderArgs, GetListenerRuleConditionHostHeaderPtr and GetListenerRuleConditionHostHeaderPtrOutput values.
+// You can construct a concrete instance of `GetListenerRuleConditionHostHeaderPtrInput` via:
+//
+//	        GetListenerRuleConditionHostHeaderArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetListenerRuleConditionHostHeaderPtrInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleConditionHostHeaderPtrOutput() GetListenerRuleConditionHostHeaderPtrOutput
+	ToGetListenerRuleConditionHostHeaderPtrOutputWithContext(context.Context) GetListenerRuleConditionHostHeaderPtrOutput
+}
+
+type getListenerRuleConditionHostHeaderPtrType GetListenerRuleConditionHostHeaderArgs
+
+func GetListenerRuleConditionHostHeaderPtr(v *GetListenerRuleConditionHostHeaderArgs) GetListenerRuleConditionHostHeaderPtrInput {
+	return (*getListenerRuleConditionHostHeaderPtrType)(v)
+}
+
+func (*getListenerRuleConditionHostHeaderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetListenerRuleConditionHostHeader)(nil)).Elem()
+}
+
+func (i *getListenerRuleConditionHostHeaderPtrType) ToGetListenerRuleConditionHostHeaderPtrOutput() GetListenerRuleConditionHostHeaderPtrOutput {
+	return i.ToGetListenerRuleConditionHostHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i *getListenerRuleConditionHostHeaderPtrType) ToGetListenerRuleConditionHostHeaderPtrOutputWithContext(ctx context.Context) GetListenerRuleConditionHostHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleConditionHostHeaderPtrOutput)
+}
+
+type GetListenerRuleConditionHostHeaderOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleConditionHostHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleConditionHostHeader)(nil)).Elem()
+}
+
+func (o GetListenerRuleConditionHostHeaderOutput) ToGetListenerRuleConditionHostHeaderOutput() GetListenerRuleConditionHostHeaderOutput {
+	return o
+}
+
+func (o GetListenerRuleConditionHostHeaderOutput) ToGetListenerRuleConditionHostHeaderOutputWithContext(ctx context.Context) GetListenerRuleConditionHostHeaderOutput {
+	return o
+}
+
+func (o GetListenerRuleConditionHostHeaderOutput) ToGetListenerRuleConditionHostHeaderPtrOutput() GetListenerRuleConditionHostHeaderPtrOutput {
+	return o.ToGetListenerRuleConditionHostHeaderPtrOutputWithContext(context.Background())
+}
+
+func (o GetListenerRuleConditionHostHeaderOutput) ToGetListenerRuleConditionHostHeaderPtrOutputWithContext(ctx context.Context) GetListenerRuleConditionHostHeaderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetListenerRuleConditionHostHeader) *GetListenerRuleConditionHostHeader {
+		return &v
+	}).(GetListenerRuleConditionHostHeaderPtrOutput)
+}
+
+// Set of `key`-`value` pairs indicating the query string parameters to match.
+func (o GetListenerRuleConditionHostHeaderOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetListenerRuleConditionHostHeader) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetListenerRuleConditionHostHeaderPtrOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleConditionHostHeaderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetListenerRuleConditionHostHeader)(nil)).Elem()
+}
+
+func (o GetListenerRuleConditionHostHeaderPtrOutput) ToGetListenerRuleConditionHostHeaderPtrOutput() GetListenerRuleConditionHostHeaderPtrOutput {
+	return o
+}
+
+func (o GetListenerRuleConditionHostHeaderPtrOutput) ToGetListenerRuleConditionHostHeaderPtrOutputWithContext(ctx context.Context) GetListenerRuleConditionHostHeaderPtrOutput {
+	return o
+}
+
+func (o GetListenerRuleConditionHostHeaderPtrOutput) Elem() GetListenerRuleConditionHostHeaderOutput {
+	return o.ApplyT(func(v *GetListenerRuleConditionHostHeader) GetListenerRuleConditionHostHeader {
+		if v != nil {
+			return *v
+		}
+		var ret GetListenerRuleConditionHostHeader
+		return ret
+	}).(GetListenerRuleConditionHostHeaderOutput)
+}
+
+// Set of `key`-`value` pairs indicating the query string parameters to match.
+func (o GetListenerRuleConditionHostHeaderPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetListenerRuleConditionHostHeader) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetListenerRuleConditionHttpHeader struct {
+	// Name of the HTTP header to match.
+	HttpHeaderName string `pulumi:"httpHeaderName"`
+	// Set of `key`-`value` pairs indicating the query string parameters to match.
+	Values []string `pulumi:"values"`
+}
+
+// GetListenerRuleConditionHttpHeaderInput is an input type that accepts GetListenerRuleConditionHttpHeaderArgs and GetListenerRuleConditionHttpHeaderOutput values.
+// You can construct a concrete instance of `GetListenerRuleConditionHttpHeaderInput` via:
+//
+//	GetListenerRuleConditionHttpHeaderArgs{...}
+type GetListenerRuleConditionHttpHeaderInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleConditionHttpHeaderOutput() GetListenerRuleConditionHttpHeaderOutput
+	ToGetListenerRuleConditionHttpHeaderOutputWithContext(context.Context) GetListenerRuleConditionHttpHeaderOutput
+}
+
+type GetListenerRuleConditionHttpHeaderArgs struct {
+	// Name of the HTTP header to match.
+	HttpHeaderName pulumi.StringInput `pulumi:"httpHeaderName"`
+	// Set of `key`-`value` pairs indicating the query string parameters to match.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetListenerRuleConditionHttpHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleConditionHttpHeader)(nil)).Elem()
+}
+
+func (i GetListenerRuleConditionHttpHeaderArgs) ToGetListenerRuleConditionHttpHeaderOutput() GetListenerRuleConditionHttpHeaderOutput {
+	return i.ToGetListenerRuleConditionHttpHeaderOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleConditionHttpHeaderArgs) ToGetListenerRuleConditionHttpHeaderOutputWithContext(ctx context.Context) GetListenerRuleConditionHttpHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleConditionHttpHeaderOutput)
+}
+
+func (i GetListenerRuleConditionHttpHeaderArgs) ToGetListenerRuleConditionHttpHeaderPtrOutput() GetListenerRuleConditionHttpHeaderPtrOutput {
+	return i.ToGetListenerRuleConditionHttpHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleConditionHttpHeaderArgs) ToGetListenerRuleConditionHttpHeaderPtrOutputWithContext(ctx context.Context) GetListenerRuleConditionHttpHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleConditionHttpHeaderOutput).ToGetListenerRuleConditionHttpHeaderPtrOutputWithContext(ctx)
+}
+
+// GetListenerRuleConditionHttpHeaderPtrInput is an input type that accepts GetListenerRuleConditionHttpHeaderArgs, GetListenerRuleConditionHttpHeaderPtr and GetListenerRuleConditionHttpHeaderPtrOutput values.
+// You can construct a concrete instance of `GetListenerRuleConditionHttpHeaderPtrInput` via:
+//
+//	        GetListenerRuleConditionHttpHeaderArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetListenerRuleConditionHttpHeaderPtrInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleConditionHttpHeaderPtrOutput() GetListenerRuleConditionHttpHeaderPtrOutput
+	ToGetListenerRuleConditionHttpHeaderPtrOutputWithContext(context.Context) GetListenerRuleConditionHttpHeaderPtrOutput
+}
+
+type getListenerRuleConditionHttpHeaderPtrType GetListenerRuleConditionHttpHeaderArgs
+
+func GetListenerRuleConditionHttpHeaderPtr(v *GetListenerRuleConditionHttpHeaderArgs) GetListenerRuleConditionHttpHeaderPtrInput {
+	return (*getListenerRuleConditionHttpHeaderPtrType)(v)
+}
+
+func (*getListenerRuleConditionHttpHeaderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetListenerRuleConditionHttpHeader)(nil)).Elem()
+}
+
+func (i *getListenerRuleConditionHttpHeaderPtrType) ToGetListenerRuleConditionHttpHeaderPtrOutput() GetListenerRuleConditionHttpHeaderPtrOutput {
+	return i.ToGetListenerRuleConditionHttpHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i *getListenerRuleConditionHttpHeaderPtrType) ToGetListenerRuleConditionHttpHeaderPtrOutputWithContext(ctx context.Context) GetListenerRuleConditionHttpHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleConditionHttpHeaderPtrOutput)
+}
+
+type GetListenerRuleConditionHttpHeaderOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleConditionHttpHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleConditionHttpHeader)(nil)).Elem()
+}
+
+func (o GetListenerRuleConditionHttpHeaderOutput) ToGetListenerRuleConditionHttpHeaderOutput() GetListenerRuleConditionHttpHeaderOutput {
+	return o
+}
+
+func (o GetListenerRuleConditionHttpHeaderOutput) ToGetListenerRuleConditionHttpHeaderOutputWithContext(ctx context.Context) GetListenerRuleConditionHttpHeaderOutput {
+	return o
+}
+
+func (o GetListenerRuleConditionHttpHeaderOutput) ToGetListenerRuleConditionHttpHeaderPtrOutput() GetListenerRuleConditionHttpHeaderPtrOutput {
+	return o.ToGetListenerRuleConditionHttpHeaderPtrOutputWithContext(context.Background())
+}
+
+func (o GetListenerRuleConditionHttpHeaderOutput) ToGetListenerRuleConditionHttpHeaderPtrOutputWithContext(ctx context.Context) GetListenerRuleConditionHttpHeaderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetListenerRuleConditionHttpHeader) *GetListenerRuleConditionHttpHeader {
+		return &v
+	}).(GetListenerRuleConditionHttpHeaderPtrOutput)
+}
+
+// Name of the HTTP header to match.
+func (o GetListenerRuleConditionHttpHeaderOutput) HttpHeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleConditionHttpHeader) string { return v.HttpHeaderName }).(pulumi.StringOutput)
+}
+
+// Set of `key`-`value` pairs indicating the query string parameters to match.
+func (o GetListenerRuleConditionHttpHeaderOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetListenerRuleConditionHttpHeader) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetListenerRuleConditionHttpHeaderPtrOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleConditionHttpHeaderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetListenerRuleConditionHttpHeader)(nil)).Elem()
+}
+
+func (o GetListenerRuleConditionHttpHeaderPtrOutput) ToGetListenerRuleConditionHttpHeaderPtrOutput() GetListenerRuleConditionHttpHeaderPtrOutput {
+	return o
+}
+
+func (o GetListenerRuleConditionHttpHeaderPtrOutput) ToGetListenerRuleConditionHttpHeaderPtrOutputWithContext(ctx context.Context) GetListenerRuleConditionHttpHeaderPtrOutput {
+	return o
+}
+
+func (o GetListenerRuleConditionHttpHeaderPtrOutput) Elem() GetListenerRuleConditionHttpHeaderOutput {
+	return o.ApplyT(func(v *GetListenerRuleConditionHttpHeader) GetListenerRuleConditionHttpHeader {
+		if v != nil {
+			return *v
+		}
+		var ret GetListenerRuleConditionHttpHeader
+		return ret
+	}).(GetListenerRuleConditionHttpHeaderOutput)
+}
+
+// Name of the HTTP header to match.
+func (o GetListenerRuleConditionHttpHeaderPtrOutput) HttpHeaderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetListenerRuleConditionHttpHeader) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HttpHeaderName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set of `key`-`value` pairs indicating the query string parameters to match.
+func (o GetListenerRuleConditionHttpHeaderPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetListenerRuleConditionHttpHeader) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetListenerRuleConditionHttpRequestMethod struct {
+	// Set of `key`-`value` pairs indicating the query string parameters to match.
+	Values []string `pulumi:"values"`
+}
+
+// GetListenerRuleConditionHttpRequestMethodInput is an input type that accepts GetListenerRuleConditionHttpRequestMethodArgs and GetListenerRuleConditionHttpRequestMethodOutput values.
+// You can construct a concrete instance of `GetListenerRuleConditionHttpRequestMethodInput` via:
+//
+//	GetListenerRuleConditionHttpRequestMethodArgs{...}
+type GetListenerRuleConditionHttpRequestMethodInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleConditionHttpRequestMethodOutput() GetListenerRuleConditionHttpRequestMethodOutput
+	ToGetListenerRuleConditionHttpRequestMethodOutputWithContext(context.Context) GetListenerRuleConditionHttpRequestMethodOutput
+}
+
+type GetListenerRuleConditionHttpRequestMethodArgs struct {
+	// Set of `key`-`value` pairs indicating the query string parameters to match.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetListenerRuleConditionHttpRequestMethodArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleConditionHttpRequestMethod)(nil)).Elem()
+}
+
+func (i GetListenerRuleConditionHttpRequestMethodArgs) ToGetListenerRuleConditionHttpRequestMethodOutput() GetListenerRuleConditionHttpRequestMethodOutput {
+	return i.ToGetListenerRuleConditionHttpRequestMethodOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleConditionHttpRequestMethodArgs) ToGetListenerRuleConditionHttpRequestMethodOutputWithContext(ctx context.Context) GetListenerRuleConditionHttpRequestMethodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleConditionHttpRequestMethodOutput)
+}
+
+func (i GetListenerRuleConditionHttpRequestMethodArgs) ToGetListenerRuleConditionHttpRequestMethodPtrOutput() GetListenerRuleConditionHttpRequestMethodPtrOutput {
+	return i.ToGetListenerRuleConditionHttpRequestMethodPtrOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleConditionHttpRequestMethodArgs) ToGetListenerRuleConditionHttpRequestMethodPtrOutputWithContext(ctx context.Context) GetListenerRuleConditionHttpRequestMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleConditionHttpRequestMethodOutput).ToGetListenerRuleConditionHttpRequestMethodPtrOutputWithContext(ctx)
+}
+
+// GetListenerRuleConditionHttpRequestMethodPtrInput is an input type that accepts GetListenerRuleConditionHttpRequestMethodArgs, GetListenerRuleConditionHttpRequestMethodPtr and GetListenerRuleConditionHttpRequestMethodPtrOutput values.
+// You can construct a concrete instance of `GetListenerRuleConditionHttpRequestMethodPtrInput` via:
+//
+//	        GetListenerRuleConditionHttpRequestMethodArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetListenerRuleConditionHttpRequestMethodPtrInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleConditionHttpRequestMethodPtrOutput() GetListenerRuleConditionHttpRequestMethodPtrOutput
+	ToGetListenerRuleConditionHttpRequestMethodPtrOutputWithContext(context.Context) GetListenerRuleConditionHttpRequestMethodPtrOutput
+}
+
+type getListenerRuleConditionHttpRequestMethodPtrType GetListenerRuleConditionHttpRequestMethodArgs
+
+func GetListenerRuleConditionHttpRequestMethodPtr(v *GetListenerRuleConditionHttpRequestMethodArgs) GetListenerRuleConditionHttpRequestMethodPtrInput {
+	return (*getListenerRuleConditionHttpRequestMethodPtrType)(v)
+}
+
+func (*getListenerRuleConditionHttpRequestMethodPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetListenerRuleConditionHttpRequestMethod)(nil)).Elem()
+}
+
+func (i *getListenerRuleConditionHttpRequestMethodPtrType) ToGetListenerRuleConditionHttpRequestMethodPtrOutput() GetListenerRuleConditionHttpRequestMethodPtrOutput {
+	return i.ToGetListenerRuleConditionHttpRequestMethodPtrOutputWithContext(context.Background())
+}
+
+func (i *getListenerRuleConditionHttpRequestMethodPtrType) ToGetListenerRuleConditionHttpRequestMethodPtrOutputWithContext(ctx context.Context) GetListenerRuleConditionHttpRequestMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleConditionHttpRequestMethodPtrOutput)
+}
+
+type GetListenerRuleConditionHttpRequestMethodOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleConditionHttpRequestMethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleConditionHttpRequestMethod)(nil)).Elem()
+}
+
+func (o GetListenerRuleConditionHttpRequestMethodOutput) ToGetListenerRuleConditionHttpRequestMethodOutput() GetListenerRuleConditionHttpRequestMethodOutput {
+	return o
+}
+
+func (o GetListenerRuleConditionHttpRequestMethodOutput) ToGetListenerRuleConditionHttpRequestMethodOutputWithContext(ctx context.Context) GetListenerRuleConditionHttpRequestMethodOutput {
+	return o
+}
+
+func (o GetListenerRuleConditionHttpRequestMethodOutput) ToGetListenerRuleConditionHttpRequestMethodPtrOutput() GetListenerRuleConditionHttpRequestMethodPtrOutput {
+	return o.ToGetListenerRuleConditionHttpRequestMethodPtrOutputWithContext(context.Background())
+}
+
+func (o GetListenerRuleConditionHttpRequestMethodOutput) ToGetListenerRuleConditionHttpRequestMethodPtrOutputWithContext(ctx context.Context) GetListenerRuleConditionHttpRequestMethodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetListenerRuleConditionHttpRequestMethod) *GetListenerRuleConditionHttpRequestMethod {
+		return &v
+	}).(GetListenerRuleConditionHttpRequestMethodPtrOutput)
+}
+
+// Set of `key`-`value` pairs indicating the query string parameters to match.
+func (o GetListenerRuleConditionHttpRequestMethodOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetListenerRuleConditionHttpRequestMethod) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetListenerRuleConditionHttpRequestMethodPtrOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleConditionHttpRequestMethodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetListenerRuleConditionHttpRequestMethod)(nil)).Elem()
+}
+
+func (o GetListenerRuleConditionHttpRequestMethodPtrOutput) ToGetListenerRuleConditionHttpRequestMethodPtrOutput() GetListenerRuleConditionHttpRequestMethodPtrOutput {
+	return o
+}
+
+func (o GetListenerRuleConditionHttpRequestMethodPtrOutput) ToGetListenerRuleConditionHttpRequestMethodPtrOutputWithContext(ctx context.Context) GetListenerRuleConditionHttpRequestMethodPtrOutput {
+	return o
+}
+
+func (o GetListenerRuleConditionHttpRequestMethodPtrOutput) Elem() GetListenerRuleConditionHttpRequestMethodOutput {
+	return o.ApplyT(func(v *GetListenerRuleConditionHttpRequestMethod) GetListenerRuleConditionHttpRequestMethod {
+		if v != nil {
+			return *v
+		}
+		var ret GetListenerRuleConditionHttpRequestMethod
+		return ret
+	}).(GetListenerRuleConditionHttpRequestMethodOutput)
+}
+
+// Set of `key`-`value` pairs indicating the query string parameters to match.
+func (o GetListenerRuleConditionHttpRequestMethodPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetListenerRuleConditionHttpRequestMethod) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetListenerRuleConditionPathPattern struct {
+	// Set of `key`-`value` pairs indicating the query string parameters to match.
+	Values []string `pulumi:"values"`
+}
+
+// GetListenerRuleConditionPathPatternInput is an input type that accepts GetListenerRuleConditionPathPatternArgs and GetListenerRuleConditionPathPatternOutput values.
+// You can construct a concrete instance of `GetListenerRuleConditionPathPatternInput` via:
+//
+//	GetListenerRuleConditionPathPatternArgs{...}
+type GetListenerRuleConditionPathPatternInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleConditionPathPatternOutput() GetListenerRuleConditionPathPatternOutput
+	ToGetListenerRuleConditionPathPatternOutputWithContext(context.Context) GetListenerRuleConditionPathPatternOutput
+}
+
+type GetListenerRuleConditionPathPatternArgs struct {
+	// Set of `key`-`value` pairs indicating the query string parameters to match.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetListenerRuleConditionPathPatternArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleConditionPathPattern)(nil)).Elem()
+}
+
+func (i GetListenerRuleConditionPathPatternArgs) ToGetListenerRuleConditionPathPatternOutput() GetListenerRuleConditionPathPatternOutput {
+	return i.ToGetListenerRuleConditionPathPatternOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleConditionPathPatternArgs) ToGetListenerRuleConditionPathPatternOutputWithContext(ctx context.Context) GetListenerRuleConditionPathPatternOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleConditionPathPatternOutput)
+}
+
+func (i GetListenerRuleConditionPathPatternArgs) ToGetListenerRuleConditionPathPatternPtrOutput() GetListenerRuleConditionPathPatternPtrOutput {
+	return i.ToGetListenerRuleConditionPathPatternPtrOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleConditionPathPatternArgs) ToGetListenerRuleConditionPathPatternPtrOutputWithContext(ctx context.Context) GetListenerRuleConditionPathPatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleConditionPathPatternOutput).ToGetListenerRuleConditionPathPatternPtrOutputWithContext(ctx)
+}
+
+// GetListenerRuleConditionPathPatternPtrInput is an input type that accepts GetListenerRuleConditionPathPatternArgs, GetListenerRuleConditionPathPatternPtr and GetListenerRuleConditionPathPatternPtrOutput values.
+// You can construct a concrete instance of `GetListenerRuleConditionPathPatternPtrInput` via:
+//
+//	        GetListenerRuleConditionPathPatternArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetListenerRuleConditionPathPatternPtrInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleConditionPathPatternPtrOutput() GetListenerRuleConditionPathPatternPtrOutput
+	ToGetListenerRuleConditionPathPatternPtrOutputWithContext(context.Context) GetListenerRuleConditionPathPatternPtrOutput
+}
+
+type getListenerRuleConditionPathPatternPtrType GetListenerRuleConditionPathPatternArgs
+
+func GetListenerRuleConditionPathPatternPtr(v *GetListenerRuleConditionPathPatternArgs) GetListenerRuleConditionPathPatternPtrInput {
+	return (*getListenerRuleConditionPathPatternPtrType)(v)
+}
+
+func (*getListenerRuleConditionPathPatternPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetListenerRuleConditionPathPattern)(nil)).Elem()
+}
+
+func (i *getListenerRuleConditionPathPatternPtrType) ToGetListenerRuleConditionPathPatternPtrOutput() GetListenerRuleConditionPathPatternPtrOutput {
+	return i.ToGetListenerRuleConditionPathPatternPtrOutputWithContext(context.Background())
+}
+
+func (i *getListenerRuleConditionPathPatternPtrType) ToGetListenerRuleConditionPathPatternPtrOutputWithContext(ctx context.Context) GetListenerRuleConditionPathPatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleConditionPathPatternPtrOutput)
+}
+
+type GetListenerRuleConditionPathPatternOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleConditionPathPatternOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleConditionPathPattern)(nil)).Elem()
+}
+
+func (o GetListenerRuleConditionPathPatternOutput) ToGetListenerRuleConditionPathPatternOutput() GetListenerRuleConditionPathPatternOutput {
+	return o
+}
+
+func (o GetListenerRuleConditionPathPatternOutput) ToGetListenerRuleConditionPathPatternOutputWithContext(ctx context.Context) GetListenerRuleConditionPathPatternOutput {
+	return o
+}
+
+func (o GetListenerRuleConditionPathPatternOutput) ToGetListenerRuleConditionPathPatternPtrOutput() GetListenerRuleConditionPathPatternPtrOutput {
+	return o.ToGetListenerRuleConditionPathPatternPtrOutputWithContext(context.Background())
+}
+
+func (o GetListenerRuleConditionPathPatternOutput) ToGetListenerRuleConditionPathPatternPtrOutputWithContext(ctx context.Context) GetListenerRuleConditionPathPatternPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetListenerRuleConditionPathPattern) *GetListenerRuleConditionPathPattern {
+		return &v
+	}).(GetListenerRuleConditionPathPatternPtrOutput)
+}
+
+// Set of `key`-`value` pairs indicating the query string parameters to match.
+func (o GetListenerRuleConditionPathPatternOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetListenerRuleConditionPathPattern) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetListenerRuleConditionPathPatternPtrOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleConditionPathPatternPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetListenerRuleConditionPathPattern)(nil)).Elem()
+}
+
+func (o GetListenerRuleConditionPathPatternPtrOutput) ToGetListenerRuleConditionPathPatternPtrOutput() GetListenerRuleConditionPathPatternPtrOutput {
+	return o
+}
+
+func (o GetListenerRuleConditionPathPatternPtrOutput) ToGetListenerRuleConditionPathPatternPtrOutputWithContext(ctx context.Context) GetListenerRuleConditionPathPatternPtrOutput {
+	return o
+}
+
+func (o GetListenerRuleConditionPathPatternPtrOutput) Elem() GetListenerRuleConditionPathPatternOutput {
+	return o.ApplyT(func(v *GetListenerRuleConditionPathPattern) GetListenerRuleConditionPathPattern {
+		if v != nil {
+			return *v
+		}
+		var ret GetListenerRuleConditionPathPattern
+		return ret
+	}).(GetListenerRuleConditionPathPatternOutput)
+}
+
+// Set of `key`-`value` pairs indicating the query string parameters to match.
+func (o GetListenerRuleConditionPathPatternPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetListenerRuleConditionPathPattern) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetListenerRuleConditionQueryString struct {
+	// Set of `key`-`value` pairs indicating the query string parameters to match.
+	Values []GetListenerRuleConditionQueryStringValue `pulumi:"values"`
+}
+
+// GetListenerRuleConditionQueryStringInput is an input type that accepts GetListenerRuleConditionQueryStringArgs and GetListenerRuleConditionQueryStringOutput values.
+// You can construct a concrete instance of `GetListenerRuleConditionQueryStringInput` via:
+//
+//	GetListenerRuleConditionQueryStringArgs{...}
+type GetListenerRuleConditionQueryStringInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleConditionQueryStringOutput() GetListenerRuleConditionQueryStringOutput
+	ToGetListenerRuleConditionQueryStringOutputWithContext(context.Context) GetListenerRuleConditionQueryStringOutput
+}
+
+type GetListenerRuleConditionQueryStringArgs struct {
+	// Set of `key`-`value` pairs indicating the query string parameters to match.
+	Values GetListenerRuleConditionQueryStringValueArrayInput `pulumi:"values"`
+}
+
+func (GetListenerRuleConditionQueryStringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleConditionQueryString)(nil)).Elem()
+}
+
+func (i GetListenerRuleConditionQueryStringArgs) ToGetListenerRuleConditionQueryStringOutput() GetListenerRuleConditionQueryStringOutput {
+	return i.ToGetListenerRuleConditionQueryStringOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleConditionQueryStringArgs) ToGetListenerRuleConditionQueryStringOutputWithContext(ctx context.Context) GetListenerRuleConditionQueryStringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleConditionQueryStringOutput)
+}
+
+func (i GetListenerRuleConditionQueryStringArgs) ToGetListenerRuleConditionQueryStringPtrOutput() GetListenerRuleConditionQueryStringPtrOutput {
+	return i.ToGetListenerRuleConditionQueryStringPtrOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleConditionQueryStringArgs) ToGetListenerRuleConditionQueryStringPtrOutputWithContext(ctx context.Context) GetListenerRuleConditionQueryStringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleConditionQueryStringOutput).ToGetListenerRuleConditionQueryStringPtrOutputWithContext(ctx)
+}
+
+// GetListenerRuleConditionQueryStringPtrInput is an input type that accepts GetListenerRuleConditionQueryStringArgs, GetListenerRuleConditionQueryStringPtr and GetListenerRuleConditionQueryStringPtrOutput values.
+// You can construct a concrete instance of `GetListenerRuleConditionQueryStringPtrInput` via:
+//
+//	        GetListenerRuleConditionQueryStringArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetListenerRuleConditionQueryStringPtrInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleConditionQueryStringPtrOutput() GetListenerRuleConditionQueryStringPtrOutput
+	ToGetListenerRuleConditionQueryStringPtrOutputWithContext(context.Context) GetListenerRuleConditionQueryStringPtrOutput
+}
+
+type getListenerRuleConditionQueryStringPtrType GetListenerRuleConditionQueryStringArgs
+
+func GetListenerRuleConditionQueryStringPtr(v *GetListenerRuleConditionQueryStringArgs) GetListenerRuleConditionQueryStringPtrInput {
+	return (*getListenerRuleConditionQueryStringPtrType)(v)
+}
+
+func (*getListenerRuleConditionQueryStringPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetListenerRuleConditionQueryString)(nil)).Elem()
+}
+
+func (i *getListenerRuleConditionQueryStringPtrType) ToGetListenerRuleConditionQueryStringPtrOutput() GetListenerRuleConditionQueryStringPtrOutput {
+	return i.ToGetListenerRuleConditionQueryStringPtrOutputWithContext(context.Background())
+}
+
+func (i *getListenerRuleConditionQueryStringPtrType) ToGetListenerRuleConditionQueryStringPtrOutputWithContext(ctx context.Context) GetListenerRuleConditionQueryStringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleConditionQueryStringPtrOutput)
+}
+
+type GetListenerRuleConditionQueryStringOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleConditionQueryStringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleConditionQueryString)(nil)).Elem()
+}
+
+func (o GetListenerRuleConditionQueryStringOutput) ToGetListenerRuleConditionQueryStringOutput() GetListenerRuleConditionQueryStringOutput {
+	return o
+}
+
+func (o GetListenerRuleConditionQueryStringOutput) ToGetListenerRuleConditionQueryStringOutputWithContext(ctx context.Context) GetListenerRuleConditionQueryStringOutput {
+	return o
+}
+
+func (o GetListenerRuleConditionQueryStringOutput) ToGetListenerRuleConditionQueryStringPtrOutput() GetListenerRuleConditionQueryStringPtrOutput {
+	return o.ToGetListenerRuleConditionQueryStringPtrOutputWithContext(context.Background())
+}
+
+func (o GetListenerRuleConditionQueryStringOutput) ToGetListenerRuleConditionQueryStringPtrOutputWithContext(ctx context.Context) GetListenerRuleConditionQueryStringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetListenerRuleConditionQueryString) *GetListenerRuleConditionQueryString {
+		return &v
+	}).(GetListenerRuleConditionQueryStringPtrOutput)
+}
+
+// Set of `key`-`value` pairs indicating the query string parameters to match.
+func (o GetListenerRuleConditionQueryStringOutput) Values() GetListenerRuleConditionQueryStringValueArrayOutput {
+	return o.ApplyT(func(v GetListenerRuleConditionQueryString) []GetListenerRuleConditionQueryStringValue {
+		return v.Values
+	}).(GetListenerRuleConditionQueryStringValueArrayOutput)
+}
+
+type GetListenerRuleConditionQueryStringPtrOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleConditionQueryStringPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetListenerRuleConditionQueryString)(nil)).Elem()
+}
+
+func (o GetListenerRuleConditionQueryStringPtrOutput) ToGetListenerRuleConditionQueryStringPtrOutput() GetListenerRuleConditionQueryStringPtrOutput {
+	return o
+}
+
+func (o GetListenerRuleConditionQueryStringPtrOutput) ToGetListenerRuleConditionQueryStringPtrOutputWithContext(ctx context.Context) GetListenerRuleConditionQueryStringPtrOutput {
+	return o
+}
+
+func (o GetListenerRuleConditionQueryStringPtrOutput) Elem() GetListenerRuleConditionQueryStringOutput {
+	return o.ApplyT(func(v *GetListenerRuleConditionQueryString) GetListenerRuleConditionQueryString {
+		if v != nil {
+			return *v
+		}
+		var ret GetListenerRuleConditionQueryString
+		return ret
+	}).(GetListenerRuleConditionQueryStringOutput)
+}
+
+// Set of `key`-`value` pairs indicating the query string parameters to match.
+func (o GetListenerRuleConditionQueryStringPtrOutput) Values() GetListenerRuleConditionQueryStringValueArrayOutput {
+	return o.ApplyT(func(v *GetListenerRuleConditionQueryString) []GetListenerRuleConditionQueryStringValue {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(GetListenerRuleConditionQueryStringValueArrayOutput)
+}
+
+type GetListenerRuleConditionQueryStringValue struct {
+	// Key of query parameter
+	Key string `pulumi:"key"`
+	// Value of query parameter
+	Value string `pulumi:"value"`
+}
+
+// GetListenerRuleConditionQueryStringValueInput is an input type that accepts GetListenerRuleConditionQueryStringValueArgs and GetListenerRuleConditionQueryStringValueOutput values.
+// You can construct a concrete instance of `GetListenerRuleConditionQueryStringValueInput` via:
+//
+//	GetListenerRuleConditionQueryStringValueArgs{...}
+type GetListenerRuleConditionQueryStringValueInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleConditionQueryStringValueOutput() GetListenerRuleConditionQueryStringValueOutput
+	ToGetListenerRuleConditionQueryStringValueOutputWithContext(context.Context) GetListenerRuleConditionQueryStringValueOutput
+}
+
+type GetListenerRuleConditionQueryStringValueArgs struct {
+	// Key of query parameter
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of query parameter
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetListenerRuleConditionQueryStringValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleConditionQueryStringValue)(nil)).Elem()
+}
+
+func (i GetListenerRuleConditionQueryStringValueArgs) ToGetListenerRuleConditionQueryStringValueOutput() GetListenerRuleConditionQueryStringValueOutput {
+	return i.ToGetListenerRuleConditionQueryStringValueOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleConditionQueryStringValueArgs) ToGetListenerRuleConditionQueryStringValueOutputWithContext(ctx context.Context) GetListenerRuleConditionQueryStringValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleConditionQueryStringValueOutput)
+}
+
+// GetListenerRuleConditionQueryStringValueArrayInput is an input type that accepts GetListenerRuleConditionQueryStringValueArray and GetListenerRuleConditionQueryStringValueArrayOutput values.
+// You can construct a concrete instance of `GetListenerRuleConditionQueryStringValueArrayInput` via:
+//
+//	GetListenerRuleConditionQueryStringValueArray{ GetListenerRuleConditionQueryStringValueArgs{...} }
+type GetListenerRuleConditionQueryStringValueArrayInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleConditionQueryStringValueArrayOutput() GetListenerRuleConditionQueryStringValueArrayOutput
+	ToGetListenerRuleConditionQueryStringValueArrayOutputWithContext(context.Context) GetListenerRuleConditionQueryStringValueArrayOutput
+}
+
+type GetListenerRuleConditionQueryStringValueArray []GetListenerRuleConditionQueryStringValueInput
+
+func (GetListenerRuleConditionQueryStringValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerRuleConditionQueryStringValue)(nil)).Elem()
+}
+
+func (i GetListenerRuleConditionQueryStringValueArray) ToGetListenerRuleConditionQueryStringValueArrayOutput() GetListenerRuleConditionQueryStringValueArrayOutput {
+	return i.ToGetListenerRuleConditionQueryStringValueArrayOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleConditionQueryStringValueArray) ToGetListenerRuleConditionQueryStringValueArrayOutputWithContext(ctx context.Context) GetListenerRuleConditionQueryStringValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleConditionQueryStringValueArrayOutput)
+}
+
+type GetListenerRuleConditionQueryStringValueOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleConditionQueryStringValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleConditionQueryStringValue)(nil)).Elem()
+}
+
+func (o GetListenerRuleConditionQueryStringValueOutput) ToGetListenerRuleConditionQueryStringValueOutput() GetListenerRuleConditionQueryStringValueOutput {
+	return o
+}
+
+func (o GetListenerRuleConditionQueryStringValueOutput) ToGetListenerRuleConditionQueryStringValueOutputWithContext(ctx context.Context) GetListenerRuleConditionQueryStringValueOutput {
+	return o
+}
+
+// Key of query parameter
+func (o GetListenerRuleConditionQueryStringValueOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleConditionQueryStringValue) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Value of query parameter
+func (o GetListenerRuleConditionQueryStringValueOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerRuleConditionQueryStringValue) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetListenerRuleConditionQueryStringValueArrayOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleConditionQueryStringValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetListenerRuleConditionQueryStringValue)(nil)).Elem()
+}
+
+func (o GetListenerRuleConditionQueryStringValueArrayOutput) ToGetListenerRuleConditionQueryStringValueArrayOutput() GetListenerRuleConditionQueryStringValueArrayOutput {
+	return o
+}
+
+func (o GetListenerRuleConditionQueryStringValueArrayOutput) ToGetListenerRuleConditionQueryStringValueArrayOutputWithContext(ctx context.Context) GetListenerRuleConditionQueryStringValueArrayOutput {
+	return o
+}
+
+func (o GetListenerRuleConditionQueryStringValueArrayOutput) Index(i pulumi.IntInput) GetListenerRuleConditionQueryStringValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetListenerRuleConditionQueryStringValue {
+		return vs[0].([]GetListenerRuleConditionQueryStringValue)[vs[1].(int)]
+	}).(GetListenerRuleConditionQueryStringValueOutput)
+}
+
+type GetListenerRuleConditionSourceIp struct {
+	// Set of `key`-`value` pairs indicating the query string parameters to match.
+	Values []string `pulumi:"values"`
+}
+
+// GetListenerRuleConditionSourceIpInput is an input type that accepts GetListenerRuleConditionSourceIpArgs and GetListenerRuleConditionSourceIpOutput values.
+// You can construct a concrete instance of `GetListenerRuleConditionSourceIpInput` via:
+//
+//	GetListenerRuleConditionSourceIpArgs{...}
+type GetListenerRuleConditionSourceIpInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleConditionSourceIpOutput() GetListenerRuleConditionSourceIpOutput
+	ToGetListenerRuleConditionSourceIpOutputWithContext(context.Context) GetListenerRuleConditionSourceIpOutput
+}
+
+type GetListenerRuleConditionSourceIpArgs struct {
+	// Set of `key`-`value` pairs indicating the query string parameters to match.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetListenerRuleConditionSourceIpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleConditionSourceIp)(nil)).Elem()
+}
+
+func (i GetListenerRuleConditionSourceIpArgs) ToGetListenerRuleConditionSourceIpOutput() GetListenerRuleConditionSourceIpOutput {
+	return i.ToGetListenerRuleConditionSourceIpOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleConditionSourceIpArgs) ToGetListenerRuleConditionSourceIpOutputWithContext(ctx context.Context) GetListenerRuleConditionSourceIpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleConditionSourceIpOutput)
+}
+
+func (i GetListenerRuleConditionSourceIpArgs) ToGetListenerRuleConditionSourceIpPtrOutput() GetListenerRuleConditionSourceIpPtrOutput {
+	return i.ToGetListenerRuleConditionSourceIpPtrOutputWithContext(context.Background())
+}
+
+func (i GetListenerRuleConditionSourceIpArgs) ToGetListenerRuleConditionSourceIpPtrOutputWithContext(ctx context.Context) GetListenerRuleConditionSourceIpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleConditionSourceIpOutput).ToGetListenerRuleConditionSourceIpPtrOutputWithContext(ctx)
+}
+
+// GetListenerRuleConditionSourceIpPtrInput is an input type that accepts GetListenerRuleConditionSourceIpArgs, GetListenerRuleConditionSourceIpPtr and GetListenerRuleConditionSourceIpPtrOutput values.
+// You can construct a concrete instance of `GetListenerRuleConditionSourceIpPtrInput` via:
+//
+//	        GetListenerRuleConditionSourceIpArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetListenerRuleConditionSourceIpPtrInput interface {
+	pulumi.Input
+
+	ToGetListenerRuleConditionSourceIpPtrOutput() GetListenerRuleConditionSourceIpPtrOutput
+	ToGetListenerRuleConditionSourceIpPtrOutputWithContext(context.Context) GetListenerRuleConditionSourceIpPtrOutput
+}
+
+type getListenerRuleConditionSourceIpPtrType GetListenerRuleConditionSourceIpArgs
+
+func GetListenerRuleConditionSourceIpPtr(v *GetListenerRuleConditionSourceIpArgs) GetListenerRuleConditionSourceIpPtrInput {
+	return (*getListenerRuleConditionSourceIpPtrType)(v)
+}
+
+func (*getListenerRuleConditionSourceIpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetListenerRuleConditionSourceIp)(nil)).Elem()
+}
+
+func (i *getListenerRuleConditionSourceIpPtrType) ToGetListenerRuleConditionSourceIpPtrOutput() GetListenerRuleConditionSourceIpPtrOutput {
+	return i.ToGetListenerRuleConditionSourceIpPtrOutputWithContext(context.Background())
+}
+
+func (i *getListenerRuleConditionSourceIpPtrType) ToGetListenerRuleConditionSourceIpPtrOutputWithContext(ctx context.Context) GetListenerRuleConditionSourceIpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetListenerRuleConditionSourceIpPtrOutput)
+}
+
+type GetListenerRuleConditionSourceIpOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleConditionSourceIpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetListenerRuleConditionSourceIp)(nil)).Elem()
+}
+
+func (o GetListenerRuleConditionSourceIpOutput) ToGetListenerRuleConditionSourceIpOutput() GetListenerRuleConditionSourceIpOutput {
+	return o
+}
+
+func (o GetListenerRuleConditionSourceIpOutput) ToGetListenerRuleConditionSourceIpOutputWithContext(ctx context.Context) GetListenerRuleConditionSourceIpOutput {
+	return o
+}
+
+func (o GetListenerRuleConditionSourceIpOutput) ToGetListenerRuleConditionSourceIpPtrOutput() GetListenerRuleConditionSourceIpPtrOutput {
+	return o.ToGetListenerRuleConditionSourceIpPtrOutputWithContext(context.Background())
+}
+
+func (o GetListenerRuleConditionSourceIpOutput) ToGetListenerRuleConditionSourceIpPtrOutputWithContext(ctx context.Context) GetListenerRuleConditionSourceIpPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetListenerRuleConditionSourceIp) *GetListenerRuleConditionSourceIp {
+		return &v
+	}).(GetListenerRuleConditionSourceIpPtrOutput)
+}
+
+// Set of `key`-`value` pairs indicating the query string parameters to match.
+func (o GetListenerRuleConditionSourceIpOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetListenerRuleConditionSourceIp) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetListenerRuleConditionSourceIpPtrOutput struct{ *pulumi.OutputState }
+
+func (GetListenerRuleConditionSourceIpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetListenerRuleConditionSourceIp)(nil)).Elem()
+}
+
+func (o GetListenerRuleConditionSourceIpPtrOutput) ToGetListenerRuleConditionSourceIpPtrOutput() GetListenerRuleConditionSourceIpPtrOutput {
+	return o
+}
+
+func (o GetListenerRuleConditionSourceIpPtrOutput) ToGetListenerRuleConditionSourceIpPtrOutputWithContext(ctx context.Context) GetListenerRuleConditionSourceIpPtrOutput {
+	return o
+}
+
+func (o GetListenerRuleConditionSourceIpPtrOutput) Elem() GetListenerRuleConditionSourceIpOutput {
+	return o.ApplyT(func(v *GetListenerRuleConditionSourceIp) GetListenerRuleConditionSourceIp {
+		if v != nil {
+			return *v
+		}
+		var ret GetListenerRuleConditionSourceIp
+		return ret
+	}).(GetListenerRuleConditionSourceIpOutput)
+}
+
+// Set of `key`-`value` pairs indicating the query string parameters to match.
+func (o GetListenerRuleConditionSourceIpPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetListenerRuleConditionSourceIp) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
 type GetLoadBalancerAccessLogs struct {
 	Bucket  string `pulumi:"bucket"`
 	Enabled bool   `pulumi:"enabled"`
@@ -7705,6 +10396,38 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionRedirectArrayInput)(nil)).Elem(), GetListenerDefaultActionRedirectArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerMutualAuthenticationInput)(nil)).Elem(), GetListenerMutualAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerMutualAuthenticationArrayInput)(nil)).Elem(), GetListenerMutualAuthenticationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleActionInput)(nil)).Elem(), GetListenerRuleActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleActionArrayInput)(nil)).Elem(), GetListenerRuleActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleActionAuthenticateCognitoInput)(nil)).Elem(), GetListenerRuleActionAuthenticateCognitoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleActionAuthenticateCognitoPtrInput)(nil)).Elem(), GetListenerRuleActionAuthenticateCognitoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleActionAuthenticateOidcInput)(nil)).Elem(), GetListenerRuleActionAuthenticateOidcArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleActionAuthenticateOidcPtrInput)(nil)).Elem(), GetListenerRuleActionAuthenticateOidcArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleActionFixedResponseInput)(nil)).Elem(), GetListenerRuleActionFixedResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleActionFixedResponsePtrInput)(nil)).Elem(), GetListenerRuleActionFixedResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleActionForwardInput)(nil)).Elem(), GetListenerRuleActionForwardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleActionForwardPtrInput)(nil)).Elem(), GetListenerRuleActionForwardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleActionForwardStickinessInput)(nil)).Elem(), GetListenerRuleActionForwardStickinessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleActionForwardStickinessPtrInput)(nil)).Elem(), GetListenerRuleActionForwardStickinessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleActionForwardTargetGroupInput)(nil)).Elem(), GetListenerRuleActionForwardTargetGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleActionForwardTargetGroupArrayInput)(nil)).Elem(), GetListenerRuleActionForwardTargetGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleActionRedirectInput)(nil)).Elem(), GetListenerRuleActionRedirectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleActionRedirectPtrInput)(nil)).Elem(), GetListenerRuleActionRedirectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleConditionInput)(nil)).Elem(), GetListenerRuleConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleConditionArrayInput)(nil)).Elem(), GetListenerRuleConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleConditionHostHeaderInput)(nil)).Elem(), GetListenerRuleConditionHostHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleConditionHostHeaderPtrInput)(nil)).Elem(), GetListenerRuleConditionHostHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleConditionHttpHeaderInput)(nil)).Elem(), GetListenerRuleConditionHttpHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleConditionHttpHeaderPtrInput)(nil)).Elem(), GetListenerRuleConditionHttpHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleConditionHttpRequestMethodInput)(nil)).Elem(), GetListenerRuleConditionHttpRequestMethodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleConditionHttpRequestMethodPtrInput)(nil)).Elem(), GetListenerRuleConditionHttpRequestMethodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleConditionPathPatternInput)(nil)).Elem(), GetListenerRuleConditionPathPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleConditionPathPatternPtrInput)(nil)).Elem(), GetListenerRuleConditionPathPatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleConditionQueryStringInput)(nil)).Elem(), GetListenerRuleConditionQueryStringArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleConditionQueryStringPtrInput)(nil)).Elem(), GetListenerRuleConditionQueryStringArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleConditionQueryStringValueInput)(nil)).Elem(), GetListenerRuleConditionQueryStringValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleConditionQueryStringValueArrayInput)(nil)).Elem(), GetListenerRuleConditionQueryStringValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleConditionSourceIpInput)(nil)).Elem(), GetListenerRuleConditionSourceIpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerRuleConditionSourceIpPtrInput)(nil)).Elem(), GetListenerRuleConditionSourceIpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerAccessLogsInput)(nil)).Elem(), GetLoadBalancerAccessLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerConnectionLogInput)(nil)).Elem(), GetLoadBalancerConnectionLogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerConnectionLogArrayInput)(nil)).Elem(), GetLoadBalancerConnectionLogArray{})
@@ -7798,6 +10521,38 @@ func init() {
 	pulumi.RegisterOutputType(GetListenerDefaultActionRedirectArrayOutput{})
 	pulumi.RegisterOutputType(GetListenerMutualAuthenticationOutput{})
 	pulumi.RegisterOutputType(GetListenerMutualAuthenticationArrayOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleActionOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleActionArrayOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleActionAuthenticateCognitoOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleActionAuthenticateCognitoPtrOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleActionAuthenticateOidcOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleActionAuthenticateOidcPtrOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleActionFixedResponseOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleActionFixedResponsePtrOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleActionForwardOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleActionForwardPtrOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleActionForwardStickinessOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleActionForwardStickinessPtrOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleActionForwardTargetGroupOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleActionForwardTargetGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleActionRedirectOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleActionRedirectPtrOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleConditionOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleConditionArrayOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleConditionHostHeaderOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleConditionHostHeaderPtrOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleConditionHttpHeaderOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleConditionHttpHeaderPtrOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleConditionHttpRequestMethodOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleConditionHttpRequestMethodPtrOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleConditionPathPatternOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleConditionPathPatternPtrOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleConditionQueryStringOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleConditionQueryStringPtrOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleConditionQueryStringValueOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleConditionQueryStringValueArrayOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleConditionSourceIpOutput{})
+	pulumi.RegisterOutputType(GetListenerRuleConditionSourceIpPtrOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerAccessLogsOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerConnectionLogOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerConnectionLogArrayOutput{})

@@ -539,7 +539,7 @@ class PlatformApplication(pulumi.CustomResource):
         Using `pulumi import`, import SNS platform applications using the ARN. For example:
 
         ```sh
-        $ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:0123456789012:app/GCM/gcm_application
+        $ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:123456789012:app/GCM/gcm_application
         ```
 
         :param str resource_name: The name of the resource.
@@ -616,7 +616,7 @@ class PlatformApplication(pulumi.CustomResource):
         Using `pulumi import`, import SNS platform applications using the ARN. For example:
 
         ```sh
-        $ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:0123456789012:app/GCM/gcm_application
+        $ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:123456789012:app/GCM/gcm_application
         ```
 
         :param str resource_name: The name of the resource.

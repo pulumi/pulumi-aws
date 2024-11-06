@@ -28,7 +28,7 @@ namespace Pulumi.Aws.SsoAdmin
         /// {
         ///     var example = Aws.SsoAdmin.GetApplication.Invoke(new()
         ///     {
-        ///         ApplicationArn = "arn:aws:sso::012345678901:application/ssoins-1234/apl-5678",
+        ///         ApplicationArn = "arn:aws:sso::123456789012:application/ssoins-1234/apl-5678",
         ///     });
         /// 
         /// });
@@ -54,7 +54,7 @@ namespace Pulumi.Aws.SsoAdmin
         /// {
         ///     var example = Aws.SsoAdmin.GetApplication.Invoke(new()
         ///     {
-        ///         ApplicationArn = "arn:aws:sso::012345678901:application/ssoins-1234/apl-5678",
+        ///         ApplicationArn = "arn:aws:sso::123456789012:application/ssoins-1234/apl-5678",
         ///     });
         /// 
         /// });

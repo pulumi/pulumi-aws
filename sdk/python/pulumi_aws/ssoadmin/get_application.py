@@ -158,7 +158,7 @@ def get_application(application_arn: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ssoadmin.get_application(application_arn="arn:aws:sso::012345678901:application/ssoins-1234/apl-5678")
+    example = aws.ssoadmin.get_application(application_arn="arn:aws:sso::123456789012:application/ssoins-1234/apl-5678")
     ```
 
 
@@ -195,7 +195,7 @@ def get_application_output(application_arn: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ssoadmin.get_application(application_arn="arn:aws:sso::012345678901:application/ssoins-1234/apl-5678")
+    example = aws.ssoadmin.get_application(application_arn="arn:aws:sso::123456789012:application/ssoins-1234/apl-5678")
     ```
 
 

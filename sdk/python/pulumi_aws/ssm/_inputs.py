@@ -74,6 +74,12 @@ __all__ = [
     'PatchBaselineGlobalFilterArgsDict',
     'PatchBaselineSourceArgs',
     'PatchBaselineSourceArgsDict',
+    'QuicksetupConfigurationManagerConfigurationDefinitionArgs',
+    'QuicksetupConfigurationManagerConfigurationDefinitionArgsDict',
+    'QuicksetupConfigurationManagerStatusSummaryArgs',
+    'QuicksetupConfigurationManagerStatusSummaryArgsDict',
+    'QuicksetupConfigurationManagerTimeoutsArgs',
+    'QuicksetupConfigurationManagerTimeoutsArgsDict',
     'ResourceDataSyncS3DestinationArgs',
     'ResourceDataSyncS3DestinationArgsDict',
     'GetInstancesFilterArgs',
@@ -1755,7 +1761,7 @@ if not MYPY:
         """
         approve_after_days: NotRequired[pulumi.Input[int]]
         """
-        Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approve_until_date`.
+        Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 360. Conflicts with `approve_until_date`.
         """
         approve_until_date: NotRequired[pulumi.Input[str]]
         """
@@ -1782,7 +1788,7 @@ class PatchBaselineApprovalRuleArgs:
                  enable_non_security: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PatchBaselineApprovalRulePatchFilterArgs']]] patch_filters: Patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html). Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values. `PATCH_SET` defaults to `OS` if unspecified
-        :param pulumi.Input[int] approve_after_days: Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approve_until_date`.
+        :param pulumi.Input[int] approve_after_days: Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 360. Conflicts with `approve_until_date`.
         :param pulumi.Input[str] approve_until_date: Cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
         :param pulumi.Input[str] compliance_level: Compliance level for patches approved by this rule. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, and `UNSPECIFIED`. The default value is `UNSPECIFIED`.
         :param pulumi.Input[bool] enable_non_security: Boolean enabling the application of non-security updates. The default value is `false`. Valid for Linux instances only.
@@ -1813,7 +1819,7 @@ class PatchBaselineApprovalRuleArgs:
     @pulumi.getter(name="approveAfterDays")
     def approve_after_days(self) -> Optional[pulumi.Input[int]]:
         """
-        Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approve_until_date`.
+        Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 360. Conflicts with `approve_until_date`.
         """
         return pulumi.get(self, "approve_after_days")
 
@@ -1993,6 +1999,263 @@ class PatchBaselineSourceArgs:
     @products.setter
     def products(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "products", value)
+
+
+if not MYPY:
+    class QuicksetupConfigurationManagerConfigurationDefinitionArgsDict(TypedDict):
+        parameters: pulumi.Input[Mapping[str, pulumi.Input[str]]]
+        """
+        Parameters for the configuration definition type. Parameters for configuration definitions vary based the configuration type. See the [AWS API documentation](https://docs.aws.amazon.com/quick-setup/latest/APIReference/API_ConfigurationDefinitionInput.html) for a complete list of parameters for each configuration type.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of the Quick Setup configuration.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        local_deployment_administration_role_arn: NotRequired[pulumi.Input[str]]
+        local_deployment_execution_role_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the IAM role used to deploy local configurations.
+        """
+        type_version: NotRequired[pulumi.Input[str]]
+        """
+        Version of the Quick Setup type to use.
+        """
+elif False:
+    QuicksetupConfigurationManagerConfigurationDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class QuicksetupConfigurationManagerConfigurationDefinitionArgs:
+    def __init__(__self__, *,
+                 parameters: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+                 type: pulumi.Input[str],
+                 id: Optional[pulumi.Input[str]] = None,
+                 local_deployment_administration_role_arn: Optional[pulumi.Input[str]] = None,
+                 local_deployment_execution_role_name: Optional[pulumi.Input[str]] = None,
+                 type_version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Parameters for the configuration definition type. Parameters for configuration definitions vary based the configuration type. See the [AWS API documentation](https://docs.aws.amazon.com/quick-setup/latest/APIReference/API_ConfigurationDefinitionInput.html) for a complete list of parameters for each configuration type.
+        :param pulumi.Input[str] type: Type of the Quick Setup configuration.
+        :param pulumi.Input[str] local_deployment_execution_role_name: Name of the IAM role used to deploy local configurations.
+        :param pulumi.Input[str] type_version: Version of the Quick Setup type to use.
+        """
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if local_deployment_administration_role_arn is not None:
+            pulumi.set(__self__, "local_deployment_administration_role_arn", local_deployment_administration_role_arn)
+        if local_deployment_execution_role_name is not None:
+            pulumi.set(__self__, "local_deployment_execution_role_name", local_deployment_execution_role_name)
+        if type_version is not None:
+            pulumi.set(__self__, "type_version", type_version)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+        """
+        Parameters for the configuration definition type. Parameters for configuration definitions vary based the configuration type. See the [AWS API documentation](https://docs.aws.amazon.com/quick-setup/latest/APIReference/API_ConfigurationDefinitionInput.html) for a complete list of parameters for each configuration type.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of the Quick Setup configuration.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="localDeploymentAdministrationRoleArn")
+    def local_deployment_administration_role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "local_deployment_administration_role_arn")
+
+    @local_deployment_administration_role_arn.setter
+    def local_deployment_administration_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "local_deployment_administration_role_arn", value)
+
+    @property
+    @pulumi.getter(name="localDeploymentExecutionRoleName")
+    def local_deployment_execution_role_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the IAM role used to deploy local configurations.
+        """
+        return pulumi.get(self, "local_deployment_execution_role_name")
+
+    @local_deployment_execution_role_name.setter
+    def local_deployment_execution_role_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "local_deployment_execution_role_name", value)
+
+    @property
+    @pulumi.getter(name="typeVersion")
+    def type_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version of the Quick Setup type to use.
+        """
+        return pulumi.get(self, "type_version")
+
+    @type_version.setter
+    def type_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type_version", value)
+
+
+if not MYPY:
+    class QuicksetupConfigurationManagerStatusSummaryArgsDict(TypedDict):
+        status: pulumi.Input[str]
+        """
+        Current status.
+        """
+        status_message: pulumi.Input[str]
+        """
+        When applicable, returns an informational message relevant to the current status and status type of the status summary object.
+        """
+        status_type: pulumi.Input[str]
+        """
+        Type of a status summary.
+        """
+elif False:
+    QuicksetupConfigurationManagerStatusSummaryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class QuicksetupConfigurationManagerStatusSummaryArgs:
+    def __init__(__self__, *,
+                 status: pulumi.Input[str],
+                 status_message: pulumi.Input[str],
+                 status_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] status: Current status.
+        :param pulumi.Input[str] status_message: When applicable, returns an informational message relevant to the current status and status type of the status summary object.
+        :param pulumi.Input[str] status_type: Type of a status summary.
+        """
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "status_message", status_message)
+        pulumi.set(__self__, "status_type", status_type)
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[str]:
+        """
+        Current status.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[str]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> pulumi.Input[str]:
+        """
+        When applicable, returns an informational message relevant to the current status and status type of the status summary object.
+        """
+        return pulumi.get(self, "status_message")
+
+    @status_message.setter
+    def status_message(self, value: pulumi.Input[str]):
+        pulumi.set(self, "status_message", value)
+
+    @property
+    @pulumi.getter(name="statusType")
+    def status_type(self) -> pulumi.Input[str]:
+        """
+        Type of a status summary.
+        """
+        return pulumi.get(self, "status_type")
+
+    @status_type.setter
+    def status_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "status_type", value)
+
+
+if not MYPY:
+    class QuicksetupConfigurationManagerTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    QuicksetupConfigurationManagerTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class QuicksetupConfigurationManagerTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 delete: Optional[pulumi.Input[str]] = None,
+                 update: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete", value)
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update", value)
 
 
 if not MYPY:

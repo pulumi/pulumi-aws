@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
 /**
  * Resource for managing an AWS EC2 Image Builder Workflow.
  * 
+ * &gt; Image Builder manages the workflows for the distribution stage. Therefore, using the DISTRIBUTION workflow type results in an error.
+ * 
  * ## Example Usage
  * 
  * ### Basic Usage
@@ -236,14 +238,14 @@ public class Workflow extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Type of the workflow. Valid values: `BUILD`, `TEST`, `DISTRIBUTION`.
+     * Type of the workflow. Valid values: `BUILD`, `TEST`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Type of the workflow. Valid values: `BUILD`, `TEST`, `DISTRIBUTION`.
+     * @return Type of the workflow. Valid values: `BUILD`, `TEST`.
      * 
      */
     public Output<String> type() {

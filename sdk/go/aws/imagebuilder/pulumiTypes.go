@@ -952,6 +952,8 @@ type DistributionConfigurationDistribution struct {
 	//
 	// The following arguments are optional:
 	Region string `pulumi:"region"`
+	// Configuration block with S3 export settings. Detailed below.
+	S3ExportConfiguration *DistributionConfigurationDistributionS3ExportConfiguration `pulumi:"s3ExportConfiguration"`
 }
 
 // DistributionConfigurationDistributionInput is an input type that accepts DistributionConfigurationDistributionArgs and DistributionConfigurationDistributionOutput values.
@@ -980,6 +982,8 @@ type DistributionConfigurationDistributionArgs struct {
 	//
 	// The following arguments are optional:
 	Region pulumi.StringInput `pulumi:"region"`
+	// Configuration block with S3 export settings. Detailed below.
+	S3ExportConfiguration DistributionConfigurationDistributionS3ExportConfigurationPtrInput `pulumi:"s3ExportConfiguration"`
 }
 
 func (DistributionConfigurationDistributionArgs) ElementType() reflect.Type {
@@ -1071,6 +1075,13 @@ func (o DistributionConfigurationDistributionOutput) LicenseConfigurationArns() 
 // The following arguments are optional:
 func (o DistributionConfigurationDistributionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistribution) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// Configuration block with S3 export settings. Detailed below.
+func (o DistributionConfigurationDistributionOutput) S3ExportConfiguration() DistributionConfigurationDistributionS3ExportConfigurationPtrOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistribution) *DistributionConfigurationDistributionS3ExportConfiguration {
+		return v.S3ExportConfiguration
+	}).(DistributionConfigurationDistributionS3ExportConfigurationPtrOutput)
 }
 
 type DistributionConfigurationDistributionArrayOutput struct{ *pulumi.OutputState }
@@ -2450,6 +2461,200 @@ func (o DistributionConfigurationDistributionLaunchTemplateConfigurationArrayOut
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributionConfigurationDistributionLaunchTemplateConfiguration {
 		return vs[0].([]DistributionConfigurationDistributionLaunchTemplateConfiguration)[vs[1].(int)]
 	}).(DistributionConfigurationDistributionLaunchTemplateConfigurationOutput)
+}
+
+type DistributionConfigurationDistributionS3ExportConfiguration struct {
+	// The disk image format of the exported image (`RAW`, `VHD`, or `VMDK`)
+	DiskImageFormat string `pulumi:"diskImageFormat"`
+	// The name of the IAM role to use for exporting.
+	RoleName string `pulumi:"roleName"`
+	// The name of the S3 bucket to store the exported image in. The bucket needs to exist before the export configuration is created.
+	S3Bucket string `pulumi:"s3Bucket"`
+	// The prefix for the exported image.
+	S3Prefix *string `pulumi:"s3Prefix"`
+}
+
+// DistributionConfigurationDistributionS3ExportConfigurationInput is an input type that accepts DistributionConfigurationDistributionS3ExportConfigurationArgs and DistributionConfigurationDistributionS3ExportConfigurationOutput values.
+// You can construct a concrete instance of `DistributionConfigurationDistributionS3ExportConfigurationInput` via:
+//
+//	DistributionConfigurationDistributionS3ExportConfigurationArgs{...}
+type DistributionConfigurationDistributionS3ExportConfigurationInput interface {
+	pulumi.Input
+
+	ToDistributionConfigurationDistributionS3ExportConfigurationOutput() DistributionConfigurationDistributionS3ExportConfigurationOutput
+	ToDistributionConfigurationDistributionS3ExportConfigurationOutputWithContext(context.Context) DistributionConfigurationDistributionS3ExportConfigurationOutput
+}
+
+type DistributionConfigurationDistributionS3ExportConfigurationArgs struct {
+	// The disk image format of the exported image (`RAW`, `VHD`, or `VMDK`)
+	DiskImageFormat pulumi.StringInput `pulumi:"diskImageFormat"`
+	// The name of the IAM role to use for exporting.
+	RoleName pulumi.StringInput `pulumi:"roleName"`
+	// The name of the S3 bucket to store the exported image in. The bucket needs to exist before the export configuration is created.
+	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
+	// The prefix for the exported image.
+	S3Prefix pulumi.StringPtrInput `pulumi:"s3Prefix"`
+}
+
+func (DistributionConfigurationDistributionS3ExportConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfigurationDistributionS3ExportConfiguration)(nil)).Elem()
+}
+
+func (i DistributionConfigurationDistributionS3ExportConfigurationArgs) ToDistributionConfigurationDistributionS3ExportConfigurationOutput() DistributionConfigurationDistributionS3ExportConfigurationOutput {
+	return i.ToDistributionConfigurationDistributionS3ExportConfigurationOutputWithContext(context.Background())
+}
+
+func (i DistributionConfigurationDistributionS3ExportConfigurationArgs) ToDistributionConfigurationDistributionS3ExportConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationDistributionS3ExportConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionS3ExportConfigurationOutput)
+}
+
+func (i DistributionConfigurationDistributionS3ExportConfigurationArgs) ToDistributionConfigurationDistributionS3ExportConfigurationPtrOutput() DistributionConfigurationDistributionS3ExportConfigurationPtrOutput {
+	return i.ToDistributionConfigurationDistributionS3ExportConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionConfigurationDistributionS3ExportConfigurationArgs) ToDistributionConfigurationDistributionS3ExportConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionS3ExportConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionS3ExportConfigurationOutput).ToDistributionConfigurationDistributionS3ExportConfigurationPtrOutputWithContext(ctx)
+}
+
+// DistributionConfigurationDistributionS3ExportConfigurationPtrInput is an input type that accepts DistributionConfigurationDistributionS3ExportConfigurationArgs, DistributionConfigurationDistributionS3ExportConfigurationPtr and DistributionConfigurationDistributionS3ExportConfigurationPtrOutput values.
+// You can construct a concrete instance of `DistributionConfigurationDistributionS3ExportConfigurationPtrInput` via:
+//
+//	        DistributionConfigurationDistributionS3ExportConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DistributionConfigurationDistributionS3ExportConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDistributionConfigurationDistributionS3ExportConfigurationPtrOutput() DistributionConfigurationDistributionS3ExportConfigurationPtrOutput
+	ToDistributionConfigurationDistributionS3ExportConfigurationPtrOutputWithContext(context.Context) DistributionConfigurationDistributionS3ExportConfigurationPtrOutput
+}
+
+type distributionConfigurationDistributionS3ExportConfigurationPtrType DistributionConfigurationDistributionS3ExportConfigurationArgs
+
+func DistributionConfigurationDistributionS3ExportConfigurationPtr(v *DistributionConfigurationDistributionS3ExportConfigurationArgs) DistributionConfigurationDistributionS3ExportConfigurationPtrInput {
+	return (*distributionConfigurationDistributionS3ExportConfigurationPtrType)(v)
+}
+
+func (*distributionConfigurationDistributionS3ExportConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionConfigurationDistributionS3ExportConfiguration)(nil)).Elem()
+}
+
+func (i *distributionConfigurationDistributionS3ExportConfigurationPtrType) ToDistributionConfigurationDistributionS3ExportConfigurationPtrOutput() DistributionConfigurationDistributionS3ExportConfigurationPtrOutput {
+	return i.ToDistributionConfigurationDistributionS3ExportConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionConfigurationDistributionS3ExportConfigurationPtrType) ToDistributionConfigurationDistributionS3ExportConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionS3ExportConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionS3ExportConfigurationPtrOutput)
+}
+
+type DistributionConfigurationDistributionS3ExportConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DistributionConfigurationDistributionS3ExportConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfigurationDistributionS3ExportConfiguration)(nil)).Elem()
+}
+
+func (o DistributionConfigurationDistributionS3ExportConfigurationOutput) ToDistributionConfigurationDistributionS3ExportConfigurationOutput() DistributionConfigurationDistributionS3ExportConfigurationOutput {
+	return o
+}
+
+func (o DistributionConfigurationDistributionS3ExportConfigurationOutput) ToDistributionConfigurationDistributionS3ExportConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationDistributionS3ExportConfigurationOutput {
+	return o
+}
+
+func (o DistributionConfigurationDistributionS3ExportConfigurationOutput) ToDistributionConfigurationDistributionS3ExportConfigurationPtrOutput() DistributionConfigurationDistributionS3ExportConfigurationPtrOutput {
+	return o.ToDistributionConfigurationDistributionS3ExportConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionConfigurationDistributionS3ExportConfigurationOutput) ToDistributionConfigurationDistributionS3ExportConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionS3ExportConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionConfigurationDistributionS3ExportConfiguration) *DistributionConfigurationDistributionS3ExportConfiguration {
+		return &v
+	}).(DistributionConfigurationDistributionS3ExportConfigurationPtrOutput)
+}
+
+// The disk image format of the exported image (`RAW`, `VHD`, or `VMDK`)
+func (o DistributionConfigurationDistributionS3ExportConfigurationOutput) DiskImageFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistributionS3ExportConfiguration) string { return v.DiskImageFormat }).(pulumi.StringOutput)
+}
+
+// The name of the IAM role to use for exporting.
+func (o DistributionConfigurationDistributionS3ExportConfigurationOutput) RoleName() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistributionS3ExportConfiguration) string { return v.RoleName }).(pulumi.StringOutput)
+}
+
+// The name of the S3 bucket to store the exported image in. The bucket needs to exist before the export configuration is created.
+func (o DistributionConfigurationDistributionS3ExportConfigurationOutput) S3Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistributionS3ExportConfiguration) string { return v.S3Bucket }).(pulumi.StringOutput)
+}
+
+// The prefix for the exported image.
+func (o DistributionConfigurationDistributionS3ExportConfigurationOutput) S3Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistributionS3ExportConfiguration) *string { return v.S3Prefix }).(pulumi.StringPtrOutput)
+}
+
+type DistributionConfigurationDistributionS3ExportConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionConfigurationDistributionS3ExportConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionConfigurationDistributionS3ExportConfiguration)(nil)).Elem()
+}
+
+func (o DistributionConfigurationDistributionS3ExportConfigurationPtrOutput) ToDistributionConfigurationDistributionS3ExportConfigurationPtrOutput() DistributionConfigurationDistributionS3ExportConfigurationPtrOutput {
+	return o
+}
+
+func (o DistributionConfigurationDistributionS3ExportConfigurationPtrOutput) ToDistributionConfigurationDistributionS3ExportConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionS3ExportConfigurationPtrOutput {
+	return o
+}
+
+func (o DistributionConfigurationDistributionS3ExportConfigurationPtrOutput) Elem() DistributionConfigurationDistributionS3ExportConfigurationOutput {
+	return o.ApplyT(func(v *DistributionConfigurationDistributionS3ExportConfiguration) DistributionConfigurationDistributionS3ExportConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionConfigurationDistributionS3ExportConfiguration
+		return ret
+	}).(DistributionConfigurationDistributionS3ExportConfigurationOutput)
+}
+
+// The disk image format of the exported image (`RAW`, `VHD`, or `VMDK`)
+func (o DistributionConfigurationDistributionS3ExportConfigurationPtrOutput) DiskImageFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionConfigurationDistributionS3ExportConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DiskImageFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the IAM role to use for exporting.
+func (o DistributionConfigurationDistributionS3ExportConfigurationPtrOutput) RoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionConfigurationDistributionS3ExportConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the S3 bucket to store the exported image in. The bucket needs to exist before the export configuration is created.
+func (o DistributionConfigurationDistributionS3ExportConfigurationPtrOutput) S3Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionConfigurationDistributionS3ExportConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// The prefix for the exported image.
+func (o DistributionConfigurationDistributionS3ExportConfigurationPtrOutput) S3Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionConfigurationDistributionS3ExportConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3Prefix
+	}).(pulumi.StringPtrOutput)
 }
 
 type ImageImageScanningConfiguration struct {
@@ -7982,6 +8187,8 @@ type GetDistributionConfigurationDistribution struct {
 	LicenseConfigurationArns []string `pulumi:"licenseConfigurationArns"`
 	// AWS Region of distribution.
 	Region string `pulumi:"region"`
+	// Nested list of S3 export configuration.
+	S3ExportConfigurations []GetDistributionConfigurationDistributionS3ExportConfiguration `pulumi:"s3ExportConfigurations"`
 }
 
 // GetDistributionConfigurationDistributionInput is an input type that accepts GetDistributionConfigurationDistributionArgs and GetDistributionConfigurationDistributionOutput values.
@@ -8008,6 +8215,8 @@ type GetDistributionConfigurationDistributionArgs struct {
 	LicenseConfigurationArns pulumi.StringArrayInput `pulumi:"licenseConfigurationArns"`
 	// AWS Region of distribution.
 	Region pulumi.StringInput `pulumi:"region"`
+	// Nested list of S3 export configuration.
+	S3ExportConfigurations GetDistributionConfigurationDistributionS3ExportConfigurationArrayInput `pulumi:"s3ExportConfigurations"`
 }
 
 func (GetDistributionConfigurationDistributionArgs) ElementType() reflect.Type {
@@ -8097,6 +8306,13 @@ func (o GetDistributionConfigurationDistributionOutput) LicenseConfigurationArns
 // AWS Region of distribution.
 func (o GetDistributionConfigurationDistributionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistribution) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// Nested list of S3 export configuration.
+func (o GetDistributionConfigurationDistributionOutput) S3ExportConfigurations() GetDistributionConfigurationDistributionS3ExportConfigurationArrayOutput {
+	return o.ApplyT(func(v GetDistributionConfigurationDistribution) []GetDistributionConfigurationDistributionS3ExportConfiguration {
+		return v.S3ExportConfigurations
+	}).(GetDistributionConfigurationDistributionS3ExportConfigurationArrayOutput)
 }
 
 type GetDistributionConfigurationDistributionArrayOutput struct{ *pulumi.OutputState }
@@ -9106,6 +9322,130 @@ func (o GetDistributionConfigurationDistributionLaunchTemplateConfigurationArray
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDistributionConfigurationDistributionLaunchTemplateConfiguration {
 		return vs[0].([]GetDistributionConfigurationDistributionLaunchTemplateConfiguration)[vs[1].(int)]
 	}).(GetDistributionConfigurationDistributionLaunchTemplateConfigurationOutput)
+}
+
+type GetDistributionConfigurationDistributionS3ExportConfiguration struct {
+	// The disk image format of the exported image (`RAW`, `VHD`, or `VMDK`)
+	DiskImageFormat string `pulumi:"diskImageFormat"`
+	// The name of the IAM role to use for exporting.
+	RoleName string `pulumi:"roleName"`
+	// The name of the S3 bucket to store the exported image in.
+	S3Bucket string `pulumi:"s3Bucket"`
+	// The prefix for the exported image.
+	S3Prefix string `pulumi:"s3Prefix"`
+}
+
+// GetDistributionConfigurationDistributionS3ExportConfigurationInput is an input type that accepts GetDistributionConfigurationDistributionS3ExportConfigurationArgs and GetDistributionConfigurationDistributionS3ExportConfigurationOutput values.
+// You can construct a concrete instance of `GetDistributionConfigurationDistributionS3ExportConfigurationInput` via:
+//
+//	GetDistributionConfigurationDistributionS3ExportConfigurationArgs{...}
+type GetDistributionConfigurationDistributionS3ExportConfigurationInput interface {
+	pulumi.Input
+
+	ToGetDistributionConfigurationDistributionS3ExportConfigurationOutput() GetDistributionConfigurationDistributionS3ExportConfigurationOutput
+	ToGetDistributionConfigurationDistributionS3ExportConfigurationOutputWithContext(context.Context) GetDistributionConfigurationDistributionS3ExportConfigurationOutput
+}
+
+type GetDistributionConfigurationDistributionS3ExportConfigurationArgs struct {
+	// The disk image format of the exported image (`RAW`, `VHD`, or `VMDK`)
+	DiskImageFormat pulumi.StringInput `pulumi:"diskImageFormat"`
+	// The name of the IAM role to use for exporting.
+	RoleName pulumi.StringInput `pulumi:"roleName"`
+	// The name of the S3 bucket to store the exported image in.
+	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
+	// The prefix for the exported image.
+	S3Prefix pulumi.StringInput `pulumi:"s3Prefix"`
+}
+
+func (GetDistributionConfigurationDistributionS3ExportConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDistributionConfigurationDistributionS3ExportConfiguration)(nil)).Elem()
+}
+
+func (i GetDistributionConfigurationDistributionS3ExportConfigurationArgs) ToGetDistributionConfigurationDistributionS3ExportConfigurationOutput() GetDistributionConfigurationDistributionS3ExportConfigurationOutput {
+	return i.ToGetDistributionConfigurationDistributionS3ExportConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetDistributionConfigurationDistributionS3ExportConfigurationArgs) ToGetDistributionConfigurationDistributionS3ExportConfigurationOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionS3ExportConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionS3ExportConfigurationOutput)
+}
+
+// GetDistributionConfigurationDistributionS3ExportConfigurationArrayInput is an input type that accepts GetDistributionConfigurationDistributionS3ExportConfigurationArray and GetDistributionConfigurationDistributionS3ExportConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetDistributionConfigurationDistributionS3ExportConfigurationArrayInput` via:
+//
+//	GetDistributionConfigurationDistributionS3ExportConfigurationArray{ GetDistributionConfigurationDistributionS3ExportConfigurationArgs{...} }
+type GetDistributionConfigurationDistributionS3ExportConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetDistributionConfigurationDistributionS3ExportConfigurationArrayOutput() GetDistributionConfigurationDistributionS3ExportConfigurationArrayOutput
+	ToGetDistributionConfigurationDistributionS3ExportConfigurationArrayOutputWithContext(context.Context) GetDistributionConfigurationDistributionS3ExportConfigurationArrayOutput
+}
+
+type GetDistributionConfigurationDistributionS3ExportConfigurationArray []GetDistributionConfigurationDistributionS3ExportConfigurationInput
+
+func (GetDistributionConfigurationDistributionS3ExportConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDistributionConfigurationDistributionS3ExportConfiguration)(nil)).Elem()
+}
+
+func (i GetDistributionConfigurationDistributionS3ExportConfigurationArray) ToGetDistributionConfigurationDistributionS3ExportConfigurationArrayOutput() GetDistributionConfigurationDistributionS3ExportConfigurationArrayOutput {
+	return i.ToGetDistributionConfigurationDistributionS3ExportConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetDistributionConfigurationDistributionS3ExportConfigurationArray) ToGetDistributionConfigurationDistributionS3ExportConfigurationArrayOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionS3ExportConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionS3ExportConfigurationArrayOutput)
+}
+
+type GetDistributionConfigurationDistributionS3ExportConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetDistributionConfigurationDistributionS3ExportConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDistributionConfigurationDistributionS3ExportConfiguration)(nil)).Elem()
+}
+
+func (o GetDistributionConfigurationDistributionS3ExportConfigurationOutput) ToGetDistributionConfigurationDistributionS3ExportConfigurationOutput() GetDistributionConfigurationDistributionS3ExportConfigurationOutput {
+	return o
+}
+
+func (o GetDistributionConfigurationDistributionS3ExportConfigurationOutput) ToGetDistributionConfigurationDistributionS3ExportConfigurationOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionS3ExportConfigurationOutput {
+	return o
+}
+
+// The disk image format of the exported image (`RAW`, `VHD`, or `VMDK`)
+func (o GetDistributionConfigurationDistributionS3ExportConfigurationOutput) DiskImageFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDistributionConfigurationDistributionS3ExportConfiguration) string { return v.DiskImageFormat }).(pulumi.StringOutput)
+}
+
+// The name of the IAM role to use for exporting.
+func (o GetDistributionConfigurationDistributionS3ExportConfigurationOutput) RoleName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDistributionConfigurationDistributionS3ExportConfiguration) string { return v.RoleName }).(pulumi.StringOutput)
+}
+
+// The name of the S3 bucket to store the exported image in.
+func (o GetDistributionConfigurationDistributionS3ExportConfigurationOutput) S3Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDistributionConfigurationDistributionS3ExportConfiguration) string { return v.S3Bucket }).(pulumi.StringOutput)
+}
+
+// The prefix for the exported image.
+func (o GetDistributionConfigurationDistributionS3ExportConfigurationOutput) S3Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDistributionConfigurationDistributionS3ExportConfiguration) string { return v.S3Prefix }).(pulumi.StringOutput)
+}
+
+type GetDistributionConfigurationDistributionS3ExportConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDistributionConfigurationDistributionS3ExportConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDistributionConfigurationDistributionS3ExportConfiguration)(nil)).Elem()
+}
+
+func (o GetDistributionConfigurationDistributionS3ExportConfigurationArrayOutput) ToGetDistributionConfigurationDistributionS3ExportConfigurationArrayOutput() GetDistributionConfigurationDistributionS3ExportConfigurationArrayOutput {
+	return o
+}
+
+func (o GetDistributionConfigurationDistributionS3ExportConfigurationArrayOutput) ToGetDistributionConfigurationDistributionS3ExportConfigurationArrayOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionS3ExportConfigurationArrayOutput {
+	return o
+}
+
+func (o GetDistributionConfigurationDistributionS3ExportConfigurationArrayOutput) Index(i pulumi.IntInput) GetDistributionConfigurationDistributionS3ExportConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDistributionConfigurationDistributionS3ExportConfiguration {
+		return vs[0].([]GetDistributionConfigurationDistributionS3ExportConfiguration)[vs[1].(int)]
+	}).(GetDistributionConfigurationDistributionS3ExportConfigurationOutput)
 }
 
 type GetDistributionConfigurationsFilter struct {
@@ -10537,9 +10877,9 @@ func (o GetImageRecipeBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) Ge
 
 type GetImageRecipeBlockDeviceMappingEb struct {
 	// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
-	DeleteOnTermination bool `pulumi:"deleteOnTermination"`
+	DeleteOnTermination string `pulumi:"deleteOnTermination"`
 	// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
-	Encrypted bool `pulumi:"encrypted"`
+	Encrypted string `pulumi:"encrypted"`
 	// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
 	Iops int `pulumi:"iops"`
 	// ARN of the Key Management Service (KMS) Key for encryption.
@@ -10567,9 +10907,9 @@ type GetImageRecipeBlockDeviceMappingEbInput interface {
 
 type GetImageRecipeBlockDeviceMappingEbArgs struct {
 	// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
-	DeleteOnTermination pulumi.BoolInput `pulumi:"deleteOnTermination"`
+	DeleteOnTermination pulumi.StringInput `pulumi:"deleteOnTermination"`
 	// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
-	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
+	Encrypted pulumi.StringInput `pulumi:"encrypted"`
 	// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
 	Iops pulumi.IntInput `pulumi:"iops"`
 	// ARN of the Key Management Service (KMS) Key for encryption.
@@ -10636,13 +10976,13 @@ func (o GetImageRecipeBlockDeviceMappingEbOutput) ToGetImageRecipeBlockDeviceMap
 }
 
 // Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
-func (o GetImageRecipeBlockDeviceMappingEbOutput) DeleteOnTermination() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetImageRecipeBlockDeviceMappingEb) bool { return v.DeleteOnTermination }).(pulumi.BoolOutput)
+func (o GetImageRecipeBlockDeviceMappingEbOutput) DeleteOnTermination() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageRecipeBlockDeviceMappingEb) string { return v.DeleteOnTermination }).(pulumi.StringOutput)
 }
 
 // Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
-func (o GetImageRecipeBlockDeviceMappingEbOutput) Encrypted() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetImageRecipeBlockDeviceMappingEb) bool { return v.Encrypted }).(pulumi.BoolOutput)
+func (o GetImageRecipeBlockDeviceMappingEbOutput) Encrypted() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageRecipeBlockDeviceMappingEb) string { return v.Encrypted }).(pulumi.StringOutput)
 }
 
 // Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
@@ -11461,6 +11801,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrInput)(nil)).Elem(), DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionLaunchTemplateConfigurationInput)(nil)).Elem(), DistributionConfigurationDistributionLaunchTemplateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionLaunchTemplateConfigurationArrayInput)(nil)).Elem(), DistributionConfigurationDistributionLaunchTemplateConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionS3ExportConfigurationInput)(nil)).Elem(), DistributionConfigurationDistributionS3ExportConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionS3ExportConfigurationPtrInput)(nil)).Elem(), DistributionConfigurationDistributionS3ExportConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageImageScanningConfigurationInput)(nil)).Elem(), ImageImageScanningConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageImageScanningConfigurationPtrInput)(nil)).Elem(), ImageImageScanningConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageImageScanningConfigurationEcrConfigurationInput)(nil)).Elem(), ImageImageScanningConfigurationEcrConfigurationArgs{})
@@ -11557,6 +11899,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayInput)(nil)).Elem(), GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionLaunchTemplateConfigurationInput)(nil)).Elem(), GetDistributionConfigurationDistributionLaunchTemplateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionLaunchTemplateConfigurationArrayInput)(nil)).Elem(), GetDistributionConfigurationDistributionLaunchTemplateConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionS3ExportConfigurationInput)(nil)).Elem(), GetDistributionConfigurationDistributionS3ExportConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionS3ExportConfigurationArrayInput)(nil)).Elem(), GetDistributionConfigurationDistributionS3ExportConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationsFilterInput)(nil)).Elem(), GetDistributionConfigurationsFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationsFilterArrayInput)(nil)).Elem(), GetDistributionConfigurationsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageImageScanningConfigurationInput)(nil)).Elem(), GetImageImageScanningConfigurationArgs{})
@@ -11629,6 +11973,8 @@ func init() {
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionLaunchTemplateConfigurationOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionLaunchTemplateConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(DistributionConfigurationDistributionS3ExportConfigurationOutput{})
+	pulumi.RegisterOutputType(DistributionConfigurationDistributionS3ExportConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImageImageScanningConfigurationOutput{})
 	pulumi.RegisterOutputType(ImageImageScanningConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImageImageScanningConfigurationEcrConfigurationOutput{})
@@ -11725,6 +12071,8 @@ func init() {
 	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionLaunchTemplateConfigurationOutput{})
 	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionLaunchTemplateConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionS3ExportConfigurationOutput{})
+	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionS3ExportConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetDistributionConfigurationsFilterOutput{})
 	pulumi.RegisterOutputType(GetDistributionConfigurationsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetImageImageScanningConfigurationOutput{})

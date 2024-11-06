@@ -263,7 +263,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly enabledClusterLogTypes!: pulumi.Output<string[] | undefined>;
     /**
-     * Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+     * Configuration block with encryption configuration for the cluster. Detailed below.
      */
     public readonly encryptionConfig!: pulumi.Output<outputs.eks.ClusterEncryptionConfig | undefined>;
     /**
@@ -322,6 +322,10 @@ export class Cluster extends pulumi.CustomResource {
      * The following arguments are optional:
      */
     public readonly vpcConfig!: pulumi.Output<outputs.eks.ClusterVpcConfig>;
+    /**
+     * Configuration block with zonal shift configuration for the cluster. Detailed below.
+     */
+    public readonly zonalShiftConfig!: pulumi.Output<outputs.eks.ClusterZonalShiftConfig | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -359,6 +363,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["upgradePolicy"] = state ? state.upgradePolicy : undefined;
             resourceInputs["version"] = state ? state.version : undefined;
             resourceInputs["vpcConfig"] = state ? state.vpcConfig : undefined;
+            resourceInputs["zonalShiftConfig"] = state ? state.zonalShiftConfig : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
             if ((!args || args.roleArn === undefined) && !opts.urn) {
@@ -380,6 +385,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            resourceInputs["zonalShiftConfig"] = args ? args.zonalShiftConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["certificateAuthorities"] = undefined /*out*/;
             resourceInputs["certificateAuthority"] = undefined /*out*/;
@@ -431,7 +437,7 @@ export interface ClusterState {
      */
     enabledClusterLogTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+     * Configuration block with encryption configuration for the cluster. Detailed below.
      */
     encryptionConfig?: pulumi.Input<inputs.eks.ClusterEncryptionConfig>;
     /**
@@ -490,6 +496,10 @@ export interface ClusterState {
      * The following arguments are optional:
      */
     vpcConfig?: pulumi.Input<inputs.eks.ClusterVpcConfig>;
+    /**
+     * Configuration block with zonal shift configuration for the cluster. Detailed below.
+     */
+    zonalShiftConfig?: pulumi.Input<inputs.eks.ClusterZonalShiftConfig>;
 }
 
 /**
@@ -510,7 +520,7 @@ export interface ClusterArgs {
      */
     enabledClusterLogTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+     * Configuration block with encryption configuration for the cluster. Detailed below.
      */
     encryptionConfig?: pulumi.Input<inputs.eks.ClusterEncryptionConfig>;
     /**
@@ -547,4 +557,8 @@ export interface ClusterArgs {
      * The following arguments are optional:
      */
     vpcConfig: pulumi.Input<inputs.eks.ClusterVpcConfig>;
+    /**
+     * Configuration block with zonal shift configuration for the cluster. Detailed below.
+     */
+    zonalShiftConfig?: pulumi.Input<inputs.eks.ClusterZonalShiftConfig>;
 }

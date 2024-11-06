@@ -62,7 +62,7 @@ public final class SsoadminFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsoadminFunctions.getApplication(GetApplicationArgs.builder()
-     *             .applicationArn("arn:aws:sso::012345678901:application/ssoins-1234/apl-5678")
+     *             .applicationArn("arn:aws:sso::123456789012:application/ssoins-1234/apl-5678")
      *             .build());
      * 
      *     }
@@ -106,7 +106,7 @@ public final class SsoadminFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsoadminFunctions.getApplication(GetApplicationArgs.builder()
-     *             .applicationArn("arn:aws:sso::012345678901:application/ssoins-1234/apl-5678")
+     *             .applicationArn("arn:aws:sso::123456789012:application/ssoins-1234/apl-5678")
      *             .build());
      * 
      *     }
@@ -150,7 +150,7 @@ public final class SsoadminFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsoadminFunctions.getApplication(GetApplicationArgs.builder()
-     *             .applicationArn("arn:aws:sso::012345678901:application/ssoins-1234/apl-5678")
+     *             .applicationArn("arn:aws:sso::123456789012:application/ssoins-1234/apl-5678")
      *             .build());
      * 
      *     }
@@ -194,7 +194,7 @@ public final class SsoadminFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SsoadminFunctions.getApplication(GetApplicationArgs.builder()
-     *             .applicationArn("arn:aws:sso::012345678901:application/ssoins-1234/apl-5678")
+     *             .applicationArn("arn:aws:sso::123456789012:application/ssoins-1234/apl-5678")
      *             .build());
      * 
      *     }

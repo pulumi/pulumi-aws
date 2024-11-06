@@ -6,6 +6,7 @@ package com.pulumi.aws.keyspaces;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.keyspaces.KeyspaceArgs;
 import com.pulumi.aws.keyspaces.inputs.KeyspaceState;
+import com.pulumi.aws.keyspaces.outputs.KeyspaceReplicationSpecification;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -97,6 +98,20 @@ public class Keyspace extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * The replication specification of the keyspace.
+     * 
+     */
+    @Export(name="replicationSpecification", refs={KeyspaceReplicationSpecification.class}, tree="[0]")
+    private Output<KeyspaceReplicationSpecification> replicationSpecification;
+
+    /**
+     * @return The replication specification of the keyspace.
+     * 
+     */
+    public Output<KeyspaceReplicationSpecification> replicationSpecification() {
+        return this.replicationSpecification;
     }
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

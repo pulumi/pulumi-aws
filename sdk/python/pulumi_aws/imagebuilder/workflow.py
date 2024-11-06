@@ -30,7 +30,7 @@ class WorkflowArgs:
                  uri: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Workflow resource.
-        :param pulumi.Input[str] type: Type of the workflow. Valid values: `BUILD`, `TEST`, `DISTRIBUTION`.
+        :param pulumi.Input[str] type: Type of the workflow. Valid values: `BUILD`, `TEST`.
         :param pulumi.Input[str] version: Version of the workflow.
                
                The following arguments are optional:
@@ -63,7 +63,7 @@ class WorkflowArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of the workflow. Valid values: `BUILD`, `TEST`, `DISTRIBUTION`.
+        Type of the workflow. Valid values: `BUILD`, `TEST`.
         """
         return pulumi.get(self, "type")
 
@@ -197,7 +197,7 @@ class _WorkflowState:
         :param pulumi.Input[str] name: Name of the workflow.
         :param pulumi.Input[str] owner: Owner of the workflow.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the workflow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] type: Type of the workflow. Valid values: `BUILD`, `TEST`, `DISTRIBUTION`.
+        :param pulumi.Input[str] type: Type of the workflow. Valid values: `BUILD`, `TEST`.
         :param pulumi.Input[str] uri: S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
         :param pulumi.Input[str] version: Version of the workflow.
                
@@ -355,7 +355,7 @@ class _WorkflowState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of the workflow. Valid values: `BUILD`, `TEST`, `DISTRIBUTION`.
+        Type of the workflow. Valid values: `BUILD`, `TEST`.
         """
         return pulumi.get(self, "type")
 
@@ -407,6 +407,8 @@ class Workflow(pulumi.CustomResource):
                  __props__=None):
         """
         Resource for managing an AWS EC2 Image Builder Workflow.
+
+        > Image Builder manages the workflows for the distribution stage. Therefore, using the DISTRIBUTION workflow type results in an error.
 
         ## Example Usage
 
@@ -466,7 +468,7 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
         :param pulumi.Input[str] name: Name of the workflow.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the workflow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] type: Type of the workflow. Valid values: `BUILD`, `TEST`, `DISTRIBUTION`.
+        :param pulumi.Input[str] type: Type of the workflow. Valid values: `BUILD`, `TEST`.
         :param pulumi.Input[str] uri: S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
         :param pulumi.Input[str] version: Version of the workflow.
                
@@ -480,6 +482,8 @@ class Workflow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS EC2 Image Builder Workflow.
+
+        > Image Builder manages the workflows for the distribution stage. Therefore, using the DISTRIBUTION workflow type results in an error.
 
         ## Example Usage
 
@@ -620,7 +624,7 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the workflow.
         :param pulumi.Input[str] owner: Owner of the workflow.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the workflow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] type: Type of the workflow. Valid values: `BUILD`, `TEST`, `DISTRIBUTION`.
+        :param pulumi.Input[str] type: Type of the workflow. Valid values: `BUILD`, `TEST`.
         :param pulumi.Input[str] uri: S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
         :param pulumi.Input[str] version: Version of the workflow.
                
@@ -727,7 +731,7 @@ class Workflow(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Type of the workflow. Valid values: `BUILD`, `TEST`, `DISTRIBUTION`.
+        Type of the workflow. Valid values: `BUILD`, `TEST`.
         """
         return pulumi.get(self, "type")
 

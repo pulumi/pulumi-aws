@@ -58,6 +58,12 @@ namespace Pulumi.Aws.Keyspaces
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The replication specification of the keyspace.
+        /// </summary>
+        [Output("replicationSpecification")]
+        public Output<Outputs.KeyspaceReplicationSpecification> ReplicationSpecification { get; private set; } = null!;
+
+        /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -123,6 +129,12 @@ namespace Pulumi.Aws.Keyspaces
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The replication specification of the keyspace.
+        /// </summary>
+        [Input("replicationSpecification")]
+        public Input<Inputs.KeyspaceReplicationSpecificationArgs>? ReplicationSpecification { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -156,6 +168,12 @@ namespace Pulumi.Aws.Keyspaces
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The replication specification of the keyspace.
+        /// </summary>
+        [Input("replicationSpecification")]
+        public Input<Inputs.KeyspaceReplicationSpecificationGetArgs>? ReplicationSpecification { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

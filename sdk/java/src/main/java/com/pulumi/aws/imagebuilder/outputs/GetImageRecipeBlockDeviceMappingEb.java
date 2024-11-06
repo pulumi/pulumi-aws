@@ -5,7 +5,6 @@ package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -16,12 +15,12 @@ public final class GetImageRecipeBlockDeviceMappingEb {
      * @return Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
      * 
      */
-    private Boolean deleteOnTermination;
+    private String deleteOnTermination;
     /**
      * @return Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
      * 
      */
-    private Boolean encrypted;
+    private String encrypted;
     /**
      * @return Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
      * 
@@ -58,14 +57,14 @@ public final class GetImageRecipeBlockDeviceMappingEb {
      * @return Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
      * 
      */
-    public Boolean deleteOnTermination() {
+    public String deleteOnTermination() {
         return this.deleteOnTermination;
     }
     /**
      * @return Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
      * 
      */
-    public Boolean encrypted() {
+    public String encrypted() {
         return this.encrypted;
     }
     /**
@@ -120,8 +119,8 @@ public final class GetImageRecipeBlockDeviceMappingEb {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean deleteOnTermination;
-        private Boolean encrypted;
+        private String deleteOnTermination;
+        private String encrypted;
         private Integer iops;
         private String kmsKeyId;
         private String snapshotId;
@@ -142,7 +141,7 @@ public final class GetImageRecipeBlockDeviceMappingEb {
         }
 
         @CustomType.Setter
-        public Builder deleteOnTermination(Boolean deleteOnTermination) {
+        public Builder deleteOnTermination(String deleteOnTermination) {
             if (deleteOnTermination == null) {
               throw new MissingRequiredPropertyException("GetImageRecipeBlockDeviceMappingEb", "deleteOnTermination");
             }
@@ -150,7 +149,7 @@ public final class GetImageRecipeBlockDeviceMappingEb {
             return this;
         }
         @CustomType.Setter
-        public Builder encrypted(Boolean encrypted) {
+        public Builder encrypted(String encrypted) {
             if (encrypted == null) {
               throw new MissingRequiredPropertyException("GetImageRecipeBlockDeviceMappingEb", "encrypted");
             }

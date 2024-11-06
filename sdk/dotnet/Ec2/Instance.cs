@@ -275,7 +275,7 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         Ami = "ami-0dcc1e21636832c5d",
     ///         InstanceType = Aws.Ec2.InstanceType.M5_Large,
-    ///         HostResourceGroupArn = "arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost",
+    ///         HostResourceGroupArn = "arn:aws:resource-groups:us-west-2:123456789012:group/win-testhost",
     ///         Tenancy = "host",
     ///     });
     /// 

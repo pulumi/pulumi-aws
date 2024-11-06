@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['KeyspaceArgs', 'Keyspace']
 
@@ -20,16 +22,20 @@ __all__ = ['KeyspaceArgs', 'Keyspace']
 class KeyspaceArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
+                 replication_specification: Optional[pulumi.Input['KeyspaceReplicationSpecificationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Keyspace resource.
         :param pulumi.Input[str] name: The name of the keyspace to be created.
                
                The following arguments are optional:
+        :param pulumi.Input['KeyspaceReplicationSpecificationArgs'] replication_specification: The replication specification of the keyspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if replication_specification is not None:
+            pulumi.set(__self__, "replication_specification", replication_specification)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -46,6 +52,18 @@ class KeyspaceArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="replicationSpecification")
+    def replication_specification(self) -> Optional[pulumi.Input['KeyspaceReplicationSpecificationArgs']]:
+        """
+        The replication specification of the keyspace.
+        """
+        return pulumi.get(self, "replication_specification")
+
+    @replication_specification.setter
+    def replication_specification(self, value: Optional[pulumi.Input['KeyspaceReplicationSpecificationArgs']]):
+        pulumi.set(self, "replication_specification", value)
 
     @property
     @pulumi.getter
@@ -65,6 +83,7 @@ class _KeyspaceState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 replication_specification: Optional[pulumi.Input['KeyspaceReplicationSpecificationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -73,6 +92,7 @@ class _KeyspaceState:
         :param pulumi.Input[str] name: The name of the keyspace to be created.
                
                The following arguments are optional:
+        :param pulumi.Input['KeyspaceReplicationSpecificationArgs'] replication_specification: The replication specification of the keyspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -80,6 +100,8 @@ class _KeyspaceState:
             pulumi.set(__self__, "arn", arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if replication_specification is not None:
+            pulumi.set(__self__, "replication_specification", replication_specification)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -115,6 +137,18 @@ class _KeyspaceState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="replicationSpecification")
+    def replication_specification(self) -> Optional[pulumi.Input['KeyspaceReplicationSpecificationArgs']]:
+        """
+        The replication specification of the keyspace.
+        """
+        return pulumi.get(self, "replication_specification")
+
+    @replication_specification.setter
+    def replication_specification(self, value: Optional[pulumi.Input['KeyspaceReplicationSpecificationArgs']]):
+        pulumi.set(self, "replication_specification", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -146,6 +180,7 @@ class Keyspace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 replication_specification: Optional[pulumi.Input[Union['KeyspaceReplicationSpecificationArgs', 'KeyspaceReplicationSpecificationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -175,6 +210,7 @@ class Keyspace(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the keyspace to be created.
                
                The following arguments are optional:
+        :param pulumi.Input[Union['KeyspaceReplicationSpecificationArgs', 'KeyspaceReplicationSpecificationArgsDict']] replication_specification: The replication specification of the keyspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -221,6 +257,7 @@ class Keyspace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 replication_specification: Optional[pulumi.Input[Union['KeyspaceReplicationSpecificationArgs', 'KeyspaceReplicationSpecificationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -232,6 +269,7 @@ class Keyspace(pulumi.CustomResource):
             __props__ = KeyspaceArgs.__new__(KeyspaceArgs)
 
             __props__.__dict__["name"] = name
+            __props__.__dict__["replication_specification"] = replication_specification
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
@@ -247,6 +285,7 @@ class Keyspace(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            replication_specification: Optional[pulumi.Input[Union['KeyspaceReplicationSpecificationArgs', 'KeyspaceReplicationSpecificationArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Keyspace':
         """
@@ -260,6 +299,7 @@ class Keyspace(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the keyspace to be created.
                
                The following arguments are optional:
+        :param pulumi.Input[Union['KeyspaceReplicationSpecificationArgs', 'KeyspaceReplicationSpecificationArgsDict']] replication_specification: The replication specification of the keyspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -269,6 +309,7 @@ class Keyspace(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["name"] = name
+        __props__.__dict__["replication_specification"] = replication_specification
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return Keyspace(resource_name, opts=opts, __props__=__props__)
@@ -290,6 +331,14 @@ class Keyspace(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="replicationSpecification")
+    def replication_specification(self) -> pulumi.Output['outputs.KeyspaceReplicationSpecification']:
+        """
+        The replication specification of the keyspace.
+        """
+        return pulumi.get(self, "replication_specification")
 
     @property
     @pulumi.getter

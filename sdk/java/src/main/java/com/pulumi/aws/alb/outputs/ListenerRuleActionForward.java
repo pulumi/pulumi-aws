@@ -20,7 +20,7 @@ public final class ListenerRuleActionForward {
      */
     private @Nullable ListenerRuleActionForwardStickiness stickiness;
     /**
-     * @return One or more target groups block.
+     * @return One or more target group blocks.
      * 
      */
     private List<ListenerRuleActionForwardTargetGroup> targetGroups;
@@ -34,7 +34,7 @@ public final class ListenerRuleActionForward {
         return Optional.ofNullable(this.stickiness);
     }
     /**
-     * @return One or more target groups block.
+     * @return One or more target group blocks.
      * 
      */
     public List<ListenerRuleActionForwardTargetGroup> targetGroups() {

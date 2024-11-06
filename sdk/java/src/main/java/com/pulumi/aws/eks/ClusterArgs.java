@@ -9,6 +9,7 @@ import com.pulumi.aws.eks.inputs.ClusterKubernetesNetworkConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterOutpostConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterUpgradePolicyArgs;
 import com.pulumi.aws.eks.inputs.ClusterVpcConfigArgs;
+import com.pulumi.aws.eks.inputs.ClusterZonalShiftConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -78,14 +79,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+     * Configuration block with encryption configuration for the cluster. Detailed below.
      * 
      */
     @Import(name="encryptionConfig")
     private @Nullable Output<ClusterEncryptionConfigArgs> encryptionConfig;
 
     /**
-     * @return Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+     * @return Configuration block with encryption configuration for the cluster. Detailed below.
      * 
      */
     public Optional<Output<ClusterEncryptionConfigArgs>> encryptionConfig() {
@@ -216,6 +217,21 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         return this.vpcConfig;
     }
 
+    /**
+     * Configuration block with zonal shift configuration for the cluster. Detailed below.
+     * 
+     */
+    @Import(name="zonalShiftConfig")
+    private @Nullable Output<ClusterZonalShiftConfigArgs> zonalShiftConfig;
+
+    /**
+     * @return Configuration block with zonal shift configuration for the cluster. Detailed below.
+     * 
+     */
+    public Optional<Output<ClusterZonalShiftConfigArgs>> zonalShiftConfig() {
+        return Optional.ofNullable(this.zonalShiftConfig);
+    }
+
     private ClusterArgs() {}
 
     private ClusterArgs(ClusterArgs $) {
@@ -232,6 +248,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.upgradePolicy = $.upgradePolicy;
         this.version = $.version;
         this.vpcConfig = $.vpcConfig;
+        this.zonalShiftConfig = $.zonalShiftConfig;
     }
 
     public static Builder builder() {
@@ -339,7 +356,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionConfig Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+         * @param encryptionConfig Configuration block with encryption configuration for the cluster. Detailed below.
          * 
          * @return builder
          * 
@@ -350,7 +367,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionConfig Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+         * @param encryptionConfig Configuration block with encryption configuration for the cluster. Detailed below.
          * 
          * @return builder
          * 
@@ -529,6 +546,27 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder vpcConfig(ClusterVpcConfigArgs vpcConfig) {
             return vpcConfig(Output.of(vpcConfig));
+        }
+
+        /**
+         * @param zonalShiftConfig Configuration block with zonal shift configuration for the cluster. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zonalShiftConfig(@Nullable Output<ClusterZonalShiftConfigArgs> zonalShiftConfig) {
+            $.zonalShiftConfig = zonalShiftConfig;
+            return this;
+        }
+
+        /**
+         * @param zonalShiftConfig Configuration block with zonal shift configuration for the cluster. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zonalShiftConfig(ClusterZonalShiftConfigArgs zonalShiftConfig) {
+            return zonalShiftConfig(Output.of(zonalShiftConfig));
         }
 
         public ClusterArgs build() {

@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import SNS Topic Policy using the topic ARN. For example:
  * 
  * ```sh
- * $ pulumi import aws:sns/topicPolicy:TopicPolicy user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
+ * $ pulumi import aws:sns/topicPolicy:TopicPolicy user_updates arn:aws:sns:us-west-2:123456789012:my-topic
  * ```
  * 
  */

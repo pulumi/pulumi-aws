@@ -82,7 +82,7 @@ class GetVolumeResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        Volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+        Volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
         """
         return pulumi.get(self, "arn")
 

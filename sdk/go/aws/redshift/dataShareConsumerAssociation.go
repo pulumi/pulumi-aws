@@ -31,7 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := redshift.NewDataShareConsumerAssociation(ctx, "example", &redshift.DataShareConsumerAssociationArgs{
-//				DataShareArn:           pulumi.String("arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example"),
+//				DataShareArn:           pulumi.String("arn:aws:redshift:us-west-2:123456789012:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example"),
 //				AssociateEntireAccount: pulumi.Bool(true),
 //			})
 //			if err != nil {
@@ -58,7 +58,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := redshift.NewDataShareConsumerAssociation(ctx, "example", &redshift.DataShareConsumerAssociationArgs{
-//				DataShareArn:   pulumi.String("arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example"),
+//				DataShareArn:   pulumi.String("arn:aws:redshift:us-west-2:123456789012:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example"),
 //				ConsumerRegion: pulumi.String("us-west-2"),
 //			})
 //			if err != nil {
@@ -75,7 +75,7 @@ import (
 // Using `pulumi import`, import Redshift Data Share Consumer Association using the `id`. For example:
 //
 // ```sh
-// $ pulumi import aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation example arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example,,,us-west-2
+// $ pulumi import aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation example arn:aws:redshift:us-west-2:123456789012:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example,,,us-west-2
 // ```
 type DataShareConsumerAssociation struct {
 	pulumi.CustomResourceState

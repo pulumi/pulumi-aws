@@ -376,7 +376,7 @@ namespace Pulumi.Aws.Eks
         public Output<ImmutableArray<string>> EnabledClusterLogTypes { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+        /// Configuration block with encryption configuration for the cluster. Detailed below.
         /// </summary>
         [Output("encryptionConfig")]
         public Output<Outputs.ClusterEncryptionConfig?> EncryptionConfig { get; private set; } = null!;
@@ -461,6 +461,12 @@ namespace Pulumi.Aws.Eks
         [Output("vpcConfig")]
         public Output<Outputs.ClusterVpcConfig> VpcConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration block with zonal shift configuration for the cluster. Detailed below.
+        /// </summary>
+        [Output("zonalShiftConfig")]
+        public Output<Outputs.ClusterZonalShiftConfig?> ZonalShiftConfig { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Cluster resource with the given unique name, arguments, and options.
@@ -540,7 +546,7 @@ namespace Pulumi.Aws.Eks
         }
 
         /// <summary>
-        /// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+        /// Configuration block with encryption configuration for the cluster. Detailed below.
         /// </summary>
         [Input("encryptionConfig")]
         public Input<Inputs.ClusterEncryptionConfigArgs>? EncryptionConfig { get; set; }
@@ -600,6 +606,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("vpcConfig", required: true)]
         public Input<Inputs.ClusterVpcConfigArgs> VpcConfig { get; set; } = null!;
+
+        /// <summary>
+        /// Configuration block with zonal shift configuration for the cluster. Detailed below.
+        /// </summary>
+        [Input("zonalShiftConfig")]
+        public Input<Inputs.ClusterZonalShiftConfigArgs>? ZonalShiftConfig { get; set; }
 
         public ClusterArgs()
         {
@@ -674,7 +686,7 @@ namespace Pulumi.Aws.Eks
         }
 
         /// <summary>
-        /// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
+        /// Configuration block with encryption configuration for the cluster. Detailed below.
         /// </summary>
         [Input("encryptionConfig")]
         public Input<Inputs.ClusterEncryptionConfigGetArgs>? EncryptionConfig { get; set; }
@@ -777,6 +789,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.ClusterVpcConfigGetArgs>? VpcConfig { get; set; }
+
+        /// <summary>
+        /// Configuration block with zonal shift configuration for the cluster. Detailed below.
+        /// </summary>
+        [Input("zonalShiftConfig")]
+        public Input<Inputs.ClusterZonalShiftConfigGetArgs>? ZonalShiftConfig { get; set; }
 
         public ClusterState()
         {

@@ -10,6 +10,8 @@ import com.pulumi.aws.lb.inputs.GetLbsArgs;
 import com.pulumi.aws.lb.inputs.GetLbsPlainArgs;
 import com.pulumi.aws.lb.inputs.GetListenerArgs;
 import com.pulumi.aws.lb.inputs.GetListenerPlainArgs;
+import com.pulumi.aws.lb.inputs.GetListenerRuleArgs;
+import com.pulumi.aws.lb.inputs.GetListenerRulePlainArgs;
 import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
 import com.pulumi.aws.lb.inputs.GetLoadBalancerPlainArgs;
 import com.pulumi.aws.lb.inputs.GetTargetGroupArgs;
@@ -19,6 +21,7 @@ import com.pulumi.aws.lb.inputs.GetTrustStorePlainArgs;
 import com.pulumi.aws.lb.outputs.GetHostedZoneIdResult;
 import com.pulumi.aws.lb.outputs.GetLbsResult;
 import com.pulumi.aws.lb.outputs.GetListenerResult;
+import com.pulumi.aws.lb.outputs.GetListenerRuleResult;
 import com.pulumi.aws.lb.outputs.GetLoadBalancerResult;
 import com.pulumi.aws.lb.outputs.GetTargetGroupResult;
 import com.pulumi.aws.lb.outputs.GetTrustStoreResult;
@@ -976,6 +979,516 @@ public final class LbFunctions {
      */
     public static CompletableFuture<GetListenerResult> getListenerPlain(GetListenerPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:lb/getListener:getListener", TypeShape.of(GetListenerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides information about an AWS Elastic Load Balancing Listener Rule.
+     * 
+     * ## Example Usage
+     * 
+     * ### Match by Rule ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetListenerRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbRuleArn = config.get("lbRuleArn");
+     *         final var example = LbFunctions.getListenerRule(GetListenerRuleArgs.builder()
+     *             .arn(lbRuleArn)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Match by Listener ARN and Priority
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetListenerRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbListenerArn = config.get("lbListenerArn");
+     *         final var lbRulePriority = config.get("lbRulePriority");
+     *         final var example = LbFunctions.getListenerRule(GetListenerRuleArgs.builder()
+     *             .listenerArn(lbListenerArn)
+     *             .priority(lbRulePriority)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetListenerRuleResult> getListenerRule() {
+        return getListenerRule(GetListenerRuleArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides information about an AWS Elastic Load Balancing Listener Rule.
+     * 
+     * ## Example Usage
+     * 
+     * ### Match by Rule ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetListenerRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbRuleArn = config.get("lbRuleArn");
+     *         final var example = LbFunctions.getListenerRule(GetListenerRuleArgs.builder()
+     *             .arn(lbRuleArn)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Match by Listener ARN and Priority
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetListenerRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbListenerArn = config.get("lbListenerArn");
+     *         final var lbRulePriority = config.get("lbRulePriority");
+     *         final var example = LbFunctions.getListenerRule(GetListenerRuleArgs.builder()
+     *             .listenerArn(lbListenerArn)
+     *             .priority(lbRulePriority)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetListenerRuleResult> getListenerRulePlain() {
+        return getListenerRulePlain(GetListenerRulePlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides information about an AWS Elastic Load Balancing Listener Rule.
+     * 
+     * ## Example Usage
+     * 
+     * ### Match by Rule ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetListenerRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbRuleArn = config.get("lbRuleArn");
+     *         final var example = LbFunctions.getListenerRule(GetListenerRuleArgs.builder()
+     *             .arn(lbRuleArn)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Match by Listener ARN and Priority
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetListenerRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbListenerArn = config.get("lbListenerArn");
+     *         final var lbRulePriority = config.get("lbRulePriority");
+     *         final var example = LbFunctions.getListenerRule(GetListenerRuleArgs.builder()
+     *             .listenerArn(lbListenerArn)
+     *             .priority(lbRulePriority)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetListenerRuleResult> getListenerRule(GetListenerRuleArgs args) {
+        return getListenerRule(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides information about an AWS Elastic Load Balancing Listener Rule.
+     * 
+     * ## Example Usage
+     * 
+     * ### Match by Rule ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetListenerRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbRuleArn = config.get("lbRuleArn");
+     *         final var example = LbFunctions.getListenerRule(GetListenerRuleArgs.builder()
+     *             .arn(lbRuleArn)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Match by Listener ARN and Priority
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetListenerRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbListenerArn = config.get("lbListenerArn");
+     *         final var lbRulePriority = config.get("lbRulePriority");
+     *         final var example = LbFunctions.getListenerRule(GetListenerRuleArgs.builder()
+     *             .listenerArn(lbListenerArn)
+     *             .priority(lbRulePriority)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetListenerRuleResult> getListenerRulePlain(GetListenerRulePlainArgs args) {
+        return getListenerRulePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides information about an AWS Elastic Load Balancing Listener Rule.
+     * 
+     * ## Example Usage
+     * 
+     * ### Match by Rule ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetListenerRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbRuleArn = config.get("lbRuleArn");
+     *         final var example = LbFunctions.getListenerRule(GetListenerRuleArgs.builder()
+     *             .arn(lbRuleArn)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Match by Listener ARN and Priority
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetListenerRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbListenerArn = config.get("lbListenerArn");
+     *         final var lbRulePriority = config.get("lbRulePriority");
+     *         final var example = LbFunctions.getListenerRule(GetListenerRuleArgs.builder()
+     *             .listenerArn(lbListenerArn)
+     *             .priority(lbRulePriority)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetListenerRuleResult> getListenerRule(GetListenerRuleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:lb/getListenerRule:getListenerRule", TypeShape.of(GetListenerRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides information about an AWS Elastic Load Balancing Listener Rule.
+     * 
+     * ## Example Usage
+     * 
+     * ### Match by Rule ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetListenerRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbRuleArn = config.get("lbRuleArn");
+     *         final var example = LbFunctions.getListenerRule(GetListenerRuleArgs.builder()
+     *             .arn(lbRuleArn)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Match by Listener ARN and Priority
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetListenerRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbListenerArn = config.get("lbListenerArn");
+     *         final var lbRulePriority = config.get("lbRulePriority");
+     *         final var example = LbFunctions.getListenerRule(GetListenerRuleArgs.builder()
+     *             .listenerArn(lbListenerArn)
+     *             .priority(lbRulePriority)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetListenerRuleResult> getListenerRulePlain(GetListenerRulePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:lb/getListenerRule:getListenerRule", TypeShape.of(GetListenerRuleResult.class), args, Utilities.withVersion(options));
     }
     /**
      * &gt; **Note:** `aws.alb.LoadBalancer` is known as `aws.lb.LoadBalancer`. The functionality is identical.

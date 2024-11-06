@@ -35,7 +35,6 @@ namespace Pulumi.Aws.Ec2
     ///     var example = new Aws.Ec2.AmiCopy("example", new()
     ///     {
     ///         Name = "example",
-    ///         Description = "A copy of ami-xxxxxxxx",
     ///         SourceAmiId = "ami-xxxxxxxx",
     ///         SourceAmiRegion = "us-west-1",
     ///         Tags = 

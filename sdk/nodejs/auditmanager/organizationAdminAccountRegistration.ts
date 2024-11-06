@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.auditmanager.OrganizationAdminAccountRegistration("example", {adminAccountId: "012345678901"});
+ * const example = new aws.auditmanager.OrganizationAdminAccountRegistration("example", {adminAccountId: "123456789012"});
  * ```
  *
  * ## Import
@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import Audit Manager Organization Admin Account Registration using the `id`. For example:
  *
  * ```sh
- * $ pulumi import aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration example 012345678901
+ * $ pulumi import aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration example 123456789012
  * ```
  */
 export class OrganizationAdminAccountRegistration extends pulumi.CustomResource {

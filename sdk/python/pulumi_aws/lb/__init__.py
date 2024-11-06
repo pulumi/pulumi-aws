@@ -8,6 +8,7 @@ import typing
 from .get_hosted_zone_id import *
 from .get_lbs import *
 from .get_listener import *
+from .get_listener_rule import *
 from .get_load_balancer import *
 from .get_target_group import *
 from .get_trust_store import *

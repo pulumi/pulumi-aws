@@ -1726,7 +1726,7 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getInstanceStorageConfig(GetInstanceStorageConfigArgs.builder()
-     *             .associationId("1234567890123456789012345678901234567890123456789012345678901234")
+     *             .associationId("1234567891234567890122345678912345678901223456789123456789012234")
      *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
      *             .resourceType("CONTACT_TRACE_RECORDS")
      *             .build());
@@ -1770,7 +1770,7 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getInstanceStorageConfig(GetInstanceStorageConfigArgs.builder()
-     *             .associationId("1234567890123456789012345678901234567890123456789012345678901234")
+     *             .associationId("1234567891234567890122345678912345678901223456789123456789012234")
      *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
      *             .resourceType("CONTACT_TRACE_RECORDS")
      *             .build());
@@ -1814,7 +1814,7 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getInstanceStorageConfig(GetInstanceStorageConfigArgs.builder()
-     *             .associationId("1234567890123456789012345678901234567890123456789012345678901234")
+     *             .associationId("1234567891234567890122345678912345678901223456789123456789012234")
      *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
      *             .resourceType("CONTACT_TRACE_RECORDS")
      *             .build());
@@ -1858,7 +1858,7 @@ public final class ConnectFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ConnectFunctions.getInstanceStorageConfig(GetInstanceStorageConfigArgs.builder()
-     *             .associationId("1234567890123456789012345678901234567890123456789012345678901234")
+     *             .associationId("1234567891234567890122345678912345678901223456789123456789012234")
      *             .instanceId("aaaaaaaa-bbbb-cccc-dddd-111111111111")
      *             .resourceType("CONTACT_TRACE_RECORDS")
      *             .build());

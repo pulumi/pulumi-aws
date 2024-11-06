@@ -13,6 +13,162 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type KeyspaceReplicationSpecification struct {
+	// Replication regions. If `replicationStrategy` is `MULTI_REGION`, `regionList` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
+	RegionLists []string `pulumi:"regionLists"`
+	// Replication strategy. Valid values: `SINGLE_REGION` and `MULTI_REGION`.
+	ReplicationStrategy *string `pulumi:"replicationStrategy"`
+}
+
+// KeyspaceReplicationSpecificationInput is an input type that accepts KeyspaceReplicationSpecificationArgs and KeyspaceReplicationSpecificationOutput values.
+// You can construct a concrete instance of `KeyspaceReplicationSpecificationInput` via:
+//
+//	KeyspaceReplicationSpecificationArgs{...}
+type KeyspaceReplicationSpecificationInput interface {
+	pulumi.Input
+
+	ToKeyspaceReplicationSpecificationOutput() KeyspaceReplicationSpecificationOutput
+	ToKeyspaceReplicationSpecificationOutputWithContext(context.Context) KeyspaceReplicationSpecificationOutput
+}
+
+type KeyspaceReplicationSpecificationArgs struct {
+	// Replication regions. If `replicationStrategy` is `MULTI_REGION`, `regionList` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
+	RegionLists pulumi.StringArrayInput `pulumi:"regionLists"`
+	// Replication strategy. Valid values: `SINGLE_REGION` and `MULTI_REGION`.
+	ReplicationStrategy pulumi.StringPtrInput `pulumi:"replicationStrategy"`
+}
+
+func (KeyspaceReplicationSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyspaceReplicationSpecification)(nil)).Elem()
+}
+
+func (i KeyspaceReplicationSpecificationArgs) ToKeyspaceReplicationSpecificationOutput() KeyspaceReplicationSpecificationOutput {
+	return i.ToKeyspaceReplicationSpecificationOutputWithContext(context.Background())
+}
+
+func (i KeyspaceReplicationSpecificationArgs) ToKeyspaceReplicationSpecificationOutputWithContext(ctx context.Context) KeyspaceReplicationSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyspaceReplicationSpecificationOutput)
+}
+
+func (i KeyspaceReplicationSpecificationArgs) ToKeyspaceReplicationSpecificationPtrOutput() KeyspaceReplicationSpecificationPtrOutput {
+	return i.ToKeyspaceReplicationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i KeyspaceReplicationSpecificationArgs) ToKeyspaceReplicationSpecificationPtrOutputWithContext(ctx context.Context) KeyspaceReplicationSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyspaceReplicationSpecificationOutput).ToKeyspaceReplicationSpecificationPtrOutputWithContext(ctx)
+}
+
+// KeyspaceReplicationSpecificationPtrInput is an input type that accepts KeyspaceReplicationSpecificationArgs, KeyspaceReplicationSpecificationPtr and KeyspaceReplicationSpecificationPtrOutput values.
+// You can construct a concrete instance of `KeyspaceReplicationSpecificationPtrInput` via:
+//
+//	        KeyspaceReplicationSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type KeyspaceReplicationSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToKeyspaceReplicationSpecificationPtrOutput() KeyspaceReplicationSpecificationPtrOutput
+	ToKeyspaceReplicationSpecificationPtrOutputWithContext(context.Context) KeyspaceReplicationSpecificationPtrOutput
+}
+
+type keyspaceReplicationSpecificationPtrType KeyspaceReplicationSpecificationArgs
+
+func KeyspaceReplicationSpecificationPtr(v *KeyspaceReplicationSpecificationArgs) KeyspaceReplicationSpecificationPtrInput {
+	return (*keyspaceReplicationSpecificationPtrType)(v)
+}
+
+func (*keyspaceReplicationSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyspaceReplicationSpecification)(nil)).Elem()
+}
+
+func (i *keyspaceReplicationSpecificationPtrType) ToKeyspaceReplicationSpecificationPtrOutput() KeyspaceReplicationSpecificationPtrOutput {
+	return i.ToKeyspaceReplicationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *keyspaceReplicationSpecificationPtrType) ToKeyspaceReplicationSpecificationPtrOutputWithContext(ctx context.Context) KeyspaceReplicationSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyspaceReplicationSpecificationPtrOutput)
+}
+
+type KeyspaceReplicationSpecificationOutput struct{ *pulumi.OutputState }
+
+func (KeyspaceReplicationSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyspaceReplicationSpecification)(nil)).Elem()
+}
+
+func (o KeyspaceReplicationSpecificationOutput) ToKeyspaceReplicationSpecificationOutput() KeyspaceReplicationSpecificationOutput {
+	return o
+}
+
+func (o KeyspaceReplicationSpecificationOutput) ToKeyspaceReplicationSpecificationOutputWithContext(ctx context.Context) KeyspaceReplicationSpecificationOutput {
+	return o
+}
+
+func (o KeyspaceReplicationSpecificationOutput) ToKeyspaceReplicationSpecificationPtrOutput() KeyspaceReplicationSpecificationPtrOutput {
+	return o.ToKeyspaceReplicationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o KeyspaceReplicationSpecificationOutput) ToKeyspaceReplicationSpecificationPtrOutputWithContext(ctx context.Context) KeyspaceReplicationSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyspaceReplicationSpecification) *KeyspaceReplicationSpecification {
+		return &v
+	}).(KeyspaceReplicationSpecificationPtrOutput)
+}
+
+// Replication regions. If `replicationStrategy` is `MULTI_REGION`, `regionList` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
+func (o KeyspaceReplicationSpecificationOutput) RegionLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KeyspaceReplicationSpecification) []string { return v.RegionLists }).(pulumi.StringArrayOutput)
+}
+
+// Replication strategy. Valid values: `SINGLE_REGION` and `MULTI_REGION`.
+func (o KeyspaceReplicationSpecificationOutput) ReplicationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyspaceReplicationSpecification) *string { return v.ReplicationStrategy }).(pulumi.StringPtrOutput)
+}
+
+type KeyspaceReplicationSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyspaceReplicationSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyspaceReplicationSpecification)(nil)).Elem()
+}
+
+func (o KeyspaceReplicationSpecificationPtrOutput) ToKeyspaceReplicationSpecificationPtrOutput() KeyspaceReplicationSpecificationPtrOutput {
+	return o
+}
+
+func (o KeyspaceReplicationSpecificationPtrOutput) ToKeyspaceReplicationSpecificationPtrOutputWithContext(ctx context.Context) KeyspaceReplicationSpecificationPtrOutput {
+	return o
+}
+
+func (o KeyspaceReplicationSpecificationPtrOutput) Elem() KeyspaceReplicationSpecificationOutput {
+	return o.ApplyT(func(v *KeyspaceReplicationSpecification) KeyspaceReplicationSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret KeyspaceReplicationSpecification
+		return ret
+	}).(KeyspaceReplicationSpecificationOutput)
+}
+
+// Replication regions. If `replicationStrategy` is `MULTI_REGION`, `regionList` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
+func (o KeyspaceReplicationSpecificationPtrOutput) RegionLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KeyspaceReplicationSpecification) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RegionLists
+	}).(pulumi.StringArrayOutput)
+}
+
+// Replication strategy. Valid values: `SINGLE_REGION` and `MULTI_REGION`.
+func (o KeyspaceReplicationSpecificationPtrOutput) ReplicationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyspaceReplicationSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReplicationStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
 type TableCapacitySpecification struct {
 	// The throughput capacity specified for read operations defined in read capacity units (RCUs).
 	ReadCapacityUnits *int `pulumi:"readCapacityUnits"`
@@ -1493,6 +1649,8 @@ func (o TableTtlPtrOutput) Status() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceReplicationSpecificationInput)(nil)).Elem(), KeyspaceReplicationSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceReplicationSpecificationPtrInput)(nil)).Elem(), KeyspaceReplicationSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableCapacitySpecificationInput)(nil)).Elem(), TableCapacitySpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableCapacitySpecificationPtrInput)(nil)).Elem(), TableCapacitySpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableClientSideTimestampsInput)(nil)).Elem(), TableClientSideTimestampsArgs{})
@@ -1515,6 +1673,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableSchemaDefinitionStaticColumnArrayInput)(nil)).Elem(), TableSchemaDefinitionStaticColumnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTtlInput)(nil)).Elem(), TableTtlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTtlPtrInput)(nil)).Elem(), TableTtlArgs{})
+	pulumi.RegisterOutputType(KeyspaceReplicationSpecificationOutput{})
+	pulumi.RegisterOutputType(KeyspaceReplicationSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(TableCapacitySpecificationOutput{})
 	pulumi.RegisterOutputType(TableCapacitySpecificationPtrOutput{})
 	pulumi.RegisterOutputType(TableClientSideTimestampsOutput{})

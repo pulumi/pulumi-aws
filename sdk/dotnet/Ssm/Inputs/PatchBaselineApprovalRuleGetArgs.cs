@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ssm.Inputs
     public sealed class PatchBaselineApprovalRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 100. Conflicts with `approve_until_date`.
+        /// Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 360. Conflicts with `approve_until_date`.
         /// </summary>
         [Input("approveAfterDays")]
         public Input<int>? ApproveAfterDays { get; set; }

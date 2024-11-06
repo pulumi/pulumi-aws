@@ -37,6 +37,7 @@ class DeploymentGroupArgs:
                  on_premises_instance_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupOnPremisesInstanceTagFilterArgs']]]] = None,
                  outdated_instances_strategy: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 termination_hook_enabled: Optional[pulumi.Input[bool]] = None,
                  trigger_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTriggerConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a DeploymentGroup resource.
@@ -56,6 +57,7 @@ class DeploymentGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentGroupOnPremisesInstanceTagFilterArgs']]] on_premises_instance_tag_filters: On premise tag filters associated with the group. See the AWS docs for details.
         :param pulumi.Input[str] outdated_instances_strategy: Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[bool] termination_hook_enabled: Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTriggerConfigurationArgs']]] trigger_configurations: Configuration block(s) of the triggers for the deployment group (documented below).
         """
         pulumi.set(__self__, "app_name", app_name)
@@ -87,6 +89,8 @@ class DeploymentGroupArgs:
             pulumi.set(__self__, "outdated_instances_strategy", outdated_instances_strategy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if termination_hook_enabled is not None:
+            pulumi.set(__self__, "termination_hook_enabled", termination_hook_enabled)
         if trigger_configurations is not None:
             pulumi.set(__self__, "trigger_configurations", trigger_configurations)
 
@@ -283,6 +287,18 @@ class DeploymentGroupArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="terminationHookEnabled")
+    def termination_hook_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
+        """
+        return pulumi.get(self, "termination_hook_enabled")
+
+    @termination_hook_enabled.setter
+    def termination_hook_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "termination_hook_enabled", value)
+
+    @property
     @pulumi.getter(name="triggerConfigurations")
     def trigger_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTriggerConfigurationArgs']]]]:
         """
@@ -318,6 +334,7 @@ class _DeploymentGroupState:
                  service_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 termination_hook_enabled: Optional[pulumi.Input[bool]] = None,
                  trigger_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTriggerConfigurationArgs']]]] = None):
         """
         Input properties used for looking up and filtering DeploymentGroup resources.
@@ -341,6 +358,7 @@ class _DeploymentGroupState:
         :param pulumi.Input[str] service_role_arn: The service role ARN that allows deployments.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[bool] termination_hook_enabled: Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTriggerConfigurationArgs']]] trigger_configurations: Configuration block(s) of the triggers for the deployment group (documented below).
         """
         if alarm_configuration is not None:
@@ -386,6 +404,8 @@ class _DeploymentGroupState:
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if termination_hook_enabled is not None:
+            pulumi.set(__self__, "termination_hook_enabled", termination_hook_enabled)
         if trigger_configurations is not None:
             pulumi.set(__self__, "trigger_configurations", trigger_configurations)
 
@@ -631,6 +651,18 @@ class _DeploymentGroupState:
         pulumi.set(self, "tags_all", value)
 
     @property
+    @pulumi.getter(name="terminationHookEnabled")
+    def termination_hook_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
+        """
+        return pulumi.get(self, "termination_hook_enabled")
+
+    @termination_hook_enabled.setter
+    def termination_hook_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "termination_hook_enabled", value)
+
+    @property
     @pulumi.getter(name="triggerConfigurations")
     def trigger_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTriggerConfigurationArgs']]]]:
         """
@@ -664,6 +696,7 @@ class DeploymentGroup(pulumi.CustomResource):
                  outdated_instances_strategy: Optional[pulumi.Input[str]] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 termination_hook_enabled: Optional[pulumi.Input[bool]] = None,
                  trigger_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGroupTriggerConfigurationArgs', 'DeploymentGroupTriggerConfigurationArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -839,6 +872,7 @@ class DeploymentGroup(pulumi.CustomResource):
         :param pulumi.Input[str] outdated_instances_strategy: Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
         :param pulumi.Input[str] service_role_arn: The service role ARN that allows deployments.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[bool] termination_hook_enabled: Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGroupTriggerConfigurationArgs', 'DeploymentGroupTriggerConfigurationArgsDict']]]] trigger_configurations: Configuration block(s) of the triggers for the deployment group (documented below).
         """
         ...
@@ -1033,6 +1067,7 @@ class DeploymentGroup(pulumi.CustomResource):
                  outdated_instances_strategy: Optional[pulumi.Input[str]] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 termination_hook_enabled: Optional[pulumi.Input[bool]] = None,
                  trigger_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGroupTriggerConfigurationArgs', 'DeploymentGroupTriggerConfigurationArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1065,6 +1100,7 @@ class DeploymentGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_role_arn'")
             __props__.__dict__["service_role_arn"] = service_role_arn
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["termination_hook_enabled"] = termination_hook_enabled
             __props__.__dict__["trigger_configurations"] = trigger_configurations
             __props__.__dict__["arn"] = None
             __props__.__dict__["compute_platform"] = None
@@ -1100,6 +1136,7 @@ class DeploymentGroup(pulumi.CustomResource):
             service_role_arn: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            termination_hook_enabled: Optional[pulumi.Input[bool]] = None,
             trigger_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGroupTriggerConfigurationArgs', 'DeploymentGroupTriggerConfigurationArgsDict']]]]] = None) -> 'DeploymentGroup':
         """
         Get an existing DeploymentGroup resource's state with the given name, id, and optional extra
@@ -1128,6 +1165,7 @@ class DeploymentGroup(pulumi.CustomResource):
         :param pulumi.Input[str] service_role_arn: The service role ARN that allows deployments.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[bool] termination_hook_enabled: Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGroupTriggerConfigurationArgs', 'DeploymentGroupTriggerConfigurationArgsDict']]]] trigger_configurations: Configuration block(s) of the triggers for the deployment group (documented below).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1154,6 +1192,7 @@ class DeploymentGroup(pulumi.CustomResource):
         __props__.__dict__["service_role_arn"] = service_role_arn
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["termination_hook_enabled"] = termination_hook_enabled
         __props__.__dict__["trigger_configurations"] = trigger_configurations
         return DeploymentGroup(resource_name, opts=opts, __props__=__props__)
 
@@ -1317,6 +1356,14 @@ class DeploymentGroup(pulumi.CustomResource):
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
+
+    @property
+    @pulumi.getter(name="terminationHookEnabled")
+    def termination_hook_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
+        """
+        return pulumi.get(self, "termination_hook_enabled")
 
     @property
     @pulumi.getter(name="triggerConfigurations")

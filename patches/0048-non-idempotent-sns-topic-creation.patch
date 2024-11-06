@@ -5,7 +5,7 @@ Subject: [PATCH] non-idempotent sns topic creation
 
 
 diff --git a/internal/service/sns/topic.go b/internal/service/sns/topic.go
-index d69f2b026d..93fc25f34b 100644
+index 4829f6aaa7..2b55e53cec 100644
 --- a/internal/service/sns/topic.go
 +++ b/internal/service/sns/topic.go
 @@ -9,6 +9,7 @@ import (
@@ -37,7 +37,7 @@ index d69f2b026d..93fc25f34b 100644
 +	// that we prevent a race condition where two resources are created with
 +	// the same name.
 +	awsClient := meta.(*conns.AWSClient)
-+	topicArn := constructTopicArn(conn, awsClient.AccountID, awsClient.Region, awsClient.Partition, name)
++	topicArn := constructTopicArn(conn, awsClient.AccountID, awsClient.Region, awsClient.Partition(ctx), name)
 +	localMutex := &sync.Mutex{}
 +	if val, ok := snsGlobalMutex.LoadOrStore(topicArn, localMutex); ok {
 +		localMutex = val.(*sync.Mutex)

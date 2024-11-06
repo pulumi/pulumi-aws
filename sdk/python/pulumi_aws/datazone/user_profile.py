@@ -257,7 +257,7 @@ class UserProfile(pulumi.CustomResource):
         Using `pulumi import`, import DataZone User Profile using the `user_identifier,domain_identifier,type`. For example:
 
         ```sh
-        $ pulumi import aws:datazone/userProfile:UserProfile example arn:aws:iam::012345678901:user/example,dzd_54nakfrg9k6suo,IAM
+        $ pulumi import aws:datazone/userProfile:UserProfile example arn:aws:iam::123456789012:user/example,dzd_54nakfrg9k6suo,IAM
         ```
 
         :param str resource_name: The name of the resource.
@@ -297,7 +297,7 @@ class UserProfile(pulumi.CustomResource):
         Using `pulumi import`, import DataZone User Profile using the `user_identifier,domain_identifier,type`. For example:
 
         ```sh
-        $ pulumi import aws:datazone/userProfile:UserProfile example arn:aws:iam::012345678901:user/example,dzd_54nakfrg9k6suo,IAM
+        $ pulumi import aws:datazone/userProfile:UserProfile example arn:aws:iam::123456789012:user/example,dzd_54nakfrg9k6suo,IAM
         ```
 
         :param str resource_name: The name of the resource.

@@ -14,6 +14,8 @@ import (
 
 // Resource for managing an AWS EC2 Image Builder Workflow.
 //
+// > Image Builder manages the workflows for the distribution stage. Therefore, using the DISTRIBUTION workflow type results in an error.
+//
 // ## Example Usage
 //
 // ### Basic Usage
@@ -106,7 +108,7 @@ type Workflow struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Type of the workflow. Valid values: `BUILD`, `TEST`, `DISTRIBUTION`.
+	// Type of the workflow. Valid values: `BUILD`, `TEST`.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
 	Uri pulumi.StringPtrOutput `pulumi:"uri"`
@@ -172,7 +174,7 @@ type workflowState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Type of the workflow. Valid values: `BUILD`, `TEST`, `DISTRIBUTION`.
+	// Type of the workflow. Valid values: `BUILD`, `TEST`.
 	Type *string `pulumi:"type"`
 	// S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
 	Uri *string `pulumi:"uri"`
@@ -203,7 +205,7 @@ type WorkflowState struct {
 	Tags pulumi.StringMapInput
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
-	// Type of the workflow. Valid values: `BUILD`, `TEST`, `DISTRIBUTION`.
+	// Type of the workflow. Valid values: `BUILD`, `TEST`.
 	Type pulumi.StringPtrInput
 	// S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
 	Uri pulumi.StringPtrInput
@@ -230,7 +232,7 @@ type workflowArgs struct {
 	Name *string `pulumi:"name"`
 	// Key-value map of resource tags for the workflow. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Type of the workflow. Valid values: `BUILD`, `TEST`, `DISTRIBUTION`.
+	// Type of the workflow. Valid values: `BUILD`, `TEST`.
 	Type string `pulumi:"type"`
 	// S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
 	Uri *string `pulumi:"uri"`
@@ -254,7 +256,7 @@ type WorkflowArgs struct {
 	Name pulumi.StringPtrInput
 	// Key-value map of resource tags for the workflow. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Type of the workflow. Valid values: `BUILD`, `TEST`, `DISTRIBUTION`.
+	// Type of the workflow. Valid values: `BUILD`, `TEST`.
 	Type pulumi.StringInput
 	// S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
 	Uri pulumi.StringPtrInput
@@ -401,7 +403,7 @@ func (o WorkflowOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Type of the workflow. Valid values: `BUILD`, `TEST`, `DISTRIBUTION`.
+// Type of the workflow. Valid values: `BUILD`, `TEST`.
 func (o WorkflowOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

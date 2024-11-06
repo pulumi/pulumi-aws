@@ -15,6 +15,8 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs',
+    'AuthorizeVpcEndpointAccessAuthorizedPrincipalArgsDict',
     'DomainAdvancedSecurityOptionsArgs',
     'DomainAdvancedSecurityOptionsArgsDict',
     'DomainAdvancedSecurityOptionsMasterUserOptionsArgs',
@@ -88,6 +90,56 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class AuthorizeVpcEndpointAccessAuthorizedPrincipalArgsDict(TypedDict):
+        principal: pulumi.Input[str]
+        """
+        IAM principal that is allowed to access to the domain.
+        """
+        principal_type: pulumi.Input[str]
+        """
+        Type of principal.
+        """
+elif False:
+    AuthorizeVpcEndpointAccessAuthorizedPrincipalArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs:
+    def __init__(__self__, *,
+                 principal: pulumi.Input[str],
+                 principal_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] principal: IAM principal that is allowed to access to the domain.
+        :param pulumi.Input[str] principal_type: Type of principal.
+        """
+        pulumi.set(__self__, "principal", principal)
+        pulumi.set(__self__, "principal_type", principal_type)
+
+    @property
+    @pulumi.getter
+    def principal(self) -> pulumi.Input[str]:
+        """
+        IAM principal that is allowed to access to the domain.
+        """
+        return pulumi.get(self, "principal")
+
+    @principal.setter
+    def principal(self, value: pulumi.Input[str]):
+        pulumi.set(self, "principal", value)
+
+    @property
+    @pulumi.getter(name="principalType")
+    def principal_type(self) -> pulumi.Input[str]:
+        """
+        Type of principal.
+        """
+        return pulumi.get(self, "principal_type")
+
+    @principal_type.setter
+    def principal_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "principal_type", value)
+
 
 if not MYPY:
     class DomainAdvancedSecurityOptionsArgsDict(TypedDict):

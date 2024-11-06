@@ -111,7 +111,7 @@ def get_protection(protection_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.shield.get_protection(resource_arn="arn:aws:globalaccelerator::012345678901:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh")
+    example = aws.shield.get_protection(resource_arn="arn:aws:globalaccelerator::123456789012:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh")
     ```
 
 
@@ -153,7 +153,7 @@ def get_protection_output(protection_id: Optional[pulumi.Input[Optional[str]]] =
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.shield.get_protection(resource_arn="arn:aws:globalaccelerator::012345678901:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh")
+    example = aws.shield.get_protection(resource_arn="arn:aws:globalaccelerator::123456789012:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh")
     ```
 
 

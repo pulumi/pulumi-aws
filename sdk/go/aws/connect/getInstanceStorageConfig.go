@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.LookupInstanceStorageConfig(ctx, &connect.LookupInstanceStorageConfigArgs{
-//				AssociationId: "1234567890123456789012345678901234567890123456789012345678901234",
+//				AssociationId: "1234567891234567890122345678912345678901223456789123456789012234",
 //				InstanceId:    "aaaaaaaa-bbbb-cccc-dddd-111111111111",
 //				ResourceType:  "CONTACT_TRACE_RECORDS",
 //			}, nil)

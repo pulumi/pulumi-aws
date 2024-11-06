@@ -68,6 +68,12 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
 
+        /// <summary>
+        /// Configuration block with S3 export settings. Detailed below.
+        /// </summary>
+        [Input("s3ExportConfiguration")]
+        public Input<Inputs.DistributionConfigurationDistributionS3ExportConfigurationGetArgs>? S3ExportConfiguration { get; set; }
+
         public DistributionConfigurationDistributionGetArgs()
         {
         }

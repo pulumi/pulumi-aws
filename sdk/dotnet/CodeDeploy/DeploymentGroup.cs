@@ -401,6 +401,12 @@ namespace Pulumi.Aws.CodeDeploy
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
+        /// </summary>
+        [Output("terminationHookEnabled")]
+        public Output<bool?> TerminationHookEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block(s) of the triggers for the deployment group (documented below).
         /// </summary>
         [Output("triggerConfigurations")]
@@ -578,6 +584,12 @@ namespace Pulumi.Aws.CodeDeploy
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
+        /// </summary>
+        [Input("terminationHookEnabled")]
+        public Input<bool>? TerminationHookEnabled { get; set; }
+
         [Input("triggerConfigurations")]
         private InputList<Inputs.DeploymentGroupTriggerConfigurationArgs>? _triggerConfigurations;
 
@@ -754,6 +766,12 @@ namespace Pulumi.Aws.CodeDeploy
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
+        /// </summary>
+        [Input("terminationHookEnabled")]
+        public Input<bool>? TerminationHookEnabled { get; set; }
 
         [Input("triggerConfigurations")]
         private InputList<Inputs.DeploymentGroupTriggerConfigurationGetArgs>? _triggerConfigurations;

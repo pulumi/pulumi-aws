@@ -127,6 +127,10 @@ export interface GetClusterResult {
      * Nested list containing VPC configuration for the cluster.
      */
     readonly vpcConfig: outputs.eks.GetClusterVpcConfig;
+    /**
+     * Contains Zonal Shift Configuration.
+     */
+    readonly zonalShiftConfigs: outputs.eks.GetClusterZonalShiftConfig[];
 }
 /**
  * Retrieve information about an EKS Cluster.

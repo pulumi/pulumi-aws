@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import SQS Queue Redrive Policies using the queue URL. For example:
  *
  * ```sh
- * $ pulumi import aws:sqs/redrivePolicy:RedrivePolicy test https://queue.amazonaws.com/0123456789012/myqueue
+ * $ pulumi import aws:sqs/redrivePolicy:RedrivePolicy test https://queue.amazonaws.com/123456789012/myqueue
  * ```
  */
 export class RedrivePolicy extends pulumi.CustomResource {

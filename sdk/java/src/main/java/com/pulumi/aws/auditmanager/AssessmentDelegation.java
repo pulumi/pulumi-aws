@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import Audit Manager Assessment Delegation using the `id`. For example:
  * 
  * ```sh
- * $ pulumi import aws:auditmanager/assessmentDelegation:AssessmentDelegation example abcdef-123456,arn:aws:iam::012345678901:role/example,example
+ * $ pulumi import aws:auditmanager/assessmentDelegation:AssessmentDelegation example abcdef-123456,arn:aws:iam::123456789012:role/example,example
  * ```
  * 
  */

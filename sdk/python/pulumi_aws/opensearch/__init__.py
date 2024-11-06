@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .authorize_vpc_endpoint_access import *
 from .domain import *
 from .domain_policy import *
 from .domain_saml_options import *

@@ -20,6 +20,11 @@ export const getListener: typeof import("./getListener").getListener = null as a
 export const getListenerOutput: typeof import("./getListener").getListenerOutput = null as any;
 utilities.lazyLoad(exports, ["getListener","getListenerOutput"], () => require("./getListener"));
 
+export { GetListenerRuleArgs, GetListenerRuleResult, GetListenerRuleOutputArgs } from "./getListenerRule";
+export const getListenerRule: typeof import("./getListenerRule").getListenerRule = null as any;
+export const getListenerRuleOutput: typeof import("./getListenerRule").getListenerRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getListenerRule","getListenerRuleOutput"], () => require("./getListenerRule"));
+
 export { GetLoadBalancerArgs, GetLoadBalancerResult, GetLoadBalancerOutputArgs } from "./getLoadBalancer";
 export const getLoadBalancer: typeof import("./getLoadBalancer").getLoadBalancer = null as any;
 export const getLoadBalancerOutput: typeof import("./getLoadBalancer").getLoadBalancerOutput = null as any;

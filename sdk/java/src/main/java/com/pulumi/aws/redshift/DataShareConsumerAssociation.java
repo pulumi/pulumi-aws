@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataShareConsumerAssociation("example", DataShareConsumerAssociationArgs.builder()
- *             .dataShareArn("arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example")
+ *             .dataShareArn("arn:aws:redshift:us-west-2:123456789012:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example")
  *             .associateEntireAccount(true)
  *             .build());
  * 
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataShareConsumerAssociation("example", DataShareConsumerAssociationArgs.builder()
- *             .dataShareArn("arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example")
+ *             .dataShareArn("arn:aws:redshift:us-west-2:123456789012:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example")
  *             .consumerRegion("us-west-2")
  *             .build());
  * 
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import Redshift Data Share Consumer Association using the `id`. For example:
  * 
  * ```sh
- * $ pulumi import aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation example arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example,,,us-west-2
+ * $ pulumi import aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation example arn:aws:redshift:us-west-2:123456789012:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example,,,us-west-2
  * ```
  * 
  */

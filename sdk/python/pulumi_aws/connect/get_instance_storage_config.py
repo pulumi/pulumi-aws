@@ -102,7 +102,7 @@ def get_instance_storage_config(association_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.connect.get_instance_storage_config(association_id="1234567890123456789012345678901234567890123456789012345678901234",
+    example = aws.connect.get_instance_storage_config(association_id="1234567891234567890122345678912345678901223456789123456789012234",
         instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
         resource_type="CONTACT_TRACE_RECORDS")
     ```
@@ -138,7 +138,7 @@ def get_instance_storage_config_output(association_id: Optional[pulumi.Input[str
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.connect.get_instance_storage_config(association_id="1234567890123456789012345678901234567890123456789012345678901234",
+    example = aws.connect.get_instance_storage_config(association_id="1234567891234567890122345678912345678901223456789123456789012234",
         instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
         resource_type="CONTACT_TRACE_RECORDS")
     ```

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.LB.Outputs
         /// </summary>
         public readonly Outputs.ListenerRuleActionForwardStickiness? Stickiness;
         /// <summary>
-        /// One or more target groups block.
+        /// One or more target group blocks.
         /// </summary>
         public readonly ImmutableArray<Outputs.ListenerRuleActionForwardTargetGroup> TargetGroups;
 

@@ -80,7 +80,7 @@ public final class ShieldFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ShieldFunctions.getProtection(GetProtectionArgs.builder()
-     *             .resourceArn("arn:aws:globalaccelerator::012345678901:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh")
+     *             .resourceArn("arn:aws:globalaccelerator::123456789012:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh")
      *             .build());
      * 
      *     }
@@ -159,7 +159,7 @@ public final class ShieldFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ShieldFunctions.getProtection(GetProtectionArgs.builder()
-     *             .resourceArn("arn:aws:globalaccelerator::012345678901:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh")
+     *             .resourceArn("arn:aws:globalaccelerator::123456789012:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh")
      *             .build());
      * 
      *     }
@@ -238,7 +238,7 @@ public final class ShieldFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ShieldFunctions.getProtection(GetProtectionArgs.builder()
-     *             .resourceArn("arn:aws:globalaccelerator::012345678901:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh")
+     *             .resourceArn("arn:aws:globalaccelerator::123456789012:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh")
      *             .build());
      * 
      *     }
@@ -317,7 +317,7 @@ public final class ShieldFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ShieldFunctions.getProtection(GetProtectionArgs.builder()
-     *             .resourceArn("arn:aws:globalaccelerator::012345678901:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh")
+     *             .resourceArn("arn:aws:globalaccelerator::123456789012:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh")
      *             .build());
      * 
      *     }
@@ -396,7 +396,7 @@ public final class ShieldFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ShieldFunctions.getProtection(GetProtectionArgs.builder()
-     *             .resourceArn("arn:aws:globalaccelerator::012345678901:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh")
+     *             .resourceArn("arn:aws:globalaccelerator::123456789012:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh")
      *             .build());
      * 
      *     }
@@ -475,7 +475,7 @@ public final class ShieldFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ShieldFunctions.getProtection(GetProtectionArgs.builder()
-     *             .resourceArn("arn:aws:globalaccelerator::012345678901:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh")
+     *             .resourceArn("arn:aws:globalaccelerator::123456789012:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh")
      *             .build());
      * 
      *     }

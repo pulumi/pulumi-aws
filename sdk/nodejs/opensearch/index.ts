@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AuthorizeVpcEndpointAccessArgs, AuthorizeVpcEndpointAccessState } from "./authorizeVpcEndpointAccess";
+export type AuthorizeVpcEndpointAccess = import("./authorizeVpcEndpointAccess").AuthorizeVpcEndpointAccess;
+export const AuthorizeVpcEndpointAccess: typeof import("./authorizeVpcEndpointAccess").AuthorizeVpcEndpointAccess = null as any;
+utilities.lazyLoad(exports, ["AuthorizeVpcEndpointAccess"], () => require("./authorizeVpcEndpointAccess"));
+
 export { DomainArgs, DomainState } from "./domain";
 export type Domain = import("./domain").Domain;
 export const Domain: typeof import("./domain").Domain = null as any;
@@ -115,6 +120,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess":
+                return new AuthorizeVpcEndpointAccess(name, <any>undefined, { urn })
             case "aws:opensearch/domain:Domain":
                 return new Domain(name, <any>undefined, { urn })
             case "aws:opensearch/domainPolicy:DomainPolicy":
@@ -148,6 +155,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "opensearch/authorizeVpcEndpointAccess", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/domain", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/domainPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/domainSamlOptions", _module)

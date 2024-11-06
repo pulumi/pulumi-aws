@@ -7,6 +7,7 @@ import com.pulumi.aws.imagebuilder.outputs.GetDistributionConfigurationDistribut
 import com.pulumi.aws.imagebuilder.outputs.GetDistributionConfigurationDistributionContainerDistributionConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.GetDistributionConfigurationDistributionFastLaunchConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.GetDistributionConfigurationDistributionLaunchTemplateConfiguration;
+import com.pulumi.aws.imagebuilder.outputs.GetDistributionConfigurationDistributionS3ExportConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -45,6 +46,11 @@ public final class GetDistributionConfigurationDistribution {
      * 
      */
     private String region;
+    /**
+     * @return Nested list of S3 export configuration.
+     * 
+     */
+    private List<GetDistributionConfigurationDistributionS3ExportConfiguration> s3ExportConfigurations;
 
     private GetDistributionConfigurationDistribution() {}
     /**
@@ -89,6 +95,13 @@ public final class GetDistributionConfigurationDistribution {
     public String region() {
         return this.region;
     }
+    /**
+     * @return Nested list of S3 export configuration.
+     * 
+     */
+    public List<GetDistributionConfigurationDistributionS3ExportConfiguration> s3ExportConfigurations() {
+        return this.s3ExportConfigurations;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -105,6 +118,7 @@ public final class GetDistributionConfigurationDistribution {
         private List<GetDistributionConfigurationDistributionLaunchTemplateConfiguration> launchTemplateConfigurations;
         private List<String> licenseConfigurationArns;
         private String region;
+        private List<GetDistributionConfigurationDistributionS3ExportConfiguration> s3ExportConfigurations;
         public Builder() {}
         public Builder(GetDistributionConfigurationDistribution defaults) {
     	      Objects.requireNonNull(defaults);
@@ -114,6 +128,7 @@ public final class GetDistributionConfigurationDistribution {
     	      this.launchTemplateConfigurations = defaults.launchTemplateConfigurations;
     	      this.licenseConfigurationArns = defaults.licenseConfigurationArns;
     	      this.region = defaults.region;
+    	      this.s3ExportConfigurations = defaults.s3ExportConfigurations;
         }
 
         @CustomType.Setter
@@ -179,6 +194,17 @@ public final class GetDistributionConfigurationDistribution {
             this.region = region;
             return this;
         }
+        @CustomType.Setter
+        public Builder s3ExportConfigurations(List<GetDistributionConfigurationDistributionS3ExportConfiguration> s3ExportConfigurations) {
+            if (s3ExportConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetDistributionConfigurationDistribution", "s3ExportConfigurations");
+            }
+            this.s3ExportConfigurations = s3ExportConfigurations;
+            return this;
+        }
+        public Builder s3ExportConfigurations(GetDistributionConfigurationDistributionS3ExportConfiguration... s3ExportConfigurations) {
+            return s3ExportConfigurations(List.of(s3ExportConfigurations));
+        }
         public GetDistributionConfigurationDistribution build() {
             final var _resultValue = new GetDistributionConfigurationDistribution();
             _resultValue.amiDistributionConfigurations = amiDistributionConfigurations;
@@ -187,6 +213,7 @@ public final class GetDistributionConfigurationDistribution {
             _resultValue.launchTemplateConfigurations = launchTemplateConfigurations;
             _resultValue.licenseConfigurationArns = licenseConfigurationArns;
             _resultValue.region = region;
+            _resultValue.s3ExportConfigurations = s3ExportConfigurations;
             return _resultValue;
         }
     }

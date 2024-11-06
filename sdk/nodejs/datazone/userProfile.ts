@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import DataZone User Profile using the `user_identifier,domain_identifier,type`. For example:
  *
  * ```sh
- * $ pulumi import aws:datazone/userProfile:UserProfile example arn:aws:iam::012345678901:user/example,dzd_54nakfrg9k6suo,IAM
+ * $ pulumi import aws:datazone/userProfile:UserProfile example arn:aws:iam::123456789012:user/example,dzd_54nakfrg9k6suo,IAM
  * ```
  */
 export class UserProfile extends pulumi.CustomResource {

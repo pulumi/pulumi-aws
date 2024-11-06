@@ -16,6 +16,7 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AuthorizeVpcEndpointAccessAuthorizedPrincipal',
     'DomainAdvancedSecurityOptions',
     'DomainAdvancedSecurityOptionsMasterUserOptions',
     'DomainAutoTuneOptions',
@@ -67,6 +68,52 @@ __all__ = [
     'GetDomainVpcOptionResult',
     'GetServerlessSecurityConfigSamlOptionsResult',
 ]
+
+@pulumi.output_type
+class AuthorizeVpcEndpointAccessAuthorizedPrincipal(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalType":
+            suggest = "principal_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AuthorizeVpcEndpointAccessAuthorizedPrincipal. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AuthorizeVpcEndpointAccessAuthorizedPrincipal.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AuthorizeVpcEndpointAccessAuthorizedPrincipal.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal: str,
+                 principal_type: str):
+        """
+        :param str principal: IAM principal that is allowed to access to the domain.
+        :param str principal_type: Type of principal.
+        """
+        pulumi.set(__self__, "principal", principal)
+        pulumi.set(__self__, "principal_type", principal_type)
+
+    @property
+    @pulumi.getter
+    def principal(self) -> str:
+        """
+        IAM principal that is allowed to access to the domain.
+        """
+        return pulumi.get(self, "principal")
+
+    @property
+    @pulumi.getter(name="principalType")
+    def principal_type(self) -> str:
+        """
+        Type of principal.
+        """
+        return pulumi.get(self, "principal_type")
+
 
 @pulumi.output_type
 class DomainAdvancedSecurityOptions(dict):

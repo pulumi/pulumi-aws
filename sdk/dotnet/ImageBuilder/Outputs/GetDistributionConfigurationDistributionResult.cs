@@ -37,6 +37,10 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// AWS Region of distribution.
         /// </summary>
         public readonly string Region;
+        /// <summary>
+        /// Nested list of S3 export configuration.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDistributionConfigurationDistributionS3ExportConfigurationResult> S3ExportConfigurations;
 
         [OutputConstructor]
         private GetDistributionConfigurationDistributionResult(
@@ -50,7 +54,9 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
 
             ImmutableArray<string> licenseConfigurationArns,
 
-            string region)
+            string region,
+
+            ImmutableArray<Outputs.GetDistributionConfigurationDistributionS3ExportConfigurationResult> s3ExportConfigurations)
         {
             AmiDistributionConfigurations = amiDistributionConfigurations;
             ContainerDistributionConfigurations = containerDistributionConfigurations;
@@ -58,6 +64,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
             LaunchTemplateConfigurations = launchTemplateConfigurations;
             LicenseConfigurationArns = licenseConfigurationArns;
             Region = region;
+            S3ExportConfigurations = s3ExportConfigurations;
         }
     }
 }

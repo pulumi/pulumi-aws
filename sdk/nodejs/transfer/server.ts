@@ -262,6 +262,7 @@ export class Server extends pulumi.CustomResource {
      * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
      * * `TransferSecurityPolicy-Restricted-2018-11`
      * * `TransferSecurityPolicy-Restricted-2020-06`
+     * * `TransferSecurityPolicy-Restricted-2024-06`
      *
      * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
      */
@@ -467,6 +468,7 @@ export interface ServerState {
      * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
      * * `TransferSecurityPolicy-Restricted-2018-11`
      * * `TransferSecurityPolicy-Restricted-2020-06`
+     * * `TransferSecurityPolicy-Restricted-2024-06`
      *
      * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
      */
@@ -586,6 +588,7 @@ export interface ServerArgs {
      * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
      * * `TransferSecurityPolicy-Restricted-2018-11`
      * * `TransferSecurityPolicy-Restricted-2020-06`
+     * * `TransferSecurityPolicy-Restricted-2024-06`
      *
      * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
      */

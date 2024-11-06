@@ -98,6 +98,8 @@ type LookupClusterResult struct {
 	Version string `pulumi:"version"`
 	// Nested list containing VPC configuration for the cluster.
 	VpcConfig GetClusterVpcConfig `pulumi:"vpcConfig"`
+	// Contains Zonal Shift Configuration.
+	ZonalShiftConfigs []GetClusterZonalShiftConfig `pulumi:"zonalShiftConfigs"`
 }
 
 func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
@@ -238,6 +240,11 @@ func (o LookupClusterResultOutput) Version() pulumi.StringOutput {
 // Nested list containing VPC configuration for the cluster.
 func (o LookupClusterResultOutput) VpcConfig() GetClusterVpcConfigOutput {
 	return o.ApplyT(func(v LookupClusterResult) GetClusterVpcConfig { return v.VpcConfig }).(GetClusterVpcConfigOutput)
+}
+
+// Contains Zonal Shift Configuration.
+func (o LookupClusterResultOutput) ZonalShiftConfigs() GetClusterZonalShiftConfigArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []GetClusterZonalShiftConfig { return v.ZonalShiftConfigs }).(GetClusterZonalShiftConfigArrayOutput)
 }
 
 func init() {

@@ -31,8 +31,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := redshift.NewDataShareAuthorization(ctx, "example", &redshift.DataShareAuthorizationArgs{
-//				ConsumerIdentifier: pulumi.String("012345678901"),
-//				DataShareArn:       pulumi.String("arn:aws:redshift:us-west-2:012345678901:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share"),
+//				ConsumerIdentifier: pulumi.String("123456789012"),
+//				DataShareArn:       pulumi.String("arn:aws:redshift:us-west-2:123456789012:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share"),
 //			})
 //			if err != nil {
 //				return err
@@ -48,7 +48,7 @@ import (
 // Using `pulumi import`, import Redshift Data Share Authorization using the `id`. For example:
 //
 // ```sh
-// $ pulumi import aws:redshift/dataShareAuthorization:DataShareAuthorization example arn:aws:redshift:us-west-2:012345678901:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share,012345678901
+// $ pulumi import aws:redshift/dataShareAuthorization:DataShareAuthorization example arn:aws:redshift:us-west-2:123456789012:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share,123456789012
 // ```
 type DataShareAuthorization struct {
 	pulumi.CustomResourceState

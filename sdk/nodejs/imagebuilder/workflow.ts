@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Resource for managing an AWS EC2 Image Builder Workflow.
  *
+ * > Image Builder manages the workflows for the distribution stage. Therefore, using the DISTRIBUTION workflow type results in an error.
+ *
  * ## Example Usage
  *
  * ### Basic Usage
@@ -127,7 +129,7 @@ export class Workflow extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Type of the workflow. Valid values: `BUILD`, `TEST`, `DISTRIBUTION`.
+     * Type of the workflow. Valid values: `BUILD`, `TEST`.
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -239,7 +241,7 @@ export interface WorkflowState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Type of the workflow. Valid values: `BUILD`, `TEST`, `DISTRIBUTION`.
+     * Type of the workflow. Valid values: `BUILD`, `TEST`.
      */
     type?: pulumi.Input<string>;
     /**
@@ -283,7 +285,7 @@ export interface WorkflowArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Type of the workflow. Valid values: `BUILD`, `TEST`, `DISTRIBUTION`.
+     * Type of the workflow. Valid values: `BUILD`, `TEST`.
      */
     type: pulumi.Input<string>;
     /**

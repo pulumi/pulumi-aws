@@ -16,11 +16,11 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// <summary>
         /// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
         /// </summary>
-        public readonly bool DeleteOnTermination;
+        public readonly string DeleteOnTermination;
         /// <summary>
         /// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
         /// </summary>
-        public readonly bool Encrypted;
+        public readonly string Encrypted;
         /// <summary>
         /// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
         /// </summary>
@@ -48,9 +48,9 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
 
         [OutputConstructor]
         private GetImageRecipeBlockDeviceMappingEbResult(
-            bool deleteOnTermination,
+            string deleteOnTermination,
 
-            bool encrypted,
+            string encrypted,
 
             int iops,
 

@@ -34,14 +34,14 @@ public final class ListenerRuleActionForwardArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * One or more target groups block.
+     * One or more target group blocks.
      * 
      */
     @Import(name="targetGroups", required=true)
     private Output<List<ListenerRuleActionForwardTargetGroupArgs>> targetGroups;
 
     /**
-     * @return One or more target groups block.
+     * @return One or more target group blocks.
      * 
      */
     public Output<List<ListenerRuleActionForwardTargetGroupArgs>> targetGroups() {
@@ -95,7 +95,7 @@ public final class ListenerRuleActionForwardArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param targetGroups One or more target groups block.
+         * @param targetGroups One or more target group blocks.
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class ListenerRuleActionForwardArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param targetGroups One or more target groups block.
+         * @param targetGroups One or more target group blocks.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class ListenerRuleActionForwardArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param targetGroups One or more target groups block.
+         * @param targetGroups One or more target group blocks.
          * 
          * @return builder
          * 

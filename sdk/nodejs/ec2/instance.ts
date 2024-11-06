@@ -173,7 +173,7 @@ import {InstanceProfile} from "../iam";
  * const _this = new aws.ec2.Instance("this", {
  *     ami: "ami-0dcc1e21636832c5d",
  *     instanceType: aws.ec2.InstanceType.M5_Large,
- *     hostResourceGroupArn: "arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost",
+ *     hostResourceGroupArn: "arn:aws:resource-groups:us-west-2:123456789012:group/win-testhost",
  *     tenancy: "host",
  * });
  * ```

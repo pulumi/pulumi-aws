@@ -46,8 +46,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataShareAuthorization("example", DataShareAuthorizationArgs.builder()
- *             .consumerIdentifier("012345678901")
- *             .dataShareArn("arn:aws:redshift:us-west-2:012345678901:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share")
+ *             .consumerIdentifier("123456789012")
+ *             .dataShareArn("arn:aws:redshift:us-west-2:123456789012:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share")
  *             .build());
  * 
  *     }
@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import Redshift Data Share Authorization using the `id`. For example:
  * 
  * ```sh
- * $ pulumi import aws:redshift/dataShareAuthorization:DataShareAuthorization example arn:aws:redshift:us-west-2:012345678901:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share,012345678901
+ * $ pulumi import aws:redshift/dataShareAuthorization:DataShareAuthorization example arn:aws:redshift:us-west-2:123456789012:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share,123456789012
  * ```
  * 
  */

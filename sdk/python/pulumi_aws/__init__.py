@@ -8340,6 +8340,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "opensearch/authorizeVpcEndpointAccess",
+  "fqn": "pulumi_aws.opensearch",
+  "classes": {
+   "aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess": "AuthorizeVpcEndpointAccess"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "opensearch/domain",
   "fqn": "pulumi_aws.opensearch",
   "classes": {
@@ -11328,6 +11336,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ssm",
   "classes": {
    "aws:ssm/patchGroup:PatchGroup": "PatchGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ssm/quicksetupConfigurationManager",
+  "fqn": "pulumi_aws.ssm",
+  "classes": {
+   "aws:ssm/quicksetupConfigurationManager:QuicksetupConfigurationManager": "QuicksetupConfigurationManager"
   }
  },
  {
