@@ -5,10 +5,10 @@ Subject: [PATCH] DisableTagSchemaCheck for PF provider
 
 
 diff --git a/internal/provider/fwprovider/provider.go b/internal/provider/fwprovider/provider.go
-index 38b5b238ff..c1ffe2f355 100644
+index 13d23e89f7..9735b9e20a 100644
 --- a/internal/provider/fwprovider/provider.go
 +++ b/internal/provider/fwprovider/provider.go
-@@ -418,8 +418,7 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
+@@ -421,8 +421,7 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
  			if v.Tags != nil {
  				// The resource has opted in to transparent tagging.
  				// Ensure that the schema look OK.

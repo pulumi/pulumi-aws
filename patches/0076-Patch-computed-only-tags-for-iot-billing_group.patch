@@ -1,0 +1,19 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Anton Tayanovskyy <anton@pulumi.com>
+Date: Fri, 8 Nov 2024 13:45:27 -0500
+Subject: [PATCH] Patch computed only tags for iot/billing_group
+
+
+diff --git a/internal/service/iot/billing_group.go b/internal/service/iot/billing_group.go
+index 90d64baff5..dd84f3acb3 100644
+--- a/internal/service/iot/billing_group.go
++++ b/internal/service/iot/billing_group.go
+@@ -75,7 +75,7 @@ func (r *resourceBillingGroup) Schema(ctx context.Context, request resource.Sche
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 			names.AttrVersion: schema.Int64Attribute{
+ 				Computed: true,
+ 			},
