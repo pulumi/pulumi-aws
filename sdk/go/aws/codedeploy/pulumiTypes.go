@@ -1006,7 +1006,7 @@ func (o DeploymentConfigZonalConfigMinimumHealthyHostsPerZonePtrOutput) Value() 
 }
 
 type DeploymentGroupAlarmConfiguration struct {
-	// A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
+	// A list of alarms configured for the deployment group.
 	Alarms []string `pulumi:"alarms"`
 	// Indicates whether the alarm configuration is enabled. This option is useful when you want to temporarily deactivate alarm monitoring for a deployment group without having to add the same alarms again later.
 	Enabled *bool `pulumi:"enabled"`
@@ -1026,7 +1026,7 @@ type DeploymentGroupAlarmConfigurationInput interface {
 }
 
 type DeploymentGroupAlarmConfigurationArgs struct {
-	// A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
+	// A list of alarms configured for the deployment group.
 	Alarms pulumi.StringArrayInput `pulumi:"alarms"`
 	// Indicates whether the alarm configuration is enabled. This option is useful when you want to temporarily deactivate alarm monitoring for a deployment group without having to add the same alarms again later.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -1111,7 +1111,7 @@ func (o DeploymentGroupAlarmConfigurationOutput) ToDeploymentGroupAlarmConfigura
 	}).(DeploymentGroupAlarmConfigurationPtrOutput)
 }
 
-// A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
+// A list of alarms configured for the deployment group.
 func (o DeploymentGroupAlarmConfigurationOutput) Alarms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DeploymentGroupAlarmConfiguration) []string { return v.Alarms }).(pulumi.StringArrayOutput)
 }
@@ -1150,7 +1150,7 @@ func (o DeploymentGroupAlarmConfigurationPtrOutput) Elem() DeploymentGroupAlarmC
 	}).(DeploymentGroupAlarmConfigurationOutput)
 }
 
-// A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
+// A list of alarms configured for the deployment group.
 func (o DeploymentGroupAlarmConfigurationPtrOutput) Alarms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DeploymentGroupAlarmConfiguration) []string {
 		if v == nil {

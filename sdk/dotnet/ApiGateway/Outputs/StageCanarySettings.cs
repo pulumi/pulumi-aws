@@ -14,6 +14,10 @@ namespace Pulumi.Aws.ApiGateway.Outputs
     public sealed class StageCanarySettings
     {
         /// <summary>
+        /// ID of the deployment that the canary points to.
+        /// </summary>
+        public readonly string DeploymentId;
+        /// <summary>
         /// Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
         /// </summary>
         public readonly double? PercentTraffic;
@@ -28,12 +32,15 @@ namespace Pulumi.Aws.ApiGateway.Outputs
 
         [OutputConstructor]
         private StageCanarySettings(
+            string deploymentId,
+
             double? percentTraffic,
 
             ImmutableDictionary<string, string>? stageVariableOverrides,
 
             bool? useStageCache)
         {
+            DeploymentId = deploymentId;
             PercentTraffic = percentTraffic;
             StageVariableOverrides = stageVariableOverrides;
             UseStageCache = useStageCache;

@@ -148,7 +148,7 @@ export class VpcIpamPool extends pulumi.CustomResource {
      */
     public readonly publicIpSource!: pulumi.Output<string | undefined>;
     /**
-     * Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`.
+     * Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
      */
     public readonly publiclyAdvertisable!: pulumi.Output<boolean | undefined>;
     /**
@@ -297,7 +297,7 @@ export interface VpcIpamPoolState {
      */
     publicIpSource?: pulumi.Input<string>;
     /**
-     * Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`.
+     * Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
      */
     publiclyAdvertisable?: pulumi.Input<boolean>;
     /**
@@ -374,7 +374,7 @@ export interface VpcIpamPoolArgs {
      */
     publicIpSource?: pulumi.Input<string>;
     /**
-     * Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`.
+     * Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
      */
     publiclyAdvertisable?: pulumi.Input<boolean>;
     /**

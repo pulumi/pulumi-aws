@@ -151,56 +151,6 @@ namespace Pulumi.Aws.Batch
     /// });
     /// ```
     /// 
-    /// ### Job Definition of type EKS
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test = new Aws.Batch.JobDefinition("test", new()
-    ///     {
-    ///         Name = " tf_test_batch_job_definition_eks",
-    ///         Type = "container",
-    ///         EksProperties = new Aws.Batch.Inputs.JobDefinitionEksPropertiesArgs
-    ///         {
-    ///             PodProperties = new Aws.Batch.Inputs.JobDefinitionEksPropertiesPodPropertiesArgs
-    ///             {
-    ///                 HostNetwork = true,
-    ///                 Containers = new Aws.Batch.Inputs.JobDefinitionEksPropertiesPodPropertiesContainersArgs
-    ///                 {
-    ///                     Image = "public.ecr.aws/amazonlinux/amazonlinux:1",
-    ///                     Commands = new[]
-    ///                     {
-    ///                         "sleep",
-    ///                         "60",
-    ///                     },
-    ///                     Resources = new Aws.Batch.Inputs.JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs
-    ///                     {
-    ///                         Limits = 
-    ///                         {
-    ///                             { "cpu", "1" },
-    ///                             { "memory", "1024Mi" },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Metadata = new Aws.Batch.Inputs.JobDefinitionEksPropertiesPodPropertiesMetadataArgs
-    ///                 {
-    ///                     Labels = 
-    ///                     {
-    ///                         { "environment", "test" },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ### Fargate Platform Capability
     /// 
     /// ```csharp

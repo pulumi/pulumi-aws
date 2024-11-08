@@ -348,14 +348,14 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.publicIpSource);
     }
     /**
-     * Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = &#34;ipv6&#34;` and `public_ip_source = &#34;byoip&#34;`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = &#34;amazon&#34;`.
+     * Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = &#34;ipv6&#34;` and `public_ip_source = &#34;byoip&#34;`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = &#34;amazon&#34;`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
      * 
      */
     @Export(name="publiclyAdvertisable", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publiclyAdvertisable;
 
     /**
-     * @return Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = &#34;ipv6&#34;` and `public_ip_source = &#34;byoip&#34;`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = &#34;amazon&#34;`.
+     * @return Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = &#34;ipv6&#34;` and `public_ip_source = &#34;byoip&#34;`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = &#34;amazon&#34;`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
      * 
      */
     public Output<Optional<Boolean>> publiclyAdvertisable() {

@@ -1197,10 +1197,14 @@ type JobDefinitionEksPropertiesPodProperties struct {
 	HostNetwork *bool `pulumi:"hostNetwork"`
 	// List of Kubernetes secret resources. See `imagePullSecret` below.
 	ImagePullSecrets []JobDefinitionEksPropertiesPodPropertiesImagePullSecret `pulumi:"imagePullSecrets"`
+	// Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+	InitContainers []JobDefinitionEksPropertiesPodPropertiesInitContainer `pulumi:"initContainers"`
 	// Metadata about the Kubernetes pod.
 	Metadata *JobDefinitionEksPropertiesPodPropertiesMetadata `pulumi:"metadata"`
 	// Name of the service account that's used to run the pod.
 	ServiceAccountName *string `pulumi:"serviceAccountName"`
+	// Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+	ShareProcessNamespace *bool `pulumi:"shareProcessNamespace"`
 	// Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
 	Volumes []JobDefinitionEksPropertiesPodPropertiesVolume `pulumi:"volumes"`
 }
@@ -1225,10 +1229,14 @@ type JobDefinitionEksPropertiesPodPropertiesArgs struct {
 	HostNetwork pulumi.BoolPtrInput `pulumi:"hostNetwork"`
 	// List of Kubernetes secret resources. See `imagePullSecret` below.
 	ImagePullSecrets JobDefinitionEksPropertiesPodPropertiesImagePullSecretArrayInput `pulumi:"imagePullSecrets"`
+	// Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+	InitContainers JobDefinitionEksPropertiesPodPropertiesInitContainerArrayInput `pulumi:"initContainers"`
 	// Metadata about the Kubernetes pod.
 	Metadata JobDefinitionEksPropertiesPodPropertiesMetadataPtrInput `pulumi:"metadata"`
 	// Name of the service account that's used to run the pod.
 	ServiceAccountName pulumi.StringPtrInput `pulumi:"serviceAccountName"`
+	// Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+	ShareProcessNamespace pulumi.BoolPtrInput `pulumi:"shareProcessNamespace"`
 	// Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
 	Volumes JobDefinitionEksPropertiesPodPropertiesVolumeArrayInput `pulumi:"volumes"`
 }
@@ -1334,6 +1342,13 @@ func (o JobDefinitionEksPropertiesPodPropertiesOutput) ImagePullSecrets() JobDef
 	}).(JobDefinitionEksPropertiesPodPropertiesImagePullSecretArrayOutput)
 }
 
+// Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+func (o JobDefinitionEksPropertiesPodPropertiesOutput) InitContainers() JobDefinitionEksPropertiesPodPropertiesInitContainerArrayOutput {
+	return o.ApplyT(func(v JobDefinitionEksPropertiesPodProperties) []JobDefinitionEksPropertiesPodPropertiesInitContainer {
+		return v.InitContainers
+	}).(JobDefinitionEksPropertiesPodPropertiesInitContainerArrayOutput)
+}
+
 // Metadata about the Kubernetes pod.
 func (o JobDefinitionEksPropertiesPodPropertiesOutput) Metadata() JobDefinitionEksPropertiesPodPropertiesMetadataPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodProperties) *JobDefinitionEksPropertiesPodPropertiesMetadata {
@@ -1344,6 +1359,11 @@ func (o JobDefinitionEksPropertiesPodPropertiesOutput) Metadata() JobDefinitionE
 // Name of the service account that's used to run the pod.
 func (o JobDefinitionEksPropertiesPodPropertiesOutput) ServiceAccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodProperties) *string { return v.ServiceAccountName }).(pulumi.StringPtrOutput)
+}
+
+// Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+func (o JobDefinitionEksPropertiesPodPropertiesOutput) ShareProcessNamespace() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksPropertiesPodProperties) *bool { return v.ShareProcessNamespace }).(pulumi.BoolPtrOutput)
 }
 
 // Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
@@ -1417,6 +1437,16 @@ func (o JobDefinitionEksPropertiesPodPropertiesPtrOutput) ImagePullSecrets() Job
 	}).(JobDefinitionEksPropertiesPodPropertiesImagePullSecretArrayOutput)
 }
 
+// Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+func (o JobDefinitionEksPropertiesPodPropertiesPtrOutput) InitContainers() JobDefinitionEksPropertiesPodPropertiesInitContainerArrayOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodProperties) []JobDefinitionEksPropertiesPodPropertiesInitContainer {
+		if v == nil {
+			return nil
+		}
+		return v.InitContainers
+	}).(JobDefinitionEksPropertiesPodPropertiesInitContainerArrayOutput)
+}
+
 // Metadata about the Kubernetes pod.
 func (o JobDefinitionEksPropertiesPodPropertiesPtrOutput) Metadata() JobDefinitionEksPropertiesPodPropertiesMetadataPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodProperties) *JobDefinitionEksPropertiesPodPropertiesMetadata {
@@ -1435,6 +1465,16 @@ func (o JobDefinitionEksPropertiesPodPropertiesPtrOutput) ServiceAccountName() p
 		}
 		return v.ServiceAccountName
 	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+func (o JobDefinitionEksPropertiesPodPropertiesPtrOutput) ShareProcessNamespace() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ShareProcessNamespace
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
@@ -2401,7 +2441,749 @@ func (o JobDefinitionEksPropertiesPodPropertiesImagePullSecretArrayOutput) Index
 	}).(JobDefinitionEksPropertiesPodPropertiesImagePullSecretOutput)
 }
 
+type JobDefinitionEksPropertiesPodPropertiesInitContainer struct {
+	// Array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
+	Args []string `pulumi:"args"`
+	// Entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
+	Commands []string `pulumi:"commands"`
+	// Environment variables to pass to a container. See EKS Environment below.
+	Envs []JobDefinitionEksPropertiesPodPropertiesInitContainerEnv `pulumi:"envs"`
+	// Docker image used to start the container.
+	Image string `pulumi:"image"`
+	// Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
+	ImagePullPolicy *string `pulumi:"imagePullPolicy"`
+	// Name of the job definition.
+	Name *string `pulumi:"name"`
+	// Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+	Resources *JobDefinitionEksPropertiesPodPropertiesInitContainerResources `pulumi:"resources"`
+	// Security context for a job.
+	SecurityContext *JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext `pulumi:"securityContext"`
+	// Volume mounts for the container.
+	VolumeMounts []JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMount `pulumi:"volumeMounts"`
+}
+
+// JobDefinitionEksPropertiesPodPropertiesInitContainerInput is an input type that accepts JobDefinitionEksPropertiesPodPropertiesInitContainerArgs and JobDefinitionEksPropertiesPodPropertiesInitContainerOutput values.
+// You can construct a concrete instance of `JobDefinitionEksPropertiesPodPropertiesInitContainerInput` via:
+//
+//	JobDefinitionEksPropertiesPodPropertiesInitContainerArgs{...}
+type JobDefinitionEksPropertiesPodPropertiesInitContainerInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksPropertiesPodPropertiesInitContainerOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerOutput
+	ToJobDefinitionEksPropertiesPodPropertiesInitContainerOutputWithContext(context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerOutput
+}
+
+type JobDefinitionEksPropertiesPodPropertiesInitContainerArgs struct {
+	// Array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
+	Args pulumi.StringArrayInput `pulumi:"args"`
+	// Entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
+	Commands pulumi.StringArrayInput `pulumi:"commands"`
+	// Environment variables to pass to a container. See EKS Environment below.
+	Envs JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayInput `pulumi:"envs"`
+	// Docker image used to start the container.
+	Image pulumi.StringInput `pulumi:"image"`
+	// Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
+	ImagePullPolicy pulumi.StringPtrInput `pulumi:"imagePullPolicy"`
+	// Name of the job definition.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+	Resources JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrInput `pulumi:"resources"`
+	// Security context for a job.
+	SecurityContext JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrInput `pulumi:"securityContext"`
+	// Volume mounts for the container.
+	VolumeMounts JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayInput `pulumi:"volumeMounts"`
+}
+
+func (JobDefinitionEksPropertiesPodPropertiesInitContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksPropertiesPodPropertiesInitContainer)(nil)).Elem()
+}
+
+func (i JobDefinitionEksPropertiesPodPropertiesInitContainerArgs) ToJobDefinitionEksPropertiesPodPropertiesInitContainerOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerOutput {
+	return i.ToJobDefinitionEksPropertiesPodPropertiesInitContainerOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksPropertiesPodPropertiesInitContainerArgs) ToJobDefinitionEksPropertiesPodPropertiesInitContainerOutputWithContext(ctx context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksPropertiesPodPropertiesInitContainerOutput)
+}
+
+// JobDefinitionEksPropertiesPodPropertiesInitContainerArrayInput is an input type that accepts JobDefinitionEksPropertiesPodPropertiesInitContainerArray and JobDefinitionEksPropertiesPodPropertiesInitContainerArrayOutput values.
+// You can construct a concrete instance of `JobDefinitionEksPropertiesPodPropertiesInitContainerArrayInput` via:
+//
+//	JobDefinitionEksPropertiesPodPropertiesInitContainerArray{ JobDefinitionEksPropertiesPodPropertiesInitContainerArgs{...} }
+type JobDefinitionEksPropertiesPodPropertiesInitContainerArrayInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksPropertiesPodPropertiesInitContainerArrayOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerArrayOutput
+	ToJobDefinitionEksPropertiesPodPropertiesInitContainerArrayOutputWithContext(context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerArrayOutput
+}
+
+type JobDefinitionEksPropertiesPodPropertiesInitContainerArray []JobDefinitionEksPropertiesPodPropertiesInitContainerInput
+
+func (JobDefinitionEksPropertiesPodPropertiesInitContainerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobDefinitionEksPropertiesPodPropertiesInitContainer)(nil)).Elem()
+}
+
+func (i JobDefinitionEksPropertiesPodPropertiesInitContainerArray) ToJobDefinitionEksPropertiesPodPropertiesInitContainerArrayOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerArrayOutput {
+	return i.ToJobDefinitionEksPropertiesPodPropertiesInitContainerArrayOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksPropertiesPodPropertiesInitContainerArray) ToJobDefinitionEksPropertiesPodPropertiesInitContainerArrayOutputWithContext(ctx context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksPropertiesPodPropertiesInitContainerArrayOutput)
+}
+
+type JobDefinitionEksPropertiesPodPropertiesInitContainerOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksPropertiesPodPropertiesInitContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksPropertiesPodPropertiesInitContainer)(nil)).Elem()
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerOutput) ToJobDefinitionEksPropertiesPodPropertiesInitContainerOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerOutput {
+	return o
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerOutput) ToJobDefinitionEksPropertiesPodPropertiesInitContainerOutputWithContext(ctx context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerOutput {
+	return o
+}
+
+// Array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerOutput) Args() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainer) []string { return v.Args }).(pulumi.StringArrayOutput)
+}
+
+// Entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerOutput) Commands() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
+}
+
+// Environment variables to pass to a container. See EKS Environment below.
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerOutput) Envs() JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayOutput {
+	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainer) []JobDefinitionEksPropertiesPodPropertiesInitContainerEnv {
+		return v.Envs
+	}).(JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayOutput)
+}
+
+// Docker image used to start the container.
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerOutput) Image() pulumi.StringOutput {
+	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainer) string { return v.Image }).(pulumi.StringOutput)
+}
+
+// Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerOutput) ImagePullPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainer) *string { return v.ImagePullPolicy }).(pulumi.StringPtrOutput)
+}
+
+// Name of the job definition.
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainer) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerOutput) Resources() JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainer) *JobDefinitionEksPropertiesPodPropertiesInitContainerResources {
+		return v.Resources
+	}).(JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput)
+}
+
+// Security context for a job.
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerOutput) SecurityContext() JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainer) *JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext {
+		return v.SecurityContext
+	}).(JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput)
+}
+
+// Volume mounts for the container.
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerOutput) VolumeMounts() JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayOutput {
+	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainer) []JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMount {
+		return v.VolumeMounts
+	}).(JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayOutput)
+}
+
+type JobDefinitionEksPropertiesPodPropertiesInitContainerArrayOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksPropertiesPodPropertiesInitContainerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobDefinitionEksPropertiesPodPropertiesInitContainer)(nil)).Elem()
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerArrayOutput) ToJobDefinitionEksPropertiesPodPropertiesInitContainerArrayOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerArrayOutput {
+	return o
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerArrayOutput) ToJobDefinitionEksPropertiesPodPropertiesInitContainerArrayOutputWithContext(ctx context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerArrayOutput {
+	return o
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerArrayOutput) Index(i pulumi.IntInput) JobDefinitionEksPropertiesPodPropertiesInitContainerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobDefinitionEksPropertiesPodPropertiesInitContainer {
+		return vs[0].([]JobDefinitionEksPropertiesPodPropertiesInitContainer)[vs[1].(int)]
+	}).(JobDefinitionEksPropertiesPodPropertiesInitContainerOutput)
+}
+
+type JobDefinitionEksPropertiesPodPropertiesInitContainerEnv struct {
+	// Name of the job definition.
+	Name string `pulumi:"name"`
+	// Value of the environment variable.
+	Value string `pulumi:"value"`
+}
+
+// JobDefinitionEksPropertiesPodPropertiesInitContainerEnvInput is an input type that accepts JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs and JobDefinitionEksPropertiesPodPropertiesInitContainerEnvOutput values.
+// You can construct a concrete instance of `JobDefinitionEksPropertiesPodPropertiesInitContainerEnvInput` via:
+//
+//	JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs{...}
+type JobDefinitionEksPropertiesPodPropertiesInitContainerEnvInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksPropertiesPodPropertiesInitContainerEnvOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerEnvOutput
+	ToJobDefinitionEksPropertiesPodPropertiesInitContainerEnvOutputWithContext(context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerEnvOutput
+}
+
+type JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs struct {
+	// Name of the job definition.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Value of the environment variable.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksPropertiesPodPropertiesInitContainerEnv)(nil)).Elem()
+}
+
+func (i JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs) ToJobDefinitionEksPropertiesPodPropertiesInitContainerEnvOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerEnvOutput {
+	return i.ToJobDefinitionEksPropertiesPodPropertiesInitContainerEnvOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs) ToJobDefinitionEksPropertiesPodPropertiesInitContainerEnvOutputWithContext(ctx context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerEnvOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksPropertiesPodPropertiesInitContainerEnvOutput)
+}
+
+// JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayInput is an input type that accepts JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArray and JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayOutput values.
+// You can construct a concrete instance of `JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayInput` via:
+//
+//	JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArray{ JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs{...} }
+type JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayOutput
+	ToJobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayOutputWithContext(context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayOutput
+}
+
+type JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArray []JobDefinitionEksPropertiesPodPropertiesInitContainerEnvInput
+
+func (JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobDefinitionEksPropertiesPodPropertiesInitContainerEnv)(nil)).Elem()
+}
+
+func (i JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArray) ToJobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayOutput {
+	return i.ToJobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArray) ToJobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayOutputWithContext(ctx context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayOutput)
+}
+
+type JobDefinitionEksPropertiesPodPropertiesInitContainerEnvOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksPropertiesPodPropertiesInitContainerEnvOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksPropertiesPodPropertiesInitContainerEnv)(nil)).Elem()
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerEnvOutput) ToJobDefinitionEksPropertiesPodPropertiesInitContainerEnvOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerEnvOutput {
+	return o
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerEnvOutput) ToJobDefinitionEksPropertiesPodPropertiesInitContainerEnvOutputWithContext(ctx context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerEnvOutput {
+	return o
+}
+
+// Name of the job definition.
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerEnvOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainerEnv) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Value of the environment variable.
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerEnvOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainerEnv) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobDefinitionEksPropertiesPodPropertiesInitContainerEnv)(nil)).Elem()
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayOutput) ToJobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayOutput {
+	return o
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayOutput) ToJobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayOutputWithContext(ctx context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayOutput {
+	return o
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayOutput) Index(i pulumi.IntInput) JobDefinitionEksPropertiesPodPropertiesInitContainerEnvOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobDefinitionEksPropertiesPodPropertiesInitContainerEnv {
+		return vs[0].([]JobDefinitionEksPropertiesPodPropertiesInitContainerEnv)[vs[1].(int)]
+	}).(JobDefinitionEksPropertiesPodPropertiesInitContainerEnvOutput)
+}
+
+type JobDefinitionEksPropertiesPodPropertiesInitContainerResources struct {
+	Limits   map[string]string `pulumi:"limits"`
+	Requests map[string]string `pulumi:"requests"`
+}
+
+// JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesInput is an input type that accepts JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs and JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesOutput values.
+// You can construct a concrete instance of `JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesInput` via:
+//
+//	JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs{...}
+type JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksPropertiesPodPropertiesInitContainerResourcesOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesOutput
+	ToJobDefinitionEksPropertiesPodPropertiesInitContainerResourcesOutputWithContext(context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesOutput
+}
+
+type JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs struct {
+	Limits   pulumi.StringMapInput `pulumi:"limits"`
+	Requests pulumi.StringMapInput `pulumi:"requests"`
+}
+
+func (JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksPropertiesPodPropertiesInitContainerResources)(nil)).Elem()
+}
+
+func (i JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs) ToJobDefinitionEksPropertiesPodPropertiesInitContainerResourcesOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesOutput {
+	return i.ToJobDefinitionEksPropertiesPodPropertiesInitContainerResourcesOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs) ToJobDefinitionEksPropertiesPodPropertiesInitContainerResourcesOutputWithContext(ctx context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesOutput)
+}
+
+func (i JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs) ToJobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput {
+	return i.ToJobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs) ToJobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutputWithContext(ctx context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesOutput).ToJobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutputWithContext(ctx)
+}
+
+// JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrInput is an input type that accepts JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs, JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtr and JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput values.
+// You can construct a concrete instance of `JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrInput` via:
+//
+//	        JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput
+	ToJobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutputWithContext(context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput
+}
+
+type jobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrType JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs
+
+func JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtr(v *JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs) JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrInput {
+	return (*jobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrType)(v)
+}
+
+func (*jobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionEksPropertiesPodPropertiesInitContainerResources)(nil)).Elem()
+}
+
+func (i *jobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrType) ToJobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput {
+	return i.ToJobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutputWithContext(context.Background())
+}
+
+func (i *jobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrType) ToJobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutputWithContext(ctx context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput)
+}
+
+type JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksPropertiesPodPropertiesInitContainerResources)(nil)).Elem()
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesOutput) ToJobDefinitionEksPropertiesPodPropertiesInitContainerResourcesOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesOutput {
+	return o
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesOutput) ToJobDefinitionEksPropertiesPodPropertiesInitContainerResourcesOutputWithContext(ctx context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesOutput {
+	return o
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesOutput) ToJobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput {
+	return o.ToJobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutputWithContext(context.Background())
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesOutput) ToJobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutputWithContext(ctx context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionEksPropertiesPodPropertiesInitContainerResources) *JobDefinitionEksPropertiesPodPropertiesInitContainerResources {
+		return &v
+	}).(JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput)
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesOutput) Limits() pulumi.StringMapOutput {
+	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainerResources) map[string]string {
+		return v.Limits
+	}).(pulumi.StringMapOutput)
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesOutput) Requests() pulumi.StringMapOutput {
+	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainerResources) map[string]string {
+		return v.Requests
+	}).(pulumi.StringMapOutput)
+}
+
+type JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionEksPropertiesPodPropertiesInitContainerResources)(nil)).Elem()
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput) ToJobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput {
+	return o
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput) ToJobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutputWithContext(ctx context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput {
+	return o
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput) Elem() JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesInitContainerResources) JobDefinitionEksPropertiesPodPropertiesInitContainerResources {
+		if v != nil {
+			return *v
+		}
+		var ret JobDefinitionEksPropertiesPodPropertiesInitContainerResources
+		return ret
+	}).(JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesOutput)
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput) Limits() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesInitContainerResources) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Limits
+	}).(pulumi.StringMapOutput)
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput) Requests() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesInitContainerResources) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Requests
+	}).(pulumi.StringMapOutput)
+}
+
+type JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext struct {
+	Privileged             *bool `pulumi:"privileged"`
+	ReadOnlyRootFileSystem *bool `pulumi:"readOnlyRootFileSystem"`
+	RunAsGroup             *int  `pulumi:"runAsGroup"`
+	RunAsNonRoot           *bool `pulumi:"runAsNonRoot"`
+	RunAsUser              *int  `pulumi:"runAsUser"`
+}
+
+// JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextInput is an input type that accepts JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs and JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput values.
+// You can construct a concrete instance of `JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextInput` via:
+//
+//	JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs{...}
+type JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput
+	ToJobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutputWithContext(context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput
+}
+
+type JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs struct {
+	Privileged             pulumi.BoolPtrInput `pulumi:"privileged"`
+	ReadOnlyRootFileSystem pulumi.BoolPtrInput `pulumi:"readOnlyRootFileSystem"`
+	RunAsGroup             pulumi.IntPtrInput  `pulumi:"runAsGroup"`
+	RunAsNonRoot           pulumi.BoolPtrInput `pulumi:"runAsNonRoot"`
+	RunAsUser              pulumi.IntPtrInput  `pulumi:"runAsUser"`
+}
+
+func (JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext)(nil)).Elem()
+}
+
+func (i JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs) ToJobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput {
+	return i.ToJobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs) ToJobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutputWithContext(ctx context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput)
+}
+
+func (i JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs) ToJobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput {
+	return i.ToJobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs) ToJobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutputWithContext(ctx context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput).ToJobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutputWithContext(ctx)
+}
+
+// JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrInput is an input type that accepts JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs, JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtr and JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput values.
+// You can construct a concrete instance of `JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrInput` via:
+//
+//	        JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput
+	ToJobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutputWithContext(context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput
+}
+
+type jobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrType JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs
+
+func JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtr(v *JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs) JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrInput {
+	return (*jobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrType)(v)
+}
+
+func (*jobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext)(nil)).Elem()
+}
+
+func (i *jobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrType) ToJobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput {
+	return i.ToJobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutputWithContext(context.Background())
+}
+
+func (i *jobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrType) ToJobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutputWithContext(ctx context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput)
+}
+
+type JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext)(nil)).Elem()
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput) ToJobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput {
+	return o
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput) ToJobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutputWithContext(ctx context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput {
+	return o
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput) ToJobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput {
+	return o.ToJobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutputWithContext(context.Background())
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput) ToJobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutputWithContext(ctx context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext) *JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext {
+		return &v
+	}).(JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput)
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput) Privileged() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext) *bool { return v.Privileged }).(pulumi.BoolPtrOutput)
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput) ReadOnlyRootFileSystem() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext) *bool {
+		return v.ReadOnlyRootFileSystem
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput) RunAsGroup() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext) *int { return v.RunAsGroup }).(pulumi.IntPtrOutput)
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput) RunAsNonRoot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext) *bool {
+		return v.RunAsNonRoot
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput) RunAsUser() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext) *int { return v.RunAsUser }).(pulumi.IntPtrOutput)
+}
+
+type JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext)(nil)).Elem()
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput) ToJobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput {
+	return o
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput) ToJobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutputWithContext(ctx context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput {
+	return o
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput) Elem() JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext) JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext {
+		if v != nil {
+			return *v
+		}
+		var ret JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext
+		return ret
+	}).(JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput)
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput) Privileged() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Privileged
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput) ReadOnlyRootFileSystem() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReadOnlyRootFileSystem
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput) RunAsGroup() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RunAsGroup
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput) RunAsNonRoot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RunAsNonRoot
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput) RunAsUser() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RunAsUser
+	}).(pulumi.IntPtrOutput)
+}
+
+type JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMount struct {
+	MountPath string `pulumi:"mountPath"`
+	// Name of the job definition.
+	Name     string `pulumi:"name"`
+	ReadOnly *bool  `pulumi:"readOnly"`
+}
+
+// JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountInput is an input type that accepts JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs and JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountOutput values.
+// You can construct a concrete instance of `JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountInput` via:
+//
+//	JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs{...}
+type JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountOutput
+	ToJobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountOutputWithContext(context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountOutput
+}
+
+type JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs struct {
+	MountPath pulumi.StringInput `pulumi:"mountPath"`
+	// Name of the job definition.
+	Name     pulumi.StringInput  `pulumi:"name"`
+	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
+}
+
+func (JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMount)(nil)).Elem()
+}
+
+func (i JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs) ToJobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountOutput {
+	return i.ToJobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs) ToJobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountOutputWithContext(ctx context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountOutput)
+}
+
+// JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayInput is an input type that accepts JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArray and JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayOutput values.
+// You can construct a concrete instance of `JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayInput` via:
+//
+//	JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArray{ JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs{...} }
+type JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayOutput
+	ToJobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayOutputWithContext(context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayOutput
+}
+
+type JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArray []JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountInput
+
+func (JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMount)(nil)).Elem()
+}
+
+func (i JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArray) ToJobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayOutput {
+	return i.ToJobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArray) ToJobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayOutputWithContext(ctx context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayOutput)
+}
+
+type JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMount)(nil)).Elem()
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountOutput) ToJobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountOutput {
+	return o
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountOutput) ToJobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountOutputWithContext(ctx context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountOutput {
+	return o
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountOutput) MountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMount) string { return v.MountPath }).(pulumi.StringOutput)
+}
+
+// Name of the job definition.
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMount) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountOutput) ReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMount) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
+}
+
+type JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMount)(nil)).Elem()
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayOutput) ToJobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayOutput() JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayOutput {
+	return o
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayOutput) ToJobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayOutputWithContext(ctx context.Context) JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayOutput {
+	return o
+}
+
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayOutput) Index(i pulumi.IntInput) JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMount {
+		return vs[0].([]JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMount)[vs[1].(int)]
+	}).(JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountOutput)
+}
+
 type JobDefinitionEksPropertiesPodPropertiesMetadata struct {
+	// Key-value pairs used to identify, sort, and organize cube resources.
 	Labels map[string]string `pulumi:"labels"`
 }
 
@@ -2417,6 +3199,7 @@ type JobDefinitionEksPropertiesPodPropertiesMetadataInput interface {
 }
 
 type JobDefinitionEksPropertiesPodPropertiesMetadataArgs struct {
+	// Key-value pairs used to identify, sort, and organize cube resources.
 	Labels pulumi.StringMapInput `pulumi:"labels"`
 }
 
@@ -2497,6 +3280,7 @@ func (o JobDefinitionEksPropertiesPodPropertiesMetadataOutput) ToJobDefinitionEk
 	}).(JobDefinitionEksPropertiesPodPropertiesMetadataPtrOutput)
 }
 
+// Key-value pairs used to identify, sort, and organize cube resources.
 func (o JobDefinitionEksPropertiesPodPropertiesMetadataOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesMetadata) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
@@ -2525,6 +3309,7 @@ func (o JobDefinitionEksPropertiesPodPropertiesMetadataPtrOutput) Elem() JobDefi
 	}).(JobDefinitionEksPropertiesPodPropertiesMetadataOutput)
 }
 
+// Key-value pairs used to identify, sort, and organize cube resources.
 func (o JobDefinitionEksPropertiesPodPropertiesMetadataPtrOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesMetadata) map[string]string {
 		if v == nil {
@@ -4405,16 +5190,21 @@ func (o GetJobDefinitionEksPropertyArrayOutput) Index(i pulumi.IntInput) GetJobD
 }
 
 type GetJobDefinitionEksPropertyPodProperty struct {
-	// The properties of the container that's used on the Amazon EKS pod. Array of EksContainer objects.
+	// The properties of the container that's used on the Amazon EKS pod. See containers below.
 	Containers []GetJobDefinitionEksPropertyPodPropertyContainer `pulumi:"containers"`
 	// The DNS policy for the pod. The default value is ClusterFirst. If the hostNetwork parameter is not specified, the default is ClusterFirstWithHostNet. ClusterFirst indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node.
 	DnsPolicy string `pulumi:"dnsPolicy"`
 	// Indicates if the pod uses the hosts' network IP address. The default value is true. Setting this to false enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
-	HostNetwork bool `pulumi:"hostNetwork"`
+	HostNetwork      bool                                                    `pulumi:"hostNetwork"`
+	ImagePullSecrets []GetJobDefinitionEksPropertyPodPropertyImagePullSecret `pulumi:"imagePullSecrets"`
+	// Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+	InitContainers []GetJobDefinitionEksPropertyPodPropertyInitContainer `pulumi:"initContainers"`
 	// Metadata about the Kubernetes pod.
 	Metadatas []GetJobDefinitionEksPropertyPodPropertyMetadata `pulumi:"metadatas"`
 	// The name of the service account that's used to run the pod.
-	ServiceAccountName bool `pulumi:"serviceAccountName"`
+	ServiceAccountName string `pulumi:"serviceAccountName"`
+	// (Optional) Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+	ShareProcessNamespace bool `pulumi:"shareProcessNamespace"`
 	// A list of data volumes used in a job.
 	Volumes []GetJobDefinitionEksPropertyPodPropertyVolume `pulumi:"volumes"`
 }
@@ -4431,16 +5221,21 @@ type GetJobDefinitionEksPropertyPodPropertyInput interface {
 }
 
 type GetJobDefinitionEksPropertyPodPropertyArgs struct {
-	// The properties of the container that's used on the Amazon EKS pod. Array of EksContainer objects.
+	// The properties of the container that's used on the Amazon EKS pod. See containers below.
 	Containers GetJobDefinitionEksPropertyPodPropertyContainerArrayInput `pulumi:"containers"`
 	// The DNS policy for the pod. The default value is ClusterFirst. If the hostNetwork parameter is not specified, the default is ClusterFirstWithHostNet. ClusterFirst indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node.
 	DnsPolicy pulumi.StringInput `pulumi:"dnsPolicy"`
 	// Indicates if the pod uses the hosts' network IP address. The default value is true. Setting this to false enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
-	HostNetwork pulumi.BoolInput `pulumi:"hostNetwork"`
+	HostNetwork      pulumi.BoolInput                                                `pulumi:"hostNetwork"`
+	ImagePullSecrets GetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayInput `pulumi:"imagePullSecrets"`
+	// Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+	InitContainers GetJobDefinitionEksPropertyPodPropertyInitContainerArrayInput `pulumi:"initContainers"`
 	// Metadata about the Kubernetes pod.
 	Metadatas GetJobDefinitionEksPropertyPodPropertyMetadataArrayInput `pulumi:"metadatas"`
 	// The name of the service account that's used to run the pod.
-	ServiceAccountName pulumi.BoolInput `pulumi:"serviceAccountName"`
+	ServiceAccountName pulumi.StringInput `pulumi:"serviceAccountName"`
+	// (Optional) Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+	ShareProcessNamespace pulumi.BoolInput `pulumi:"shareProcessNamespace"`
 	// A list of data volumes used in a job.
 	Volumes GetJobDefinitionEksPropertyPodPropertyVolumeArrayInput `pulumi:"volumes"`
 }
@@ -4496,7 +5291,7 @@ func (o GetJobDefinitionEksPropertyPodPropertyOutput) ToGetJobDefinitionEksPrope
 	return o
 }
 
-// The properties of the container that's used on the Amazon EKS pod. Array of EksContainer objects.
+// The properties of the container that's used on the Amazon EKS pod. See containers below.
 func (o GetJobDefinitionEksPropertyPodPropertyOutput) Containers() GetJobDefinitionEksPropertyPodPropertyContainerArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodProperty) []GetJobDefinitionEksPropertyPodPropertyContainer {
 		return v.Containers
@@ -4513,6 +5308,19 @@ func (o GetJobDefinitionEksPropertyPodPropertyOutput) HostNetwork() pulumi.BoolO
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodProperty) bool { return v.HostNetwork }).(pulumi.BoolOutput)
 }
 
+func (o GetJobDefinitionEksPropertyPodPropertyOutput) ImagePullSecrets() GetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodProperty) []GetJobDefinitionEksPropertyPodPropertyImagePullSecret {
+		return v.ImagePullSecrets
+	}).(GetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayOutput)
+}
+
+// Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+func (o GetJobDefinitionEksPropertyPodPropertyOutput) InitContainers() GetJobDefinitionEksPropertyPodPropertyInitContainerArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodProperty) []GetJobDefinitionEksPropertyPodPropertyInitContainer {
+		return v.InitContainers
+	}).(GetJobDefinitionEksPropertyPodPropertyInitContainerArrayOutput)
+}
+
 // Metadata about the Kubernetes pod.
 func (o GetJobDefinitionEksPropertyPodPropertyOutput) Metadatas() GetJobDefinitionEksPropertyPodPropertyMetadataArrayOutput {
 	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodProperty) []GetJobDefinitionEksPropertyPodPropertyMetadata {
@@ -4521,8 +5329,13 @@ func (o GetJobDefinitionEksPropertyPodPropertyOutput) Metadatas() GetJobDefiniti
 }
 
 // The name of the service account that's used to run the pod.
-func (o GetJobDefinitionEksPropertyPodPropertyOutput) ServiceAccountName() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodProperty) bool { return v.ServiceAccountName }).(pulumi.BoolOutput)
+func (o GetJobDefinitionEksPropertyPodPropertyOutput) ServiceAccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodProperty) string { return v.ServiceAccountName }).(pulumi.StringOutput)
+}
+
+// (Optional) Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+func (o GetJobDefinitionEksPropertyPodPropertyOutput) ShareProcessNamespace() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodProperty) bool { return v.ShareProcessNamespace }).(pulumi.BoolOutput)
 }
 
 // A list of data volumes used in a job.
@@ -5186,6 +5999,741 @@ func (o GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayOutput) I
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionEksPropertyPodPropertyContainerVolumeMount {
 		return vs[0].([]GetJobDefinitionEksPropertyPodPropertyContainerVolumeMount)[vs[1].(int)]
 	}).(GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyImagePullSecret struct {
+	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+	Name string `pulumi:"name"`
+}
+
+// GetJobDefinitionEksPropertyPodPropertyImagePullSecretInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyImagePullSecretArgs and GetJobDefinitionEksPropertyPodPropertyImagePullSecretOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyImagePullSecretInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyImagePullSecretArgs{...}
+type GetJobDefinitionEksPropertyPodPropertyImagePullSecretInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyImagePullSecretOutput() GetJobDefinitionEksPropertyPodPropertyImagePullSecretOutput
+	ToGetJobDefinitionEksPropertyPodPropertyImagePullSecretOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyImagePullSecretOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyImagePullSecretArgs struct {
+	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetJobDefinitionEksPropertyPodPropertyImagePullSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyImagePullSecret)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyImagePullSecretArgs) ToGetJobDefinitionEksPropertyPodPropertyImagePullSecretOutput() GetJobDefinitionEksPropertyPodPropertyImagePullSecretOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyImagePullSecretOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyImagePullSecretArgs) ToGetJobDefinitionEksPropertyPodPropertyImagePullSecretOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyImagePullSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyImagePullSecretOutput)
+}
+
+// GetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyImagePullSecretArray and GetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyImagePullSecretArray{ GetJobDefinitionEksPropertyPodPropertyImagePullSecretArgs{...} }
+type GetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayOutput() GetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayOutput
+	ToGetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyImagePullSecretArray []GetJobDefinitionEksPropertyPodPropertyImagePullSecretInput
+
+func (GetJobDefinitionEksPropertyPodPropertyImagePullSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyImagePullSecret)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyImagePullSecretArray) ToGetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayOutput() GetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyImagePullSecretArray) ToGetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyImagePullSecretOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyImagePullSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyImagePullSecret)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyImagePullSecretOutput) ToGetJobDefinitionEksPropertyPodPropertyImagePullSecretOutput() GetJobDefinitionEksPropertyPodPropertyImagePullSecretOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyImagePullSecretOutput) ToGetJobDefinitionEksPropertyPodPropertyImagePullSecretOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyImagePullSecretOutput {
+	return o
+}
+
+// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+func (o GetJobDefinitionEksPropertyPodPropertyImagePullSecretOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyImagePullSecret) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyImagePullSecret)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayOutput() GetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionEksPropertyPodPropertyImagePullSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionEksPropertyPodPropertyImagePullSecret {
+		return vs[0].([]GetJobDefinitionEksPropertyPodPropertyImagePullSecret)[vs[1].(int)]
+	}).(GetJobDefinitionEksPropertyPodPropertyImagePullSecretOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyInitContainer struct {
+	// An array of arguments to the entrypoint
+	Args []string `pulumi:"args"`
+	// The command that's passed to the container.
+	Commands []string `pulumi:"commands"`
+	// The environment variables to pass to a container.  Array of EksContainerEnvironmentVariable objects.
+	Envs []GetJobDefinitionEksPropertyPodPropertyInitContainerEnv `pulumi:"envs"`
+	// The image used to start a container.
+	Image string `pulumi:"image"`
+	// The image pull policy for the container.
+	ImagePullPolicy string `pulumi:"imagePullPolicy"`
+	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+	Name string `pulumi:"name"`
+	// The type and amount of resources to assign to a container.
+	Resources []GetJobDefinitionEksPropertyPodPropertyInitContainerResource `pulumi:"resources"`
+	// The security context for a job.
+	SecurityContexts []GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContext `pulumi:"securityContexts"`
+	// The volume mounts for the container.
+	VolumeMounts []GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMount `pulumi:"volumeMounts"`
+}
+
+// GetJobDefinitionEksPropertyPodPropertyInitContainerInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyInitContainerArgs and GetJobDefinitionEksPropertyPodPropertyInitContainerOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyInitContainerInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyInitContainerArgs{...}
+type GetJobDefinitionEksPropertyPodPropertyInitContainerInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyInitContainerOutput() GetJobDefinitionEksPropertyPodPropertyInitContainerOutput
+	ToGetJobDefinitionEksPropertyPodPropertyInitContainerOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyInitContainerOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyInitContainerArgs struct {
+	// An array of arguments to the entrypoint
+	Args pulumi.StringArrayInput `pulumi:"args"`
+	// The command that's passed to the container.
+	Commands pulumi.StringArrayInput `pulumi:"commands"`
+	// The environment variables to pass to a container.  Array of EksContainerEnvironmentVariable objects.
+	Envs GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayInput `pulumi:"envs"`
+	// The image used to start a container.
+	Image pulumi.StringInput `pulumi:"image"`
+	// The image pull policy for the container.
+	ImagePullPolicy pulumi.StringInput `pulumi:"imagePullPolicy"`
+	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type and amount of resources to assign to a container.
+	Resources GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayInput `pulumi:"resources"`
+	// The security context for a job.
+	SecurityContexts GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayInput `pulumi:"securityContexts"`
+	// The volume mounts for the container.
+	VolumeMounts GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayInput `pulumi:"volumeMounts"`
+}
+
+func (GetJobDefinitionEksPropertyPodPropertyInitContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyInitContainer)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyInitContainerArgs) ToGetJobDefinitionEksPropertyPodPropertyInitContainerOutput() GetJobDefinitionEksPropertyPodPropertyInitContainerOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyInitContainerOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyInitContainerArgs) ToGetJobDefinitionEksPropertyPodPropertyInitContainerOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyInitContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyInitContainerOutput)
+}
+
+// GetJobDefinitionEksPropertyPodPropertyInitContainerArrayInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyInitContainerArray and GetJobDefinitionEksPropertyPodPropertyInitContainerArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyInitContainerArrayInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyInitContainerArray{ GetJobDefinitionEksPropertyPodPropertyInitContainerArgs{...} }
+type GetJobDefinitionEksPropertyPodPropertyInitContainerArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyInitContainerArrayOutput() GetJobDefinitionEksPropertyPodPropertyInitContainerArrayOutput
+	ToGetJobDefinitionEksPropertyPodPropertyInitContainerArrayOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyInitContainerArrayOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyInitContainerArray []GetJobDefinitionEksPropertyPodPropertyInitContainerInput
+
+func (GetJobDefinitionEksPropertyPodPropertyInitContainerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyInitContainer)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyInitContainerArray) ToGetJobDefinitionEksPropertyPodPropertyInitContainerArrayOutput() GetJobDefinitionEksPropertyPodPropertyInitContainerArrayOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyInitContainerArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyInitContainerArray) ToGetJobDefinitionEksPropertyPodPropertyInitContainerArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyInitContainerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyInitContainerArrayOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyInitContainerOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyInitContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyInitContainer)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerOutput) ToGetJobDefinitionEksPropertyPodPropertyInitContainerOutput() GetJobDefinitionEksPropertyPodPropertyInitContainerOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerOutput) ToGetJobDefinitionEksPropertyPodPropertyInitContainerOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyInitContainerOutput {
+	return o
+}
+
+// An array of arguments to the entrypoint
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerOutput) Args() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainer) []string { return v.Args }).(pulumi.StringArrayOutput)
+}
+
+// The command that's passed to the container.
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerOutput) Commands() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
+}
+
+// The environment variables to pass to a container.  Array of EksContainerEnvironmentVariable objects.
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerOutput) Envs() GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainer) []GetJobDefinitionEksPropertyPodPropertyInitContainerEnv {
+		return v.Envs
+	}).(GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayOutput)
+}
+
+// The image used to start a container.
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerOutput) Image() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainer) string { return v.Image }).(pulumi.StringOutput)
+}
+
+// The image pull policy for the container.
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerOutput) ImagePullPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainer) string { return v.ImagePullPolicy }).(pulumi.StringOutput)
+}
+
+// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainer) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type and amount of resources to assign to a container.
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerOutput) Resources() GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainer) []GetJobDefinitionEksPropertyPodPropertyInitContainerResource {
+		return v.Resources
+	}).(GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayOutput)
+}
+
+// The security context for a job.
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerOutput) SecurityContexts() GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainer) []GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContext {
+		return v.SecurityContexts
+	}).(GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayOutput)
+}
+
+// The volume mounts for the container.
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerOutput) VolumeMounts() GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainer) []GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMount {
+		return v.VolumeMounts
+	}).(GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyInitContainerArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyInitContainerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyInitContainer)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyInitContainerArrayOutput() GetJobDefinitionEksPropertyPodPropertyInitContainerArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyInitContainerArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyInitContainerArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionEksPropertyPodPropertyInitContainerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionEksPropertyPodPropertyInitContainer {
+		return vs[0].([]GetJobDefinitionEksPropertyPodPropertyInitContainer)[vs[1].(int)]
+	}).(GetJobDefinitionEksPropertyPodPropertyInitContainerOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyInitContainerEnv struct {
+	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+	Name string `pulumi:"name"`
+	// The quantity of the specified resource to reserve for the container.
+	Value string `pulumi:"value"`
+}
+
+// GetJobDefinitionEksPropertyPodPropertyInitContainerEnvInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArgs and GetJobDefinitionEksPropertyPodPropertyInitContainerEnvOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyInitContainerEnvInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArgs{...}
+type GetJobDefinitionEksPropertyPodPropertyInitContainerEnvInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyInitContainerEnvOutput() GetJobDefinitionEksPropertyPodPropertyInitContainerEnvOutput
+	ToGetJobDefinitionEksPropertyPodPropertyInitContainerEnvOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyInitContainerEnvOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArgs struct {
+	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+	Name pulumi.StringInput `pulumi:"name"`
+	// The quantity of the specified resource to reserve for the container.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyInitContainerEnv)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArgs) ToGetJobDefinitionEksPropertyPodPropertyInitContainerEnvOutput() GetJobDefinitionEksPropertyPodPropertyInitContainerEnvOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyInitContainerEnvOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArgs) ToGetJobDefinitionEksPropertyPodPropertyInitContainerEnvOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyInitContainerEnvOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyInitContainerEnvOutput)
+}
+
+// GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArray and GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArray{ GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArgs{...} }
+type GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayOutput() GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayOutput
+	ToGetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArray []GetJobDefinitionEksPropertyPodPropertyInitContainerEnvInput
+
+func (GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyInitContainerEnv)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArray) ToGetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayOutput() GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArray) ToGetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyInitContainerEnvOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyInitContainerEnvOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyInitContainerEnv)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerEnvOutput) ToGetJobDefinitionEksPropertyPodPropertyInitContainerEnvOutput() GetJobDefinitionEksPropertyPodPropertyInitContainerEnvOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerEnvOutput) ToGetJobDefinitionEksPropertyPodPropertyInitContainerEnvOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyInitContainerEnvOutput {
+	return o
+}
+
+// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerEnvOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainerEnv) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The quantity of the specified resource to reserve for the container.
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerEnvOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainerEnv) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyInitContainerEnv)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayOutput() GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionEksPropertyPodPropertyInitContainerEnvOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionEksPropertyPodPropertyInitContainerEnv {
+		return vs[0].([]GetJobDefinitionEksPropertyPodPropertyInitContainerEnv)[vs[1].(int)]
+	}).(GetJobDefinitionEksPropertyPodPropertyInitContainerEnvOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyInitContainerResource struct {
+	// The type and quantity of the resources to reserve for the container.
+	Limits map[string]string `pulumi:"limits"`
+	// The type and quantity of the resources to request for the container.
+	Requests map[string]string `pulumi:"requests"`
+}
+
+// GetJobDefinitionEksPropertyPodPropertyInitContainerResourceInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArgs and GetJobDefinitionEksPropertyPodPropertyInitContainerResourceOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyInitContainerResourceInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArgs{...}
+type GetJobDefinitionEksPropertyPodPropertyInitContainerResourceInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyInitContainerResourceOutput() GetJobDefinitionEksPropertyPodPropertyInitContainerResourceOutput
+	ToGetJobDefinitionEksPropertyPodPropertyInitContainerResourceOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyInitContainerResourceOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArgs struct {
+	// The type and quantity of the resources to reserve for the container.
+	Limits pulumi.StringMapInput `pulumi:"limits"`
+	// The type and quantity of the resources to request for the container.
+	Requests pulumi.StringMapInput `pulumi:"requests"`
+}
+
+func (GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyInitContainerResource)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArgs) ToGetJobDefinitionEksPropertyPodPropertyInitContainerResourceOutput() GetJobDefinitionEksPropertyPodPropertyInitContainerResourceOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyInitContainerResourceOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArgs) ToGetJobDefinitionEksPropertyPodPropertyInitContainerResourceOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyInitContainerResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyInitContainerResourceOutput)
+}
+
+// GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArray and GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArray{ GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArgs{...} }
+type GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayOutput() GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayOutput
+	ToGetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArray []GetJobDefinitionEksPropertyPodPropertyInitContainerResourceInput
+
+func (GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyInitContainerResource)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArray) ToGetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayOutput() GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArray) ToGetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyInitContainerResourceOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyInitContainerResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyInitContainerResource)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerResourceOutput) ToGetJobDefinitionEksPropertyPodPropertyInitContainerResourceOutput() GetJobDefinitionEksPropertyPodPropertyInitContainerResourceOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerResourceOutput) ToGetJobDefinitionEksPropertyPodPropertyInitContainerResourceOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyInitContainerResourceOutput {
+	return o
+}
+
+// The type and quantity of the resources to reserve for the container.
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerResourceOutput) Limits() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainerResource) map[string]string { return v.Limits }).(pulumi.StringMapOutput)
+}
+
+// The type and quantity of the resources to request for the container.
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerResourceOutput) Requests() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainerResource) map[string]string {
+		return v.Requests
+	}).(pulumi.StringMapOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyInitContainerResource)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayOutput() GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionEksPropertyPodPropertyInitContainerResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionEksPropertyPodPropertyInitContainerResource {
+		return vs[0].([]GetJobDefinitionEksPropertyPodPropertyInitContainerResource)[vs[1].(int)]
+	}).(GetJobDefinitionEksPropertyPodPropertyInitContainerResourceOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContext struct {
+	// When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
+	Privileged             bool `pulumi:"privileged"`
+	ReadOnlyRootFileSystem bool `pulumi:"readOnlyRootFileSystem"`
+	// When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
+	RunAsGroup int `pulumi:"runAsGroup"`
+	// When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
+	RunAsNonRoot bool `pulumi:"runAsNonRoot"`
+	// When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
+	RunAsUser int `pulumi:"runAsUser"`
+}
+
+// GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArgs and GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArgs{...}
+type GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput() GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput
+	ToGetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArgs struct {
+	// When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
+	Privileged             pulumi.BoolInput `pulumi:"privileged"`
+	ReadOnlyRootFileSystem pulumi.BoolInput `pulumi:"readOnlyRootFileSystem"`
+	// When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
+	RunAsGroup pulumi.IntInput `pulumi:"runAsGroup"`
+	// When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
+	RunAsNonRoot pulumi.BoolInput `pulumi:"runAsNonRoot"`
+	// When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
+	RunAsUser pulumi.IntInput `pulumi:"runAsUser"`
+}
+
+func (GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContext)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArgs) ToGetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput() GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArgs) ToGetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput)
+}
+
+// GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArray and GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArray{ GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArgs{...} }
+type GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayOutput() GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayOutput
+	ToGetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArray []GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextInput
+
+func (GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContext)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArray) ToGetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayOutput() GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArray) ToGetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContext)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput) ToGetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput() GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput) ToGetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput {
+	return o
+}
+
+// When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput) Privileged() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContext) bool { return v.Privileged }).(pulumi.BoolOutput)
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput) ReadOnlyRootFileSystem() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContext) bool {
+		return v.ReadOnlyRootFileSystem
+	}).(pulumi.BoolOutput)
+}
+
+// When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput) RunAsGroup() pulumi.IntOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContext) int { return v.RunAsGroup }).(pulumi.IntOutput)
+}
+
+// When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput) RunAsNonRoot() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContext) bool { return v.RunAsNonRoot }).(pulumi.BoolOutput)
+}
+
+// When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput) RunAsUser() pulumi.IntOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContext) int { return v.RunAsUser }).(pulumi.IntOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContext)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayOutput() GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContext {
+		return vs[0].([]GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContext)[vs[1].(int)]
+	}).(GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMount struct {
+	// The path on the container where the volume is mounted.
+	MountPath string `pulumi:"mountPath"`
+	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+	Name string `pulumi:"name"`
+	// If this value is true, the container has read-only access to the volume.
+	ReadOnly bool `pulumi:"readOnly"`
+}
+
+// GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArgs and GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArgs{...}
+type GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountOutput() GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountOutput
+	ToGetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArgs struct {
+	// The path on the container where the volume is mounted.
+	MountPath pulumi.StringInput `pulumi:"mountPath"`
+	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+	Name pulumi.StringInput `pulumi:"name"`
+	// If this value is true, the container has read-only access to the volume.
+	ReadOnly pulumi.BoolInput `pulumi:"readOnly"`
+}
+
+func (GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMount)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArgs) ToGetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountOutput() GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArgs) ToGetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountOutput)
+}
+
+// GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArray and GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArray{ GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArgs{...} }
+type GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayOutput() GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayOutput
+	ToGetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArray []GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountInput
+
+func (GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMount)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArray) ToGetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayOutput() GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArray) ToGetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMount)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountOutput) ToGetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountOutput() GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountOutput) ToGetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountOutput {
+	return o
+}
+
+// The path on the container where the volume is mounted.
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountOutput) MountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMount) string { return v.MountPath }).(pulumi.StringOutput)
+}
+
+// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMount) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// If this value is true, the container has read-only access to the volume.
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountOutput) ReadOnly() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMount) bool { return v.ReadOnly }).(pulumi.BoolOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMount)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayOutput() GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMount {
+		return vs[0].([]GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMount)[vs[1].(int)]
+	}).(GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountOutput)
 }
 
 type GetJobDefinitionEksPropertyPodPropertyMetadata struct {
@@ -9078,6 +10626,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArrayInput)(nil)).Elem(), JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPropertiesPodPropertiesImagePullSecretInput)(nil)).Elem(), JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPropertiesPodPropertiesImagePullSecretArrayInput)(nil)).Elem(), JobDefinitionEksPropertiesPodPropertiesImagePullSecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPropertiesPodPropertiesInitContainerInput)(nil)).Elem(), JobDefinitionEksPropertiesPodPropertiesInitContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPropertiesPodPropertiesInitContainerArrayInput)(nil)).Elem(), JobDefinitionEksPropertiesPodPropertiesInitContainerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPropertiesPodPropertiesInitContainerEnvInput)(nil)).Elem(), JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayInput)(nil)).Elem(), JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesInput)(nil)).Elem(), JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrInput)(nil)).Elem(), JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextInput)(nil)).Elem(), JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrInput)(nil)).Elem(), JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountInput)(nil)).Elem(), JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayInput)(nil)).Elem(), JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPropertiesPodPropertiesMetadataInput)(nil)).Elem(), JobDefinitionEksPropertiesPodPropertiesMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPropertiesPodPropertiesMetadataPtrInput)(nil)).Elem(), JobDefinitionEksPropertiesPodPropertiesMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPropertiesPodPropertiesVolumeInput)(nil)).Elem(), JobDefinitionEksPropertiesPodPropertiesVolumeArgs{})
@@ -9120,6 +10678,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyImagePullSecretInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyImagePullSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyImagePullSecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyInitContainerInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyInitContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyInitContainerArrayInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyInitContainerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyInitContainerEnvInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyInitContainerResourceInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyMetadataInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyMetadataArrayInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyMetadataArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyVolumeInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyVolumeArgs{})
@@ -9212,6 +10782,16 @@ func init() {
 	pulumi.RegisterOutputType(JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArrayOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksPropertiesPodPropertiesImagePullSecretOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksPropertiesPodPropertiesImagePullSecretArrayOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksPropertiesPodPropertiesInitContainerOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksPropertiesPodPropertiesInitContainerArrayOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksPropertiesPodPropertiesInitContainerEnvOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArrayOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksPropertiesPodPropertiesMetadataOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksPropertiesPodPropertiesMetadataPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksPropertiesPodPropertiesVolumeOutput{})
@@ -9254,6 +10834,18 @@ func init() {
 	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayOutput{})
 	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutput{})
 	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyImagePullSecretOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyImagePullSecretArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyInitContainerOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyInitContainerArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyInitContainerEnvOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyInitContainerEnvArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyInitContainerResourceOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountArrayOutput{})
 	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyMetadataOutput{})
 	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyMetadataArrayOutput{})
 	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyVolumeOutput{})

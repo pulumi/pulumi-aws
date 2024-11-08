@@ -18,14 +18,14 @@ public final class DeploymentGroupAlarmConfigurationArgs extends com.pulumi.reso
     public static final DeploymentGroupAlarmConfigurationArgs Empty = new DeploymentGroupAlarmConfigurationArgs();
 
     /**
-     * A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
+     * A list of alarms configured for the deployment group.
      * 
      */
     @Import(name="alarms")
     private @Nullable Output<List<String>> alarms;
 
     /**
-     * @return A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
+     * @return A list of alarms configured for the deployment group.
      * 
      */
     public Optional<Output<List<String>>> alarms() {
@@ -89,7 +89,7 @@ public final class DeploymentGroupAlarmConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param alarms A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
+         * @param alarms A list of alarms configured for the deployment group.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class DeploymentGroupAlarmConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param alarms A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
+         * @param alarms A list of alarms configured for the deployment group.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class DeploymentGroupAlarmConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param alarms A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
+         * @param alarms A list of alarms configured for the deployment group.
          * 
          * @return builder
          * 

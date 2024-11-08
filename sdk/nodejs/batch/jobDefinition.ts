@@ -103,41 +103,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Job Definition of type EKS
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.batch.JobDefinition("test", {
- *     name: " tf_test_batch_job_definition_eks",
- *     type: "container",
- *     eksProperties: {
- *         podProperties: {
- *             hostNetwork: true,
- *             containers: {
- *                 image: "public.ecr.aws/amazonlinux/amazonlinux:1",
- *                 commands: [
- *                     "sleep",
- *                     "60",
- *                 ],
- *                 resources: {
- *                     limits: {
- *                         cpu: "1",
- *                         memory: "1024Mi",
- *                     },
- *                 },
- *             },
- *             metadata: {
- *                 labels: {
- *                     environment: "test",
- *                 },
- *             },
- *         },
- *     },
- * });
- * ```
- *
  * ### Fargate Platform Capability
  *
  * ```typescript

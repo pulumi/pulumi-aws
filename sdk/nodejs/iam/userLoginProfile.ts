@@ -127,6 +127,8 @@ export class UserLoginProfile extends pulumi.CustomResource {
             resourceInputs["password"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(UserLoginProfile.__pulumiType, name, resourceInputs, opts);
     }
 }

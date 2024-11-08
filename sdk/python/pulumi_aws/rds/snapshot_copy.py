@@ -38,7 +38,7 @@ class SnapshotCopyArgs:
         :param pulumi.Input[str] kms_key_id: KMS key ID.
         :param pulumi.Input[str] option_group_name: The name of an option group to associate with the copy of the snapshot.
         :param pulumi.Input[str] presigned_url: he URL that contains a Signature Version 4 signed request.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_accounts: (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] target_custom_availability_zone: The external custom Availability Zone.
         """
@@ -149,7 +149,7 @@ class SnapshotCopyArgs:
     @pulumi.getter(name="sharedAccounts")
     def shared_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+        List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         """
         return pulumi.get(self, "shared_accounts")
 
@@ -224,7 +224,7 @@ class _SnapshotCopyState:
         :param pulumi.Input[str] license_model: License model information for the restored DB instance.
         :param pulumi.Input[str] option_group_name: The name of an option group to associate with the copy of the snapshot.
         :param pulumi.Input[str] presigned_url: he URL that contains a Signature Version 4 signed request.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_accounts: (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         :param pulumi.Input[str] source_db_snapshot_identifier: Snapshot identifier of the source snapshot.
         :param pulumi.Input[str] source_region: The region that the DB snapshot was created in or copied from.
         :param pulumi.Input[str] storage_type: Specifies the storage type associated with DB snapshot.
@@ -455,7 +455,7 @@ class _SnapshotCopyState:
     @pulumi.getter(name="sharedAccounts")
     def shared_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+        List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         """
         return pulumi.get(self, "shared_accounts")
 
@@ -629,7 +629,7 @@ class SnapshotCopy(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: KMS key ID.
         :param pulumi.Input[str] option_group_name: The name of an option group to associate with the copy of the snapshot.
         :param pulumi.Input[str] presigned_url: he URL that contains a Signature Version 4 signed request.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_accounts: (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         :param pulumi.Input[str] source_db_snapshot_identifier: Snapshot identifier of the source snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] target_custom_availability_zone: The external custom Availability Zone.
@@ -793,7 +793,7 @@ class SnapshotCopy(pulumi.CustomResource):
         :param pulumi.Input[str] license_model: License model information for the restored DB instance.
         :param pulumi.Input[str] option_group_name: The name of an option group to associate with the copy of the snapshot.
         :param pulumi.Input[str] presigned_url: he URL that contains a Signature Version 4 signed request.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_accounts: (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         :param pulumi.Input[str] source_db_snapshot_identifier: Snapshot identifier of the source snapshot.
         :param pulumi.Input[str] source_region: The region that the DB snapshot was created in or copied from.
         :param pulumi.Input[str] storage_type: Specifies the storage type associated with DB snapshot.
@@ -946,7 +946,7 @@ class SnapshotCopy(pulumi.CustomResource):
     @pulumi.getter(name="sharedAccounts")
     def shared_accounts(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+        List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         """
         return pulumi.get(self, "shared_accounts")
 

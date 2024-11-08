@@ -3,10 +3,12 @@
 
 package com.pulumi.aws.eks.inputs;
 
+import com.pulumi.aws.eks.inputs.AddonPodIdentityAssociationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -128,6 +130,21 @@ public final class AddonState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> modifiedAt() {
         return Optional.ofNullable(this.modifiedAt);
+    }
+
+    /**
+     * Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
+     * 
+     */
+    @Import(name="podIdentityAssociations")
+    private @Nullable Output<List<AddonPodIdentityAssociationArgs>> podIdentityAssociations;
+
+    /**
+     * @return Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
+     * 
+     */
+    public Optional<Output<List<AddonPodIdentityAssociationArgs>>> podIdentityAssociations() {
+        return Optional.ofNullable(this.podIdentityAssociations);
     }
 
     /**
@@ -281,6 +298,7 @@ public final class AddonState extends com.pulumi.resources.ResourceArgs {
         this.configurationValues = $.configurationValues;
         this.createdAt = $.createdAt;
         this.modifiedAt = $.modifiedAt;
+        this.podIdentityAssociations = $.podIdentityAssociations;
         this.preserve = $.preserve;
         this.resolveConflicts = $.resolveConflicts;
         this.resolveConflictsOnCreate = $.resolveConflictsOnCreate;
@@ -461,6 +479,37 @@ public final class AddonState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder modifiedAt(String modifiedAt) {
             return modifiedAt(Output.of(modifiedAt));
+        }
+
+        /**
+         * @param podIdentityAssociations Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder podIdentityAssociations(@Nullable Output<List<AddonPodIdentityAssociationArgs>> podIdentityAssociations) {
+            $.podIdentityAssociations = podIdentityAssociations;
+            return this;
+        }
+
+        /**
+         * @param podIdentityAssociations Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder podIdentityAssociations(List<AddonPodIdentityAssociationArgs> podIdentityAssociations) {
+            return podIdentityAssociations(Output.of(podIdentityAssociations));
+        }
+
+        /**
+         * @param podIdentityAssociations Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder podIdentityAssociations(AddonPodIdentityAssociationArgs... podIdentityAssociations) {
+            return podIdentityAssociations(List.of(podIdentityAssociations));
         }
 
         /**

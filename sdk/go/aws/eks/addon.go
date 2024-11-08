@@ -257,6 +257,8 @@ type Addon struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
 	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
+	// Configuration block with EKS Pod Identity association settings. See `podIdentityAssociation` below for details.
+	PodIdentityAssociations AddonPodIdentityAssociationArrayOutput `pulumi:"podIdentityAssociations"`
 	// Indicates if you want to preserve the created resources when deleting the EKS add-on.
 	Preserve pulumi.BoolPtrOutput `pulumi:"preserve"`
 	// Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolveConflictsOnCreate` and `resolveConflictsOnUpdate` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
@@ -341,6 +343,8 @@ type addonState struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
 	ModifiedAt *string `pulumi:"modifiedAt"`
+	// Configuration block with EKS Pod Identity association settings. See `podIdentityAssociation` below for details.
+	PodIdentityAssociations []AddonPodIdentityAssociation `pulumi:"podIdentityAssociations"`
 	// Indicates if you want to preserve the created resources when deleting the EKS add-on.
 	Preserve *bool `pulumi:"preserve"`
 	// Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolveConflictsOnCreate` and `resolveConflictsOnUpdate` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
@@ -390,6 +394,8 @@ type AddonState struct {
 	CreatedAt pulumi.StringPtrInput
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
 	ModifiedAt pulumi.StringPtrInput
+	// Configuration block with EKS Pod Identity association settings. See `podIdentityAssociation` below for details.
+	PodIdentityAssociations AddonPodIdentityAssociationArrayInput
 	// Indicates if you want to preserve the created resources when deleting the EKS add-on.
 	Preserve pulumi.BoolPtrInput
 	// Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolveConflictsOnCreate` and `resolveConflictsOnUpdate` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
@@ -437,6 +443,8 @@ type addonArgs struct {
 	ClusterName string `pulumi:"clusterName"`
 	// custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
 	ConfigurationValues *string `pulumi:"configurationValues"`
+	// Configuration block with EKS Pod Identity association settings. See `podIdentityAssociation` below for details.
+	PodIdentityAssociations []AddonPodIdentityAssociation `pulumi:"podIdentityAssociations"`
 	// Indicates if you want to preserve the created resources when deleting the EKS add-on.
 	Preserve *bool `pulumi:"preserve"`
 	// Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolveConflictsOnCreate` and `resolveConflictsOnUpdate` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
@@ -477,6 +485,8 @@ type AddonArgs struct {
 	ClusterName pulumi.StringInput
 	// custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
 	ConfigurationValues pulumi.StringPtrInput
+	// Configuration block with EKS Pod Identity association settings. See `podIdentityAssociation` below for details.
+	PodIdentityAssociations AddonPodIdentityAssociationArrayInput
 	// Indicates if you want to preserve the created resources when deleting the EKS add-on.
 	Preserve pulumi.BoolPtrInput
 	// Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolveConflictsOnCreate` and `resolveConflictsOnUpdate` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
@@ -627,6 +637,11 @@ func (o AddonOutput) CreatedAt() pulumi.StringOutput {
 // Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
 func (o AddonOutput) ModifiedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Addon) pulumi.StringOutput { return v.ModifiedAt }).(pulumi.StringOutput)
+}
+
+// Configuration block with EKS Pod Identity association settings. See `podIdentityAssociation` below for details.
+func (o AddonOutput) PodIdentityAssociations() AddonPodIdentityAssociationArrayOutput {
+	return o.ApplyT(func(v *Addon) AddonPodIdentityAssociationArrayOutput { return v.PodIdentityAssociations }).(AddonPodIdentityAssociationArrayOutput)
 }
 
 // Indicates if you want to preserve the created resources when deleting the EKS add-on.

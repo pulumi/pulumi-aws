@@ -4,6 +4,8 @@
 package com.pulumi.aws.batch.outputs;
 
 import com.pulumi.aws.batch.outputs.GetJobDefinitionEksPropertyPodPropertyContainer;
+import com.pulumi.aws.batch.outputs.GetJobDefinitionEksPropertyPodPropertyImagePullSecret;
+import com.pulumi.aws.batch.outputs.GetJobDefinitionEksPropertyPodPropertyInitContainer;
 import com.pulumi.aws.batch.outputs.GetJobDefinitionEksPropertyPodPropertyMetadata;
 import com.pulumi.aws.batch.outputs.GetJobDefinitionEksPropertyPodPropertyVolume;
 import com.pulumi.core.annotations.CustomType;
@@ -16,7 +18,7 @@ import java.util.Objects;
 @CustomType
 public final class GetJobDefinitionEksPropertyPodProperty {
     /**
-     * @return The properties of the container that&#39;s used on the Amazon EKS pod. Array of EksContainer objects.
+     * @return The properties of the container that&#39;s used on the Amazon EKS pod. See containers below.
      * 
      */
     private List<GetJobDefinitionEksPropertyPodPropertyContainer> containers;
@@ -30,6 +32,12 @@ public final class GetJobDefinitionEksPropertyPodProperty {
      * 
      */
     private Boolean hostNetwork;
+    private List<GetJobDefinitionEksPropertyPodPropertyImagePullSecret> imagePullSecrets;
+    /**
+     * @return Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+     * 
+     */
+    private List<GetJobDefinitionEksPropertyPodPropertyInitContainer> initContainers;
     /**
      * @return Metadata about the Kubernetes pod.
      * 
@@ -39,7 +47,12 @@ public final class GetJobDefinitionEksPropertyPodProperty {
      * @return The name of the service account that&#39;s used to run the pod.
      * 
      */
-    private Boolean serviceAccountName;
+    private String serviceAccountName;
+    /**
+     * @return (Optional) Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+     * 
+     */
+    private Boolean shareProcessNamespace;
     /**
      * @return A list of data volumes used in a job.
      * 
@@ -48,7 +61,7 @@ public final class GetJobDefinitionEksPropertyPodProperty {
 
     private GetJobDefinitionEksPropertyPodProperty() {}
     /**
-     * @return The properties of the container that&#39;s used on the Amazon EKS pod. Array of EksContainer objects.
+     * @return The properties of the container that&#39;s used on the Amazon EKS pod. See containers below.
      * 
      */
     public List<GetJobDefinitionEksPropertyPodPropertyContainer> containers() {
@@ -68,6 +81,16 @@ public final class GetJobDefinitionEksPropertyPodProperty {
     public Boolean hostNetwork() {
         return this.hostNetwork;
     }
+    public List<GetJobDefinitionEksPropertyPodPropertyImagePullSecret> imagePullSecrets() {
+        return this.imagePullSecrets;
+    }
+    /**
+     * @return Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+     * 
+     */
+    public List<GetJobDefinitionEksPropertyPodPropertyInitContainer> initContainers() {
+        return this.initContainers;
+    }
     /**
      * @return Metadata about the Kubernetes pod.
      * 
@@ -79,8 +102,15 @@ public final class GetJobDefinitionEksPropertyPodProperty {
      * @return The name of the service account that&#39;s used to run the pod.
      * 
      */
-    public Boolean serviceAccountName() {
+    public String serviceAccountName() {
         return this.serviceAccountName;
+    }
+    /**
+     * @return (Optional) Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+     * 
+     */
+    public Boolean shareProcessNamespace() {
+        return this.shareProcessNamespace;
     }
     /**
      * @return A list of data volumes used in a job.
@@ -102,8 +132,11 @@ public final class GetJobDefinitionEksPropertyPodProperty {
         private List<GetJobDefinitionEksPropertyPodPropertyContainer> containers;
         private String dnsPolicy;
         private Boolean hostNetwork;
+        private List<GetJobDefinitionEksPropertyPodPropertyImagePullSecret> imagePullSecrets;
+        private List<GetJobDefinitionEksPropertyPodPropertyInitContainer> initContainers;
         private List<GetJobDefinitionEksPropertyPodPropertyMetadata> metadatas;
-        private Boolean serviceAccountName;
+        private String serviceAccountName;
+        private Boolean shareProcessNamespace;
         private List<GetJobDefinitionEksPropertyPodPropertyVolume> volumes;
         public Builder() {}
         public Builder(GetJobDefinitionEksPropertyPodProperty defaults) {
@@ -111,8 +144,11 @@ public final class GetJobDefinitionEksPropertyPodProperty {
     	      this.containers = defaults.containers;
     	      this.dnsPolicy = defaults.dnsPolicy;
     	      this.hostNetwork = defaults.hostNetwork;
+    	      this.imagePullSecrets = defaults.imagePullSecrets;
+    	      this.initContainers = defaults.initContainers;
     	      this.metadatas = defaults.metadatas;
     	      this.serviceAccountName = defaults.serviceAccountName;
+    	      this.shareProcessNamespace = defaults.shareProcessNamespace;
     	      this.volumes = defaults.volumes;
         }
 
@@ -144,6 +180,28 @@ public final class GetJobDefinitionEksPropertyPodProperty {
             return this;
         }
         @CustomType.Setter
+        public Builder imagePullSecrets(List<GetJobDefinitionEksPropertyPodPropertyImagePullSecret> imagePullSecrets) {
+            if (imagePullSecrets == null) {
+              throw new MissingRequiredPropertyException("GetJobDefinitionEksPropertyPodProperty", "imagePullSecrets");
+            }
+            this.imagePullSecrets = imagePullSecrets;
+            return this;
+        }
+        public Builder imagePullSecrets(GetJobDefinitionEksPropertyPodPropertyImagePullSecret... imagePullSecrets) {
+            return imagePullSecrets(List.of(imagePullSecrets));
+        }
+        @CustomType.Setter
+        public Builder initContainers(List<GetJobDefinitionEksPropertyPodPropertyInitContainer> initContainers) {
+            if (initContainers == null) {
+              throw new MissingRequiredPropertyException("GetJobDefinitionEksPropertyPodProperty", "initContainers");
+            }
+            this.initContainers = initContainers;
+            return this;
+        }
+        public Builder initContainers(GetJobDefinitionEksPropertyPodPropertyInitContainer... initContainers) {
+            return initContainers(List.of(initContainers));
+        }
+        @CustomType.Setter
         public Builder metadatas(List<GetJobDefinitionEksPropertyPodPropertyMetadata> metadatas) {
             if (metadatas == null) {
               throw new MissingRequiredPropertyException("GetJobDefinitionEksPropertyPodProperty", "metadatas");
@@ -155,11 +213,19 @@ public final class GetJobDefinitionEksPropertyPodProperty {
             return metadatas(List.of(metadatas));
         }
         @CustomType.Setter
-        public Builder serviceAccountName(Boolean serviceAccountName) {
+        public Builder serviceAccountName(String serviceAccountName) {
             if (serviceAccountName == null) {
               throw new MissingRequiredPropertyException("GetJobDefinitionEksPropertyPodProperty", "serviceAccountName");
             }
             this.serviceAccountName = serviceAccountName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder shareProcessNamespace(Boolean shareProcessNamespace) {
+            if (shareProcessNamespace == null) {
+              throw new MissingRequiredPropertyException("GetJobDefinitionEksPropertyPodProperty", "shareProcessNamespace");
+            }
+            this.shareProcessNamespace = shareProcessNamespace;
             return this;
         }
         @CustomType.Setter
@@ -178,8 +244,11 @@ public final class GetJobDefinitionEksPropertyPodProperty {
             _resultValue.containers = containers;
             _resultValue.dnsPolicy = dnsPolicy;
             _resultValue.hostNetwork = hostNetwork;
+            _resultValue.imagePullSecrets = imagePullSecrets;
+            _resultValue.initContainers = initContainers;
             _resultValue.metadatas = metadatas;
             _resultValue.serviceAccountName = serviceAccountName;
+            _resultValue.shareProcessNamespace = shareProcessNamespace;
             _resultValue.volumes = volumes;
             return _resultValue;
         }

@@ -4,18 +4,17 @@
 package com.pulumi.aws.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class BillingGroupMetadata {
-    private @Nullable String creationDate;
+    private String creationDate;
 
     private BillingGroupMetadata() {}
-    public Optional<String> creationDate() {
-        return Optional.ofNullable(this.creationDate);
+    public String creationDate() {
+        return this.creationDate;
     }
 
     public static Builder builder() {
@@ -27,7 +26,7 @@ public final class BillingGroupMetadata {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String creationDate;
+        private String creationDate;
         public Builder() {}
         public Builder(BillingGroupMetadata defaults) {
     	      Objects.requireNonNull(defaults);
@@ -35,8 +34,10 @@ public final class BillingGroupMetadata {
         }
 
         @CustomType.Setter
-        public Builder creationDate(@Nullable String creationDate) {
-
+        public Builder creationDate(String creationDate) {
+            if (creationDate == null) {
+              throw new MissingRequiredPropertyException("BillingGroupMetadata", "creationDate");
+            }
             this.creationDate = creationDate;
             return this;
         }

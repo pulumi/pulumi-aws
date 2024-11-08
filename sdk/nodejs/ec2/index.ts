@@ -340,6 +340,11 @@ export const getSerialConsoleAccess: typeof import("./getSerialConsoleAccess").g
 export const getSerialConsoleAccessOutput: typeof import("./getSerialConsoleAccess").getSerialConsoleAccessOutput = null as any;
 utilities.lazyLoad(exports, ["getSerialConsoleAccess","getSerialConsoleAccessOutput"], () => require("./getSerialConsoleAccess"));
 
+export { GetSpotDatafeedSubscriptionResult } from "./getSpotDatafeedSubscription";
+export const getSpotDatafeedSubscription: typeof import("./getSpotDatafeedSubscription").getSpotDatafeedSubscription = null as any;
+export const getSpotDatafeedSubscriptionOutput: typeof import("./getSpotDatafeedSubscription").getSpotDatafeedSubscriptionOutput = null as any;
+utilities.lazyLoad(exports, ["getSpotDatafeedSubscription","getSpotDatafeedSubscriptionOutput"], () => require("./getSpotDatafeedSubscription"));
+
 export { GetSpotPriceArgs, GetSpotPriceResult, GetSpotPriceOutputArgs } from "./getSpotPrice";
 export const getSpotPrice: typeof import("./getSpotPrice").getSpotPrice = null as any;
 export const getSpotPriceOutput: typeof import("./getSpotPrice").getSpotPriceOutput = null as any;

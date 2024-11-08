@@ -250,6 +250,12 @@ namespace Pulumi.Aws.Eks
         public Output<string> ModifiedAt { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
+        /// </summary>
+        [Output("podIdentityAssociations")]
+        public Output<ImmutableArray<Outputs.AddonPodIdentityAssociation>> PodIdentityAssociations { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates if you want to preserve the created resources when deleting the EKS add-on.
         /// </summary>
         [Output("preserve")]
@@ -375,6 +381,18 @@ namespace Pulumi.Aws.Eks
         [Input("configurationValues")]
         public Input<string>? ConfigurationValues { get; set; }
 
+        [Input("podIdentityAssociations")]
+        private InputList<Inputs.AddonPodIdentityAssociationArgs>? _podIdentityAssociations;
+
+        /// <summary>
+        /// Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
+        /// </summary>
+        public InputList<Inputs.AddonPodIdentityAssociationArgs> PodIdentityAssociations
+        {
+            get => _podIdentityAssociations ?? (_podIdentityAssociations = new InputList<Inputs.AddonPodIdentityAssociationArgs>());
+            set => _podIdentityAssociations = value;
+        }
+
         /// <summary>
         /// Indicates if you want to preserve the created resources when deleting the EKS add-on.
         /// </summary>
@@ -480,6 +498,18 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("modifiedAt")]
         public Input<string>? ModifiedAt { get; set; }
+
+        [Input("podIdentityAssociations")]
+        private InputList<Inputs.AddonPodIdentityAssociationGetArgs>? _podIdentityAssociations;
+
+        /// <summary>
+        /// Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
+        /// </summary>
+        public InputList<Inputs.AddonPodIdentityAssociationGetArgs> PodIdentityAssociations
+        {
+            get => _podIdentityAssociations ?? (_podIdentityAssociations = new InputList<Inputs.AddonPodIdentityAssociationGetArgs>());
+            set => _podIdentityAssociations = value;
+        }
 
         /// <summary>
         /// Indicates if you want to preserve the created resources when deleting the EKS add-on.

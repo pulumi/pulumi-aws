@@ -5,6 +5,7 @@ package com.pulumi.aws.batch.outputs;
 
 import com.pulumi.aws.batch.outputs.JobDefinitionEksPropertiesPodPropertiesContainers;
 import com.pulumi.aws.batch.outputs.JobDefinitionEksPropertiesPodPropertiesImagePullSecret;
+import com.pulumi.aws.batch.outputs.JobDefinitionEksPropertiesPodPropertiesInitContainer;
 import com.pulumi.aws.batch.outputs.JobDefinitionEksPropertiesPodPropertiesMetadata;
 import com.pulumi.aws.batch.outputs.JobDefinitionEksPropertiesPodPropertiesVolume;
 import com.pulumi.core.annotations.CustomType;
@@ -39,6 +40,11 @@ public final class JobDefinitionEksPropertiesPodProperties {
      */
     private @Nullable List<JobDefinitionEksPropertiesPodPropertiesImagePullSecret> imagePullSecrets;
     /**
+     * @return Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+     * 
+     */
+    private @Nullable List<JobDefinitionEksPropertiesPodPropertiesInitContainer> initContainers;
+    /**
      * @return Metadata about the Kubernetes pod.
      * 
      */
@@ -48,6 +54,11 @@ public final class JobDefinitionEksPropertiesPodProperties {
      * 
      */
     private @Nullable String serviceAccountName;
+    /**
+     * @return Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+     * 
+     */
+    private @Nullable Boolean shareProcessNamespace;
     /**
      * @return Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
      * 
@@ -84,6 +95,13 @@ public final class JobDefinitionEksPropertiesPodProperties {
         return this.imagePullSecrets == null ? List.of() : this.imagePullSecrets;
     }
     /**
+     * @return Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+     * 
+     */
+    public List<JobDefinitionEksPropertiesPodPropertiesInitContainer> initContainers() {
+        return this.initContainers == null ? List.of() : this.initContainers;
+    }
+    /**
      * @return Metadata about the Kubernetes pod.
      * 
      */
@@ -96,6 +114,13 @@ public final class JobDefinitionEksPropertiesPodProperties {
      */
     public Optional<String> serviceAccountName() {
         return Optional.ofNullable(this.serviceAccountName);
+    }
+    /**
+     * @return Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+     * 
+     */
+    public Optional<Boolean> shareProcessNamespace() {
+        return Optional.ofNullable(this.shareProcessNamespace);
     }
     /**
      * @return Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
@@ -118,8 +143,10 @@ public final class JobDefinitionEksPropertiesPodProperties {
         private @Nullable String dnsPolicy;
         private @Nullable Boolean hostNetwork;
         private @Nullable List<JobDefinitionEksPropertiesPodPropertiesImagePullSecret> imagePullSecrets;
+        private @Nullable List<JobDefinitionEksPropertiesPodPropertiesInitContainer> initContainers;
         private @Nullable JobDefinitionEksPropertiesPodPropertiesMetadata metadata;
         private @Nullable String serviceAccountName;
+        private @Nullable Boolean shareProcessNamespace;
         private @Nullable List<JobDefinitionEksPropertiesPodPropertiesVolume> volumes;
         public Builder() {}
         public Builder(JobDefinitionEksPropertiesPodProperties defaults) {
@@ -128,8 +155,10 @@ public final class JobDefinitionEksPropertiesPodProperties {
     	      this.dnsPolicy = defaults.dnsPolicy;
     	      this.hostNetwork = defaults.hostNetwork;
     	      this.imagePullSecrets = defaults.imagePullSecrets;
+    	      this.initContainers = defaults.initContainers;
     	      this.metadata = defaults.metadata;
     	      this.serviceAccountName = defaults.serviceAccountName;
+    	      this.shareProcessNamespace = defaults.shareProcessNamespace;
     	      this.volumes = defaults.volumes;
         }
 
@@ -163,6 +192,15 @@ public final class JobDefinitionEksPropertiesPodProperties {
             return imagePullSecrets(List.of(imagePullSecrets));
         }
         @CustomType.Setter
+        public Builder initContainers(@Nullable List<JobDefinitionEksPropertiesPodPropertiesInitContainer> initContainers) {
+
+            this.initContainers = initContainers;
+            return this;
+        }
+        public Builder initContainers(JobDefinitionEksPropertiesPodPropertiesInitContainer... initContainers) {
+            return initContainers(List.of(initContainers));
+        }
+        @CustomType.Setter
         public Builder metadata(@Nullable JobDefinitionEksPropertiesPodPropertiesMetadata metadata) {
 
             this.metadata = metadata;
@@ -172,6 +210,12 @@ public final class JobDefinitionEksPropertiesPodProperties {
         public Builder serviceAccountName(@Nullable String serviceAccountName) {
 
             this.serviceAccountName = serviceAccountName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder shareProcessNamespace(@Nullable Boolean shareProcessNamespace) {
+
+            this.shareProcessNamespace = shareProcessNamespace;
             return this;
         }
         @CustomType.Setter
@@ -189,8 +233,10 @@ public final class JobDefinitionEksPropertiesPodProperties {
             _resultValue.dnsPolicy = dnsPolicy;
             _resultValue.hostNetwork = hostNetwork;
             _resultValue.imagePullSecrets = imagePullSecrets;
+            _resultValue.initContainers = initContainers;
             _resultValue.metadata = metadata;
             _resultValue.serviceAccountName = serviceAccountName;
+            _resultValue.shareProcessNamespace = shareProcessNamespace;
             _resultValue.volumes = volumes;
             return _resultValue;
         }

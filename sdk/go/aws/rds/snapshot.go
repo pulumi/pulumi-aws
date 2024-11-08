@@ -91,7 +91,7 @@ type Snapshot struct {
 	// Provides the option group name for the DB snapshot.
 	OptionGroupName pulumi.StringOutput `pulumi:"optionGroupName"`
 	Port            pulumi.IntOutput    `pulumi:"port"`
-	// List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+	// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
 	SharedAccounts pulumi.StringArrayOutput `pulumi:"sharedAccounts"`
 	SnapshotType   pulumi.StringOutput      `pulumi:"snapshotType"`
 	// The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
@@ -173,7 +173,7 @@ type snapshotState struct {
 	// Provides the option group name for the DB snapshot.
 	OptionGroupName *string `pulumi:"optionGroupName"`
 	Port            *int    `pulumi:"port"`
-	// List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+	// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
 	SharedAccounts []string `pulumi:"sharedAccounts"`
 	SnapshotType   *string  `pulumi:"snapshotType"`
 	// The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
@@ -220,7 +220,7 @@ type SnapshotState struct {
 	// Provides the option group name for the DB snapshot.
 	OptionGroupName pulumi.StringPtrInput
 	Port            pulumi.IntPtrInput
-	// List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+	// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
 	SharedAccounts pulumi.StringArrayInput
 	SnapshotType   pulumi.StringPtrInput
 	// The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
@@ -250,7 +250,7 @@ type snapshotArgs struct {
 	DbInstanceIdentifier string `pulumi:"dbInstanceIdentifier"`
 	// The Identifier for the snapshot.
 	DbSnapshotIdentifier string `pulumi:"dbSnapshotIdentifier"`
-	// List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+	// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
 	SharedAccounts []string `pulumi:"sharedAccounts"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -262,7 +262,7 @@ type SnapshotArgs struct {
 	DbInstanceIdentifier pulumi.StringInput
 	// The Identifier for the snapshot.
 	DbSnapshotIdentifier pulumi.StringInput
-	// List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+	// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
 	SharedAccounts pulumi.StringArrayInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -419,7 +419,7 @@ func (o SnapshotOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
 }
 
-// List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
 func (o SnapshotOutput) SharedAccounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringArrayOutput { return v.SharedAccounts }).(pulumi.StringArrayOutput)
 }

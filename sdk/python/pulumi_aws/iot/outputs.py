@@ -107,13 +107,12 @@ class BillingGroupMetadata(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 creation_date: Optional[str] = None):
-        if creation_date is not None:
-            pulumi.set(__self__, "creation_date", creation_date)
+                 creation_date: str):
+        pulumi.set(__self__, "creation_date", creation_date)
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> Optional[str]:
+    def creation_date(self) -> str:
         return pulumi.get(self, "creation_date")
 
 

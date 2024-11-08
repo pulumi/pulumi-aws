@@ -173,6 +173,7 @@ import com.pulumi.aws.ec2.outputs.GetRouteTablesResult;
 import com.pulumi.aws.ec2.outputs.GetSecurityGroupResult;
 import com.pulumi.aws.ec2.outputs.GetSecurityGroupsResult;
 import com.pulumi.aws.ec2.outputs.GetSerialConsoleAccessResult;
+import com.pulumi.aws.ec2.outputs.GetSpotDatafeedSubscriptionResult;
 import com.pulumi.aws.ec2.outputs.GetSpotPriceResult;
 import com.pulumi.aws.ec2.outputs.GetSubnetResult;
 import com.pulumi.aws.ec2.outputs.GetSubnetsResult;
@@ -15024,6 +15025,252 @@ public final class Ec2Functions {
      */
     public static CompletableFuture<GetSerialConsoleAccessResult> getSerialConsoleAccessPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess", TypeShape.of(GetSerialConsoleAccessResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; There is only a single spot data feed subscription per account.
+     * 
+     * Data source for accessing an AWS EC2 (Elastic Compute Cloud) spot data feed subscription.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var default = Ec2Functions.getSpotDatafeedSubscription();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetSpotDatafeedSubscriptionResult> getSpotDatafeedSubscription() {
+        return getSpotDatafeedSubscription(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; There is only a single spot data feed subscription per account.
+     * 
+     * Data source for accessing an AWS EC2 (Elastic Compute Cloud) spot data feed subscription.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var default = Ec2Functions.getSpotDatafeedSubscription();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetSpotDatafeedSubscriptionResult> getSpotDatafeedSubscriptionPlain() {
+        return getSpotDatafeedSubscriptionPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; There is only a single spot data feed subscription per account.
+     * 
+     * Data source for accessing an AWS EC2 (Elastic Compute Cloud) spot data feed subscription.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var default = Ec2Functions.getSpotDatafeedSubscription();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetSpotDatafeedSubscriptionResult> getSpotDatafeedSubscription(InvokeArgs args) {
+        return getSpotDatafeedSubscription(args, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; There is only a single spot data feed subscription per account.
+     * 
+     * Data source for accessing an AWS EC2 (Elastic Compute Cloud) spot data feed subscription.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var default = Ec2Functions.getSpotDatafeedSubscription();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetSpotDatafeedSubscriptionResult> getSpotDatafeedSubscriptionPlain(InvokeArgs args) {
+        return getSpotDatafeedSubscriptionPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; There is only a single spot data feed subscription per account.
+     * 
+     * Data source for accessing an AWS EC2 (Elastic Compute Cloud) spot data feed subscription.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var default = Ec2Functions.getSpotDatafeedSubscription();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetSpotDatafeedSubscriptionResult> getSpotDatafeedSubscription(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ec2/getSpotDatafeedSubscription:getSpotDatafeedSubscription", TypeShape.of(GetSpotDatafeedSubscriptionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; There is only a single spot data feed subscription per account.
+     * 
+     * Data source for accessing an AWS EC2 (Elastic Compute Cloud) spot data feed subscription.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var default = Ec2Functions.getSpotDatafeedSubscription();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetSpotDatafeedSubscriptionResult> getSpotDatafeedSubscriptionPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ec2/getSpotDatafeedSubscription:getSpotDatafeedSubscription", TypeShape.of(GetSpotDatafeedSubscriptionResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Information about most recent Spot Price for a given EC2 instance.

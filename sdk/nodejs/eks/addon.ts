@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -186,6 +189,10 @@ export class Addon extends pulumi.CustomResource {
      */
     public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
     /**
+     * Configuration block with EKS Pod Identity association settings. See `podIdentityAssociation` below for details.
+     */
+    public readonly podIdentityAssociations!: pulumi.Output<outputs.eks.AddonPodIdentityAssociation[] | undefined>;
+    /**
      * Indicates if you want to preserve the created resources when deleting the EKS add-on.
      */
     public readonly preserve!: pulumi.Output<boolean | undefined>;
@@ -248,6 +255,7 @@ export class Addon extends pulumi.CustomResource {
             resourceInputs["configurationValues"] = state ? state.configurationValues : undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
             resourceInputs["modifiedAt"] = state ? state.modifiedAt : undefined;
+            resourceInputs["podIdentityAssociations"] = state ? state.podIdentityAssociations : undefined;
             resourceInputs["preserve"] = state ? state.preserve : undefined;
             resourceInputs["resolveConflicts"] = state ? state.resolveConflicts : undefined;
             resourceInputs["resolveConflictsOnCreate"] = state ? state.resolveConflictsOnCreate : undefined;
@@ -267,6 +275,7 @@ export class Addon extends pulumi.CustomResource {
             resourceInputs["addonVersion"] = args ? args.addonVersion : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["configurationValues"] = args ? args.configurationValues : undefined;
+            resourceInputs["podIdentityAssociations"] = args ? args.podIdentityAssociations : undefined;
             resourceInputs["preserve"] = args ? args.preserve : undefined;
             resourceInputs["resolveConflicts"] = args ? args.resolveConflicts : undefined;
             resourceInputs["resolveConflictsOnCreate"] = args ? args.resolveConflictsOnCreate : undefined;
@@ -319,6 +328,10 @@ export interface AddonState {
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
      */
     modifiedAt?: pulumi.Input<string>;
+    /**
+     * Configuration block with EKS Pod Identity association settings. See `podIdentityAssociation` below for details.
+     */
+    podIdentityAssociations?: pulumi.Input<pulumi.Input<inputs.eks.AddonPodIdentityAssociation>[]>;
     /**
      * Indicates if you want to preserve the created resources when deleting the EKS add-on.
      */
@@ -387,6 +400,10 @@ export interface AddonArgs {
      * custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
      */
     configurationValues?: pulumi.Input<string>;
+    /**
+     * Configuration block with EKS Pod Identity association settings. See `podIdentityAssociation` below for details.
+     */
+    podIdentityAssociations?: pulumi.Input<pulumi.Input<inputs.eks.AddonPodIdentityAssociation>[]>;
     /**
      * Indicates if you want to preserve the created resources when deleting the EKS add-on.
      */

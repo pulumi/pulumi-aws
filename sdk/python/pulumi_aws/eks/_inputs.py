@@ -17,6 +17,8 @@ from .. import _utilities
 __all__ = [
     'AccessPolicyAssociationAccessScopeArgs',
     'AccessPolicyAssociationAccessScopeArgsDict',
+    'AddonPodIdentityAssociationArgs',
+    'AddonPodIdentityAssociationArgsDict',
     'ClusterAccessConfigArgs',
     'ClusterAccessConfigArgsDict',
     'ClusterCertificateAuthorityArgs',
@@ -112,6 +114,56 @@ class AccessPolicyAssociationAccessScopeArgs:
     @namespaces.setter
     def namespaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "namespaces", value)
+
+
+if not MYPY:
+    class AddonPodIdentityAssociationArgsDict(TypedDict):
+        role_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+        """
+        service_account: pulumi.Input[str]
+        """
+        The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
+        """
+elif False:
+    AddonPodIdentityAssociationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AddonPodIdentityAssociationArgs:
+    def __init__(__self__, *,
+                 role_arn: pulumi.Input[str],
+                 service_account: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+        :param pulumi.Input[str] service_account: The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "service_account", service_account)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="serviceAccount")
+    def service_account(self) -> pulumi.Input[str]:
+        """
+        The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
+        """
+        return pulumi.get(self, "service_account")
+
+    @service_account.setter
+    def service_account(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_account", value)
 
 
 if not MYPY:

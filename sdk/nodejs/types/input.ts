@@ -2537,6 +2537,10 @@ export namespace apigateway {
 
     export interface StageCanarySettings {
         /**
+         * ID of the deployment that the canary points to.
+         */
+        deploymentId: pulumi.Input<string>;
+        /**
          * Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
          */
         percentTraffic?: pulumi.Input<number>;
@@ -9752,6 +9756,10 @@ export namespace batch {
          */
         imagePullSecrets?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesImagePullSecret>[]>;
         /**
+         * Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+         */
+        initContainers?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesInitContainer>[]>;
+        /**
          * Metadata about the Kubernetes pod.
          */
         metadata?: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesMetadata>;
@@ -9759,6 +9767,10 @@ export namespace batch {
          * Name of the service account that's used to run the pod.
          */
         serviceAccountName?: pulumi.Input<string>;
+        /**
+         * Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+         */
+        shareProcessNamespace?: pulumi.Input<boolean>;
         /**
          * Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
          */
@@ -9844,7 +9856,82 @@ export namespace batch {
         name: pulumi.Input<string>;
     }
 
+    export interface JobDefinitionEksPropertiesPodPropertiesInitContainer {
+        /**
+         * Array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
+         */
+        args?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
+         */
+        commands?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Environment variables to pass to a container. See EKS Environment below.
+         */
+        envs?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesInitContainerEnv>[]>;
+        /**
+         * Docker image used to start the container.
+         */
+        image: pulumi.Input<string>;
+        /**
+         * Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
+         */
+        imagePullPolicy?: pulumi.Input<string>;
+        /**
+         * Name of the job definition.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+         */
+        resources?: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesInitContainerResources>;
+        /**
+         * Security context for a job.
+         */
+        securityContext?: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext>;
+        /**
+         * Volume mounts for the container.
+         */
+        volumeMounts?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMount>[]>;
+    }
+
+    export interface JobDefinitionEksPropertiesPodPropertiesInitContainerEnv {
+        /**
+         * Name of the job definition.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Value of the environment variable.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface JobDefinitionEksPropertiesPodPropertiesInitContainerResources {
+        limits?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        requests?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext {
+        privileged?: pulumi.Input<boolean>;
+        readOnlyRootFileSystem?: pulumi.Input<boolean>;
+        runAsGroup?: pulumi.Input<number>;
+        runAsNonRoot?: pulumi.Input<boolean>;
+        runAsUser?: pulumi.Input<number>;
+    }
+
+    export interface JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMount {
+        mountPath: pulumi.Input<string>;
+        /**
+         * Name of the job definition.
+         */
+        name: pulumi.Input<string>;
+        readOnly?: pulumi.Input<boolean>;
+    }
+
     export interface JobDefinitionEksPropertiesPodPropertiesMetadata {
+        /**
+         * Key-value pairs used to identify, sort, and organize cube resources.
+         */
         labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
@@ -14903,7 +14990,7 @@ export namespace codedeploy {
 
     export interface DeploymentGroupAlarmConfiguration {
         /**
-         * A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
+         * A list of alarms configured for the deployment group.
          */
         alarms?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -27778,6 +27865,17 @@ export namespace eks {
         type: pulumi.Input<string>;
     }
 
+    export interface AddonPodIdentityAssociation {
+        /**
+         * The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+         */
+        roleArn: pulumi.Input<string>;
+        /**
+         * The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
+         */
+        serviceAccount: pulumi.Input<string>;
+    }
+
     export interface ClusterAccessConfig {
         /**
          * The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
@@ -34335,7 +34433,7 @@ export namespace inspector2 {
 
 export namespace iot {
     export interface BillingGroupMetadata {
-        creationDate?: pulumi.Input<string>;
+        creationDate: pulumi.Input<string>;
     }
 
     export interface BillingGroupProperties {

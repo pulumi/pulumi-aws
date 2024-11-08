@@ -714,6 +714,10 @@ class StageAccessLogSettingsArgs:
 
 if not MYPY:
     class StageCanarySettingsArgsDict(TypedDict):
+        deployment_id: pulumi.Input[str]
+        """
+        ID of the deployment that the canary points to.
+        """
         percent_traffic: NotRequired[pulumi.Input[float]]
         """
         Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
@@ -732,20 +736,35 @@ elif False:
 @pulumi.input_type
 class StageCanarySettingsArgs:
     def __init__(__self__, *,
+                 deployment_id: pulumi.Input[str],
                  percent_traffic: Optional[pulumi.Input[float]] = None,
                  stage_variable_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_stage_cache: Optional[pulumi.Input[bool]] = None):
         """
+        :param pulumi.Input[str] deployment_id: ID of the deployment that the canary points to.
         :param pulumi.Input[float] percent_traffic: Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] stage_variable_overrides: Map of overridden stage `variables` (including new variables) for the canary deployment.
         :param pulumi.Input[bool] use_stage_cache: Whether the canary deployment uses the stage cache. Defaults to false.
         """
+        pulumi.set(__self__, "deployment_id", deployment_id)
         if percent_traffic is not None:
             pulumi.set(__self__, "percent_traffic", percent_traffic)
         if stage_variable_overrides is not None:
             pulumi.set(__self__, "stage_variable_overrides", stage_variable_overrides)
         if use_stage_cache is not None:
             pulumi.set(__self__, "use_stage_cache", use_stage_cache)
+
+    @property
+    @pulumi.getter(name="deploymentId")
+    def deployment_id(self) -> pulumi.Input[str]:
+        """
+        ID of the deployment that the canary points to.
+        """
+        return pulumi.get(self, "deployment_id")
+
+    @deployment_id.setter
+    def deployment_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "deployment_id", value)
 
     @property
     @pulumi.getter(name="percentTraffic")

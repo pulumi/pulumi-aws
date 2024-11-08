@@ -439,7 +439,7 @@ type Listener struct {
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
-	TcpIdleTimeoutSeconds pulumi.IntPtrOutput `pulumi:"tcpIdleTimeoutSeconds"`
+	TcpIdleTimeoutSeconds pulumi.IntOutput `pulumi:"tcpIdleTimeoutSeconds"`
 }
 
 // NewListener registers a new resource with the given unique name, arguments, and options.
@@ -747,8 +747,8 @@ func (o ListenerOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
-func (o ListenerOutput) TcpIdleTimeoutSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Listener) pulumi.IntPtrOutput { return v.TcpIdleTimeoutSeconds }).(pulumi.IntPtrOutput)
+func (o ListenerOutput) TcpIdleTimeoutSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v *Listener) pulumi.IntOutput { return v.TcpIdleTimeoutSeconds }).(pulumi.IntOutput)
 }
 
 type ListenerArrayOutput struct{ *pulumi.OutputState }

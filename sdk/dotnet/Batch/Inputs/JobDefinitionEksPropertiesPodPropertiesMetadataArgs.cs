@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Batch.Inputs
     {
         [Input("labels")]
         private InputMap<string>? _labels;
+
+        /// <summary>
+        /// Key-value pairs used to identify, sort, and organize cube resources.
+        /// </summary>
         public InputMap<string> Labels
         {
             get => _labels ?? (_labels = new InputMap<string>());

@@ -17,6 +17,7 @@ from . import outputs
 
 __all__ = [
     'AccessPolicyAssociationAccessScope',
+    'AddonPodIdentityAssociation',
     'ClusterAccessConfig',
     'ClusterCertificateAuthority',
     'ClusterEncryptionConfig',
@@ -38,6 +39,7 @@ __all__ = [
     'NodeGroupScalingConfig',
     'NodeGroupTaint',
     'NodeGroupUpdateConfig',
+    'GetAddonPodIdentityAssociationResult',
     'GetClusterAccessConfigResult',
     'GetClusterCertificateAuthorityResult',
     'GetClusterIdentityResult',
@@ -84,6 +86,54 @@ class AccessPolicyAssociationAccessScope(dict):
         The namespaces to which the access scope applies when type is namespace.
         """
         return pulumi.get(self, "namespaces")
+
+
+@pulumi.output_type
+class AddonPodIdentityAssociation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "serviceAccount":
+            suggest = "service_account"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AddonPodIdentityAssociation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AddonPodIdentityAssociation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AddonPodIdentityAssociation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 role_arn: str,
+                 service_account: str):
+        """
+        :param str role_arn: The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+        :param str service_account: The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "service_account", service_account)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="serviceAccount")
+    def service_account(self) -> str:
+        """
+        The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
+        """
+        return pulumi.get(self, "service_account")
 
 
 @pulumi.output_type
@@ -1098,6 +1148,35 @@ class NodeGroupUpdateConfig(dict):
         Desired max percentage of unavailable worker nodes during node group update.
         """
         return pulumi.get(self, "max_unavailable_percentage")
+
+
+@pulumi.output_type
+class GetAddonPodIdentityAssociationResult(dict):
+    def __init__(__self__, *,
+                 role_arn: str,
+                 service_account: str):
+        """
+        :param str role_arn: ARN of the IAM role associated with the EKS add-on.
+        :param str service_account: Service account associated with the EKS add-on.
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "service_account", service_account)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        ARN of the IAM role associated with the EKS add-on.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="serviceAccount")
+    def service_account(self) -> str:
+        """
+        Service account associated with the EKS add-on.
+        """
+        return pulumi.get(self, "service_account")
 
 
 @pulumi.output_type

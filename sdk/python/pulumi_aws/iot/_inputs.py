@@ -159,24 +159,23 @@ MYPY = False
 
 if not MYPY:
     class BillingGroupMetadataArgsDict(TypedDict):
-        creation_date: NotRequired[pulumi.Input[str]]
+        creation_date: pulumi.Input[str]
 elif False:
     BillingGroupMetadataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BillingGroupMetadataArgs:
     def __init__(__self__, *,
-                 creation_date: Optional[pulumi.Input[str]] = None):
-        if creation_date is not None:
-            pulumi.set(__self__, "creation_date", creation_date)
+                 creation_date: pulumi.Input[str]):
+        pulumi.set(__self__, "creation_date", creation_date)
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> Optional[pulumi.Input[str]]:
+    def creation_date(self) -> pulumi.Input[str]:
         return pulumi.get(self, "creation_date")
 
     @creation_date.setter
-    def creation_date(self, value: Optional[pulumi.Input[str]]):
+    def creation_date(self, value: pulumi.Input[str]):
         pulumi.set(self, "creation_date", value)
 
 

@@ -4,6 +4,7 @@
 package com.pulumi.aws.apigateway.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
@@ -14,6 +15,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StageCanarySettings {
+    /**
+     * @return ID of the deployment that the canary points to.
+     * 
+     */
+    private String deploymentId;
     /**
      * @return Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
      * 
@@ -31,6 +37,13 @@ public final class StageCanarySettings {
     private @Nullable Boolean useStageCache;
 
     private StageCanarySettings() {}
+    /**
+     * @return ID of the deployment that the canary points to.
+     * 
+     */
+    public String deploymentId() {
+        return this.deploymentId;
+    }
     /**
      * @return Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
      * 
@@ -62,17 +75,27 @@ public final class StageCanarySettings {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String deploymentId;
         private @Nullable Double percentTraffic;
         private @Nullable Map<String,String> stageVariableOverrides;
         private @Nullable Boolean useStageCache;
         public Builder() {}
         public Builder(StageCanarySettings defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.deploymentId = defaults.deploymentId;
     	      this.percentTraffic = defaults.percentTraffic;
     	      this.stageVariableOverrides = defaults.stageVariableOverrides;
     	      this.useStageCache = defaults.useStageCache;
         }
 
+        @CustomType.Setter
+        public Builder deploymentId(String deploymentId) {
+            if (deploymentId == null) {
+              throw new MissingRequiredPropertyException("StageCanarySettings", "deploymentId");
+            }
+            this.deploymentId = deploymentId;
+            return this;
+        }
         @CustomType.Setter
         public Builder percentTraffic(@Nullable Double percentTraffic) {
 
@@ -93,6 +116,7 @@ public final class StageCanarySettings {
         }
         public StageCanarySettings build() {
             final var _resultValue = new StageCanarySettings();
+            _resultValue.deploymentId = deploymentId;
             _resultValue.percentTraffic = percentTraffic;
             _resultValue.stageVariableOverrides = stageVariableOverrides;
             _resultValue.useStageCache = useStageCache;

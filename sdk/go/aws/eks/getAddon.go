@@ -76,6 +76,8 @@ type LookupAddonResult struct {
 	Id string `pulumi:"id"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
 	ModifiedAt string `pulumi:"modifiedAt"`
+	// Pod identity association for the EKS add-on.
+	PodIdentityAssociations []GetAddonPodIdentityAssociation `pulumi:"podIdentityAssociations"`
 	// ARN of IAM role used for EKS add-on. If value is empty -
 	// then add-on uses the IAM role assigned to the EKS Cluster node.
 	ServiceAccountRoleArn string            `pulumi:"serviceAccountRoleArn"`
@@ -166,6 +168,11 @@ func (o LookupAddonResultOutput) Id() pulumi.StringOutput {
 // Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
 func (o LookupAddonResultOutput) ModifiedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAddonResult) string { return v.ModifiedAt }).(pulumi.StringOutput)
+}
+
+// Pod identity association for the EKS add-on.
+func (o LookupAddonResultOutput) PodIdentityAssociations() GetAddonPodIdentityAssociationArrayOutput {
+	return o.ApplyT(func(v LookupAddonResult) []GetAddonPodIdentityAssociation { return v.PodIdentityAssociations }).(GetAddonPodIdentityAssociationArrayOutput)
 }
 
 // ARN of IAM role used for EKS add-on. If value is empty -

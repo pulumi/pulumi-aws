@@ -240,7 +240,7 @@ import javax.annotation.Nullable;
  * 
  * ### Example of Exclusive Managed Policies
  * 
- * &gt; The `managed_policy_arns` argument is deprecated. Use the `aws.iam.RolePolicyAttachmentsExclusive` resource instead.
+ * &gt; The `managed_policy_arns` argument is deprecated. Use the `aws.iam.RolePolicyAttachment` resource instead. If Pulumi should exclusively manage all managed policy attachments (the current behavior of this argument), use the `aws.iam.RolePolicyAttachmentsExclusive` resource as well.
  * 
  * This example creates an IAM role and attaches two managed IAM policies. If someone attaches another managed policy out-of-band, on the next apply, this provider will detach that policy. If someone detaches these policies out-of-band, this provider will attach them again.
  * 
@@ -316,7 +316,7 @@ import javax.annotation.Nullable;
  * 
  * ### Example of Removing Managed Policies
  * 
- * &gt; The `managed_policy_arns` argument is deprecated. Use the `aws.iam.RolePolicyAttachmentsExclusive` resource instead.
+ * &gt; The `managed_policy_arns` argument is deprecated. Use the `aws.iam.RolePolicyAttachment` resource instead. If Pulumi should exclusively manage all managed policy attachments (the current behavior of this argument), use the `aws.iam.RolePolicyAttachmentsExclusive` resource as well.
  * 
  * This example creates an IAM role with an empty `managed_policy_arns` argument. If someone attaches a policy out-of-band, on the next apply, this provider will detach that policy.
  * 

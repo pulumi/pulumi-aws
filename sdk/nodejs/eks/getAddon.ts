@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -75,6 +78,10 @@ export interface GetAddonResult {
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
      */
     readonly modifiedAt: string;
+    /**
+     * Pod identity association for the EKS add-on.
+     */
+    readonly podIdentityAssociations: outputs.eks.GetAddonPodIdentityAssociation[];
     /**
      * ARN of IAM role used for EKS add-on. If value is empty -
      * then add-on uses the IAM role assigned to the EKS Cluster node.

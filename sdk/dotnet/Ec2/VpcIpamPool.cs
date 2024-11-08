@@ -196,7 +196,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> PublicIpSource { get; private set; } = null!;
 
         /// <summary>
-        /// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`.
+        /// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
         /// </summary>
         [Output("publiclyAdvertisable")]
         public Output<bool?> PubliclyAdvertisable { get; private set; } = null!;
@@ -351,7 +351,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PublicIpSource { get; set; }
 
         /// <summary>
-        /// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`.
+        /// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
         /// </summary>
         [Input("publiclyAdvertisable")]
         public Input<bool>? PubliclyAdvertisable { get; set; }
@@ -474,7 +474,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PublicIpSource { get; set; }
 
         /// <summary>
-        /// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`.
+        /// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
         /// </summary>
         [Input("publiclyAdvertisable")]
         public Input<bool>? PubliclyAdvertisable { get; set; }

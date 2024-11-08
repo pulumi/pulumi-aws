@@ -647,14 +647,14 @@ public class Listener extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="tcpIdleTimeoutSeconds", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> tcpIdleTimeoutSeconds;
+    private Output<Integer> tcpIdleTimeoutSeconds;
 
     /**
      * @return TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
      * 
      */
-    public Output<Optional<Integer>> tcpIdleTimeoutSeconds() {
-        return Codegen.optional(this.tcpIdleTimeoutSeconds);
+    public Output<Integer> tcpIdleTimeoutSeconds() {
+        return this.tcpIdleTimeoutSeconds;
     }
 
     /**

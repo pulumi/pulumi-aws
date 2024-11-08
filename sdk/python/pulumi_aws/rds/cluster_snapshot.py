@@ -27,7 +27,7 @@ class ClusterSnapshotArgs:
         The set of arguments for constructing a ClusterSnapshot resource.
         :param pulumi.Input[str] db_cluster_identifier: The DB Cluster Identifier from which to take the snapshot.
         :param pulumi.Input[str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_accounts: List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
@@ -65,7 +65,7 @@ class ClusterSnapshotArgs:
     @pulumi.getter(name="sharedAccounts")
     def shared_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+        List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         """
         return pulumi.get(self, "shared_accounts")
 
@@ -119,7 +119,7 @@ class _ClusterSnapshotState:
         :param pulumi.Input[str] kms_key_id: If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
         :param pulumi.Input[str] license_model: License model information for the restored DB cluster.
         :param pulumi.Input[int] port: Port that the DB cluster was listening on at the time of the snapshot.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_accounts: List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         :param pulumi.Input[str] status: The status of this DB Cluster Snapshot.
         :param pulumi.Input[bool] storage_encrypted: Whether the DB cluster snapshot is encrypted.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -290,7 +290,7 @@ class _ClusterSnapshotState:
     @pulumi.getter(name="sharedAccounts")
     def shared_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+        List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         """
         return pulumi.get(self, "shared_accounts")
 
@@ -414,7 +414,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] db_cluster_identifier: The DB Cluster Identifier from which to take the snapshot.
         :param pulumi.Input[str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_accounts: List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -540,7 +540,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
         :param pulumi.Input[str] license_model: License model information for the restored DB cluster.
         :param pulumi.Input[int] port: Port that the DB cluster was listening on at the time of the snapshot.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_accounts: List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         :param pulumi.Input[str] status: The status of this DB Cluster Snapshot.
         :param pulumi.Input[bool] storage_encrypted: Whether the DB cluster snapshot is encrypted.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -655,7 +655,7 @@ class ClusterSnapshot(pulumi.CustomResource):
     @pulumi.getter(name="sharedAccounts")
     def shared_accounts(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+        List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         """
         return pulumi.get(self, "shared_accounts")
 
