@@ -822,11 +822,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 	ctx := context.Background()
 	upstreamProvider := newUpstreamProvider(ctx)
 
-	v2p := shimv2.NewProvider(upstreamProvider.SDKV2Provider,
-		shimv2.WithDiffStrategy(shimv2.PlanState),
-		shimv2.WithPlanResourceChange(func(string) bool {
-			return true
-		}))
+	v2p := shimv2.NewProvider(upstreamProvider.SDKV2Provider)
 
 	p := pftfbridge.MuxShimWithDisjointgPF(ctx, v2p, upstreamProvider.PluginFrameworkProvider)
 
