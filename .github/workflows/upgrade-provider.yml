@@ -11,6 +11,13 @@ on:
           If no version is specified, it will be inferred from the upstream provider's release tags.
         required: false
         type: string
+      upgradeProviderVersion:
+        description: |
+          Version of upgrade-provider to use. This must be a valid git reference in the pulumi/upgrade-provider repo. Defaults to "main"
+
+          See https://go.dev/ref/mod#versions for valid versions. E.g. "v0.1.0", "main", "da25dec".
+        default: main
+        type: string
   schedule:
     # 3 AM UTC ~ 8 PM PDT / 7 PM PST daily. Time chosen to run during off hours.
     - cron: 0 3 * * *
@@ -41,7 +48,7 @@ jobs:
         with:
           tools: pulumictl, pulumicli, nodejs, python, dotnet, go, java
       - name: Install upgrade-provider
-        run: go install github.com/pulumi/upgrade-provider@main
+        run: go install github.com/pulumi/upgrade-provider@${{ inputs.upgradeProviderVersion || 'main' }}
         shell: bash
       - name: "Set up git identity"
         run: |
@@ -76,3 +83,4 @@ jobs:
         run: |
           issue_number=$(gh issue list --search "pulumiupgradeproviderissue" --repo "${{ github.repository }}" --json=number --jq=".[0].number")
           gh issue comment "${issue_number}" --repo "${{ github.repository }}" --body "Failed to create automatic PR: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/"
+
