@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DeploymentGroupAlarmConfiguration {
     /**
-     * @return A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
+     * @return A list of alarms configured for the deployment group.
      * 
      */
     private @Nullable List<String> alarms;
@@ -31,7 +31,7 @@ public final class DeploymentGroupAlarmConfiguration {
 
     private DeploymentGroupAlarmConfiguration() {}
     /**
-     * @return A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
+     * @return A list of alarms configured for the deployment group.
      * 
      */
     public List<String> alarms() {

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
         private InputList<string>? _alarms;
 
         /// <summary>
-        /// A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
+        /// A list of alarms configured for the deployment group.
         /// </summary>
         public InputList<string> Alarms
         {

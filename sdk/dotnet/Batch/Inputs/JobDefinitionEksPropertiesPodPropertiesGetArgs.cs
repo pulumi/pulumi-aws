@@ -42,6 +42,18 @@ namespace Pulumi.Aws.Batch.Inputs
             set => _imagePullSecrets = value;
         }
 
+        [Input("initContainers")]
+        private InputList<Inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerGetArgs>? _initContainers;
+
+        /// <summary>
+        /// Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+        /// </summary>
+        public InputList<Inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerGetArgs> InitContainers
+        {
+            get => _initContainers ?? (_initContainers = new InputList<Inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerGetArgs>());
+            set => _initContainers = value;
+        }
+
         /// <summary>
         /// Metadata about the Kubernetes pod.
         /// </summary>
@@ -53,6 +65,12 @@ namespace Pulumi.Aws.Batch.Inputs
         /// </summary>
         [Input("serviceAccountName")]
         public Input<string>? ServiceAccountName { get; set; }
+
+        /// <summary>
+        /// Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+        /// </summary>
+        [Input("shareProcessNamespace")]
+        public Input<bool>? ShareProcessNamespace { get; set; }
 
         [Input("volumes")]
         private InputList<Inputs.JobDefinitionEksPropertiesPodPropertiesVolumeGetArgs>? _volumes;

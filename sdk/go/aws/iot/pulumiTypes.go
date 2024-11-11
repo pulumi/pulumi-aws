@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type BillingGroupMetadata struct {
-	CreationDate *string `pulumi:"creationDate"`
+	CreationDate string `pulumi:"creationDate"`
 }
 
 // BillingGroupMetadataInput is an input type that accepts BillingGroupMetadataArgs and BillingGroupMetadataOutput values.
@@ -29,7 +29,7 @@ type BillingGroupMetadataInput interface {
 }
 
 type BillingGroupMetadataArgs struct {
-	CreationDate pulumi.StringPtrInput `pulumi:"creationDate"`
+	CreationDate pulumi.StringInput `pulumi:"creationDate"`
 }
 
 func (BillingGroupMetadataArgs) ElementType() reflect.Type {
@@ -83,8 +83,8 @@ func (o BillingGroupMetadataOutput) ToBillingGroupMetadataOutputWithContext(ctx 
 	return o
 }
 
-func (o BillingGroupMetadataOutput) CreationDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BillingGroupMetadata) *string { return v.CreationDate }).(pulumi.StringPtrOutput)
+func (o BillingGroupMetadataOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v BillingGroupMetadata) string { return v.CreationDate }).(pulumi.StringOutput)
 }
 
 type BillingGroupMetadataArrayOutput struct{ *pulumi.OutputState }

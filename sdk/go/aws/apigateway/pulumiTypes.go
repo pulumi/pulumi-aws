@@ -1562,6 +1562,8 @@ func (o StageAccessLogSettingsPtrOutput) Format() pulumi.StringPtrOutput {
 }
 
 type StageCanarySettings struct {
+	// ID of the deployment that the canary points to.
+	DeploymentId string `pulumi:"deploymentId"`
 	// Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
 	PercentTraffic *float64 `pulumi:"percentTraffic"`
 	// Map of overridden stage `variables` (including new variables) for the canary deployment.
@@ -1582,6 +1584,8 @@ type StageCanarySettingsInput interface {
 }
 
 type StageCanarySettingsArgs struct {
+	// ID of the deployment that the canary points to.
+	DeploymentId pulumi.StringInput `pulumi:"deploymentId"`
 	// Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
 	PercentTraffic pulumi.Float64PtrInput `pulumi:"percentTraffic"`
 	// Map of overridden stage `variables` (including new variables) for the canary deployment.
@@ -1667,6 +1671,11 @@ func (o StageCanarySettingsOutput) ToStageCanarySettingsPtrOutputWithContext(ctx
 	}).(StageCanarySettingsPtrOutput)
 }
 
+// ID of the deployment that the canary points to.
+func (o StageCanarySettingsOutput) DeploymentId() pulumi.StringOutput {
+	return o.ApplyT(func(v StageCanarySettings) string { return v.DeploymentId }).(pulumi.StringOutput)
+}
+
 // Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
 func (o StageCanarySettingsOutput) PercentTraffic() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v StageCanarySettings) *float64 { return v.PercentTraffic }).(pulumi.Float64PtrOutput)
@@ -1704,6 +1713,16 @@ func (o StageCanarySettingsPtrOutput) Elem() StageCanarySettingsOutput {
 		var ret StageCanarySettings
 		return ret
 	}).(StageCanarySettingsOutput)
+}
+
+// ID of the deployment that the canary points to.
+func (o StageCanarySettingsPtrOutput) DeploymentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StageCanarySettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DeploymentId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Percent `0.0` - `100.0` of traffic to divert to the canary deployment.

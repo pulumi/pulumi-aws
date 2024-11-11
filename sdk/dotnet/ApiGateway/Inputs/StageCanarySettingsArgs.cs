@@ -13,6 +13,12 @@ namespace Pulumi.Aws.ApiGateway.Inputs
     public sealed class StageCanarySettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// ID of the deployment that the canary points to.
+        /// </summary>
+        [Input("deploymentId", required: true)]
+        public Input<string> DeploymentId { get; set; } = null!;
+
+        /// <summary>
         /// Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
         /// </summary>
         [Input("percentTraffic")]

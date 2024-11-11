@@ -3,9 +3,11 @@
 
 package com.pulumi.aws.eks.outputs;
 
+import com.pulumi.aws.eks.outputs.GetAddonPodIdentityAssociation;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -43,6 +45,11 @@ public final class GetAddonResult {
      * 
      */
     private String modifiedAt;
+    /**
+     * @return Pod identity association for the EKS add-on.
+     * 
+     */
+    private List<GetAddonPodIdentityAssociation> podIdentityAssociations;
     /**
      * @return ARN of IAM role used for EKS add-on. If value is empty -
      * then add-on uses the IAM role assigned to the EKS Cluster node.
@@ -101,6 +108,13 @@ public final class GetAddonResult {
         return this.modifiedAt;
     }
     /**
+     * @return Pod identity association for the EKS add-on.
+     * 
+     */
+    public List<GetAddonPodIdentityAssociation> podIdentityAssociations() {
+        return this.podIdentityAssociations;
+    }
+    /**
      * @return ARN of IAM role used for EKS add-on. If value is empty -
      * then add-on uses the IAM role assigned to the EKS Cluster node.
      * 
@@ -129,6 +143,7 @@ public final class GetAddonResult {
         private String createdAt;
         private String id;
         private String modifiedAt;
+        private List<GetAddonPodIdentityAssociation> podIdentityAssociations;
         private String serviceAccountRoleArn;
         private Map<String,String> tags;
         public Builder() {}
@@ -142,6 +157,7 @@ public final class GetAddonResult {
     	      this.createdAt = defaults.createdAt;
     	      this.id = defaults.id;
     	      this.modifiedAt = defaults.modifiedAt;
+    	      this.podIdentityAssociations = defaults.podIdentityAssociations;
     	      this.serviceAccountRoleArn = defaults.serviceAccountRoleArn;
     	      this.tags = defaults.tags;
         }
@@ -211,6 +227,17 @@ public final class GetAddonResult {
             return this;
         }
         @CustomType.Setter
+        public Builder podIdentityAssociations(List<GetAddonPodIdentityAssociation> podIdentityAssociations) {
+            if (podIdentityAssociations == null) {
+              throw new MissingRequiredPropertyException("GetAddonResult", "podIdentityAssociations");
+            }
+            this.podIdentityAssociations = podIdentityAssociations;
+            return this;
+        }
+        public Builder podIdentityAssociations(GetAddonPodIdentityAssociation... podIdentityAssociations) {
+            return podIdentityAssociations(List.of(podIdentityAssociations));
+        }
+        @CustomType.Setter
         public Builder serviceAccountRoleArn(String serviceAccountRoleArn) {
             if (serviceAccountRoleArn == null) {
               throw new MissingRequiredPropertyException("GetAddonResult", "serviceAccountRoleArn");
@@ -236,6 +263,7 @@ public final class GetAddonResult {
             _resultValue.createdAt = createdAt;
             _resultValue.id = id;
             _resultValue.modifiedAt = modifiedAt;
+            _resultValue.podIdentityAssociations = podIdentityAssociations;
             _resultValue.serviceAccountRoleArn = serviceAccountRoleArn;
             _resultValue.tags = tags;
             return _resultValue;

@@ -1054,7 +1054,7 @@ class Listener(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tcpIdleTimeoutSeconds")
-    def tcp_idle_timeout_seconds(self) -> pulumi.Output[Optional[int]]:
+    def tcp_idle_timeout_seconds(self) -> pulumi.Output[int]:
         """
         TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
         """

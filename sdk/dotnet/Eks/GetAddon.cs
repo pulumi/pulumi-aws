@@ -160,6 +160,10 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         public readonly string ModifiedAt;
         /// <summary>
+        /// Pod identity association for the EKS add-on.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetAddonPodIdentityAssociationResult> PodIdentityAssociations;
+        /// <summary>
         /// ARN of IAM role used for EKS add-on. If value is empty -
         /// then add-on uses the IAM role assigned to the EKS Cluster node.
         /// </summary>
@@ -184,6 +188,8 @@ namespace Pulumi.Aws.Eks
 
             string modifiedAt,
 
+            ImmutableArray<Outputs.GetAddonPodIdentityAssociationResult> podIdentityAssociations,
+
             string serviceAccountRoleArn,
 
             ImmutableDictionary<string, string> tags)
@@ -196,6 +202,7 @@ namespace Pulumi.Aws.Eks
             CreatedAt = createdAt;
             Id = id;
             ModifiedAt = modifiedAt;
+            PodIdentityAssociations = podIdentityAssociations;
             ServiceAccountRoleArn = serviceAccountRoleArn;
             Tags = tags;
         }

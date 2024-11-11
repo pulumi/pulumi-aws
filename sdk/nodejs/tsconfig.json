@@ -750,6 +750,7 @@
         "ec2/getSecurityGroup.ts",
         "ec2/getSecurityGroups.ts",
         "ec2/getSerialConsoleAccess.ts",
+        "ec2/getSpotDatafeedSubscription.ts",
         "ec2/getSpotPrice.ts",
         "ec2/getSubnet.ts",
         "ec2/getSubnets.ts",

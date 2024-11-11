@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetAddonResult',
@@ -26,7 +27,7 @@ class GetAddonResult:
     """
     A collection of values returned by getAddon.
     """
-    def __init__(__self__, addon_name=None, addon_version=None, arn=None, cluster_name=None, configuration_values=None, created_at=None, id=None, modified_at=None, service_account_role_arn=None, tags=None):
+    def __init__(__self__, addon_name=None, addon_version=None, arn=None, cluster_name=None, configuration_values=None, created_at=None, id=None, modified_at=None, pod_identity_associations=None, service_account_role_arn=None, tags=None):
         if addon_name and not isinstance(addon_name, str):
             raise TypeError("Expected argument 'addon_name' to be a str")
         pulumi.set(__self__, "addon_name", addon_name)
@@ -51,6 +52,9 @@ class GetAddonResult:
         if modified_at and not isinstance(modified_at, str):
             raise TypeError("Expected argument 'modified_at' to be a str")
         pulumi.set(__self__, "modified_at", modified_at)
+        if pod_identity_associations and not isinstance(pod_identity_associations, list):
+            raise TypeError("Expected argument 'pod_identity_associations' to be a list")
+        pulumi.set(__self__, "pod_identity_associations", pod_identity_associations)
         if service_account_role_arn and not isinstance(service_account_role_arn, str):
             raise TypeError("Expected argument 'service_account_role_arn' to be a str")
         pulumi.set(__self__, "service_account_role_arn", service_account_role_arn)
@@ -117,6 +121,14 @@ class GetAddonResult:
         return pulumi.get(self, "modified_at")
 
     @property
+    @pulumi.getter(name="podIdentityAssociations")
+    def pod_identity_associations(self) -> Sequence['outputs.GetAddonPodIdentityAssociationResult']:
+        """
+        Pod identity association for the EKS add-on.
+        """
+        return pulumi.get(self, "pod_identity_associations")
+
+    @property
     @pulumi.getter(name="serviceAccountRoleArn")
     def service_account_role_arn(self) -> str:
         """
@@ -145,6 +157,7 @@ class AwaitableGetAddonResult(GetAddonResult):
             created_at=self.created_at,
             id=self.id,
             modified_at=self.modified_at,
+            pod_identity_associations=self.pod_identity_associations,
             service_account_role_arn=self.service_account_role_arn,
             tags=self.tags)
 
@@ -188,6 +201,7 @@ def get_addon(addon_name: Optional[str] = None,
         created_at=pulumi.get(__ret__, 'created_at'),
         id=pulumi.get(__ret__, 'id'),
         modified_at=pulumi.get(__ret__, 'modified_at'),
+        pod_identity_associations=pulumi.get(__ret__, 'pod_identity_associations'),
         service_account_role_arn=pulumi.get(__ret__, 'service_account_role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
@@ -228,5 +242,6 @@ def get_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
         created_at=pulumi.get(__response__, 'created_at'),
         id=pulumi.get(__response__, 'id'),
         modified_at=pulumi.get(__response__, 'modified_at'),
+        pod_identity_associations=pulumi.get(__response__, 'pod_identity_associations'),
         service_account_role_arn=pulumi.get(__response__, 'service_account_role_arn'),
         tags=pulumi.get(__response__, 'tags')))

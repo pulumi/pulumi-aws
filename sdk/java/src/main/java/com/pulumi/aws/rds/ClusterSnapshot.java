@@ -209,14 +209,14 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
         return this.port;
     }
     /**
-     * List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+     * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      * 
      */
     @Export(name="sharedAccounts", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sharedAccounts;
 
     /**
-     * @return List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+     * @return List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      * 
      */
     public Output<Optional<List<String>>> sharedAccounts() {

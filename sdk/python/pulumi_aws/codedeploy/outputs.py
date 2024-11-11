@@ -324,7 +324,7 @@ class DeploymentGroupAlarmConfiguration(dict):
                  enabled: Optional[bool] = None,
                  ignore_poll_alarm_failure: Optional[bool] = None):
         """
-        :param Sequence[str] alarms: A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
+        :param Sequence[str] alarms: A list of alarms configured for the deployment group.
         :param bool enabled: Indicates whether the alarm configuration is enabled. This option is useful when you want to temporarily deactivate alarm monitoring for a deployment group without having to add the same alarms again later.
         :param bool ignore_poll_alarm_failure: Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
         """
@@ -339,7 +339,7 @@ class DeploymentGroupAlarmConfiguration(dict):
     @pulumi.getter
     def alarms(self) -> Optional[Sequence[str]]:
         """
-        A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
+        A list of alarms configured for the deployment group.
         """
         return pulumi.get(self, "alarms")
 

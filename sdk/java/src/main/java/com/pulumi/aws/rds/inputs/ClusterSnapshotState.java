@@ -170,14 +170,14 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+     * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      * 
      */
     @Import(name="sharedAccounts")
     private @Nullable Output<List<String>> sharedAccounts;
 
     /**
-     * @return List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+     * @return List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      * 
      */
     public Optional<Output<List<String>>> sharedAccounts() {
@@ -543,7 +543,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param sharedAccounts List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+         * @param sharedAccounts List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
          * 
          * @return builder
          * 
@@ -554,7 +554,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param sharedAccounts List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+         * @param sharedAccounts List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
          * 
          * @return builder
          * 
@@ -564,7 +564,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param sharedAccounts List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+         * @param sharedAccounts List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
          * 
          * @return builder
          * 

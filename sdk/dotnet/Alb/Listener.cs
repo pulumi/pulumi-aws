@@ -417,7 +417,7 @@ namespace Pulumi.Aws.Alb
         /// TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
         /// </summary>
         [Output("tcpIdleTimeoutSeconds")]
-        public Output<int?> TcpIdleTimeoutSeconds { get; private set; } = null!;
+        public Output<int> TcpIdleTimeoutSeconds { get; private set; } = null!;
 
 
         /// <summary>

@@ -4930,6 +4930,8 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_secretsmanager_secrets":         {Tok: awsDataSource(secretsmanagerMod, "getSecrets")},
 			"aws_secretsmanager_random_password": {Tok: awsDataSource(secretsmanagerMod, "getRandomPassword")},
 
+			"aws_spot_datafeed_subscription": {Tok: awsDataSource(ec2Mod, "getSpotDatafeedSubscription")},
+
 			// SNS
 			"aws_sns_topic": {Tok: awsDataSource(snsMod, "getTopic")},
 			// SQS

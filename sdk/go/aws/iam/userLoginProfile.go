@@ -89,6 +89,10 @@ func NewUserLoginProfile(ctx *pulumi.Context,
 	if args.User == nil {
 		return nil, errors.New("invalid value for required argument 'User'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"password",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserLoginProfile
 	err := ctx.RegisterResource("aws:iam/userLoginProfile:UserLoginProfile", name, args, &resource, opts...)

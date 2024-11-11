@@ -13,10 +13,10 @@ namespace Pulumi.Aws.Iot.Outputs
     [OutputType]
     public sealed class BillingGroupMetadata
     {
-        public readonly string? CreationDate;
+        public readonly string CreationDate;
 
         [OutputConstructor]
-        private BillingGroupMetadata(string? creationDate)
+        private BillingGroupMetadata(string creationDate)
         {
             CreationDate = creationDate;
         }

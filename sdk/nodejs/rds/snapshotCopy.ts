@@ -125,7 +125,7 @@ export class SnapshotCopy extends pulumi.CustomResource {
      */
     public readonly presignedUrl!: pulumi.Output<string | undefined>;
     /**
-     * (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+     * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      */
     public readonly sharedAccounts!: pulumi.Output<string[] | undefined>;
     public /*out*/ readonly snapshotType!: pulumi.Output<string>;
@@ -297,7 +297,7 @@ export interface SnapshotCopyState {
      */
     presignedUrl?: pulumi.Input<string>;
     /**
-     * (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+     * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      */
     sharedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
     snapshotType?: pulumi.Input<string>;
@@ -362,7 +362,7 @@ export interface SnapshotCopyArgs {
      */
     presignedUrl?: pulumi.Input<string>;
     /**
-     * (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+     * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      */
     sharedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
     /**

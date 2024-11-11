@@ -6,12 +6,14 @@ package com.pulumi.aws.eks;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.eks.AddonArgs;
 import com.pulumi.aws.eks.inputs.AddonState;
+import com.pulumi.aws.eks.outputs.AddonPodIdentityAssociation;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -351,6 +353,20 @@ public class Addon extends com.pulumi.resources.CustomResource {
      */
     public Output<String> modifiedAt() {
         return this.modifiedAt;
+    }
+    /**
+     * Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
+     * 
+     */
+    @Export(name="podIdentityAssociations", refs={List.class,AddonPodIdentityAssociation.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<AddonPodIdentityAssociation>> podIdentityAssociations;
+
+    /**
+     * @return Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
+     * 
+     */
+    public Output<Optional<List<AddonPodIdentityAssociation>>> podIdentityAssociations() {
+        return Codegen.optional(this.podIdentityAssociations);
     }
     /**
      * Indicates if you want to preserve the created resources when deleting the EKS add-on.

@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['AddonArgs', 'Addon']
 
@@ -23,6 +25,7 @@ class AddonArgs:
                  cluster_name: pulumi.Input[str],
                  addon_version: Optional[pulumi.Input[str]] = None,
                  configuration_values: Optional[pulumi.Input[str]] = None,
+                 pod_identity_associations: Optional[pulumi.Input[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]]] = None,
                  preserve: Optional[pulumi.Input[bool]] = None,
                  resolve_conflicts: Optional[pulumi.Input[str]] = None,
                  resolve_conflicts_on_create: Optional[pulumi.Input[str]] = None,
@@ -39,6 +42,7 @@ class AddonArgs:
         :param pulumi.Input[str] addon_version: The version of the EKS add-on. The version must
                match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         :param pulumi.Input[str] configuration_values: custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+        :param pulumi.Input[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]] pod_identity_associations: Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
         :param pulumi.Input[bool] preserve: Indicates if you want to preserve the created resources when deleting the EKS add-on.
         :param pulumi.Input[str] resolve_conflicts: Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
         :param pulumi.Input[str] resolve_conflicts_on_create: How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Docs.
@@ -62,6 +66,8 @@ class AddonArgs:
             pulumi.set(__self__, "addon_version", addon_version)
         if configuration_values is not None:
             pulumi.set(__self__, "configuration_values", configuration_values)
+        if pod_identity_associations is not None:
+            pulumi.set(__self__, "pod_identity_associations", pod_identity_associations)
         if preserve is not None:
             pulumi.set(__self__, "preserve", preserve)
         if resolve_conflicts is not None:
@@ -129,6 +135,18 @@ class AddonArgs:
     @configuration_values.setter
     def configuration_values(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "configuration_values", value)
+
+    @property
+    @pulumi.getter(name="podIdentityAssociations")
+    def pod_identity_associations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]]]:
+        """
+        Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
+        """
+        return pulumi.get(self, "pod_identity_associations")
+
+    @pod_identity_associations.setter
+    def pod_identity_associations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]]]):
+        pulumi.set(self, "pod_identity_associations", value)
 
     @property
     @pulumi.getter
@@ -224,6 +242,7 @@ class _AddonState:
                  configuration_values: Optional[pulumi.Input[str]] = None,
                  created_at: Optional[pulumi.Input[str]] = None,
                  modified_at: Optional[pulumi.Input[str]] = None,
+                 pod_identity_associations: Optional[pulumi.Input[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]]] = None,
                  preserve: Optional[pulumi.Input[bool]] = None,
                  resolve_conflicts: Optional[pulumi.Input[str]] = None,
                  resolve_conflicts_on_create: Optional[pulumi.Input[str]] = None,
@@ -244,6 +263,7 @@ class _AddonState:
         :param pulumi.Input[str] configuration_values: custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
         :param pulumi.Input[str] created_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
         :param pulumi.Input[str] modified_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
+        :param pulumi.Input[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]] pod_identity_associations: Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
         :param pulumi.Input[bool] preserve: Indicates if you want to preserve the created resources when deleting the EKS add-on.
         :param pulumi.Input[str] resolve_conflicts: Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
         :param pulumi.Input[str] resolve_conflicts_on_create: How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Docs.
@@ -276,6 +296,8 @@ class _AddonState:
             pulumi.set(__self__, "created_at", created_at)
         if modified_at is not None:
             pulumi.set(__self__, "modified_at", modified_at)
+        if pod_identity_associations is not None:
+            pulumi.set(__self__, "pod_identity_associations", pod_identity_associations)
         if preserve is not None:
             pulumi.set(__self__, "preserve", preserve)
         if resolve_conflicts is not None:
@@ -386,6 +408,18 @@ class _AddonState:
         pulumi.set(self, "modified_at", value)
 
     @property
+    @pulumi.getter(name="podIdentityAssociations")
+    def pod_identity_associations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]]]:
+        """
+        Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
+        """
+        return pulumi.get(self, "pod_identity_associations")
+
+    @pod_identity_associations.setter
+    def pod_identity_associations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AddonPodIdentityAssociationArgs']]]]):
+        pulumi.set(self, "pod_identity_associations", value)
+
+    @property
     @pulumi.getter
     def preserve(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -491,6 +525,7 @@ class Addon(pulumi.CustomResource):
                  addon_version: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  configuration_values: Optional[pulumi.Input[str]] = None,
+                 pod_identity_associations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict']]]]] = None,
                  preserve: Optional[pulumi.Input[bool]] = None,
                  resolve_conflicts: Optional[pulumi.Input[str]] = None,
                  resolve_conflicts_on_create: Optional[pulumi.Input[str]] = None,
@@ -618,6 +653,7 @@ class Addon(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[str] configuration_values: custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict']]]] pod_identity_associations: Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
         :param pulumi.Input[bool] preserve: Indicates if you want to preserve the created resources when deleting the EKS add-on.
         :param pulumi.Input[str] resolve_conflicts: Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
         :param pulumi.Input[str] resolve_conflicts_on_create: How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Docs.
@@ -770,6 +806,7 @@ class Addon(pulumi.CustomResource):
                  addon_version: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  configuration_values: Optional[pulumi.Input[str]] = None,
+                 pod_identity_associations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict']]]]] = None,
                  preserve: Optional[pulumi.Input[bool]] = None,
                  resolve_conflicts: Optional[pulumi.Input[str]] = None,
                  resolve_conflicts_on_create: Optional[pulumi.Input[str]] = None,
@@ -793,6 +830,7 @@ class Addon(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["configuration_values"] = configuration_values
+            __props__.__dict__["pod_identity_associations"] = pod_identity_associations
             __props__.__dict__["preserve"] = preserve
             __props__.__dict__["resolve_conflicts"] = resolve_conflicts
             __props__.__dict__["resolve_conflicts_on_create"] = resolve_conflicts_on_create
@@ -820,6 +858,7 @@ class Addon(pulumi.CustomResource):
             configuration_values: Optional[pulumi.Input[str]] = None,
             created_at: Optional[pulumi.Input[str]] = None,
             modified_at: Optional[pulumi.Input[str]] = None,
+            pod_identity_associations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict']]]]] = None,
             preserve: Optional[pulumi.Input[bool]] = None,
             resolve_conflicts: Optional[pulumi.Input[str]] = None,
             resolve_conflicts_on_create: Optional[pulumi.Input[str]] = None,
@@ -845,6 +884,7 @@ class Addon(pulumi.CustomResource):
         :param pulumi.Input[str] configuration_values: custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
         :param pulumi.Input[str] created_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
         :param pulumi.Input[str] modified_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AddonPodIdentityAssociationArgs', 'AddonPodIdentityAssociationArgsDict']]]] pod_identity_associations: Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
         :param pulumi.Input[bool] preserve: Indicates if you want to preserve the created resources when deleting the EKS add-on.
         :param pulumi.Input[str] resolve_conflicts: Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
         :param pulumi.Input[str] resolve_conflicts_on_create: How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Docs.
@@ -874,6 +914,7 @@ class Addon(pulumi.CustomResource):
         __props__.__dict__["configuration_values"] = configuration_values
         __props__.__dict__["created_at"] = created_at
         __props__.__dict__["modified_at"] = modified_at
+        __props__.__dict__["pod_identity_associations"] = pod_identity_associations
         __props__.__dict__["preserve"] = preserve
         __props__.__dict__["resolve_conflicts"] = resolve_conflicts
         __props__.__dict__["resolve_conflicts_on_create"] = resolve_conflicts_on_create
@@ -942,6 +983,14 @@ class Addon(pulumi.CustomResource):
         Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
         """
         return pulumi.get(self, "modified_at")
+
+    @property
+    @pulumi.getter(name="podIdentityAssociations")
+    def pod_identity_associations(self) -> pulumi.Output[Optional[Sequence['outputs.AddonPodIdentityAssociation']]]:
+        """
+        Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
+        """
+        return pulumi.get(self, "pod_identity_associations")
 
     @property
     @pulumi.getter

@@ -5,6 +5,7 @@ package com.pulumi.aws.apigateway.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
@@ -17,6 +18,21 @@ import javax.annotation.Nullable;
 public final class StageCanarySettingsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final StageCanarySettingsArgs Empty = new StageCanarySettingsArgs();
+
+    /**
+     * ID of the deployment that the canary points to.
+     * 
+     */
+    @Import(name="deploymentId", required=true)
+    private Output<String> deploymentId;
+
+    /**
+     * @return ID of the deployment that the canary points to.
+     * 
+     */
+    public Output<String> deploymentId() {
+        return this.deploymentId;
+    }
 
     /**
      * Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
@@ -66,6 +82,7 @@ public final class StageCanarySettingsArgs extends com.pulumi.resources.Resource
     private StageCanarySettingsArgs() {}
 
     private StageCanarySettingsArgs(StageCanarySettingsArgs $) {
+        this.deploymentId = $.deploymentId;
         this.percentTraffic = $.percentTraffic;
         this.stageVariableOverrides = $.stageVariableOverrides;
         this.useStageCache = $.useStageCache;
@@ -87,6 +104,27 @@ public final class StageCanarySettingsArgs extends com.pulumi.resources.Resource
 
         public Builder(StageCanarySettingsArgs defaults) {
             $ = new StageCanarySettingsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param deploymentId ID of the deployment that the canary points to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deploymentId(Output<String> deploymentId) {
+            $.deploymentId = deploymentId;
+            return this;
+        }
+
+        /**
+         * @param deploymentId ID of the deployment that the canary points to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deploymentId(String deploymentId) {
+            return deploymentId(Output.of(deploymentId));
         }
 
         /**
@@ -153,6 +191,9 @@ public final class StageCanarySettingsArgs extends com.pulumi.resources.Resource
         }
 
         public StageCanarySettingsArgs build() {
+            if ($.deploymentId == null) {
+                throw new MissingRequiredPropertyException("StageCanarySettingsArgs", "deploymentId");
+            }
             return $;
         }
     }

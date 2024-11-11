@@ -12,8 +12,8 @@ namespace Pulumi.Aws.Iot.Inputs
 
     public sealed class BillingGroupMetadataGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("creationDate")]
-        public Input<string>? CreationDate { get; set; }
+        [Input("creationDate", required: true)]
+        public Input<string> CreationDate { get; set; } = null!;
 
         public BillingGroupMetadataGetArgs()
         {

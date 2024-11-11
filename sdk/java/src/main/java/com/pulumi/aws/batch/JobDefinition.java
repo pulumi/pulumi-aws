@@ -183,8 +183,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.batch.JobDefinitionArgs;
  * import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesArgs;
  * import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesArgs;
- * import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesContainersArgs;
- * import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs;
  * import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesMetadataArgs;
  * import java.util.List;
  * import java.util.ArrayList;

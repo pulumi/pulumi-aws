@@ -604,7 +604,7 @@ class Role(pulumi.CustomResource):
 
         ### Example of Exclusive Managed Policies
 
-        > The `managed_policy_arns` argument is deprecated. Use the `iam.RolePolicyAttachmentsExclusive` resource instead.
+        > The `managed_policy_arns` argument is deprecated. Use the `iam.RolePolicyAttachment` resource instead. If Pulumi should exclusively manage all managed policy attachments (the current behavior of this argument), use the `iam.RolePolicyAttachmentsExclusive` resource as well.
 
         This example creates an IAM role and attaches two managed IAM policies. If someone attaches another managed policy out-of-band, on the next apply, this provider will detach that policy. If someone detaches these policies out-of-band, this provider will attach them again.
 
@@ -648,7 +648,7 @@ class Role(pulumi.CustomResource):
 
         ### Example of Removing Managed Policies
 
-        > The `managed_policy_arns` argument is deprecated. Use the `iam.RolePolicyAttachmentsExclusive` resource instead.
+        > The `managed_policy_arns` argument is deprecated. Use the `iam.RolePolicyAttachment` resource instead. If Pulumi should exclusively manage all managed policy attachments (the current behavior of this argument), use the `iam.RolePolicyAttachmentsExclusive` resource as well.
 
         This example creates an IAM role with an empty `managed_policy_arns` argument. If someone attaches a policy out-of-band, on the next apply, this provider will detach that policy.
 
@@ -804,7 +804,7 @@ class Role(pulumi.CustomResource):
 
         ### Example of Exclusive Managed Policies
 
-        > The `managed_policy_arns` argument is deprecated. Use the `iam.RolePolicyAttachmentsExclusive` resource instead.
+        > The `managed_policy_arns` argument is deprecated. Use the `iam.RolePolicyAttachment` resource instead. If Pulumi should exclusively manage all managed policy attachments (the current behavior of this argument), use the `iam.RolePolicyAttachmentsExclusive` resource as well.
 
         This example creates an IAM role and attaches two managed IAM policies. If someone attaches another managed policy out-of-band, on the next apply, this provider will detach that policy. If someone detaches these policies out-of-band, this provider will attach them again.
 
@@ -848,7 +848,7 @@ class Role(pulumi.CustomResource):
 
         ### Example of Removing Managed Policies
 
-        > The `managed_policy_arns` argument is deprecated. Use the `iam.RolePolicyAttachmentsExclusive` resource instead.
+        > The `managed_policy_arns` argument is deprecated. Use the `iam.RolePolicyAttachment` resource instead. If Pulumi should exclusively manage all managed policy attachments (the current behavior of this argument), use the `iam.RolePolicyAttachmentsExclusive` resource as well.
 
         This example creates an IAM role with an empty `managed_policy_arns` argument. If someone attaches a policy out-of-band, on the next apply, this provider will detach that policy.
 

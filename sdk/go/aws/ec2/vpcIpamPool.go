@@ -163,7 +163,7 @@ type VpcIpamPool struct {
 	PoolDepth pulumi.IntOutput       `pulumi:"poolDepth"`
 	// The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
 	PublicIpSource pulumi.StringPtrOutput `pulumi:"publicIpSource"`
-	// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`.
+	// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
 	PubliclyAdvertisable pulumi.BoolPtrOutput `pulumi:"publiclyAdvertisable"`
 	// The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
 	SourceIpamPoolId pulumi.StringPtrOutput `pulumi:"sourceIpamPoolId"`
@@ -242,7 +242,7 @@ type vpcIpamPoolState struct {
 	PoolDepth *int    `pulumi:"poolDepth"`
 	// The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
 	PublicIpSource *string `pulumi:"publicIpSource"`
-	// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`.
+	// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
 	PubliclyAdvertisable *bool `pulumi:"publiclyAdvertisable"`
 	// The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
 	SourceIpamPoolId *string `pulumi:"sourceIpamPoolId"`
@@ -286,7 +286,7 @@ type VpcIpamPoolState struct {
 	PoolDepth pulumi.IntPtrInput
 	// The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
 	PublicIpSource pulumi.StringPtrInput
-	// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`.
+	// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
 	PubliclyAdvertisable pulumi.BoolPtrInput
 	// The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
 	SourceIpamPoolId pulumi.StringPtrInput
@@ -330,7 +330,7 @@ type vpcIpamPoolArgs struct {
 	Locale *string `pulumi:"locale"`
 	// The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
 	PublicIpSource *string `pulumi:"publicIpSource"`
-	// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`.
+	// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
 	PubliclyAdvertisable *bool `pulumi:"publiclyAdvertisable"`
 	// The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
 	SourceIpamPoolId *string `pulumi:"sourceIpamPoolId"`
@@ -365,7 +365,7 @@ type VpcIpamPoolArgs struct {
 	Locale pulumi.StringPtrInput
 	// The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
 	PublicIpSource pulumi.StringPtrInput
-	// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`.
+	// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
 	PubliclyAdvertisable pulumi.BoolPtrInput
 	// The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
 	SourceIpamPoolId pulumi.StringPtrInput
@@ -534,7 +534,7 @@ func (o VpcIpamPoolOutput) PublicIpSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcIpamPool) pulumi.StringPtrOutput { return v.PublicIpSource }).(pulumi.StringPtrOutput)
 }
 
-// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`.
+// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
 func (o VpcIpamPoolOutput) PubliclyAdvertisable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpcIpamPool) pulumi.BoolPtrOutput { return v.PubliclyAdvertisable }).(pulumi.BoolPtrOutput)
 }

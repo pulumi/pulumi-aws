@@ -1039,6 +1039,10 @@
     {
       "old": "* `managed_policy_arns` - (Optional, **Deprecated**) Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, Terraform will ignore policy attachments to this resource. When configured, Terraform will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managed_policy_arns = []`) will cause Terraform to remove _all_ managed policy attachments.\n",
       "new": "* `managed_policy_arns` - (Optional) Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, Pulumi will ignore policy attachments to this resource. When configured, Pulumi will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managed_policy_arns = []`) will cause Pulumi to remove _all_ managed policy attachments.\n"
+    },
+    {
+      "old": "~> The `managed_policy_arns` argument is deprecated. Use the `aws_iam_role_policy_attachment` resource instead. If Terraform should exclusively manage all managed policy attachments (the current behavior of this argument), use the `aws_iam_role_policy_attachments_exclusive` resource as well.\n",
+      "new": "~> The `managed_policy_arns` argument is deprecated. Use the `aws_iam_role_policy_attachment` resource instead. If Pulumi should exclusively manage all managed policy attachments (the current behavior of this argument), use the `aws_iam_role_policy_attachments_exclusive` resource as well.\n"
     }
   ],
   "iam_role_policy.html.markdown": [

@@ -73,6 +73,7 @@ from .get_route_tables import *
 from .get_security_group import *
 from .get_security_groups import *
 from .get_serial_console_access import *
+from .get_spot_datafeed_subscription import *
 from .get_spot_price import *
 from .get_subnet import *
 from .get_subnets import *

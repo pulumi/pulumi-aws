@@ -596,7 +596,9 @@ class StageCanarySettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "percentTraffic":
+        if key == "deploymentId":
+            suggest = "deployment_id"
+        elif key == "percentTraffic":
             suggest = "percent_traffic"
         elif key == "stageVariableOverrides":
             suggest = "stage_variable_overrides"
@@ -615,20 +617,31 @@ class StageCanarySettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 deployment_id: str,
                  percent_traffic: Optional[float] = None,
                  stage_variable_overrides: Optional[Mapping[str, str]] = None,
                  use_stage_cache: Optional[bool] = None):
         """
+        :param str deployment_id: ID of the deployment that the canary points to.
         :param float percent_traffic: Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
         :param Mapping[str, str] stage_variable_overrides: Map of overridden stage `variables` (including new variables) for the canary deployment.
         :param bool use_stage_cache: Whether the canary deployment uses the stage cache. Defaults to false.
         """
+        pulumi.set(__self__, "deployment_id", deployment_id)
         if percent_traffic is not None:
             pulumi.set(__self__, "percent_traffic", percent_traffic)
         if stage_variable_overrides is not None:
             pulumi.set(__self__, "stage_variable_overrides", stage_variable_overrides)
         if use_stage_cache is not None:
             pulumi.set(__self__, "use_stage_cache", use_stage_cache)
+
+    @property
+    @pulumi.getter(name="deploymentId")
+    def deployment_id(self) -> str:
+        """
+        ID of the deployment that the canary points to.
+        """
+        return pulumi.get(self, "deployment_id")
 
     @property
     @pulumi.getter(name="percentTraffic")

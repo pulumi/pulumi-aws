@@ -5,6 +5,7 @@ package com.pulumi.aws.batch.inputs;
 
 import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesContainersArgs;
 import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgs;
+import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerArgs;
 import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesMetadataArgs;
 import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesVolumeArgs;
 import com.pulumi.core.Output;
@@ -83,6 +84,21 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
     }
 
     /**
+     * Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+     * 
+     */
+    @Import(name="initContainers")
+    private @Nullable Output<List<JobDefinitionEksPropertiesPodPropertiesInitContainerArgs>> initContainers;
+
+    /**
+     * @return Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+     * 
+     */
+    public Optional<Output<List<JobDefinitionEksPropertiesPodPropertiesInitContainerArgs>>> initContainers() {
+        return Optional.ofNullable(this.initContainers);
+    }
+
+    /**
      * Metadata about the Kubernetes pod.
      * 
      */
@@ -113,6 +129,21 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
     }
 
     /**
+     * Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+     * 
+     */
+    @Import(name="shareProcessNamespace")
+    private @Nullable Output<Boolean> shareProcessNamespace;
+
+    /**
+     * @return Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+     * 
+     */
+    public Optional<Output<Boolean>> shareProcessNamespace() {
+        return Optional.ofNullable(this.shareProcessNamespace);
+    }
+
+    /**
      * Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
      * 
      */
@@ -134,8 +165,10 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         this.dnsPolicy = $.dnsPolicy;
         this.hostNetwork = $.hostNetwork;
         this.imagePullSecrets = $.imagePullSecrets;
+        this.initContainers = $.initContainers;
         this.metadata = $.metadata;
         this.serviceAccountName = $.serviceAccountName;
+        this.shareProcessNamespace = $.shareProcessNamespace;
         this.volumes = $.volumes;
     }
 
@@ -252,6 +285,37 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         }
 
         /**
+         * @param initContainers Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder initContainers(@Nullable Output<List<JobDefinitionEksPropertiesPodPropertiesInitContainerArgs>> initContainers) {
+            $.initContainers = initContainers;
+            return this;
+        }
+
+        /**
+         * @param initContainers Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder initContainers(List<JobDefinitionEksPropertiesPodPropertiesInitContainerArgs> initContainers) {
+            return initContainers(Output.of(initContainers));
+        }
+
+        /**
+         * @param initContainers Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder initContainers(JobDefinitionEksPropertiesPodPropertiesInitContainerArgs... initContainers) {
+            return initContainers(List.of(initContainers));
+        }
+
+        /**
          * @param metadata Metadata about the Kubernetes pod.
          * 
          * @return builder
@@ -291,6 +355,27 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
          */
         public Builder serviceAccountName(String serviceAccountName) {
             return serviceAccountName(Output.of(serviceAccountName));
+        }
+
+        /**
+         * @param shareProcessNamespace Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder shareProcessNamespace(@Nullable Output<Boolean> shareProcessNamespace) {
+            $.shareProcessNamespace = shareProcessNamespace;
+            return this;
+        }
+
+        /**
+         * @param shareProcessNamespace Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder shareProcessNamespace(Boolean shareProcessNamespace) {
+            return shareProcessNamespace(Output.of(shareProcessNamespace));
         }
 
         /**

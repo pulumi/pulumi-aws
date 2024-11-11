@@ -16,9 +16,17 @@ public final class JobDefinitionEksPropertiesPodPropertiesMetadataArgs extends c
 
     public static final JobDefinitionEksPropertiesPodPropertiesMetadataArgs Empty = new JobDefinitionEksPropertiesPodPropertiesMetadataArgs();
 
+    /**
+     * Key-value pairs used to identify, sort, and organize cube resources.
+     * 
+     */
     @Import(name="labels")
     private @Nullable Output<Map<String,String>> labels;
 
+    /**
+     * @return Key-value pairs used to identify, sort, and organize cube resources.
+     * 
+     */
     public Optional<Output<Map<String,String>>> labels() {
         return Optional.ofNullable(this.labels);
     }
@@ -47,11 +55,23 @@ public final class JobDefinitionEksPropertiesPodPropertiesMetadataArgs extends c
             $ = new JobDefinitionEksPropertiesPodPropertiesMetadataArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param labels Key-value pairs used to identify, sort, and organize cube resources.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(@Nullable Output<Map<String,String>> labels) {
             $.labels = labels;
             return this;
         }
 
+        /**
+         * @param labels Key-value pairs used to identify, sort, and organize cube resources.
+         * 
+         * @return builder
+         * 
+         */
         public Builder labels(Map<String,String> labels) {
             return labels(Output.of(labels));
         }

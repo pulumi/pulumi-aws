@@ -100,7 +100,7 @@ type SnapshotCopy struct {
 	Port            pulumi.IntOutput    `pulumi:"port"`
 	// he URL that contains a Signature Version 4 signed request.
 	PresignedUrl pulumi.StringPtrOutput `pulumi:"presignedUrl"`
-	// (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+	// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
 	SharedAccounts pulumi.StringArrayOutput `pulumi:"sharedAccounts"`
 	SnapshotType   pulumi.StringOutput      `pulumi:"snapshotType"`
 	// Snapshot identifier of the source snapshot.
@@ -186,7 +186,7 @@ type snapshotCopyState struct {
 	Port            *int    `pulumi:"port"`
 	// he URL that contains a Signature Version 4 signed request.
 	PresignedUrl *string `pulumi:"presignedUrl"`
-	// (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+	// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
 	SharedAccounts []string `pulumi:"sharedAccounts"`
 	SnapshotType   *string  `pulumi:"snapshotType"`
 	// Snapshot identifier of the source snapshot.
@@ -237,7 +237,7 @@ type SnapshotCopyState struct {
 	Port            pulumi.IntPtrInput
 	// he URL that contains a Signature Version 4 signed request.
 	PresignedUrl pulumi.StringPtrInput
-	// (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+	// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
 	SharedAccounts pulumi.StringArrayInput
 	SnapshotType   pulumi.StringPtrInput
 	// Snapshot identifier of the source snapshot.
@@ -275,7 +275,7 @@ type snapshotCopyArgs struct {
 	OptionGroupName *string `pulumi:"optionGroupName"`
 	// he URL that contains a Signature Version 4 signed request.
 	PresignedUrl *string `pulumi:"presignedUrl"`
-	// (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+	// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
 	SharedAccounts []string `pulumi:"sharedAccounts"`
 	// Snapshot identifier of the source snapshot.
 	SourceDbSnapshotIdentifier string `pulumi:"sourceDbSnapshotIdentifier"`
@@ -299,7 +299,7 @@ type SnapshotCopyArgs struct {
 	OptionGroupName pulumi.StringPtrInput
 	// he URL that contains a Signature Version 4 signed request.
 	PresignedUrl pulumi.StringPtrInput
-	// (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+	// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
 	SharedAccounts pulumi.StringArrayInput
 	// Snapshot identifier of the source snapshot.
 	SourceDbSnapshotIdentifier pulumi.StringInput
@@ -467,7 +467,7 @@ func (o SnapshotCopyOutput) PresignedUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringPtrOutput { return v.PresignedUrl }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) List of AWS Account ids to share snapshot with, use `all` to make snaphot public.
+// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
 func (o SnapshotCopyOutput) SharedAccounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringArrayOutput { return v.SharedAccounts }).(pulumi.StringArrayOutput)
 }

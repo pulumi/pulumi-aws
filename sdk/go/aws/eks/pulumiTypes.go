@@ -169,6 +169,112 @@ func (o AccessPolicyAssociationAccessScopePtrOutput) Type() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+type AddonPodIdentityAssociation struct {
+	// The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+	RoleArn string `pulumi:"roleArn"`
+	// The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
+	ServiceAccount string `pulumi:"serviceAccount"`
+}
+
+// AddonPodIdentityAssociationInput is an input type that accepts AddonPodIdentityAssociationArgs and AddonPodIdentityAssociationOutput values.
+// You can construct a concrete instance of `AddonPodIdentityAssociationInput` via:
+//
+//	AddonPodIdentityAssociationArgs{...}
+type AddonPodIdentityAssociationInput interface {
+	pulumi.Input
+
+	ToAddonPodIdentityAssociationOutput() AddonPodIdentityAssociationOutput
+	ToAddonPodIdentityAssociationOutputWithContext(context.Context) AddonPodIdentityAssociationOutput
+}
+
+type AddonPodIdentityAssociationArgs struct {
+	// The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
+	ServiceAccount pulumi.StringInput `pulumi:"serviceAccount"`
+}
+
+func (AddonPodIdentityAssociationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AddonPodIdentityAssociation)(nil)).Elem()
+}
+
+func (i AddonPodIdentityAssociationArgs) ToAddonPodIdentityAssociationOutput() AddonPodIdentityAssociationOutput {
+	return i.ToAddonPodIdentityAssociationOutputWithContext(context.Background())
+}
+
+func (i AddonPodIdentityAssociationArgs) ToAddonPodIdentityAssociationOutputWithContext(ctx context.Context) AddonPodIdentityAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AddonPodIdentityAssociationOutput)
+}
+
+// AddonPodIdentityAssociationArrayInput is an input type that accepts AddonPodIdentityAssociationArray and AddonPodIdentityAssociationArrayOutput values.
+// You can construct a concrete instance of `AddonPodIdentityAssociationArrayInput` via:
+//
+//	AddonPodIdentityAssociationArray{ AddonPodIdentityAssociationArgs{...} }
+type AddonPodIdentityAssociationArrayInput interface {
+	pulumi.Input
+
+	ToAddonPodIdentityAssociationArrayOutput() AddonPodIdentityAssociationArrayOutput
+	ToAddonPodIdentityAssociationArrayOutputWithContext(context.Context) AddonPodIdentityAssociationArrayOutput
+}
+
+type AddonPodIdentityAssociationArray []AddonPodIdentityAssociationInput
+
+func (AddonPodIdentityAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AddonPodIdentityAssociation)(nil)).Elem()
+}
+
+func (i AddonPodIdentityAssociationArray) ToAddonPodIdentityAssociationArrayOutput() AddonPodIdentityAssociationArrayOutput {
+	return i.ToAddonPodIdentityAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i AddonPodIdentityAssociationArray) ToAddonPodIdentityAssociationArrayOutputWithContext(ctx context.Context) AddonPodIdentityAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AddonPodIdentityAssociationArrayOutput)
+}
+
+type AddonPodIdentityAssociationOutput struct{ *pulumi.OutputState }
+
+func (AddonPodIdentityAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AddonPodIdentityAssociation)(nil)).Elem()
+}
+
+func (o AddonPodIdentityAssociationOutput) ToAddonPodIdentityAssociationOutput() AddonPodIdentityAssociationOutput {
+	return o
+}
+
+func (o AddonPodIdentityAssociationOutput) ToAddonPodIdentityAssociationOutputWithContext(ctx context.Context) AddonPodIdentityAssociationOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+func (o AddonPodIdentityAssociationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AddonPodIdentityAssociation) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
+func (o AddonPodIdentityAssociationOutput) ServiceAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v AddonPodIdentityAssociation) string { return v.ServiceAccount }).(pulumi.StringOutput)
+}
+
+type AddonPodIdentityAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (AddonPodIdentityAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AddonPodIdentityAssociation)(nil)).Elem()
+}
+
+func (o AddonPodIdentityAssociationArrayOutput) ToAddonPodIdentityAssociationArrayOutput() AddonPodIdentityAssociationArrayOutput {
+	return o
+}
+
+func (o AddonPodIdentityAssociationArrayOutput) ToAddonPodIdentityAssociationArrayOutputWithContext(ctx context.Context) AddonPodIdentityAssociationArrayOutput {
+	return o
+}
+
+func (o AddonPodIdentityAssociationArrayOutput) Index(i pulumi.IntInput) AddonPodIdentityAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AddonPodIdentityAssociation {
+		return vs[0].([]AddonPodIdentityAssociation)[vs[1].(int)]
+	}).(AddonPodIdentityAssociationOutput)
+}
+
 type ClusterAccessConfig struct {
 	// The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
 	AuthenticationMode *string `pulumi:"authenticationMode"`
@@ -3430,6 +3536,112 @@ func (o NodeGroupUpdateConfigPtrOutput) MaxUnavailablePercentage() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
+type GetAddonPodIdentityAssociation struct {
+	// ARN of the IAM role associated with the EKS add-on.
+	RoleArn string `pulumi:"roleArn"`
+	// Service account associated with the EKS add-on.
+	ServiceAccount string `pulumi:"serviceAccount"`
+}
+
+// GetAddonPodIdentityAssociationInput is an input type that accepts GetAddonPodIdentityAssociationArgs and GetAddonPodIdentityAssociationOutput values.
+// You can construct a concrete instance of `GetAddonPodIdentityAssociationInput` via:
+//
+//	GetAddonPodIdentityAssociationArgs{...}
+type GetAddonPodIdentityAssociationInput interface {
+	pulumi.Input
+
+	ToGetAddonPodIdentityAssociationOutput() GetAddonPodIdentityAssociationOutput
+	ToGetAddonPodIdentityAssociationOutputWithContext(context.Context) GetAddonPodIdentityAssociationOutput
+}
+
+type GetAddonPodIdentityAssociationArgs struct {
+	// ARN of the IAM role associated with the EKS add-on.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// Service account associated with the EKS add-on.
+	ServiceAccount pulumi.StringInput `pulumi:"serviceAccount"`
+}
+
+func (GetAddonPodIdentityAssociationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAddonPodIdentityAssociation)(nil)).Elem()
+}
+
+func (i GetAddonPodIdentityAssociationArgs) ToGetAddonPodIdentityAssociationOutput() GetAddonPodIdentityAssociationOutput {
+	return i.ToGetAddonPodIdentityAssociationOutputWithContext(context.Background())
+}
+
+func (i GetAddonPodIdentityAssociationArgs) ToGetAddonPodIdentityAssociationOutputWithContext(ctx context.Context) GetAddonPodIdentityAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAddonPodIdentityAssociationOutput)
+}
+
+// GetAddonPodIdentityAssociationArrayInput is an input type that accepts GetAddonPodIdentityAssociationArray and GetAddonPodIdentityAssociationArrayOutput values.
+// You can construct a concrete instance of `GetAddonPodIdentityAssociationArrayInput` via:
+//
+//	GetAddonPodIdentityAssociationArray{ GetAddonPodIdentityAssociationArgs{...} }
+type GetAddonPodIdentityAssociationArrayInput interface {
+	pulumi.Input
+
+	ToGetAddonPodIdentityAssociationArrayOutput() GetAddonPodIdentityAssociationArrayOutput
+	ToGetAddonPodIdentityAssociationArrayOutputWithContext(context.Context) GetAddonPodIdentityAssociationArrayOutput
+}
+
+type GetAddonPodIdentityAssociationArray []GetAddonPodIdentityAssociationInput
+
+func (GetAddonPodIdentityAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAddonPodIdentityAssociation)(nil)).Elem()
+}
+
+func (i GetAddonPodIdentityAssociationArray) ToGetAddonPodIdentityAssociationArrayOutput() GetAddonPodIdentityAssociationArrayOutput {
+	return i.ToGetAddonPodIdentityAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i GetAddonPodIdentityAssociationArray) ToGetAddonPodIdentityAssociationArrayOutputWithContext(ctx context.Context) GetAddonPodIdentityAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAddonPodIdentityAssociationArrayOutput)
+}
+
+type GetAddonPodIdentityAssociationOutput struct{ *pulumi.OutputState }
+
+func (GetAddonPodIdentityAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAddonPodIdentityAssociation)(nil)).Elem()
+}
+
+func (o GetAddonPodIdentityAssociationOutput) ToGetAddonPodIdentityAssociationOutput() GetAddonPodIdentityAssociationOutput {
+	return o
+}
+
+func (o GetAddonPodIdentityAssociationOutput) ToGetAddonPodIdentityAssociationOutputWithContext(ctx context.Context) GetAddonPodIdentityAssociationOutput {
+	return o
+}
+
+// ARN of the IAM role associated with the EKS add-on.
+func (o GetAddonPodIdentityAssociationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAddonPodIdentityAssociation) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// Service account associated with the EKS add-on.
+func (o GetAddonPodIdentityAssociationOutput) ServiceAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAddonPodIdentityAssociation) string { return v.ServiceAccount }).(pulumi.StringOutput)
+}
+
+type GetAddonPodIdentityAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAddonPodIdentityAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAddonPodIdentityAssociation)(nil)).Elem()
+}
+
+func (o GetAddonPodIdentityAssociationArrayOutput) ToGetAddonPodIdentityAssociationArrayOutput() GetAddonPodIdentityAssociationArrayOutput {
+	return o
+}
+
+func (o GetAddonPodIdentityAssociationArrayOutput) ToGetAddonPodIdentityAssociationArrayOutputWithContext(ctx context.Context) GetAddonPodIdentityAssociationArrayOutput {
+	return o
+}
+
+func (o GetAddonPodIdentityAssociationArrayOutput) Index(i pulumi.IntInput) GetAddonPodIdentityAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAddonPodIdentityAssociation {
+		return vs[0].([]GetAddonPodIdentityAssociation)[vs[1].(int)]
+	}).(GetAddonPodIdentityAssociationOutput)
+}
+
 type GetClusterAccessConfig struct {
 	// Values returned are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
 	AuthenticationMode string `pulumi:"authenticationMode"`
@@ -5113,6 +5325,8 @@ func (o GetNodeGroupTaintArrayOutput) Index(i pulumi.IntInput) GetNodeGroupTaint
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyAssociationAccessScopeInput)(nil)).Elem(), AccessPolicyAssociationAccessScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyAssociationAccessScopePtrInput)(nil)).Elem(), AccessPolicyAssociationAccessScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AddonPodIdentityAssociationInput)(nil)).Elem(), AddonPodIdentityAssociationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AddonPodIdentityAssociationArrayInput)(nil)).Elem(), AddonPodIdentityAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAccessConfigInput)(nil)).Elem(), ClusterAccessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAccessConfigPtrInput)(nil)).Elem(), ClusterAccessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCertificateAuthorityInput)(nil)).Elem(), ClusterCertificateAuthorityArgs{})
@@ -5156,6 +5370,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupTaintArrayInput)(nil)).Elem(), NodeGroupTaintArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupUpdateConfigInput)(nil)).Elem(), NodeGroupUpdateConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupUpdateConfigPtrInput)(nil)).Elem(), NodeGroupUpdateConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAddonPodIdentityAssociationInput)(nil)).Elem(), GetAddonPodIdentityAssociationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAddonPodIdentityAssociationArrayInput)(nil)).Elem(), GetAddonPodIdentityAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterAccessConfigInput)(nil)).Elem(), GetClusterAccessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterAccessConfigArrayInput)(nil)).Elem(), GetClusterAccessConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterCertificateAuthorityInput)(nil)).Elem(), GetClusterCertificateAuthorityArgs{})
@@ -5189,6 +5405,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupTaintArrayInput)(nil)).Elem(), GetNodeGroupTaintArray{})
 	pulumi.RegisterOutputType(AccessPolicyAssociationAccessScopeOutput{})
 	pulumi.RegisterOutputType(AccessPolicyAssociationAccessScopePtrOutput{})
+	pulumi.RegisterOutputType(AddonPodIdentityAssociationOutput{})
+	pulumi.RegisterOutputType(AddonPodIdentityAssociationArrayOutput{})
 	pulumi.RegisterOutputType(ClusterAccessConfigOutput{})
 	pulumi.RegisterOutputType(ClusterAccessConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterCertificateAuthorityOutput{})
@@ -5232,6 +5450,8 @@ func init() {
 	pulumi.RegisterOutputType(NodeGroupTaintArrayOutput{})
 	pulumi.RegisterOutputType(NodeGroupUpdateConfigOutput{})
 	pulumi.RegisterOutputType(NodeGroupUpdateConfigPtrOutput{})
+	pulumi.RegisterOutputType(GetAddonPodIdentityAssociationOutput{})
+	pulumi.RegisterOutputType(GetAddonPodIdentityAssociationArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterAccessConfigOutput{})
 	pulumi.RegisterOutputType(GetClusterAccessConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterCertificateAuthorityOutput{})

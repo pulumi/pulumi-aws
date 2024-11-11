@@ -303,7 +303,7 @@ export class Listener extends pulumi.CustomResource {
     /**
      * TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
      */
-    public readonly tcpIdleTimeoutSeconds!: pulumi.Output<number | undefined>;
+    public readonly tcpIdleTimeoutSeconds!: pulumi.Output<number>;
 
     /**
      * Create a Listener resource with the given unique name, arguments, and options.

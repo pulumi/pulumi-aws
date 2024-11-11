@@ -5,21 +5,20 @@ package com.pulumi.aws.iot.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class BillingGroupMetadataArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final BillingGroupMetadataArgs Empty = new BillingGroupMetadataArgs();
 
-    @Import(name="creationDate")
-    private @Nullable Output<String> creationDate;
+    @Import(name="creationDate", required=true)
+    private Output<String> creationDate;
 
-    public Optional<Output<String>> creationDate() {
-        return Optional.ofNullable(this.creationDate);
+    public Output<String> creationDate() {
+        return this.creationDate;
     }
 
     private BillingGroupMetadataArgs() {}
@@ -46,7 +45,7 @@ public final class BillingGroupMetadataArgs extends com.pulumi.resources.Resourc
             $ = new BillingGroupMetadataArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder creationDate(@Nullable Output<String> creationDate) {
+        public Builder creationDate(Output<String> creationDate) {
             $.creationDate = creationDate;
             return this;
         }
@@ -56,6 +55,9 @@ public final class BillingGroupMetadataArgs extends com.pulumi.resources.Resourc
         }
 
         public BillingGroupMetadataArgs build() {
+            if ($.creationDate == null) {
+                throw new MissingRequiredPropertyException("BillingGroupMetadataArgs", "creationDate");
+            }
             return $;
         }
     }

@@ -327,6 +327,8 @@ class UserLoginProfile(pulumi.CustomResource):
             __props__.__dict__["encrypted_password"] = None
             __props__.__dict__["key_fingerprint"] = None
             __props__.__dict__["password"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(UserLoginProfile, __self__).__init__(
             'aws:iam/userLoginProfile:UserLoginProfile',
             resource_name,
