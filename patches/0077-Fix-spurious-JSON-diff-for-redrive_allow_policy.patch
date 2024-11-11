@@ -1,0 +1,26 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: James Forcier <james.forcier@clearme.com>
+Date: Mon, 11 Nov 2024 16:12:57 -0500
+Subject: [PATCH] Fix spurious JSON diff for redrive_allow_policy
+
+This applies the same fix found in #2529 to the RedriveAllowPolicy
+resource, which needs the same treatment.
+
+diff --git a/internal/service/sqs/queue_redrive_allow_policy.go b/internal/service/sqs/queue_redrive_allow_policy.go
+index 7e3c390e50..789bb04619 100644
+--- a/internal/service/sqs/queue_redrive_allow_policy.go
++++ b/internal/service/sqs/queue_redrive_allow_policy.go
+@@ -32,9 +32,10 @@ func resourceQueueRedriveAllowPolicy() *schema.Resource {
+ 				ForceNew: true,
+ 			},
+ 			"redrive_allow_policy": {
+-				Type:         schema.TypeString,
+-				Required:     true,
+-				ValidateFunc: validation.StringIsJSON,
++				Type:         	  schema.TypeString,
++				Required:     	  true,
++				ValidateFunc:     validation.StringIsJSON,
++				DiffSuppressFunc: verify.SuppressEquivalentJSONDiffs,
+ 				StateFunc: func(v interface{}) string {
+ 					json, _ := structure.NormalizeJsonString(v)
+ 					return json
