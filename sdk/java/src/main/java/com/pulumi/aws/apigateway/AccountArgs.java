@@ -5,6 +5,7 @@ package com.pulumi.aws.apigateway;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -30,10 +31,38 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.cloudwatchRoleArn);
     }
 
+    /**
+     * If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
+     * Defaults to `false`.
+     * Will be removed in a future major version of the provider.
+     * 
+     * @deprecated
+     * The &#34;reset_on_delete&#34; attribute will be removed in a future version of the provider
+     * 
+     */
+    @Deprecated /* The ""reset_on_delete"" attribute will be removed in a future version of the provider */
+    @Import(name="resetOnDelete")
+    private @Nullable Output<Boolean> resetOnDelete;
+
+    /**
+     * @return If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
+     * Defaults to `false`.
+     * Will be removed in a future major version of the provider.
+     * 
+     * @deprecated
+     * The &#34;reset_on_delete&#34; attribute will be removed in a future version of the provider
+     * 
+     */
+    @Deprecated /* The ""reset_on_delete"" attribute will be removed in a future version of the provider */
+    public Optional<Output<Boolean>> resetOnDelete() {
+        return Optional.ofNullable(this.resetOnDelete);
+    }
+
     private AccountArgs() {}
 
     private AccountArgs(AccountArgs $) {
         this.cloudwatchRoleArn = $.cloudwatchRoleArn;
+        this.resetOnDelete = $.resetOnDelete;
     }
 
     public static Builder builder() {
@@ -73,6 +102,39 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder cloudwatchRoleArn(String cloudwatchRoleArn) {
             return cloudwatchRoleArn(Output.of(cloudwatchRoleArn));
+        }
+
+        /**
+         * @param resetOnDelete If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
+         * Defaults to `false`.
+         * Will be removed in a future major version of the provider.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * The &#34;reset_on_delete&#34; attribute will be removed in a future version of the provider
+         * 
+         */
+        @Deprecated /* The ""reset_on_delete"" attribute will be removed in a future version of the provider */
+        public Builder resetOnDelete(@Nullable Output<Boolean> resetOnDelete) {
+            $.resetOnDelete = resetOnDelete;
+            return this;
+        }
+
+        /**
+         * @param resetOnDelete If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
+         * Defaults to `false`.
+         * Will be removed in a future major version of the provider.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * The &#34;reset_on_delete&#34; attribute will be removed in a future version of the provider
+         * 
+         */
+        @Deprecated /* The ""reset_on_delete"" attribute will be removed in a future version of the provider */
+        public Builder resetOnDelete(Boolean resetOnDelete) {
+            return resetOnDelete(Output.of(resetOnDelete));
         }
 
         public AccountArgs build() {

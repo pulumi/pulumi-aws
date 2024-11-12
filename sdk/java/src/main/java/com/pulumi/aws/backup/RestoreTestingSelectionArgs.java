@@ -125,9 +125,17 @@ public final class RestoreTestingSelectionArgs extends com.pulumi.resources.Reso
         return this.restoreTestingPlanName;
     }
 
+    /**
+     * The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+     * 
+     */
     @Import(name="validationWindowHours")
     private @Nullable Output<Integer> validationWindowHours;
 
+    /**
+     * @return The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+     * 
+     */
     public Optional<Output<Integer>> validationWindowHours() {
         return Optional.ofNullable(this.validationWindowHours);
     }
@@ -320,11 +328,23 @@ public final class RestoreTestingSelectionArgs extends com.pulumi.resources.Reso
             return restoreTestingPlanName(Output.of(restoreTestingPlanName));
         }
 
+        /**
+         * @param validationWindowHours The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder validationWindowHours(@Nullable Output<Integer> validationWindowHours) {
             $.validationWindowHours = validationWindowHours;
             return this;
         }
 
+        /**
+         * @param validationWindowHours The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder validationWindowHours(Integer validationWindowHours) {
             return validationWindowHours(Output.of(validationWindowHours));
         }

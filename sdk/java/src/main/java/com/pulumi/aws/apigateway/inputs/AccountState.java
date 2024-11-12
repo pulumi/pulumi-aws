@@ -6,6 +6,7 @@ package com.pulumi.aws.apigateway.inputs;
 import com.pulumi.aws.apigateway.inputs.AccountThrottleSettingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -63,6 +64,33 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
+     * Defaults to `false`.
+     * Will be removed in a future major version of the provider.
+     * 
+     * @deprecated
+     * The &#34;reset_on_delete&#34; attribute will be removed in a future version of the provider
+     * 
+     */
+    @Deprecated /* The ""reset_on_delete"" attribute will be removed in a future version of the provider */
+    @Import(name="resetOnDelete")
+    private @Nullable Output<Boolean> resetOnDelete;
+
+    /**
+     * @return If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
+     * Defaults to `false`.
+     * Will be removed in a future major version of the provider.
+     * 
+     * @deprecated
+     * The &#34;reset_on_delete&#34; attribute will be removed in a future version of the provider
+     * 
+     */
+    @Deprecated /* The ""reset_on_delete"" attribute will be removed in a future version of the provider */
+    public Optional<Output<Boolean>> resetOnDelete() {
+        return Optional.ofNullable(this.resetOnDelete);
+    }
+
+    /**
      * Account-Level throttle settings. See exported fields below.
      * 
      */
@@ -83,6 +111,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.apiKeyVersion = $.apiKeyVersion;
         this.cloudwatchRoleArn = $.cloudwatchRoleArn;
         this.features = $.features;
+        this.resetOnDelete = $.resetOnDelete;
         this.throttleSettings = $.throttleSettings;
     }
 
@@ -175,6 +204,39 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder features(String... features) {
             return features(List.of(features));
+        }
+
+        /**
+         * @param resetOnDelete If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
+         * Defaults to `false`.
+         * Will be removed in a future major version of the provider.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * The &#34;reset_on_delete&#34; attribute will be removed in a future version of the provider
+         * 
+         */
+        @Deprecated /* The ""reset_on_delete"" attribute will be removed in a future version of the provider */
+        public Builder resetOnDelete(@Nullable Output<Boolean> resetOnDelete) {
+            $.resetOnDelete = resetOnDelete;
+            return this;
+        }
+
+        /**
+         * @param resetOnDelete If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
+         * Defaults to `false`.
+         * Will be removed in a future major version of the provider.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * The &#34;reset_on_delete&#34; attribute will be removed in a future version of the provider
+         * 
+         */
+        @Deprecated /* The ""reset_on_delete"" attribute will be removed in a future version of the provider */
+        public Builder resetOnDelete(Boolean resetOnDelete) {
+            return resetOnDelete(Output.of(resetOnDelete));
         }
 
         /**

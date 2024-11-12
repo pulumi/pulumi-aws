@@ -1400,6 +1400,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String taxsettings;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String timestreaminfluxdb;
     /**
      * @return Use this to override the default service endpoint URL
@@ -3416,6 +3421,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> taxsettings() {
+        return Optional.ofNullable(this.taxsettings);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> timestreaminfluxdb() {
         return Optional.ofNullable(this.timestreaminfluxdb);
     }
@@ -3804,6 +3816,7 @@ public final class Endpoints {
         private @Nullable String sts;
         private @Nullable String swf;
         private @Nullable String synthetics;
+        private @Nullable String taxsettings;
         private @Nullable String timestreaminfluxdb;
         private @Nullable String timestreamwrite;
         private @Nullable String transcribe;
@@ -4099,6 +4112,7 @@ public final class Endpoints {
     	      this.sts = defaults.sts;
     	      this.swf = defaults.swf;
     	      this.synthetics = defaults.synthetics;
+    	      this.taxsettings = defaults.taxsettings;
     	      this.timestreaminfluxdb = defaults.timestreaminfluxdb;
     	      this.timestreamwrite = defaults.timestreamwrite;
     	      this.transcribe = defaults.transcribe;
@@ -5779,6 +5793,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder taxsettings(@Nullable String taxsettings) {
+
+            this.taxsettings = taxsettings;
+            return this;
+        }
+        @CustomType.Setter
         public Builder timestreaminfluxdb(@Nullable String timestreaminfluxdb) {
 
             this.timestreaminfluxdb = timestreaminfluxdb;
@@ -6147,6 +6167,7 @@ public final class Endpoints {
             _resultValue.sts = sts;
             _resultValue.swf = swf;
             _resultValue.synthetics = synthetics;
+            _resultValue.taxsettings = taxsettings;
             _resultValue.timestreaminfluxdb = timestreaminfluxdb;
             _resultValue.timestreamwrite = timestreamwrite;
             _resultValue.transcribe = transcribe;

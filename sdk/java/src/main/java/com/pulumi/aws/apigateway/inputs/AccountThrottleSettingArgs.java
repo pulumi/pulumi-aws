@@ -5,11 +5,9 @@ package com.pulumi.aws.apigateway.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
-import java.lang.Integer;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class AccountThrottleSettingArgs extends com.pulumi.resources.ResourceArgs {
@@ -20,30 +18,30 @@ public final class AccountThrottleSettingArgs extends com.pulumi.resources.Resou
      * Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
      * 
      */
-    @Import(name="burstLimit")
-    private @Nullable Output<Integer> burstLimit;
+    @Import(name="burstLimit", required=true)
+    private Output<Double> burstLimit;
 
     /**
      * @return Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
      * 
      */
-    public Optional<Output<Integer>> burstLimit() {
-        return Optional.ofNullable(this.burstLimit);
+    public Output<Double> burstLimit() {
+        return this.burstLimit;
     }
 
     /**
      * Number of times API Gateway allows the API to be called per second on average (RPS).
      * 
      */
-    @Import(name="rateLimit")
-    private @Nullable Output<Double> rateLimit;
+    @Import(name="rateLimit", required=true)
+    private Output<Double> rateLimit;
 
     /**
      * @return Number of times API Gateway allows the API to be called per second on average (RPS).
      * 
      */
-    public Optional<Output<Double>> rateLimit() {
-        return Optional.ofNullable(this.rateLimit);
+    public Output<Double> rateLimit() {
+        return this.rateLimit;
     }
 
     private AccountThrottleSettingArgs() {}
@@ -77,7 +75,7 @@ public final class AccountThrottleSettingArgs extends com.pulumi.resources.Resou
          * @return builder
          * 
          */
-        public Builder burstLimit(@Nullable Output<Integer> burstLimit) {
+        public Builder burstLimit(Output<Double> burstLimit) {
             $.burstLimit = burstLimit;
             return this;
         }
@@ -88,7 +86,7 @@ public final class AccountThrottleSettingArgs extends com.pulumi.resources.Resou
          * @return builder
          * 
          */
-        public Builder burstLimit(Integer burstLimit) {
+        public Builder burstLimit(Double burstLimit) {
             return burstLimit(Output.of(burstLimit));
         }
 
@@ -98,7 +96,7 @@ public final class AccountThrottleSettingArgs extends com.pulumi.resources.Resou
          * @return builder
          * 
          */
-        public Builder rateLimit(@Nullable Output<Double> rateLimit) {
+        public Builder rateLimit(Output<Double> rateLimit) {
             $.rateLimit = rateLimit;
             return this;
         }
@@ -114,6 +112,12 @@ public final class AccountThrottleSettingArgs extends com.pulumi.resources.Resou
         }
 
         public AccountThrottleSettingArgs build() {
+            if ($.burstLimit == null) {
+                throw new MissingRequiredPropertyException("AccountThrottleSettingArgs", "burstLimit");
+            }
+            if ($.rateLimit == null) {
+                throw new MissingRequiredPropertyException("AccountThrottleSettingArgs", "rateLimit");
+            }
             return $;
         }
     }

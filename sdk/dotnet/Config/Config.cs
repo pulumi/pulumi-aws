@@ -1550,6 +1550,10 @@ namespace Pulumi.Aws
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>
+                public string? Taxsettings { get; set; } = null!;
+            /// <summary>
+            /// Use this to override the default service endpoint URL
+            /// </summary>
                 public string? Timestreaminfluxdb { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL

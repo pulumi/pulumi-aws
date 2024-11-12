@@ -12,7 +12,7 @@ namespace Pulumi.Aws.ApiGateway
     /// <summary>
     /// Provides a settings of an API Gateway Account. Settings is applied region-wide per `provider` block.
     /// 
-    /// &gt; **Note:** As there is no API method for deleting account settings or resetting it to defaults, destroying this resource will keep your account settings intact
+    /// &gt; **Note:** By default, destroying this resource will keep your account settings intact. Set `reset_on_delete` to `true` to reset the account setttings to default. In a future major version of the provider, destroying the resource will reset account settings.
     /// 
     /// ## Example Usage
     /// 
@@ -117,13 +117,21 @@ namespace Pulumi.Aws.ApiGateway
         /// ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging &amp; monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
         /// </summary>
         [Output("cloudwatchRoleArn")]
-        public Output<string?> CloudwatchRoleArn { get; private set; } = null!;
+        public Output<string> CloudwatchRoleArn { get; private set; } = null!;
 
         /// <summary>
         /// A list of features supported for the account.
         /// </summary>
         [Output("features")]
         public Output<ImmutableArray<string>> Features { get; private set; } = null!;
+
+        /// <summary>
+        /// If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
+        /// Defaults to `false`.
+        /// Will be removed in a future major version of the provider.
+        /// </summary>
+        [Output("resetOnDelete")]
+        public Output<bool?> ResetOnDelete { get; private set; } = null!;
 
         /// <summary>
         /// Account-Level throttle settings. See exported fields below.
@@ -183,6 +191,14 @@ namespace Pulumi.Aws.ApiGateway
         [Input("cloudwatchRoleArn")]
         public Input<string>? CloudwatchRoleArn { get; set; }
 
+        /// <summary>
+        /// If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
+        /// Defaults to `false`.
+        /// Will be removed in a future major version of the provider.
+        /// </summary>
+        [Input("resetOnDelete")]
+        public Input<bool>? ResetOnDelete { get; set; }
+
         public AccountArgs()
         {
         }
@@ -214,6 +230,14 @@ namespace Pulumi.Aws.ApiGateway
             get => _features ?? (_features = new InputList<string>());
             set => _features = value;
         }
+
+        /// <summary>
+        /// If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
+        /// Defaults to `false`.
+        /// Will be removed in a future major version of the provider.
+        /// </summary>
+        [Input("resetOnDelete")]
+        public Input<bool>? ResetOnDelete { get; set; }
 
         [Input("throttleSettings")]
         private InputList<Inputs.AccountThrottleSettingGetArgs>? _throttleSettings;

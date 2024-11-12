@@ -11,17 +11,22 @@ import java.util.Objects;
 @CustomType
 public final class GetEventBusResult {
     /**
-     * @return ARN.
+     * @return ARN of the event bus.
      * 
      */
     private String arn;
+    /**
+     * @return Event bus description.
+     * 
+     */
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
     /**
-     * @return The identifier of the AWS KMS customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.
+     * @return Identifier of the AWS KMS customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.
      * 
      */
     private String kmsKeyIdentifier;
@@ -29,11 +34,18 @@ public final class GetEventBusResult {
 
     private GetEventBusResult() {}
     /**
-     * @return ARN.
+     * @return ARN of the event bus.
      * 
      */
     public String arn() {
         return this.arn;
+    }
+    /**
+     * @return Event bus description.
+     * 
+     */
+    public String description() {
+        return this.description;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -43,7 +55,7 @@ public final class GetEventBusResult {
         return this.id;
     }
     /**
-     * @return The identifier of the AWS KMS customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.
+     * @return Identifier of the AWS KMS customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.
      * 
      */
     public String kmsKeyIdentifier() {
@@ -63,6 +75,7 @@ public final class GetEventBusResult {
     @CustomType.Builder
     public static final class Builder {
         private String arn;
+        private String description;
         private String id;
         private String kmsKeyIdentifier;
         private String name;
@@ -70,6 +83,7 @@ public final class GetEventBusResult {
         public Builder(GetEventBusResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
+    	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.kmsKeyIdentifier = defaults.kmsKeyIdentifier;
     	      this.name = defaults.name;
@@ -81,6 +95,14 @@ public final class GetEventBusResult {
               throw new MissingRequiredPropertyException("GetEventBusResult", "arn");
             }
             this.arn = arn;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder description(String description) {
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetEventBusResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
@@ -110,6 +132,7 @@ public final class GetEventBusResult {
         public GetEventBusResult build() {
             final var _resultValue = new GetEventBusResult();
             _resultValue.arn = arn;
+            _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.kmsKeyIdentifier = kmsKeyIdentifier;
             _resultValue.name = name;

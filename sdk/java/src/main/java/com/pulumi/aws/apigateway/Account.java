@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -19,7 +20,7 @@ import javax.annotation.Nullable;
 /**
  * Provides a settings of an API Gateway Account. Settings is applied region-wide per `provider` block.
  * 
- * &gt; **Note:** As there is no API method for deleting account settings or resetting it to defaults, destroying this resource will keep your account settings intact
+ * &gt; **Note:** By default, destroying this resource will keep your account settings intact. Set `reset_on_delete` to `true` to reset the account setttings to default. In a future major version of the provider, destroying the resource will reset account settings.
  * 
  * ## Example Usage
  * 
@@ -129,14 +130,14 @@ public class Account extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="cloudwatchRoleArn", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> cloudwatchRoleArn;
+    private Output<String> cloudwatchRoleArn;
 
     /**
      * @return ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging &amp; monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
      * 
      */
-    public Output<Optional<String>> cloudwatchRoleArn() {
-        return Codegen.optional(this.cloudwatchRoleArn);
+    public Output<String> cloudwatchRoleArn() {
+        return this.cloudwatchRoleArn;
     }
     /**
      * A list of features supported for the account.
@@ -151,6 +152,28 @@ public class Account extends com.pulumi.resources.CustomResource {
      */
     public Output<List<String>> features() {
         return this.features;
+    }
+    /**
+     * If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
+     * Defaults to `false`.
+     * Will be removed in a future major version of the provider.
+     * 
+     * @deprecated
+     * The &#34;reset_on_delete&#34; attribute will be removed in a future version of the provider
+     * 
+     */
+    @Deprecated /* The ""reset_on_delete"" attribute will be removed in a future version of the provider */
+    @Export(name="resetOnDelete", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> resetOnDelete;
+
+    /**
+     * @return If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
+     * Defaults to `false`.
+     * Will be removed in a future major version of the provider.
+     * 
+     */
+    public Output<Optional<Boolean>> resetOnDelete() {
+        return Codegen.optional(this.resetOnDelete);
     }
     /**
      * Account-Level throttle settings. See exported fields below.

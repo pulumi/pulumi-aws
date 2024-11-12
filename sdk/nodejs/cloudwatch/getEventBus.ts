@@ -32,7 +32,7 @@ export function getEventBus(args: GetEventBusArgs, opts?: pulumi.InvokeOptions):
  */
 export interface GetEventBusArgs {
     /**
-     * Friendly EventBridge event bus name.
+     * Name of the event bus.
      */
     name: string;
 }
@@ -42,15 +42,19 @@ export interface GetEventBusArgs {
  */
 export interface GetEventBusResult {
     /**
-     * ARN.
+     * ARN of the event bus.
      */
     readonly arn: string;
+    /**
+     * Event bus description.
+     */
+    readonly description: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     /**
-     * The identifier of the AWS KMS customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.
+     * Identifier of the AWS KMS customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.
      */
     readonly kmsKeyIdentifier: string;
     readonly name: string;
@@ -83,7 +87,7 @@ export function getEventBusOutput(args: GetEventBusOutputArgs, opts?: pulumi.Inv
  */
 export interface GetEventBusOutputArgs {
     /**
-     * Friendly EventBridge event bus name.
+     * Name of the event bus.
      */
     name: pulumi.Input<string>;
 }
