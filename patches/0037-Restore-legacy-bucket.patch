@@ -5,7 +5,7 @@ Subject: [PATCH] Restore legacy bucket
 
 
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index 4c83f4bb1c..2ec4c986be 100644
+index 4c83f4bb1c4..2ec4c986be4 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
 @@ -17,7 +17,6 @@ import (
@@ -36,7 +36,7 @@ index 4c83f4bb1c..2ec4c986be 100644
  
 diff --git a/internal/provider/service_packages_all.go b/internal/provider/service_packages_all.go
 new file mode 100644
-index 0000000000..51ca53f883
+index 00000000000..51ca53f883b
 --- /dev/null
 +++ b/internal/provider/service_packages_all.go
 @@ -0,0 +1,12 @@
@@ -54,7 +54,7 @@ index 0000000000..51ca53f883
 +}
 diff --git a/internal/service/s3/service_package_bwcompat.go b/internal/service/s3/service_package_bwcompat.go
 new file mode 100644
-index 0000000000..4278d1e70a
+index 00000000000..4278d1e70ae
 --- /dev/null
 +++ b/internal/service/s3/service_package_bwcompat.go
 @@ -0,0 +1,57 @@
@@ -116,7 +116,7 @@ index 0000000000..4278d1e70a
 +	return conn, nil
 +}
 diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
-index 007c2f2dc1..b5b4c0477f 100644
+index 007c2f2dc14..b5b4c0477ff 100644
 --- a/internal/service/s3legacy/bucket_legacy.go
 +++ b/internal/service/s3legacy/bucket_legacy.go
 @@ -19,7 +19,6 @@ import (
@@ -160,7 +160,7 @@ index 007c2f2dc1..b5b4c0477f 100644
  		Resource:  d.Id(),
  	}.String()
 diff --git a/internal/service/s3legacy/object.go b/internal/service/s3legacy/object.go
-index f44b435af6..58f6e95d83 100644
+index f44b435af68..58f6e95d83c 100644
 --- a/internal/service/s3legacy/object.go
 +++ b/internal/service/s3legacy/object.go
 @@ -2,10 +2,10 @@ package s3legacy
@@ -177,7 +177,7 @@ index f44b435af6..58f6e95d83 100644
  
  // DeleteAllObjectVersions deletes all versions of a specified key from an S3 bucket.
 diff --git a/internal/service/s3legacy/retry.go b/internal/service/s3legacy/retry.go
-index dcf7e39759..f578947ae6 100644
+index dcf7e397596..f578947ae6b 100644
 --- a/internal/service/s3legacy/retry.go
 +++ b/internal/service/s3legacy/retry.go
 @@ -1,10 +1,10 @@
@@ -195,7 +195,7 @@ index dcf7e39759..f578947ae6 100644
  // FORK: Adding the retryOnAWSCode to the fork for the old AWS S3 Logic
 diff --git a/internal/service/s3legacy/service_package.go b/internal/service/s3legacy/service_package.go
 new file mode 100644
-index 0000000000..5d2ea27364
+index 00000000000..5d2ea27364e
 --- /dev/null
 +++ b/internal/service/s3legacy/service_package.go
 @@ -0,0 +1,78 @@
@@ -278,7 +278,7 @@ index 0000000000..5d2ea27364
 +// 	}), nil
 +// }
 diff --git a/internal/service/s3legacy/tags.go b/internal/service/s3legacy/tags.go
-index 669813747b..b727c54640 100644
+index 669813747ba..b727c546400 100644
 --- a/internal/service/s3legacy/tags.go
 +++ b/internal/service/s3legacy/tags.go
 @@ -11,7 +11,6 @@ import (
@@ -291,7 +291,7 @@ index 669813747b..b727c54640 100644
  	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
 diff --git a/internal/service/s3legacy/tfawserr_shim.go b/internal/service/s3legacy/tfawserr_shim.go
 new file mode 100644
-index 0000000000..b8b0660d7a
+index 00000000000..b8b0660d7a2
 --- /dev/null
 +++ b/internal/service/s3legacy/tfawserr_shim.go
 @@ -0,0 +1,40 @@

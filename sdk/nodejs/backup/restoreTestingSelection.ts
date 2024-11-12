@@ -111,6 +111,9 @@ export class RestoreTestingSelection extends pulumi.CustomResource {
      * The name of the restore testing plan.
      */
     public readonly restoreTestingPlanName!: pulumi.Output<string>;
+    /**
+     * The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+     */
     public readonly validationWindowHours!: pulumi.Output<number>;
 
     /**
@@ -191,6 +194,9 @@ export interface RestoreTestingSelectionState {
      * The name of the restore testing plan.
      */
     restoreTestingPlanName?: pulumi.Input<string>;
+    /**
+     * The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+     */
     validationWindowHours?: pulumi.Input<number>;
 }
 
@@ -226,5 +232,8 @@ export interface RestoreTestingSelectionArgs {
      * The name of the restore testing plan.
      */
     restoreTestingPlanName: pulumi.Input<string>;
+    /**
+     * The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+     */
     validationWindowHours?: pulumi.Input<number>;
 }

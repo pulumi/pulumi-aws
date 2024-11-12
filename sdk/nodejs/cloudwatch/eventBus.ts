@@ -27,13 +27,14 @@ import * as utilities from "../utilities";
  * });
  * const examplepartnerEventBus = new aws.cloudwatch.EventBus("examplepartner", {
  *     name: examplepartner.then(examplepartner => examplepartner.name),
+ *     description: "Event bus for example partner events",
  *     eventSourceName: examplepartner.then(examplepartner => examplepartner.name),
  * });
  * ```
  *
  * ## Import
  *
- * Using `pulumi import`, import EventBridge event buses using the `name` (which can also be a partner event source name). For example:
+ * Using `pulumi import`, import EventBridge event buses using the name of the event bus (which can also be a partner event source name). For example:
  *
  * ```sh
  * $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
@@ -68,27 +69,33 @@ export class EventBus extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the event bus.
+     * ARN of the event bus.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The partner event source that the new event bus will be matched with. Must match `name`.
+     * Event bus description.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Partner event source that the new event bus will be matched with. Must match `name`.
      */
     public readonly eventSourceName!: pulumi.Output<string | undefined>;
     /**
-     * The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
      */
     public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
     /**
-     * The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
+     * Name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure that the `name` matches the `eventSourceName`.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      *
      * @deprecated Please use `tags` instead.
      */
@@ -108,6 +115,7 @@ export class EventBus extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as EventBusState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["eventSourceName"] = state ? state.eventSourceName : undefined;
             resourceInputs["kmsKeyIdentifier"] = state ? state.kmsKeyIdentifier : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -115,6 +123,7 @@ export class EventBus extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as EventBusArgs | undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["eventSourceName"] = args ? args.eventSourceName : undefined;
             resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -132,27 +141,33 @@ export class EventBus extends pulumi.CustomResource {
  */
 export interface EventBusState {
     /**
-     * The Amazon Resource Name (ARN) of the event bus.
+     * ARN of the event bus.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The partner event source that the new event bus will be matched with. Must match `name`.
+     * Event bus description.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * Partner event source that the new event bus will be matched with. Must match `name`.
      */
     eventSourceName?: pulumi.Input<string>;
     /**
-     * The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
      */
     kmsKeyIdentifier?: pulumi.Input<string>;
     /**
-     * The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
+     * Name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure that the `name` matches the `eventSourceName`.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      *
      * @deprecated Please use `tags` instead.
      */
@@ -164,19 +179,25 @@ export interface EventBusState {
  */
 export interface EventBusArgs {
     /**
-     * The partner event source that the new event bus will be matched with. Must match `name`.
+     * Event bus description.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * Partner event source that the new event bus will be matched with. Must match `name`.
      */
     eventSourceName?: pulumi.Input<string>;
     /**
-     * The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
      */
     kmsKeyIdentifier?: pulumi.Input<string>;
     /**
-     * The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
+     * Name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure that the `name` matches the `eventSourceName`.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

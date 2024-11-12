@@ -49,11 +49,11 @@ MYPY = False
 
 if not MYPY:
     class AccountThrottleSettingArgsDict(TypedDict):
-        burst_limit: NotRequired[pulumi.Input[int]]
+        burst_limit: pulumi.Input[float]
         """
         Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
         """
-        rate_limit: NotRequired[pulumi.Input[float]]
+        rate_limit: pulumi.Input[float]
         """
         Number of times API Gateway allows the API to be called per second on average (RPS).
         """
@@ -63,39 +63,37 @@ elif False:
 @pulumi.input_type
 class AccountThrottleSettingArgs:
     def __init__(__self__, *,
-                 burst_limit: Optional[pulumi.Input[int]] = None,
-                 rate_limit: Optional[pulumi.Input[float]] = None):
+                 burst_limit: pulumi.Input[float],
+                 rate_limit: pulumi.Input[float]):
         """
-        :param pulumi.Input[int] burst_limit: Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
+        :param pulumi.Input[float] burst_limit: Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
         :param pulumi.Input[float] rate_limit: Number of times API Gateway allows the API to be called per second on average (RPS).
         """
-        if burst_limit is not None:
-            pulumi.set(__self__, "burst_limit", burst_limit)
-        if rate_limit is not None:
-            pulumi.set(__self__, "rate_limit", rate_limit)
+        pulumi.set(__self__, "burst_limit", burst_limit)
+        pulumi.set(__self__, "rate_limit", rate_limit)
 
     @property
     @pulumi.getter(name="burstLimit")
-    def burst_limit(self) -> Optional[pulumi.Input[int]]:
+    def burst_limit(self) -> pulumi.Input[float]:
         """
         Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
         """
         return pulumi.get(self, "burst_limit")
 
     @burst_limit.setter
-    def burst_limit(self, value: Optional[pulumi.Input[int]]):
+    def burst_limit(self, value: pulumi.Input[float]):
         pulumi.set(self, "burst_limit", value)
 
     @property
     @pulumi.getter(name="rateLimit")
-    def rate_limit(self) -> Optional[pulumi.Input[float]]:
+    def rate_limit(self) -> pulumi.Input[float]:
         """
         Number of times API Gateway allows the API to be called per second on average (RPS).
         """
         return pulumi.get(self, "rate_limit")
 
     @rate_limit.setter
-    def rate_limit(self, value: Optional[pulumi.Input[float]]):
+    def rate_limit(self, value: pulumi.Input[float]):
         pulumi.set(self, "rate_limit", value)
 
 

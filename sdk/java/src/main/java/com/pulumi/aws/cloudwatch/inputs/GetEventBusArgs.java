@@ -15,14 +15,14 @@ public final class GetEventBusArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetEventBusArgs Empty = new GetEventBusArgs();
 
     /**
-     * Friendly EventBridge event bus name.
+     * Name of the event bus.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Friendly EventBridge event bus name.
+     * @return Name of the event bus.
      * 
      */
     public Output<String> name() {
@@ -54,7 +54,7 @@ public final class GetEventBusArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Friendly EventBridge event bus name.
+         * @param name Name of the event bus.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class GetEventBusArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Friendly EventBridge event bus name.
+         * @param name Name of the event bus.
          * 
          * @return builder
          * 

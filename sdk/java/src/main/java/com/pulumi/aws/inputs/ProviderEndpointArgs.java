@@ -4174,6 +4174,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="taxsettings")
+    private @Nullable Output<String> taxsettings;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> taxsettings() {
+        return Optional.ofNullable(this.taxsettings);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="timestreaminfluxdb")
     private @Nullable Output<String> timestreaminfluxdb;
 
@@ -4675,6 +4690,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.sts = $.sts;
         this.swf = $.swf;
         this.synthetics = $.synthetics;
+        this.taxsettings = $.taxsettings;
         this.timestreaminfluxdb = $.timestreaminfluxdb;
         this.timestreamwrite = $.timestreamwrite;
         this.transcribe = $.transcribe;
@@ -10525,6 +10541,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder synthetics(String synthetics) {
             return synthetics(Output.of(synthetics));
+        }
+
+        /**
+         * @param taxsettings Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder taxsettings(@Nullable Output<String> taxsettings) {
+            $.taxsettings = taxsettings;
+            return this;
+        }
+
+        /**
+         * @param taxsettings Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder taxsettings(String taxsettings) {
+            return taxsettings(Output.of(taxsettings));
         }
 
         /**

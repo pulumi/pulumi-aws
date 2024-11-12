@@ -109,7 +109,8 @@ type RestoreTestingSelection struct {
 	RestoreMetadataOverrides pulumi.StringMapOutput `pulumi:"restoreMetadataOverrides"`
 	// The name of the restore testing plan.
 	RestoreTestingPlanName pulumi.StringOutput `pulumi:"restoreTestingPlanName"`
-	ValidationWindowHours  pulumi.IntOutput    `pulumi:"validationWindowHours"`
+	// The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+	ValidationWindowHours pulumi.IntOutput `pulumi:"validationWindowHours"`
 }
 
 // NewRestoreTestingSelection registers a new resource with the given unique name, arguments, and options.
@@ -165,7 +166,8 @@ type restoreTestingSelectionState struct {
 	RestoreMetadataOverrides map[string]string `pulumi:"restoreMetadataOverrides"`
 	// The name of the restore testing plan.
 	RestoreTestingPlanName *string `pulumi:"restoreTestingPlanName"`
-	ValidationWindowHours  *int    `pulumi:"validationWindowHours"`
+	// The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+	ValidationWindowHours *int `pulumi:"validationWindowHours"`
 }
 
 type RestoreTestingSelectionState struct {
@@ -183,7 +185,8 @@ type RestoreTestingSelectionState struct {
 	RestoreMetadataOverrides pulumi.StringMapInput
 	// The name of the restore testing plan.
 	RestoreTestingPlanName pulumi.StringPtrInput
-	ValidationWindowHours  pulumi.IntPtrInput
+	// The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+	ValidationWindowHours pulumi.IntPtrInput
 }
 
 func (RestoreTestingSelectionState) ElementType() reflect.Type {
@@ -205,7 +208,8 @@ type restoreTestingSelectionArgs struct {
 	RestoreMetadataOverrides map[string]string `pulumi:"restoreMetadataOverrides"`
 	// The name of the restore testing plan.
 	RestoreTestingPlanName string `pulumi:"restoreTestingPlanName"`
-	ValidationWindowHours  *int   `pulumi:"validationWindowHours"`
+	// The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+	ValidationWindowHours *int `pulumi:"validationWindowHours"`
 }
 
 // The set of arguments for constructing a RestoreTestingSelection resource.
@@ -224,7 +228,8 @@ type RestoreTestingSelectionArgs struct {
 	RestoreMetadataOverrides pulumi.StringMapInput
 	// The name of the restore testing plan.
 	RestoreTestingPlanName pulumi.StringInput
-	ValidationWindowHours  pulumi.IntPtrInput
+	// The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+	ValidationWindowHours pulumi.IntPtrInput
 }
 
 func (RestoreTestingSelectionArgs) ElementType() reflect.Type {
@@ -351,6 +356,7 @@ func (o RestoreTestingSelectionOutput) RestoreTestingPlanName() pulumi.StringOut
 	return o.ApplyT(func(v *RestoreTestingSelection) pulumi.StringOutput { return v.RestoreTestingPlanName }).(pulumi.StringOutput)
 }
 
+// The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
 func (o RestoreTestingSelectionOutput) ValidationWindowHours() pulumi.IntOutput {
 	return o.ApplyT(func(v *RestoreTestingSelection) pulumi.IntOutput { return v.ValidationWindowHours }).(pulumi.IntOutput)
 }

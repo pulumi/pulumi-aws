@@ -56,20 +56,18 @@ class AccountThrottleSetting(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 burst_limit: Optional[int] = None,
-                 rate_limit: Optional[float] = None):
+                 burst_limit: float,
+                 rate_limit: float):
         """
-        :param int burst_limit: Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
+        :param float burst_limit: Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
         :param float rate_limit: Number of times API Gateway allows the API to be called per second on average (RPS).
         """
-        if burst_limit is not None:
-            pulumi.set(__self__, "burst_limit", burst_limit)
-        if rate_limit is not None:
-            pulumi.set(__self__, "rate_limit", rate_limit)
+        pulumi.set(__self__, "burst_limit", burst_limit)
+        pulumi.set(__self__, "rate_limit", rate_limit)
 
     @property
     @pulumi.getter(name="burstLimit")
-    def burst_limit(self) -> Optional[int]:
+    def burst_limit(self) -> float:
         """
         Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
         """
@@ -77,7 +75,7 @@ class AccountThrottleSetting(dict):
 
     @property
     @pulumi.getter(name="rateLimit")
-    def rate_limit(self) -> Optional[float]:
+    def rate_limit(self) -> float:
         """
         Number of times API Gateway allows the API to be called per second on average (RPS).
         """

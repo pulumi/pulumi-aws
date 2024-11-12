@@ -5,7 +5,7 @@ Subject: [PATCH] update testing types
 
 
 diff --git a/internal/service/ecr/credentials_data_source_test.go b/internal/service/ecr/credentials_data_source_test.go
-index f0f875399e..eef205d103 100644
+index f0f875399e0..eef205d1036 100644
 --- a/internal/service/ecr/credentials_data_source_test.go
 +++ b/internal/service/ecr/credentials_data_source_test.go
 @@ -5,14 +5,16 @@ import (
@@ -35,7 +35,7 @@ index f0f875399e..eef205d103 100644
 -`, acctest.RandInt())
 +`, sdkacctest.RandInt())
 diff --git a/internal/service/gamelift/matchmaking_configuration_test.go b/internal/service/gamelift/matchmaking_configuration_test.go
-index 339f9dd6df..6453fa75a0 100644
+index 339f9dd6dfa..6453fa75a0c 100644
 --- a/internal/service/gamelift/matchmaking_configuration_test.go
 +++ b/internal/service/gamelift/matchmaking_configuration_test.go
 @@ -9,9 +9,10 @@ import (
@@ -87,7 +87,7 @@ index 339f9dd6df..6453fa75a0 100644
  		name := rs.Primary.Attributes["name"]
  		out, err := conn.DescribeMatchmakingConfigurationsWithContext(ctx, &gamelift.DescribeMatchmakingConfigurationsInput{
 diff --git a/internal/service/gamelift/matchmaking_rule_set_test.go b/internal/service/gamelift/matchmaking_rule_set_test.go
-index 061e93f186..4295987ae6 100644
+index 061e93f186b..4295987ae67 100644
 --- a/internal/service/gamelift/matchmaking_rule_set_test.go
 +++ b/internal/service/gamelift/matchmaking_rule_set_test.go
 @@ -10,7 +10,7 @@ import (

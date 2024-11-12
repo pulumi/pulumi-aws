@@ -4,11 +4,9 @@
 package com.pulumi.aws.apigateway.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
-import java.lang.Integer;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class AccountThrottleSetting {
@@ -16,27 +14,27 @@ public final class AccountThrottleSetting {
      * @return Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
      * 
      */
-    private @Nullable Integer burstLimit;
+    private Double burstLimit;
     /**
      * @return Number of times API Gateway allows the API to be called per second on average (RPS).
      * 
      */
-    private @Nullable Double rateLimit;
+    private Double rateLimit;
 
     private AccountThrottleSetting() {}
     /**
      * @return Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
      * 
      */
-    public Optional<Integer> burstLimit() {
-        return Optional.ofNullable(this.burstLimit);
+    public Double burstLimit() {
+        return this.burstLimit;
     }
     /**
      * @return Number of times API Gateway allows the API to be called per second on average (RPS).
      * 
      */
-    public Optional<Double> rateLimit() {
-        return Optional.ofNullable(this.rateLimit);
+    public Double rateLimit() {
+        return this.rateLimit;
     }
 
     public static Builder builder() {
@@ -48,8 +46,8 @@ public final class AccountThrottleSetting {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable Integer burstLimit;
-        private @Nullable Double rateLimit;
+        private Double burstLimit;
+        private Double rateLimit;
         public Builder() {}
         public Builder(AccountThrottleSetting defaults) {
     	      Objects.requireNonNull(defaults);
@@ -58,14 +56,18 @@ public final class AccountThrottleSetting {
         }
 
         @CustomType.Setter
-        public Builder burstLimit(@Nullable Integer burstLimit) {
-
+        public Builder burstLimit(Double burstLimit) {
+            if (burstLimit == null) {
+              throw new MissingRequiredPropertyException("AccountThrottleSetting", "burstLimit");
+            }
             this.burstLimit = burstLimit;
             return this;
         }
         @CustomType.Setter
-        public Builder rateLimit(@Nullable Double rateLimit) {
-
+        public Builder rateLimit(Double rateLimit) {
+            if (rateLimit == null) {
+              throw new MissingRequiredPropertyException("AccountThrottleSetting", "rateLimit");
+            }
             this.rateLimit = rateLimit;
             return this;
         }

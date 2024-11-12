@@ -124,6 +124,9 @@ namespace Pulumi.Aws.Backup
         [Output("restoreTestingPlanName")]
         public Output<string> RestoreTestingPlanName { get; private set; } = null!;
 
+        /// <summary>
+        /// The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+        /// </summary>
         [Output("validationWindowHours")]
         public Output<int> ValidationWindowHours { get; private set; } = null!;
 
@@ -227,6 +230,9 @@ namespace Pulumi.Aws.Backup
         [Input("restoreTestingPlanName", required: true)]
         public Input<string> RestoreTestingPlanName { get; set; } = null!;
 
+        /// <summary>
+        /// The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+        /// </summary>
         [Input("validationWindowHours")]
         public Input<int>? ValidationWindowHours { get; set; }
 
@@ -292,6 +298,9 @@ namespace Pulumi.Aws.Backup
         [Input("restoreTestingPlanName")]
         public Input<string>? RestoreTestingPlanName { get; set; }
 
+        /// <summary>
+        /// The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+        /// </summary>
         [Input("validationWindowHours")]
         public Input<int>? ValidationWindowHours { get; set; }
 

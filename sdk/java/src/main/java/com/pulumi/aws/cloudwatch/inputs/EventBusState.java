@@ -17,14 +17,14 @@ public final class EventBusState extends com.pulumi.resources.ResourceArgs {
     public static final EventBusState Empty = new EventBusState();
 
     /**
-     * The Amazon Resource Name (ARN) of the event bus.
+     * ARN of the event bus.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the event bus.
+     * @return ARN of the event bus.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -32,14 +32,29 @@ public final class EventBusState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The partner event source that the new event bus will be matched with. Must match `name`.
+     * Event bus description.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return Event bus description.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
+     * Partner event source that the new event bus will be matched with. Must match `name`.
      * 
      */
     @Import(name="eventSourceName")
     private @Nullable Output<String> eventSourceName;
 
     /**
-     * @return The partner event source that the new event bus will be matched with. Must match `name`.
+     * @return Partner event source that the new event bus will be matched with. Must match `name`.
      * 
      */
     public Optional<Output<String>> eventSourceName() {
@@ -47,14 +62,14 @@ public final class EventBusState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
      * 
      */
     @Import(name="kmsKeyIdentifier")
     private @Nullable Output<String> kmsKeyIdentifier;
 
     /**
-     * @return The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     * @return Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
      * 
      */
     public Optional<Output<String>> kmsKeyIdentifier() {
@@ -62,14 +77,18 @@ public final class EventBusState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the new event bus. The names of custom event buses can&#39;t contain the / character. To create a partner event bus, ensure the `name` matches the `event_source_name`.
+     * Name of the new event bus. The names of custom event buses can&#39;t contain the / character. To create a partner event bus, ensure that the `name` matches the `event_source_name`.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the new event bus. The names of custom event buses can&#39;t contain the / character. To create a partner event bus, ensure the `name` matches the `event_source_name`.
+     * @return Name of the new event bus. The names of custom event buses can&#39;t contain the / character. To create a partner event bus, ensure that the `name` matches the `event_source_name`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -77,14 +96,14 @@ public final class EventBusState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -92,7 +111,7 @@ public final class EventBusState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      * @deprecated
      * Please use `tags` instead.
@@ -103,7 +122,7 @@ public final class EventBusState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      * @deprecated
      * Please use `tags` instead.
@@ -118,6 +137,7 @@ public final class EventBusState extends com.pulumi.resources.ResourceArgs {
 
     private EventBusState(EventBusState $) {
         this.arn = $.arn;
+        this.description = $.description;
         this.eventSourceName = $.eventSourceName;
         this.kmsKeyIdentifier = $.kmsKeyIdentifier;
         this.name = $.name;
@@ -144,7 +164,7 @@ public final class EventBusState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the event bus.
+         * @param arn ARN of the event bus.
          * 
          * @return builder
          * 
@@ -155,7 +175,7 @@ public final class EventBusState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the event bus.
+         * @param arn ARN of the event bus.
          * 
          * @return builder
          * 
@@ -165,7 +185,28 @@ public final class EventBusState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventSourceName The partner event source that the new event bus will be matched with. Must match `name`.
+         * @param description Event bus description.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description Event bus description.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
+        }
+
+        /**
+         * @param eventSourceName Partner event source that the new event bus will be matched with. Must match `name`.
          * 
          * @return builder
          * 
@@ -176,7 +217,7 @@ public final class EventBusState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventSourceName The partner event source that the new event bus will be matched with. Must match `name`.
+         * @param eventSourceName Partner event source that the new event bus will be matched with. Must match `name`.
          * 
          * @return builder
          * 
@@ -186,7 +227,7 @@ public final class EventBusState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyIdentifier The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+         * @param kmsKeyIdentifier Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
          * 
          * @return builder
          * 
@@ -197,7 +238,7 @@ public final class EventBusState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyIdentifier The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+         * @param kmsKeyIdentifier Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
          * 
          * @return builder
          * 
@@ -207,7 +248,9 @@ public final class EventBusState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the new event bus. The names of custom event buses can&#39;t contain the / character. To create a partner event bus, ensure the `name` matches the `event_source_name`.
+         * @param name Name of the new event bus. The names of custom event buses can&#39;t contain the / character. To create a partner event bus, ensure that the `name` matches the `event_source_name`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -218,7 +261,9 @@ public final class EventBusState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the new event bus. The names of custom event buses can&#39;t contain the / character. To create a partner event bus, ensure the `name` matches the `event_source_name`.
+         * @param name Name of the new event bus. The names of custom event buses can&#39;t contain the / character. To create a partner event bus, ensure that the `name` matches the `event_source_name`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -228,7 +273,7 @@ public final class EventBusState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -239,7 +284,7 @@ public final class EventBusState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -249,7 +294,7 @@ public final class EventBusState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -264,7 +309,7 @@ public final class EventBusState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 

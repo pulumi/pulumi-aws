@@ -26,10 +26,13 @@ class GetEventBusResult:
     """
     A collection of values returned by getEventBus.
     """
-    def __init__(__self__, arn=None, id=None, kms_key_identifier=None, name=None):
+    def __init__(__self__, arn=None, description=None, id=None, kms_key_identifier=None, name=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -44,9 +47,17 @@ class GetEventBusResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        ARN.
+        ARN of the event bus.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Event bus description.
+        """
+        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
@@ -60,7 +71,7 @@ class GetEventBusResult:
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> str:
         """
-        The identifier of the AWS KMS customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.
+        Identifier of the AWS KMS customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.
         """
         return pulumi.get(self, "kms_key_identifier")
 
@@ -77,6 +88,7 @@ class AwaitableGetEventBusResult(GetEventBusResult):
             yield self
         return GetEventBusResult(
             arn=self.arn,
+            description=self.description,
             id=self.id,
             kms_key_identifier=self.kms_key_identifier,
             name=self.name)
@@ -99,7 +111,7 @@ def get_event_bus(name: Optional[str] = None,
     ```
 
 
-    :param str name: Friendly EventBridge event bus name.
+    :param str name: Name of the event bus.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -108,6 +120,7 @@ def get_event_bus(name: Optional[str] = None,
 
     return AwaitableGetEventBusResult(
         arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         kms_key_identifier=pulumi.get(__ret__, 'kms_key_identifier'),
         name=pulumi.get(__ret__, 'name'))
@@ -128,7 +141,7 @@ def get_event_bus_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str name: Friendly EventBridge event bus name.
+    :param str name: Name of the event bus.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -136,6 +149,7 @@ def get_event_bus_output(name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws:cloudwatch/getEventBus:getEventBus', __args__, opts=opts, typ=GetEventBusResult)
     return __ret__.apply(lambda __response__: GetEventBusResult(
         arn=pulumi.get(__response__, 'arn'),
+        description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         kms_key_identifier=pulumi.get(__response__, 'kms_key_identifier'),
         name=pulumi.get(__response__, 'name')))

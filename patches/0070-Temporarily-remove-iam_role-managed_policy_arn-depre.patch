@@ -5,7 +5,7 @@ Subject: [PATCH] Temporarily remove iam_role managed_policy_arn deprecation
 
 
 diff --git a/internal/service/iam/role.go b/internal/service/iam/role.go
-index a2b746356e..e6171b295a 100644
+index a2b746356e6..e6171b295ad 100644
 --- a/internal/service/iam/role.go
 +++ b/internal/service/iam/role.go
 @@ -131,11 +131,6 @@ func resourceRole() *schema.Resource {
