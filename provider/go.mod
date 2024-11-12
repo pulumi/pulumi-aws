@@ -309,6 +309,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/sts v1.32.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/swf v1.27.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/synthetics v1.29.4 // indirect
+	github.com/aws/aws-sdk-go-v2/service/taxsettings v1.6.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/timestreaminfluxdb v1.6.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/timestreamwrite v1.29.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/transcribe v1.41.4 // indirect
