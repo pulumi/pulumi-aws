@@ -193,7 +193,7 @@ def get_image_output(image_digest: Optional[pulumi.Input[Optional[str]]] = None,
                      most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
                      registry_id: Optional[pulumi.Input[Optional[str]]] = None,
                      repository_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageResult]:
     """
     The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
 
@@ -220,7 +220,7 @@ def get_image_output(image_digest: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['mostRecent'] = most_recent
     __args__['registryId'] = registry_id
     __args__['repositoryName'] = repository_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ecr/getImage:getImage', __args__, opts=opts, typ=GetImageResult)
     return __ret__.apply(lambda __response__: GetImageResult(
         id=pulumi.get(__response__, 'id'),

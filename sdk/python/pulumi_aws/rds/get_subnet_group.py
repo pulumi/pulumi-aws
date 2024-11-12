@@ -162,7 +162,7 @@ def get_subnet_group(name: Optional[str] = None,
         supported_network_types=pulumi.get(__ret__, 'supported_network_types'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
 def get_subnet_group_output(name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetGroupResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubnetGroupResult]:
     """
     Use this data source to get information about an RDS subnet group.
 
@@ -180,7 +180,7 @@ def get_subnet_group_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:rds/getSubnetGroup:getSubnetGroup', __args__, opts=opts, typ=GetSubnetGroupResult)
     return __ret__.apply(lambda __response__: GetSubnetGroupResult(
         arn=pulumi.get(__response__, 'arn'),
