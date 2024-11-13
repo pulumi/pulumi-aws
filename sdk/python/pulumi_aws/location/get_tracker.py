@@ -179,7 +179,7 @@ def get_tracker(tags: Optional[Mapping[str, str]] = None,
         update_time=pulumi.get(__ret__, 'update_time'))
 def get_tracker_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        tracker_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrackerResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrackerResult]:
     """
     Retrieve information about a Location Service Tracker.
 
@@ -199,7 +199,7 @@ def get_tracker_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]]
     __args__ = dict()
     __args__['tags'] = tags
     __args__['trackerName'] = tracker_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:location/getTracker:getTracker', __args__, opts=opts, typ=GetTrackerResult)
     return __ret__.apply(lambda __response__: GetTrackerResult(
         create_time=pulumi.get(__response__, 'create_time'),

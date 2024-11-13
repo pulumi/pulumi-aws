@@ -152,7 +152,7 @@ def get_coip_pool_output(filters: Optional[pulumi.Input[Optional[Sequence[Union[
                          local_gateway_route_table_id: Optional[pulumi.Input[Optional[str]]] = None,
                          pool_id: Optional[pulumi.Input[Optional[str]]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCoipPoolResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCoipPoolResult]:
     """
     Provides details about a specific EC2 Customer-Owned IP Pool.
 
@@ -174,7 +174,7 @@ def get_coip_pool_output(filters: Optional[pulumi.Input[Optional[Sequence[Union[
     __args__['localGatewayRouteTableId'] = local_gateway_route_table_id
     __args__['poolId'] = pool_id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getCoipPool:getCoipPool', __args__, opts=opts, typ=GetCoipPoolResult)
     return __ret__.apply(lambda __response__: GetCoipPoolResult(
         arn=pulumi.get(__response__, 'arn'),

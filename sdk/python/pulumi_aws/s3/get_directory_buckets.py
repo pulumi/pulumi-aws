@@ -91,7 +91,7 @@ def get_directory_buckets(opts: Optional[pulumi.InvokeOptions] = None) -> Awaita
         arns=pulumi.get(__ret__, 'arns'),
         buckets=pulumi.get(__ret__, 'buckets'),
         id=pulumi.get(__ret__, 'id'))
-def get_directory_buckets_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDirectoryBucketsResult]:
+def get_directory_buckets_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDirectoryBucketsResult]:
     """
     Lists Amazon S3 Express directory buckets.
 
@@ -105,7 +105,7 @@ def get_directory_buckets_output(opts: Optional[pulumi.InvokeOptions] = None) ->
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:s3/getDirectoryBuckets:getDirectoryBuckets', __args__, opts=opts, typ=GetDirectoryBucketsResult)
     return __ret__.apply(lambda __response__: GetDirectoryBucketsResult(
         arns=pulumi.get(__response__, 'arns'),

@@ -157,7 +157,7 @@ def get_prebuilt_ecr_image_output(dns_suffix: Optional[pulumi.Input[Optional[str
                                   image_tag: Optional[pulumi.Input[Optional[str]]] = None,
                                   region: Optional[pulumi.Input[Optional[str]]] = None,
                                   repository_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrebuiltEcrImageResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrebuiltEcrImageResult]:
     """
     Get information about prebuilt Amazon SageMaker Docker images.
 
@@ -186,7 +186,7 @@ def get_prebuilt_ecr_image_output(dns_suffix: Optional[pulumi.Input[Optional[str
     __args__['imageTag'] = image_tag
     __args__['region'] = region
     __args__['repositoryName'] = repository_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:sagemaker/getPrebuiltEcrImage:getPrebuiltEcrImage', __args__, opts=opts, typ=GetPrebuiltEcrImageResult)
     return __ret__.apply(lambda __response__: GetPrebuiltEcrImageResult(
         dns_suffix=pulumi.get(__response__, 'dns_suffix'),

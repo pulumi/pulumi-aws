@@ -274,7 +274,7 @@ def get_traffic_policy_document_output(endpoints: Optional[pulumi.Input[Optional
                                        start_endpoint: Optional[pulumi.Input[Optional[str]]] = None,
                                        start_rule: Optional[pulumi.Input[Optional[str]]] = None,
                                        version: Optional[pulumi.Input[Optional[str]]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrafficPolicyDocumentResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrafficPolicyDocumentResult]:
     """
     Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `route53.TrafficPolicy`.
 
@@ -407,7 +407,7 @@ def get_traffic_policy_document_output(endpoints: Optional[pulumi.Input[Optional
     __args__['startEndpoint'] = start_endpoint
     __args__['startRule'] = start_rule
     __args__['version'] = version
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:route53/getTrafficPolicyDocument:getTrafficPolicyDocument', __args__, opts=opts, typ=GetTrafficPolicyDocumentResult)
     return __ret__.apply(lambda __response__: GetTrafficPolicyDocumentResult(
         endpoints=pulumi.get(__response__, 'endpoints'),

@@ -177,7 +177,7 @@ def get_cache_policy(id: Optional[str] = None,
         parameters_in_cache_key_and_forwarded_to_origins=pulumi.get(__ret__, 'parameters_in_cache_key_and_forwarded_to_origins'))
 def get_cache_policy_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                             name: Optional[pulumi.Input[Optional[str]]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCachePolicyResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCachePolicyResult]:
     """
     Use this data source to retrieve information about a CloudFront cache policy.
 
@@ -210,7 +210,7 @@ def get_cache_policy_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     __args__ = dict()
     __args__['id'] = id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cloudfront/getCachePolicy:getCachePolicy', __args__, opts=opts, typ=GetCachePolicyResult)
     return __ret__.apply(lambda __response__: GetCachePolicyResult(
         comment=pulumi.get(__response__, 'comment'),

@@ -136,7 +136,7 @@ def get_account_public_access_block(account_id: Optional[str] = None,
         ignore_public_acls=pulumi.get(__ret__, 'ignore_public_acls'),
         restrict_public_buckets=pulumi.get(__ret__, 'restrict_public_buckets'))
 def get_account_public_access_block_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountPublicAccessBlockResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountPublicAccessBlockResult]:
     """
     The S3 account public access block data source returns account-level public access block configuration.
 
@@ -154,7 +154,7 @@ def get_account_public_access_block_output(account_id: Optional[pulumi.Input[Opt
     """
     __args__ = dict()
     __args__['accountId'] = account_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:s3/getAccountPublicAccessBlock:getAccountPublicAccessBlock', __args__, opts=opts, typ=GetAccountPublicAccessBlockResult)
     return __ret__.apply(lambda __response__: GetAccountPublicAccessBlockResult(
         account_id=pulumi.get(__response__, 'account_id'),
