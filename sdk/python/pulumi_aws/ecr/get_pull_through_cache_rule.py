@@ -123,7 +123,7 @@ def get_pull_through_cache_rule(ecr_repository_prefix: Optional[str] = None,
         registry_id=pulumi.get(__ret__, 'registry_id'),
         upstream_registry_url=pulumi.get(__ret__, 'upstream_registry_url'))
 def get_pull_through_cache_rule_output(ecr_repository_prefix: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPullThroughCacheRuleResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPullThroughCacheRuleResult]:
     """
     The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
 
@@ -141,7 +141,7 @@ def get_pull_through_cache_rule_output(ecr_repository_prefix: Optional[pulumi.In
     """
     __args__ = dict()
     __args__['ecrRepositoryPrefix'] = ecr_repository_prefix
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule', __args__, opts=opts, typ=GetPullThroughCacheRuleResult)
     return __ret__.apply(lambda __response__: GetPullThroughCacheRuleResult(
         credential_arn=pulumi.get(__response__, 'credential_arn'),

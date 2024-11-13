@@ -125,7 +125,7 @@ def get_region(endpoint: Optional[str] = None,
 def get_region_output(endpoint: Optional[pulumi.Input[Optional[str]]] = None,
                       id: Optional[pulumi.Input[Optional[str]]] = None,
                       name: Optional[pulumi.Input[Optional[str]]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegionResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegionResult]:
     """
     `get_region` provides details about a specific AWS region.
 
@@ -154,7 +154,7 @@ def get_region_output(endpoint: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['endpoint'] = endpoint
     __args__['id'] = id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:index/getRegion:getRegion', __args__, opts=opts, typ=GetRegionResult)
     return __ret__.apply(lambda __response__: GetRegionResult(
         description=pulumi.get(__response__, 'description'),

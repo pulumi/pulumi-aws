@@ -84,7 +84,7 @@ def get_rule(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
 def get_rule_output(name: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuleResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuleResult]:
     """
     `waf.Rule` Retrieves a WAF Rule Resource Id.
 
@@ -102,7 +102,7 @@ def get_rule_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:waf/getRule:getRule', __args__, opts=opts, typ=GetRuleResult)
     return __ret__.apply(lambda __response__: GetRuleResult(
         id=pulumi.get(__response__, 'id'),

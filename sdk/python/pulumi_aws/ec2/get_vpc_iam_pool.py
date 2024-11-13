@@ -347,7 +347,7 @@ def get_vpc_iam_pool_output(allocation_resource_tags: Optional[pulumi.Input[Opti
                             id: Optional[pulumi.Input[Optional[str]]] = None,
                             ipam_pool_id: Optional[pulumi.Input[Optional[str]]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcIamPoolResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcIamPoolResult]:
     """
     `ec2.VpcIpamPool` provides details about an IPAM pool.
 
@@ -394,7 +394,7 @@ def get_vpc_iam_pool_output(allocation_resource_tags: Optional[pulumi.Input[Opti
     __args__['id'] = id
     __args__['ipamPoolId'] = ipam_pool_id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getVpcIamPool:getVpcIamPool', __args__, opts=opts, typ=GetVpcIamPoolResult)
     return __ret__.apply(lambda __response__: GetVpcIamPoolResult(
         address_family=pulumi.get(__response__, 'address_family'),

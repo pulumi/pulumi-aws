@@ -158,7 +158,7 @@ def get_user(tags: Optional[Mapping[str, str]] = None,
         user_name=pulumi.get(__ret__, 'user_name'))
 def get_user_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                     user_name: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     This data source can be used to fetch information about a specific
     IAM user. By using this data source, you can reference IAM user
@@ -180,7 +180,7 @@ def get_user_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = 
     __args__ = dict()
     __args__['tags'] = tags
     __args__['userName'] = user_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:iam/getUser:getUser', __args__, opts=opts, typ=GetUserResult)
     return __ret__.apply(lambda __response__: GetUserResult(
         arn=pulumi.get(__response__, 'arn'),

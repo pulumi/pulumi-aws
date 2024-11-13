@@ -138,7 +138,7 @@ def get_vpcs(filters: Optional[Sequence[Union['GetVpcsFilterArgs', 'GetVpcsFilte
         tags=pulumi.get(__ret__, 'tags'))
 def get_vpcs_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcsFilterArgs', 'GetVpcsFilterArgsDict']]]]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcsResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcsResult]:
     """
     This resource can be useful for getting back a list of VPC Ids for a region.
 
@@ -183,7 +183,7 @@ def get_vpcs_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetV
     __args__ = dict()
     __args__['filters'] = filters
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getVpcs:getVpcs', __args__, opts=opts, typ=GetVpcsResult)
     return __ret__.apply(lambda __response__: GetVpcsResult(
         filters=pulumi.get(__response__, 'filters'),
