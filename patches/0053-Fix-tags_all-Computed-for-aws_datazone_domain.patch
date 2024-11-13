@@ -5,7 +5,7 @@ Subject: [PATCH] Fix tags_all Computed for aws_datazone_domain
 
 
 diff --git a/internal/service/datazone/domain.go b/internal/service/datazone/domain.go
-index 4331ce43967..e28275fd831 100644
+index 4331ce4396..e28275fd83 100644
 --- a/internal/service/datazone/domain.go
 +++ b/internal/service/datazone/domain.go
 @@ -98,7 +98,7 @@ func (r *resourceDomain) Schema(ctx context.Context, req resource.SchemaRequest,

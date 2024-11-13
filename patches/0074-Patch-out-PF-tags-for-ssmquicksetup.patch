@@ -5,7 +5,7 @@ Subject: [PATCH] Patch out PF tags for ssmquicksetup
 
 
 diff --git a/internal/service/ssmquicksetup/configuration_manager.go b/internal/service/ssmquicksetup/configuration_manager.go
-index 34b650949e3..572dfae156c 100644
+index 34b650949e..572dfae156 100644
 --- a/internal/service/ssmquicksetup/configuration_manager.go
 +++ b/internal/service/ssmquicksetup/configuration_manager.go
 @@ -79,7 +79,7 @@ func (r *resourceConfigurationManager) Schema(ctx context.Context, req resource.
