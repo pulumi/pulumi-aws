@@ -6,7 +6,7 @@ Subject: [PATCH] Disable retry for KMS access denied in lambda
 
 diff --git a/internal/service/lambda/service_package_extra.go b/internal/service/lambda/service_package_extra.go
 new file mode 100644
-index 00000000000..79867519db5
+index 0000000000..79867519db
 --- /dev/null
 +++ b/internal/service/lambda/service_package_extra.go
 @@ -0,0 +1,34 @@
@@ -45,7 +45,7 @@ index 00000000000..79867519db5
 +	}
 +}
 diff --git a/internal/service/lambda/service_package_gen.go b/internal/service/lambda/service_package_gen.go
-index b787967d5a9..c9a8c815a7e 100644
+index b787967d5a..c9a8c815a7 100644
 --- a/internal/service/lambda/service_package_gen.go
 +++ b/internal/service/lambda/service_package_gen.go
 @@ -151,6 +151,7 @@ func (p *servicePackage) NewClient(ctx context.Context, config map[string]any) (

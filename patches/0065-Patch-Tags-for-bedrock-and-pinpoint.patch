@@ -5,7 +5,7 @@ Subject: [PATCH] Patch Tags for bedrock and pinpoint
 
 
 diff --git a/internal/service/bedrock/guardrail.go b/internal/service/bedrock/guardrail.go
-index 04e3c61c219..e8630c68502 100644
+index 04e3c61c21..e8630c6850 100644
 --- a/internal/service/bedrock/guardrail.go
 +++ b/internal/service/bedrock/guardrail.go
 @@ -119,7 +119,7 @@ func (r *resourceGuardrail) Schema(ctx context.Context, req resource.SchemaReque
@@ -18,7 +18,7 @@ index 04e3c61c219..e8630c68502 100644
  				Computed: true,
  				PlanModifiers: []planmodifier.String{
 diff --git a/internal/service/pinpoint/email_template.go b/internal/service/pinpoint/email_template.go
-index e20b0d1c103..dd70f5a4171 100644
+index e20b0d1c10..dd70f5a417 100644
 --- a/internal/service/pinpoint/email_template.go
 +++ b/internal/service/pinpoint/email_template.go
 @@ -63,7 +63,7 @@ func (r *resourceEmailTemplate) Schema(ctx context.Context, req resource.SchemaR

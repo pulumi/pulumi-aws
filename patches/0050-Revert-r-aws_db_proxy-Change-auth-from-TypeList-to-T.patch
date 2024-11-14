@@ -10,7 +10,7 @@ Beyond a mechanical revert, during v5.74.0 release resolution there were some co
 resolved in favor of upstream.
 
 diff --git a/internal/service/rds/proxy.go b/internal/service/rds/proxy.go
-index 008ebc180ff..c326774548c 100644
+index 008ebc180f..c326774548 100644
 --- a/internal/service/rds/proxy.go
 +++ b/internal/service/rds/proxy.go
 @@ -19,7 +19,6 @@ import (
@@ -57,7 +57,7 @@ index 008ebc180ff..c326774548c 100644
  			DebugLogging:   aws.Bool(d.Get("debug_logging").(bool)),
  			NewDBProxyName: aws.String(nName.(string)),
 diff --git a/internal/service/rds/proxy_test.go b/internal/service/rds/proxy_test.go
-index c245b5f5ce0..c39622b0aae 100644
+index c245b5f5ce..c39622b0aa 100644
 --- a/internal/service/rds/proxy_test.go
 +++ b/internal/service/rds/proxy_test.go
 @@ -40,12 +40,13 @@ func TestAccRDSProxy_basic(t *testing.T) {
