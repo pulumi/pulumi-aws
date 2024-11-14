@@ -1,0 +1,10 @@
+name: regress-4760
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: Provision an SQS queue/DLQ to test RedriveAllowPolicy diffs
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: aws-python

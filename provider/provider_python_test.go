@@ -104,6 +104,14 @@ func TestRegress4457(t *testing.T) {
 	t.Logf("%s", previewResult.StdErr)
 }
 
+func TestRegress4760(t *testing.T) {
+	ptest := pulumiTest(t, filepath.Join("test-programs", "regress-4760"))
+	upResult := ptest.Up(t)
+	t.Logf("#%v", upResult.Summary)
+	result := ptest.Preview(t, optpreview.ExpectNoChanges())
+	t.Logf("#%v", result.ChangeSummary)
+}
+
 func getPythonBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	t.Helper()
 	envRegion := getEnvRegion(t)
