@@ -12,12 +12,74 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
+// Pulumi resource for maintaining exclusive management of customer managed policies assigned to an AWS IAM (Identity & Access Management) role.
 //
-// Using `pulumi import`, import exclusive management of customer managed policy assignments using the `role_name`. For example:
+// > **NOTE:** To reliably detect drift between customer managed policies listed in this resource and actual policies attached to the role in the cloud, you currently need to run Pulumi with `pulumi up --refresh`. See [#4766](https://github.com/pulumi/pulumi-aws/issues/4766) for tracking making this work with regular `pulumi up` invocations.
 //
-// ```sh
-// $ pulumi import aws:iam/rolePolicyAttachmentsExclusive:RolePolicyAttachmentsExclusive example MyRole
+// !> This resource takes exclusive ownership over customer managed policies attached to a role. This includes removal of customer managed policies which are not explicitly configured. To prevent persistent drift, ensure any `iam.RolePolicyAttachment` resources managed alongside this resource are included in the `policyArns` argument.
+//
+// > Destruction of this resource means Pulumi will no longer manage reconciliation of the configured policy attachments. It __will not__ detach the configured policies from the role.
+//
+// ## Example Usage
+//
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iam.NewRolePolicyAttachmentsExclusive(ctx, "example", &iam.RolePolicyAttachmentsExclusiveArgs{
+//				RoleName: pulumi.Any(exampleAwsIamRole.Name),
+//				PolicyArns: pulumi.StringArray{
+//					exampleAwsIamPolicy.Arn,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Disallow Customer Managed Policies
+//
+// To automatically remove any configured customer managed policies, set the `policyArns` argument to an empty list.
+//
+// > This will not __prevent__ customer managed policies from being assigned to a role via Pulumi (or any other interface). This resource enables bringing customer managed policy assignments into a configured state, however, this reconciliation happens only when `apply` is proactively run.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iam.NewRolePolicyAttachmentsExclusive(ctx, "example", &iam.RolePolicyAttachmentsExclusiveArgs{
+//				RoleName:   pulumi.Any(exampleAwsIamRole.Name),
+//				PolicyArns: pulumi.StringArray{},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type RolePolicyAttachmentsExclusive struct {
 	pulumi.CustomResourceState

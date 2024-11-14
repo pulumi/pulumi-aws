@@ -15,13 +15,91 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * ## Import
+ * Pulumi resource for maintaining exclusive management of customer managed policies assigned to an AWS IAM (Identity &amp; Access Management) role.
  * 
- * Using `pulumi import`, import exclusive management of customer managed policy assignments using the `role_name`. For example:
+ * &gt; **NOTE:** To reliably detect drift between customer managed policies listed in this resource and actual policies attached to the role in the cloud, you currently need to run Pulumi with `pulumi up --refresh`. See [#4766](https://github.com/pulumi/pulumi-aws/issues/4766) for tracking making this work with regular `pulumi up` invocations.
  * 
- * ```sh
- * $ pulumi import aws:iam/rolePolicyAttachmentsExclusive:RolePolicyAttachmentsExclusive example MyRole
- * ```
+ * !&gt; This resource takes exclusive ownership over customer managed policies attached to a role. This includes removal of customer managed policies which are not explicitly configured. To prevent persistent drift, ensure any `aws.iam.RolePolicyAttachment` resources managed alongside this resource are included in the `policy_arns` argument.
+ * 
+ * &gt; Destruction of this resource means Pulumi will no longer manage reconciliation of the configured policy attachments. It __will not__ detach the configured policies from the role.
+ * 
+ * ## Example Usage
+ * 
+ * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentsExclusive;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentsExclusiveArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new RolePolicyAttachmentsExclusive("example", RolePolicyAttachmentsExclusiveArgs.builder()
+ *             .roleName(exampleAwsIamRole.name())
+ *             .policyArns(exampleAwsIamPolicy.arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Disallow Customer Managed Policies
+ * 
+ * To automatically remove any configured customer managed policies, set the `policy_arns` argument to an empty list.
+ * 
+ * &gt; This will not __prevent__ customer managed policies from being assigned to a role via Pulumi (or any other interface). This resource enables bringing customer managed policy assignments into a configured state, however, this reconciliation happens only when `apply` is proactively run.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentsExclusive;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentsExclusiveArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new RolePolicyAttachmentsExclusive("example", RolePolicyAttachmentsExclusiveArgs.builder()
+ *             .roleName(exampleAwsIamRole.name())
+ *             .policyArns()
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:iam/rolePolicyAttachmentsExclusive:RolePolicyAttachmentsExclusive")

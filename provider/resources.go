@@ -2574,6 +2574,18 @@ compatibility shim in favor of the new "name" field.`)
 				// deletes the same attachment we just created, since it is structurally equivalent!
 				DeleteBeforeReplace: true,
 			},
+			"aws_iam_role_policies_exclusive": {
+				Tok: awsResource(iamMod, "RolePoliciesExclusive"),
+				Docs: &info.Doc{
+					Markdown: maybeReadFile("docs/resource/aws_iam_role_policies_exclusive.md"),
+				},
+			},
+			"aws_iam_role_policy_attachments_exclusive": {
+				Tok: awsResource(iamMod, "RolePolicyAttachmentsExclusive"),
+				Docs: &info.Doc{
+					Markdown: maybeReadFile("docs/resource/aws_iam_role_policy_attachments_exclusive.md"),
+				},
+			},
 			"aws_iam_role_policy": {
 				Tok: awsResource(iamMod, "RolePolicy"),
 				Fields: map[string]*tfbridge.SchemaInfo{
