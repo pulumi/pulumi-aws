@@ -208,7 +208,6 @@ func TestParallelLambdaCreation(t *testing.T) {
 		return
 	}
 
-	t.TempDir()
 	tempFile, err := createLambdaArchive(25 * 1024 * 1024)
 	require.NoError(t, err)
 	defer os.Remove(tempFile)
