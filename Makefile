@@ -189,11 +189,7 @@ bin/pulumi-java-gen: .pulumi-java-gen.version
 # - Run make ci-mgmt to apply the change locally.
 #
 ci-mgmt: .ci-mgmt.yaml
-	go run github.com/pulumi/ci-mgmt/provider-ci@master generate \
-		--name $(ORG)/pulumi-$(PACK) \
-		--out . \
-		--template bridged-provider \
-		--config $<
+	go run github.com/pulumi/ci-mgmt/provider-ci@master generate
 
 # Because some codegen depends on the version of the CLI used, we install a local CLI
 # version pinned to the same version as `provider/go.mod`.
