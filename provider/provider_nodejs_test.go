@@ -21,6 +21,7 @@ import (
 	"github.com/pulumi/pulumi-aws/provider/v6/pkg/elb"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optpreview"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -398,7 +399,12 @@ func createLambdaArchive(size int64) (string, error) {
 
 	// Create a new zip archive
 	zipWriter := zip.NewWriter(tempFile)
-	defer zipWriter.Close()
+	defer func() {
+		err := zipWriter.Close()
+		contract.AssertNoErrorf(err, "Failed closing zip archive")
+		err = tempFile.Close()
+		contract.AssertNoErrorf(err, "Failed closing temporary file")
+	}()
 
 	randomDataReader := io.LimitReader(rand.Reader, size)
 
