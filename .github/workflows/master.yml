@@ -205,6 +205,11 @@ jobs:
       name: Run test of provider shim
       runs-on: ubuntu-latest
       steps:
+          - name: Free Disk Space (Ubuntu)
+            uses: jlumbroso/free-disk-space@main
+            with:
+              swap-storage: false
+              tool-cache: false
           - name: Checkout Repo
             uses: actions/checkout@v4
             with:
