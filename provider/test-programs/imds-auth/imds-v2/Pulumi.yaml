@@ -118,6 +118,8 @@ resources:
         httpPutResponseHopLimit: 1
       vpcSecurityGroupIds:
         - ${segroup}
+      rootBlockDevice:
+        volumeSize: 20
       userData: |
         #!/bin/bash
         # Reconfigure SSHD - workaround for pulumi Command issues
