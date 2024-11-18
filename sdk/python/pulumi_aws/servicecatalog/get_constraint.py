@@ -185,7 +185,7 @@ def get_constraint(accept_language: Optional[str] = None,
 def get_constraint_output(accept_language: Optional[pulumi.Input[Optional[str]]] = None,
                           description: Optional[pulumi.Input[Optional[str]]] = None,
                           id: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConstraintResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConstraintResult]:
     """
     Provides information on a Service Catalog Constraint.
 
@@ -212,7 +212,7 @@ def get_constraint_output(accept_language: Optional[pulumi.Input[Optional[str]]]
     __args__['acceptLanguage'] = accept_language
     __args__['description'] = description
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:servicecatalog/getConstraint:getConstraint', __args__, opts=opts, typ=GetConstraintResult)
     return __ret__.apply(lambda __response__: GetConstraintResult(
         accept_language=pulumi.get(__response__, 'accept_language'),

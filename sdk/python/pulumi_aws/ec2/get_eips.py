@@ -132,7 +132,7 @@ def get_eips(filters: Optional[Sequence[Union['GetEipsFilterArgs', 'GetEipsFilte
         tags=pulumi.get(__ret__, 'tags'))
 def get_eips_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetEipsFilterArgs', 'GetEipsFilterArgsDict']]]]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEipsResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEipsResult]:
     """
     Provides a list of Elastic IPs in a region.
 
@@ -158,7 +158,7 @@ def get_eips_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetE
     __args__ = dict()
     __args__['filters'] = filters
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getEips:getEips', __args__, opts=opts, typ=GetEipsResult)
     return __ret__.apply(lambda __response__: GetEipsResult(
         allocation_ids=pulumi.get(__response__, 'allocation_ids'),

@@ -367,7 +367,7 @@ def get_ontap_file_system(id: Optional[str] = None,
         weekly_maintenance_start_time=pulumi.get(__ret__, 'weekly_maintenance_start_time'))
 def get_ontap_file_system_output(id: Optional[pulumi.Input[str]] = None,
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOntapFileSystemResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOntapFileSystemResult]:
     """
     Retrieve information on FSx ONTAP File System.
 
@@ -389,7 +389,7 @@ def get_ontap_file_system_output(id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['id'] = id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:fsx/getOntapFileSystem:getOntapFileSystem', __args__, opts=opts, typ=GetOntapFileSystemResult)
     return __ret__.apply(lambda __response__: GetOntapFileSystemResult(
         arn=pulumi.get(__response__, 'arn'),

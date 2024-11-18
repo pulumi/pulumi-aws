@@ -228,7 +228,7 @@ def get_proxy(name: Optional[str] = None,
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'),
         vpc_subnet_ids=pulumi.get(__ret__, 'vpc_subnet_ids'))
 def get_proxy_output(name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProxyResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProxyResult]:
     """
     Use this data source to get information about a DB Proxy.
 
@@ -246,7 +246,7 @@ def get_proxy_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:rds/getProxy:getProxy', __args__, opts=opts, typ=GetProxyResult)
     return __ret__.apply(lambda __response__: GetProxyResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -206,7 +206,7 @@ def get_signing_profile(name: Optional[str] = None,
         version_arn=pulumi.get(__ret__, 'version_arn'))
 def get_signing_profile_output(name: Optional[pulumi.Input[str]] = None,
                                tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSigningProfileResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSigningProfileResult]:
     """
     Provides information about a Signer Signing Profile.
 
@@ -226,7 +226,7 @@ def get_signing_profile_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:signer/getSigningProfile:getSigningProfile', __args__, opts=opts, typ=GetSigningProfileResult)
     return __ret__.apply(lambda __response__: GetSigningProfileResult(
         arn=pulumi.get(__response__, 'arn'),

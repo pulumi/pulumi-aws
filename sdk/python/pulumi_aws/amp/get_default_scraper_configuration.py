@@ -81,7 +81,7 @@ def get_default_scraper_configuration(opts: Optional[pulumi.InvokeOptions] = Non
     return AwaitableGetDefaultScraperConfigurationResult(
         configuration=pulumi.get(__ret__, 'configuration'),
         id=pulumi.get(__ret__, 'id'))
-def get_default_scraper_configuration_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefaultScraperConfigurationResult]:
+def get_default_scraper_configuration_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDefaultScraperConfigurationResult]:
     """
     Returns the default scraper configuration used when Amazon EKS creates a scraper for you.
 
@@ -95,7 +95,7 @@ def get_default_scraper_configuration_output(opts: Optional[pulumi.InvokeOptions
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:amp/getDefaultScraperConfiguration:getDefaultScraperConfiguration', __args__, opts=opts, typ=GetDefaultScraperConfigurationResult)
     return __ret__.apply(lambda __response__: GetDefaultScraperConfigurationResult(
         configuration=pulumi.get(__response__, 'configuration'),
