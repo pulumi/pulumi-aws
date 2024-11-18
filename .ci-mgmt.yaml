@@ -10,7 +10,7 @@ toolVersions:
   go: "1.23.x"
   java: "11"
   gradle: "7.6"
-  node: "20.x"
+  nodejs: "20.x"
   pulumi: "dev"
   python: "3.11.8"
 env:

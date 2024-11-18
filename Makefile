@@ -20,10 +20,12 @@ PROVIDER_VERSION ?= 6.0.0-alpha.0+dev
 # Use this normalised version everywhere rather than the raw input to ensure consistency.
 VERSION_GENERIC = $(shell pulumictl convert-version --language generic --version "$(PROVIDER_VERSION)")
 
+# Strips debug information from the provider binary to reduce its size and speed up builds
+LDFLAGS_STRIP_SYMBOLS=-s -w
 LDFLAGS_PROJ_VERSION=-X $(PROJECT)/$(VERSION_PATH)=$(VERSION_GENERIC) -X github.com/hashicorp/terraform-provider-aws/version.ProviderVersion=$(VERSION_GENERIC)
 LDFLAGS_UPSTREAM_VERSION=-X github.com/hashicorp/terraform-provider-aws/version.ProviderVersion=v$(VERSION_GENERIC)
 LDFLAGS_EXTRAS=
-LDFLAGS=$(LDFLAGS_PROJ_VERSION) $(LDFLAGS_UPSTREAM_VERSION) $(LDFLAGS_EXTRAS)
+LDFLAGS=$(LDFLAGS_PROJ_VERSION) $(LDFLAGS_UPSTREAM_VERSION) $(LDFLAGS_EXTRAS) $(LDFLAGS_STRIP_SYMBOLS)
 
 development: install_plugins provider build_sdks install_sdks
 
