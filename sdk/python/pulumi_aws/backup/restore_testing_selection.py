@@ -38,6 +38,7 @@ class RestoreTestingSelectionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protected_resource_arns: The ARNs for the protected resources.
         :param pulumi.Input['RestoreTestingSelectionProtectedResourceConditionsArgs'] protected_resource_conditions: The conditions for the protected resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] restore_metadata_overrides: Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
+        :param pulumi.Input[int] validation_window_hours: The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
         """
         pulumi.set(__self__, "iam_role_arn", iam_role_arn)
         pulumi.set(__self__, "protected_resource_type", protected_resource_type)
@@ -140,6 +141,9 @@ class RestoreTestingSelectionArgs:
     @property
     @pulumi.getter(name="validationWindowHours")
     def validation_window_hours(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+        """
         return pulumi.get(self, "validation_window_hours")
 
     @validation_window_hours.setter
@@ -167,6 +171,7 @@ class _RestoreTestingSelectionState:
         :param pulumi.Input[str] protected_resource_type: The type of the protected resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] restore_metadata_overrides: Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
         :param pulumi.Input[str] restore_testing_plan_name: The name of the restore testing plan.
+        :param pulumi.Input[int] validation_window_hours: The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
         """
         if iam_role_arn is not None:
             pulumi.set(__self__, "iam_role_arn", iam_role_arn)
@@ -272,6 +277,9 @@ class _RestoreTestingSelectionState:
     @property
     @pulumi.getter(name="validationWindowHours")
     def validation_window_hours(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+        """
         return pulumi.get(self, "validation_window_hours")
 
     @validation_window_hours.setter
@@ -348,6 +356,7 @@ class RestoreTestingSelection(pulumi.CustomResource):
         :param pulumi.Input[str] protected_resource_type: The type of the protected resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] restore_metadata_overrides: Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
         :param pulumi.Input[str] restore_testing_plan_name: The name of the restore testing plan.
+        :param pulumi.Input[int] validation_window_hours: The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
         """
         ...
     @overload
@@ -479,6 +488,7 @@ class RestoreTestingSelection(pulumi.CustomResource):
         :param pulumi.Input[str] protected_resource_type: The type of the protected resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] restore_metadata_overrides: Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
         :param pulumi.Input[str] restore_testing_plan_name: The name of the restore testing plan.
+        :param pulumi.Input[int] validation_window_hours: The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -553,5 +563,8 @@ class RestoreTestingSelection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="validationWindowHours")
     def validation_window_hours(self) -> pulumi.Output[int]:
+        """
+        The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+        """
         return pulumi.get(self, "validation_window_hours")
 

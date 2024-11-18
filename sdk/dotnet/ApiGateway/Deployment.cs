@@ -36,7 +36,9 @@ namespace Pulumi.Aws.ApiGateway
     public partial class Deployment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Input configuration for the canary deployment when the deployment is a canary release deployment. See `canary_settings below.
+        /// Input configuration for the canary deployment when the deployment is a canary release deployment.
+        /// See `canary_settings below.
+        /// Has no effect when `stage_name` is not set.
         /// </summary>
         [Output("canarySettings")]
         public Output<Outputs.DeploymentCanarySettings?> CanarySettings { get; private set; } = null!;
@@ -76,12 +78,15 @@ namespace Pulumi.Aws.ApiGateway
 
         /// <summary>
         /// Description to set on the stage managed by the `stage_name` argument.
+        /// Has no effect when `stage_name` is not set.
         /// </summary>
         [Output("stageDescription")]
         public Output<string?> StageDescription { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
+        /// Name of the stage to create with this deployment.
+        /// If the specified stage already exists, it will be updated to point to the new deployment.
+        /// We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
         /// </summary>
         [Output("stageName")]
         public Output<string?> StageName { get; private set; } = null!;
@@ -145,7 +150,9 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class DeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Input configuration for the canary deployment when the deployment is a canary release deployment. See `canary_settings below.
+        /// Input configuration for the canary deployment when the deployment is a canary release deployment.
+        /// See `canary_settings below.
+        /// Has no effect when `stage_name` is not set.
         /// </summary>
         [Input("canarySettings")]
         public Input<Inputs.DeploymentCanarySettingsArgs>? CanarySettings { get; set; }
@@ -164,12 +171,15 @@ namespace Pulumi.Aws.ApiGateway
 
         /// <summary>
         /// Description to set on the stage managed by the `stage_name` argument.
+        /// Has no effect when `stage_name` is not set.
         /// </summary>
         [Input("stageDescription")]
         public Input<string>? StageDescription { get; set; }
 
         /// <summary>
-        /// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
+        /// Name of the stage to create with this deployment.
+        /// If the specified stage already exists, it will be updated to point to the new deployment.
+        /// We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
         /// </summary>
         [Input("stageName")]
         public Input<string>? StageName { get; set; }
@@ -207,7 +217,9 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class DeploymentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Input configuration for the canary deployment when the deployment is a canary release deployment. See `canary_settings below.
+        /// Input configuration for the canary deployment when the deployment is a canary release deployment.
+        /// See `canary_settings below.
+        /// Has no effect when `stage_name` is not set.
         /// </summary>
         [Input("canarySettings")]
         public Input<Inputs.DeploymentCanarySettingsGetArgs>? CanarySettings { get; set; }
@@ -247,12 +259,15 @@ namespace Pulumi.Aws.ApiGateway
 
         /// <summary>
         /// Description to set on the stage managed by the `stage_name` argument.
+        /// Has no effect when `stage_name` is not set.
         /// </summary>
         [Input("stageDescription")]
         public Input<string>? StageDescription { get; set; }
 
         /// <summary>
-        /// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
+        /// Name of the stage to create with this deployment.
+        /// If the specified stage already exists, it will be updated to point to the new deployment.
+        /// We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
         /// </summary>
         [Input("stageName")]
         public Input<string>? StageName { get; set; }

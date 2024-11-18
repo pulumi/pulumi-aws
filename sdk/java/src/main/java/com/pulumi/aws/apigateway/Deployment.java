@@ -43,14 +43,22 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apigateway/deployment:Deployment")
 public class Deployment extends com.pulumi.resources.CustomResource {
     /**
-     * Input configuration for the canary deployment when the deployment is a canary release deployment. See `canary_settings below.
+     * Input configuration for the canary deployment when the deployment is a canary release deployment.
+     * See `canary_settings below.
+     * Has no effect when `stage_name` is not set.
+     * 
+     * @deprecated
+     * The attribute &#34;canary_settings&#34; will be removed in a future major version. Use an explicit &#34;aws.apigateway.Stage&#34; instead.
      * 
      */
+    @Deprecated /* The attribute ""canary_settings"" will be removed in a future major version. Use an explicit ""aws.apigateway.Stage"" instead. */
     @Export(name="canarySettings", refs={DeploymentCanarySettings.class}, tree="[0]")
     private Output</* @Nullable */ DeploymentCanarySettings> canarySettings;
 
     /**
-     * @return Input configuration for the canary deployment when the deployment is a canary release deployment. See `canary_settings below.
+     * @return Input configuration for the canary deployment when the deployment is a canary release deployment.
+     * See `canary_settings below.
+     * Has no effect when `stage_name` is not set.
      * 
      */
     public Output<Optional<DeploymentCanarySettings>> canarySettings() {
@@ -134,27 +142,41 @@ public class Deployment extends com.pulumi.resources.CustomResource {
     }
     /**
      * Description to set on the stage managed by the `stage_name` argument.
+     * Has no effect when `stage_name` is not set.
+     * 
+     * @deprecated
+     * The attribute &#34;stage_description&#34; will be removed in a future major version. Use an explicit &#34;aws.apigateway.Stage&#34; instead.
      * 
      */
+    @Deprecated /* The attribute ""stage_description"" will be removed in a future major version. Use an explicit ""aws.apigateway.Stage"" instead. */
     @Export(name="stageDescription", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> stageDescription;
 
     /**
      * @return Description to set on the stage managed by the `stage_name` argument.
+     * Has no effect when `stage_name` is not set.
      * 
      */
     public Output<Optional<String>> stageDescription() {
         return Codegen.optional(this.stageDescription);
     }
     /**
-     * Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
+     * Name of the stage to create with this deployment.
+     * If the specified stage already exists, it will be updated to point to the new deployment.
+     * We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
+     * 
+     * @deprecated
+     * The attribute &#34;stage_name&#34; will be removed in a future major version. Use an explicit &#34;aws.apigateway.Stage&#34; instead.
      * 
      */
+    @Deprecated /* The attribute ""stage_name"" will be removed in a future major version. Use an explicit ""aws.apigateway.Stage"" instead. */
     @Export(name="stageName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> stageName;
 
     /**
-     * @return Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
+     * @return Name of the stage to create with this deployment.
+     * If the specified stage already exists, it will be updated to point to the new deployment.
+     * We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
      * 
      */
     public Output<Optional<String>> stageName() {

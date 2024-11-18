@@ -61,7 +61,11 @@ export class Deployment extends pulumi.CustomResource {
     }
 
     /**
-     * Input configuration for the canary deployment when the deployment is a canary release deployment. See `canarySettings below.
+     * Input configuration for the canary deployment when the deployment is a canary release deployment.
+     * See `canarySettings below.
+     * Has no effect when `stageName` is not set.
+     *
+     * @deprecated The attribute "canarySettings" will be removed in a future major version. Use an explicit "aws.apigateway.Stage" instead.
      */
     public readonly canarySettings!: pulumi.Output<outputs.apigateway.DeploymentCanarySettings | undefined>;
     /**
@@ -89,10 +93,17 @@ export class Deployment extends pulumi.CustomResource {
     public readonly restApi!: pulumi.Output<string>;
     /**
      * Description to set on the stage managed by the `stageName` argument.
+     * Has no effect when `stageName` is not set.
+     *
+     * @deprecated The attribute "stageDescription" will be removed in a future major version. Use an explicit "aws.apigateway.Stage" instead.
      */
     public readonly stageDescription!: pulumi.Output<string | undefined>;
     /**
-     * Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
+     * Name of the stage to create with this deployment.
+     * If the specified stage already exists, it will be updated to point to the new deployment.
+     * We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
+     *
+     * @deprecated The attribute "stageName" will be removed in a future major version. Use an explicit "aws.apigateway.Stage" instead.
      */
     public readonly stageName!: pulumi.Output<string | undefined>;
     /**
@@ -153,7 +164,11 @@ export class Deployment extends pulumi.CustomResource {
  */
 export interface DeploymentState {
     /**
-     * Input configuration for the canary deployment when the deployment is a canary release deployment. See `canarySettings below.
+     * Input configuration for the canary deployment when the deployment is a canary release deployment.
+     * See `canarySettings below.
+     * Has no effect when `stageName` is not set.
+     *
+     * @deprecated The attribute "canarySettings" will be removed in a future major version. Use an explicit "aws.apigateway.Stage" instead.
      */
     canarySettings?: pulumi.Input<inputs.apigateway.DeploymentCanarySettings>;
     /**
@@ -181,10 +196,17 @@ export interface DeploymentState {
     restApi?: pulumi.Input<string | RestApi>;
     /**
      * Description to set on the stage managed by the `stageName` argument.
+     * Has no effect when `stageName` is not set.
+     *
+     * @deprecated The attribute "stageDescription" will be removed in a future major version. Use an explicit "aws.apigateway.Stage" instead.
      */
     stageDescription?: pulumi.Input<string>;
     /**
-     * Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
+     * Name of the stage to create with this deployment.
+     * If the specified stage already exists, it will be updated to point to the new deployment.
+     * We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
+     *
+     * @deprecated The attribute "stageName" will be removed in a future major version. Use an explicit "aws.apigateway.Stage" instead.
      */
     stageName?: pulumi.Input<string>;
     /**
@@ -202,7 +224,11 @@ export interface DeploymentState {
  */
 export interface DeploymentArgs {
     /**
-     * Input configuration for the canary deployment when the deployment is a canary release deployment. See `canarySettings below.
+     * Input configuration for the canary deployment when the deployment is a canary release deployment.
+     * See `canarySettings below.
+     * Has no effect when `stageName` is not set.
+     *
+     * @deprecated The attribute "canarySettings" will be removed in a future major version. Use an explicit "aws.apigateway.Stage" instead.
      */
     canarySettings?: pulumi.Input<inputs.apigateway.DeploymentCanarySettings>;
     /**
@@ -215,10 +241,17 @@ export interface DeploymentArgs {
     restApi: pulumi.Input<string | RestApi>;
     /**
      * Description to set on the stage managed by the `stageName` argument.
+     * Has no effect when `stageName` is not set.
+     *
+     * @deprecated The attribute "stageDescription" will be removed in a future major version. Use an explicit "aws.apigateway.Stage" instead.
      */
     stageDescription?: pulumi.Input<string>;
     /**
-     * Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
+     * Name of the stage to create with this deployment.
+     * If the specified stage already exists, it will be updated to point to the new deployment.
+     * We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
+     *
+     * @deprecated The attribute "stageName" will be removed in a future major version. Use an explicit "aws.apigateway.Stage" instead.
      */
     stageName?: pulumi.Input<string>;
     /**

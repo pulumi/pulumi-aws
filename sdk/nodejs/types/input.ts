@@ -1259,6 +1259,10 @@ export interface ProviderEndpoint {
     /**
      * Use this to override the default service endpoint URL
      */
+    taxsettings?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     timestreaminfluxdb?: pulumi.Input<string>;
     /**
      * Use this to override the default service endpoint URL
@@ -2399,11 +2403,11 @@ export namespace apigateway {
         /**
          * Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
          */
-        burstLimit?: pulumi.Input<number>;
+        burstLimit: pulumi.Input<number>;
         /**
          * Number of times API Gateway allows the API to be called per second on average (RPS).
          */
-        rateLimit?: pulumi.Input<number>;
+        rateLimit: pulumi.Input<number>;
     }
 
     export interface DeploymentCanarySettings {

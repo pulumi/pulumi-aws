@@ -519,6 +519,7 @@ class Endpoints(dict):
                  sts: Optional[str] = None,
                  swf: Optional[str] = None,
                  synthetics: Optional[str] = None,
+                 taxsettings: Optional[str] = None,
                  timestreaminfluxdb: Optional[str] = None,
                  timestreamwrite: Optional[str] = None,
                  transcribe: Optional[str] = None,
@@ -812,6 +813,7 @@ class Endpoints(dict):
         :param str sts: Use this to override the default service endpoint URL
         :param str swf: Use this to override the default service endpoint URL
         :param str synthetics: Use this to override the default service endpoint URL
+        :param str taxsettings: Use this to override the default service endpoint URL
         :param str timestreaminfluxdb: Use this to override the default service endpoint URL
         :param str timestreamwrite: Use this to override the default service endpoint URL
         :param str transcribe: Use this to override the default service endpoint URL
@@ -1382,6 +1384,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "swf", swf)
         if synthetics is not None:
             pulumi.set(__self__, "synthetics", synthetics)
+        if taxsettings is not None:
+            pulumi.set(__self__, "taxsettings", taxsettings)
         if timestreaminfluxdb is not None:
             pulumi.set(__self__, "timestreaminfluxdb", timestreaminfluxdb)
         if timestreamwrite is not None:
@@ -3628,6 +3632,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "synthetics")
+
+    @property
+    @pulumi.getter
+    def taxsettings(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "taxsettings")
 
     @property
     @pulumi.getter

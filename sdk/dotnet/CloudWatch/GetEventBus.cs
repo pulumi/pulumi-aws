@@ -68,7 +68,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class GetEventBusArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Friendly EventBridge event bus name.
+        /// Name of the event bus.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class GetEventBusInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Friendly EventBridge event bus name.
+        /// Name of the event bus.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -98,15 +98,19 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class GetEventBusResult
     {
         /// <summary>
-        /// ARN.
+        /// ARN of the event bus.
         /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// Event bus description.
+        /// </summary>
+        public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The identifier of the AWS KMS customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.
+        /// Identifier of the AWS KMS customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.
         /// </summary>
         public readonly string KmsKeyIdentifier;
         public readonly string Name;
@@ -115,6 +119,8 @@ namespace Pulumi.Aws.CloudWatch
         private GetEventBusResult(
             string arn,
 
+            string description,
+
             string id,
 
             string kmsKeyIdentifier,
@@ -122,6 +128,7 @@ namespace Pulumi.Aws.CloudWatch
             string name)
         {
             Arn = arn;
+            Description = description;
             Id = id;
             KmsKeyIdentifier = kmsKeyIdentifier;
             Name = name;

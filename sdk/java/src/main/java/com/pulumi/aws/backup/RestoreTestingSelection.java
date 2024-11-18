@@ -216,9 +216,17 @@ public class RestoreTestingSelection extends com.pulumi.resources.CustomResource
     public Output<String> restoreTestingPlanName() {
         return this.restoreTestingPlanName;
     }
+    /**
+     * The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+     * 
+     */
     @Export(name="validationWindowHours", refs={Integer.class}, tree="[0]")
     private Output<Integer> validationWindowHours;
 
+    /**
+     * @return The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
+     * 
+     */
     public Output<Integer> validationWindowHours() {
         return this.validationWindowHours;
     }

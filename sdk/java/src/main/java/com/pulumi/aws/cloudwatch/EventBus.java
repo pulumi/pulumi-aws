@@ -86,6 +86,7 @@ import javax.annotation.Nullable;
  * 
  *         var examplepartnerEventBus = new EventBus("examplepartnerEventBus", EventBusArgs.builder()
  *             .name(examplepartner.applyValue(getEventSourceResult -> getEventSourceResult.name()))
+ *             .description("Event bus for example partner events")
  *             .eventSourceName(examplepartner.applyValue(getEventSourceResult -> getEventSourceResult.name()))
  *             .build());
  * 
@@ -97,7 +98,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import EventBridge event buses using the `name` (which can also be a partner event source name). For example:
+ * Using `pulumi import`, import EventBridge event buses using the name of the event bus (which can also be a partner event source name). For example:
  * 
  * ```sh
  * $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
@@ -107,77 +108,95 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cloudwatch/eventBus:EventBus")
 public class EventBus extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the event bus.
+     * ARN of the event bus.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the event bus.
+     * @return ARN of the event bus.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The partner event source that the new event bus will be matched with. Must match `name`.
+     * Event bus description.
+     * 
+     */
+    @Export(name="description", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> description;
+
+    /**
+     * @return Event bus description.
+     * 
+     */
+    public Output<Optional<String>> description() {
+        return Codegen.optional(this.description);
+    }
+    /**
+     * Partner event source that the new event bus will be matched with. Must match `name`.
      * 
      */
     @Export(name="eventSourceName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eventSourceName;
 
     /**
-     * @return The partner event source that the new event bus will be matched with. Must match `name`.
+     * @return Partner event source that the new event bus will be matched with. Must match `name`.
      * 
      */
     public Output<Optional<String>> eventSourceName() {
         return Codegen.optional(this.eventSourceName);
     }
     /**
-     * The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
      * 
      */
     @Export(name="kmsKeyIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyIdentifier;
 
     /**
-     * @return The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     * @return Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
      * 
      */
     public Output<Optional<String>> kmsKeyIdentifier() {
         return Codegen.optional(this.kmsKeyIdentifier);
     }
     /**
-     * The name of the new event bus. The names of custom event buses can&#39;t contain the / character. To create a partner event bus, ensure the `name` matches the `event_source_name`.
+     * Name of the new event bus. The names of custom event buses can&#39;t contain the / character. To create a partner event bus, ensure that the `name` matches the `event_source_name`.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the new event bus. The names of custom event buses can&#39;t contain the / character. To create a partner event bus, ensure the `name` matches the `event_source_name`.
+     * @return Name of the new event bus. The names of custom event buses can&#39;t contain the / character. To create a partner event bus, ensure that the `name` matches the `event_source_name`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      * @deprecated
      * Please use `tags` instead.
@@ -188,7 +207,7 @@ public class EventBus extends com.pulumi.resources.CustomResource {
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

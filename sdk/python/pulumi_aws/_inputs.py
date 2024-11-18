@@ -1508,6 +1508,10 @@ if not MYPY:
         """
         Use this to override the default service endpoint URL
         """
+        taxsettings: NotRequired[pulumi.Input[str]]
+        """
+        Use this to override the default service endpoint URL
+        """
         timestreaminfluxdb: NotRequired[pulumi.Input[str]]
         """
         Use this to override the default service endpoint URL
@@ -1851,6 +1855,7 @@ class ProviderEndpointArgs:
                  sts: Optional[pulumi.Input[str]] = None,
                  swf: Optional[pulumi.Input[str]] = None,
                  synthetics: Optional[pulumi.Input[str]] = None,
+                 taxsettings: Optional[pulumi.Input[str]] = None,
                  timestreaminfluxdb: Optional[pulumi.Input[str]] = None,
                  timestreamwrite: Optional[pulumi.Input[str]] = None,
                  transcribe: Optional[pulumi.Input[str]] = None,
@@ -2144,6 +2149,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[str] sts: Use this to override the default service endpoint URL
         :param pulumi.Input[str] swf: Use this to override the default service endpoint URL
         :param pulumi.Input[str] synthetics: Use this to override the default service endpoint URL
+        :param pulumi.Input[str] taxsettings: Use this to override the default service endpoint URL
         :param pulumi.Input[str] timestreaminfluxdb: Use this to override the default service endpoint URL
         :param pulumi.Input[str] timestreamwrite: Use this to override the default service endpoint URL
         :param pulumi.Input[str] transcribe: Use this to override the default service endpoint URL
@@ -2714,6 +2720,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "swf", swf)
         if synthetics is not None:
             pulumi.set(__self__, "synthetics", synthetics)
+        if taxsettings is not None:
+            pulumi.set(__self__, "taxsettings", taxsettings)
         if timestreaminfluxdb is not None:
             pulumi.set(__self__, "timestreaminfluxdb", timestreaminfluxdb)
         if timestreamwrite is not None:
@@ -6068,6 +6076,18 @@ class ProviderEndpointArgs:
     @synthetics.setter
     def synthetics(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "synthetics", value)
+
+    @property
+    @pulumi.getter
+    def taxsettings(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "taxsettings")
+
+    @taxsettings.setter
+    def taxsettings(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "taxsettings", value)
 
     @property
     @pulumi.getter

@@ -15,9 +15,9 @@ var _ = internal.GetEnvOrDefault
 
 type AccountThrottleSetting struct {
 	// Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
-	BurstLimit *int `pulumi:"burstLimit"`
+	BurstLimit float64 `pulumi:"burstLimit"`
 	// Number of times API Gateway allows the API to be called per second on average (RPS).
-	RateLimit *float64 `pulumi:"rateLimit"`
+	RateLimit float64 `pulumi:"rateLimit"`
 }
 
 // AccountThrottleSettingInput is an input type that accepts AccountThrottleSettingArgs and AccountThrottleSettingOutput values.
@@ -33,9 +33,9 @@ type AccountThrottleSettingInput interface {
 
 type AccountThrottleSettingArgs struct {
 	// Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
-	BurstLimit pulumi.IntPtrInput `pulumi:"burstLimit"`
+	BurstLimit pulumi.Float64Input `pulumi:"burstLimit"`
 	// Number of times API Gateway allows the API to be called per second on average (RPS).
-	RateLimit pulumi.Float64PtrInput `pulumi:"rateLimit"`
+	RateLimit pulumi.Float64Input `pulumi:"rateLimit"`
 }
 
 func (AccountThrottleSettingArgs) ElementType() reflect.Type {
@@ -90,13 +90,13 @@ func (o AccountThrottleSettingOutput) ToAccountThrottleSettingOutputWithContext(
 }
 
 // Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
-func (o AccountThrottleSettingOutput) BurstLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AccountThrottleSetting) *int { return v.BurstLimit }).(pulumi.IntPtrOutput)
+func (o AccountThrottleSettingOutput) BurstLimit() pulumi.Float64Output {
+	return o.ApplyT(func(v AccountThrottleSetting) float64 { return v.BurstLimit }).(pulumi.Float64Output)
 }
 
 // Number of times API Gateway allows the API to be called per second on average (RPS).
-func (o AccountThrottleSettingOutput) RateLimit() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v AccountThrottleSetting) *float64 { return v.RateLimit }).(pulumi.Float64PtrOutput)
+func (o AccountThrottleSettingOutput) RateLimit() pulumi.Float64Output {
+	return o.ApplyT(func(v AccountThrottleSetting) float64 { return v.RateLimit }).(pulumi.Float64Output)
 }
 
 type AccountThrottleSettingArrayOutput struct{ *pulumi.OutputState }

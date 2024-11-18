@@ -1677,6 +1677,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("taxsettings")]
+        public Input<string>? Taxsettings { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("timestreaminfluxdb")]
         public Input<string>? Timestreaminfluxdb { get; set; }
 
