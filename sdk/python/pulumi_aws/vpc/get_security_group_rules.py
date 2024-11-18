@@ -117,7 +117,7 @@ def get_security_group_rules(filters: Optional[Sequence[Union['GetSecurityGroupR
         tags=pulumi.get(__ret__, 'tags'))
 def get_security_group_rules_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSecurityGroupRulesFilterArgs', 'GetSecurityGroupRulesFilterArgsDict']]]]] = None,
                                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityGroupRulesResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityGroupRulesResult]:
     """
     This resource can be useful for getting back a set of security group rule IDs.
 
@@ -144,7 +144,7 @@ def get_security_group_rules_output(filters: Optional[pulumi.Input[Optional[Sequ
     __args__ = dict()
     __args__['filters'] = filters
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:vpc/getSecurityGroupRules:getSecurityGroupRules', __args__, opts=opts, typ=GetSecurityGroupRulesResult)
     return __ret__.apply(lambda __response__: GetSecurityGroupRulesResult(
         filters=pulumi.get(__response__, 'filters'),

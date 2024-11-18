@@ -245,7 +245,7 @@ def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
         master_account_name=pulumi.get(__ret__, 'master_account_name'),
         non_master_accounts=pulumi.get(__ret__, 'non_master_accounts'),
         roots=pulumi.get(__ret__, 'roots'))
-def get_organization_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationResult]:
+def get_organization_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationResult]:
     """
     Get information about the organization that the user's account belongs to
 
@@ -292,7 +292,7 @@ def get_organization_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulu
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:organizations/getOrganization:getOrganization', __args__, opts=opts, typ=GetOrganizationResult)
     return __ret__.apply(lambda __response__: GetOrganizationResult(
         accounts=pulumi.get(__response__, 'accounts'),

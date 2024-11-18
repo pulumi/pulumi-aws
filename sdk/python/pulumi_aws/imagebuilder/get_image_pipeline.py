@@ -307,7 +307,7 @@ def get_image_pipeline(arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_image_pipeline_output(arn: Optional[pulumi.Input[str]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImagePipelineResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImagePipelineResult]:
     """
     Provides details about an Image Builder Image Pipeline.
 
@@ -327,7 +327,7 @@ def get_image_pipeline_output(arn: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['arn'] = arn
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:imagebuilder/getImagePipeline:getImagePipeline', __args__, opts=opts, typ=GetImagePipelineResult)
     return __ret__.apply(lambda __response__: GetImagePipelineResult(
         arn=pulumi.get(__response__, 'arn'),
