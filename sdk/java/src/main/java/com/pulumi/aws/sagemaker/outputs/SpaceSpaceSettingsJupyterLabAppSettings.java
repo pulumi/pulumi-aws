@@ -21,7 +21,7 @@ public final class SpaceSpaceSettingsJupyterLabAppSettings {
      */
     private @Nullable SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement appLifecycleManagement;
     /**
-     * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
+     * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterLab application. See `code_repository` Block below.
      * 
      */
     private @Nullable List<SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository> codeRepositories;
@@ -40,7 +40,7 @@ public final class SpaceSpaceSettingsJupyterLabAppSettings {
         return Optional.ofNullable(this.appLifecycleManagement);
     }
     /**
-     * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
+     * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterLab application. See `code_repository` Block below.
      * 
      */
     public List<SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository> codeRepositories() {

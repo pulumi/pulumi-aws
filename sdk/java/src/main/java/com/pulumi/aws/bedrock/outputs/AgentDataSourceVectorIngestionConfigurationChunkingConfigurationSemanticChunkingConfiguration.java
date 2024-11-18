@@ -20,6 +20,10 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
      * 
      */
     private Double bufferSize;
+    /**
+     * @return The maximum number of tokens a chunk can contain.
+     * 
+     */
     private Double maxToken;
 
     private AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration() {}
@@ -37,6 +41,10 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
     public Double bufferSize() {
         return this.bufferSize;
     }
+    /**
+     * @return The maximum number of tokens a chunk can contain.
+     * 
+     */
     public Double maxToken() {
         return this.maxToken;
     }

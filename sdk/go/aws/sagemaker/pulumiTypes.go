@@ -28700,7 +28700,7 @@ func (o SpaceSpaceSettingsCustomFileSystemEfsFileSystemOutput) FileSystemId() pu
 type SpaceSpaceSettingsJupyterLabAppSettings struct {
 	// Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `appLifecycleManagement` Block below.
 	AppLifecycleManagement *SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement `pulumi:"appLifecycleManagement"`
-	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `codeRepository` Block below.
+	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterLab application. See `codeRepository` Block below.
 	CodeRepositories []SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository `pulumi:"codeRepositories"`
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
 	DefaultResourceSpec SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
@@ -28720,7 +28720,7 @@ type SpaceSpaceSettingsJupyterLabAppSettingsInput interface {
 type SpaceSpaceSettingsJupyterLabAppSettingsArgs struct {
 	// Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `appLifecycleManagement` Block below.
 	AppLifecycleManagement SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrInput `pulumi:"appLifecycleManagement"`
-	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `codeRepository` Block below.
+	// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterLab application. See `codeRepository` Block below.
 	CodeRepositories SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayInput `pulumi:"codeRepositories"`
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. See `defaultResourceSpec` Block below.
 	DefaultResourceSpec SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecInput `pulumi:"defaultResourceSpec"`
@@ -28810,7 +28810,7 @@ func (o SpaceSpaceSettingsJupyterLabAppSettingsOutput) AppLifecycleManagement() 
 	}).(SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput)
 }
 
-// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `codeRepository` Block below.
+// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterLab application. See `codeRepository` Block below.
 func (o SpaceSpaceSettingsJupyterLabAppSettingsOutput) CodeRepositories() SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v SpaceSpaceSettingsJupyterLabAppSettings) []SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository {
 		return v.CodeRepositories
@@ -28858,7 +28858,7 @@ func (o SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput) AppLifecycleManagement
 	}).(SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementPtrOutput)
 }
 
-// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `codeRepository` Block below.
+// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterLab application. See `codeRepository` Block below.
 func (o SpaceSpaceSettingsJupyterLabAppSettingsPtrOutput) CodeRepositories() SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v *SpaceSpaceSettingsJupyterLabAppSettings) []SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository {
 		if v == nil {

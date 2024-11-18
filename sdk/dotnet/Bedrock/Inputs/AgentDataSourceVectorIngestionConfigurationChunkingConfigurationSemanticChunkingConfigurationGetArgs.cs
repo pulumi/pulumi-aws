@@ -24,6 +24,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
         [Input("bufferSize", required: true)]
         public Input<double> BufferSize { get; set; } = null!;
 
+        /// <summary>
+        /// The maximum number of tokens a chunk can contain.
+        /// </summary>
         [Input("maxToken", required: true)]
         public Input<double> MaxToken { get; set; } = null!;
 

@@ -21866,7 +21866,8 @@ type ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings struct {
 	// Amount of lookahead.
 	LookAheadRateControl *string `pulumi:"lookAheadRateControl"`
 	// Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
-	MaxBitrate   *int `pulumi:"maxBitrate"`
+	MaxBitrate *int `pulumi:"maxBitrate"`
+	// Min interval.
 	MinIInterval *int `pulumi:"minIInterval"`
 	// Number of reference frames to use.
 	NumRefFrames *int `pulumi:"numRefFrames"`
@@ -21957,7 +21958,8 @@ type ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs struct 
 	// Amount of lookahead.
 	LookAheadRateControl pulumi.StringPtrInput `pulumi:"lookAheadRateControl"`
 	// Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
-	MaxBitrate   pulumi.IntPtrInput `pulumi:"maxBitrate"`
+	MaxBitrate pulumi.IntPtrInput `pulumi:"maxBitrate"`
+	// Min interval.
 	MinIInterval pulumi.IntPtrInput `pulumi:"minIInterval"`
 	// Number of reference frames to use.
 	NumRefFrames pulumi.IntPtrInput `pulumi:"numRefFrames"`
@@ -22202,6 +22204,7 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsOutput) M
 	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings) *int { return v.MaxBitrate }).(pulumi.IntPtrOutput)
 }
 
+// Min interval.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsOutput) MinIInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings) *int { return v.MinIInterval }).(pulumi.IntPtrOutput)
 }
@@ -22541,6 +22544,7 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
+// Min interval.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsPtrOutput) MinIInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings) *int {
 		if v == nil {
@@ -23050,8 +23054,15 @@ type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings struct {
 	// Amount of lookahead.
 	LookAheadRateControl *string `pulumi:"lookAheadRateControl"`
 	// Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
-	MaxBitrate   *int `pulumi:"maxBitrate"`
+	MaxBitrate *int `pulumi:"maxBitrate"`
+	// Min interval.
 	MinIInterval *int `pulumi:"minIInterval"`
+	// Set the minimum QP.
+	MinQp *int `pulumi:"minQp"`
+	// Enables or disables motion vector over picture boundaries.
+	MvOverPictureBoundaries *string `pulumi:"mvOverPictureBoundaries"`
+	// Enables or disables the motion vector temporal predictor.
+	MvTemporalPredictor *string `pulumi:"mvTemporalPredictor"`
 	// Pixel Aspect Ratio denominator.
 	ParDenominator *int `pulumi:"parDenominator"`
 	// Pixel Aspect Ratio numerator.
@@ -23070,10 +23081,18 @@ type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings struct {
 	Slices *int `pulumi:"slices"`
 	// Set the H265 tier in the output.
 	Tier *string `pulumi:"tier"`
+	// Sets the height of tiles.
+	TileHeight *int `pulumi:"tileHeight"`
+	// Enables or disables padding of tiles.
+	TilePadding *string `pulumi:"tilePadding"`
+	// Sets the width of tiles.
+	TileWidth *int `pulumi:"tileWidth"`
 	// Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
 	TimecodeBurninSettings *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings `pulumi:"timecodeBurninSettings"`
 	// Determines how timecodes should be inserted into the video elementary stream.
 	TimecodeInsertion *string `pulumi:"timecodeInsertion"`
+	// Sets the size of the treeblock.
+	TreeblockSize *string `pulumi:"treeblockSize"`
 }
 
 // ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsInput is an input type that accepts ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs and ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput values.
@@ -23122,8 +23141,15 @@ type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs struct 
 	// Amount of lookahead.
 	LookAheadRateControl pulumi.StringPtrInput `pulumi:"lookAheadRateControl"`
 	// Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
-	MaxBitrate   pulumi.IntPtrInput `pulumi:"maxBitrate"`
+	MaxBitrate pulumi.IntPtrInput `pulumi:"maxBitrate"`
+	// Min interval.
 	MinIInterval pulumi.IntPtrInput `pulumi:"minIInterval"`
+	// Set the minimum QP.
+	MinQp pulumi.IntPtrInput `pulumi:"minQp"`
+	// Enables or disables motion vector over picture boundaries.
+	MvOverPictureBoundaries pulumi.StringPtrInput `pulumi:"mvOverPictureBoundaries"`
+	// Enables or disables the motion vector temporal predictor.
+	MvTemporalPredictor pulumi.StringPtrInput `pulumi:"mvTemporalPredictor"`
 	// Pixel Aspect Ratio denominator.
 	ParDenominator pulumi.IntPtrInput `pulumi:"parDenominator"`
 	// Pixel Aspect Ratio numerator.
@@ -23142,10 +23168,18 @@ type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs struct 
 	Slices pulumi.IntPtrInput `pulumi:"slices"`
 	// Set the H265 tier in the output.
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	// Sets the height of tiles.
+	TileHeight pulumi.IntPtrInput `pulumi:"tileHeight"`
+	// Enables or disables padding of tiles.
+	TilePadding pulumi.StringPtrInput `pulumi:"tilePadding"`
+	// Sets the width of tiles.
+	TileWidth pulumi.IntPtrInput `pulumi:"tileWidth"`
 	// Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
 	TimecodeBurninSettings ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrInput `pulumi:"timecodeBurninSettings"`
 	// Determines how timecodes should be inserted into the video elementary stream.
 	TimecodeInsertion pulumi.StringPtrInput `pulumi:"timecodeInsertion"`
+	// Sets the size of the treeblock.
+	TreeblockSize pulumi.StringPtrInput `pulumi:"treeblockSize"`
 }
 
 func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs) ElementType() reflect.Type {
@@ -23332,8 +23366,28 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) M
 	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *int { return v.MaxBitrate }).(pulumi.IntPtrOutput)
 }
 
+// Min interval.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) MinIInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *int { return v.MinIInterval }).(pulumi.IntPtrOutput)
+}
+
+// Set the minimum QP.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) MinQp() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *int { return v.MinQp }).(pulumi.IntPtrOutput)
+}
+
+// Enables or disables motion vector over picture boundaries.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) MvOverPictureBoundaries() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string {
+		return v.MvOverPictureBoundaries
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enables or disables the motion vector temporal predictor.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) MvTemporalPredictor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string {
+		return v.MvTemporalPredictor
+	}).(pulumi.StringPtrOutput)
 }
 
 // Pixel Aspect Ratio denominator.
@@ -23387,6 +23441,21 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) T
 	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
+// Sets the height of tiles.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) TileHeight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *int { return v.TileHeight }).(pulumi.IntPtrOutput)
+}
+
+// Enables or disables padding of tiles.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) TilePadding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string { return v.TilePadding }).(pulumi.StringPtrOutput)
+}
+
+// Sets the width of tiles.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) TileWidth() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *int { return v.TileWidth }).(pulumi.IntPtrOutput)
+}
+
 // Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) TimecodeBurninSettings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings {
@@ -23398,6 +23467,13 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) T
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) TimecodeInsertion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string {
 		return v.TimecodeInsertion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sets the size of the treeblock.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) TreeblockSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string {
+		return v.TreeblockSize
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -23604,6 +23680,7 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
+// Min interval.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) MinIInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *int {
 		if v == nil {
@@ -23611,6 +23688,36 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput
 		}
 		return v.MinIInterval
 	}).(pulumi.IntPtrOutput)
+}
+
+// Set the minimum QP.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) MinQp() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinQp
+	}).(pulumi.IntPtrOutput)
+}
+
+// Enables or disables motion vector over picture boundaries.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) MvOverPictureBoundaries() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MvOverPictureBoundaries
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enables or disables the motion vector temporal predictor.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) MvTemporalPredictor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MvTemporalPredictor
+	}).(pulumi.StringPtrOutput)
 }
 
 // Pixel Aspect Ratio denominator.
@@ -23703,6 +23810,36 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Sets the height of tiles.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) TileHeight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TileHeight
+	}).(pulumi.IntPtrOutput)
+}
+
+// Enables or disables padding of tiles.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) TilePadding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TilePadding
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sets the width of tiles.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) TileWidth() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TileWidth
+	}).(pulumi.IntPtrOutput)
+}
+
 // Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
 func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) TimecodeBurninSettings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings {
@@ -23720,6 +23857,16 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput
 			return nil
 		}
 		return v.TimecodeInsertion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sets the size of the treeblock.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) TreeblockSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TreeblockSize
 	}).(pulumi.StringPtrOutput)
 }
 

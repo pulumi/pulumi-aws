@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         private InputList<Inputs.SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs>? _codeRepositories;
 
         /// <summary>
-        /// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
+        /// A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterLab application. See `code_repository` Block below.
         /// </summary>
         public InputList<Inputs.SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs> CodeRepositories
         {

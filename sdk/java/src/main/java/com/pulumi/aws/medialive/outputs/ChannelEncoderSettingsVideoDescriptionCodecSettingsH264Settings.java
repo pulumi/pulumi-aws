@@ -116,6 +116,10 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
      * 
      */
     private @Nullable Integer maxBitrate;
+    /**
+     * @return Min interval.
+     * 
+     */
     private @Nullable Integer minIInterval;
     /**
      * @return Number of reference frames to use.
@@ -350,6 +354,10 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
     public Optional<Integer> maxBitrate() {
         return Optional.ofNullable(this.maxBitrate);
     }
+    /**
+     * @return Min interval.
+     * 
+     */
     public Optional<Integer> minIInterval() {
         return Optional.ofNullable(this.minIInterval);
     }

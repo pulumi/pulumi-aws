@@ -332,9 +332,17 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
         return Optional.ofNullable(this.maxBitrate);
     }
 
+    /**
+     * Min interval.
+     * 
+     */
     @Import(name="minIInterval")
     private @Nullable Output<Integer> minIInterval;
 
+    /**
+     * @return Min interval.
+     * 
+     */
     public Optional<Output<Integer>> minIInterval() {
         return Optional.ofNullable(this.minIInterval);
     }
@@ -1095,11 +1103,23 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settin
             return maxBitrate(Output.of(maxBitrate));
         }
 
+        /**
+         * @param minIInterval Min interval.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minIInterval(@Nullable Output<Integer> minIInterval) {
             $.minIInterval = minIInterval;
             return this;
         }
 
+        /**
+         * @param minIInterval Min interval.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minIInterval(Integer minIInterval) {
             return minIInterval(Output.of(minIInterval));
         }

@@ -10527,6 +10527,9 @@ export namespace bedrock {
          * The buffer size.
          */
         bufferSize: pulumi.Input<number>;
+        /**
+         * The maximum number of tokens a chunk can contain.
+         */
         maxToken: pulumi.Input<number>;
     }
 
@@ -56637,6 +56640,9 @@ export namespace medialive {
          * Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
          */
         maxBitrate?: pulumi.Input<number>;
+        /**
+         * Min interval.
+         */
         minIInterval?: pulumi.Input<number>;
         /**
          * Number of reference frames to use.
@@ -56793,7 +56799,22 @@ export namespace medialive {
          * Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
          */
         maxBitrate?: pulumi.Input<number>;
+        /**
+         * Min interval.
+         */
         minIInterval?: pulumi.Input<number>;
+        /**
+         * Set the minimum QP.
+         */
+        minQp?: pulumi.Input<number>;
+        /**
+         * Enables or disables motion vector over picture boundaries.
+         */
+        mvOverPictureBoundaries?: pulumi.Input<string>;
+        /**
+         * Enables or disables the motion vector temporal predictor.
+         */
+        mvTemporalPredictor?: pulumi.Input<string>;
         /**
          * Pixel Aspect Ratio denominator.
          */
@@ -56831,6 +56852,18 @@ export namespace medialive {
          */
         tier?: pulumi.Input<string>;
         /**
+         * Sets the height of tiles.
+         */
+        tileHeight?: pulumi.Input<number>;
+        /**
+         * Enables or disables padding of tiles.
+         */
+        tilePadding?: pulumi.Input<string>;
+        /**
+         * Sets the width of tiles.
+         */
+        tileWidth?: pulumi.Input<number>;
+        /**
          * Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
          */
         timecodeBurninSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings>;
@@ -56838,6 +56871,10 @@ export namespace medialive {
          * Determines how timecodes should be inserted into the video elementary stream.
          */
         timecodeInsertion?: pulumi.Input<string>;
+        /**
+         * Sets the size of the treeblock.
+         */
+        treeblockSize?: pulumi.Input<string>;
     }
 
     export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings {
@@ -71009,7 +71046,7 @@ export namespace sagemaker {
          */
         appLifecycleManagement?: pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement>;
         /**
-         * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. See `codeRepository` Block below.
+         * A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterLab application. See `codeRepository` Block below.
          */
         codeRepositories?: pulumi.Input<pulumi.Input<inputs.sagemaker.SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository>[]>;
         /**
@@ -77506,6 +77543,17 @@ export namespace vpc {
          * Security group rule IDs will be selected if any one of the given values match.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface SecurityGroupVpcAssociationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
     }
 }
 

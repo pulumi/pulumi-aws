@@ -8615,6 +8615,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings(dict):
         :param str level: H264 level.
         :param str look_ahead_rate_control: Amount of lookahead.
         :param int max_bitrate: Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+        :param int min_i_interval: Min interval.
         :param int num_ref_frames: Number of reference frames to use.
         :param str par_control: Indicates how the output pixel aspect ratio is specified.
         :param int par_denominator: Pixel Aspect Ratio denominator.
@@ -8887,6 +8888,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings(dict):
     @property
     @pulumi.getter(name="minIInterval")
     def min_i_interval(self) -> Optional[int]:
+        """
+        Min interval.
+        """
         return pulumi.get(self, "min_i_interval")
 
     @property
@@ -9143,6 +9147,12 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings(dict):
             suggest = "max_bitrate"
         elif key == "minIInterval":
             suggest = "min_i_interval"
+        elif key == "minQp":
+            suggest = "min_qp"
+        elif key == "mvOverPictureBoundaries":
+            suggest = "mv_over_picture_boundaries"
+        elif key == "mvTemporalPredictor":
+            suggest = "mv_temporal_predictor"
         elif key == "parDenominator":
             suggest = "par_denominator"
         elif key == "parNumerator":
@@ -9155,10 +9165,18 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings(dict):
             suggest = "scan_type"
         elif key == "sceneChangeDetect":
             suggest = "scene_change_detect"
+        elif key == "tileHeight":
+            suggest = "tile_height"
+        elif key == "tilePadding":
+            suggest = "tile_padding"
+        elif key == "tileWidth":
+            suggest = "tile_width"
         elif key == "timecodeBurninSettings":
             suggest = "timecode_burnin_settings"
         elif key == "timecodeInsertion":
             suggest = "timecode_insertion"
+        elif key == "treeblockSize":
+            suggest = "treeblock_size"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings. Access the value via the '{suggest}' property getter instead.")
@@ -9191,6 +9209,9 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings(dict):
                  look_ahead_rate_control: Optional[str] = None,
                  max_bitrate: Optional[int] = None,
                  min_i_interval: Optional[int] = None,
+                 min_qp: Optional[int] = None,
+                 mv_over_picture_boundaries: Optional[str] = None,
+                 mv_temporal_predictor: Optional[str] = None,
                  par_denominator: Optional[int] = None,
                  par_numerator: Optional[int] = None,
                  profile: Optional[str] = None,
@@ -9200,8 +9221,12 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings(dict):
                  scene_change_detect: Optional[str] = None,
                  slices: Optional[int] = None,
                  tier: Optional[str] = None,
+                 tile_height: Optional[int] = None,
+                 tile_padding: Optional[str] = None,
+                 tile_width: Optional[int] = None,
                  timecode_burnin_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings'] = None,
-                 timecode_insertion: Optional[str] = None):
+                 timecode_insertion: Optional[str] = None,
+                 treeblock_size: Optional[str] = None):
         """
         :param int bitrate: Average bitrate in bits/second.
         :param int framerate_denominator: Framerate denominator.
@@ -9220,6 +9245,10 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings(dict):
         :param str level: H265 level.
         :param str look_ahead_rate_control: Amount of lookahead.
         :param int max_bitrate: Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+        :param int min_i_interval: Min interval.
+        :param int min_qp: Set the minimum QP.
+        :param str mv_over_picture_boundaries: Enables or disables motion vector over picture boundaries.
+        :param str mv_temporal_predictor: Enables or disables the motion vector temporal predictor.
         :param int par_denominator: Pixel Aspect Ratio denominator.
         :param int par_numerator: Pixel Aspect Ratio numerator.
         :param str profile: H265 profile.
@@ -9229,8 +9258,12 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings(dict):
         :param str scene_change_detect: Scene change detection.
         :param int slices: Number of slices per picture.
         :param str tier: Set the H265 tier in the output.
+        :param int tile_height: Sets the height of tiles.
+        :param str tile_padding: Enables or disables padding of tiles.
+        :param int tile_width: Sets the width of tiles.
         :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs' timecode_burnin_settings: Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
         :param str timecode_insertion: Determines how timecodes should be inserted into the video elementary stream.
+        :param str treeblock_size: Sets the size of the treeblock.
         """
         pulumi.set(__self__, "bitrate", bitrate)
         pulumi.set(__self__, "framerate_denominator", framerate_denominator)
@@ -9267,6 +9300,12 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings(dict):
             pulumi.set(__self__, "max_bitrate", max_bitrate)
         if min_i_interval is not None:
             pulumi.set(__self__, "min_i_interval", min_i_interval)
+        if min_qp is not None:
+            pulumi.set(__self__, "min_qp", min_qp)
+        if mv_over_picture_boundaries is not None:
+            pulumi.set(__self__, "mv_over_picture_boundaries", mv_over_picture_boundaries)
+        if mv_temporal_predictor is not None:
+            pulumi.set(__self__, "mv_temporal_predictor", mv_temporal_predictor)
         if par_denominator is not None:
             pulumi.set(__self__, "par_denominator", par_denominator)
         if par_numerator is not None:
@@ -9285,10 +9324,18 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings(dict):
             pulumi.set(__self__, "slices", slices)
         if tier is not None:
             pulumi.set(__self__, "tier", tier)
+        if tile_height is not None:
+            pulumi.set(__self__, "tile_height", tile_height)
+        if tile_padding is not None:
+            pulumi.set(__self__, "tile_padding", tile_padding)
+        if tile_width is not None:
+            pulumi.set(__self__, "tile_width", tile_width)
         if timecode_burnin_settings is not None:
             pulumi.set(__self__, "timecode_burnin_settings", timecode_burnin_settings)
         if timecode_insertion is not None:
             pulumi.set(__self__, "timecode_insertion", timecode_insertion)
+        if treeblock_size is not None:
+            pulumi.set(__self__, "treeblock_size", treeblock_size)
 
     @property
     @pulumi.getter
@@ -9434,7 +9481,34 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings(dict):
     @property
     @pulumi.getter(name="minIInterval")
     def min_i_interval(self) -> Optional[int]:
+        """
+        Min interval.
+        """
         return pulumi.get(self, "min_i_interval")
+
+    @property
+    @pulumi.getter(name="minQp")
+    def min_qp(self) -> Optional[int]:
+        """
+        Set the minimum QP.
+        """
+        return pulumi.get(self, "min_qp")
+
+    @property
+    @pulumi.getter(name="mvOverPictureBoundaries")
+    def mv_over_picture_boundaries(self) -> Optional[str]:
+        """
+        Enables or disables motion vector over picture boundaries.
+        """
+        return pulumi.get(self, "mv_over_picture_boundaries")
+
+    @property
+    @pulumi.getter(name="mvTemporalPredictor")
+    def mv_temporal_predictor(self) -> Optional[str]:
+        """
+        Enables or disables the motion vector temporal predictor.
+        """
+        return pulumi.get(self, "mv_temporal_predictor")
 
     @property
     @pulumi.getter(name="parDenominator")
@@ -9509,6 +9583,30 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings(dict):
         return pulumi.get(self, "tier")
 
     @property
+    @pulumi.getter(name="tileHeight")
+    def tile_height(self) -> Optional[int]:
+        """
+        Sets the height of tiles.
+        """
+        return pulumi.get(self, "tile_height")
+
+    @property
+    @pulumi.getter(name="tilePadding")
+    def tile_padding(self) -> Optional[str]:
+        """
+        Enables or disables padding of tiles.
+        """
+        return pulumi.get(self, "tile_padding")
+
+    @property
+    @pulumi.getter(name="tileWidth")
+    def tile_width(self) -> Optional[int]:
+        """
+        Sets the width of tiles.
+        """
+        return pulumi.get(self, "tile_width")
+
+    @property
     @pulumi.getter(name="timecodeBurninSettings")
     def timecode_burnin_settings(self) -> Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings']:
         """
@@ -9523,6 +9621,14 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings(dict):
         Determines how timecodes should be inserted into the video elementary stream.
         """
         return pulumi.get(self, "timecode_insertion")
+
+    @property
+    @pulumi.getter(name="treeblockSize")
+    def treeblock_size(self) -> Optional[str]:
+        """
+        Sets the size of the treeblock.
+        """
+        return pulumi.get(self, "treeblock_size")
 
 
 @pulumi.output_type

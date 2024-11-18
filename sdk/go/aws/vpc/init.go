@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SecurityGroupEgressRule{}
 	case "aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule":
 		r = &SecurityGroupIngressRule{}
+	case "aws:vpc/securityGroupVpcAssociation:SecurityGroupVpcAssociation":
+		r = &SecurityGroupVpcAssociation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -60,6 +62,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"vpc/securityGroupIngressRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"vpc/securityGroupVpcAssociation",
 		&module{version},
 	)
 }

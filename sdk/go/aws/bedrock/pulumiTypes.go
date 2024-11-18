@@ -3740,7 +3740,8 @@ type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChu
 	BreakpointPercentileThreshold float64 `pulumi:"breakpointPercentileThreshold"`
 	// The buffer size.
 	BufferSize float64 `pulumi:"bufferSize"`
-	MaxToken   float64 `pulumi:"maxToken"`
+	// The maximum number of tokens a chunk can contain.
+	MaxToken float64 `pulumi:"maxToken"`
 }
 
 // AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs and AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput values.
@@ -3759,7 +3760,8 @@ type AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChu
 	BreakpointPercentileThreshold pulumi.Float64Input `pulumi:"breakpointPercentileThreshold"`
 	// The buffer size.
 	BufferSize pulumi.Float64Input `pulumi:"bufferSize"`
-	MaxToken   pulumi.Float64Input `pulumi:"maxToken"`
+	// The maximum number of tokens a chunk can contain.
+	MaxToken pulumi.Float64Input `pulumi:"maxToken"`
 }
 
 func (AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs) ElementType() reflect.Type {
@@ -3853,6 +3855,7 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemantic
 	}).(pulumi.Float64Output)
 }
 
+// The maximum number of tokens a chunk can contain.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationOutput) MaxToken() pulumi.Float64Output {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration) float64 {
 		return v.MaxToken
@@ -3903,6 +3906,7 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemantic
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The maximum number of tokens a chunk can contain.
 func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationPtrOutput) MaxToken() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfiguration) *float64 {
 		if v == nil {

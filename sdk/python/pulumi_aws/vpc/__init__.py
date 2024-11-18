@@ -11,5 +11,6 @@ from .get_security_group_rule import *
 from .get_security_group_rules import *
 from .security_group_egress_rule import *
 from .security_group_ingress_rule import *
+from .security_group_vpc_association import *
 from ._inputs import *
 from . import outputs

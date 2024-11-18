@@ -117,8 +117,29 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("maxBitrate")]
         public Input<int>? MaxBitrate { get; set; }
 
+        /// <summary>
+        /// Min interval.
+        /// </summary>
         [Input("minIInterval")]
         public Input<int>? MinIInterval { get; set; }
+
+        /// <summary>
+        /// Set the minimum QP.
+        /// </summary>
+        [Input("minQp")]
+        public Input<int>? MinQp { get; set; }
+
+        /// <summary>
+        /// Enables or disables motion vector over picture boundaries.
+        /// </summary>
+        [Input("mvOverPictureBoundaries")]
+        public Input<string>? MvOverPictureBoundaries { get; set; }
+
+        /// <summary>
+        /// Enables or disables the motion vector temporal predictor.
+        /// </summary>
+        [Input("mvTemporalPredictor")]
+        public Input<string>? MvTemporalPredictor { get; set; }
 
         /// <summary>
         /// Pixel Aspect Ratio denominator.
@@ -175,6 +196,24 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string>? Tier { get; set; }
 
         /// <summary>
+        /// Sets the height of tiles.
+        /// </summary>
+        [Input("tileHeight")]
+        public Input<int>? TileHeight { get; set; }
+
+        /// <summary>
+        /// Enables or disables padding of tiles.
+        /// </summary>
+        [Input("tilePadding")]
+        public Input<string>? TilePadding { get; set; }
+
+        /// <summary>
+        /// Sets the width of tiles.
+        /// </summary>
+        [Input("tileWidth")]
+        public Input<int>? TileWidth { get; set; }
+
+        /// <summary>
         /// Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
         /// </summary>
         [Input("timecodeBurninSettings")]
@@ -185,6 +224,12 @@ namespace Pulumi.Aws.MediaLive.Inputs
         /// </summary>
         [Input("timecodeInsertion")]
         public Input<string>? TimecodeInsertion { get; set; }
+
+        /// <summary>
+        /// Sets the size of the treeblock.
+        /// </summary>
+        [Input("treeblockSize")]
+        public Input<string>? TreeblockSize { get; set; }
 
         public ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsGetArgs()
         {

@@ -44,9 +44,17 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
         return this.bufferSize;
     }
 
+    /**
+     * The maximum number of tokens a chunk can contain.
+     * 
+     */
     @Import(name="maxToken", required=true)
     private Output<Double> maxToken;
 
+    /**
+     * @return The maximum number of tokens a chunk can contain.
+     * 
+     */
     public Output<Double> maxToken() {
         return this.maxToken;
     }
@@ -119,11 +127,23 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
             return bufferSize(Output.of(bufferSize));
         }
 
+        /**
+         * @param maxToken The maximum number of tokens a chunk can contain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxToken(Output<Double> maxToken) {
             $.maxToken = maxToken;
             return this;
         }
 
+        /**
+         * @param maxToken The maximum number of tokens a chunk can contain.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxToken(Double maxToken) {
             return maxToken(Output.of(maxToken));
         }

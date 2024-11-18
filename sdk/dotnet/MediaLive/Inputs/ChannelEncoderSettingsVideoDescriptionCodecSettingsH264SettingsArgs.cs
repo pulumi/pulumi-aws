@@ -138,6 +138,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("maxBitrate")]
         public Input<int>? MaxBitrate { get; set; }
 
+        /// <summary>
+        /// Min interval.
+        /// </summary>
         [Input("minIInterval")]
         public Input<int>? MinIInterval { get; set; }
 

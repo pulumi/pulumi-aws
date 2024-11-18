@@ -1713,6 +1713,9 @@ if not MYPY:
         The buffer size.
         """
         max_token: pulumi.Input[float]
+        """
+        The maximum number of tokens a chunk can contain.
+        """
 elif False:
     AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1725,6 +1728,7 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticCh
         """
         :param pulumi.Input[float] breakpoint_percentile_threshold: The dissimilarity threshold for splitting chunks.
         :param pulumi.Input[float] buffer_size: The buffer size.
+        :param pulumi.Input[float] max_token: The maximum number of tokens a chunk can contain.
         """
         pulumi.set(__self__, "breakpoint_percentile_threshold", breakpoint_percentile_threshold)
         pulumi.set(__self__, "buffer_size", buffer_size)
@@ -1757,6 +1761,9 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticCh
     @property
     @pulumi.getter(name="maxToken")
     def max_token(self) -> pulumi.Input[float]:
+        """
+        The maximum number of tokens a chunk can contain.
+        """
         return pulumi.get(self, "max_token")
 
     @max_token.setter

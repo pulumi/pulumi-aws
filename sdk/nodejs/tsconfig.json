@@ -2251,6 +2251,7 @@
         "vpc/index.ts",
         "vpc/securityGroupEgressRule.ts",
         "vpc/securityGroupIngressRule.ts",
+        "vpc/securityGroupVpcAssociation.ts",
         "vpclattice/accessLogSubscription.ts",
         "vpclattice/authPolicy.ts",
         "vpclattice/getAuthPolicy.ts",
