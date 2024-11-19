@@ -145,7 +145,7 @@ def get_route_tables(filters: Optional[Sequence[Union['GetRouteTablesFilterArgs'
 def get_route_tables_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetRouteTablesFilterArgs', 'GetRouteTablesFilterArgsDict']]]]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                             vpc_id: Optional[pulumi.Input[Optional[str]]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteTablesResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteTablesResult]:
     """
     This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
 
@@ -185,7 +185,7 @@ def get_route_tables_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
     __args__['filters'] = filters
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getRouteTables:getRouteTables', __args__, opts=opts, typ=GetRouteTablesResult)
     return __ret__.apply(lambda __response__: GetRouteTablesResult(
         filters=pulumi.get(__response__, 'filters'),

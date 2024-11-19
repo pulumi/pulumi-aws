@@ -195,7 +195,7 @@ def get_virtual_router_output(mesh_name: Optional[pulumi.Input[str]] = None,
                               mesh_owner: Optional[pulumi.Input[Optional[str]]] = None,
                               name: Optional[pulumi.Input[str]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualRouterResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualRouterResult]:
     """
     The App Mesh Virtual Router data source allows details of an App Mesh Virtual Service to be retrieved by its name and mesh_name.
 
@@ -219,7 +219,7 @@ def get_virtual_router_output(mesh_name: Optional[pulumi.Input[str]] = None,
     __args__['meshOwner'] = mesh_owner
     __args__['name'] = name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:appmesh/getVirtualRouter:getVirtualRouter', __args__, opts=opts, typ=GetVirtualRouterResult)
     return __ret__.apply(lambda __response__: GetVirtualRouterResult(
         arn=pulumi.get(__response__, 'arn'),

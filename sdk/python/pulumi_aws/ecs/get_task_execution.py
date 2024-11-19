@@ -351,7 +351,7 @@ def get_task_execution_output(capacity_provider_strategies: Optional[pulumi.Inpu
                               started_by: Optional[pulumi.Input[Optional[str]]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                               task_definition: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTaskExecutionResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTaskExecutionResult]:
     """
     Data source for managing an AWS ECS (Elastic Container) Task Execution. This data source calls the [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) API, allowing execution of one-time tasks that don't fit a standard resource lifecycle. See the feature request issue for additional context.
 
@@ -417,7 +417,7 @@ def get_task_execution_output(capacity_provider_strategies: Optional[pulumi.Inpu
     __args__['startedBy'] = started_by
     __args__['tags'] = tags
     __args__['taskDefinition'] = task_definition
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ecs/getTaskExecution:getTaskExecution', __args__, opts=opts, typ=GetTaskExecutionResult)
     return __ret__.apply(lambda __response__: GetTaskExecutionResult(
         capacity_provider_strategies=pulumi.get(__response__, 'capacity_provider_strategies'),

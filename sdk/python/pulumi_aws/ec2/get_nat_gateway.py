@@ -276,7 +276,7 @@ def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Unio
                            subnet_id: Optional[pulumi.Input[Optional[str]]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                            vpc_id: Optional[pulumi.Input[Optional[str]]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNatGatewayResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNatGatewayResult]:
     """
     Provides details about a specific VPC NAT Gateway.
 
@@ -320,7 +320,7 @@ def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Unio
     __args__['subnetId'] = subnet_id
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getNatGateway:getNatGateway', __args__, opts=opts, typ=GetNatGatewayResult)
     return __ret__.apply(lambda __response__: GetNatGatewayResult(
         allocation_id=pulumi.get(__response__, 'allocation_id'),

@@ -234,7 +234,7 @@ def get_network_insights_path(filters: Optional[Sequence[Union['GetNetworkInsigh
 def get_network_insights_path_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetNetworkInsightsPathFilterArgs', 'GetNetworkInsightsPathFilterArgsDict']]]]] = None,
                                      network_insights_path_id: Optional[pulumi.Input[Optional[str]]] = None,
                                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInsightsPathResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkInsightsPathResult]:
     """
     `ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.
 
@@ -256,7 +256,7 @@ def get_network_insights_path_output(filters: Optional[pulumi.Input[Optional[Seq
     __args__['filters'] = filters
     __args__['networkInsightsPathId'] = network_insights_path_id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getNetworkInsightsPath:getNetworkInsightsPath', __args__, opts=opts, typ=GetNetworkInsightsPathResult)
     return __ret__.apply(lambda __response__: GetNetworkInsightsPathResult(
         arn=pulumi.get(__response__, 'arn'),

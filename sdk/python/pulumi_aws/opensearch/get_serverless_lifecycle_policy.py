@@ -163,7 +163,7 @@ def get_serverless_lifecycle_policy(name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_serverless_lifecycle_policy_output(name: Optional[pulumi.Input[str]] = None,
                                            type: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerlessLifecyclePolicyResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessLifecyclePolicyResult]:
     """
     Data source for managing an AWS OpenSearch Serverless Lifecycle Policy.
 
@@ -186,7 +186,7 @@ def get_serverless_lifecycle_policy_output(name: Optional[pulumi.Input[str]] = N
     __args__ = dict()
     __args__['name'] = name
     __args__['type'] = type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:opensearch/getServerlessLifecyclePolicy:getServerlessLifecyclePolicy', __args__, opts=opts, typ=GetServerlessLifecyclePolicyResult)
     return __ret__.apply(lambda __response__: GetServerlessLifecyclePolicyResult(
         created_date=pulumi.get(__response__, 'created_date'),

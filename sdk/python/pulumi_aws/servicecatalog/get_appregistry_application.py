@@ -125,7 +125,7 @@ def get_appregistry_application(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
 def get_appregistry_application_output(id: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppregistryApplicationResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppregistryApplicationResult]:
     """
     Data source for managing an AWS Service Catalog AppRegistry Application.
 
@@ -145,7 +145,7 @@ def get_appregistry_application_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:servicecatalog/getAppregistryApplication:getAppregistryApplication', __args__, opts=opts, typ=GetAppregistryApplicationResult)
     return __ret__.apply(lambda __response__: GetAppregistryApplicationResult(
         application_tag=pulumi.get(__response__, 'application_tag'),

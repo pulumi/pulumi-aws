@@ -207,7 +207,7 @@ def get_contact_flow_module_output(contact_flow_module_id: Optional[pulumi.Input
                                    instance_id: Optional[pulumi.Input[str]] = None,
                                    name: Optional[pulumi.Input[Optional[str]]] = None,
                                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContactFlowModuleResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContactFlowModuleResult]:
     """
     Provides details about a specific Amazon Connect Contact Flow Module.
 
@@ -244,7 +244,7 @@ def get_contact_flow_module_output(contact_flow_module_id: Optional[pulumi.Input
     __args__['instanceId'] = instance_id
     __args__['name'] = name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:connect/getContactFlowModule:getContactFlowModule', __args__, opts=opts, typ=GetContactFlowModuleResult)
     return __ret__.apply(lambda __response__: GetContactFlowModuleResult(
         arn=pulumi.get(__response__, 'arn'),

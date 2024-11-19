@@ -480,7 +480,7 @@ def get_launch_template_output(filters: Optional[pulumi.Input[Optional[Sequence[
                                id: Optional[pulumi.Input[Optional[str]]] = None,
                                name: Optional[pulumi.Input[Optional[str]]] = None,
                                tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLaunchTemplateResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLaunchTemplateResult]:
     """
     Provides information about a Launch Template.
 
@@ -516,7 +516,7 @@ def get_launch_template_output(filters: Optional[pulumi.Input[Optional[Sequence[
     __args__['id'] = id
     __args__['name'] = name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getLaunchTemplate:getLaunchTemplate', __args__, opts=opts, typ=GetLaunchTemplateResult)
     return __ret__.apply(lambda __response__: GetLaunchTemplateResult(
         arn=pulumi.get(__response__, 'arn'),
