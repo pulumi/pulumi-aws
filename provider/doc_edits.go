@@ -29,6 +29,8 @@ func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 		fixUpCloudFrontPublicKey,
 		fixUpEcsServiceNameTrigger,
 		fixUpEcsServiceNameForceNewDeployment,
+		replaceTF,
+		addNote,
 		// This fixes up strings such as:
 		//
 		//	name        = "terraform-kinesis-firehose-os",
@@ -99,6 +101,24 @@ var fixUpEcsServiceNameForceNewDeployment = targetedSimpleReplace(
 		"(e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy "+
 		"`ordered_placement_strategy` and `placement_constraints` updates.\n"+
 		"When using the forceNewDeployment property you also need to configure the triggers property.\n")
+
+var replaceTF = targetedSimpleReplace(
+	"iam_role_policy_attachments_exclusive.html.markdown",
+	"Terraform",
+	"Pulumi",
+)
+
+var addNote = targetedSimpleReplace(
+	"iam_role_policy_attachments_exclusive.html.markdown",
+	"Pulumi resource for maintaining exclusive management of inline policies assigned to an AWS IAM "+
+		"(Identity & Access Management) role.",
+	"Pulumi resource for maintaining exclusive management of inline policies assigned to an AWS IAM "+
+		"(Identity & Access Management) role.\n\n > **NOTE:** To reliably detect drift between customer "+
+		"managed inline policies listed in this resource and actual policies attached to the role in the cloud, "+
+		"you currently need to run Pulumi with `pulumi up --refresh`. "+
+		"See [#4766](https://github.com/pulumi/pulumi-aws/issues/4766) for tracking making this work "+
+		"with regular `pulumi up` invocations.",
+)
 
 func reReplace(from string, to string) tfbridge.DocsEdit {
 	fromR, toB := regexp.MustCompile(from), []byte(to)
