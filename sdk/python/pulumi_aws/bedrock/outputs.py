@@ -1372,6 +1372,7 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticCh
         """
         :param float breakpoint_percentile_threshold: The dissimilarity threshold for splitting chunks.
         :param float buffer_size: The buffer size.
+        :param float max_token: The maximum number of tokens a chunk can contain.
         """
         pulumi.set(__self__, "breakpoint_percentile_threshold", breakpoint_percentile_threshold)
         pulumi.set(__self__, "buffer_size", buffer_size)
@@ -1396,6 +1397,9 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticCh
     @property
     @pulumi.getter(name="maxToken")
     def max_token(self) -> float:
+        """
+        The maximum number of tokens a chunk can contain.
+        """
         return pulumi.get(self, "max_token")
 
 

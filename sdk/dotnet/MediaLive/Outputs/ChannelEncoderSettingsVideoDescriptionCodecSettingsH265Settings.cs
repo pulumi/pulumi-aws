@@ -82,7 +82,22 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
         /// </summary>
         public readonly int? MaxBitrate;
+        /// <summary>
+        /// Min interval.
+        /// </summary>
         public readonly int? MinIInterval;
+        /// <summary>
+        /// Set the minimum QP.
+        /// </summary>
+        public readonly int? MinQp;
+        /// <summary>
+        /// Enables or disables motion vector over picture boundaries.
+        /// </summary>
+        public readonly string? MvOverPictureBoundaries;
+        /// <summary>
+        /// Enables or disables the motion vector temporal predictor.
+        /// </summary>
+        public readonly string? MvTemporalPredictor;
         /// <summary>
         /// Pixel Aspect Ratio denominator.
         /// </summary>
@@ -120,6 +135,18 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly string? Tier;
         /// <summary>
+        /// Sets the height of tiles.
+        /// </summary>
+        public readonly int? TileHeight;
+        /// <summary>
+        /// Enables or disables padding of tiles.
+        /// </summary>
+        public readonly string? TilePadding;
+        /// <summary>
+        /// Sets the width of tiles.
+        /// </summary>
+        public readonly int? TileWidth;
+        /// <summary>
         /// Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings? TimecodeBurninSettings;
@@ -127,6 +154,10 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// Determines how timecodes should be inserted into the video elementary stream.
         /// </summary>
         public readonly string? TimecodeInsertion;
+        /// <summary>
+        /// Sets the size of the treeblock.
+        /// </summary>
+        public readonly string? TreeblockSize;
 
         [OutputConstructor]
         private ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings(
@@ -168,6 +199,12 @@ namespace Pulumi.Aws.MediaLive.Outputs
 
             int? minIInterval,
 
+            int? minQp,
+
+            string? mvOverPictureBoundaries,
+
+            string? mvTemporalPredictor,
+
             int? parDenominator,
 
             int? parNumerator,
@@ -186,9 +223,17 @@ namespace Pulumi.Aws.MediaLive.Outputs
 
             string? tier,
 
+            int? tileHeight,
+
+            string? tilePadding,
+
+            int? tileWidth,
+
             Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings? timecodeBurninSettings,
 
-            string? timecodeInsertion)
+            string? timecodeInsertion,
+
+            string? treeblockSize)
         {
             AdaptiveQuantization = adaptiveQuantization;
             AfdSignaling = afdSignaling;
@@ -209,6 +254,9 @@ namespace Pulumi.Aws.MediaLive.Outputs
             LookAheadRateControl = lookAheadRateControl;
             MaxBitrate = maxBitrate;
             MinIInterval = minIInterval;
+            MinQp = minQp;
+            MvOverPictureBoundaries = mvOverPictureBoundaries;
+            MvTemporalPredictor = mvTemporalPredictor;
             ParDenominator = parDenominator;
             ParNumerator = parNumerator;
             Profile = profile;
@@ -218,8 +266,12 @@ namespace Pulumi.Aws.MediaLive.Outputs
             SceneChangeDetect = sceneChangeDetect;
             Slices = slices;
             Tier = tier;
+            TileHeight = tileHeight;
+            TilePadding = tilePadding;
+            TileWidth = tileWidth;
             TimecodeBurninSettings = timecodeBurninSettings;
             TimecodeInsertion = timecodeInsertion;
+            TreeblockSize = treeblockSize;
         }
     }
 }

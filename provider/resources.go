@@ -5552,6 +5552,9 @@ compatibility shim in favor of the new "name" field.`)
 		"aws_vpc_security_group_ingress_rule": {
 			Tok: awsResource("Vpc", "SecurityGroupIngressRule"),
 		},
+		"aws_vpc_security_group_vpc_association": {
+			Tok: awsResource("Vpc", "SecurityGroupVpcAssociation"),
+		},
 		"aws_vpc_endpoint_private_dns": {
 			Tok: awsResource("Vpc", "EndpointPrivateDns"),
 		},
@@ -5907,5 +5910,10 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		ctx context.Context, state resource.PropertyMap,
 	) (resource.ID, error) {
 		return attrWithSeparator(state, "domainName"), nil
+	}
+	prov.Resources["aws_vpc_security_group_vpc_association"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attrWithSeparator(state, "id"), nil
 	}
 }

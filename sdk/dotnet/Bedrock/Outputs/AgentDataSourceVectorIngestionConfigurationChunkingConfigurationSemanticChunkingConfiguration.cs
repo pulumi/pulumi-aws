@@ -21,6 +21,9 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// The buffer size.
         /// </summary>
         public readonly double BufferSize;
+        /// <summary>
+        /// The maximum number of tokens a chunk can contain.
+        /// </summary>
         public readonly double MaxToken;
 
         [OutputConstructor]

@@ -103,7 +103,26 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
      * 
      */
     private @Nullable Integer maxBitrate;
+    /**
+     * @return Min interval.
+     * 
+     */
     private @Nullable Integer minIInterval;
+    /**
+     * @return Set the minimum QP.
+     * 
+     */
+    private @Nullable Integer minQp;
+    /**
+     * @return Enables or disables motion vector over picture boundaries.
+     * 
+     */
+    private @Nullable String mvOverPictureBoundaries;
+    /**
+     * @return Enables or disables the motion vector temporal predictor.
+     * 
+     */
+    private @Nullable String mvTemporalPredictor;
     /**
      * @return Pixel Aspect Ratio denominator.
      * 
@@ -150,6 +169,21 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
      */
     private @Nullable String tier;
     /**
+     * @return Sets the height of tiles.
+     * 
+     */
+    private @Nullable Integer tileHeight;
+    /**
+     * @return Enables or disables padding of tiles.
+     * 
+     */
+    private @Nullable String tilePadding;
+    /**
+     * @return Sets the width of tiles.
+     * 
+     */
+    private @Nullable Integer tileWidth;
+    /**
      * @return Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
      * 
      */
@@ -159,6 +193,11 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
      * 
      */
     private @Nullable String timecodeInsertion;
+    /**
+     * @return Sets the size of the treeblock.
+     * 
+     */
+    private @Nullable String treeblockSize;
 
     private ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings() {}
     /**
@@ -283,8 +322,33 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     public Optional<Integer> maxBitrate() {
         return Optional.ofNullable(this.maxBitrate);
     }
+    /**
+     * @return Min interval.
+     * 
+     */
     public Optional<Integer> minIInterval() {
         return Optional.ofNullable(this.minIInterval);
+    }
+    /**
+     * @return Set the minimum QP.
+     * 
+     */
+    public Optional<Integer> minQp() {
+        return Optional.ofNullable(this.minQp);
+    }
+    /**
+     * @return Enables or disables motion vector over picture boundaries.
+     * 
+     */
+    public Optional<String> mvOverPictureBoundaries() {
+        return Optional.ofNullable(this.mvOverPictureBoundaries);
+    }
+    /**
+     * @return Enables or disables the motion vector temporal predictor.
+     * 
+     */
+    public Optional<String> mvTemporalPredictor() {
+        return Optional.ofNullable(this.mvTemporalPredictor);
     }
     /**
      * @return Pixel Aspect Ratio denominator.
@@ -350,6 +414,27 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         return Optional.ofNullable(this.tier);
     }
     /**
+     * @return Sets the height of tiles.
+     * 
+     */
+    public Optional<Integer> tileHeight() {
+        return Optional.ofNullable(this.tileHeight);
+    }
+    /**
+     * @return Enables or disables padding of tiles.
+     * 
+     */
+    public Optional<String> tilePadding() {
+        return Optional.ofNullable(this.tilePadding);
+    }
+    /**
+     * @return Sets the width of tiles.
+     * 
+     */
+    public Optional<Integer> tileWidth() {
+        return Optional.ofNullable(this.tileWidth);
+    }
+    /**
      * @return Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
      * 
      */
@@ -362,6 +447,13 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
      */
     public Optional<String> timecodeInsertion() {
         return Optional.ofNullable(this.timecodeInsertion);
+    }
+    /**
+     * @return Sets the size of the treeblock.
+     * 
+     */
+    public Optional<String> treeblockSize() {
+        return Optional.ofNullable(this.treeblockSize);
     }
 
     public static Builder builder() {
@@ -392,6 +484,9 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         private @Nullable String lookAheadRateControl;
         private @Nullable Integer maxBitrate;
         private @Nullable Integer minIInterval;
+        private @Nullable Integer minQp;
+        private @Nullable String mvOverPictureBoundaries;
+        private @Nullable String mvTemporalPredictor;
         private @Nullable Integer parDenominator;
         private @Nullable Integer parNumerator;
         private @Nullable String profile;
@@ -401,8 +496,12 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         private @Nullable String sceneChangeDetect;
         private @Nullable Integer slices;
         private @Nullable String tier;
+        private @Nullable Integer tileHeight;
+        private @Nullable String tilePadding;
+        private @Nullable Integer tileWidth;
         private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings timecodeBurninSettings;
         private @Nullable String timecodeInsertion;
+        private @Nullable String treeblockSize;
         public Builder() {}
         public Builder(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings defaults) {
     	      Objects.requireNonNull(defaults);
@@ -425,6 +524,9 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     	      this.lookAheadRateControl = defaults.lookAheadRateControl;
     	      this.maxBitrate = defaults.maxBitrate;
     	      this.minIInterval = defaults.minIInterval;
+    	      this.minQp = defaults.minQp;
+    	      this.mvOverPictureBoundaries = defaults.mvOverPictureBoundaries;
+    	      this.mvTemporalPredictor = defaults.mvTemporalPredictor;
     	      this.parDenominator = defaults.parDenominator;
     	      this.parNumerator = defaults.parNumerator;
     	      this.profile = defaults.profile;
@@ -434,8 +536,12 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     	      this.sceneChangeDetect = defaults.sceneChangeDetect;
     	      this.slices = defaults.slices;
     	      this.tier = defaults.tier;
+    	      this.tileHeight = defaults.tileHeight;
+    	      this.tilePadding = defaults.tilePadding;
+    	      this.tileWidth = defaults.tileWidth;
     	      this.timecodeBurninSettings = defaults.timecodeBurninSettings;
     	      this.timecodeInsertion = defaults.timecodeInsertion;
+    	      this.treeblockSize = defaults.treeblockSize;
         }
 
         @CustomType.Setter
@@ -559,6 +665,24 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
             return this;
         }
         @CustomType.Setter
+        public Builder minQp(@Nullable Integer minQp) {
+
+            this.minQp = minQp;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder mvOverPictureBoundaries(@Nullable String mvOverPictureBoundaries) {
+
+            this.mvOverPictureBoundaries = mvOverPictureBoundaries;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder mvTemporalPredictor(@Nullable String mvTemporalPredictor) {
+
+            this.mvTemporalPredictor = mvTemporalPredictor;
+            return this;
+        }
+        @CustomType.Setter
         public Builder parDenominator(@Nullable Integer parDenominator) {
 
             this.parDenominator = parDenominator;
@@ -613,6 +737,24 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
             return this;
         }
         @CustomType.Setter
+        public Builder tileHeight(@Nullable Integer tileHeight) {
+
+            this.tileHeight = tileHeight;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder tilePadding(@Nullable String tilePadding) {
+
+            this.tilePadding = tilePadding;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder tileWidth(@Nullable Integer tileWidth) {
+
+            this.tileWidth = tileWidth;
+            return this;
+        }
+        @CustomType.Setter
         public Builder timecodeBurninSettings(@Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings timecodeBurninSettings) {
 
             this.timecodeBurninSettings = timecodeBurninSettings;
@@ -622,6 +764,12 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         public Builder timecodeInsertion(@Nullable String timecodeInsertion) {
 
             this.timecodeInsertion = timecodeInsertion;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder treeblockSize(@Nullable String treeblockSize) {
+
+            this.treeblockSize = treeblockSize;
             return this;
         }
         public ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings build() {
@@ -645,6 +793,9 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
             _resultValue.lookAheadRateControl = lookAheadRateControl;
             _resultValue.maxBitrate = maxBitrate;
             _resultValue.minIInterval = minIInterval;
+            _resultValue.minQp = minQp;
+            _resultValue.mvOverPictureBoundaries = mvOverPictureBoundaries;
+            _resultValue.mvTemporalPredictor = mvTemporalPredictor;
             _resultValue.parDenominator = parDenominator;
             _resultValue.parNumerator = parNumerator;
             _resultValue.profile = profile;
@@ -654,8 +805,12 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
             _resultValue.sceneChangeDetect = sceneChangeDetect;
             _resultValue.slices = slices;
             _resultValue.tier = tier;
+            _resultValue.tileHeight = tileHeight;
+            _resultValue.tilePadding = tilePadding;
+            _resultValue.tileWidth = tileWidth;
             _resultValue.timecodeBurninSettings = timecodeBurninSettings;
             _resultValue.timecodeInsertion = timecodeInsertion;
+            _resultValue.treeblockSize = treeblockSize;
             return _resultValue;
         }
     }

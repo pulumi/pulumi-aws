@@ -35,6 +35,11 @@ export type SecurityGroupIngressRule = import("./securityGroupIngressRule").Secu
 export const SecurityGroupIngressRule: typeof import("./securityGroupIngressRule").SecurityGroupIngressRule = null as any;
 utilities.lazyLoad(exports, ["SecurityGroupIngressRule"], () => require("./securityGroupIngressRule"));
 
+export { SecurityGroupVpcAssociationArgs, SecurityGroupVpcAssociationState } from "./securityGroupVpcAssociation";
+export type SecurityGroupVpcAssociation = import("./securityGroupVpcAssociation").SecurityGroupVpcAssociation;
+export const SecurityGroupVpcAssociation: typeof import("./securityGroupVpcAssociation").SecurityGroupVpcAssociation = null as any;
+utilities.lazyLoad(exports, ["SecurityGroupVpcAssociation"], () => require("./securityGroupVpcAssociation"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -48,6 +53,8 @@ const _module = {
                 return new SecurityGroupEgressRule(name, <any>undefined, { urn })
             case "aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule":
                 return new SecurityGroupIngressRule(name, <any>undefined, { urn })
+            case "aws:vpc/securityGroupVpcAssociation:SecurityGroupVpcAssociation":
+                return new SecurityGroupVpcAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -57,3 +64,4 @@ pulumi.runtime.registerResourceModule("aws", "vpc/endpointPrivateDns", _module)
 pulumi.runtime.registerResourceModule("aws", "vpc/endpointServicePrivateDnsVerification", _module)
 pulumi.runtime.registerResourceModule("aws", "vpc/securityGroupEgressRule", _module)
 pulumi.runtime.registerResourceModule("aws", "vpc/securityGroupIngressRule", _module)
+pulumi.runtime.registerResourceModule("aws", "vpc/securityGroupVpcAssociation", _module)

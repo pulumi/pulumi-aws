@@ -150,6 +150,162 @@ func (o EndpointServicePrivateDnsVerificationTimeoutsPtrOutput) Create() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+type SecurityGroupVpcAssociationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// SecurityGroupVpcAssociationTimeoutsInput is an input type that accepts SecurityGroupVpcAssociationTimeoutsArgs and SecurityGroupVpcAssociationTimeoutsOutput values.
+// You can construct a concrete instance of `SecurityGroupVpcAssociationTimeoutsInput` via:
+//
+//	SecurityGroupVpcAssociationTimeoutsArgs{...}
+type SecurityGroupVpcAssociationTimeoutsInput interface {
+	pulumi.Input
+
+	ToSecurityGroupVpcAssociationTimeoutsOutput() SecurityGroupVpcAssociationTimeoutsOutput
+	ToSecurityGroupVpcAssociationTimeoutsOutputWithContext(context.Context) SecurityGroupVpcAssociationTimeoutsOutput
+}
+
+type SecurityGroupVpcAssociationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (SecurityGroupVpcAssociationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroupVpcAssociationTimeouts)(nil)).Elem()
+}
+
+func (i SecurityGroupVpcAssociationTimeoutsArgs) ToSecurityGroupVpcAssociationTimeoutsOutput() SecurityGroupVpcAssociationTimeoutsOutput {
+	return i.ToSecurityGroupVpcAssociationTimeoutsOutputWithContext(context.Background())
+}
+
+func (i SecurityGroupVpcAssociationTimeoutsArgs) ToSecurityGroupVpcAssociationTimeoutsOutputWithContext(ctx context.Context) SecurityGroupVpcAssociationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupVpcAssociationTimeoutsOutput)
+}
+
+func (i SecurityGroupVpcAssociationTimeoutsArgs) ToSecurityGroupVpcAssociationTimeoutsPtrOutput() SecurityGroupVpcAssociationTimeoutsPtrOutput {
+	return i.ToSecurityGroupVpcAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityGroupVpcAssociationTimeoutsArgs) ToSecurityGroupVpcAssociationTimeoutsPtrOutputWithContext(ctx context.Context) SecurityGroupVpcAssociationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupVpcAssociationTimeoutsOutput).ToSecurityGroupVpcAssociationTimeoutsPtrOutputWithContext(ctx)
+}
+
+// SecurityGroupVpcAssociationTimeoutsPtrInput is an input type that accepts SecurityGroupVpcAssociationTimeoutsArgs, SecurityGroupVpcAssociationTimeoutsPtr and SecurityGroupVpcAssociationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `SecurityGroupVpcAssociationTimeoutsPtrInput` via:
+//
+//	        SecurityGroupVpcAssociationTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityGroupVpcAssociationTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToSecurityGroupVpcAssociationTimeoutsPtrOutput() SecurityGroupVpcAssociationTimeoutsPtrOutput
+	ToSecurityGroupVpcAssociationTimeoutsPtrOutputWithContext(context.Context) SecurityGroupVpcAssociationTimeoutsPtrOutput
+}
+
+type securityGroupVpcAssociationTimeoutsPtrType SecurityGroupVpcAssociationTimeoutsArgs
+
+func SecurityGroupVpcAssociationTimeoutsPtr(v *SecurityGroupVpcAssociationTimeoutsArgs) SecurityGroupVpcAssociationTimeoutsPtrInput {
+	return (*securityGroupVpcAssociationTimeoutsPtrType)(v)
+}
+
+func (*securityGroupVpcAssociationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityGroupVpcAssociationTimeouts)(nil)).Elem()
+}
+
+func (i *securityGroupVpcAssociationTimeoutsPtrType) ToSecurityGroupVpcAssociationTimeoutsPtrOutput() SecurityGroupVpcAssociationTimeoutsPtrOutput {
+	return i.ToSecurityGroupVpcAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *securityGroupVpcAssociationTimeoutsPtrType) ToSecurityGroupVpcAssociationTimeoutsPtrOutputWithContext(ctx context.Context) SecurityGroupVpcAssociationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupVpcAssociationTimeoutsPtrOutput)
+}
+
+type SecurityGroupVpcAssociationTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (SecurityGroupVpcAssociationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroupVpcAssociationTimeouts)(nil)).Elem()
+}
+
+func (o SecurityGroupVpcAssociationTimeoutsOutput) ToSecurityGroupVpcAssociationTimeoutsOutput() SecurityGroupVpcAssociationTimeoutsOutput {
+	return o
+}
+
+func (o SecurityGroupVpcAssociationTimeoutsOutput) ToSecurityGroupVpcAssociationTimeoutsOutputWithContext(ctx context.Context) SecurityGroupVpcAssociationTimeoutsOutput {
+	return o
+}
+
+func (o SecurityGroupVpcAssociationTimeoutsOutput) ToSecurityGroupVpcAssociationTimeoutsPtrOutput() SecurityGroupVpcAssociationTimeoutsPtrOutput {
+	return o.ToSecurityGroupVpcAssociationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityGroupVpcAssociationTimeoutsOutput) ToSecurityGroupVpcAssociationTimeoutsPtrOutputWithContext(ctx context.Context) SecurityGroupVpcAssociationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityGroupVpcAssociationTimeouts) *SecurityGroupVpcAssociationTimeouts {
+		return &v
+	}).(SecurityGroupVpcAssociationTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o SecurityGroupVpcAssociationTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupVpcAssociationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o SecurityGroupVpcAssociationTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupVpcAssociationTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type SecurityGroupVpcAssociationTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityGroupVpcAssociationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityGroupVpcAssociationTimeouts)(nil)).Elem()
+}
+
+func (o SecurityGroupVpcAssociationTimeoutsPtrOutput) ToSecurityGroupVpcAssociationTimeoutsPtrOutput() SecurityGroupVpcAssociationTimeoutsPtrOutput {
+	return o
+}
+
+func (o SecurityGroupVpcAssociationTimeoutsPtrOutput) ToSecurityGroupVpcAssociationTimeoutsPtrOutputWithContext(ctx context.Context) SecurityGroupVpcAssociationTimeoutsPtrOutput {
+	return o
+}
+
+func (o SecurityGroupVpcAssociationTimeoutsPtrOutput) Elem() SecurityGroupVpcAssociationTimeoutsOutput {
+	return o.ApplyT(func(v *SecurityGroupVpcAssociationTimeouts) SecurityGroupVpcAssociationTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityGroupVpcAssociationTimeouts
+		return ret
+	}).(SecurityGroupVpcAssociationTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o SecurityGroupVpcAssociationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityGroupVpcAssociationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o SecurityGroupVpcAssociationTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityGroupVpcAssociationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetSecurityGroupRuleFilter struct {
 	// Name of the filter field. Valid values can be found in the EC2 [`DescribeSecurityGroupRules`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html) API Reference.
 	Name string `pulumi:"name"`
@@ -371,12 +527,16 @@ func (o GetSecurityGroupRulesFilterArrayOutput) Index(i pulumi.IntInput) GetSecu
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointServicePrivateDnsVerificationTimeoutsInput)(nil)).Elem(), EndpointServicePrivateDnsVerificationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointServicePrivateDnsVerificationTimeoutsPtrInput)(nil)).Elem(), EndpointServicePrivateDnsVerificationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupVpcAssociationTimeoutsInput)(nil)).Elem(), SecurityGroupVpcAssociationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupVpcAssociationTimeoutsPtrInput)(nil)).Elem(), SecurityGroupVpcAssociationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupRuleFilterInput)(nil)).Elem(), GetSecurityGroupRuleFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupRuleFilterArrayInput)(nil)).Elem(), GetSecurityGroupRuleFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupRulesFilterInput)(nil)).Elem(), GetSecurityGroupRulesFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupRulesFilterArrayInput)(nil)).Elem(), GetSecurityGroupRulesFilterArray{})
 	pulumi.RegisterOutputType(EndpointServicePrivateDnsVerificationTimeoutsOutput{})
 	pulumi.RegisterOutputType(EndpointServicePrivateDnsVerificationTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(SecurityGroupVpcAssociationTimeoutsOutput{})
+	pulumi.RegisterOutputType(SecurityGroupVpcAssociationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(GetSecurityGroupRuleFilterOutput{})
 	pulumi.RegisterOutputType(GetSecurityGroupRuleFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetSecurityGroupRulesFilterOutput{})

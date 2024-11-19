@@ -11868,6 +11868,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "vpc/securityGroupVpcAssociation",
+  "fqn": "pulumi_aws.vpc",
+  "classes": {
+   "aws:vpc/securityGroupVpcAssociation:SecurityGroupVpcAssociation": "SecurityGroupVpcAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "vpclattice/accessLogSubscription",
   "fqn": "pulumi_aws.vpclattice",
   "classes": {

@@ -95,6 +95,9 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
         /// </summary>
         public readonly int? MaxBitrate;
+        /// <summary>
+        /// Min interval.
+        /// </summary>
         public readonly int? MinIInterval;
         /// <summary>
         /// Number of reference frames to use.

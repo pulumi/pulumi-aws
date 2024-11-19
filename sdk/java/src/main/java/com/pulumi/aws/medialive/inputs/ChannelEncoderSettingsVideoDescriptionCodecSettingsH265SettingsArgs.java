@@ -283,11 +283,64 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         return Optional.ofNullable(this.maxBitrate);
     }
 
+    /**
+     * Min interval.
+     * 
+     */
     @Import(name="minIInterval")
     private @Nullable Output<Integer> minIInterval;
 
+    /**
+     * @return Min interval.
+     * 
+     */
     public Optional<Output<Integer>> minIInterval() {
         return Optional.ofNullable(this.minIInterval);
+    }
+
+    /**
+     * Set the minimum QP.
+     * 
+     */
+    @Import(name="minQp")
+    private @Nullable Output<Integer> minQp;
+
+    /**
+     * @return Set the minimum QP.
+     * 
+     */
+    public Optional<Output<Integer>> minQp() {
+        return Optional.ofNullable(this.minQp);
+    }
+
+    /**
+     * Enables or disables motion vector over picture boundaries.
+     * 
+     */
+    @Import(name="mvOverPictureBoundaries")
+    private @Nullable Output<String> mvOverPictureBoundaries;
+
+    /**
+     * @return Enables or disables motion vector over picture boundaries.
+     * 
+     */
+    public Optional<Output<String>> mvOverPictureBoundaries() {
+        return Optional.ofNullable(this.mvOverPictureBoundaries);
+    }
+
+    /**
+     * Enables or disables the motion vector temporal predictor.
+     * 
+     */
+    @Import(name="mvTemporalPredictor")
+    private @Nullable Output<String> mvTemporalPredictor;
+
+    /**
+     * @return Enables or disables the motion vector temporal predictor.
+     * 
+     */
+    public Optional<Output<String>> mvTemporalPredictor() {
+        return Optional.ofNullable(this.mvTemporalPredictor);
     }
 
     /**
@@ -426,6 +479,51 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
     }
 
     /**
+     * Sets the height of tiles.
+     * 
+     */
+    @Import(name="tileHeight")
+    private @Nullable Output<Integer> tileHeight;
+
+    /**
+     * @return Sets the height of tiles.
+     * 
+     */
+    public Optional<Output<Integer>> tileHeight() {
+        return Optional.ofNullable(this.tileHeight);
+    }
+
+    /**
+     * Enables or disables padding of tiles.
+     * 
+     */
+    @Import(name="tilePadding")
+    private @Nullable Output<String> tilePadding;
+
+    /**
+     * @return Enables or disables padding of tiles.
+     * 
+     */
+    public Optional<Output<String>> tilePadding() {
+        return Optional.ofNullable(this.tilePadding);
+    }
+
+    /**
+     * Sets the width of tiles.
+     * 
+     */
+    @Import(name="tileWidth")
+    private @Nullable Output<Integer> tileWidth;
+
+    /**
+     * @return Sets the width of tiles.
+     * 
+     */
+    public Optional<Output<Integer>> tileWidth() {
+        return Optional.ofNullable(this.tileWidth);
+    }
+
+    /**
      * Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
      * 
      */
@@ -455,6 +553,21 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         return Optional.ofNullable(this.timecodeInsertion);
     }
 
+    /**
+     * Sets the size of the treeblock.
+     * 
+     */
+    @Import(name="treeblockSize")
+    private @Nullable Output<String> treeblockSize;
+
+    /**
+     * @return Sets the size of the treeblock.
+     * 
+     */
+    public Optional<Output<String>> treeblockSize() {
+        return Optional.ofNullable(this.treeblockSize);
+    }
+
     private ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs() {}
 
     private ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs $) {
@@ -477,6 +590,9 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         this.lookAheadRateControl = $.lookAheadRateControl;
         this.maxBitrate = $.maxBitrate;
         this.minIInterval = $.minIInterval;
+        this.minQp = $.minQp;
+        this.mvOverPictureBoundaries = $.mvOverPictureBoundaries;
+        this.mvTemporalPredictor = $.mvTemporalPredictor;
         this.parDenominator = $.parDenominator;
         this.parNumerator = $.parNumerator;
         this.profile = $.profile;
@@ -486,8 +602,12 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         this.sceneChangeDetect = $.sceneChangeDetect;
         this.slices = $.slices;
         this.tier = $.tier;
+        this.tileHeight = $.tileHeight;
+        this.tilePadding = $.tilePadding;
+        this.tileWidth = $.tileWidth;
         this.timecodeBurninSettings = $.timecodeBurninSettings;
         this.timecodeInsertion = $.timecodeInsertion;
+        this.treeblockSize = $.treeblockSize;
     }
 
     public static Builder builder() {
@@ -874,13 +994,88 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
             return maxBitrate(Output.of(maxBitrate));
         }
 
+        /**
+         * @param minIInterval Min interval.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minIInterval(@Nullable Output<Integer> minIInterval) {
             $.minIInterval = minIInterval;
             return this;
         }
 
+        /**
+         * @param minIInterval Min interval.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minIInterval(Integer minIInterval) {
             return minIInterval(Output.of(minIInterval));
+        }
+
+        /**
+         * @param minQp Set the minimum QP.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minQp(@Nullable Output<Integer> minQp) {
+            $.minQp = minQp;
+            return this;
+        }
+
+        /**
+         * @param minQp Set the minimum QP.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minQp(Integer minQp) {
+            return minQp(Output.of(minQp));
+        }
+
+        /**
+         * @param mvOverPictureBoundaries Enables or disables motion vector over picture boundaries.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mvOverPictureBoundaries(@Nullable Output<String> mvOverPictureBoundaries) {
+            $.mvOverPictureBoundaries = mvOverPictureBoundaries;
+            return this;
+        }
+
+        /**
+         * @param mvOverPictureBoundaries Enables or disables motion vector over picture boundaries.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mvOverPictureBoundaries(String mvOverPictureBoundaries) {
+            return mvOverPictureBoundaries(Output.of(mvOverPictureBoundaries));
+        }
+
+        /**
+         * @param mvTemporalPredictor Enables or disables the motion vector temporal predictor.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mvTemporalPredictor(@Nullable Output<String> mvTemporalPredictor) {
+            $.mvTemporalPredictor = mvTemporalPredictor;
+            return this;
+        }
+
+        /**
+         * @param mvTemporalPredictor Enables or disables the motion vector temporal predictor.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mvTemporalPredictor(String mvTemporalPredictor) {
+            return mvTemporalPredictor(Output.of(mvTemporalPredictor));
         }
 
         /**
@@ -1073,6 +1268,69 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
         }
 
         /**
+         * @param tileHeight Sets the height of tiles.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tileHeight(@Nullable Output<Integer> tileHeight) {
+            $.tileHeight = tileHeight;
+            return this;
+        }
+
+        /**
+         * @param tileHeight Sets the height of tiles.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tileHeight(Integer tileHeight) {
+            return tileHeight(Output.of(tileHeight));
+        }
+
+        /**
+         * @param tilePadding Enables or disables padding of tiles.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tilePadding(@Nullable Output<String> tilePadding) {
+            $.tilePadding = tilePadding;
+            return this;
+        }
+
+        /**
+         * @param tilePadding Enables or disables padding of tiles.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tilePadding(String tilePadding) {
+            return tilePadding(Output.of(tilePadding));
+        }
+
+        /**
+         * @param tileWidth Sets the width of tiles.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tileWidth(@Nullable Output<Integer> tileWidth) {
+            $.tileWidth = tileWidth;
+            return this;
+        }
+
+        /**
+         * @param tileWidth Sets the width of tiles.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tileWidth(Integer tileWidth) {
+            return tileWidth(Output.of(tileWidth));
+        }
+
+        /**
          * @param timecodeBurninSettings Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
          * 
          * @return builder
@@ -1112,6 +1370,27 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
          */
         public Builder timecodeInsertion(String timecodeInsertion) {
             return timecodeInsertion(Output.of(timecodeInsertion));
+        }
+
+        /**
+         * @param treeblockSize Sets the size of the treeblock.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder treeblockSize(@Nullable Output<String> treeblockSize) {
+            $.treeblockSize = treeblockSize;
+            return this;
+        }
+
+        /**
+         * @param treeblockSize Sets the size of the treeblock.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder treeblockSize(String treeblockSize) {
+            return treeblockSize(Output.of(treeblockSize));
         }
 
         public ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs build() {
