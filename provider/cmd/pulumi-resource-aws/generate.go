@@ -131,6 +131,7 @@ func main() {
 		sourceFile: schemaJSON,
 		destFile:   strings.ReplaceAll(schemaJSON, ".json", "-embed.json"),
 		version:    version,
+		gzip:       true,
 	}); err != nil {
 		log.Fatal(err)
 	}

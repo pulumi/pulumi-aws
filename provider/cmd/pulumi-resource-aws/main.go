@@ -38,22 +38,30 @@ var pulumiMinimalSchema []byte
 
 // The data in the minimal schema is compressed with GZIP to avoid bloating the provider size at the cost of slightly
 // slower init for uses of the feature.
-func decompressMinimalSchema() []byte {
-	reader, err := gzip.NewReader(bytes.NewReader(pulumiMinimalSchema))
+func decompressSchema(compressedSchema []byte) []byte {
+	reader, err := gzip.NewReader(bytes.NewReader(compressedSchema))
 	contract.AssertNoErrorf(err, "Failed to open a reader into schema-minimal-embed.json")
 	bytes, err := io.ReadAll(reader)
 	contract.AssertNoErrorf(err, "Failed to read schema-minimal-embed.json")
 	return bytes
 }
 
+func loadSchema(schema []byte, decompress bool) []byte {
+	if !decompress {
+		return schema
+	}
+	return decompressSchema(schema)
+}
+
 func main() {
 	ctx := context.Background()
 	info := aws.Provider()
 
-	s := pulumiSchema
+	schema := pulumiSchema
 	if cmdutil.IsTruthy(os.Getenv("PULUMI_AWS_MINIMAL_SCHEMA")) {
-		s = decompressMinimalSchema()
+		schema = pulumiMinimalSchema
 	}
+	decompressedSchema := loadSchema(schema, true)
 
-	pf.MainWithMuxer(ctx, "aws", *info, s)
+	pf.MainWithMuxer(ctx, "aws", *info, decompressedSchema)
 }
