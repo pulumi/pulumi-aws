@@ -50,7 +50,38 @@ func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 		simpleReplace("Read more about sensitive data in state.\n\n", ""),
 		reReplace(`(?m)^(\s*)Terraform resource `, "${1}Resource "),
 		reReplace(`(?m)^(\s*)Terraform data source `, "${1}Data source "),
-		applyReplacementsDotJSON())
+
+		applyReplacementsDotJSON(),
+
+		addResourceNote("iam_role_policies_exclusive.html.markdown",
+			"To reliably detect drift between customer managed inline policies listed in this resource and"+
+				" actual policies attached to the role in the cloud, you currently need to run Pulumi"+
+				" with `pulumi up --refresh`."+
+				" See [#4766](https://github.com/pulumi/pulumi-aws/issues/4766) for tracking making"+
+				" this work with regular `pulumi up` invocations."),
+
+		addResourceNote("iam_role_policy_attachments_exclusive.html.markdown",
+			"To reliably detect drift between customer managed policies listed in this resource and actual"+
+				" policies attached to the role in the cloud, you currently need to run Pulumi with"+
+				" `pulumi up --refresh`."+
+				" See [#4766](https://github.com/pulumi/pulumi-aws/issues/4766)"+
+				" for tracking making this work with regular `pulumi up`"),
+	)
+}
+
+// Adds a NOTE right under the resource header.
+func addResourceNote(resourceFile string, markdownNote string) tfbridge.DocsEdit {
+	return tfbridge.DocsEdit{
+		Path: resourceFile,
+		Edit: func(_ string, content []byte) ([]byte, error) {
+			re := regexp.MustCompile(`[#] Resource: [\w-]+`)
+			return re.ReplaceAllFunc(content, func(matching []byte) []byte {
+				return append(matching, []byte(
+					fmt.Sprintf("\n\n-> **NOTE:**: %s", markdownNote),
+				)...)
+			}), nil
+		},
+	}
 }
 
 func simpleReplace(from, to string) tfbridge.DocsEdit {
