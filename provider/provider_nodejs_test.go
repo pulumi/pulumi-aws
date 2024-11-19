@@ -203,6 +203,8 @@ func TestRegress4079(t *testing.T) {
 }
 
 func TestParallelLambdaCreation(t *testing.T) {
+	// This test is flaky and needs to be fixed. It occasionally fails to find the lambda zip archive
+	t.Skipf("TODO[pulumi/pulumi-aws#4731]")
 	if testing.Short() {
 		t.Skipf("Skipping test in -short mode because it needs cloud credentials")
 		return
