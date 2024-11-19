@@ -235,7 +235,7 @@ def get_core_network_policy_document_output(attachment_policies: Optional[pulumi
                                             segment_actions: Optional[pulumi.Input[Optional[Sequence[Union['GetCoreNetworkPolicyDocumentSegmentActionArgs', 'GetCoreNetworkPolicyDocumentSegmentActionArgsDict']]]]] = None,
                                             segments: Optional[pulumi.Input[Sequence[Union['GetCoreNetworkPolicyDocumentSegmentArgs', 'GetCoreNetworkPolicyDocumentSegmentArgsDict']]]] = None,
                                             version: Optional[pulumi.Input[Optional[str]]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCoreNetworkPolicyDocumentResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCoreNetworkPolicyDocumentResult]:
     """
     Generates a Core Network policy document in JSON format for use with resources that expect core network policy documents such as `awscc_networkmanager_core_network`. It follows the API definition from the [core-network-policy documentation](https://docs.aws.amazon.com/vpc/latest/cloudwan/cloudwan-policies-json.html).
 
@@ -329,7 +329,7 @@ def get_core_network_policy_document_output(attachment_policies: Optional[pulumi
     __args__['segmentActions'] = segment_actions
     __args__['segments'] = segments
     __args__['version'] = version
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument', __args__, opts=opts, typ=GetCoreNetworkPolicyDocumentResult)
     return __ret__.apply(lambda __response__: GetCoreNetworkPolicyDocumentResult(
         attachment_policies=pulumi.get(__response__, 'attachment_policies'),

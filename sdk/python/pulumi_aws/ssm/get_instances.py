@@ -102,7 +102,7 @@ def get_instances(filters: Optional[Sequence[Union['GetInstancesFilterArgs', 'Ge
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'))
 def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']]]]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstancesResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstancesResult]:
     """
     Use this data source to get the instance IDs of SSM managed instances.
 
@@ -123,7 +123,7 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[Union[
     """
     __args__ = dict()
     __args__['filters'] = filters
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssm/getInstances:getInstances', __args__, opts=opts, typ=GetInstancesResult)
     return __ret__.apply(lambda __response__: GetInstancesResult(
         filters=pulumi.get(__response__, 'filters'),

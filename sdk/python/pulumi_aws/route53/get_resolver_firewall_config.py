@@ -110,7 +110,7 @@ def get_resolver_firewall_config(resource_id: Optional[str] = None,
         owner_id=pulumi.get(__ret__, 'owner_id'),
         resource_id=pulumi.get(__ret__, 'resource_id'))
 def get_resolver_firewall_config_output(resource_id: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverFirewallConfigResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverFirewallConfigResult]:
     """
     `route53.ResolverFirewallConfig` provides details about a specific a Route 53 Resolver DNS Firewall config.
 
@@ -134,7 +134,7 @@ def get_resolver_firewall_config_output(resource_id: Optional[pulumi.Input[str]]
     """
     __args__ = dict()
     __args__['resourceId'] = resource_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:route53/getResolverFirewallConfig:getResolverFirewallConfig', __args__, opts=opts, typ=GetResolverFirewallConfigResult)
     return __ret__.apply(lambda __response__: GetResolverFirewallConfigResult(
         firewall_fail_open=pulumi.get(__response__, 'firewall_fail_open'),

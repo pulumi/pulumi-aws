@@ -360,7 +360,7 @@ def get_cluster_snapshot_output(db_cluster_identifier: Optional[pulumi.Input[Opt
                                 most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
                                 snapshot_type: Optional[pulumi.Input[Optional[str]]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterSnapshotResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterSnapshotResult]:
     """
     Use this data source to get information about a DB Cluster Snapshot for use when provisioning DB clusters.
 
@@ -410,7 +410,7 @@ def get_cluster_snapshot_output(db_cluster_identifier: Optional[pulumi.Input[Opt
     __args__['mostRecent'] = most_recent
     __args__['snapshotType'] = snapshot_type
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:rds/getClusterSnapshot:getClusterSnapshot', __args__, opts=opts, typ=GetClusterSnapshotResult)
     return __ret__.apply(lambda __response__: GetClusterSnapshotResult(
         allocated_storage=pulumi.get(__response__, 'allocated_storage'),

@@ -711,7 +711,7 @@ def get_instance_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['
                         instance_id: Optional[pulumi.Input[Optional[str]]] = None,
                         instance_tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceResult]:
     """
     Use this data source to get the ID of an Amazon EC2 Instance for use in other resources.
 
@@ -758,7 +758,7 @@ def get_instance_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['
     __args__['instanceId'] = instance_id
     __args__['instanceTags'] = instance_tags
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getInstance:getInstance', __args__, opts=opts, typ=GetInstanceResult)
     return __ret__.apply(lambda __response__: GetInstanceResult(
         ami=pulumi.get(__response__, 'ami'),

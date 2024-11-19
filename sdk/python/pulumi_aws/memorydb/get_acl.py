@@ -140,7 +140,7 @@ def get_acl(name: Optional[str] = None,
         user_names=pulumi.get(__ret__, 'user_names'))
 def get_acl_output(name: Optional[pulumi.Input[str]] = None,
                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAclResult]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAclResult]:
     """
     Provides information about a MemoryDB ACL.
 
@@ -160,7 +160,7 @@ def get_acl_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:memorydb/getAcl:getAcl', __args__, opts=opts, typ=GetAclResult)
     return __ret__.apply(lambda __response__: GetAclResult(
         arn=pulumi.get(__response__, 'arn'),
