@@ -5,6 +5,7 @@ package efs
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func GetAccessPoints(ctx *pulumi.Context, args *GetAccessPointsArgs, opts ...pulumi.InvokeOption) (*GetAccessPointsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetAccessPointsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetAccessPointsResult{}, errors.New("DependsOn is not supported for direct form invoke GetAccessPoints, use GetAccessPointsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetAccessPointsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetAccessPoints, use GetAccessPointsOutput instead")
+	}
 	var rv GetAccessPointsResult
 	err := ctx.Invoke("aws:efs/getAccessPoints:getAccessPoints", args, &rv, opts...)
 	if err != nil {
@@ -66,17 +77,18 @@ type GetAccessPointsResult struct {
 }
 
 func GetAccessPointsOutput(ctx *pulumi.Context, args GetAccessPointsOutputArgs, opts ...pulumi.InvokeOption) GetAccessPointsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAccessPointsResultOutput, error) {
 			args := v.(GetAccessPointsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetAccessPointsResult
-			secret, err := ctx.InvokePackageRaw("aws:efs/getAccessPoints:getAccessPoints", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:efs/getAccessPoints:getAccessPoints", args, &rv, "", opts...)
 			if err != nil {
 				return GetAccessPointsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetAccessPointsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetAccessPointsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetAccessPointsResultOutput), nil
 			}

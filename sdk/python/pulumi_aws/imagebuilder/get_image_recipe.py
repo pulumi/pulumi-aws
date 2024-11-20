@@ -245,7 +245,7 @@ def get_image_recipe(arn: Optional[str] = None,
         working_directory=pulumi.get(__ret__, 'working_directory'))
 def get_image_recipe_output(arn: Optional[pulumi.Input[str]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageRecipeResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageRecipeResult]:
     """
     Provides details about an Image Builder Image Recipe.
 
@@ -265,7 +265,7 @@ def get_image_recipe_output(arn: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['arn'] = arn
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:imagebuilder/getImageRecipe:getImageRecipe', __args__, opts=opts, typ=GetImageRecipeResult)
     return __ret__.apply(lambda __response__: GetImageRecipeResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -5,6 +5,7 @@ package cognito
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -56,6 +57,16 @@ import (
 // ```
 func GetUserPools(ctx *pulumi.Context, args *GetUserPoolsArgs, opts ...pulumi.InvokeOption) (*GetUserPoolsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetUserPoolsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetUserPoolsResult{}, errors.New("DependsOn is not supported for direct form invoke GetUserPools, use GetUserPoolsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetUserPoolsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetUserPools, use GetUserPoolsOutput instead")
+	}
 	var rv GetUserPoolsResult
 	err := ctx.Invoke("aws:cognito/getUserPools:getUserPools", args, &rv, opts...)
 	if err != nil {
@@ -82,17 +93,18 @@ type GetUserPoolsResult struct {
 }
 
 func GetUserPoolsOutput(ctx *pulumi.Context, args GetUserPoolsOutputArgs, opts ...pulumi.InvokeOption) GetUserPoolsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetUserPoolsResultOutput, error) {
 			args := v.(GetUserPoolsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetUserPoolsResult
-			secret, err := ctx.InvokePackageRaw("aws:cognito/getUserPools:getUserPools", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:cognito/getUserPools:getUserPools", args, &rv, "", opts...)
 			if err != nil {
 				return GetUserPoolsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetUserPoolsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetUserPoolsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetUserPoolsResultOutput), nil
 			}

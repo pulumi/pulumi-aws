@@ -5,6 +5,7 @@ package eks
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupAccessEntry(ctx *pulumi.Context, args *LookupAccessEntryArgs, opts ...pulumi.InvokeOption) (*LookupAccessEntryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupAccessEntryResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupAccessEntryResult{}, errors.New("DependsOn is not supported for direct form invoke LookupAccessEntry, use LookupAccessEntryOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupAccessEntryResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupAccessEntry, use LookupAccessEntryOutput instead")
+	}
 	var rv LookupAccessEntryResult
 	err := ctx.Invoke("aws:eks/getAccessEntry:getAccessEntry", args, &rv, opts...)
 	if err != nil {
@@ -83,17 +94,18 @@ type LookupAccessEntryResult struct {
 }
 
 func LookupAccessEntryOutput(ctx *pulumi.Context, args LookupAccessEntryOutputArgs, opts ...pulumi.InvokeOption) LookupAccessEntryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAccessEntryResultOutput, error) {
 			args := v.(LookupAccessEntryArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupAccessEntryResult
-			secret, err := ctx.InvokePackageRaw("aws:eks/getAccessEntry:getAccessEntry", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:eks/getAccessEntry:getAccessEntry", args, &rv, "", opts...)
 			if err != nil {
 				return LookupAccessEntryResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupAccessEntryResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupAccessEntryResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupAccessEntryResultOutput), nil
 			}

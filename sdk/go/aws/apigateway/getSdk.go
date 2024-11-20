@@ -5,6 +5,7 @@ package apigateway
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -46,6 +47,16 @@ import (
 // ```
 func GetSdk(ctx *pulumi.Context, args *GetSdkArgs, opts ...pulumi.InvokeOption) (*GetSdkResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetSdkResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetSdkResult{}, errors.New("DependsOn is not supported for direct form invoke GetSdk, use GetSdkOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetSdkResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetSdk, use GetSdkOutput instead")
+	}
 	var rv GetSdkResult
 	err := ctx.Invoke("aws:apigateway/getSdk:getSdk", args, &rv, opts...)
 	if err != nil {
@@ -83,17 +94,18 @@ type GetSdkResult struct {
 }
 
 func GetSdkOutput(ctx *pulumi.Context, args GetSdkOutputArgs, opts ...pulumi.InvokeOption) GetSdkResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetSdkResultOutput, error) {
 			args := v.(GetSdkArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetSdkResult
-			secret, err := ctx.InvokePackageRaw("aws:apigateway/getSdk:getSdk", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:apigateway/getSdk:getSdk", args, &rv, "", opts...)
 			if err != nil {
 				return GetSdkResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetSdkResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetSdkResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetSdkResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package elasticache
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func GetReservedCacheNodeOffering(ctx *pulumi.Context, args *GetReservedCacheNodeOfferingArgs, opts ...pulumi.InvokeOption) (*GetReservedCacheNodeOfferingResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetReservedCacheNodeOfferingResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetReservedCacheNodeOfferingResult{}, errors.New("DependsOn is not supported for direct form invoke GetReservedCacheNodeOffering, use GetReservedCacheNodeOfferingOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetReservedCacheNodeOfferingResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetReservedCacheNodeOffering, use GetReservedCacheNodeOfferingOutput instead")
+	}
 	var rv GetReservedCacheNodeOfferingResult
 	err := ctx.Invoke("aws:elasticache/getReservedCacheNodeOffering:getReservedCacheNodeOffering", args, &rv, opts...)
 	if err != nil {
@@ -85,17 +96,18 @@ type GetReservedCacheNodeOfferingResult struct {
 }
 
 func GetReservedCacheNodeOfferingOutput(ctx *pulumi.Context, args GetReservedCacheNodeOfferingOutputArgs, opts ...pulumi.InvokeOption) GetReservedCacheNodeOfferingResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetReservedCacheNodeOfferingResultOutput, error) {
 			args := v.(GetReservedCacheNodeOfferingArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetReservedCacheNodeOfferingResult
-			secret, err := ctx.InvokePackageRaw("aws:elasticache/getReservedCacheNodeOffering:getReservedCacheNodeOffering", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:elasticache/getReservedCacheNodeOffering:getReservedCacheNodeOffering", args, &rv, "", opts...)
 			if err != nil {
 				return GetReservedCacheNodeOfferingResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetReservedCacheNodeOfferingResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetReservedCacheNodeOfferingResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetReservedCacheNodeOfferingResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package emr
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -81,6 +82,16 @@ import (
 // ```
 func GetSupportedInstanceTypes(ctx *pulumi.Context, args *GetSupportedInstanceTypesArgs, opts ...pulumi.InvokeOption) (*GetSupportedInstanceTypesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetSupportedInstanceTypesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetSupportedInstanceTypesResult{}, errors.New("DependsOn is not supported for direct form invoke GetSupportedInstanceTypes, use GetSupportedInstanceTypesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetSupportedInstanceTypesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetSupportedInstanceTypes, use GetSupportedInstanceTypesOutput instead")
+	}
 	var rv GetSupportedInstanceTypesResult
 	err := ctx.Invoke("aws:emr/getSupportedInstanceTypes:getSupportedInstanceTypes", args, &rv, opts...)
 	if err != nil {
@@ -106,17 +117,18 @@ type GetSupportedInstanceTypesResult struct {
 }
 
 func GetSupportedInstanceTypesOutput(ctx *pulumi.Context, args GetSupportedInstanceTypesOutputArgs, opts ...pulumi.InvokeOption) GetSupportedInstanceTypesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetSupportedInstanceTypesResultOutput, error) {
 			args := v.(GetSupportedInstanceTypesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetSupportedInstanceTypesResult
-			secret, err := ctx.InvokePackageRaw("aws:emr/getSupportedInstanceTypes:getSupportedInstanceTypes", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:emr/getSupportedInstanceTypes:getSupportedInstanceTypes", args, &rv, "", opts...)
 			if err != nil {
 				return GetSupportedInstanceTypesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetSupportedInstanceTypesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetSupportedInstanceTypesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetSupportedInstanceTypesResultOutput), nil
 			}

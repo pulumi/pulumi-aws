@@ -5,6 +5,7 @@ package ec2transitgateway
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func GetDirectConnectGatewayAttachment(ctx *pulumi.Context, args *GetDirectConnectGatewayAttachmentArgs, opts ...pulumi.InvokeOption) (*GetDirectConnectGatewayAttachmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetDirectConnectGatewayAttachmentResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetDirectConnectGatewayAttachmentResult{}, errors.New("DependsOn is not supported for direct form invoke GetDirectConnectGatewayAttachment, use GetDirectConnectGatewayAttachmentOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetDirectConnectGatewayAttachmentResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetDirectConnectGatewayAttachment, use GetDirectConnectGatewayAttachmentOutput instead")
+	}
 	var rv GetDirectConnectGatewayAttachmentResult
 	err := ctx.Invoke("aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment", args, &rv, opts...)
 	if err != nil {
@@ -75,17 +86,18 @@ type GetDirectConnectGatewayAttachmentResult struct {
 }
 
 func GetDirectConnectGatewayAttachmentOutput(ctx *pulumi.Context, args GetDirectConnectGatewayAttachmentOutputArgs, opts ...pulumi.InvokeOption) GetDirectConnectGatewayAttachmentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetDirectConnectGatewayAttachmentResultOutput, error) {
 			args := v.(GetDirectConnectGatewayAttachmentArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetDirectConnectGatewayAttachmentResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment", args, &rv, "", opts...)
 			if err != nil {
 				return GetDirectConnectGatewayAttachmentResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetDirectConnectGatewayAttachmentResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetDirectConnectGatewayAttachmentResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetDirectConnectGatewayAttachmentResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package opensearch
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupServerlessSecurityPolicy(ctx *pulumi.Context, args *LookupServerlessSecurityPolicyArgs, opts ...pulumi.InvokeOption) (*LookupServerlessSecurityPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupServerlessSecurityPolicyResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupServerlessSecurityPolicyResult{}, errors.New("DependsOn is not supported for direct form invoke LookupServerlessSecurityPolicy, use LookupServerlessSecurityPolicyOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupServerlessSecurityPolicyResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupServerlessSecurityPolicy, use LookupServerlessSecurityPolicyOutput instead")
+	}
 	var rv LookupServerlessSecurityPolicyResult
 	err := ctx.Invoke("aws:opensearch/getServerlessSecurityPolicy:getServerlessSecurityPolicy", args, &rv, opts...)
 	if err != nil {
@@ -76,17 +87,18 @@ type LookupServerlessSecurityPolicyResult struct {
 }
 
 func LookupServerlessSecurityPolicyOutput(ctx *pulumi.Context, args LookupServerlessSecurityPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupServerlessSecurityPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupServerlessSecurityPolicyResultOutput, error) {
 			args := v.(LookupServerlessSecurityPolicyArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupServerlessSecurityPolicyResult
-			secret, err := ctx.InvokePackageRaw("aws:opensearch/getServerlessSecurityPolicy:getServerlessSecurityPolicy", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:opensearch/getServerlessSecurityPolicy:getServerlessSecurityPolicy", args, &rv, "", opts...)
 			if err != nil {
 				return LookupServerlessSecurityPolicyResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupServerlessSecurityPolicyResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupServerlessSecurityPolicyResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupServerlessSecurityPolicyResultOutput), nil
 			}

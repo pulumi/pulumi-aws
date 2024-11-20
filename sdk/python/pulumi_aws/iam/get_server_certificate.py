@@ -214,7 +214,7 @@ def get_server_certificate_output(latest: Optional[pulumi.Input[Optional[bool]]]
                                   name: Optional[pulumi.Input[Optional[str]]] = None,
                                   name_prefix: Optional[pulumi.Input[Optional[str]]] = None,
                                   path_prefix: Optional[pulumi.Input[Optional[str]]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerCertificateResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerCertificateResult]:
     """
     Use this data source to lookup information about IAM Server Certificates.
 
@@ -248,7 +248,7 @@ def get_server_certificate_output(latest: Optional[pulumi.Input[Optional[bool]]]
     __args__['name'] = name
     __args__['namePrefix'] = name_prefix
     __args__['pathPrefix'] = path_prefix
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:iam/getServerCertificate:getServerCertificate', __args__, opts=opts, typ=GetServerCertificateResult)
     return __ret__.apply(lambda __response__: GetServerCertificateResult(
         arn=pulumi.get(__response__, 'arn'),

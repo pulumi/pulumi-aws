@@ -5,6 +5,7 @@ package location
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupTracker(ctx *pulumi.Context, args *LookupTrackerArgs, opts ...pulumi.InvokeOption) (*LookupTrackerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupTrackerResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupTrackerResult{}, errors.New("DependsOn is not supported for direct form invoke LookupTracker, use LookupTrackerOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupTrackerResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupTracker, use LookupTrackerOutput instead")
+	}
 	var rv LookupTrackerResult
 	err := ctx.Invoke("aws:location/getTracker:getTracker", args, &rv, opts...)
 	if err != nil {
@@ -78,17 +89,18 @@ type LookupTrackerResult struct {
 }
 
 func LookupTrackerOutput(ctx *pulumi.Context, args LookupTrackerOutputArgs, opts ...pulumi.InvokeOption) LookupTrackerResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupTrackerResultOutput, error) {
 			args := v.(LookupTrackerArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupTrackerResult
-			secret, err := ctx.InvokePackageRaw("aws:location/getTracker:getTracker", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:location/getTracker:getTracker", args, &rv, "", opts...)
 			if err != nil {
 				return LookupTrackerResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupTrackerResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupTrackerResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupTrackerResultOutput), nil
 			}

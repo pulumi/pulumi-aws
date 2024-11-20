@@ -5,6 +5,7 @@ package cloudwatch
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupEventConnection(ctx *pulumi.Context, args *LookupEventConnectionArgs, opts ...pulumi.InvokeOption) (*LookupEventConnectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupEventConnectionResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupEventConnectionResult{}, errors.New("DependsOn is not supported for direct form invoke LookupEventConnection, use LookupEventConnectionOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupEventConnectionResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupEventConnection, use LookupEventConnectionOutput instead")
+	}
 	var rv LookupEventConnectionResult
 	err := ctx.Invoke("aws:cloudwatch/getEventConnection:getEventConnection", args, &rv, opts...)
 	if err != nil {
@@ -71,17 +82,18 @@ type LookupEventConnectionResult struct {
 }
 
 func LookupEventConnectionOutput(ctx *pulumi.Context, args LookupEventConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupEventConnectionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupEventConnectionResultOutput, error) {
 			args := v.(LookupEventConnectionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupEventConnectionResult
-			secret, err := ctx.InvokePackageRaw("aws:cloudwatch/getEventConnection:getEventConnection", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:cloudwatch/getEventConnection:getEventConnection", args, &rv, "", opts...)
 			if err != nil {
 				return LookupEventConnectionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupEventConnectionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupEventConnectionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupEventConnectionResultOutput), nil
 			}

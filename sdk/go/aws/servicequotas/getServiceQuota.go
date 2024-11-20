@@ -5,6 +5,7 @@ package servicequotas
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -50,6 +51,16 @@ import (
 // ```
 func LookupServiceQuota(ctx *pulumi.Context, args *LookupServiceQuotaArgs, opts ...pulumi.InvokeOption) (*LookupServiceQuotaResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupServiceQuotaResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupServiceQuotaResult{}, errors.New("DependsOn is not supported for direct form invoke LookupServiceQuota, use LookupServiceQuotaOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupServiceQuotaResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupServiceQuota, use LookupServiceQuotaOutput instead")
+	}
 	var rv LookupServiceQuotaResult
 	err := ctx.Invoke("aws:servicequotas/getServiceQuota:getServiceQuota", args, &rv, opts...)
 	if err != nil {
@@ -92,17 +103,18 @@ type LookupServiceQuotaResult struct {
 }
 
 func LookupServiceQuotaOutput(ctx *pulumi.Context, args LookupServiceQuotaOutputArgs, opts ...pulumi.InvokeOption) LookupServiceQuotaResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupServiceQuotaResultOutput, error) {
 			args := v.(LookupServiceQuotaArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupServiceQuotaResult
-			secret, err := ctx.InvokePackageRaw("aws:servicequotas/getServiceQuota:getServiceQuota", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:servicequotas/getServiceQuota:getServiceQuota", args, &rv, "", opts...)
 			if err != nil {
 				return LookupServiceQuotaResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupServiceQuotaResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupServiceQuotaResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupServiceQuotaResultOutput), nil
 			}

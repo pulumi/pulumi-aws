@@ -5,6 +5,7 @@ package mskconnect
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupWorkerConfiguration(ctx *pulumi.Context, args *LookupWorkerConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupWorkerConfigurationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupWorkerConfigurationResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupWorkerConfigurationResult{}, errors.New("DependsOn is not supported for direct form invoke LookupWorkerConfiguration, use LookupWorkerConfigurationOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupWorkerConfigurationResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupWorkerConfiguration, use LookupWorkerConfigurationOutput instead")
+	}
 	var rv LookupWorkerConfigurationResult
 	err := ctx.Invoke("aws:mskconnect/getWorkerConfiguration:getWorkerConfiguration", args, &rv, opts...)
 	if err != nil {
@@ -74,17 +85,18 @@ type LookupWorkerConfigurationResult struct {
 }
 
 func LookupWorkerConfigurationOutput(ctx *pulumi.Context, args LookupWorkerConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupWorkerConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupWorkerConfigurationResultOutput, error) {
 			args := v.(LookupWorkerConfigurationArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupWorkerConfigurationResult
-			secret, err := ctx.InvokePackageRaw("aws:mskconnect/getWorkerConfiguration:getWorkerConfiguration", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:mskconnect/getWorkerConfiguration:getWorkerConfiguration", args, &rv, "", opts...)
 			if err != nil {
 				return LookupWorkerConfigurationResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupWorkerConfigurationResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupWorkerConfigurationResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupWorkerConfigurationResultOutput), nil
 			}

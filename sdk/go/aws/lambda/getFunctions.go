@@ -5,6 +5,7 @@ package lambda
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -38,6 +39,16 @@ import (
 // ```
 func GetFunctions(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetFunctionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetFunctionsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetFunctionsResult{}, errors.New("DependsOn is not supported for direct form invoke GetFunctions, use GetFunctionsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetFunctionsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetFunctions, use GetFunctionsOutput instead")
+	}
 	var rv GetFunctionsResult
 	err := ctx.Invoke("aws:lambda/getFunctions:getFunctions", nil, &rv, opts...)
 	if err != nil {

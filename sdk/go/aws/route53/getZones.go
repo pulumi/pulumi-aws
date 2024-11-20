@@ -5,6 +5,7 @@ package route53
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func GetZones(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetZonesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetZonesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetZonesResult{}, errors.New("DependsOn is not supported for direct form invoke GetZones, use GetZonesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetZonesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetZones, use GetZonesOutput instead")
+	}
 	var rv GetZonesResult
 	err := ctx.Invoke("aws:route53/getZones:getZones", nil, &rv, opts...)
 	if err != nil {

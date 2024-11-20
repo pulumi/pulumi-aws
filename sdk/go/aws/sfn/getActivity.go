@@ -5,6 +5,7 @@ package sfn
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupActivity(ctx *pulumi.Context, args *LookupActivityArgs, opts ...pulumi.InvokeOption) (*LookupActivityResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupActivityResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupActivityResult{}, errors.New("DependsOn is not supported for direct form invoke LookupActivity, use LookupActivityOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupActivityResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupActivity, use LookupActivityOutput instead")
+	}
 	var rv LookupActivityResult
 	err := ctx.Invoke("aws:sfn/getActivity:getActivity", args, &rv, opts...)
 	if err != nil {
@@ -67,17 +78,18 @@ type LookupActivityResult struct {
 }
 
 func LookupActivityOutput(ctx *pulumi.Context, args LookupActivityOutputArgs, opts ...pulumi.InvokeOption) LookupActivityResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupActivityResultOutput, error) {
 			args := v.(LookupActivityArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupActivityResult
-			secret, err := ctx.InvokePackageRaw("aws:sfn/getActivity:getActivity", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:sfn/getActivity:getActivity", args, &rv, "", opts...)
 			if err != nil {
 				return LookupActivityResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupActivityResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupActivityResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupActivityResultOutput), nil
 			}

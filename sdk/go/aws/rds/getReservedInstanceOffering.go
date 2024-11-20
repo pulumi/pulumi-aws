@@ -5,6 +5,7 @@ package rds
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -44,6 +45,16 @@ import (
 // ```
 func GetReservedInstanceOffering(ctx *pulumi.Context, args *GetReservedInstanceOfferingArgs, opts ...pulumi.InvokeOption) (*GetReservedInstanceOfferingResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetReservedInstanceOfferingResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetReservedInstanceOfferingResult{}, errors.New("DependsOn is not supported for direct form invoke GetReservedInstanceOffering, use GetReservedInstanceOfferingOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetReservedInstanceOfferingResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetReservedInstanceOffering, use GetReservedInstanceOfferingOutput instead")
+	}
 	var rv GetReservedInstanceOfferingResult
 	err := ctx.Invoke("aws:rds/getReservedInstanceOffering:getReservedInstanceOffering", args, &rv, opts...)
 	if err != nil {
@@ -84,17 +95,18 @@ type GetReservedInstanceOfferingResult struct {
 }
 
 func GetReservedInstanceOfferingOutput(ctx *pulumi.Context, args GetReservedInstanceOfferingOutputArgs, opts ...pulumi.InvokeOption) GetReservedInstanceOfferingResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetReservedInstanceOfferingResultOutput, error) {
 			args := v.(GetReservedInstanceOfferingArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetReservedInstanceOfferingResult
-			secret, err := ctx.InvokePackageRaw("aws:rds/getReservedInstanceOffering:getReservedInstanceOffering", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:rds/getReservedInstanceOffering:getReservedInstanceOffering", args, &rv, "", opts...)
 			if err != nil {
 				return GetReservedInstanceOfferingResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetReservedInstanceOfferingResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetReservedInstanceOfferingResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetReservedInstanceOfferingResultOutput), nil
 			}

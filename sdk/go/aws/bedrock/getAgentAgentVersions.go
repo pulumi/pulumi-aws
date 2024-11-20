@@ -5,6 +5,7 @@ package bedrock
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetAgentAgentVersions(ctx *pulumi.Context, args *GetAgentAgentVersionsArgs, opts ...pulumi.InvokeOption) (*GetAgentAgentVersionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetAgentAgentVersionsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetAgentAgentVersionsResult{}, errors.New("DependsOn is not supported for direct form invoke GetAgentAgentVersions, use GetAgentAgentVersionsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetAgentAgentVersionsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetAgentAgentVersions, use GetAgentAgentVersionsOutput instead")
+	}
 	var rv GetAgentAgentVersionsResult
 	err := ctx.Invoke("aws:bedrock/getAgentAgentVersions:getAgentAgentVersions", args, &rv, opts...)
 	if err != nil {
@@ -68,17 +79,18 @@ type GetAgentAgentVersionsResult struct {
 }
 
 func GetAgentAgentVersionsOutput(ctx *pulumi.Context, args GetAgentAgentVersionsOutputArgs, opts ...pulumi.InvokeOption) GetAgentAgentVersionsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAgentAgentVersionsResultOutput, error) {
 			args := v.(GetAgentAgentVersionsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetAgentAgentVersionsResult
-			secret, err := ctx.InvokePackageRaw("aws:bedrock/getAgentAgentVersions:getAgentAgentVersions", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:bedrock/getAgentAgentVersions:getAgentAgentVersions", args, &rv, "", opts...)
 			if err != nil {
 				return GetAgentAgentVersionsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetAgentAgentVersionsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetAgentAgentVersionsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetAgentAgentVersionsResultOutput), nil
 			}

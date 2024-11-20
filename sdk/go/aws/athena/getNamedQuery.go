@@ -5,6 +5,7 @@ package athena
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupNamedQuery(ctx *pulumi.Context, args *LookupNamedQueryArgs, opts ...pulumi.InvokeOption) (*LookupNamedQueryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupNamedQueryResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupNamedQueryResult{}, errors.New("DependsOn is not supported for direct form invoke LookupNamedQuery, use LookupNamedQueryOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupNamedQueryResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupNamedQuery, use LookupNamedQueryOutput instead")
+	}
 	var rv LookupNamedQueryResult
 	err := ctx.Invoke("aws:athena/getNamedQuery:getNamedQuery", args, &rv, opts...)
 	if err != nil {
@@ -70,17 +81,18 @@ type LookupNamedQueryResult struct {
 }
 
 func LookupNamedQueryOutput(ctx *pulumi.Context, args LookupNamedQueryOutputArgs, opts ...pulumi.InvokeOption) LookupNamedQueryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNamedQueryResultOutput, error) {
 			args := v.(LookupNamedQueryArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupNamedQueryResult
-			secret, err := ctx.InvokePackageRaw("aws:athena/getNamedQuery:getNamedQuery", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:athena/getNamedQuery:getNamedQuery", args, &rv, "", opts...)
 			if err != nil {
 				return LookupNamedQueryResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupNamedQueryResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupNamedQueryResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupNamedQueryResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package route53
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -44,6 +45,16 @@ import (
 // ```
 func LookupResolverFirewallDomainList(ctx *pulumi.Context, args *LookupResolverFirewallDomainListArgs, opts ...pulumi.InvokeOption) (*LookupResolverFirewallDomainListResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupResolverFirewallDomainListResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupResolverFirewallDomainListResult{}, errors.New("DependsOn is not supported for direct form invoke LookupResolverFirewallDomainList, use LookupResolverFirewallDomainListOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupResolverFirewallDomainListResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupResolverFirewallDomainList, use LookupResolverFirewallDomainListOutput instead")
+	}
 	var rv LookupResolverFirewallDomainListResult
 	err := ctx.Invoke("aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList", args, &rv, opts...)
 	if err != nil {
@@ -77,17 +88,18 @@ type LookupResolverFirewallDomainListResult struct {
 }
 
 func LookupResolverFirewallDomainListOutput(ctx *pulumi.Context, args LookupResolverFirewallDomainListOutputArgs, opts ...pulumi.InvokeOption) LookupResolverFirewallDomainListResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupResolverFirewallDomainListResultOutput, error) {
 			args := v.(LookupResolverFirewallDomainListArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupResolverFirewallDomainListResult
-			secret, err := ctx.InvokePackageRaw("aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList", args, &rv, "", opts...)
 			if err != nil {
 				return LookupResolverFirewallDomainListResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupResolverFirewallDomainListResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupResolverFirewallDomainListResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupResolverFirewallDomainListResultOutput), nil
 			}

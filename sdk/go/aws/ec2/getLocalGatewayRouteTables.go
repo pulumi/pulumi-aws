@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func GetLocalGatewayRouteTables(ctx *pulumi.Context, args *GetLocalGatewayRouteTablesArgs, opts ...pulumi.InvokeOption) (*GetLocalGatewayRouteTablesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetLocalGatewayRouteTablesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetLocalGatewayRouteTablesResult{}, errors.New("DependsOn is not supported for direct form invoke GetLocalGatewayRouteTables, use GetLocalGatewayRouteTablesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetLocalGatewayRouteTablesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetLocalGatewayRouteTables, use GetLocalGatewayRouteTablesOutput instead")
+	}
 	var rv GetLocalGatewayRouteTablesResult
 	err := ctx.Invoke("aws:ec2/getLocalGatewayRouteTables:getLocalGatewayRouteTables", args, &rv, opts...)
 	if err != nil {
@@ -72,17 +83,18 @@ type GetLocalGatewayRouteTablesResult struct {
 }
 
 func GetLocalGatewayRouteTablesOutput(ctx *pulumi.Context, args GetLocalGatewayRouteTablesOutputArgs, opts ...pulumi.InvokeOption) GetLocalGatewayRouteTablesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetLocalGatewayRouteTablesResultOutput, error) {
 			args := v.(GetLocalGatewayRouteTablesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetLocalGatewayRouteTablesResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getLocalGatewayRouteTables:getLocalGatewayRouteTables", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getLocalGatewayRouteTables:getLocalGatewayRouteTables", args, &rv, "", opts...)
 			if err != nil {
 				return GetLocalGatewayRouteTablesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetLocalGatewayRouteTablesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetLocalGatewayRouteTablesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetLocalGatewayRouteTablesResultOutput), nil
 			}

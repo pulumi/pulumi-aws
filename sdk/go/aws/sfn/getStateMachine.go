@@ -5,6 +5,7 @@ package sfn
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupStateMachine(ctx *pulumi.Context, args *LookupStateMachineArgs, opts ...pulumi.InvokeOption) (*LookupStateMachineResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupStateMachineResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupStateMachineResult{}, errors.New("DependsOn is not supported for direct form invoke LookupStateMachine, use LookupStateMachineOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupStateMachineResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupStateMachine, use LookupStateMachineOutput instead")
+	}
 	var rv LookupStateMachineResult
 	err := ctx.Invoke("aws:sfn/getStateMachine:getStateMachine", args, &rv, opts...)
 	if err != nil {
@@ -77,17 +88,18 @@ type LookupStateMachineResult struct {
 }
 
 func LookupStateMachineOutput(ctx *pulumi.Context, args LookupStateMachineOutputArgs, opts ...pulumi.InvokeOption) LookupStateMachineResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupStateMachineResultOutput, error) {
 			args := v.(LookupStateMachineArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupStateMachineResult
-			secret, err := ctx.InvokePackageRaw("aws:sfn/getStateMachine:getStateMachine", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:sfn/getStateMachine:getStateMachine", args, &rv, "", opts...)
 			if err != nil {
 				return LookupStateMachineResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupStateMachineResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupStateMachineResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupStateMachineResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package location
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupMap(ctx *pulumi.Context, args *LookupMapArgs, opts ...pulumi.InvokeOption) (*LookupMapResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupMapResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupMapResult{}, errors.New("DependsOn is not supported for direct form invoke LookupMap, use LookupMapOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupMapResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupMap, use LookupMapOutput instead")
+	}
 	var rv LookupMapResult
 	err := ctx.Invoke("aws:location/getMap:getMap", args, &rv, opts...)
 	if err != nil {
@@ -76,17 +87,18 @@ type LookupMapResult struct {
 }
 
 func LookupMapOutput(ctx *pulumi.Context, args LookupMapOutputArgs, opts ...pulumi.InvokeOption) LookupMapResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupMapResultOutput, error) {
 			args := v.(LookupMapArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupMapResult
-			secret, err := ctx.InvokePackageRaw("aws:location/getMap:getMap", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:location/getMap:getMap", args, &rv, "", opts...)
 			if err != nil {
 				return LookupMapResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupMapResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupMapResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupMapResultOutput), nil
 			}

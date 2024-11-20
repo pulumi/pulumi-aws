@@ -5,6 +5,7 @@ package iam
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -202,6 +203,16 @@ import (
 // When using `iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it's important to use `dependsOn` to make sure that the needed policy has been fully created or updated before running the simulation.
 func LookupPrincipalPolicySimulation(ctx *pulumi.Context, args *LookupPrincipalPolicySimulationArgs, opts ...pulumi.InvokeOption) (*LookupPrincipalPolicySimulationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupPrincipalPolicySimulationResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupPrincipalPolicySimulationResult{}, errors.New("DependsOn is not supported for direct form invoke LookupPrincipalPolicySimulation, use LookupPrincipalPolicySimulationOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupPrincipalPolicySimulationResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupPrincipalPolicySimulation, use LookupPrincipalPolicySimulationOutput instead")
+	}
 	var rv LookupPrincipalPolicySimulationResult
 	err := ctx.Invoke("aws:iam/getPrincipalPolicySimulation:getPrincipalPolicySimulation", args, &rv, opts...)
 	if err != nil {
@@ -268,17 +279,18 @@ type LookupPrincipalPolicySimulationResult struct {
 }
 
 func LookupPrincipalPolicySimulationOutput(ctx *pulumi.Context, args LookupPrincipalPolicySimulationOutputArgs, opts ...pulumi.InvokeOption) LookupPrincipalPolicySimulationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPrincipalPolicySimulationResultOutput, error) {
 			args := v.(LookupPrincipalPolicySimulationArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupPrincipalPolicySimulationResult
-			secret, err := ctx.InvokePackageRaw("aws:iam/getPrincipalPolicySimulation:getPrincipalPolicySimulation", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:iam/getPrincipalPolicySimulation:getPrincipalPolicySimulation", args, &rv, "", opts...)
 			if err != nil {
 				return LookupPrincipalPolicySimulationResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupPrincipalPolicySimulationResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupPrincipalPolicySimulationResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupPrincipalPolicySimulationResultOutput), nil
 			}

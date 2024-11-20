@@ -5,6 +5,7 @@ package servicecatalog
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupAppregistryApplication(ctx *pulumi.Context, args *LookupAppregistryApplicationArgs, opts ...pulumi.InvokeOption) (*LookupAppregistryApplicationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupAppregistryApplicationResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupAppregistryApplicationResult{}, errors.New("DependsOn is not supported for direct form invoke LookupAppregistryApplication, use LookupAppregistryApplicationOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupAppregistryApplicationResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupAppregistryApplication, use LookupAppregistryApplicationOutput instead")
+	}
 	var rv LookupAppregistryApplicationResult
 	err := ctx.Invoke("aws:servicecatalog/getAppregistryApplication:getAppregistryApplication", args, &rv, opts...)
 	if err != nil {
@@ -70,17 +81,18 @@ type LookupAppregistryApplicationResult struct {
 }
 
 func LookupAppregistryApplicationOutput(ctx *pulumi.Context, args LookupAppregistryApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupAppregistryApplicationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAppregistryApplicationResultOutput, error) {
 			args := v.(LookupAppregistryApplicationArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupAppregistryApplicationResult
-			secret, err := ctx.InvokePackageRaw("aws:servicecatalog/getAppregistryApplication:getAppregistryApplication", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:servicecatalog/getAppregistryApplication:getAppregistryApplication", args, &rv, "", opts...)
 			if err != nil {
 				return LookupAppregistryApplicationResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupAppregistryApplicationResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupAppregistryApplicationResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupAppregistryApplicationResultOutput), nil
 			}

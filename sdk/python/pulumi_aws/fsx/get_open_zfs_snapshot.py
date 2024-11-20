@@ -207,7 +207,7 @@ def get_open_zfs_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequenc
                                  name: Optional[pulumi.Input[Optional[str]]] = None,
                                  snapshot_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOpenZfsSnapshotResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOpenZfsSnapshotResult]:
     """
     Use this data source to get information about an Amazon FSx for OpenZFS Snapshot for use when provisioning new Volumes.
 
@@ -240,7 +240,7 @@ def get_open_zfs_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequenc
     __args__['name'] = name
     __args__['snapshotIds'] = snapshot_ids
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot', __args__, opts=opts, typ=GetOpenZfsSnapshotResult)
     return __ret__.apply(lambda __response__: GetOpenZfsSnapshotResult(
         arn=pulumi.get(__response__, 'arn'),

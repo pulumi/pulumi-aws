@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupNetworkInterface(ctx *pulumi.Context, args *LookupNetworkInterfaceArgs, opts ...pulumi.InvokeOption) (*LookupNetworkInterfaceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupNetworkInterfaceResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupNetworkInterfaceResult{}, errors.New("DependsOn is not supported for direct form invoke LookupNetworkInterface, use LookupNetworkInterfaceOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupNetworkInterfaceResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupNetworkInterface, use LookupNetworkInterfaceOutput instead")
+	}
 	var rv LookupNetworkInterfaceResult
 	err := ctx.Invoke("aws:ec2/getNetworkInterface:getNetworkInterface", args, &rv, opts...)
 	if err != nil {
@@ -100,17 +111,18 @@ type LookupNetworkInterfaceResult struct {
 }
 
 func LookupNetworkInterfaceOutput(ctx *pulumi.Context, args LookupNetworkInterfaceOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkInterfaceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNetworkInterfaceResultOutput, error) {
 			args := v.(LookupNetworkInterfaceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupNetworkInterfaceResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getNetworkInterface:getNetworkInterface", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getNetworkInterface:getNetworkInterface", args, &rv, "", opts...)
 			if err != nil {
 				return LookupNetworkInterfaceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupNetworkInterfaceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupNetworkInterfaceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupNetworkInterfaceResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package guardduty
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetFindingIds(ctx *pulumi.Context, args *GetFindingIdsArgs, opts ...pulumi.InvokeOption) (*GetFindingIdsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetFindingIdsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetFindingIdsResult{}, errors.New("DependsOn is not supported for direct form invoke GetFindingIds, use GetFindingIdsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetFindingIdsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetFindingIds, use GetFindingIdsOutput instead")
+	}
 	var rv GetFindingIdsResult
 	err := ctx.Invoke("aws:guardduty/getFindingIds:getFindingIds", args, &rv, opts...)
 	if err != nil {
@@ -67,17 +78,18 @@ type GetFindingIdsResult struct {
 }
 
 func GetFindingIdsOutput(ctx *pulumi.Context, args GetFindingIdsOutputArgs, opts ...pulumi.InvokeOption) GetFindingIdsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetFindingIdsResultOutput, error) {
 			args := v.(GetFindingIdsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetFindingIdsResult
-			secret, err := ctx.InvokePackageRaw("aws:guardduty/getFindingIds:getFindingIds", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:guardduty/getFindingIds:getFindingIds", args, &rv, "", opts...)
 			if err != nil {
 				return GetFindingIdsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetFindingIdsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetFindingIdsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetFindingIdsResultOutput), nil
 			}

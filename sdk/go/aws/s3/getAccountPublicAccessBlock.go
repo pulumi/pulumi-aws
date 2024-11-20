@@ -5,6 +5,7 @@ package s3
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -38,6 +39,16 @@ import (
 // ```
 func LookupAccountPublicAccessBlock(ctx *pulumi.Context, args *LookupAccountPublicAccessBlockArgs, opts ...pulumi.InvokeOption) (*LookupAccountPublicAccessBlockResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupAccountPublicAccessBlockResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupAccountPublicAccessBlockResult{}, errors.New("DependsOn is not supported for direct form invoke LookupAccountPublicAccessBlock, use LookupAccountPublicAccessBlockOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupAccountPublicAccessBlockResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupAccountPublicAccessBlock, use LookupAccountPublicAccessBlockOutput instead")
+	}
 	var rv LookupAccountPublicAccessBlockResult
 	err := ctx.Invoke("aws:s3/getAccountPublicAccessBlock:getAccountPublicAccessBlock", args, &rv, opts...)
 	if err != nil {
@@ -68,17 +79,18 @@ type LookupAccountPublicAccessBlockResult struct {
 }
 
 func LookupAccountPublicAccessBlockOutput(ctx *pulumi.Context, args LookupAccountPublicAccessBlockOutputArgs, opts ...pulumi.InvokeOption) LookupAccountPublicAccessBlockResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAccountPublicAccessBlockResultOutput, error) {
 			args := v.(LookupAccountPublicAccessBlockArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupAccountPublicAccessBlockResult
-			secret, err := ctx.InvokePackageRaw("aws:s3/getAccountPublicAccessBlock:getAccountPublicAccessBlock", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:s3/getAccountPublicAccessBlock:getAccountPublicAccessBlock", args, &rv, "", opts...)
 			if err != nil {
 				return LookupAccountPublicAccessBlockResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupAccountPublicAccessBlockResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupAccountPublicAccessBlockResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupAccountPublicAccessBlockResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package cloudwatch
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetEventSource(ctx *pulumi.Context, args *GetEventSourceArgs, opts ...pulumi.InvokeOption) (*GetEventSourceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetEventSourceResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetEventSourceResult{}, errors.New("DependsOn is not supported for direct form invoke GetEventSource, use GetEventSourceOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetEventSourceResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetEventSource, use GetEventSourceOutput instead")
+	}
 	var rv GetEventSourceResult
 	err := ctx.Invoke("aws:cloudwatch/getEventSource:getEventSource", args, &rv, opts...)
 	if err != nil {
@@ -72,17 +83,18 @@ type GetEventSourceResult struct {
 }
 
 func GetEventSourceOutput(ctx *pulumi.Context, args GetEventSourceOutputArgs, opts ...pulumi.InvokeOption) GetEventSourceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetEventSourceResultOutput, error) {
 			args := v.(GetEventSourceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetEventSourceResult
-			secret, err := ctx.InvokePackageRaw("aws:cloudwatch/getEventSource:getEventSource", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:cloudwatch/getEventSource:getEventSource", args, &rv, "", opts...)
 			if err != nil {
 				return GetEventSourceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetEventSourceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetEventSourceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetEventSourceResultOutput), nil
 			}

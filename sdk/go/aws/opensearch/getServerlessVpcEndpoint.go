@@ -5,6 +5,7 @@ package opensearch
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupServerlessVpcEndpoint(ctx *pulumi.Context, args *LookupServerlessVpcEndpointArgs, opts ...pulumi.InvokeOption) (*LookupServerlessVpcEndpointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupServerlessVpcEndpointResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupServerlessVpcEndpointResult{}, errors.New("DependsOn is not supported for direct form invoke LookupServerlessVpcEndpoint, use LookupServerlessVpcEndpointOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupServerlessVpcEndpointResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupServerlessVpcEndpoint, use LookupServerlessVpcEndpointOutput instead")
+	}
 	var rv LookupServerlessVpcEndpointResult
 	err := ctx.Invoke("aws:opensearch/getServerlessVpcEndpoint:getServerlessVpcEndpoint", args, &rv, opts...)
 	if err != nil {
@@ -72,17 +83,18 @@ type LookupServerlessVpcEndpointResult struct {
 }
 
 func LookupServerlessVpcEndpointOutput(ctx *pulumi.Context, args LookupServerlessVpcEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupServerlessVpcEndpointResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupServerlessVpcEndpointResultOutput, error) {
 			args := v.(LookupServerlessVpcEndpointArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupServerlessVpcEndpointResult
-			secret, err := ctx.InvokePackageRaw("aws:opensearch/getServerlessVpcEndpoint:getServerlessVpcEndpoint", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:opensearch/getServerlessVpcEndpoint:getServerlessVpcEndpoint", args, &rv, "", opts...)
 			if err != nil {
 				return LookupServerlessVpcEndpointResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupServerlessVpcEndpointResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupServerlessVpcEndpointResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupServerlessVpcEndpointResultOutput), nil
 			}

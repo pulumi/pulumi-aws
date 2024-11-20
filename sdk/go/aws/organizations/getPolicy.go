@@ -5,6 +5,7 @@ package organizations
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -16,6 +17,16 @@ import (
 // ## Example Usage
 func LookupPolicy(ctx *pulumi.Context, args *LookupPolicyArgs, opts ...pulumi.InvokeOption) (*LookupPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupPolicyResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupPolicyResult{}, errors.New("DependsOn is not supported for direct form invoke LookupPolicy, use LookupPolicyOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupPolicyResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupPolicy, use LookupPolicyOutput instead")
+	}
 	var rv LookupPolicyResult
 	err := ctx.Invoke("aws:organizations/getPolicy:getPolicy", args, &rv, opts...)
 	if err != nil {
@@ -50,17 +61,18 @@ type LookupPolicyResult struct {
 }
 
 func LookupPolicyOutput(ctx *pulumi.Context, args LookupPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPolicyResultOutput, error) {
 			args := v.(LookupPolicyArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupPolicyResult
-			secret, err := ctx.InvokePackageRaw("aws:organizations/getPolicy:getPolicy", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:organizations/getPolicy:getPolicy", args, &rv, "", opts...)
 			if err != nil {
 				return LookupPolicyResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupPolicyResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupPolicyResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupPolicyResultOutput), nil
 			}

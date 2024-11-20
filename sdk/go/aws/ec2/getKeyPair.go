@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -54,6 +55,16 @@ import (
 // ```
 func LookupKeyPair(ctx *pulumi.Context, args *LookupKeyPairArgs, opts ...pulumi.InvokeOption) (*LookupKeyPairResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupKeyPairResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupKeyPairResult{}, errors.New("DependsOn is not supported for direct form invoke LookupKeyPair, use LookupKeyPairOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupKeyPairResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupKeyPair, use LookupKeyPairOutput instead")
+	}
 	var rv LookupKeyPairResult
 	err := ctx.Invoke("aws:ec2/getKeyPair:getKeyPair", args, &rv, opts...)
 	if err != nil {
@@ -99,17 +110,18 @@ type LookupKeyPairResult struct {
 }
 
 func LookupKeyPairOutput(ctx *pulumi.Context, args LookupKeyPairOutputArgs, opts ...pulumi.InvokeOption) LookupKeyPairResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupKeyPairResultOutput, error) {
 			args := v.(LookupKeyPairArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupKeyPairResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getKeyPair:getKeyPair", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getKeyPair:getKeyPair", args, &rv, "", opts...)
 			if err != nil {
 				return LookupKeyPairResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupKeyPairResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupKeyPairResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupKeyPairResultOutput), nil
 			}

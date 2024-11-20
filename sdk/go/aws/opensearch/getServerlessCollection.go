@@ -5,6 +5,7 @@ package opensearch
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupServerlessCollection(ctx *pulumi.Context, args *LookupServerlessCollectionArgs, opts ...pulumi.InvokeOption) (*LookupServerlessCollectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupServerlessCollectionResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupServerlessCollectionResult{}, errors.New("DependsOn is not supported for direct form invoke LookupServerlessCollection, use LookupServerlessCollectionOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupServerlessCollectionResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupServerlessCollection, use LookupServerlessCollectionOutput instead")
+	}
 	var rv LookupServerlessCollectionResult
 	err := ctx.Invoke("aws:opensearch/getServerlessCollection:getServerlessCollection", args, &rv, opts...)
 	if err != nil {
@@ -88,17 +99,18 @@ type LookupServerlessCollectionResult struct {
 }
 
 func LookupServerlessCollectionOutput(ctx *pulumi.Context, args LookupServerlessCollectionOutputArgs, opts ...pulumi.InvokeOption) LookupServerlessCollectionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupServerlessCollectionResultOutput, error) {
 			args := v.(LookupServerlessCollectionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupServerlessCollectionResult
-			secret, err := ctx.InvokePackageRaw("aws:opensearch/getServerlessCollection:getServerlessCollection", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:opensearch/getServerlessCollection:getServerlessCollection", args, &rv, "", opts...)
 			if err != nil {
 				return LookupServerlessCollectionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupServerlessCollectionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupServerlessCollectionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupServerlessCollectionResultOutput), nil
 			}

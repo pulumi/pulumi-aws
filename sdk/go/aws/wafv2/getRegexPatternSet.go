@@ -5,6 +5,7 @@ package wafv2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupRegexPatternSet(ctx *pulumi.Context, args *LookupRegexPatternSetArgs, opts ...pulumi.InvokeOption) (*LookupRegexPatternSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupRegexPatternSetResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupRegexPatternSetResult{}, errors.New("DependsOn is not supported for direct form invoke LookupRegexPatternSet, use LookupRegexPatternSetOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupRegexPatternSetResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupRegexPatternSet, use LookupRegexPatternSetOutput instead")
+	}
 	var rv LookupRegexPatternSetResult
 	err := ctx.Invoke("aws:wafv2/getRegexPatternSet:getRegexPatternSet", args, &rv, opts...)
 	if err != nil {
@@ -72,17 +83,18 @@ type LookupRegexPatternSetResult struct {
 }
 
 func LookupRegexPatternSetOutput(ctx *pulumi.Context, args LookupRegexPatternSetOutputArgs, opts ...pulumi.InvokeOption) LookupRegexPatternSetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRegexPatternSetResultOutput, error) {
 			args := v.(LookupRegexPatternSetArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupRegexPatternSetResult
-			secret, err := ctx.InvokePackageRaw("aws:wafv2/getRegexPatternSet:getRegexPatternSet", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:wafv2/getRegexPatternSet:getRegexPatternSet", args, &rv, "", opts...)
 			if err != nil {
 				return LookupRegexPatternSetResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupRegexPatternSetResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupRegexPatternSetResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupRegexPatternSetResultOutput), nil
 			}

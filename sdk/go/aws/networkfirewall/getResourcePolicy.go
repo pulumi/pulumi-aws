@@ -5,6 +5,7 @@ package networkfirewall
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupResourcePolicy(ctx *pulumi.Context, args *LookupResourcePolicyArgs, opts ...pulumi.InvokeOption) (*LookupResourcePolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupResourcePolicyResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupResourcePolicyResult{}, errors.New("DependsOn is not supported for direct form invoke LookupResourcePolicy, use LookupResourcePolicyOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupResourcePolicyResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupResourcePolicy, use LookupResourcePolicyOutput instead")
+	}
 	var rv LookupResourcePolicyResult
 	err := ctx.Invoke("aws:networkfirewall/getResourcePolicy:getResourcePolicy", args, &rv, opts...)
 	if err != nil {
@@ -64,17 +75,18 @@ type LookupResourcePolicyResult struct {
 }
 
 func LookupResourcePolicyOutput(ctx *pulumi.Context, args LookupResourcePolicyOutputArgs, opts ...pulumi.InvokeOption) LookupResourcePolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupResourcePolicyResultOutput, error) {
 			args := v.(LookupResourcePolicyArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupResourcePolicyResult
-			secret, err := ctx.InvokePackageRaw("aws:networkfirewall/getResourcePolicy:getResourcePolicy", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:networkfirewall/getResourcePolicy:getResourcePolicy", args, &rv, "", opts...)
 			if err != nil {
 				return LookupResourcePolicyResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupResourcePolicyResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupResourcePolicyResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupResourcePolicyResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package ssm
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -79,6 +80,16 @@ import (
 // ```
 func GetPatchBaselines(ctx *pulumi.Context, args *GetPatchBaselinesArgs, opts ...pulumi.InvokeOption) (*GetPatchBaselinesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetPatchBaselinesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetPatchBaselinesResult{}, errors.New("DependsOn is not supported for direct form invoke GetPatchBaselines, use GetPatchBaselinesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetPatchBaselinesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetPatchBaselines, use GetPatchBaselinesOutput instead")
+	}
 	var rv GetPatchBaselinesResult
 	err := ctx.Invoke("aws:ssm/getPatchBaselines:getPatchBaselines", args, &rv, opts...)
 	if err != nil {
@@ -106,17 +117,18 @@ type GetPatchBaselinesResult struct {
 }
 
 func GetPatchBaselinesOutput(ctx *pulumi.Context, args GetPatchBaselinesOutputArgs, opts ...pulumi.InvokeOption) GetPatchBaselinesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetPatchBaselinesResultOutput, error) {
 			args := v.(GetPatchBaselinesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetPatchBaselinesResult
-			secret, err := ctx.InvokePackageRaw("aws:ssm/getPatchBaselines:getPatchBaselines", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ssm/getPatchBaselines:getPatchBaselines", args, &rv, "", opts...)
 			if err != nil {
 				return GetPatchBaselinesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetPatchBaselinesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetPatchBaselinesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetPatchBaselinesResultOutput), nil
 			}

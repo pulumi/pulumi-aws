@@ -5,6 +5,7 @@ package connect
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -70,6 +71,16 @@ import (
 // ```
 func LookupContactFlow(ctx *pulumi.Context, args *LookupContactFlowArgs, opts ...pulumi.InvokeOption) (*LookupContactFlowResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupContactFlowResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupContactFlowResult{}, errors.New("DependsOn is not supported for direct form invoke LookupContactFlow, use LookupContactFlowOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupContactFlowResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupContactFlow, use LookupContactFlowOutput instead")
+	}
 	var rv LookupContactFlowResult
 	err := ctx.Invoke("aws:connect/getContactFlow:getContactFlow", args, &rv, opts...)
 	if err != nil {
@@ -112,17 +123,18 @@ type LookupContactFlowResult struct {
 }
 
 func LookupContactFlowOutput(ctx *pulumi.Context, args LookupContactFlowOutputArgs, opts ...pulumi.InvokeOption) LookupContactFlowResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupContactFlowResultOutput, error) {
 			args := v.(LookupContactFlowArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupContactFlowResult
-			secret, err := ctx.InvokePackageRaw("aws:connect/getContactFlow:getContactFlow", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:connect/getContactFlow:getContactFlow", args, &rv, "", opts...)
 			if err != nil {
 				return LookupContactFlowResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupContactFlowResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupContactFlowResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupContactFlowResultOutput), nil
 			}

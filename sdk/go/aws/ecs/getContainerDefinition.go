@@ -5,6 +5,7 @@ package ecs
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetContainerDefinition(ctx *pulumi.Context, args *GetContainerDefinitionArgs, opts ...pulumi.InvokeOption) (*GetContainerDefinitionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetContainerDefinitionResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetContainerDefinitionResult{}, errors.New("DependsOn is not supported for direct form invoke GetContainerDefinition, use GetContainerDefinitionOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetContainerDefinitionResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetContainerDefinition, use GetContainerDefinitionOutput instead")
+	}
 	var rv GetContainerDefinitionResult
 	err := ctx.Invoke("aws:ecs/getContainerDefinition:getContainerDefinition", args, &rv, opts...)
 	if err != nil {
@@ -83,17 +94,18 @@ type GetContainerDefinitionResult struct {
 }
 
 func GetContainerDefinitionOutput(ctx *pulumi.Context, args GetContainerDefinitionOutputArgs, opts ...pulumi.InvokeOption) GetContainerDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetContainerDefinitionResultOutput, error) {
 			args := v.(GetContainerDefinitionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetContainerDefinitionResult
-			secret, err := ctx.InvokePackageRaw("aws:ecs/getContainerDefinition:getContainerDefinition", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ecs/getContainerDefinition:getContainerDefinition", args, &rv, "", opts...)
 			if err != nil {
 				return GetContainerDefinitionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetContainerDefinitionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetContainerDefinitionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetContainerDefinitionResultOutput), nil
 			}

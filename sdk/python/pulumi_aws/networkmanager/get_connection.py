@@ -194,7 +194,7 @@ def get_connection(connection_id: Optional[str] = None,
 def get_connection_output(connection_id: Optional[pulumi.Input[str]] = None,
                           global_network_id: Optional[pulumi.Input[str]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionResult]:
     """
     Retrieve information about a connection.
 
@@ -217,7 +217,7 @@ def get_connection_output(connection_id: Optional[pulumi.Input[str]] = None,
     __args__['connectionId'] = connection_id
     __args__['globalNetworkId'] = global_network_id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:networkmanager/getConnection:getConnection', __args__, opts=opts, typ=GetConnectionResult)
     return __ret__.apply(lambda __response__: GetConnectionResult(
         arn=pulumi.get(__response__, 'arn'),

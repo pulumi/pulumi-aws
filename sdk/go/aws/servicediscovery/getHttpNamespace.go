@@ -5,6 +5,7 @@ package servicediscovery
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -38,6 +39,16 @@ import (
 // ```
 func LookupHttpNamespace(ctx *pulumi.Context, args *LookupHttpNamespaceArgs, opts ...pulumi.InvokeOption) (*LookupHttpNamespaceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupHttpNamespaceResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupHttpNamespaceResult{}, errors.New("DependsOn is not supported for direct form invoke LookupHttpNamespace, use LookupHttpNamespaceOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupHttpNamespaceResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupHttpNamespace, use LookupHttpNamespaceOutput instead")
+	}
 	var rv LookupHttpNamespaceResult
 	err := ctx.Invoke("aws:servicediscovery/getHttpNamespace:getHttpNamespace", args, &rv, opts...)
 	if err != nil {
@@ -70,17 +81,18 @@ type LookupHttpNamespaceResult struct {
 }
 
 func LookupHttpNamespaceOutput(ctx *pulumi.Context, args LookupHttpNamespaceOutputArgs, opts ...pulumi.InvokeOption) LookupHttpNamespaceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupHttpNamespaceResultOutput, error) {
 			args := v.(LookupHttpNamespaceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupHttpNamespaceResult
-			secret, err := ctx.InvokePackageRaw("aws:servicediscovery/getHttpNamespace:getHttpNamespace", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:servicediscovery/getHttpNamespace:getHttpNamespace", args, &rv, "", opts...)
 			if err != nil {
 				return LookupHttpNamespaceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupHttpNamespaceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupHttpNamespaceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupHttpNamespaceResultOutput), nil
 			}

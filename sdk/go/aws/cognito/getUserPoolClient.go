@@ -5,6 +5,7 @@ package cognito
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupUserPoolClient(ctx *pulumi.Context, args *LookupUserPoolClientArgs, opts ...pulumi.InvokeOption) (*LookupUserPoolClientResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupUserPoolClientResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupUserPoolClientResult{}, errors.New("DependsOn is not supported for direct form invoke LookupUserPoolClient, use LookupUserPoolClientOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupUserPoolClientResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupUserPoolClient, use LookupUserPoolClientOutput instead")
+	}
 	var rv LookupUserPoolClientResult
 	err := ctx.Invoke("aws:cognito/getUserPoolClient:getUserPoolClient", args, &rv, opts...)
 	if err != nil {
@@ -106,17 +117,18 @@ type LookupUserPoolClientResult struct {
 }
 
 func LookupUserPoolClientOutput(ctx *pulumi.Context, args LookupUserPoolClientOutputArgs, opts ...pulumi.InvokeOption) LookupUserPoolClientResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupUserPoolClientResultOutput, error) {
 			args := v.(LookupUserPoolClientArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupUserPoolClientResult
-			secret, err := ctx.InvokePackageRaw("aws:cognito/getUserPoolClient:getUserPoolClient", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:cognito/getUserPoolClient:getUserPoolClient", args, &rv, "", opts...)
 			if err != nil {
 				return LookupUserPoolClientResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupUserPoolClientResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupUserPoolClientResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupUserPoolClientResultOutput), nil
 			}

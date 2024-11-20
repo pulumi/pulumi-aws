@@ -5,6 +5,7 @@ package msk
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupVpcConnection(ctx *pulumi.Context, args *LookupVpcConnectionArgs, opts ...pulumi.InvokeOption) (*LookupVpcConnectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupVpcConnectionResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupVpcConnectionResult{}, errors.New("DependsOn is not supported for direct form invoke LookupVpcConnection, use LookupVpcConnectionOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupVpcConnectionResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupVpcConnection, use LookupVpcConnectionOutput instead")
+	}
 	var rv LookupVpcConnectionResult
 	err := ctx.Invoke("aws:msk/getVpcConnection:getVpcConnection", args, &rv, opts...)
 	if err != nil {
@@ -76,17 +87,18 @@ type LookupVpcConnectionResult struct {
 }
 
 func LookupVpcConnectionOutput(ctx *pulumi.Context, args LookupVpcConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupVpcConnectionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVpcConnectionResultOutput, error) {
 			args := v.(LookupVpcConnectionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVpcConnectionResult
-			secret, err := ctx.InvokePackageRaw("aws:msk/getVpcConnection:getVpcConnection", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:msk/getVpcConnection:getVpcConnection", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVpcConnectionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVpcConnectionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVpcConnectionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVpcConnectionResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -18,6 +19,16 @@ import (
 // COIP Pool.
 func GetCoipPool(ctx *pulumi.Context, args *GetCoipPoolArgs, opts ...pulumi.InvokeOption) (*GetCoipPoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetCoipPoolResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetCoipPoolResult{}, errors.New("DependsOn is not supported for direct form invoke GetCoipPool, use GetCoipPoolOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetCoipPoolResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetCoipPool, use GetCoipPoolOutput instead")
+	}
 	var rv GetCoipPoolResult
 	err := ctx.Invoke("aws:ec2/getCoipPool:getCoipPool", args, &rv, opts...)
 	if err != nil {
@@ -56,17 +67,18 @@ type GetCoipPoolResult struct {
 }
 
 func GetCoipPoolOutput(ctx *pulumi.Context, args GetCoipPoolOutputArgs, opts ...pulumi.InvokeOption) GetCoipPoolResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetCoipPoolResultOutput, error) {
 			args := v.(GetCoipPoolArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetCoipPoolResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getCoipPool:getCoipPool", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getCoipPool:getCoipPool", args, &rv, "", opts...)
 			if err != nil {
 				return GetCoipPoolResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetCoipPoolResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetCoipPoolResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetCoipPoolResultOutput), nil
 			}

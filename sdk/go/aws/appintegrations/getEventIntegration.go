@@ -5,6 +5,7 @@ package appintegrations
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func GetEventIntegration(ctx *pulumi.Context, args *GetEventIntegrationArgs, opts ...pulumi.InvokeOption) (*GetEventIntegrationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetEventIntegrationResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetEventIntegrationResult{}, errors.New("DependsOn is not supported for direct form invoke GetEventIntegration, use GetEventIntegrationOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetEventIntegrationResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetEventIntegration, use GetEventIntegrationOutput instead")
+	}
 	var rv GetEventIntegrationResult
 	err := ctx.Invoke("aws:appintegrations/getEventIntegration:getEventIntegration", args, &rv, opts...)
 	if err != nil {
@@ -74,17 +85,18 @@ type GetEventIntegrationResult struct {
 }
 
 func GetEventIntegrationOutput(ctx *pulumi.Context, args GetEventIntegrationOutputArgs, opts ...pulumi.InvokeOption) GetEventIntegrationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetEventIntegrationResultOutput, error) {
 			args := v.(GetEventIntegrationArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetEventIntegrationResult
-			secret, err := ctx.InvokePackageRaw("aws:appintegrations/getEventIntegration:getEventIntegration", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:appintegrations/getEventIntegration:getEventIntegration", args, &rv, "", opts...)
 			if err != nil {
 				return GetEventIntegrationResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetEventIntegrationResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetEventIntegrationResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetEventIntegrationResultOutput), nil
 			}

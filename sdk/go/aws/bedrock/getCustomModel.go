@@ -5,6 +5,7 @@ package bedrock
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupCustomModel(ctx *pulumi.Context, args *LookupCustomModelArgs, opts ...pulumi.InvokeOption) (*LookupCustomModelResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupCustomModelResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupCustomModelResult{}, errors.New("DependsOn is not supported for direct form invoke LookupCustomModel, use LookupCustomModelOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupCustomModelResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupCustomModel, use LookupCustomModelOutput instead")
+	}
 	var rv LookupCustomModelResult
 	err := ctx.Invoke("aws:bedrock/getCustomModel:getCustomModel", args, &rv, opts...)
 	if err != nil {
@@ -91,17 +102,18 @@ type LookupCustomModelResult struct {
 }
 
 func LookupCustomModelOutput(ctx *pulumi.Context, args LookupCustomModelOutputArgs, opts ...pulumi.InvokeOption) LookupCustomModelResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCustomModelResultOutput, error) {
 			args := v.(LookupCustomModelArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupCustomModelResult
-			secret, err := ctx.InvokePackageRaw("aws:bedrock/getCustomModel:getCustomModel", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:bedrock/getCustomModel:getCustomModel", args, &rv, "", opts...)
 			if err != nil {
 				return LookupCustomModelResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupCustomModelResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupCustomModelResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupCustomModelResultOutput), nil
 			}

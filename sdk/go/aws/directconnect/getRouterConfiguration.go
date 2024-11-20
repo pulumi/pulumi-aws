@@ -5,6 +5,7 @@ package directconnect
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func GetRouterConfiguration(ctx *pulumi.Context, args *GetRouterConfigurationArgs, opts ...pulumi.InvokeOption) (*GetRouterConfigurationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetRouterConfigurationResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetRouterConfigurationResult{}, errors.New("DependsOn is not supported for direct form invoke GetRouterConfiguration, use GetRouterConfigurationOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetRouterConfigurationResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetRouterConfiguration, use GetRouterConfigurationOutput instead")
+	}
 	var rv GetRouterConfigurationResult
 	err := ctx.Invoke("aws:directconnect/getRouterConfiguration:getRouterConfiguration", args, &rv, opts...)
 	if err != nil {
@@ -76,17 +87,18 @@ type GetRouterConfigurationResult struct {
 }
 
 func GetRouterConfigurationOutput(ctx *pulumi.Context, args GetRouterConfigurationOutputArgs, opts ...pulumi.InvokeOption) GetRouterConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetRouterConfigurationResultOutput, error) {
 			args := v.(GetRouterConfigurationArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetRouterConfigurationResult
-			secret, err := ctx.InvokePackageRaw("aws:directconnect/getRouterConfiguration:getRouterConfiguration", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:directconnect/getRouterConfiguration:getRouterConfiguration", args, &rv, "", opts...)
 			if err != nil {
 				return GetRouterConfigurationResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetRouterConfigurationResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetRouterConfigurationResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetRouterConfigurationResultOutput), nil
 			}

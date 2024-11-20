@@ -5,6 +5,7 @@ package connect
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -70,6 +71,16 @@ import (
 // ```
 func LookupQuickConnect(ctx *pulumi.Context, args *LookupQuickConnectArgs, opts ...pulumi.InvokeOption) (*LookupQuickConnectResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupQuickConnectResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupQuickConnectResult{}, errors.New("DependsOn is not supported for direct form invoke LookupQuickConnect, use LookupQuickConnectOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupQuickConnectResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupQuickConnect, use LookupQuickConnectOutput instead")
+	}
 	var rv LookupQuickConnectResult
 	err := ctx.Invoke("aws:connect/getQuickConnect:getQuickConnect", args, &rv, opts...)
 	if err != nil {
@@ -109,17 +120,18 @@ type LookupQuickConnectResult struct {
 }
 
 func LookupQuickConnectOutput(ctx *pulumi.Context, args LookupQuickConnectOutputArgs, opts ...pulumi.InvokeOption) LookupQuickConnectResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupQuickConnectResultOutput, error) {
 			args := v.(LookupQuickConnectArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupQuickConnectResult
-			secret, err := ctx.InvokePackageRaw("aws:connect/getQuickConnect:getQuickConnect", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:connect/getQuickConnect:getQuickConnect", args, &rv, "", opts...)
 			if err != nil {
 				return LookupQuickConnectResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupQuickConnectResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupQuickConnectResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupQuickConnectResultOutput), nil
 			}

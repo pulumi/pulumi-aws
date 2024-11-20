@@ -5,6 +5,7 @@ package s3
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -104,6 +105,16 @@ import (
 // ```
 func LookupBucket(ctx *pulumi.Context, args *LookupBucketArgs, opts ...pulumi.InvokeOption) (*LookupBucketResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupBucketResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupBucketResult{}, errors.New("DependsOn is not supported for direct form invoke LookupBucket, use LookupBucketOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupBucketResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupBucket, use LookupBucketOutput instead")
+	}
 	var rv LookupBucketResult
 	err := ctx.Invoke("aws:s3/getBucket:getBucket", args, &rv, opts...)
 	if err != nil {
@@ -140,17 +151,18 @@ type LookupBucketResult struct {
 }
 
 func LookupBucketOutput(ctx *pulumi.Context, args LookupBucketOutputArgs, opts ...pulumi.InvokeOption) LookupBucketResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupBucketResultOutput, error) {
 			args := v.(LookupBucketArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupBucketResult
-			secret, err := ctx.InvokePackageRaw("aws:s3/getBucket:getBucket", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:s3/getBucket:getBucket", args, &rv, "", opts...)
 			if err != nil {
 				return LookupBucketResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupBucketResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupBucketResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupBucketResultOutput), nil
 			}

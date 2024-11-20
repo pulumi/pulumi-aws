@@ -5,6 +5,7 @@ package networkmanager
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -119,6 +120,16 @@ import (
 // `data.aws_networkmanager_core_network_policy_document.test.json` will evaluate to:
 func GetCoreNetworkPolicyDocument(ctx *pulumi.Context, args *GetCoreNetworkPolicyDocumentArgs, opts ...pulumi.InvokeOption) (*GetCoreNetworkPolicyDocumentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetCoreNetworkPolicyDocumentResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetCoreNetworkPolicyDocumentResult{}, errors.New("DependsOn is not supported for direct form invoke GetCoreNetworkPolicyDocument, use GetCoreNetworkPolicyDocumentOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetCoreNetworkPolicyDocumentResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetCoreNetworkPolicyDocument, use GetCoreNetworkPolicyDocumentOutput instead")
+	}
 	var rv GetCoreNetworkPolicyDocumentResult
 	err := ctx.Invoke("aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument", args, &rv, opts...)
 	if err != nil {
@@ -157,17 +168,18 @@ type GetCoreNetworkPolicyDocumentResult struct {
 }
 
 func GetCoreNetworkPolicyDocumentOutput(ctx *pulumi.Context, args GetCoreNetworkPolicyDocumentOutputArgs, opts ...pulumi.InvokeOption) GetCoreNetworkPolicyDocumentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetCoreNetworkPolicyDocumentResultOutput, error) {
 			args := v.(GetCoreNetworkPolicyDocumentArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetCoreNetworkPolicyDocumentResult
-			secret, err := ctx.InvokePackageRaw("aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument", args, &rv, "", opts...)
 			if err != nil {
 				return GetCoreNetworkPolicyDocumentResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetCoreNetworkPolicyDocumentResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetCoreNetworkPolicyDocumentResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetCoreNetworkPolicyDocumentResultOutput), nil
 			}

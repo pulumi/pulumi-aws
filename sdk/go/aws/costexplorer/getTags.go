@@ -5,6 +5,7 @@ package costexplorer
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func GetTags(ctx *pulumi.Context, args *GetTagsArgs, opts ...pulumi.InvokeOption) (*GetTagsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetTagsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetTagsResult{}, errors.New("DependsOn is not supported for direct form invoke GetTags, use GetTagsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetTagsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetTags, use GetTagsOutput instead")
+	}
 	var rv GetTagsResult
 	err := ctx.Invoke("aws:costexplorer/getTags:getTags", args, &rv, opts...)
 	if err != nil {
@@ -81,17 +92,18 @@ type GetTagsResult struct {
 }
 
 func GetTagsOutput(ctx *pulumi.Context, args GetTagsOutputArgs, opts ...pulumi.InvokeOption) GetTagsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetTagsResultOutput, error) {
 			args := v.(GetTagsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetTagsResult
-			secret, err := ctx.InvokePackageRaw("aws:costexplorer/getTags:getTags", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:costexplorer/getTags:getTags", args, &rv, "", opts...)
 			if err != nil {
 				return GetTagsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetTagsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetTagsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetTagsResultOutput), nil
 			}

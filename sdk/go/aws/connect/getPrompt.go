@@ -5,6 +5,7 @@ package connect
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func GetPrompt(ctx *pulumi.Context, args *GetPromptArgs, opts ...pulumi.InvokeOption) (*GetPromptResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetPromptResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetPromptResult{}, errors.New("DependsOn is not supported for direct form invoke GetPrompt, use GetPromptOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetPromptResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetPrompt, use GetPromptOutput instead")
+	}
 	var rv GetPromptResult
 	err := ctx.Invoke("aws:connect/getPrompt:getPrompt", args, &rv, opts...)
 	if err != nil {
@@ -72,17 +83,18 @@ type GetPromptResult struct {
 }
 
 func GetPromptOutput(ctx *pulumi.Context, args GetPromptOutputArgs, opts ...pulumi.InvokeOption) GetPromptResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetPromptResultOutput, error) {
 			args := v.(GetPromptArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetPromptResult
-			secret, err := ctx.InvokePackageRaw("aws:connect/getPrompt:getPrompt", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:connect/getPrompt:getPrompt", args, &rv, "", opts...)
 			if err != nil {
 				return GetPromptResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetPromptResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetPromptResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetPromptResultOutput), nil
 			}

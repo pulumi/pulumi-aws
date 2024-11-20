@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -14,6 +15,16 @@ import (
 // This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
 func GetManagedPrefixLists(ctx *pulumi.Context, args *GetManagedPrefixListsArgs, opts ...pulumi.InvokeOption) (*GetManagedPrefixListsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetManagedPrefixListsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetManagedPrefixListsResult{}, errors.New("DependsOn is not supported for direct form invoke GetManagedPrefixLists, use GetManagedPrefixListsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetManagedPrefixListsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetManagedPrefixLists, use GetManagedPrefixListsOutput instead")
+	}
 	var rv GetManagedPrefixListsResult
 	err := ctx.Invoke("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", args, &rv, opts...)
 	if err != nil {
@@ -45,17 +56,18 @@ type GetManagedPrefixListsResult struct {
 }
 
 func GetManagedPrefixListsOutput(ctx *pulumi.Context, args GetManagedPrefixListsOutputArgs, opts ...pulumi.InvokeOption) GetManagedPrefixListsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetManagedPrefixListsResultOutput, error) {
 			args := v.(GetManagedPrefixListsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetManagedPrefixListsResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", args, &rv, "", opts...)
 			if err != nil {
 				return GetManagedPrefixListsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetManagedPrefixListsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetManagedPrefixListsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetManagedPrefixListsResultOutput), nil
 			}

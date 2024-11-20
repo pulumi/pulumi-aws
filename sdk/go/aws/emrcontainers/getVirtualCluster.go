@@ -5,6 +5,7 @@ package emrcontainers
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupVirtualCluster(ctx *pulumi.Context, args *LookupVirtualClusterArgs, opts ...pulumi.InvokeOption) (*LookupVirtualClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupVirtualClusterResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupVirtualClusterResult{}, errors.New("DependsOn is not supported for direct form invoke LookupVirtualCluster, use LookupVirtualClusterOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupVirtualClusterResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupVirtualCluster, use LookupVirtualClusterOutput instead")
+	}
 	var rv LookupVirtualClusterResult
 	err := ctx.Invoke("aws:emrcontainers/getVirtualCluster:getVirtualCluster", args, &rv, opts...)
 	if err != nil {
@@ -78,17 +89,18 @@ type LookupVirtualClusterResult struct {
 }
 
 func LookupVirtualClusterOutput(ctx *pulumi.Context, args LookupVirtualClusterOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualClusterResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVirtualClusterResultOutput, error) {
 			args := v.(LookupVirtualClusterArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVirtualClusterResult
-			secret, err := ctx.InvokePackageRaw("aws:emrcontainers/getVirtualCluster:getVirtualCluster", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:emrcontainers/getVirtualCluster:getVirtualCluster", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVirtualClusterResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVirtualClusterResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVirtualClusterResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVirtualClusterResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupNetworkInsightsAnalysis(ctx *pulumi.Context, args *LookupNetworkInsightsAnalysisArgs, opts ...pulumi.InvokeOption) (*LookupNetworkInsightsAnalysisResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupNetworkInsightsAnalysisResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupNetworkInsightsAnalysisResult{}, errors.New("DependsOn is not supported for direct form invoke LookupNetworkInsightsAnalysis, use LookupNetworkInsightsAnalysisOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupNetworkInsightsAnalysisResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupNetworkInsightsAnalysis, use LookupNetworkInsightsAnalysisOutput instead")
+	}
 	var rv LookupNetworkInsightsAnalysisResult
 	err := ctx.Invoke("aws:ec2/getNetworkInsightsAnalysis:getNetworkInsightsAnalysis", args, &rv, opts...)
 	if err != nil {
@@ -91,17 +102,18 @@ type LookupNetworkInsightsAnalysisResult struct {
 }
 
 func LookupNetworkInsightsAnalysisOutput(ctx *pulumi.Context, args LookupNetworkInsightsAnalysisOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkInsightsAnalysisResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNetworkInsightsAnalysisResultOutput, error) {
 			args := v.(LookupNetworkInsightsAnalysisArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupNetworkInsightsAnalysisResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getNetworkInsightsAnalysis:getNetworkInsightsAnalysis", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getNetworkInsightsAnalysis:getNetworkInsightsAnalysis", args, &rv, "", opts...)
 			if err != nil {
 				return LookupNetworkInsightsAnalysisResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupNetworkInsightsAnalysisResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupNetworkInsightsAnalysisResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupNetworkInsightsAnalysisResultOutput), nil
 			}

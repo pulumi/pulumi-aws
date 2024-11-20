@@ -5,6 +5,7 @@ package ses
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupDomainIdentity(ctx *pulumi.Context, args *LookupDomainIdentityArgs, opts ...pulumi.InvokeOption) (*LookupDomainIdentityResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupDomainIdentityResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupDomainIdentityResult{}, errors.New("DependsOn is not supported for direct form invoke LookupDomainIdentity, use LookupDomainIdentityOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupDomainIdentityResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupDomainIdentity, use LookupDomainIdentityOutput instead")
+	}
 	var rv LookupDomainIdentityResult
 	err := ctx.Invoke("aws:ses/getDomainIdentity:getDomainIdentity", args, &rv, opts...)
 	if err != nil {
@@ -67,17 +78,18 @@ type LookupDomainIdentityResult struct {
 }
 
 func LookupDomainIdentityOutput(ctx *pulumi.Context, args LookupDomainIdentityOutputArgs, opts ...pulumi.InvokeOption) LookupDomainIdentityResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDomainIdentityResultOutput, error) {
 			args := v.(LookupDomainIdentityArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDomainIdentityResult
-			secret, err := ctx.InvokePackageRaw("aws:ses/getDomainIdentity:getDomainIdentity", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ses/getDomainIdentity:getDomainIdentity", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDomainIdentityResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDomainIdentityResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDomainIdentityResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDomainIdentityResultOutput), nil
 			}

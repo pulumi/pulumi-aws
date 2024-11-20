@@ -5,6 +5,7 @@ package opensearch
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.InvokeOption) (*LookupDomainResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupDomainResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupDomainResult{}, errors.New("DependsOn is not supported for direct form invoke LookupDomain, use LookupDomainOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupDomainResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupDomain, use LookupDomainOutput instead")
+	}
 	var rv LookupDomainResult
 	err := ctx.Invoke("aws:opensearch/getDomain:getDomain", args, &rv, opts...)
 	if err != nil {
@@ -124,17 +135,18 @@ type LookupDomainResult struct {
 }
 
 func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts ...pulumi.InvokeOption) LookupDomainResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDomainResultOutput, error) {
 			args := v.(LookupDomainArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDomainResult
-			secret, err := ctx.InvokePackageRaw("aws:opensearch/getDomain:getDomain", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:opensearch/getDomain:getDomain", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDomainResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDomainResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDomainResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDomainResultOutput), nil
 			}

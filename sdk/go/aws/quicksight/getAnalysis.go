@@ -5,6 +5,7 @@ package quicksight
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -44,6 +45,16 @@ import (
 // Deprecated: aws.quicksight/getanalysis.getAnalysis has been deprecated in favor of aws.quicksight/getquicksightanalysis.getQuicksightAnalysis
 func LookupAnalysis(ctx *pulumi.Context, args *LookupAnalysisArgs, opts ...pulumi.InvokeOption) (*LookupAnalysisResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupAnalysisResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupAnalysisResult{}, errors.New("DependsOn is not supported for direct form invoke LookupAnalysis, use LookupAnalysisOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupAnalysisResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupAnalysis, use LookupAnalysisOutput instead")
+	}
 	var rv LookupAnalysisResult
 	err := ctx.Invoke("aws:quicksight/getAnalysis:getAnalysis", args, &rv, opts...)
 	if err != nil {
@@ -81,17 +92,18 @@ type LookupAnalysisResult struct {
 }
 
 func LookupAnalysisOutput(ctx *pulumi.Context, args LookupAnalysisOutputArgs, opts ...pulumi.InvokeOption) LookupAnalysisResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAnalysisResultOutput, error) {
 			args := v.(LookupAnalysisArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupAnalysisResult
-			secret, err := ctx.InvokePackageRaw("aws:quicksight/getAnalysis:getAnalysis", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:quicksight/getAnalysis:getAnalysis", args, &rv, "", opts...)
 			if err != nil {
 				return LookupAnalysisResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupAnalysisResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupAnalysisResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupAnalysisResultOutput), nil
 			}

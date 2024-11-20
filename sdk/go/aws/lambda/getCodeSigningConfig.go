@@ -5,6 +5,7 @@ package lambda
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -44,6 +45,16 @@ import (
 // ```
 func LookupCodeSigningConfig(ctx *pulumi.Context, args *LookupCodeSigningConfigArgs, opts ...pulumi.InvokeOption) (*LookupCodeSigningConfigResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupCodeSigningConfigResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupCodeSigningConfigResult{}, errors.New("DependsOn is not supported for direct form invoke LookupCodeSigningConfig, use LookupCodeSigningConfigOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupCodeSigningConfigResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupCodeSigningConfig, use LookupCodeSigningConfigOutput instead")
+	}
 	var rv LookupCodeSigningConfigResult
 	err := ctx.Invoke("aws:lambda/getCodeSigningConfig:getCodeSigningConfig", args, &rv, opts...)
 	if err != nil {
@@ -76,17 +87,18 @@ type LookupCodeSigningConfigResult struct {
 }
 
 func LookupCodeSigningConfigOutput(ctx *pulumi.Context, args LookupCodeSigningConfigOutputArgs, opts ...pulumi.InvokeOption) LookupCodeSigningConfigResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCodeSigningConfigResultOutput, error) {
 			args := v.(LookupCodeSigningConfigArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupCodeSigningConfigResult
-			secret, err := ctx.InvokePackageRaw("aws:lambda/getCodeSigningConfig:getCodeSigningConfig", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:lambda/getCodeSigningConfig:getCodeSigningConfig", args, &rv, "", opts...)
 			if err != nil {
 				return LookupCodeSigningConfigResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupCodeSigningConfigResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupCodeSigningConfigResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupCodeSigningConfigResultOutput), nil
 			}

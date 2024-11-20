@@ -5,6 +5,7 @@ package batch
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupJobQueue(ctx *pulumi.Context, args *LookupJobQueueArgs, opts ...pulumi.InvokeOption) (*LookupJobQueueResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupJobQueueResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupJobQueueResult{}, errors.New("DependsOn is not supported for direct form invoke LookupJobQueue, use LookupJobQueueOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupJobQueueResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupJobQueue, use LookupJobQueueOutput instead")
+	}
 	var rv LookupJobQueueResult
 	err := ctx.Invoke("aws:batch/getJobQueue:getJobQueue", args, &rv, opts...)
 	if err != nil {
@@ -92,17 +103,18 @@ type LookupJobQueueResult struct {
 }
 
 func LookupJobQueueOutput(ctx *pulumi.Context, args LookupJobQueueOutputArgs, opts ...pulumi.InvokeOption) LookupJobQueueResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupJobQueueResultOutput, error) {
 			args := v.(LookupJobQueueArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupJobQueueResult
-			secret, err := ctx.InvokePackageRaw("aws:batch/getJobQueue:getJobQueue", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:batch/getJobQueue:getJobQueue", args, &rv, "", opts...)
 			if err != nil {
 				return LookupJobQueueResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupJobQueueResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupJobQueueResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupJobQueueResultOutput), nil
 			}

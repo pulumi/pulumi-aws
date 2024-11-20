@@ -5,6 +5,7 @@ package verifiedpermissions
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupPolicyStore(ctx *pulumi.Context, args *LookupPolicyStoreArgs, opts ...pulumi.InvokeOption) (*LookupPolicyStoreResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupPolicyStoreResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupPolicyStoreResult{}, errors.New("DependsOn is not supported for direct form invoke LookupPolicyStore, use LookupPolicyStoreOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupPolicyStoreResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupPolicyStore, use LookupPolicyStoreOutput instead")
+	}
 	var rv LookupPolicyStoreResult
 	err := ctx.Invoke("aws:verifiedpermissions/getPolicyStore:getPolicyStore", args, &rv, opts...)
 	if err != nil {
@@ -71,17 +82,18 @@ type LookupPolicyStoreResult struct {
 }
 
 func LookupPolicyStoreOutput(ctx *pulumi.Context, args LookupPolicyStoreOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyStoreResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPolicyStoreResultOutput, error) {
 			args := v.(LookupPolicyStoreArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupPolicyStoreResult
-			secret, err := ctx.InvokePackageRaw("aws:verifiedpermissions/getPolicyStore:getPolicyStore", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:verifiedpermissions/getPolicyStore:getPolicyStore", args, &rv, "", opts...)
 			if err != nil {
 				return LookupPolicyStoreResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupPolicyStoreResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupPolicyStoreResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupPolicyStoreResultOutput), nil
 			}

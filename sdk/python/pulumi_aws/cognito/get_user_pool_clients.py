@@ -110,7 +110,7 @@ def get_user_pool_clients(user_pool_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         user_pool_id=pulumi.get(__ret__, 'user_pool_id'))
 def get_user_pool_clients_output(user_pool_id: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolClientsResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolClientsResult]:
     """
     Use this data source to get a list of Cognito user pools clients for a Cognito IdP user pool.
 
@@ -128,7 +128,7 @@ def get_user_pool_clients_output(user_pool_id: Optional[pulumi.Input[str]] = Non
     """
     __args__ = dict()
     __args__['userPoolId'] = user_pool_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cognito/getUserPoolClients:getUserPoolClients', __args__, opts=opts, typ=GetUserPoolClientsResult)
     return __ret__.apply(lambda __response__: GetUserPoolClientsResult(
         client_ids=pulumi.get(__response__, 'client_ids'),

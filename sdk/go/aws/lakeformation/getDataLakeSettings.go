@@ -5,6 +5,7 @@ package lakeformation
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupDataLakeSettings(ctx *pulumi.Context, args *LookupDataLakeSettingsArgs, opts ...pulumi.InvokeOption) (*LookupDataLakeSettingsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupDataLakeSettingsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupDataLakeSettingsResult{}, errors.New("DependsOn is not supported for direct form invoke LookupDataLakeSettings, use LookupDataLakeSettingsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupDataLakeSettingsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupDataLakeSettings, use LookupDataLakeSettingsOutput instead")
+	}
 	var rv LookupDataLakeSettingsResult
 	err := ctx.Invoke("aws:lakeformation/getDataLakeSettings:getDataLakeSettings", args, &rv, opts...)
 	if err != nil {
@@ -82,17 +93,18 @@ type LookupDataLakeSettingsResult struct {
 }
 
 func LookupDataLakeSettingsOutput(ctx *pulumi.Context, args LookupDataLakeSettingsOutputArgs, opts ...pulumi.InvokeOption) LookupDataLakeSettingsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDataLakeSettingsResultOutput, error) {
 			args := v.(LookupDataLakeSettingsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDataLakeSettingsResult
-			secret, err := ctx.InvokePackageRaw("aws:lakeformation/getDataLakeSettings:getDataLakeSettings", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:lakeformation/getDataLakeSettings:getDataLakeSettings", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDataLakeSettingsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDataLakeSettingsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDataLakeSettingsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDataLakeSettingsResultOutput), nil
 			}

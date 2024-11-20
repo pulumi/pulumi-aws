@@ -5,6 +5,7 @@ package fsx
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupWindowsFileSystem(ctx *pulumi.Context, args *LookupWindowsFileSystemArgs, opts ...pulumi.InvokeOption) (*LookupWindowsFileSystemResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupWindowsFileSystemResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupWindowsFileSystemResult{}, errors.New("DependsOn is not supported for direct form invoke LookupWindowsFileSystem, use LookupWindowsFileSystemOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupWindowsFileSystemResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupWindowsFileSystem, use LookupWindowsFileSystemOutput instead")
+	}
 	var rv LookupWindowsFileSystemResult
 	err := ctx.Invoke("aws:fsx/getWindowsFileSystem:getWindowsFileSystem", args, &rv, opts...)
 	if err != nil {
@@ -111,17 +122,18 @@ type LookupWindowsFileSystemResult struct {
 }
 
 func LookupWindowsFileSystemOutput(ctx *pulumi.Context, args LookupWindowsFileSystemOutputArgs, opts ...pulumi.InvokeOption) LookupWindowsFileSystemResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupWindowsFileSystemResultOutput, error) {
 			args := v.(LookupWindowsFileSystemArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupWindowsFileSystemResult
-			secret, err := ctx.InvokePackageRaw("aws:fsx/getWindowsFileSystem:getWindowsFileSystem", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:fsx/getWindowsFileSystem:getWindowsFileSystem", args, &rv, "", opts...)
 			if err != nil {
 				return LookupWindowsFileSystemResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupWindowsFileSystemResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupWindowsFileSystemResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupWindowsFileSystemResultOutput), nil
 			}

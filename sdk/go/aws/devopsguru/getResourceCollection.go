@@ -5,6 +5,7 @@ package devopsguru
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupResourceCollection(ctx *pulumi.Context, args *LookupResourceCollectionArgs, opts ...pulumi.InvokeOption) (*LookupResourceCollectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupResourceCollectionResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupResourceCollectionResult{}, errors.New("DependsOn is not supported for direct form invoke LookupResourceCollection, use LookupResourceCollectionOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupResourceCollectionResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupResourceCollection, use LookupResourceCollectionOutput instead")
+	}
 	var rv LookupResourceCollectionResult
 	err := ctx.Invoke("aws:devopsguru/getResourceCollection:getResourceCollection", args, &rv, opts...)
 	if err != nil {
@@ -72,17 +83,18 @@ type LookupResourceCollectionResult struct {
 }
 
 func LookupResourceCollectionOutput(ctx *pulumi.Context, args LookupResourceCollectionOutputArgs, opts ...pulumi.InvokeOption) LookupResourceCollectionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupResourceCollectionResultOutput, error) {
 			args := v.(LookupResourceCollectionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupResourceCollectionResult
-			secret, err := ctx.InvokePackageRaw("aws:devopsguru/getResourceCollection:getResourceCollection", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:devopsguru/getResourceCollection:getResourceCollection", args, &rv, "", opts...)
 			if err != nil {
 				return LookupResourceCollectionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupResourceCollectionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupResourceCollectionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupResourceCollectionResultOutput), nil
 			}

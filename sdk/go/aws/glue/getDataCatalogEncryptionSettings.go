@@ -5,6 +5,7 @@ package glue
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -14,6 +15,16 @@ import (
 // This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
 func LookupDataCatalogEncryptionSettings(ctx *pulumi.Context, args *LookupDataCatalogEncryptionSettingsArgs, opts ...pulumi.InvokeOption) (*LookupDataCatalogEncryptionSettingsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupDataCatalogEncryptionSettingsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupDataCatalogEncryptionSettingsResult{}, errors.New("DependsOn is not supported for direct form invoke LookupDataCatalogEncryptionSettings, use LookupDataCatalogEncryptionSettingsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupDataCatalogEncryptionSettingsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupDataCatalogEncryptionSettings, use LookupDataCatalogEncryptionSettingsOutput instead")
+	}
 	var rv LookupDataCatalogEncryptionSettingsResult
 	err := ctx.Invoke("aws:glue/getDataCatalogEncryptionSettings:getDataCatalogEncryptionSettings", args, &rv, opts...)
 	if err != nil {
@@ -38,17 +49,18 @@ type LookupDataCatalogEncryptionSettingsResult struct {
 }
 
 func LookupDataCatalogEncryptionSettingsOutput(ctx *pulumi.Context, args LookupDataCatalogEncryptionSettingsOutputArgs, opts ...pulumi.InvokeOption) LookupDataCatalogEncryptionSettingsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDataCatalogEncryptionSettingsResultOutput, error) {
 			args := v.(LookupDataCatalogEncryptionSettingsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDataCatalogEncryptionSettingsResult
-			secret, err := ctx.InvokePackageRaw("aws:glue/getDataCatalogEncryptionSettings:getDataCatalogEncryptionSettings", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:glue/getDataCatalogEncryptionSettings:getDataCatalogEncryptionSettings", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDataCatalogEncryptionSettingsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDataCatalogEncryptionSettingsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDataCatalogEncryptionSettingsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDataCatalogEncryptionSettingsResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package shield
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -68,6 +69,16 @@ import (
 // ```
 func LookupProtection(ctx *pulumi.Context, args *LookupProtectionArgs, opts ...pulumi.InvokeOption) (*LookupProtectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupProtectionResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupProtectionResult{}, errors.New("DependsOn is not supported for direct form invoke LookupProtection, use LookupProtectionOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupProtectionResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupProtection, use LookupProtectionOutput instead")
+	}
 	var rv LookupProtectionResult
 	err := ctx.Invoke("aws:shield/getProtection:getProtection", args, &rv, opts...)
 	if err != nil {
@@ -96,17 +107,18 @@ type LookupProtectionResult struct {
 }
 
 func LookupProtectionOutput(ctx *pulumi.Context, args LookupProtectionOutputArgs, opts ...pulumi.InvokeOption) LookupProtectionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupProtectionResultOutput, error) {
 			args := v.(LookupProtectionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupProtectionResult
-			secret, err := ctx.InvokePackageRaw("aws:shield/getProtection:getProtection", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:shield/getProtection:getProtection", args, &rv, "", opts...)
 			if err != nil {
 				return LookupProtectionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupProtectionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupProtectionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupProtectionResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package route53
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -73,6 +74,16 @@ import (
 // ```
 func LookupResolverEndpoint(ctx *pulumi.Context, args *LookupResolverEndpointArgs, opts ...pulumi.InvokeOption) (*LookupResolverEndpointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupResolverEndpointResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupResolverEndpointResult{}, errors.New("DependsOn is not supported for direct form invoke LookupResolverEndpoint, use LookupResolverEndpointOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupResolverEndpointResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupResolverEndpoint, use LookupResolverEndpointOutput instead")
+	}
 	var rv LookupResolverEndpointResult
 	err := ctx.Invoke("aws:route53/getResolverEndpoint:getResolverEndpoint", args, &rv, opts...)
 	if err != nil {
@@ -110,17 +121,18 @@ type LookupResolverEndpointResult struct {
 }
 
 func LookupResolverEndpointOutput(ctx *pulumi.Context, args LookupResolverEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupResolverEndpointResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupResolverEndpointResultOutput, error) {
 			args := v.(LookupResolverEndpointArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupResolverEndpointResult
-			secret, err := ctx.InvokePackageRaw("aws:route53/getResolverEndpoint:getResolverEndpoint", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:route53/getResolverEndpoint:getResolverEndpoint", args, &rv, "", opts...)
 			if err != nil {
 				return LookupResolverEndpointResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupResolverEndpointResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupResolverEndpointResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupResolverEndpointResultOutput), nil
 			}

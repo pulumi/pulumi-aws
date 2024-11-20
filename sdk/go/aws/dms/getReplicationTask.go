@@ -5,6 +5,7 @@ package dms
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupReplicationTask(ctx *pulumi.Context, args *LookupReplicationTaskArgs, opts ...pulumi.InvokeOption) (*LookupReplicationTaskResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupReplicationTaskResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupReplicationTaskResult{}, errors.New("DependsOn is not supported for direct form invoke LookupReplicationTask, use LookupReplicationTaskOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupReplicationTaskResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupReplicationTask, use LookupReplicationTaskOutput instead")
+	}
 	var rv LookupReplicationTaskResult
 	err := ctx.Invoke("aws:dms/getReplicationTask:getReplicationTask", args, &rv, opts...)
 	if err != nil {
@@ -93,17 +104,18 @@ type LookupReplicationTaskResult struct {
 }
 
 func LookupReplicationTaskOutput(ctx *pulumi.Context, args LookupReplicationTaskOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationTaskResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupReplicationTaskResultOutput, error) {
 			args := v.(LookupReplicationTaskArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupReplicationTaskResult
-			secret, err := ctx.InvokePackageRaw("aws:dms/getReplicationTask:getReplicationTask", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:dms/getReplicationTask:getReplicationTask", args, &rv, "", opts...)
 			if err != nil {
 				return LookupReplicationTaskResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupReplicationTaskResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupReplicationTaskResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupReplicationTaskResultOutput), nil
 			}

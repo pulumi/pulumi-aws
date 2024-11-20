@@ -5,6 +5,7 @@ package appmesh
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupVirtualNode(ctx *pulumi.Context, args *LookupVirtualNodeArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNodeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupVirtualNodeResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupVirtualNodeResult{}, errors.New("DependsOn is not supported for direct form invoke LookupVirtualNode, use LookupVirtualNodeOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupVirtualNodeResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupVirtualNode, use LookupVirtualNodeOutput instead")
+	}
 	var rv LookupVirtualNodeResult
 	err := ctx.Invoke("aws:appmesh/getVirtualNode:getVirtualNode", args, &rv, opts...)
 	if err != nil {
@@ -83,17 +94,18 @@ type LookupVirtualNodeResult struct {
 }
 
 func LookupVirtualNodeOutput(ctx *pulumi.Context, args LookupVirtualNodeOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualNodeResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVirtualNodeResultOutput, error) {
 			args := v.(LookupVirtualNodeArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVirtualNodeResult
-			secret, err := ctx.InvokePackageRaw("aws:appmesh/getVirtualNode:getVirtualNode", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:appmesh/getVirtualNode:getVirtualNode", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVirtualNodeResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVirtualNodeResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVirtualNodeResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVirtualNodeResultOutput), nil
 			}

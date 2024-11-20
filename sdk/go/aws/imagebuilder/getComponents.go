@@ -5,6 +5,7 @@ package imagebuilder
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -48,6 +49,16 @@ import (
 // ```
 func GetComponents(ctx *pulumi.Context, args *GetComponentsArgs, opts ...pulumi.InvokeOption) (*GetComponentsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetComponentsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetComponentsResult{}, errors.New("DependsOn is not supported for direct form invoke GetComponents, use GetComponentsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetComponentsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetComponents, use GetComponentsOutput instead")
+	}
 	var rv GetComponentsResult
 	err := ctx.Invoke("aws:imagebuilder/getComponents:getComponents", args, &rv, opts...)
 	if err != nil {
@@ -77,17 +88,18 @@ type GetComponentsResult struct {
 }
 
 func GetComponentsOutput(ctx *pulumi.Context, args GetComponentsOutputArgs, opts ...pulumi.InvokeOption) GetComponentsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetComponentsResultOutput, error) {
 			args := v.(GetComponentsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetComponentsResult
-			secret, err := ctx.InvokePackageRaw("aws:imagebuilder/getComponents:getComponents", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:imagebuilder/getComponents:getComponents", args, &rv, "", opts...)
 			if err != nil {
 				return GetComponentsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetComponentsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetComponentsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetComponentsResultOutput), nil
 			}

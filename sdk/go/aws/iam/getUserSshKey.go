@@ -5,6 +5,7 @@ package iam
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetUserSshKey(ctx *pulumi.Context, args *GetUserSshKeyArgs, opts ...pulumi.InvokeOption) (*GetUserSshKeyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetUserSshKeyResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetUserSshKeyResult{}, errors.New("DependsOn is not supported for direct form invoke GetUserSshKey, use GetUserSshKeyOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetUserSshKeyResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetUserSshKey, use GetUserSshKeyOutput instead")
+	}
 	var rv GetUserSshKeyResult
 	err := ctx.Invoke("aws:iam/getUserSshKey:getUserSshKey", args, &rv, opts...)
 	if err != nil {
@@ -76,17 +87,18 @@ type GetUserSshKeyResult struct {
 }
 
 func GetUserSshKeyOutput(ctx *pulumi.Context, args GetUserSshKeyOutputArgs, opts ...pulumi.InvokeOption) GetUserSshKeyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetUserSshKeyResultOutput, error) {
 			args := v.(GetUserSshKeyArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetUserSshKeyResult
-			secret, err := ctx.InvokePackageRaw("aws:iam/getUserSshKey:getUserSshKey", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:iam/getUserSshKey:getUserSshKey", args, &rv, "", opts...)
 			if err != nil {
 				return GetUserSshKeyResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetUserSshKeyResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetUserSshKeyResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetUserSshKeyResultOutput), nil
 			}
