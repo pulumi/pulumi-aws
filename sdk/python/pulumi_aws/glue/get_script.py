@@ -317,7 +317,7 @@ def get_script(dag_edges: Optional[Sequence[Union['GetScriptDagEdgeArgs', 'GetSc
 def get_script_output(dag_edges: Optional[pulumi.Input[Sequence[Union['GetScriptDagEdgeArgs', 'GetScriptDagEdgeArgsDict']]]] = None,
                       dag_nodes: Optional[pulumi.Input[Sequence[Union['GetScriptDagNodeArgs', 'GetScriptDagNodeArgsDict']]]] = None,
                       language: Optional[pulumi.Input[Optional[str]]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScriptResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScriptResult]:
     """
     Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
 
@@ -516,7 +516,7 @@ def get_script_output(dag_edges: Optional[pulumi.Input[Sequence[Union['GetScript
     __args__['dagEdges'] = dag_edges
     __args__['dagNodes'] = dag_nodes
     __args__['language'] = language
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:glue/getScript:getScript', __args__, opts=opts, typ=GetScriptResult)
     return __ret__.apply(lambda __response__: GetScriptResult(
         dag_edges=pulumi.get(__response__, 'dag_edges'),

@@ -129,7 +129,7 @@ def get_stream_key(channel_arn: Optional[str] = None,
         value=pulumi.get(__ret__, 'value'))
 def get_stream_key_output(channel_arn: Optional[pulumi.Input[str]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamKeyResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamKeyResult]:
     """
     Data source for managing an AWS IVS (Interactive Video) Stream Key.
 
@@ -151,7 +151,7 @@ def get_stream_key_output(channel_arn: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['channelArn'] = channel_arn
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ivs/getStreamKey:getStreamKey', __args__, opts=opts, typ=GetStreamKeyResult)
     return __ret__.apply(lambda __response__: GetStreamKeyResult(
         arn=pulumi.get(__response__, 'arn'),

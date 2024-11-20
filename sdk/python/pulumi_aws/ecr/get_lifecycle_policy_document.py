@@ -110,7 +110,7 @@ def get_lifecycle_policy_document(rules: Optional[Sequence[Union['GetLifecyclePo
         json=pulumi.get(__ret__, 'json'),
         rules=pulumi.get(__ret__, 'rules'))
 def get_lifecycle_policy_document_output(rules: Optional[pulumi.Input[Optional[Sequence[Union['GetLifecyclePolicyDocumentRuleArgs', 'GetLifecyclePolicyDocumentRuleArgsDict']]]]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLifecyclePolicyDocumentResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLifecyclePolicyDocumentResult]:
     """
     Generates an ECR lifecycle policy document in JSON format. Can be used with resources such as the `ecr.LifecyclePolicy` resource.
 
@@ -139,7 +139,7 @@ def get_lifecycle_policy_document_output(rules: Optional[pulumi.Input[Optional[S
     """
     __args__ = dict()
     __args__['rules'] = rules
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ecr/getLifecyclePolicyDocument:getLifecyclePolicyDocument', __args__, opts=opts, typ=GetLifecyclePolicyDocumentResult)
     return __ret__.apply(lambda __response__: GetLifecyclePolicyDocumentResult(
         id=pulumi.get(__response__, 'id'),

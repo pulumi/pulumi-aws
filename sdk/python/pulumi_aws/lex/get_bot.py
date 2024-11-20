@@ -287,7 +287,7 @@ def get_bot(name: Optional[str] = None,
         voice_id=pulumi.get(__ret__, 'voice_id'))
 def get_bot_output(name: Optional[pulumi.Input[str]] = None,
                    version: Optional[pulumi.Input[Optional[str]]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBotResult]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBotResult]:
     """
     Provides details about a specific Amazon Lex Bot.
 
@@ -308,7 +308,7 @@ def get_bot_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['version'] = version
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:lex/getBot:getBot', __args__, opts=opts, typ=GetBotResult)
     return __ret__.apply(lambda __response__: GetBotResult(
         arn=pulumi.get(__response__, 'arn'),

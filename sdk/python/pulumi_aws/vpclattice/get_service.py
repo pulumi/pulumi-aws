@@ -196,7 +196,7 @@ def get_service(name: Optional[str] = None,
 def get_service_output(name: Optional[pulumi.Input[Optional[str]]] = None,
                        service_identifier: Optional[pulumi.Input[Optional[str]]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     Data source for managing an AWS VPC Lattice Service.
 
@@ -220,7 +220,7 @@ def get_service_output(name: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['name'] = name
     __args__['serviceIdentifier'] = service_identifier
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:vpclattice/getService:getService', __args__, opts=opts, typ=GetServiceResult)
     return __ret__.apply(lambda __response__: GetServiceResult(
         arn=pulumi.get(__response__, 'arn'),

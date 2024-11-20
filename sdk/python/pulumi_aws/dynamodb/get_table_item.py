@@ -152,7 +152,7 @@ def get_table_item_output(expression_attribute_names: Optional[pulumi.Input[Opti
                           key: Optional[pulumi.Input[str]] = None,
                           projection_expression: Optional[pulumi.Input[Optional[str]]] = None,
                           table_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTableItemResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableItemResult]:
     """
     Data source for retrieving a value from an AWS DynamoDB table.
 
@@ -189,7 +189,7 @@ def get_table_item_output(expression_attribute_names: Optional[pulumi.Input[Opti
     __args__['key'] = key
     __args__['projectionExpression'] = projection_expression
     __args__['tableName'] = table_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:dynamodb/getTableItem:getTableItem', __args__, opts=opts, typ=GetTableItemResult)
     return __ret__.apply(lambda __response__: GetTableItemResult(
         expression_attribute_names=pulumi.get(__response__, 'expression_attribute_names'),

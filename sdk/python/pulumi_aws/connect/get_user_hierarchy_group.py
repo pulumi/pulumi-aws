@@ -185,7 +185,7 @@ def get_user_hierarchy_group_output(hierarchy_group_id: Optional[pulumi.Input[Op
                                     instance_id: Optional[pulumi.Input[str]] = None,
                                     name: Optional[pulumi.Input[Optional[str]]] = None,
                                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserHierarchyGroupResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserHierarchyGroupResult]:
     """
     Provides details about a specific Amazon Connect User Hierarchy Group.
 
@@ -222,7 +222,7 @@ def get_user_hierarchy_group_output(hierarchy_group_id: Optional[pulumi.Input[Op
     __args__['instanceId'] = instance_id
     __args__['name'] = name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:connect/getUserHierarchyGroup:getUserHierarchyGroup', __args__, opts=opts, typ=GetUserHierarchyGroupResult)
     return __ret__.apply(lambda __response__: GetUserHierarchyGroupResult(
         arn=pulumi.get(__response__, 'arn'),

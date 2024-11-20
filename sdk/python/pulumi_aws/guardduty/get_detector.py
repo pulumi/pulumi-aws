@@ -124,7 +124,7 @@ def get_detector(id: Optional[str] = None,
         service_role_arn=pulumi.get(__ret__, 'service_role_arn'),
         status=pulumi.get(__ret__, 'status'))
 def get_detector_output(id: Optional[pulumi.Input[Optional[str]]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDetectorResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDetectorResult]:
     """
     Retrieve information about a GuardDuty detector.
 
@@ -142,7 +142,7 @@ def get_detector_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:guardduty/getDetector:getDetector', __args__, opts=opts, typ=GetDetectorResult)
     return __ret__.apply(lambda __response__: GetDetectorResult(
         features=pulumi.get(__response__, 'features'),

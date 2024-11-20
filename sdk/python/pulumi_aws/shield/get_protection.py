@@ -132,7 +132,7 @@ def get_protection(protection_id: Optional[str] = None,
         resource_arn=pulumi.get(__ret__, 'resource_arn'))
 def get_protection_output(protection_id: Optional[pulumi.Input[Optional[str]]] = None,
                           resource_arn: Optional[pulumi.Input[Optional[str]]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProtectionResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProtectionResult]:
     """
     Data source for managing an AWS Shield Protection.
 
@@ -163,7 +163,7 @@ def get_protection_output(protection_id: Optional[pulumi.Input[Optional[str]]] =
     __args__ = dict()
     __args__['protectionId'] = protection_id
     __args__['resourceArn'] = resource_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:shield/getProtection:getProtection', __args__, opts=opts, typ=GetProtectionResult)
     return __ret__.apply(lambda __response__: GetProtectionResult(
         id=pulumi.get(__response__, 'id'),

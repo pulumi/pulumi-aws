@@ -97,7 +97,7 @@ def get_permission_sets(instance_arn: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         instance_arn=pulumi.get(__ret__, 'instance_arn'))
 def get_permission_sets_output(instance_arn: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPermissionSetsResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPermissionSetsResult]:
     """
     Data source returning the ARN of all AWS SSO Admin Permission Sets.
 
@@ -118,7 +118,7 @@ def get_permission_sets_output(instance_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['instanceArn'] = instance_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssoadmin/getPermissionSets:getPermissionSets', __args__, opts=opts, typ=GetPermissionSetsResult)
     return __ret__.apply(lambda __response__: GetPermissionSetsResult(
         arns=pulumi.get(__response__, 'arns'),
