@@ -126,7 +126,7 @@ def get_apis(name: Optional[str] = None,
 def get_apis_output(name: Optional[pulumi.Input[Optional[str]]] = None,
                     protocol_type: Optional[pulumi.Input[Optional[str]]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApisResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApisResult]:
     """
     Provides details about multiple Amazon API Gateway Version 2 APIs.
 
@@ -149,7 +149,7 @@ def get_apis_output(name: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['name'] = name
     __args__['protocolType'] = protocol_type
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:apigatewayv2/getApis:getApis', __args__, opts=opts, typ=GetApisResult)
     return __ret__.apply(lambda __response__: GetApisResult(
         id=pulumi.get(__response__, 'id'),

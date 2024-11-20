@@ -108,7 +108,7 @@ def get_coip_pools(filters: Optional[Sequence[Union['GetCoipPoolsFilterArgs', 'G
         tags=pulumi.get(__ret__, 'tags'))
 def get_coip_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetCoipPoolsFilterArgs', 'GetCoipPoolsFilterArgsDict']]]]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCoipPoolsResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCoipPoolsResult]:
     """
     Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
 
@@ -123,7 +123,7 @@ def get_coip_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[Union
     __args__ = dict()
     __args__['filters'] = filters
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getCoipPools:getCoipPools', __args__, opts=opts, typ=GetCoipPoolsResult)
     return __ret__.apply(lambda __response__: GetCoipPoolsResult(
         filters=pulumi.get(__response__, 'filters'),

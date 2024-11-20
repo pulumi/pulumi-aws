@@ -185,7 +185,7 @@ def get_service_output(dns_name: Optional[pulumi.Input[Optional[str]]] = None,
                        reverse_dns_name: Optional[pulumi.Input[Optional[str]]] = None,
                        reverse_dns_prefix: Optional[pulumi.Input[Optional[str]]] = None,
                        service_id: Optional[pulumi.Input[Optional[str]]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     Use this data source to compose and decompose AWS service DNS names.
 
@@ -234,7 +234,7 @@ def get_service_output(dns_name: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['reverseDnsName'] = reverse_dns_name
     __args__['reverseDnsPrefix'] = reverse_dns_prefix
     __args__['serviceId'] = service_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:index/getService:getService', __args__, opts=opts, typ=GetServiceResult)
     return __ret__.apply(lambda __response__: GetServiceResult(
         dns_name=pulumi.get(__response__, 'dns_name'),

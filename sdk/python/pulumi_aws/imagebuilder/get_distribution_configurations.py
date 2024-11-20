@@ -115,7 +115,7 @@ def get_distribution_configurations(filters: Optional[Sequence[Union['GetDistrib
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'))
 def get_distribution_configurations_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetDistributionConfigurationsFilterArgs', 'GetDistributionConfigurationsFilterArgsDict']]]]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDistributionConfigurationsResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDistributionConfigurationsResult]:
     """
     Use this data source to get the ARNs and names of Image Builder Distribution Configurations matching the specified criteria.
 
@@ -136,7 +136,7 @@ def get_distribution_configurations_output(filters: Optional[pulumi.Input[Option
     """
     __args__ = dict()
     __args__['filters'] = filters
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:imagebuilder/getDistributionConfigurations:getDistributionConfigurations', __args__, opts=opts, typ=GetDistributionConfigurationsResult)
     return __ret__.apply(lambda __response__: GetDistributionConfigurationsResult(
         arns=pulumi.get(__response__, 'arns'),

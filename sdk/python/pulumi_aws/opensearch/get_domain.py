@@ -459,7 +459,7 @@ def get_domain(domain_name: Optional[str] = None,
 def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
                       off_peak_window_options: Optional[pulumi.Input[Optional[Union['GetDomainOffPeakWindowOptionsArgs', 'GetDomainOffPeakWindowOptionsArgsDict']]]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainResult]:
     """
     Use this data source to get information about an OpenSearch Domain
 
@@ -481,7 +481,7 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
     __args__['domainName'] = domain_name
     __args__['offPeakWindowOptions'] = off_peak_window_options
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:opensearch/getDomain:getDomain', __args__, opts=opts, typ=GetDomainResult)
     return __ret__.apply(lambda __response__: GetDomainResult(
         access_policies=pulumi.get(__response__, 'access_policies'),

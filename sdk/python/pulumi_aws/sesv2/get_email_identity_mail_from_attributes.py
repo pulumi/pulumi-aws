@@ -113,7 +113,7 @@ def get_email_identity_mail_from_attributes(email_identity: Optional[str] = None
         id=pulumi.get(__ret__, 'id'),
         mail_from_domain=pulumi.get(__ret__, 'mail_from_domain'))
 def get_email_identity_mail_from_attributes_output(email_identity: Optional[pulumi.Input[str]] = None,
-                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEmailIdentityMailFromAttributesResult]:
+                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEmailIdentityMailFromAttributesResult]:
     """
     Data source for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
 
@@ -134,7 +134,7 @@ def get_email_identity_mail_from_attributes_output(email_identity: Optional[pulu
     """
     __args__ = dict()
     __args__['emailIdentity'] = email_identity
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:sesv2/getEmailIdentityMailFromAttributes:getEmailIdentityMailFromAttributes', __args__, opts=opts, typ=GetEmailIdentityMailFromAttributesResult)
     return __ret__.apply(lambda __response__: GetEmailIdentityMailFromAttributesResult(
         behavior_on_mx_failure=pulumi.get(__response__, 'behavior_on_mx_failure'),

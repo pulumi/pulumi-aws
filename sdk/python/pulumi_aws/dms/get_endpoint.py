@@ -330,7 +330,7 @@ def get_endpoint(endpoint_id: Optional[str] = None,
         username=pulumi.get(__ret__, 'username'))
 def get_endpoint_output(endpoint_id: Optional[pulumi.Input[str]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointResult]:
     """
     Data source for managing an AWS DMS (Database Migration) Endpoint.
 
@@ -351,7 +351,7 @@ def get_endpoint_output(endpoint_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['endpointId'] = endpoint_id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:dms/getEndpoint:getEndpoint', __args__, opts=opts, typ=GetEndpointResult)
     return __ret__.apply(lambda __response__: GetEndpointResult(
         certificate_arn=pulumi.get(__response__, 'certificate_arn'),

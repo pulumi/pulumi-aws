@@ -235,7 +235,7 @@ def get_connect_peer(filters: Optional[Sequence[Union['GetConnectPeerFilterArgs'
 def get_connect_peer_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetConnectPeerFilterArgs', 'GetConnectPeerFilterArgsDict']]]]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                             transit_gateway_connect_peer_id: Optional[pulumi.Input[Optional[str]]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectPeerResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectPeerResult]:
     """
     Get information on an EC2 Transit Gateway Connect Peer.
 
@@ -271,7 +271,7 @@ def get_connect_peer_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
     __args__['filters'] = filters
     __args__['tags'] = tags
     __args__['transitGatewayConnectPeerId'] = transit_gateway_connect_peer_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2transitgateway/getConnectPeer:getConnectPeer', __args__, opts=opts, typ=GetConnectPeerResult)
     return __ret__.apply(lambda __response__: GetConnectPeerResult(
         arn=pulumi.get(__response__, 'arn'),

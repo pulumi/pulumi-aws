@@ -149,7 +149,7 @@ def get_custom_key_store(custom_key_store_id: Optional[str] = None,
         trust_anchor_certificate=pulumi.get(__ret__, 'trust_anchor_certificate'))
 def get_custom_key_store_output(custom_key_store_id: Optional[pulumi.Input[Optional[str]]] = None,
                                 custom_key_store_name: Optional[pulumi.Input[Optional[str]]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomKeyStoreResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomKeyStoreResult]:
     """
     Use this data source to get the metadata KMS custom key store.
     By using this data source, you can reference KMS custom key store
@@ -171,7 +171,7 @@ def get_custom_key_store_output(custom_key_store_id: Optional[pulumi.Input[Optio
     __args__ = dict()
     __args__['customKeyStoreId'] = custom_key_store_id
     __args__['customKeyStoreName'] = custom_key_store_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:kms/getCustomKeyStore:getCustomKeyStore', __args__, opts=opts, typ=GetCustomKeyStoreResult)
     return __ret__.apply(lambda __response__: GetCustomKeyStoreResult(
         cloud_hsm_cluster_id=pulumi.get(__response__, 'cloud_hsm_cluster_id'),

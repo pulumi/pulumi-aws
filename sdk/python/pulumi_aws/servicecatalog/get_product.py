@@ -264,7 +264,7 @@ def get_product(accept_language: Optional[str] = None,
 def get_product_output(accept_language: Optional[pulumi.Input[Optional[str]]] = None,
                        id: Optional[pulumi.Input[str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProductResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProductResult]:
     """
     Use this data source to retrieve information about a Service Catalog product.
 
@@ -292,7 +292,7 @@ def get_product_output(accept_language: Optional[pulumi.Input[Optional[str]]] = 
     __args__['acceptLanguage'] = accept_language
     __args__['id'] = id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:servicecatalog/getProduct:getProduct', __args__, opts=opts, typ=GetProductResult)
     return __ret__.apply(lambda __response__: GetProductResult(
         accept_language=pulumi.get(__response__, 'accept_language'),
