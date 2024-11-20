@@ -5,6 +5,7 @@ package sqs
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetQueues(ctx *pulumi.Context, args *GetQueuesArgs, opts ...pulumi.InvokeOption) (*GetQueuesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetQueuesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetQueuesResult{}, errors.New("DependsOn is not supported for direct form invoke GetQueues, use GetQueuesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetQueuesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetQueues, use GetQueuesOutput instead")
+	}
 	var rv GetQueuesResult
 	err := ctx.Invoke("aws:sqs/getQueues:getQueues", args, &rv, opts...)
 	if err != nil {
@@ -66,17 +77,18 @@ type GetQueuesResult struct {
 }
 
 func GetQueuesOutput(ctx *pulumi.Context, args GetQueuesOutputArgs, opts ...pulumi.InvokeOption) GetQueuesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetQueuesResultOutput, error) {
 			args := v.(GetQueuesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetQueuesResult
-			secret, err := ctx.InvokePackageRaw("aws:sqs/getQueues:getQueues", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:sqs/getQueues:getQueues", args, &rv, "", opts...)
 			if err != nil {
 				return GetQueuesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetQueuesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetQueuesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetQueuesResultOutput), nil
 			}

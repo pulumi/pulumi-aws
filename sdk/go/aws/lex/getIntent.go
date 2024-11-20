@@ -5,6 +5,7 @@ package lex
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupIntent(ctx *pulumi.Context, args *LookupIntentArgs, opts ...pulumi.InvokeOption) (*LookupIntentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupIntentResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupIntentResult{}, errors.New("DependsOn is not supported for direct form invoke LookupIntent, use LookupIntentOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupIntentResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupIntent, use LookupIntentOutput instead")
+	}
 	var rv LookupIntentResult
 	err := ctx.Invoke("aws:lex/getIntent:getIntent", args, &rv, opts...)
 	if err != nil {
@@ -84,17 +95,18 @@ type LookupIntentResult struct {
 }
 
 func LookupIntentOutput(ctx *pulumi.Context, args LookupIntentOutputArgs, opts ...pulumi.InvokeOption) LookupIntentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupIntentResultOutput, error) {
 			args := v.(LookupIntentArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupIntentResult
-			secret, err := ctx.InvokePackageRaw("aws:lex/getIntent:getIntent", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:lex/getIntent:getIntent", args, &rv, "", opts...)
 			if err != nil {
 				return LookupIntentResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupIntentResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupIntentResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupIntentResultOutput), nil
 			}

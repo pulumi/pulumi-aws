@@ -5,6 +5,7 @@ package ecr
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -62,6 +63,16 @@ import (
 // ```
 func GetLifecyclePolicyDocument(ctx *pulumi.Context, args *GetLifecyclePolicyDocumentArgs, opts ...pulumi.InvokeOption) (*GetLifecyclePolicyDocumentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetLifecyclePolicyDocumentResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetLifecyclePolicyDocumentResult{}, errors.New("DependsOn is not supported for direct form invoke GetLifecyclePolicyDocument, use GetLifecyclePolicyDocumentOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetLifecyclePolicyDocumentResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetLifecyclePolicyDocument, use GetLifecyclePolicyDocumentOutput instead")
+	}
 	var rv GetLifecyclePolicyDocumentResult
 	err := ctx.Invoke("aws:ecr/getLifecyclePolicyDocument:getLifecyclePolicyDocument", args, &rv, opts...)
 	if err != nil {
@@ -85,17 +96,18 @@ type GetLifecyclePolicyDocumentResult struct {
 }
 
 func GetLifecyclePolicyDocumentOutput(ctx *pulumi.Context, args GetLifecyclePolicyDocumentOutputArgs, opts ...pulumi.InvokeOption) GetLifecyclePolicyDocumentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetLifecyclePolicyDocumentResultOutput, error) {
 			args := v.(GetLifecyclePolicyDocumentArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetLifecyclePolicyDocumentResult
-			secret, err := ctx.InvokePackageRaw("aws:ecr/getLifecyclePolicyDocument:getLifecyclePolicyDocument", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ecr/getLifecyclePolicyDocument:getLifecyclePolicyDocument", args, &rv, "", opts...)
 			if err != nil {
 				return GetLifecyclePolicyDocumentResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetLifecyclePolicyDocumentResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetLifecyclePolicyDocumentResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetLifecyclePolicyDocumentResultOutput), nil
 			}

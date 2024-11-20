@@ -5,6 +5,7 @@ package ssm
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupContactsRotation(ctx *pulumi.Context, args *LookupContactsRotationArgs, opts ...pulumi.InvokeOption) (*LookupContactsRotationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupContactsRotationResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupContactsRotationResult{}, errors.New("DependsOn is not supported for direct form invoke LookupContactsRotation, use LookupContactsRotationOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupContactsRotationResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupContactsRotation, use LookupContactsRotationOutput instead")
+	}
 	var rv LookupContactsRotationResult
 	err := ctx.Invoke("aws:ssm/getContactsRotation:getContactsRotation", args, &rv, opts...)
 	if err != nil {
@@ -73,17 +84,18 @@ type LookupContactsRotationResult struct {
 }
 
 func LookupContactsRotationOutput(ctx *pulumi.Context, args LookupContactsRotationOutputArgs, opts ...pulumi.InvokeOption) LookupContactsRotationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupContactsRotationResultOutput, error) {
 			args := v.(LookupContactsRotationArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupContactsRotationResult
-			secret, err := ctx.InvokePackageRaw("aws:ssm/getContactsRotation:getContactsRotation", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ssm/getContactsRotation:getContactsRotation", args, &rv, "", opts...)
 			if err != nil {
 				return LookupContactsRotationResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupContactsRotationResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupContactsRotationResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupContactsRotationResultOutput), nil
 			}

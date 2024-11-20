@@ -5,6 +5,7 @@ package kinesis
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupStream(ctx *pulumi.Context, args *LookupStreamArgs, opts ...pulumi.InvokeOption) (*LookupStreamResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupStreamResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupStreamResult{}, errors.New("DependsOn is not supported for direct form invoke LookupStream, use LookupStreamOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupStreamResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupStream, use LookupStreamOutput instead")
+	}
 	var rv LookupStreamResult
 	err := ctx.Invoke("aws:kinesis/getStream:getStream", args, &rv, opts...)
 	if err != nil {
@@ -90,17 +101,18 @@ type LookupStreamResult struct {
 }
 
 func LookupStreamOutput(ctx *pulumi.Context, args LookupStreamOutputArgs, opts ...pulumi.InvokeOption) LookupStreamResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupStreamResultOutput, error) {
 			args := v.(LookupStreamArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupStreamResult
-			secret, err := ctx.InvokePackageRaw("aws:kinesis/getStream:getStream", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:kinesis/getStream:getStream", args, &rv, "", opts...)
 			if err != nil {
 				return LookupStreamResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupStreamResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupStreamResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupStreamResultOutput), nil
 			}

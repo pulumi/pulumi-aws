@@ -5,6 +5,7 @@ package ec2transitgateway
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -16,6 +17,16 @@ import (
 // ## Example Usage
 func GetVpcAttachments(ctx *pulumi.Context, args *GetVpcAttachmentsArgs, opts ...pulumi.InvokeOption) (*GetVpcAttachmentsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetVpcAttachmentsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetVpcAttachmentsResult{}, errors.New("DependsOn is not supported for direct form invoke GetVpcAttachments, use GetVpcAttachmentsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetVpcAttachmentsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetVpcAttachments, use GetVpcAttachmentsOutput instead")
+	}
 	var rv GetVpcAttachmentsResult
 	err := ctx.Invoke("aws:ec2transitgateway/getVpcAttachments:getVpcAttachments", args, &rv, opts...)
 	if err != nil {
@@ -40,17 +51,18 @@ type GetVpcAttachmentsResult struct {
 }
 
 func GetVpcAttachmentsOutput(ctx *pulumi.Context, args GetVpcAttachmentsOutputArgs, opts ...pulumi.InvokeOption) GetVpcAttachmentsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetVpcAttachmentsResultOutput, error) {
 			args := v.(GetVpcAttachmentsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetVpcAttachmentsResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2transitgateway/getVpcAttachments:getVpcAttachments", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2transitgateway/getVpcAttachments:getVpcAttachments", args, &rv, "", opts...)
 			if err != nil {
 				return GetVpcAttachmentsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetVpcAttachmentsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetVpcAttachmentsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetVpcAttachmentsResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package bedrock
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func GetInferenceProfiles(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetInferenceProfilesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetInferenceProfilesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetInferenceProfilesResult{}, errors.New("DependsOn is not supported for direct form invoke GetInferenceProfiles, use GetInferenceProfilesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetInferenceProfilesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetInferenceProfiles, use GetInferenceProfilesOutput instead")
+	}
 	var rv GetInferenceProfilesResult
 	err := ctx.Invoke("aws:bedrock/getInferenceProfiles:getInferenceProfiles", nil, &rv, opts...)
 	if err != nil {

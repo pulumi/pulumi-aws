@@ -5,6 +5,7 @@ package cloudwatch
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func GetLogGroups(ctx *pulumi.Context, args *GetLogGroupsArgs, opts ...pulumi.InvokeOption) (*GetLogGroupsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetLogGroupsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetLogGroupsResult{}, errors.New("DependsOn is not supported for direct form invoke GetLogGroups, use GetLogGroupsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetLogGroupsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetLogGroups, use GetLogGroupsOutput instead")
+	}
 	var rv GetLogGroupsResult
 	err := ctx.Invoke("aws:cloudwatch/getLogGroups:getLogGroups", args, &rv, opts...)
 	if err != nil {
@@ -66,17 +77,18 @@ type GetLogGroupsResult struct {
 }
 
 func GetLogGroupsOutput(ctx *pulumi.Context, args GetLogGroupsOutputArgs, opts ...pulumi.InvokeOption) GetLogGroupsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetLogGroupsResultOutput, error) {
 			args := v.(GetLogGroupsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetLogGroupsResult
-			secret, err := ctx.InvokePackageRaw("aws:cloudwatch/getLogGroups:getLogGroups", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:cloudwatch/getLogGroups:getLogGroups", args, &rv, "", opts...)
 			if err != nil {
 				return GetLogGroupsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetLogGroupsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetLogGroupsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetLogGroupsResultOutput), nil
 			}

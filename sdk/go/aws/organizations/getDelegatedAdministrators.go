@@ -5,6 +5,7 @@ package organizations
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func GetDelegatedAdministrators(ctx *pulumi.Context, args *GetDelegatedAdministratorsArgs, opts ...pulumi.InvokeOption) (*GetDelegatedAdministratorsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetDelegatedAdministratorsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetDelegatedAdministratorsResult{}, errors.New("DependsOn is not supported for direct form invoke GetDelegatedAdministrators, use GetDelegatedAdministratorsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetDelegatedAdministratorsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetDelegatedAdministrators, use GetDelegatedAdministratorsOutput instead")
+	}
 	var rv GetDelegatedAdministratorsResult
 	err := ctx.Invoke("aws:organizations/getDelegatedAdministrators:getDelegatedAdministrators", args, &rv, opts...)
 	if err != nil {
@@ -64,17 +75,18 @@ type GetDelegatedAdministratorsResult struct {
 }
 
 func GetDelegatedAdministratorsOutput(ctx *pulumi.Context, args GetDelegatedAdministratorsOutputArgs, opts ...pulumi.InvokeOption) GetDelegatedAdministratorsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetDelegatedAdministratorsResultOutput, error) {
 			args := v.(GetDelegatedAdministratorsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetDelegatedAdministratorsResult
-			secret, err := ctx.InvokePackageRaw("aws:organizations/getDelegatedAdministrators:getDelegatedAdministrators", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:organizations/getDelegatedAdministrators:getDelegatedAdministrators", args, &rv, "", opts...)
 			if err != nil {
 				return GetDelegatedAdministratorsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetDelegatedAdministratorsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetDelegatedAdministratorsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetDelegatedAdministratorsResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package timestreamwrite
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupTable(ctx *pulumi.Context, args *LookupTableArgs, opts ...pulumi.InvokeOption) (*LookupTableResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupTableResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupTableResult{}, errors.New("DependsOn is not supported for direct form invoke LookupTable, use LookupTableOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupTableResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupTable, use LookupTableOutput instead")
+	}
 	var rv LookupTableResult
 	err := ctx.Invoke("aws:timestreamwrite/getTable:getTable", args, &rv, opts...)
 	if err != nil {
@@ -84,17 +95,18 @@ type LookupTableResult struct {
 }
 
 func LookupTableOutput(ctx *pulumi.Context, args LookupTableOutputArgs, opts ...pulumi.InvokeOption) LookupTableResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupTableResultOutput, error) {
 			args := v.(LookupTableArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupTableResult
-			secret, err := ctx.InvokePackageRaw("aws:timestreamwrite/getTable:getTable", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:timestreamwrite/getTable:getTable", args, &rv, "", opts...)
 			if err != nil {
 				return LookupTableResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupTableResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupTableResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupTableResultOutput), nil
 			}

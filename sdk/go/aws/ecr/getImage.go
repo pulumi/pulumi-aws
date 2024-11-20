@@ -5,6 +5,7 @@ package ecr
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func GetImage(ctx *pulumi.Context, args *GetImageArgs, opts ...pulumi.InvokeOption) (*GetImageResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetImageResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetImageResult{}, errors.New("DependsOn is not supported for direct form invoke GetImage, use GetImageOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetImageResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetImage, use GetImageOutput instead")
+	}
 	var rv GetImageResult
 	err := ctx.Invoke("aws:ecr/getImage:getImage", args, &rv, opts...)
 	if err != nil {
@@ -83,17 +94,18 @@ type GetImageResult struct {
 }
 
 func GetImageOutput(ctx *pulumi.Context, args GetImageOutputArgs, opts ...pulumi.InvokeOption) GetImageResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetImageResultOutput, error) {
 			args := v.(GetImageArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetImageResult
-			secret, err := ctx.InvokePackageRaw("aws:ecr/getImage:getImage", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ecr/getImage:getImage", args, &rv, "", opts...)
 			if err != nil {
 				return GetImageResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetImageResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetImageResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetImageResultOutput), nil
 			}

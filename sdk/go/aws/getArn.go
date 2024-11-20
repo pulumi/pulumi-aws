@@ -5,6 +5,7 @@ package aws
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func GetArn(ctx *pulumi.Context, args *GetArnArgs, opts ...pulumi.InvokeOption) (*GetArnResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetArnResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetArnResult{}, errors.New("DependsOn is not supported for direct form invoke GetArn, use GetArnOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetArnResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetArn, use GetArnOutput instead")
+	}
 	var rv GetArnResult
 	err := ctx.Invoke("aws:index/getArn:getArn", args, &rv, opts...)
 	if err != nil {
@@ -74,17 +85,18 @@ type GetArnResult struct {
 }
 
 func GetArnOutput(ctx *pulumi.Context, args GetArnOutputArgs, opts ...pulumi.InvokeOption) GetArnResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetArnResultOutput, error) {
 			args := v.(GetArnArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetArnResult
-			secret, err := ctx.InvokePackageRaw("aws:index/getArn:getArn", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:index/getArn:getArn", args, &rv, "", opts...)
 			if err != nil {
 				return GetArnResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetArnResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetArnResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetArnResultOutput), nil
 			}

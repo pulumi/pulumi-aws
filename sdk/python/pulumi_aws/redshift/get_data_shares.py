@@ -91,7 +91,7 @@ def get_data_shares(data_shares: Optional[Sequence[Union['GetDataSharesDataShare
         data_shares=pulumi.get(__ret__, 'data_shares'),
         id=pulumi.get(__ret__, 'id'))
 def get_data_shares_output(data_shares: Optional[pulumi.Input[Optional[Sequence[Union['GetDataSharesDataShareArgs', 'GetDataSharesDataShareArgsDict']]]]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataSharesResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataSharesResult]:
     """
     Data source for managing AWS Redshift Data Shares.
 
@@ -111,7 +111,7 @@ def get_data_shares_output(data_shares: Optional[pulumi.Input[Optional[Sequence[
     """
     __args__ = dict()
     __args__['dataShares'] = data_shares
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:redshift/getDataShares:getDataShares', __args__, opts=opts, typ=GetDataSharesResult)
     return __ret__.apply(lambda __response__: GetDataSharesResult(
         data_shares=pulumi.get(__response__, 'data_shares'),

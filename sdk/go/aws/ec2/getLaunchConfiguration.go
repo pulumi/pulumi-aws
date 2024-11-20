@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupLaunchConfiguration(ctx *pulumi.Context, args *LookupLaunchConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupLaunchConfigurationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupLaunchConfigurationResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupLaunchConfigurationResult{}, errors.New("DependsOn is not supported for direct form invoke LookupLaunchConfiguration, use LookupLaunchConfigurationOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupLaunchConfigurationResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupLaunchConfiguration, use LookupLaunchConfigurationOutput instead")
+	}
 	var rv LookupLaunchConfigurationResult
 	err := ctx.Invoke("aws:ec2/getLaunchConfiguration:getLaunchConfiguration", args, &rv, opts...)
 	if err != nil {
@@ -95,17 +106,18 @@ type LookupLaunchConfigurationResult struct {
 }
 
 func LookupLaunchConfigurationOutput(ctx *pulumi.Context, args LookupLaunchConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupLaunchConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLaunchConfigurationResultOutput, error) {
 			args := v.(LookupLaunchConfigurationArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupLaunchConfigurationResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getLaunchConfiguration:getLaunchConfiguration", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getLaunchConfiguration:getLaunchConfiguration", args, &rv, "", opts...)
 			if err != nil {
 				return LookupLaunchConfigurationResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupLaunchConfigurationResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupLaunchConfigurationResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupLaunchConfigurationResultOutput), nil
 			}

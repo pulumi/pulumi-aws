@@ -5,6 +5,7 @@ package codecommit
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupApprovalRuleTemplate(ctx *pulumi.Context, args *LookupApprovalRuleTemplateArgs, opts ...pulumi.InvokeOption) (*LookupApprovalRuleTemplateResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupApprovalRuleTemplateResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupApprovalRuleTemplateResult{}, errors.New("DependsOn is not supported for direct form invoke LookupApprovalRuleTemplate, use LookupApprovalRuleTemplateOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupApprovalRuleTemplateResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupApprovalRuleTemplate, use LookupApprovalRuleTemplateOutput instead")
+	}
 	var rv LookupApprovalRuleTemplateResult
 	err := ctx.Invoke("aws:codecommit/getApprovalRuleTemplate:getApprovalRuleTemplate", args, &rv, opts...)
 	if err != nil {
@@ -76,17 +87,18 @@ type LookupApprovalRuleTemplateResult struct {
 }
 
 func LookupApprovalRuleTemplateOutput(ctx *pulumi.Context, args LookupApprovalRuleTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupApprovalRuleTemplateResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupApprovalRuleTemplateResultOutput, error) {
 			args := v.(LookupApprovalRuleTemplateArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupApprovalRuleTemplateResult
-			secret, err := ctx.InvokePackageRaw("aws:codecommit/getApprovalRuleTemplate:getApprovalRuleTemplate", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:codecommit/getApprovalRuleTemplate:getApprovalRuleTemplate", args, &rv, "", opts...)
 			if err != nil {
 				return LookupApprovalRuleTemplateResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupApprovalRuleTemplateResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupApprovalRuleTemplateResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupApprovalRuleTemplateResultOutput), nil
 			}

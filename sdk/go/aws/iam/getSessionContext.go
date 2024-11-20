@@ -5,6 +5,7 @@ package iam
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -77,6 +78,16 @@ import (
 // ```
 func GetSessionContext(ctx *pulumi.Context, args *GetSessionContextArgs, opts ...pulumi.InvokeOption) (*GetSessionContextResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetSessionContextResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetSessionContextResult{}, errors.New("DependsOn is not supported for direct form invoke GetSessionContext, use GetSessionContextOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetSessionContextResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetSessionContext, use GetSessionContextOutput instead")
+	}
 	var rv GetSessionContextResult
 	err := ctx.Invoke("aws:iam/getSessionContext:getSessionContext", args, &rv, opts...)
 	if err != nil {
@@ -109,17 +120,18 @@ type GetSessionContextResult struct {
 }
 
 func GetSessionContextOutput(ctx *pulumi.Context, args GetSessionContextOutputArgs, opts ...pulumi.InvokeOption) GetSessionContextResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetSessionContextResultOutput, error) {
 			args := v.(GetSessionContextArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetSessionContextResult
-			secret, err := ctx.InvokePackageRaw("aws:iam/getSessionContext:getSessionContext", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:iam/getSessionContext:getSessionContext", args, &rv, "", opts...)
 			if err != nil {
 				return GetSessionContextResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetSessionContextResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetSessionContextResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetSessionContextResultOutput), nil
 			}

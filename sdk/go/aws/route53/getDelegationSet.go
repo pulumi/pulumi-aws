@@ -5,6 +5,7 @@ package route53
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -44,6 +45,16 @@ import (
 // ```
 func LookupDelegationSet(ctx *pulumi.Context, args *LookupDelegationSetArgs, opts ...pulumi.InvokeOption) (*LookupDelegationSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupDelegationSetResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupDelegationSetResult{}, errors.New("DependsOn is not supported for direct form invoke LookupDelegationSet, use LookupDelegationSetOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupDelegationSetResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupDelegationSet, use LookupDelegationSetOutput instead")
+	}
 	var rv LookupDelegationSetResult
 	err := ctx.Invoke("aws:route53/getDelegationSet:getDelegationSet", args, &rv, opts...)
 	if err != nil {
@@ -69,17 +80,18 @@ type LookupDelegationSetResult struct {
 }
 
 func LookupDelegationSetOutput(ctx *pulumi.Context, args LookupDelegationSetOutputArgs, opts ...pulumi.InvokeOption) LookupDelegationSetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDelegationSetResultOutput, error) {
 			args := v.(LookupDelegationSetArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDelegationSetResult
-			secret, err := ctx.InvokePackageRaw("aws:route53/getDelegationSet:getDelegationSet", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:route53/getDelegationSet:getDelegationSet", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDelegationSetResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDelegationSetResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDelegationSetResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDelegationSetResultOutput), nil
 			}

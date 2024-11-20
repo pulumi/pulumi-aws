@@ -5,6 +5,7 @@ package networkmanager
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupGlobalNetwork(ctx *pulumi.Context, args *LookupGlobalNetworkArgs, opts ...pulumi.InvokeOption) (*LookupGlobalNetworkResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupGlobalNetworkResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupGlobalNetworkResult{}, errors.New("DependsOn is not supported for direct form invoke LookupGlobalNetwork, use LookupGlobalNetworkOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupGlobalNetworkResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupGlobalNetwork, use LookupGlobalNetworkOutput instead")
+	}
 	var rv LookupGlobalNetworkResult
 	err := ctx.Invoke("aws:networkmanager/getGlobalNetwork:getGlobalNetwork", args, &rv, opts...)
 	if err != nil {
@@ -70,17 +81,18 @@ type LookupGlobalNetworkResult struct {
 }
 
 func LookupGlobalNetworkOutput(ctx *pulumi.Context, args LookupGlobalNetworkOutputArgs, opts ...pulumi.InvokeOption) LookupGlobalNetworkResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupGlobalNetworkResultOutput, error) {
 			args := v.(LookupGlobalNetworkArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupGlobalNetworkResult
-			secret, err := ctx.InvokePackageRaw("aws:networkmanager/getGlobalNetwork:getGlobalNetwork", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:networkmanager/getGlobalNetwork:getGlobalNetwork", args, &rv, "", opts...)
 			if err != nil {
 				return LookupGlobalNetworkResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupGlobalNetworkResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupGlobalNetworkResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupGlobalNetworkResultOutput), nil
 			}

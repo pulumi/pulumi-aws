@@ -5,6 +5,7 @@ package s3
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -18,6 +19,16 @@ import (
 // The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
 func GetBucketObjects(ctx *pulumi.Context, args *GetBucketObjectsArgs, opts ...pulumi.InvokeOption) (*GetBucketObjectsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetBucketObjectsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetBucketObjectsResult{}, errors.New("DependsOn is not supported for direct form invoke GetBucketObjects, use GetBucketObjectsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetBucketObjectsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetBucketObjects, use GetBucketObjectsOutput instead")
+	}
 	var rv GetBucketObjectsResult
 	err := ctx.Invoke("aws:s3/getBucketObjects:getBucketObjects", args, &rv, opts...)
 	if err != nil {
@@ -67,17 +78,18 @@ type GetBucketObjectsResult struct {
 }
 
 func GetBucketObjectsOutput(ctx *pulumi.Context, args GetBucketObjectsOutputArgs, opts ...pulumi.InvokeOption) GetBucketObjectsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetBucketObjectsResultOutput, error) {
 			args := v.(GetBucketObjectsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetBucketObjectsResult
-			secret, err := ctx.InvokePackageRaw("aws:s3/getBucketObjects:getBucketObjects", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:s3/getBucketObjects:getBucketObjects", args, &rv, "", opts...)
 			if err != nil {
 				return GetBucketObjectsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetBucketObjectsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetBucketObjectsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetBucketObjectsResultOutput), nil
 			}

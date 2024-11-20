@@ -5,6 +5,7 @@ package efs
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -46,6 +47,16 @@ import (
 // ```
 func LookupMountTarget(ctx *pulumi.Context, args *LookupMountTargetArgs, opts ...pulumi.InvokeOption) (*LookupMountTargetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupMountTargetResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupMountTargetResult{}, errors.New("DependsOn is not supported for direct form invoke LookupMountTarget, use LookupMountTargetOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupMountTargetResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupMountTarget, use LookupMountTargetOutput instead")
+	}
 	var rv LookupMountTargetResult
 	err := ctx.Invoke("aws:efs/getMountTarget:getMountTarget", args, &rv, opts...)
 	if err != nil {
@@ -94,17 +105,18 @@ type LookupMountTargetResult struct {
 }
 
 func LookupMountTargetOutput(ctx *pulumi.Context, args LookupMountTargetOutputArgs, opts ...pulumi.InvokeOption) LookupMountTargetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupMountTargetResultOutput, error) {
 			args := v.(LookupMountTargetArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupMountTargetResult
-			secret, err := ctx.InvokePackageRaw("aws:efs/getMountTarget:getMountTarget", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:efs/getMountTarget:getMountTarget", args, &rv, "", opts...)
 			if err != nil {
 				return LookupMountTargetResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupMountTargetResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupMountTargetResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupMountTargetResultOutput), nil
 			}

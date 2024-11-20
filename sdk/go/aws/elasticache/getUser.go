@@ -5,6 +5,7 @@ package elasticache
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupUserResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupUserResult{}, errors.New("DependsOn is not supported for direct form invoke LookupUser, use LookupUserOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupUserResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupUser, use LookupUserOutput instead")
+	}
 	var rv LookupUserResult
 	err := ctx.Invoke("aws:elasticache/getUser:getUser", args, &rv, opts...)
 	if err != nil {
@@ -79,17 +90,18 @@ type LookupUserResult struct {
 }
 
 func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pulumi.InvokeOption) LookupUserResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupUserResultOutput, error) {
 			args := v.(LookupUserArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupUserResult
-			secret, err := ctx.InvokePackageRaw("aws:elasticache/getUser:getUser", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:elasticache/getUser:getUser", args, &rv, "", opts...)
 			if err != nil {
 				return LookupUserResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupUserResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupUserResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupUserResultOutput), nil
 			}

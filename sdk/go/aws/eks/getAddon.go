@@ -5,6 +5,7 @@ package eks
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupAddon(ctx *pulumi.Context, args *LookupAddonArgs, opts ...pulumi.InvokeOption) (*LookupAddonResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupAddonResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupAddonResult{}, errors.New("DependsOn is not supported for direct form invoke LookupAddon, use LookupAddonOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupAddonResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupAddon, use LookupAddonOutput instead")
+	}
 	var rv LookupAddonResult
 	err := ctx.Invoke("aws:eks/getAddon:getAddon", args, &rv, opts...)
 	if err != nil {
@@ -85,17 +96,18 @@ type LookupAddonResult struct {
 }
 
 func LookupAddonOutput(ctx *pulumi.Context, args LookupAddonOutputArgs, opts ...pulumi.InvokeOption) LookupAddonResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAddonResultOutput, error) {
 			args := v.(LookupAddonArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupAddonResult
-			secret, err := ctx.InvokePackageRaw("aws:eks/getAddon:getAddon", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:eks/getAddon:getAddon", args, &rv, "", opts...)
 			if err != nil {
 				return LookupAddonResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupAddonResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupAddonResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupAddonResultOutput), nil
 			}

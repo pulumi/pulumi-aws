@@ -5,6 +5,7 @@ package quicksight
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -44,6 +45,16 @@ import (
 // ```
 func GetQuicksightUser(ctx *pulumi.Context, args *GetQuicksightUserArgs, opts ...pulumi.InvokeOption) (*GetQuicksightUserResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetQuicksightUserResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetQuicksightUserResult{}, errors.New("DependsOn is not supported for direct form invoke GetQuicksightUser, use GetQuicksightUserOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetQuicksightUserResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetQuicksightUser, use GetQuicksightUserOutput instead")
+	}
 	var rv GetQuicksightUserResult
 	err := ctx.Invoke("aws:quicksight/getQuicksightUser:getQuicksightUser", args, &rv, opts...)
 	if err != nil {
@@ -89,17 +100,18 @@ type GetQuicksightUserResult struct {
 }
 
 func GetQuicksightUserOutput(ctx *pulumi.Context, args GetQuicksightUserOutputArgs, opts ...pulumi.InvokeOption) GetQuicksightUserResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetQuicksightUserResultOutput, error) {
 			args := v.(GetQuicksightUserArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetQuicksightUserResult
-			secret, err := ctx.InvokePackageRaw("aws:quicksight/getQuicksightUser:getQuicksightUser", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:quicksight/getQuicksightUser:getQuicksightUser", args, &rv, "", opts...)
 			if err != nil {
 				return GetQuicksightUserResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetQuicksightUserResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetQuicksightUserResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetQuicksightUserResultOutput), nil
 			}

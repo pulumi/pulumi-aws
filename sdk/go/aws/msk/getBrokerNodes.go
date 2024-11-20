@@ -5,6 +5,7 @@ package msk
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func GetBrokerNodes(ctx *pulumi.Context, args *GetBrokerNodesArgs, opts ...pulumi.InvokeOption) (*GetBrokerNodesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetBrokerNodesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetBrokerNodesResult{}, errors.New("DependsOn is not supported for direct form invoke GetBrokerNodes, use GetBrokerNodesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetBrokerNodesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetBrokerNodes, use GetBrokerNodesOutput instead")
+	}
 	var rv GetBrokerNodesResult
 	err := ctx.Invoke("aws:msk/getBrokerNodes:getBrokerNodes", args, &rv, opts...)
 	if err != nil {
@@ -63,17 +74,18 @@ type GetBrokerNodesResult struct {
 }
 
 func GetBrokerNodesOutput(ctx *pulumi.Context, args GetBrokerNodesOutputArgs, opts ...pulumi.InvokeOption) GetBrokerNodesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetBrokerNodesResultOutput, error) {
 			args := v.(GetBrokerNodesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetBrokerNodesResult
-			secret, err := ctx.InvokePackageRaw("aws:msk/getBrokerNodes:getBrokerNodes", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:msk/getBrokerNodes:getBrokerNodes", args, &rv, "", opts...)
 			if err != nil {
 				return GetBrokerNodesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetBrokerNodesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetBrokerNodesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetBrokerNodesResultOutput), nil
 			}

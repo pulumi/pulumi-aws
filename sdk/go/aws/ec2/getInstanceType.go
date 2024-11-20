@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func GetInstanceType(ctx *pulumi.Context, args *GetInstanceTypeArgs, opts ...pulumi.InvokeOption) (*GetInstanceTypeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetInstanceTypeResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetInstanceTypeResult{}, errors.New("DependsOn is not supported for direct form invoke GetInstanceType, use GetInstanceTypeOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetInstanceTypeResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetInstanceType, use GetInstanceTypeOutput instead")
+	}
 	var rv GetInstanceTypeResult
 	err := ctx.Invoke("aws:ec2/getInstanceType:getInstanceType", args, &rv, opts...)
 	if err != nil {
@@ -168,17 +179,18 @@ type GetInstanceTypeResult struct {
 }
 
 func GetInstanceTypeOutput(ctx *pulumi.Context, args GetInstanceTypeOutputArgs, opts ...pulumi.InvokeOption) GetInstanceTypeResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetInstanceTypeResultOutput, error) {
 			args := v.(GetInstanceTypeArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetInstanceTypeResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getInstanceType:getInstanceType", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getInstanceType:getInstanceType", args, &rv, "", opts...)
 			if err != nil {
 				return GetInstanceTypeResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetInstanceTypeResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetInstanceTypeResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetInstanceTypeResultOutput), nil
 			}

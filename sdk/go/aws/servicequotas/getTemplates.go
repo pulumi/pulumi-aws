@@ -5,6 +5,7 @@ package servicequotas
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetTemplates(ctx *pulumi.Context, args *GetTemplatesArgs, opts ...pulumi.InvokeOption) (*GetTemplatesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetTemplatesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetTemplatesResult{}, errors.New("DependsOn is not supported for direct form invoke GetTemplates, use GetTemplatesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetTemplatesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetTemplates, use GetTemplatesOutput instead")
+	}
 	var rv GetTemplatesResult
 	err := ctx.Invoke("aws:servicequotas/getTemplates:getTemplates", args, &rv, opts...)
 	if err != nil {
@@ -68,17 +79,18 @@ type GetTemplatesResult struct {
 }
 
 func GetTemplatesOutput(ctx *pulumi.Context, args GetTemplatesOutputArgs, opts ...pulumi.InvokeOption) GetTemplatesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetTemplatesResultOutput, error) {
 			args := v.(GetTemplatesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetTemplatesResult
-			secret, err := ctx.InvokePackageRaw("aws:servicequotas/getTemplates:getTemplates", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:servicequotas/getTemplates:getTemplates", args, &rv, "", opts...)
 			if err != nil {
 				return GetTemplatesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetTemplatesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetTemplatesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetTemplatesResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package networkmanager
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func GetConnections(ctx *pulumi.Context, args *GetConnectionsArgs, opts ...pulumi.InvokeOption) (*GetConnectionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetConnectionsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetConnectionsResult{}, errors.New("DependsOn is not supported for direct form invoke GetConnections, use GetConnectionsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetConnectionsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetConnections, use GetConnectionsOutput instead")
+	}
 	var rv GetConnectionsResult
 	err := ctx.Invoke("aws:networkmanager/getConnections:getConnections", args, &rv, opts...)
 	if err != nil {
@@ -73,17 +84,18 @@ type GetConnectionsResult struct {
 }
 
 func GetConnectionsOutput(ctx *pulumi.Context, args GetConnectionsOutputArgs, opts ...pulumi.InvokeOption) GetConnectionsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetConnectionsResultOutput, error) {
 			args := v.(GetConnectionsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetConnectionsResult
-			secret, err := ctx.InvokePackageRaw("aws:networkmanager/getConnections:getConnections", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:networkmanager/getConnections:getConnections", args, &rv, "", opts...)
 			if err != nil {
 				return GetConnectionsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetConnectionsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetConnectionsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetConnectionsResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package outposts
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -14,6 +15,16 @@ import (
 // Information about a specific hardware asset in an Outpost.
 func GetAsset(ctx *pulumi.Context, args *GetAssetArgs, opts ...pulumi.InvokeOption) (*GetAssetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetAssetResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetAssetResult{}, errors.New("DependsOn is not supported for direct form invoke GetAsset, use GetAssetOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetAssetResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetAsset, use GetAssetOutput instead")
+	}
 	var rv GetAssetResult
 	err := ctx.Invoke("aws:outposts/getAsset:getAsset", args, &rv, opts...)
 	if err != nil {
@@ -47,17 +58,18 @@ type GetAssetResult struct {
 }
 
 func GetAssetOutput(ctx *pulumi.Context, args GetAssetOutputArgs, opts ...pulumi.InvokeOption) GetAssetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAssetResultOutput, error) {
 			args := v.(GetAssetArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetAssetResult
-			secret, err := ctx.InvokePackageRaw("aws:outposts/getAsset:getAsset", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:outposts/getAsset:getAsset", args, &rv, "", opts...)
 			if err != nil {
 				return GetAssetResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetAssetResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetAssetResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetAssetResultOutput), nil
 			}

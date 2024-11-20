@@ -5,6 +5,7 @@ package imagebuilder
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -47,6 +48,16 @@ import (
 // ```
 func GetDistributionConfigurations(ctx *pulumi.Context, args *GetDistributionConfigurationsArgs, opts ...pulumi.InvokeOption) (*GetDistributionConfigurationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetDistributionConfigurationsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetDistributionConfigurationsResult{}, errors.New("DependsOn is not supported for direct form invoke GetDistributionConfigurations, use GetDistributionConfigurationsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetDistributionConfigurationsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetDistributionConfigurations, use GetDistributionConfigurationsOutput instead")
+	}
 	var rv GetDistributionConfigurationsResult
 	err := ctx.Invoke("aws:imagebuilder/getDistributionConfigurations:getDistributionConfigurations", args, &rv, opts...)
 	if err != nil {
@@ -73,17 +84,18 @@ type GetDistributionConfigurationsResult struct {
 }
 
 func GetDistributionConfigurationsOutput(ctx *pulumi.Context, args GetDistributionConfigurationsOutputArgs, opts ...pulumi.InvokeOption) GetDistributionConfigurationsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetDistributionConfigurationsResultOutput, error) {
 			args := v.(GetDistributionConfigurationsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetDistributionConfigurationsResult
-			secret, err := ctx.InvokePackageRaw("aws:imagebuilder/getDistributionConfigurations:getDistributionConfigurations", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:imagebuilder/getDistributionConfigurations:getDistributionConfigurations", args, &rv, "", opts...)
 			if err != nil {
 				return GetDistributionConfigurationsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetDistributionConfigurationsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetDistributionConfigurationsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetDistributionConfigurationsResultOutput), nil
 			}

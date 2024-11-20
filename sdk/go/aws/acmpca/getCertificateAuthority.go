@@ -5,6 +5,7 @@ package acmpca
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupCertificateAuthority(ctx *pulumi.Context, args *LookupCertificateAuthorityArgs, opts ...pulumi.InvokeOption) (*LookupCertificateAuthorityResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupCertificateAuthorityResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupCertificateAuthorityResult{}, errors.New("DependsOn is not supported for direct form invoke LookupCertificateAuthority, use LookupCertificateAuthorityOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupCertificateAuthorityResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupCertificateAuthority, use LookupCertificateAuthorityOutput instead")
+	}
 	var rv LookupCertificateAuthorityResult
 	err := ctx.Invoke("aws:acmpca/getCertificateAuthority:getCertificateAuthority", args, &rv, opts...)
 	if err != nil {
@@ -87,17 +98,18 @@ type LookupCertificateAuthorityResult struct {
 }
 
 func LookupCertificateAuthorityOutput(ctx *pulumi.Context, args LookupCertificateAuthorityOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateAuthorityResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCertificateAuthorityResultOutput, error) {
 			args := v.(LookupCertificateAuthorityArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupCertificateAuthorityResult
-			secret, err := ctx.InvokePackageRaw("aws:acmpca/getCertificateAuthority:getCertificateAuthority", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:acmpca/getCertificateAuthority:getCertificateAuthority", args, &rv, "", opts...)
 			if err != nil {
 				return LookupCertificateAuthorityResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupCertificateAuthorityResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupCertificateAuthorityResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupCertificateAuthorityResultOutput), nil
 			}

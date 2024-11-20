@@ -5,6 +5,7 @@ package aws
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -58,6 +59,16 @@ import (
 // ```
 func GetPartition(ctx *pulumi.Context, args *GetPartitionArgs, opts ...pulumi.InvokeOption) (*GetPartitionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetPartitionResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetPartitionResult{}, errors.New("DependsOn is not supported for direct form invoke GetPartition, use GetPartitionOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetPartitionResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetPartition, use GetPartitionOutput instead")
+	}
 	var rv GetPartitionResult
 	err := ctx.Invoke("aws:index/getPartition:getPartition", args, &rv, opts...)
 	if err != nil {
@@ -85,17 +96,18 @@ type GetPartitionResult struct {
 }
 
 func GetPartitionOutput(ctx *pulumi.Context, args GetPartitionOutputArgs, opts ...pulumi.InvokeOption) GetPartitionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetPartitionResultOutput, error) {
 			args := v.(GetPartitionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetPartitionResult
-			secret, err := ctx.InvokePackageRaw("aws:index/getPartition:getPartition", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:index/getPartition:getPartition", args, &rv, "", opts...)
 			if err != nil {
 				return GetPartitionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetPartitionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetPartitionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetPartitionResultOutput), nil
 			}

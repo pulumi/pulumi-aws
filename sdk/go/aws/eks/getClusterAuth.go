@@ -5,6 +5,7 @@ package eks
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -51,6 +52,16 @@ import (
 // ```
 func GetClusterAuth(ctx *pulumi.Context, args *GetClusterAuthArgs, opts ...pulumi.InvokeOption) (*GetClusterAuthResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetClusterAuthResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetClusterAuthResult{}, errors.New("DependsOn is not supported for direct form invoke GetClusterAuth, use GetClusterAuthOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetClusterAuthResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetClusterAuth, use GetClusterAuthOutput instead")
+	}
 	var rv GetClusterAuthResult
 	err := ctx.Invoke("aws:eks/getClusterAuth:getClusterAuth", args, &rv, opts...)
 	if err != nil {
@@ -75,17 +86,18 @@ type GetClusterAuthResult struct {
 }
 
 func GetClusterAuthOutput(ctx *pulumi.Context, args GetClusterAuthOutputArgs, opts ...pulumi.InvokeOption) GetClusterAuthResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetClusterAuthResultOutput, error) {
 			args := v.(GetClusterAuthArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetClusterAuthResult
-			secret, err := ctx.InvokePackageRaw("aws:eks/getClusterAuth:getClusterAuth", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:eks/getClusterAuth:getClusterAuth", args, &rv, "", opts...)
 			if err != nil {
 				return GetClusterAuthResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetClusterAuthResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetClusterAuthResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetClusterAuthResultOutput), nil
 			}

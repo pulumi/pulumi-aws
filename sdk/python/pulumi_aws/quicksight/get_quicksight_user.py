@@ -199,7 +199,7 @@ def get_quicksight_user(aws_account_id: Optional[str] = None,
 def get_quicksight_user_output(aws_account_id: Optional[pulumi.Input[Optional[str]]] = None,
                                namespace: Optional[pulumi.Input[Optional[str]]] = None,
                                user_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQuicksightUserResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQuicksightUserResult]:
     """
     This data source can be used to fetch information about a specific
     QuickSight user. By using this data source, you can reference QuickSight user
@@ -227,7 +227,7 @@ def get_quicksight_user_output(aws_account_id: Optional[pulumi.Input[Optional[st
     __args__['awsAccountId'] = aws_account_id
     __args__['namespace'] = namespace
     __args__['userName'] = user_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:quicksight/getQuicksightUser:getQuicksightUser', __args__, opts=opts, typ=GetQuicksightUserResult)
     return __ret__.apply(lambda __response__: GetQuicksightUserResult(
         active=pulumi.get(__response__, 'active'),

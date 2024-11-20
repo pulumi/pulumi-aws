@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -57,6 +58,16 @@ import (
 // ```
 func GetVpcIpamPools(ctx *pulumi.Context, args *GetVpcIpamPoolsArgs, opts ...pulumi.InvokeOption) (*GetVpcIpamPoolsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetVpcIpamPoolsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetVpcIpamPoolsResult{}, errors.New("DependsOn is not supported for direct form invoke GetVpcIpamPools, use GetVpcIpamPoolsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetVpcIpamPoolsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetVpcIpamPools, use GetVpcIpamPoolsOutput instead")
+	}
 	var rv GetVpcIpamPoolsResult
 	err := ctx.Invoke("aws:ec2/getVpcIpamPools:getVpcIpamPools", args, &rv, opts...)
 	if err != nil {
@@ -81,17 +92,18 @@ type GetVpcIpamPoolsResult struct {
 }
 
 func GetVpcIpamPoolsOutput(ctx *pulumi.Context, args GetVpcIpamPoolsOutputArgs, opts ...pulumi.InvokeOption) GetVpcIpamPoolsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetVpcIpamPoolsResultOutput, error) {
 			args := v.(GetVpcIpamPoolsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetVpcIpamPoolsResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getVpcIpamPools:getVpcIpamPools", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getVpcIpamPools:getVpcIpamPools", args, &rv, "", opts...)
 			if err != nil {
 				return GetVpcIpamPoolsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetVpcIpamPoolsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetVpcIpamPoolsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetVpcIpamPoolsResultOutput), nil
 			}

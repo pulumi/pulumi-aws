@@ -5,6 +5,7 @@ package route53
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -44,6 +45,16 @@ import (
 // ```
 func LookupResolverFirewallConfig(ctx *pulumi.Context, args *LookupResolverFirewallConfigArgs, opts ...pulumi.InvokeOption) (*LookupResolverFirewallConfigResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupResolverFirewallConfigResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupResolverFirewallConfigResult{}, errors.New("DependsOn is not supported for direct form invoke LookupResolverFirewallConfig, use LookupResolverFirewallConfigOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupResolverFirewallConfigResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupResolverFirewallConfig, use LookupResolverFirewallConfigOutput instead")
+	}
 	var rv LookupResolverFirewallConfigResult
 	err := ctx.Invoke("aws:route53/getResolverFirewallConfig:getResolverFirewallConfig", args, &rv, opts...)
 	if err != nil {
@@ -70,17 +81,18 @@ type LookupResolverFirewallConfigResult struct {
 }
 
 func LookupResolverFirewallConfigOutput(ctx *pulumi.Context, args LookupResolverFirewallConfigOutputArgs, opts ...pulumi.InvokeOption) LookupResolverFirewallConfigResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupResolverFirewallConfigResultOutput, error) {
 			args := v.(LookupResolverFirewallConfigArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupResolverFirewallConfigResult
-			secret, err := ctx.InvokePackageRaw("aws:route53/getResolverFirewallConfig:getResolverFirewallConfig", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:route53/getResolverFirewallConfig:getResolverFirewallConfig", args, &rv, "", opts...)
 			if err != nil {
 				return LookupResolverFirewallConfigResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupResolverFirewallConfigResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupResolverFirewallConfigResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupResolverFirewallConfigResultOutput), nil
 			}

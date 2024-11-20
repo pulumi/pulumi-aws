@@ -101,7 +101,7 @@ def get_tracker_association(consumer_arn: Optional[str] = None,
         tracker_name=pulumi.get(__ret__, 'tracker_name'))
 def get_tracker_association_output(consumer_arn: Optional[pulumi.Input[str]] = None,
                                    tracker_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrackerAssociationResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrackerAssociationResult]:
     """
     Retrieve information about a Location Service Tracker Association.
 
@@ -124,7 +124,7 @@ def get_tracker_association_output(consumer_arn: Optional[pulumi.Input[str]] = N
     __args__ = dict()
     __args__['consumerArn'] = consumer_arn
     __args__['trackerName'] = tracker_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:location/getTrackerAssociation:getTrackerAssociation', __args__, opts=opts, typ=GetTrackerAssociationResult)
     return __ret__.apply(lambda __response__: GetTrackerAssociationResult(
         consumer_arn=pulumi.get(__response__, 'consumer_arn'),

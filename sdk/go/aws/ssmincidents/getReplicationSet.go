@@ -5,6 +5,7 @@ package ssmincidents
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupReplicationSet(ctx *pulumi.Context, args *LookupReplicationSetArgs, opts ...pulumi.InvokeOption) (*LookupReplicationSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupReplicationSetResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupReplicationSetResult{}, errors.New("DependsOn is not supported for direct form invoke LookupReplicationSet, use LookupReplicationSetOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupReplicationSetResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupReplicationSet, use LookupReplicationSetOutput instead")
+	}
 	var rv LookupReplicationSetResult
 	err := ctx.Invoke("aws:ssmincidents/getReplicationSet:getReplicationSet", args, &rv, opts...)
 	if err != nil {
@@ -77,17 +88,18 @@ type LookupReplicationSetResult struct {
 }
 
 func LookupReplicationSetOutput(ctx *pulumi.Context, args LookupReplicationSetOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationSetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupReplicationSetResultOutput, error) {
 			args := v.(LookupReplicationSetArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupReplicationSetResult
-			secret, err := ctx.InvokePackageRaw("aws:ssmincidents/getReplicationSet:getReplicationSet", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ssmincidents/getReplicationSet:getReplicationSet", args, &rv, "", opts...)
 			if err != nil {
 				return LookupReplicationSetResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupReplicationSetResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupReplicationSetResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupReplicationSetResultOutput), nil
 			}

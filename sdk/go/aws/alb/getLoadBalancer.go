@@ -5,6 +5,7 @@ package alb
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -57,6 +58,16 @@ import (
 // ```
 func LookupLoadBalancer(ctx *pulumi.Context, args *LookupLoadBalancerArgs, opts ...pulumi.InvokeOption) (*LookupLoadBalancerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupLoadBalancerResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupLoadBalancerResult{}, errors.New("DependsOn is not supported for direct form invoke LookupLoadBalancer, use LookupLoadBalancerOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupLoadBalancerResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupLoadBalancer, use LookupLoadBalancerOutput instead")
+	}
 	var rv LookupLoadBalancerResult
 	err := ctx.Invoke("aws:alb/getLoadBalancer:getLoadBalancer", args, &rv, opts...)
 	if err != nil {
@@ -115,17 +126,18 @@ type LookupLoadBalancerResult struct {
 }
 
 func LookupLoadBalancerOutput(ctx *pulumi.Context, args LookupLoadBalancerOutputArgs, opts ...pulumi.InvokeOption) LookupLoadBalancerResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLoadBalancerResultOutput, error) {
 			args := v.(LookupLoadBalancerArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupLoadBalancerResult
-			secret, err := ctx.InvokePackageRaw("aws:alb/getLoadBalancer:getLoadBalancer", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:alb/getLoadBalancer:getLoadBalancer", args, &rv, "", opts...)
 			if err != nil {
 				return LookupLoadBalancerResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupLoadBalancerResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupLoadBalancerResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupLoadBalancerResultOutput), nil
 			}

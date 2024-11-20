@@ -5,6 +5,7 @@ package resourceexplorer
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func Search(ctx *pulumi.Context, args *SearchArgs, opts ...pulumi.InvokeOption) (*SearchResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &SearchResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &SearchResult{}, errors.New("DependsOn is not supported for direct form invoke Search, use SearchOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &SearchResult{}, errors.New("DependsOnInputs is not supported for direct form invoke Search, use SearchOutput instead")
+	}
 	var rv SearchResult
 	err := ctx.Invoke("aws:resourceexplorer/search:Search", args, &rv, opts...)
 	if err != nil {
@@ -74,17 +85,18 @@ type SearchResult struct {
 }
 
 func SearchOutput(ctx *pulumi.Context, args SearchOutputArgs, opts ...pulumi.InvokeOption) SearchResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (SearchResultOutput, error) {
 			args := v.(SearchArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv SearchResult
-			secret, err := ctx.InvokePackageRaw("aws:resourceexplorer/search:Search", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:resourceexplorer/search:Search", args, &rv, "", opts...)
 			if err != nil {
 				return SearchResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(SearchResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(SearchResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(SearchResultOutput), nil
 			}

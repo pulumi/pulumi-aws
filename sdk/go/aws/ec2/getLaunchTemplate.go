@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -73,6 +74,16 @@ import (
 // ```
 func LookupLaunchTemplate(ctx *pulumi.Context, args *LookupLaunchTemplateArgs, opts ...pulumi.InvokeOption) (*LookupLaunchTemplateResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupLaunchTemplateResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupLaunchTemplateResult{}, errors.New("DependsOn is not supported for direct form invoke LookupLaunchTemplate, use LookupLaunchTemplateOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupLaunchTemplateResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupLaunchTemplate, use LookupLaunchTemplateOutput instead")
+	}
 	var rv LookupLaunchTemplateResult
 	err := ctx.Invoke("aws:ec2/getLaunchTemplate:getLaunchTemplate", args, &rv, opts...)
 	if err != nil {
@@ -138,17 +149,18 @@ type LookupLaunchTemplateResult struct {
 }
 
 func LookupLaunchTemplateOutput(ctx *pulumi.Context, args LookupLaunchTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupLaunchTemplateResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLaunchTemplateResultOutput, error) {
 			args := v.(LookupLaunchTemplateArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupLaunchTemplateResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getLaunchTemplate:getLaunchTemplate", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getLaunchTemplate:getLaunchTemplate", args, &rv, "", opts...)
 			if err != nil {
 				return LookupLaunchTemplateResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupLaunchTemplateResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupLaunchTemplateResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupLaunchTemplateResultOutput), nil
 			}

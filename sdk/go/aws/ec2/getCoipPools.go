@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -14,6 +15,16 @@ import (
 // Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
 func GetCoipPools(ctx *pulumi.Context, args *GetCoipPoolsArgs, opts ...pulumi.InvokeOption) (*GetCoipPoolsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetCoipPoolsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetCoipPoolsResult{}, errors.New("DependsOn is not supported for direct form invoke GetCoipPools, use GetCoipPoolsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetCoipPoolsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetCoipPools, use GetCoipPoolsOutput instead")
+	}
 	var rv GetCoipPoolsResult
 	err := ctx.Invoke("aws:ec2/getCoipPools:getCoipPools", args, &rv, opts...)
 	if err != nil {
@@ -45,17 +56,18 @@ type GetCoipPoolsResult struct {
 }
 
 func GetCoipPoolsOutput(ctx *pulumi.Context, args GetCoipPoolsOutputArgs, opts ...pulumi.InvokeOption) GetCoipPoolsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetCoipPoolsResultOutput, error) {
 			args := v.(GetCoipPoolsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetCoipPoolsResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getCoipPools:getCoipPools", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getCoipPools:getCoipPools", args, &rv, "", opts...)
 			if err != nil {
 				return GetCoipPoolsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetCoipPoolsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetCoipPoolsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetCoipPoolsResultOutput), nil
 			}

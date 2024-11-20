@@ -5,6 +5,7 @@ package route53
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -99,6 +100,16 @@ import (
 // ```
 func GetResolverRules(ctx *pulumi.Context, args *GetResolverRulesArgs, opts ...pulumi.InvokeOption) (*GetResolverRulesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetResolverRulesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetResolverRulesResult{}, errors.New("DependsOn is not supported for direct form invoke GetResolverRules, use GetResolverRulesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetResolverRulesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetResolverRules, use GetResolverRulesOutput instead")
+	}
 	var rv GetResolverRulesResult
 	err := ctx.Invoke("aws:route53/getResolverRules:getResolverRules", args, &rv, opts...)
 	if err != nil {
@@ -137,17 +148,18 @@ type GetResolverRulesResult struct {
 }
 
 func GetResolverRulesOutput(ctx *pulumi.Context, args GetResolverRulesOutputArgs, opts ...pulumi.InvokeOption) GetResolverRulesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetResolverRulesResultOutput, error) {
 			args := v.(GetResolverRulesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetResolverRulesResult
-			secret, err := ctx.InvokePackageRaw("aws:route53/getResolverRules:getResolverRules", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:route53/getResolverRules:getResolverRules", args, &rv, "", opts...)
 			if err != nil {
 				return GetResolverRulesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetResolverRulesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetResolverRulesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetResolverRulesResultOutput), nil
 			}

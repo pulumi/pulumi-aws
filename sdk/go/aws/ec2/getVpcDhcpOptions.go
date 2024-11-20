@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -81,6 +82,16 @@ import (
 // ```
 func LookupVpcDhcpOptions(ctx *pulumi.Context, args *LookupVpcDhcpOptionsArgs, opts ...pulumi.InvokeOption) (*LookupVpcDhcpOptionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupVpcDhcpOptionsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupVpcDhcpOptionsResult{}, errors.New("DependsOn is not supported for direct form invoke LookupVpcDhcpOptions, use LookupVpcDhcpOptionsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupVpcDhcpOptionsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupVpcDhcpOptions, use LookupVpcDhcpOptionsOutput instead")
+	}
 	var rv LookupVpcDhcpOptionsResult
 	err := ctx.Invoke("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", args, &rv, opts...)
 	if err != nil {
@@ -127,17 +138,18 @@ type LookupVpcDhcpOptionsResult struct {
 }
 
 func LookupVpcDhcpOptionsOutput(ctx *pulumi.Context, args LookupVpcDhcpOptionsOutputArgs, opts ...pulumi.InvokeOption) LookupVpcDhcpOptionsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVpcDhcpOptionsResultOutput, error) {
 			args := v.(LookupVpcDhcpOptionsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVpcDhcpOptionsResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVpcDhcpOptionsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVpcDhcpOptionsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVpcDhcpOptionsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVpcDhcpOptionsResultOutput), nil
 			}

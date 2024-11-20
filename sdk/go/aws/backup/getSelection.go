@@ -5,6 +5,7 @@ package backup
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupSelection(ctx *pulumi.Context, args *LookupSelectionArgs, opts ...pulumi.InvokeOption) (*LookupSelectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupSelectionResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupSelectionResult{}, errors.New("DependsOn is not supported for direct form invoke LookupSelection, use LookupSelectionOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupSelectionResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupSelection, use LookupSelectionOutput instead")
+	}
 	var rv LookupSelectionResult
 	err := ctx.Invoke("aws:backup/getSelection:getSelection", args, &rv, opts...)
 	if err != nil {
@@ -72,17 +83,18 @@ type LookupSelectionResult struct {
 }
 
 func LookupSelectionOutput(ctx *pulumi.Context, args LookupSelectionOutputArgs, opts ...pulumi.InvokeOption) LookupSelectionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSelectionResultOutput, error) {
 			args := v.(LookupSelectionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSelectionResult
-			secret, err := ctx.InvokePackageRaw("aws:backup/getSelection:getSelection", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:backup/getSelection:getSelection", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSelectionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSelectionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSelectionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSelectionResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package cognito
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func GetUserPoolClients(ctx *pulumi.Context, args *GetUserPoolClientsArgs, opts ...pulumi.InvokeOption) (*GetUserPoolClientsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetUserPoolClientsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetUserPoolClientsResult{}, errors.New("DependsOn is not supported for direct form invoke GetUserPoolClients, use GetUserPoolClientsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetUserPoolClientsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetUserPoolClients, use GetUserPoolClientsOutput instead")
+	}
 	var rv GetUserPoolClientsResult
 	err := ctx.Invoke("aws:cognito/getUserPoolClients:getUserPoolClients", args, &rv, opts...)
 	if err != nil {
@@ -66,17 +77,18 @@ type GetUserPoolClientsResult struct {
 }
 
 func GetUserPoolClientsOutput(ctx *pulumi.Context, args GetUserPoolClientsOutputArgs, opts ...pulumi.InvokeOption) GetUserPoolClientsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetUserPoolClientsResultOutput, error) {
 			args := v.(GetUserPoolClientsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetUserPoolClientsResult
-			secret, err := ctx.InvokePackageRaw("aws:cognito/getUserPoolClients:getUserPoolClients", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:cognito/getUserPoolClients:getUserPoolClients", args, &rv, "", opts...)
 			if err != nil {
 				return GetUserPoolClientsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetUserPoolClientsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetUserPoolClientsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetUserPoolClientsResultOutput), nil
 			}

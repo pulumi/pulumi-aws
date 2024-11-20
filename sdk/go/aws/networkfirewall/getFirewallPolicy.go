@@ -5,6 +5,7 @@ package networkfirewall
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -99,6 +100,16 @@ import (
 // > **Note:** If there are multiple firewall policies in an account with the same `name`, and `arn` is not specified, the default behavior will return the firewall policy with `name` that was created in the account.
 func LookupFirewallPolicy(ctx *pulumi.Context, args *LookupFirewallPolicyArgs, opts ...pulumi.InvokeOption) (*LookupFirewallPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupFirewallPolicyResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupFirewallPolicyResult{}, errors.New("DependsOn is not supported for direct form invoke LookupFirewallPolicy, use LookupFirewallPolicyOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupFirewallPolicyResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupFirewallPolicy, use LookupFirewallPolicyOutput instead")
+	}
 	var rv LookupFirewallPolicyResult
 	err := ctx.Invoke("aws:networkfirewall/getFirewallPolicy:getFirewallPolicy", args, &rv, opts...)
 	if err != nil {
@@ -134,17 +145,18 @@ type LookupFirewallPolicyResult struct {
 }
 
 func LookupFirewallPolicyOutput(ctx *pulumi.Context, args LookupFirewallPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupFirewallPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFirewallPolicyResultOutput, error) {
 			args := v.(LookupFirewallPolicyArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupFirewallPolicyResult
-			secret, err := ctx.InvokePackageRaw("aws:networkfirewall/getFirewallPolicy:getFirewallPolicy", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:networkfirewall/getFirewallPolicy:getFirewallPolicy", args, &rv, "", opts...)
 			if err != nil {
 				return LookupFirewallPolicyResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupFirewallPolicyResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupFirewallPolicyResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupFirewallPolicyResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package location
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetTrackerAssociations(ctx *pulumi.Context, args *GetTrackerAssociationsArgs, opts ...pulumi.InvokeOption) (*GetTrackerAssociationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetTrackerAssociationsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetTrackerAssociationsResult{}, errors.New("DependsOn is not supported for direct form invoke GetTrackerAssociations, use GetTrackerAssociationsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetTrackerAssociationsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetTrackerAssociations, use GetTrackerAssociationsOutput instead")
+	}
 	var rv GetTrackerAssociationsResult
 	err := ctx.Invoke("aws:location/getTrackerAssociations:getTrackerAssociations", args, &rv, opts...)
 	if err != nil {
@@ -66,17 +77,18 @@ type GetTrackerAssociationsResult struct {
 }
 
 func GetTrackerAssociationsOutput(ctx *pulumi.Context, args GetTrackerAssociationsOutputArgs, opts ...pulumi.InvokeOption) GetTrackerAssociationsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetTrackerAssociationsResultOutput, error) {
 			args := v.(GetTrackerAssociationsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetTrackerAssociationsResult
-			secret, err := ctx.InvokePackageRaw("aws:location/getTrackerAssociations:getTrackerAssociations", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:location/getTrackerAssociations:getTrackerAssociations", args, &rv, "", opts...)
 			if err != nil {
 				return GetTrackerAssociationsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetTrackerAssociationsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetTrackerAssociationsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetTrackerAssociationsResultOutput), nil
 			}

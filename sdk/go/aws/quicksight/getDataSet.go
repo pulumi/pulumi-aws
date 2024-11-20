@@ -5,6 +5,7 @@ package quicksight
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupDataSet(ctx *pulumi.Context, args *LookupDataSetArgs, opts ...pulumi.InvokeOption) (*LookupDataSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupDataSetResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupDataSetResult{}, errors.New("DependsOn is not supported for direct form invoke LookupDataSet, use LookupDataSetOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupDataSetResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupDataSet, use LookupDataSetOutput instead")
+	}
 	var rv LookupDataSetResult
 	err := ctx.Invoke("aws:quicksight/getDataSet:getDataSet", args, &rv, opts...)
 	if err != nil {
@@ -87,17 +98,18 @@ type LookupDataSetResult struct {
 }
 
 func LookupDataSetOutput(ctx *pulumi.Context, args LookupDataSetOutputArgs, opts ...pulumi.InvokeOption) LookupDataSetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDataSetResultOutput, error) {
 			args := v.(LookupDataSetArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDataSetResult
-			secret, err := ctx.InvokePackageRaw("aws:quicksight/getDataSet:getDataSet", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:quicksight/getDataSet:getDataSet", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDataSetResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDataSetResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDataSetResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDataSetResultOutput), nil
 			}

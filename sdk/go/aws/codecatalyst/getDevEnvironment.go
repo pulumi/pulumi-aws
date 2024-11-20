@@ -5,6 +5,7 @@ package codecatalyst
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -44,6 +45,16 @@ import (
 // ```
 func LookupDevEnvironment(ctx *pulumi.Context, args *LookupDevEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupDevEnvironmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupDevEnvironmentResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupDevEnvironmentResult{}, errors.New("DependsOn is not supported for direct form invoke LookupDevEnvironment, use LookupDevEnvironmentOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupDevEnvironmentResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupDevEnvironment, use LookupDevEnvironmentOutput instead")
+	}
 	var rv LookupDevEnvironmentResult
 	err := ctx.Invoke("aws:codecatalyst/getDevEnvironment:getDevEnvironment", args, &rv, opts...)
 	if err != nil {
@@ -100,17 +111,18 @@ type LookupDevEnvironmentResult struct {
 }
 
 func LookupDevEnvironmentOutput(ctx *pulumi.Context, args LookupDevEnvironmentOutputArgs, opts ...pulumi.InvokeOption) LookupDevEnvironmentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDevEnvironmentResultOutput, error) {
 			args := v.(LookupDevEnvironmentArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDevEnvironmentResult
-			secret, err := ctx.InvokePackageRaw("aws:codecatalyst/getDevEnvironment:getDevEnvironment", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:codecatalyst/getDevEnvironment:getDevEnvironment", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDevEnvironmentResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDevEnvironmentResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDevEnvironmentResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDevEnvironmentResultOutput), nil
 			}

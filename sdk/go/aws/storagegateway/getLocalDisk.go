@@ -5,6 +5,7 @@ package storagegateway
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func GetLocalDisk(ctx *pulumi.Context, args *GetLocalDiskArgs, opts ...pulumi.InvokeOption) (*GetLocalDiskResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetLocalDiskResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetLocalDiskResult{}, errors.New("DependsOn is not supported for direct form invoke GetLocalDisk, use GetLocalDiskOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetLocalDiskResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetLocalDisk, use GetLocalDiskOutput instead")
+	}
 	var rv GetLocalDiskResult
 	err := ctx.Invoke("aws:storagegateway/getLocalDisk:getLocalDisk", args, &rv, opts...)
 	if err != nil {
@@ -71,17 +82,18 @@ type GetLocalDiskResult struct {
 }
 
 func GetLocalDiskOutput(ctx *pulumi.Context, args GetLocalDiskOutputArgs, opts ...pulumi.InvokeOption) GetLocalDiskResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetLocalDiskResultOutput, error) {
 			args := v.(GetLocalDiskArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetLocalDiskResult
-			secret, err := ctx.InvokePackageRaw("aws:storagegateway/getLocalDisk:getLocalDisk", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:storagegateway/getLocalDisk:getLocalDisk", args, &rv, "", opts...)
 			if err != nil {
 				return GetLocalDiskResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetLocalDiskResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetLocalDiskResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetLocalDiskResultOutput), nil
 			}

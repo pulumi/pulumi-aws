@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -129,6 +130,16 @@ import (
 // ```
 func GetElasticIp(ctx *pulumi.Context, args *GetElasticIpArgs, opts ...pulumi.InvokeOption) (*GetElasticIpResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetElasticIpResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetElasticIpResult{}, errors.New("DependsOn is not supported for direct form invoke GetElasticIp, use GetElasticIpOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetElasticIpResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetElasticIp, use GetElasticIpOutput instead")
+	}
 	var rv GetElasticIpResult
 	err := ctx.Invoke("aws:ec2/getElasticIp:getElasticIp", args, &rv, opts...)
 	if err != nil {
@@ -190,17 +201,18 @@ type GetElasticIpResult struct {
 }
 
 func GetElasticIpOutput(ctx *pulumi.Context, args GetElasticIpOutputArgs, opts ...pulumi.InvokeOption) GetElasticIpResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetElasticIpResultOutput, error) {
 			args := v.(GetElasticIpArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetElasticIpResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getElasticIp:getElasticIp", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getElasticIp:getElasticIp", args, &rv, "", opts...)
 			if err != nil {
 				return GetElasticIpResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetElasticIpResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetElasticIpResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetElasticIpResultOutput), nil
 			}

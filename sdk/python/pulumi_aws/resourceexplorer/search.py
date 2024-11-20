@@ -130,7 +130,7 @@ def search(query_string: Optional[str] = None,
         view_arn=pulumi.get(__ret__, 'view_arn'))
 def search_output(query_string: Optional[pulumi.Input[str]] = None,
                   view_arn: Optional[pulumi.Input[Optional[str]]] = None,
-                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[SearchResult]:
+                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[SearchResult]:
     """
     Data source for managing an AWS Resource Explorer Search.
 
@@ -155,7 +155,7 @@ def search_output(query_string: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['queryString'] = query_string
     __args__['viewArn'] = view_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:resourceexplorer/search:Search', __args__, opts=opts, typ=SearchResult)
     return __ret__.apply(lambda __response__: SearchResult(
         id=pulumi.get(__response__, 'id'),

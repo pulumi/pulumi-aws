@@ -5,6 +5,7 @@ package location
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func GetRouteCalculator(ctx *pulumi.Context, args *GetRouteCalculatorArgs, opts ...pulumi.InvokeOption) (*GetRouteCalculatorResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetRouteCalculatorResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetRouteCalculatorResult{}, errors.New("DependsOn is not supported for direct form invoke GetRouteCalculator, use GetRouteCalculatorOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetRouteCalculatorResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetRouteCalculator, use GetRouteCalculatorOutput instead")
+	}
 	var rv GetRouteCalculatorResult
 	err := ctx.Invoke("aws:location/getRouteCalculator:getRouteCalculator", args, &rv, opts...)
 	if err != nil {
@@ -76,17 +87,18 @@ type GetRouteCalculatorResult struct {
 }
 
 func GetRouteCalculatorOutput(ctx *pulumi.Context, args GetRouteCalculatorOutputArgs, opts ...pulumi.InvokeOption) GetRouteCalculatorResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetRouteCalculatorResultOutput, error) {
 			args := v.(GetRouteCalculatorArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetRouteCalculatorResult
-			secret, err := ctx.InvokePackageRaw("aws:location/getRouteCalculator:getRouteCalculator", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:location/getRouteCalculator:getRouteCalculator", args, &rv, "", opts...)
 			if err != nil {
 				return GetRouteCalculatorResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetRouteCalculatorResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetRouteCalculatorResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetRouteCalculatorResultOutput), nil
 			}

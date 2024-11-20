@@ -5,6 +5,7 @@ package servicequotas
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetService(ctx *pulumi.Context, args *GetServiceArgs, opts ...pulumi.InvokeOption) (*GetServiceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetServiceResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetServiceResult{}, errors.New("DependsOn is not supported for direct form invoke GetService, use GetServiceOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetServiceResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetService, use GetServiceOutput instead")
+	}
 	var rv GetServiceResult
 	err := ctx.Invoke("aws:servicequotas/getService:getService", args, &rv, opts...)
 	if err != nil {
@@ -66,17 +77,18 @@ type GetServiceResult struct {
 }
 
 func GetServiceOutput(ctx *pulumi.Context, args GetServiceOutputArgs, opts ...pulumi.InvokeOption) GetServiceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetServiceResultOutput, error) {
 			args := v.(GetServiceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetServiceResult
-			secret, err := ctx.InvokePackageRaw("aws:servicequotas/getService:getService", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:servicequotas/getService:getService", args, &rv, "", opts...)
 			if err != nil {
 				return GetServiceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetServiceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetServiceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetServiceResultOutput), nil
 			}

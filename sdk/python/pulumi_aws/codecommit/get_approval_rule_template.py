@@ -175,7 +175,7 @@ def get_approval_rule_template(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         rule_content_sha256=pulumi.get(__ret__, 'rule_content_sha256'))
 def get_approval_rule_template_output(name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApprovalRuleTemplateResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApprovalRuleTemplateResult]:
     """
     Provides details about a specific CodeCommit Approval Rule Template.
 
@@ -193,7 +193,7 @@ def get_approval_rule_template_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:codecommit/getApprovalRuleTemplate:getApprovalRuleTemplate', __args__, opts=opts, typ=GetApprovalRuleTemplateResult)
     return __ret__.apply(lambda __response__: GetApprovalRuleTemplateResult(
         approval_rule_template_id=pulumi.get(__response__, 'approval_rule_template_id'),

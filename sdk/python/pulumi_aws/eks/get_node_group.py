@@ -325,7 +325,7 @@ def get_node_group(cluster_name: Optional[str] = None,
 def get_node_group_output(cluster_name: Optional[pulumi.Input[str]] = None,
                           node_group_name: Optional[pulumi.Input[str]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNodeGroupResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNodeGroupResult]:
     """
     Retrieve information about an EKS Node Group.
 
@@ -348,7 +348,7 @@ def get_node_group_output(cluster_name: Optional[pulumi.Input[str]] = None,
     __args__['clusterName'] = cluster_name
     __args__['nodeGroupName'] = node_group_name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:eks/getNodeGroup:getNodeGroup', __args__, opts=opts, typ=GetNodeGroupResult)
     return __ret__.apply(lambda __response__: GetNodeGroupResult(
         ami_type=pulumi.get(__response__, 'ami_type'),

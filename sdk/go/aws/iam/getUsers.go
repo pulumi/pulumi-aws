@@ -5,6 +5,7 @@ package iam
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -94,6 +95,16 @@ import (
 // ```
 func GetUsers(ctx *pulumi.Context, args *GetUsersArgs, opts ...pulumi.InvokeOption) (*GetUsersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetUsersResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetUsersResult{}, errors.New("DependsOn is not supported for direct form invoke GetUsers, use GetUsersOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetUsersResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetUsers, use GetUsersOutput instead")
+	}
 	var rv GetUsersResult
 	err := ctx.Invoke("aws:iam/getUsers:getUsers", args, &rv, opts...)
 	if err != nil {
@@ -123,17 +134,18 @@ type GetUsersResult struct {
 }
 
 func GetUsersOutput(ctx *pulumi.Context, args GetUsersOutputArgs, opts ...pulumi.InvokeOption) GetUsersResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetUsersResultOutput, error) {
 			args := v.(GetUsersArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetUsersResult
-			secret, err := ctx.InvokePackageRaw("aws:iam/getUsers:getUsers", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:iam/getUsers:getUsers", args, &rv, "", opts...)
 			if err != nil {
 				return GetUsersResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetUsersResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetUsersResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetUsersResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package ses
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -38,6 +39,16 @@ import (
 // ```
 func LookupActiveReceiptRuleSet(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupActiveReceiptRuleSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupActiveReceiptRuleSetResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupActiveReceiptRuleSetResult{}, errors.New("DependsOn is not supported for direct form invoke LookupActiveReceiptRuleSet, use LookupActiveReceiptRuleSetOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupActiveReceiptRuleSetResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupActiveReceiptRuleSet, use LookupActiveReceiptRuleSetOutput instead")
+	}
 	var rv LookupActiveReceiptRuleSetResult
 	err := ctx.Invoke("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", nil, &rv, opts...)
 	if err != nil {

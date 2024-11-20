@@ -5,6 +5,7 @@ package fsx
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupOntapFileSystem(ctx *pulumi.Context, args *LookupOntapFileSystemArgs, opts ...pulumi.InvokeOption) (*LookupOntapFileSystemResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupOntapFileSystemResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupOntapFileSystemResult{}, errors.New("DependsOn is not supported for direct form invoke LookupOntapFileSystem, use LookupOntapFileSystemOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupOntapFileSystemResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupOntapFileSystem, use LookupOntapFileSystemOutput instead")
+	}
 	var rv LookupOntapFileSystemResult
 	err := ctx.Invoke("aws:fsx/getOntapFileSystem:getOntapFileSystem", args, &rv, opts...)
 	if err != nil {
@@ -109,17 +120,18 @@ type LookupOntapFileSystemResult struct {
 }
 
 func LookupOntapFileSystemOutput(ctx *pulumi.Context, args LookupOntapFileSystemOutputArgs, opts ...pulumi.InvokeOption) LookupOntapFileSystemResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupOntapFileSystemResultOutput, error) {
 			args := v.(LookupOntapFileSystemArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupOntapFileSystemResult
-			secret, err := ctx.InvokePackageRaw("aws:fsx/getOntapFileSystem:getOntapFileSystem", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:fsx/getOntapFileSystem:getOntapFileSystem", args, &rv, "", opts...)
 			if err != nil {
 				return LookupOntapFileSystemResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupOntapFileSystemResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupOntapFileSystemResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupOntapFileSystemResultOutput), nil
 			}

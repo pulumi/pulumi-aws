@@ -5,6 +5,7 @@ package cognito
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func GetUserPoolSigningCertificate(ctx *pulumi.Context, args *GetUserPoolSigningCertificateArgs, opts ...pulumi.InvokeOption) (*GetUserPoolSigningCertificateResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetUserPoolSigningCertificateResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetUserPoolSigningCertificateResult{}, errors.New("DependsOn is not supported for direct form invoke GetUserPoolSigningCertificate, use GetUserPoolSigningCertificateOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetUserPoolSigningCertificateResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetUserPoolSigningCertificate, use GetUserPoolSigningCertificateOutput instead")
+	}
 	var rv GetUserPoolSigningCertificateResult
 	err := ctx.Invoke("aws:cognito/getUserPoolSigningCertificate:getUserPoolSigningCertificate", args, &rv, opts...)
 	if err != nil {
@@ -64,17 +75,18 @@ type GetUserPoolSigningCertificateResult struct {
 }
 
 func GetUserPoolSigningCertificateOutput(ctx *pulumi.Context, args GetUserPoolSigningCertificateOutputArgs, opts ...pulumi.InvokeOption) GetUserPoolSigningCertificateResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetUserPoolSigningCertificateResultOutput, error) {
 			args := v.(GetUserPoolSigningCertificateArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetUserPoolSigningCertificateResult
-			secret, err := ctx.InvokePackageRaw("aws:cognito/getUserPoolSigningCertificate:getUserPoolSigningCertificate", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:cognito/getUserPoolSigningCertificate:getUserPoolSigningCertificate", args, &rv, "", opts...)
 			if err != nil {
 				return GetUserPoolSigningCertificateResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetUserPoolSigningCertificateResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetUserPoolSigningCertificateResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetUserPoolSigningCertificateResultOutput), nil
 			}

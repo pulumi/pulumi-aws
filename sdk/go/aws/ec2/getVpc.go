@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -68,6 +69,16 @@ import (
 // ```
 func LookupVpc(ctx *pulumi.Context, args *LookupVpcArgs, opts ...pulumi.InvokeOption) (*LookupVpcResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupVpcResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupVpcResult{}, errors.New("DependsOn is not supported for direct form invoke LookupVpc, use LookupVpcOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupVpcResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupVpc, use LookupVpcOutput instead")
+	}
 	var rv LookupVpcResult
 	err := ctx.Invoke("aws:ec2/getVpc:getVpc", args, &rv, opts...)
 	if err != nil {
@@ -134,17 +145,18 @@ type LookupVpcResult struct {
 }
 
 func LookupVpcOutput(ctx *pulumi.Context, args LookupVpcOutputArgs, opts ...pulumi.InvokeOption) LookupVpcResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVpcResultOutput, error) {
 			args := v.(LookupVpcArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVpcResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getVpc:getVpc", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getVpc:getVpc", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVpcResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVpcResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVpcResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVpcResultOutput), nil
 			}

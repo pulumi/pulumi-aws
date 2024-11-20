@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -57,6 +58,16 @@ import (
 // ```
 func LookupSecurityGroup(ctx *pulumi.Context, args *LookupSecurityGroupArgs, opts ...pulumi.InvokeOption) (*LookupSecurityGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupSecurityGroupResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupSecurityGroupResult{}, errors.New("DependsOn is not supported for direct form invoke LookupSecurityGroup, use LookupSecurityGroupOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupSecurityGroupResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupSecurityGroup, use LookupSecurityGroupOutput instead")
+	}
 	var rv LookupSecurityGroupResult
 	err := ctx.Invoke("aws:ec2/getSecurityGroup:getSecurityGroup", args, &rv, opts...)
 	if err != nil {
@@ -98,17 +109,18 @@ type LookupSecurityGroupResult struct {
 }
 
 func LookupSecurityGroupOutput(ctx *pulumi.Context, args LookupSecurityGroupOutputArgs, opts ...pulumi.InvokeOption) LookupSecurityGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSecurityGroupResultOutput, error) {
 			args := v.(LookupSecurityGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSecurityGroupResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getSecurityGroup:getSecurityGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getSecurityGroup:getSecurityGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSecurityGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSecurityGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSecurityGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSecurityGroupResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package organizations
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -44,6 +45,16 @@ import (
 // ```
 func GetOrganizationalUnitChildAccounts(ctx *pulumi.Context, args *GetOrganizationalUnitChildAccountsArgs, opts ...pulumi.InvokeOption) (*GetOrganizationalUnitChildAccountsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetOrganizationalUnitChildAccountsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetOrganizationalUnitChildAccountsResult{}, errors.New("DependsOn is not supported for direct form invoke GetOrganizationalUnitChildAccounts, use GetOrganizationalUnitChildAccountsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetOrganizationalUnitChildAccountsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetOrganizationalUnitChildAccounts, use GetOrganizationalUnitChildAccountsOutput instead")
+	}
 	var rv GetOrganizationalUnitChildAccountsResult
 	err := ctx.Invoke("aws:organizations/getOrganizationalUnitChildAccounts:getOrganizationalUnitChildAccounts", args, &rv, opts...)
 	if err != nil {
@@ -68,17 +79,18 @@ type GetOrganizationalUnitChildAccountsResult struct {
 }
 
 func GetOrganizationalUnitChildAccountsOutput(ctx *pulumi.Context, args GetOrganizationalUnitChildAccountsOutputArgs, opts ...pulumi.InvokeOption) GetOrganizationalUnitChildAccountsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetOrganizationalUnitChildAccountsResultOutput, error) {
 			args := v.(GetOrganizationalUnitChildAccountsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetOrganizationalUnitChildAccountsResult
-			secret, err := ctx.InvokePackageRaw("aws:organizations/getOrganizationalUnitChildAccounts:getOrganizationalUnitChildAccounts", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:organizations/getOrganizationalUnitChildAccounts:getOrganizationalUnitChildAccounts", args, &rv, "", opts...)
 			if err != nil {
 				return GetOrganizationalUnitChildAccountsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetOrganizationalUnitChildAccountsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetOrganizationalUnitChildAccountsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetOrganizationalUnitChildAccountsResultOutput), nil
 			}

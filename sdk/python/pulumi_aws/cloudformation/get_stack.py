@@ -226,7 +226,7 @@ def get_stack(name: Optional[str] = None,
         timeout_in_minutes=pulumi.get(__ret__, 'timeout_in_minutes'))
 def get_stack_output(name: Optional[pulumi.Input[str]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStackResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStackResult]:
     """
     The CloudFormation Stack data source allows access to stack
     outputs and other useful data including the template body.
@@ -254,7 +254,7 @@ def get_stack_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cloudformation/getStack:getStack', __args__, opts=opts, typ=GetStackResult)
     return __ret__.apply(lambda __response__: GetStackResult(
         capabilities=pulumi.get(__response__, 'capabilities'),

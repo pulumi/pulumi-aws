@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -70,6 +71,16 @@ import (
 // Deprecated: aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool
 func GetVpcIamPool(ctx *pulumi.Context, args *GetVpcIamPoolArgs, opts ...pulumi.InvokeOption) (*GetVpcIamPoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetVpcIamPoolResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetVpcIamPoolResult{}, errors.New("DependsOn is not supported for direct form invoke GetVpcIamPool, use GetVpcIamPoolOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetVpcIamPoolResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetVpcIamPool, use GetVpcIamPoolOutput instead")
+	}
 	var rv GetVpcIamPoolResult
 	err := ctx.Invoke("aws:ec2/getVpcIamPool:getVpcIamPool", args, &rv, opts...)
 	if err != nil {
@@ -132,17 +143,18 @@ type GetVpcIamPoolResult struct {
 }
 
 func GetVpcIamPoolOutput(ctx *pulumi.Context, args GetVpcIamPoolOutputArgs, opts ...pulumi.InvokeOption) GetVpcIamPoolResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetVpcIamPoolResultOutput, error) {
 			args := v.(GetVpcIamPoolArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetVpcIamPoolResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getVpcIamPool:getVpcIamPool", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getVpcIamPool:getVpcIamPool", args, &rv, "", opts...)
 			if err != nil {
 				return GetVpcIamPoolResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetVpcIamPoolResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetVpcIamPoolResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetVpcIamPoolResultOutput), nil
 			}

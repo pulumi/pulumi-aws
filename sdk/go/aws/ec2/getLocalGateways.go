@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -45,6 +46,16 @@ import (
 // ```
 func GetLocalGateways(ctx *pulumi.Context, args *GetLocalGatewaysArgs, opts ...pulumi.InvokeOption) (*GetLocalGatewaysResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetLocalGatewaysResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetLocalGatewaysResult{}, errors.New("DependsOn is not supported for direct form invoke GetLocalGateways, use GetLocalGatewaysOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetLocalGatewaysResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetLocalGateways, use GetLocalGatewaysOutput instead")
+	}
 	var rv GetLocalGatewaysResult
 	err := ctx.Invoke("aws:ec2/getLocalGateways:getLocalGateways", args, &rv, opts...)
 	if err != nil {
@@ -76,17 +87,18 @@ type GetLocalGatewaysResult struct {
 }
 
 func GetLocalGatewaysOutput(ctx *pulumi.Context, args GetLocalGatewaysOutputArgs, opts ...pulumi.InvokeOption) GetLocalGatewaysResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetLocalGatewaysResultOutput, error) {
 			args := v.(GetLocalGatewaysArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetLocalGatewaysResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getLocalGateways:getLocalGateways", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getLocalGateways:getLocalGateways", args, &rv, "", opts...)
 			if err != nil {
 				return GetLocalGatewaysResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetLocalGatewaysResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetLocalGatewaysResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetLocalGatewaysResultOutput), nil
 			}
