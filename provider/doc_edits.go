@@ -54,20 +54,20 @@ func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 		applyReplacementsDotJSON(),
 
 		targetedSimpleReplace("iam_role_policies_exclusive.html.markdown", "Terraform", "Pulumi"),
-		// addResourceNote("iam_role_policies_exclusive.html.markdown",
-		// 	"To reliably detect drift between customer managed inline policies listed in this resource and"+
-		// 		" actual policies attached to the role in the cloud, you currently need to run Pulumi"+
-		// 		" with `pulumi up --refresh`."+
-		// 		" See [#4766](https://github.com/pulumi/pulumi-aws/issues/4766) for tracking making"+
-		// 		" this work with regular `pulumi up` invocations."),
+		addResourceNote("iam_role_policies_exclusive.html.markdown",
+			"To reliably detect drift between customer managed inline policies listed in this resource and"+
+				" actual policies attached to the role in the cloud, you currently need to run Pulumi"+
+				" with `pulumi up --refresh`."+
+				" See [#4766](https://github.com/pulumi/pulumi-aws/issues/4766) for tracking making"+
+				" this work with regular `pulumi up` invocations."),
 
 		targetedSimpleReplace("iam_role_policy_attachments_exclusive.html.markdown", "Terraform", "Pulumi"),
-		// addResourceNote("iam_role_policy_attachments_exclusive.html.markdown",
-		// 	"To reliably detect drift between customer managed policies listed in this resource and actual"+
-		// 		" policies attached to the role in the cloud, you currently need to run Pulumi with"+
-		// 		" `pulumi up --refresh`."+
-		// 		" See [#4766](https://github.com/pulumi/pulumi-aws/issues/4766)"+
-		// 		" for tracking making this work with regular `pulumi up`"),
+		addResourceNote("iam_role_policy_attachments_exclusive.html.markdown",
+			"To reliably detect drift between customer managed policies listed in this resource and actual"+
+				" policies attached to the role in the cloud, you currently need to run Pulumi with"+
+				" `pulumi up --refresh`."+
+				" See [#4766](https://github.com/pulumi/pulumi-aws/issues/4766)"+
+				" for tracking making this work with regular `pulumi up`"),
 	)
 }
 
@@ -78,8 +78,8 @@ func addResourceNote(resourceFile string, markdownNote string) tfbridge.DocsEdit
 		Edit: func(_ string, content []byte) ([]byte, error) {
 			re := regexp.MustCompile(`[#] Resource: [\w-]+`)
 			return re.ReplaceAllFunc(content, func(matching []byte) []byte {
-				return append(matching, []byte(
-					fmt.Sprintf("\n\n-> **NOTE:**: %s", markdownNote),
+				return append(append([]byte{}, matching...), []byte(
+					fmt.Sprintf("\n\n> **NOTE:**: %s", markdownNote),
 				)...)
 			}), nil
 		},

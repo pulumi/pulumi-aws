@@ -10,9 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iam
 {
     /// <summary>
-    /// Pulumi resource for maintaining exclusive management of customer managed policies assigned to an AWS IAM (Identity &amp; Access Management) role.
+    /// &gt; **NOTE:**: To reliably detect drift between customer managed policies listed in this resource and actual policies attached to the role in the cloud, you currently need to run Pulumi with `pulumi up --refresh`. See [#4766](https://github.com/pulumi/pulumi-aws/issues/4766) for tracking making this work with regular `pulumi up`
     /// 
-    /// &gt; **NOTE:** To reliably detect drift between customer managed policies listed in this resource and actual policies attached to the role in the cloud, you currently need to run Pulumi with `pulumi up --refresh`. See [#4766](https://github.com/pulumi/pulumi-aws/issues/4766) for tracking making this work with regular `pulumi up` invocations.
+    /// Resource for maintaining exclusive management of customer managed policies assigned to an AWS IAM (Identity &amp; Access Management) role.
     /// 
     /// !&gt; This resource takes exclusive ownership over customer managed policies attached to a role. This includes removal of customer managed policies which are not explicitly configured. To prevent persistent drift, ensure any `aws.iam.RolePolicyAttachment` resources managed alongside this resource are included in the `policy_arns` argument.
     /// 
@@ -63,6 +63,14 @@ namespace Pulumi.Aws.Iam
     ///     });
     /// 
     /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Using `pulumi import`, import exclusive management of customer managed policy assignments using the `role_name`. For example:
+    /// 
+    /// ```sh
+    /// $ pulumi import aws:iam/rolePolicyAttachmentsExclusive:RolePolicyAttachmentsExclusive example MyRole
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/rolePolicyAttachmentsExclusive:RolePolicyAttachmentsExclusive")]

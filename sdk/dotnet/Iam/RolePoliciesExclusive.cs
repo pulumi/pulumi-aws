@@ -10,9 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iam
 {
     /// <summary>
-    /// Pulumi resource for maintaining exclusive management of inline policies assigned to an AWS IAM (Identity &amp; Access Management) role.
+    /// &gt; **NOTE:**: To reliably detect drift between customer managed inline policies listed in this resource and actual policies attached to the role in the cloud, you currently need to run Pulumi with `pulumi up --refresh`. See [#4766](https://github.com/pulumi/pulumi-aws/issues/4766) for tracking making this work with regular `pulumi up` invocations.
     /// 
-    /// &gt; **NOTE:** To reliably detect drift between customer managed inline policies listed in this resource and actual policies attached to the role in the cloud, you currently need to run Pulumi with `pulumi up --refresh`. See [#4766](https://github.com/pulumi/pulumi-aws/issues/4766) for tracking making this work with regular `pulumi up` invocations.
+    /// Resource for maintaining exclusive management of inline policies assigned to an AWS IAM (Identity &amp; Access Management) role.
     /// 
     /// !&gt; This resource takes exclusive ownership over inline policies assigned to a role. This includes removal of inline policies which are not explicitly configured. To prevent persistent drift, ensure any `aws.iam.RolePolicy` resources managed alongside this resource are included in the `policy_names` argument.
     /// 
@@ -63,6 +63,14 @@ namespace Pulumi.Aws.Iam
     ///     });
     /// 
     /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Using `pulumi import`, import exclusive management of inline policy assignments using the `role_name`. For example:
+    /// 
+    /// ```sh
+    /// $ pulumi import aws:iam/rolePoliciesExclusive:RolePoliciesExclusive example MyRole
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/rolePoliciesExclusive:RolePoliciesExclusive")]

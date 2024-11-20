@@ -103,9 +103,9 @@ class RolePolicyAttachmentsExclusive(pulumi.CustomResource):
                  role_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Pulumi resource for maintaining exclusive management of customer managed policies assigned to an AWS IAM (Identity & Access Management) role.
+        > **NOTE:**: To reliably detect drift between customer managed policies listed in this resource and actual policies attached to the role in the cloud, you currently need to run Pulumi with `pulumi up --refresh`. See [#4766](https://github.com/pulumi/pulumi-aws/issues/4766) for tracking making this work with regular `pulumi up`
 
-        > **NOTE:** To reliably detect drift between customer managed policies listed in this resource and actual policies attached to the role in the cloud, you currently need to run Pulumi with `pulumi up --refresh`. See [#4766](https://github.com/pulumi/pulumi-aws/issues/4766) for tracking making this work with regular `pulumi up` invocations.
+        Resource for maintaining exclusive management of customer managed policies assigned to an AWS IAM (Identity & Access Management) role.
 
         !> This resource takes exclusive ownership over customer managed policies attached to a role. This includes removal of customer managed policies which are not explicitly configured. To prevent persistent drift, ensure any `iam.RolePolicyAttachment` resources managed alongside this resource are included in the `policy_arns` argument.
 
@@ -137,6 +137,14 @@ class RolePolicyAttachmentsExclusive(pulumi.CustomResource):
         example = aws.iam.RolePolicyAttachmentsExclusive("example",
             role_name=example_aws_iam_role["name"],
             policy_arns=[])
+        ```
+
+        ## Import
+
+        Using `pulumi import`, import exclusive management of customer managed policy assignments using the `role_name`. For example:
+
+        ```sh
+        $ pulumi import aws:iam/rolePolicyAttachmentsExclusive:RolePolicyAttachmentsExclusive example MyRole
         ```
 
         :param str resource_name: The name of the resource.
@@ -151,9 +159,9 @@ class RolePolicyAttachmentsExclusive(pulumi.CustomResource):
                  args: RolePolicyAttachmentsExclusiveArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Pulumi resource for maintaining exclusive management of customer managed policies assigned to an AWS IAM (Identity & Access Management) role.
+        > **NOTE:**: To reliably detect drift between customer managed policies listed in this resource and actual policies attached to the role in the cloud, you currently need to run Pulumi with `pulumi up --refresh`. See [#4766](https://github.com/pulumi/pulumi-aws/issues/4766) for tracking making this work with regular `pulumi up`
 
-        > **NOTE:** To reliably detect drift between customer managed policies listed in this resource and actual policies attached to the role in the cloud, you currently need to run Pulumi with `pulumi up --refresh`. See [#4766](https://github.com/pulumi/pulumi-aws/issues/4766) for tracking making this work with regular `pulumi up` invocations.
+        Resource for maintaining exclusive management of customer managed policies assigned to an AWS IAM (Identity & Access Management) role.
 
         !> This resource takes exclusive ownership over customer managed policies attached to a role. This includes removal of customer managed policies which are not explicitly configured. To prevent persistent drift, ensure any `iam.RolePolicyAttachment` resources managed alongside this resource are included in the `policy_arns` argument.
 
@@ -185,6 +193,14 @@ class RolePolicyAttachmentsExclusive(pulumi.CustomResource):
         example = aws.iam.RolePolicyAttachmentsExclusive("example",
             role_name=example_aws_iam_role["name"],
             policy_arns=[])
+        ```
+
+        ## Import
+
+        Using `pulumi import`, import exclusive management of customer managed policy assignments using the `role_name`. For example:
+
+        ```sh
+        $ pulumi import aws:iam/rolePolicyAttachmentsExclusive:RolePolicyAttachmentsExclusive example MyRole
         ```
 
         :param str resource_name: The name of the resource.

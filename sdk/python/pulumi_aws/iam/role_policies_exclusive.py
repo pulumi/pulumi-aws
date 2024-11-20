@@ -103,9 +103,9 @@ class RolePoliciesExclusive(pulumi.CustomResource):
                  role_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Pulumi resource for maintaining exclusive management of inline policies assigned to an AWS IAM (Identity & Access Management) role.
+        > **NOTE:**: To reliably detect drift between customer managed inline policies listed in this resource and actual policies attached to the role in the cloud, you currently need to run Pulumi with `pulumi up --refresh`. See [#4766](https://github.com/pulumi/pulumi-aws/issues/4766) for tracking making this work with regular `pulumi up` invocations.
 
-        > **NOTE:** To reliably detect drift between customer managed inline policies listed in this resource and actual policies attached to the role in the cloud, you currently need to run Pulumi with `pulumi up --refresh`. See [#4766](https://github.com/pulumi/pulumi-aws/issues/4766) for tracking making this work with regular `pulumi up` invocations.
+        Resource for maintaining exclusive management of inline policies assigned to an AWS IAM (Identity & Access Management) role.
 
         !> This resource takes exclusive ownership over inline policies assigned to a role. This includes removal of inline policies which are not explicitly configured. To prevent persistent drift, ensure any `iam.RolePolicy` resources managed alongside this resource are included in the `policy_names` argument.
 
@@ -137,6 +137,14 @@ class RolePoliciesExclusive(pulumi.CustomResource):
         example = aws.iam.RolePoliciesExclusive("example",
             role_name=example_aws_iam_role["name"],
             policy_names=[])
+        ```
+
+        ## Import
+
+        Using `pulumi import`, import exclusive management of inline policy assignments using the `role_name`. For example:
+
+        ```sh
+        $ pulumi import aws:iam/rolePoliciesExclusive:RolePoliciesExclusive example MyRole
         ```
 
         :param str resource_name: The name of the resource.
@@ -151,9 +159,9 @@ class RolePoliciesExclusive(pulumi.CustomResource):
                  args: RolePoliciesExclusiveArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Pulumi resource for maintaining exclusive management of inline policies assigned to an AWS IAM (Identity & Access Management) role.
+        > **NOTE:**: To reliably detect drift between customer managed inline policies listed in this resource and actual policies attached to the role in the cloud, you currently need to run Pulumi with `pulumi up --refresh`. See [#4766](https://github.com/pulumi/pulumi-aws/issues/4766) for tracking making this work with regular `pulumi up` invocations.
 
-        > **NOTE:** To reliably detect drift between customer managed inline policies listed in this resource and actual policies attached to the role in the cloud, you currently need to run Pulumi with `pulumi up --refresh`. See [#4766](https://github.com/pulumi/pulumi-aws/issues/4766) for tracking making this work with regular `pulumi up` invocations.
+        Resource for maintaining exclusive management of inline policies assigned to an AWS IAM (Identity & Access Management) role.
 
         !> This resource takes exclusive ownership over inline policies assigned to a role. This includes removal of inline policies which are not explicitly configured. To prevent persistent drift, ensure any `iam.RolePolicy` resources managed alongside this resource are included in the `policy_names` argument.
 
@@ -185,6 +193,14 @@ class RolePoliciesExclusive(pulumi.CustomResource):
         example = aws.iam.RolePoliciesExclusive("example",
             role_name=example_aws_iam_role["name"],
             policy_names=[])
+        ```
+
+        ## Import
+
+        Using `pulumi import`, import exclusive management of inline policy assignments using the `role_name`. For example:
+
+        ```sh
+        $ pulumi import aws:iam/rolePoliciesExclusive:RolePoliciesExclusive example MyRole
         ```
 
         :param str resource_name: The name of the resource.
