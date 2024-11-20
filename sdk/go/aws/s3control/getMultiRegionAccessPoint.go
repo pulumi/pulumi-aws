@@ -5,6 +5,7 @@ package s3control
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupMultiRegionAccessPoint(ctx *pulumi.Context, args *LookupMultiRegionAccessPointArgs, opts ...pulumi.InvokeOption) (*LookupMultiRegionAccessPointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupMultiRegionAccessPointResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupMultiRegionAccessPointResult{}, errors.New("DependsOn is not supported for direct form invoke LookupMultiRegionAccessPoint, use LookupMultiRegionAccessPointOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupMultiRegionAccessPointResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupMultiRegionAccessPoint, use LookupMultiRegionAccessPointOutput instead")
+	}
 	var rv LookupMultiRegionAccessPointResult
 	err := ctx.Invoke("aws:s3control/getMultiRegionAccessPoint:getMultiRegionAccessPoint", args, &rv, opts...)
 	if err != nil {
@@ -79,17 +90,18 @@ type LookupMultiRegionAccessPointResult struct {
 }
 
 func LookupMultiRegionAccessPointOutput(ctx *pulumi.Context, args LookupMultiRegionAccessPointOutputArgs, opts ...pulumi.InvokeOption) LookupMultiRegionAccessPointResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupMultiRegionAccessPointResultOutput, error) {
 			args := v.(LookupMultiRegionAccessPointArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupMultiRegionAccessPointResult
-			secret, err := ctx.InvokePackageRaw("aws:s3control/getMultiRegionAccessPoint:getMultiRegionAccessPoint", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:s3control/getMultiRegionAccessPoint:getMultiRegionAccessPoint", args, &rv, "", opts...)
 			if err != nil {
 				return LookupMultiRegionAccessPointResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupMultiRegionAccessPointResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupMultiRegionAccessPointResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupMultiRegionAccessPointResultOutput), nil
 			}

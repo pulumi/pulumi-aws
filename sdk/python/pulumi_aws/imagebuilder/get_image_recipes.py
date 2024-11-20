@@ -130,7 +130,7 @@ def get_image_recipes(filters: Optional[Sequence[Union['GetImageRecipesFilterArg
         owner=pulumi.get(__ret__, 'owner'))
 def get_image_recipes_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetImageRecipesFilterArgs', 'GetImageRecipesFilterArgsDict']]]]] = None,
                              owner: Optional[pulumi.Input[Optional[str]]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageRecipesResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageRecipesResult]:
     """
     Use this data source to get the ARNs and names of Image Builder Image Recipes matching the specified criteria.
 
@@ -154,7 +154,7 @@ def get_image_recipes_output(filters: Optional[pulumi.Input[Optional[Sequence[Un
     __args__ = dict()
     __args__['filters'] = filters
     __args__['owner'] = owner
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:imagebuilder/getImageRecipes:getImageRecipes', __args__, opts=opts, typ=GetImageRecipesResult)
     return __ret__.apply(lambda __response__: GetImageRecipesResult(
         arns=pulumi.get(__response__, 'arns'),

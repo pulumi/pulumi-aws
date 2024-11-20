@@ -5,6 +5,7 @@ package elasticache
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupSubnetGroup(ctx *pulumi.Context, args *LookupSubnetGroupArgs, opts ...pulumi.InvokeOption) (*LookupSubnetGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupSubnetGroupResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupSubnetGroupResult{}, errors.New("DependsOn is not supported for direct form invoke LookupSubnetGroup, use LookupSubnetGroupOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupSubnetGroupResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupSubnetGroup, use LookupSubnetGroupOutput instead")
+	}
 	var rv LookupSubnetGroupResult
 	err := ctx.Invoke("aws:elasticache/getSubnetGroup:getSubnetGroup", args, &rv, opts...)
 	if err != nil {
@@ -74,17 +85,18 @@ type LookupSubnetGroupResult struct {
 }
 
 func LookupSubnetGroupOutput(ctx *pulumi.Context, args LookupSubnetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupSubnetGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSubnetGroupResultOutput, error) {
 			args := v.(LookupSubnetGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSubnetGroupResult
-			secret, err := ctx.InvokePackageRaw("aws:elasticache/getSubnetGroup:getSubnetGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:elasticache/getSubnetGroup:getSubnetGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSubnetGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSubnetGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSubnetGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSubnetGroupResultOutput), nil
 			}

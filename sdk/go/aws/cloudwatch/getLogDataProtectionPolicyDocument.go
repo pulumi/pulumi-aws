@@ -5,6 +5,7 @@ package cloudwatch
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -85,6 +86,16 @@ import (
 // ```
 func GetLogDataProtectionPolicyDocument(ctx *pulumi.Context, args *GetLogDataProtectionPolicyDocumentArgs, opts ...pulumi.InvokeOption) (*GetLogDataProtectionPolicyDocumentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetLogDataProtectionPolicyDocumentResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetLogDataProtectionPolicyDocumentResult{}, errors.New("DependsOn is not supported for direct form invoke GetLogDataProtectionPolicyDocument, use GetLogDataProtectionPolicyDocumentOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetLogDataProtectionPolicyDocumentResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetLogDataProtectionPolicyDocument, use GetLogDataProtectionPolicyDocumentOutput instead")
+	}
 	var rv GetLogDataProtectionPolicyDocumentResult
 	err := ctx.Invoke("aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument", args, &rv, opts...)
 	if err != nil {
@@ -120,17 +131,18 @@ type GetLogDataProtectionPolicyDocumentResult struct {
 }
 
 func GetLogDataProtectionPolicyDocumentOutput(ctx *pulumi.Context, args GetLogDataProtectionPolicyDocumentOutputArgs, opts ...pulumi.InvokeOption) GetLogDataProtectionPolicyDocumentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetLogDataProtectionPolicyDocumentResultOutput, error) {
 			args := v.(GetLogDataProtectionPolicyDocumentArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetLogDataProtectionPolicyDocumentResult
-			secret, err := ctx.InvokePackageRaw("aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument", args, &rv, "", opts...)
 			if err != nil {
 				return GetLogDataProtectionPolicyDocumentResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetLogDataProtectionPolicyDocumentResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetLogDataProtectionPolicyDocumentResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetLogDataProtectionPolicyDocumentResultOutput), nil
 			}

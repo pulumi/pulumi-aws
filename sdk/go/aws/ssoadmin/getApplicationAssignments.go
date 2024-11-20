@@ -5,6 +5,7 @@ package ssoadmin
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetApplicationAssignments(ctx *pulumi.Context, args *GetApplicationAssignmentsArgs, opts ...pulumi.InvokeOption) (*GetApplicationAssignmentsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetApplicationAssignmentsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetApplicationAssignmentsResult{}, errors.New("DependsOn is not supported for direct form invoke GetApplicationAssignments, use GetApplicationAssignmentsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetApplicationAssignmentsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetApplicationAssignments, use GetApplicationAssignmentsOutput instead")
+	}
 	var rv GetApplicationAssignmentsResult
 	err := ctx.Invoke("aws:ssoadmin/getApplicationAssignments:getApplicationAssignments", args, &rv, opts...)
 	if err != nil {
@@ -68,17 +79,18 @@ type GetApplicationAssignmentsResult struct {
 }
 
 func GetApplicationAssignmentsOutput(ctx *pulumi.Context, args GetApplicationAssignmentsOutputArgs, opts ...pulumi.InvokeOption) GetApplicationAssignmentsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetApplicationAssignmentsResultOutput, error) {
 			args := v.(GetApplicationAssignmentsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetApplicationAssignmentsResult
-			secret, err := ctx.InvokePackageRaw("aws:ssoadmin/getApplicationAssignments:getApplicationAssignments", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ssoadmin/getApplicationAssignments:getApplicationAssignments", args, &rv, "", opts...)
 			if err != nil {
 				return GetApplicationAssignmentsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetApplicationAssignmentsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetApplicationAssignmentsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetApplicationAssignmentsResultOutput), nil
 			}

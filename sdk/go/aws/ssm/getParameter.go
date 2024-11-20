@@ -5,6 +5,7 @@ package ssm
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
 func LookupParameter(ctx *pulumi.Context, args *LookupParameterArgs, opts ...pulumi.InvokeOption) (*LookupParameterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupParameterResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupParameterResult{}, errors.New("DependsOn is not supported for direct form invoke LookupParameter, use LookupParameterOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupParameterResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupParameter, use LookupParameterOutput instead")
+	}
 	var rv LookupParameterResult
 	err := ctx.Invoke("aws:ssm/getParameter:getParameter", args, &rv, opts...)
 	if err != nil {
@@ -74,17 +85,18 @@ type LookupParameterResult struct {
 }
 
 func LookupParameterOutput(ctx *pulumi.Context, args LookupParameterOutputArgs, opts ...pulumi.InvokeOption) LookupParameterResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupParameterResultOutput, error) {
 			args := v.(LookupParameterArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupParameterResult
-			secret, err := ctx.InvokePackageRaw("aws:ssm/getParameter:getParameter", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ssm/getParameter:getParameter", args, &rv, "", opts...)
 			if err != nil {
 				return LookupParameterResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupParameterResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupParameterResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupParameterResultOutput), nil
 			}

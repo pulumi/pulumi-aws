@@ -5,6 +5,7 @@ package autoscaling
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.InvokeOption) (*LookupGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupGroupResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupGroupResult{}, errors.New("DependsOn is not supported for direct form invoke LookupGroup, use LookupGroupOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupGroupResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupGroup, use LookupGroupOutput instead")
+	}
 	var rv LookupGroupResult
 	err := ctx.Invoke("aws:autoscaling/getGroup:getGroup", args, &rv, opts...)
 	if err != nil {
@@ -119,17 +130,18 @@ type LookupGroupResult struct {
 }
 
 func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...pulumi.InvokeOption) LookupGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupGroupResultOutput, error) {
 			args := v.(LookupGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupGroupResult
-			secret, err := ctx.InvokePackageRaw("aws:autoscaling/getGroup:getGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:autoscaling/getGroup:getGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupGroupResultOutput), nil
 			}

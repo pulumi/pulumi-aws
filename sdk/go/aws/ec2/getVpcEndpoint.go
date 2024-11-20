@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -50,6 +51,16 @@ import (
 // ```
 func LookupVpcEndpoint(ctx *pulumi.Context, args *LookupVpcEndpointArgs, opts ...pulumi.InvokeOption) (*LookupVpcEndpointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupVpcEndpointResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupVpcEndpointResult{}, errors.New("DependsOn is not supported for direct form invoke LookupVpcEndpoint, use LookupVpcEndpointOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupVpcEndpointResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupVpcEndpoint, use LookupVpcEndpointOutput instead")
+	}
 	var rv LookupVpcEndpointResult
 	err := ctx.Invoke("aws:ec2/getVpcEndpoint:getVpcEndpoint", args, &rv, opts...)
 	if err != nil {
@@ -118,17 +129,18 @@ type LookupVpcEndpointResult struct {
 }
 
 func LookupVpcEndpointOutput(ctx *pulumi.Context, args LookupVpcEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupVpcEndpointResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVpcEndpointResultOutput, error) {
 			args := v.(LookupVpcEndpointArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVpcEndpointResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getVpcEndpoint:getVpcEndpoint", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getVpcEndpoint:getVpcEndpoint", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVpcEndpointResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVpcEndpointResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVpcEndpointResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVpcEndpointResultOutput), nil
 			}

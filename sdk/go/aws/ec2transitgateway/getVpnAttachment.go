@@ -5,6 +5,7 @@ package ec2transitgateway
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -78,6 +79,16 @@ import (
 // ```
 func GetVpnAttachment(ctx *pulumi.Context, args *GetVpnAttachmentArgs, opts ...pulumi.InvokeOption) (*GetVpnAttachmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetVpnAttachmentResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetVpnAttachmentResult{}, errors.New("DependsOn is not supported for direct form invoke GetVpnAttachment, use GetVpnAttachmentOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetVpnAttachmentResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetVpnAttachment, use GetVpnAttachmentOutput instead")
+	}
 	var rv GetVpnAttachmentResult
 	err := ctx.Invoke("aws:ec2transitgateway/getVpnAttachment:getVpnAttachment", args, &rv, opts...)
 	if err != nil {
@@ -110,17 +121,18 @@ type GetVpnAttachmentResult struct {
 }
 
 func GetVpnAttachmentOutput(ctx *pulumi.Context, args GetVpnAttachmentOutputArgs, opts ...pulumi.InvokeOption) GetVpnAttachmentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetVpnAttachmentResultOutput, error) {
 			args := v.(GetVpnAttachmentArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetVpnAttachmentResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2transitgateway/getVpnAttachment:getVpnAttachment", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2transitgateway/getVpnAttachment:getVpnAttachment", args, &rv, "", opts...)
 			if err != nil {
 				return GetVpnAttachmentResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetVpnAttachmentResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetVpnAttachmentResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetVpnAttachmentResultOutput), nil
 			}

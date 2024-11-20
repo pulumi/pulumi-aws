@@ -5,6 +5,7 @@ package licensemanager
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetReceivedLicense(ctx *pulumi.Context, args *GetReceivedLicenseArgs, opts ...pulumi.InvokeOption) (*GetReceivedLicenseResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetReceivedLicenseResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetReceivedLicenseResult{}, errors.New("DependsOn is not supported for direct form invoke GetReceivedLicense, use GetReceivedLicenseOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetReceivedLicenseResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetReceivedLicense, use GetReceivedLicenseOutput instead")
+	}
 	var rv GetReceivedLicenseResult
 	err := ctx.Invoke("aws:licensemanager/getReceivedLicense:getReceivedLicense", args, &rv, opts...)
 	if err != nil {
@@ -93,17 +104,18 @@ type GetReceivedLicenseResult struct {
 }
 
 func GetReceivedLicenseOutput(ctx *pulumi.Context, args GetReceivedLicenseOutputArgs, opts ...pulumi.InvokeOption) GetReceivedLicenseResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetReceivedLicenseResultOutput, error) {
 			args := v.(GetReceivedLicenseArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetReceivedLicenseResult
-			secret, err := ctx.InvokePackageRaw("aws:licensemanager/getReceivedLicense:getReceivedLicense", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:licensemanager/getReceivedLicense:getReceivedLicense", args, &rv, "", opts...)
 			if err != nil {
 				return GetReceivedLicenseResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetReceivedLicenseResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetReceivedLicenseResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetReceivedLicenseResultOutput), nil
 			}

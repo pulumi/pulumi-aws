@@ -5,6 +5,7 @@ package glue
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupCatalogTable(ctx *pulumi.Context, args *LookupCatalogTableArgs, opts ...pulumi.InvokeOption) (*LookupCatalogTableResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupCatalogTableResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupCatalogTableResult{}, errors.New("DependsOn is not supported for direct form invoke LookupCatalogTable, use LookupCatalogTableOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupCatalogTableResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupCatalogTable, use LookupCatalogTableOutput instead")
+	}
 	var rv LookupCatalogTableResult
 	err := ctx.Invoke("aws:glue/getCatalogTable:getCatalogTable", args, &rv, opts...)
 	if err != nil {
@@ -102,17 +113,18 @@ type LookupCatalogTableResult struct {
 }
 
 func LookupCatalogTableOutput(ctx *pulumi.Context, args LookupCatalogTableOutputArgs, opts ...pulumi.InvokeOption) LookupCatalogTableResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCatalogTableResultOutput, error) {
 			args := v.(LookupCatalogTableArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupCatalogTableResult
-			secret, err := ctx.InvokePackageRaw("aws:glue/getCatalogTable:getCatalogTable", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:glue/getCatalogTable:getCatalogTable", args, &rv, "", opts...)
 			if err != nil {
 				return LookupCatalogTableResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupCatalogTableResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupCatalogTableResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupCatalogTableResultOutput), nil
 			}

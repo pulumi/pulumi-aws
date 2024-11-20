@@ -5,6 +5,7 @@ package route53
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -59,6 +60,16 @@ import (
 // ```
 func LookupZone(ctx *pulumi.Context, args *LookupZoneArgs, opts ...pulumi.InvokeOption) (*LookupZoneResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupZoneResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupZoneResult{}, errors.New("DependsOn is not supported for direct form invoke LookupZone, use LookupZoneOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupZoneResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupZone, use LookupZoneOutput instead")
+	}
 	var rv LookupZoneResult
 	err := ctx.Invoke("aws:route53/getZone:getZone", args, &rv, opts...)
 	if err != nil {
@@ -113,17 +124,18 @@ type LookupZoneResult struct {
 }
 
 func LookupZoneOutput(ctx *pulumi.Context, args LookupZoneOutputArgs, opts ...pulumi.InvokeOption) LookupZoneResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupZoneResultOutput, error) {
 			args := v.(LookupZoneArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupZoneResult
-			secret, err := ctx.InvokePackageRaw("aws:route53/getZone:getZone", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:route53/getZone:getZone", args, &rv, "", opts...)
 			if err != nil {
 				return LookupZoneResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupZoneResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupZoneResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupZoneResultOutput), nil
 			}

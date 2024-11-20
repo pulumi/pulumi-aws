@@ -5,6 +5,7 @@ package cloudfront
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupRealtimeLogConfig(ctx *pulumi.Context, args *LookupRealtimeLogConfigArgs, opts ...pulumi.InvokeOption) (*LookupRealtimeLogConfigResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupRealtimeLogConfigResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupRealtimeLogConfigResult{}, errors.New("DependsOn is not supported for direct form invoke LookupRealtimeLogConfig, use LookupRealtimeLogConfigOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupRealtimeLogConfigResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupRealtimeLogConfig, use LookupRealtimeLogConfigOutput instead")
+	}
 	var rv LookupRealtimeLogConfigResult
 	err := ctx.Invoke("aws:cloudfront/getRealtimeLogConfig:getRealtimeLogConfig", args, &rv, opts...)
 	if err != nil {
@@ -70,17 +81,18 @@ type LookupRealtimeLogConfigResult struct {
 }
 
 func LookupRealtimeLogConfigOutput(ctx *pulumi.Context, args LookupRealtimeLogConfigOutputArgs, opts ...pulumi.InvokeOption) LookupRealtimeLogConfigResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRealtimeLogConfigResultOutput, error) {
 			args := v.(LookupRealtimeLogConfigArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupRealtimeLogConfigResult
-			secret, err := ctx.InvokePackageRaw("aws:cloudfront/getRealtimeLogConfig:getRealtimeLogConfig", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:cloudfront/getRealtimeLogConfig:getRealtimeLogConfig", args, &rv, "", opts...)
 			if err != nil {
 				return LookupRealtimeLogConfigResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupRealtimeLogConfigResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupRealtimeLogConfigResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupRealtimeLogConfigResultOutput), nil
 			}

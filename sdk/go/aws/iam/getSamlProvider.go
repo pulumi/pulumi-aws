@@ -5,6 +5,7 @@ package iam
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupSamlProvider(ctx *pulumi.Context, args *LookupSamlProviderArgs, opts ...pulumi.InvokeOption) (*LookupSamlProviderResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupSamlProviderResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupSamlProviderResult{}, errors.New("DependsOn is not supported for direct form invoke LookupSamlProvider, use LookupSamlProviderOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupSamlProviderResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupSamlProvider, use LookupSamlProviderOutput instead")
+	}
 	var rv LookupSamlProviderResult
 	err := ctx.Invoke("aws:iam/getSamlProvider:getSamlProvider", args, &rv, opts...)
 	if err != nil {
@@ -76,17 +87,18 @@ type LookupSamlProviderResult struct {
 }
 
 func LookupSamlProviderOutput(ctx *pulumi.Context, args LookupSamlProviderOutputArgs, opts ...pulumi.InvokeOption) LookupSamlProviderResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSamlProviderResultOutput, error) {
 			args := v.(LookupSamlProviderArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSamlProviderResult
-			secret, err := ctx.InvokePackageRaw("aws:iam/getSamlProvider:getSamlProvider", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:iam/getSamlProvider:getSamlProvider", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSamlProviderResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSamlProviderResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSamlProviderResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSamlProviderResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package cognito
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupIdentityPool(ctx *pulumi.Context, args *LookupIdentityPoolArgs, opts ...pulumi.InvokeOption) (*LookupIdentityPoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupIdentityPoolResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupIdentityPoolResult{}, errors.New("DependsOn is not supported for direct form invoke LookupIdentityPool, use LookupIdentityPoolOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupIdentityPoolResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupIdentityPool, use LookupIdentityPoolOutput instead")
+	}
 	var rv LookupIdentityPoolResult
 	err := ctx.Invoke("aws:cognito/getIdentityPool:getIdentityPool", args, &rv, opts...)
 	if err != nil {
@@ -84,17 +95,18 @@ type LookupIdentityPoolResult struct {
 }
 
 func LookupIdentityPoolOutput(ctx *pulumi.Context, args LookupIdentityPoolOutputArgs, opts ...pulumi.InvokeOption) LookupIdentityPoolResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupIdentityPoolResultOutput, error) {
 			args := v.(LookupIdentityPoolArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupIdentityPoolResult
-			secret, err := ctx.InvokePackageRaw("aws:cognito/getIdentityPool:getIdentityPool", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:cognito/getIdentityPool:getIdentityPool", args, &rv, "", opts...)
 			if err != nil {
 				return LookupIdentityPoolResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupIdentityPoolResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupIdentityPoolResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupIdentityPoolResultOutput), nil
 			}

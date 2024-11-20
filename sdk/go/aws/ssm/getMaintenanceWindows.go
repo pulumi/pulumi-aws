@@ -5,6 +5,7 @@ package ssm
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -47,6 +48,16 @@ import (
 // ```
 func GetMaintenanceWindows(ctx *pulumi.Context, args *GetMaintenanceWindowsArgs, opts ...pulumi.InvokeOption) (*GetMaintenanceWindowsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetMaintenanceWindowsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetMaintenanceWindowsResult{}, errors.New("DependsOn is not supported for direct form invoke GetMaintenanceWindows, use GetMaintenanceWindowsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetMaintenanceWindowsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetMaintenanceWindows, use GetMaintenanceWindowsOutput instead")
+	}
 	var rv GetMaintenanceWindowsResult
 	err := ctx.Invoke("aws:ssm/getMaintenanceWindows:getMaintenanceWindows", args, &rv, opts...)
 	if err != nil {
@@ -71,17 +82,18 @@ type GetMaintenanceWindowsResult struct {
 }
 
 func GetMaintenanceWindowsOutput(ctx *pulumi.Context, args GetMaintenanceWindowsOutputArgs, opts ...pulumi.InvokeOption) GetMaintenanceWindowsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetMaintenanceWindowsResultOutput, error) {
 			args := v.(GetMaintenanceWindowsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetMaintenanceWindowsResult
-			secret, err := ctx.InvokePackageRaw("aws:ssm/getMaintenanceWindows:getMaintenanceWindows", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ssm/getMaintenanceWindows:getMaintenanceWindows", args, &rv, "", opts...)
 			if err != nil {
 				return GetMaintenanceWindowsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetMaintenanceWindowsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetMaintenanceWindowsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetMaintenanceWindowsResultOutput), nil
 			}

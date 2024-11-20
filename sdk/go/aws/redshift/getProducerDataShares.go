@@ -5,6 +5,7 @@ package redshift
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetProducerDataShares(ctx *pulumi.Context, args *GetProducerDataSharesArgs, opts ...pulumi.InvokeOption) (*GetProducerDataSharesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetProducerDataSharesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetProducerDataSharesResult{}, errors.New("DependsOn is not supported for direct form invoke GetProducerDataShares, use GetProducerDataSharesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetProducerDataSharesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetProducerDataShares, use GetProducerDataSharesOutput instead")
+	}
 	var rv GetProducerDataSharesResult
 	err := ctx.Invoke("aws:redshift/getProducerDataShares:getProducerDataShares", args, &rv, opts...)
 	if err != nil {
@@ -74,17 +85,18 @@ type GetProducerDataSharesResult struct {
 }
 
 func GetProducerDataSharesOutput(ctx *pulumi.Context, args GetProducerDataSharesOutputArgs, opts ...pulumi.InvokeOption) GetProducerDataSharesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetProducerDataSharesResultOutput, error) {
 			args := v.(GetProducerDataSharesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetProducerDataSharesResult
-			secret, err := ctx.InvokePackageRaw("aws:redshift/getProducerDataShares:getProducerDataShares", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:redshift/getProducerDataShares:getProducerDataShares", args, &rv, "", opts...)
 			if err != nil {
 				return GetProducerDataSharesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetProducerDataSharesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetProducerDataSharesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetProducerDataSharesResultOutput), nil
 			}

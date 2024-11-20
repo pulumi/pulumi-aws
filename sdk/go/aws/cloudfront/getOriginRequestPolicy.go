@@ -5,6 +5,7 @@ package cloudfront
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -68,6 +69,16 @@ import (
 // ```
 func LookupOriginRequestPolicy(ctx *pulumi.Context, args *LookupOriginRequestPolicyArgs, opts ...pulumi.InvokeOption) (*LookupOriginRequestPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupOriginRequestPolicyResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupOriginRequestPolicyResult{}, errors.New("DependsOn is not supported for direct form invoke LookupOriginRequestPolicy, use LookupOriginRequestPolicyOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupOriginRequestPolicyResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupOriginRequestPolicy, use LookupOriginRequestPolicyOutput instead")
+	}
 	var rv LookupOriginRequestPolicyResult
 	err := ctx.Invoke("aws:cloudfront/getOriginRequestPolicy:getOriginRequestPolicy", args, &rv, opts...)
 	if err != nil {
@@ -101,17 +112,18 @@ type LookupOriginRequestPolicyResult struct {
 }
 
 func LookupOriginRequestPolicyOutput(ctx *pulumi.Context, args LookupOriginRequestPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupOriginRequestPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupOriginRequestPolicyResultOutput, error) {
 			args := v.(LookupOriginRequestPolicyArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupOriginRequestPolicyResult
-			secret, err := ctx.InvokePackageRaw("aws:cloudfront/getOriginRequestPolicy:getOriginRequestPolicy", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:cloudfront/getOriginRequestPolicy:getOriginRequestPolicy", args, &rv, "", opts...)
 			if err != nil {
 				return LookupOriginRequestPolicyResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupOriginRequestPolicyResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupOriginRequestPolicyResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupOriginRequestPolicyResultOutput), nil
 			}

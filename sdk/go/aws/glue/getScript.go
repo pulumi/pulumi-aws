@@ -5,6 +5,7 @@ package glue
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -246,6 +247,16 @@ import (
 // ```
 func GetScript(ctx *pulumi.Context, args *GetScriptArgs, opts ...pulumi.InvokeOption) (*GetScriptResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetScriptResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetScriptResult{}, errors.New("DependsOn is not supported for direct form invoke GetScript, use GetScriptOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetScriptResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetScript, use GetScriptOutput instead")
+	}
 	var rv GetScriptResult
 	err := ctx.Invoke("aws:glue/getScript:getScript", args, &rv, opts...)
 	if err != nil {
@@ -278,17 +289,18 @@ type GetScriptResult struct {
 }
 
 func GetScriptOutput(ctx *pulumi.Context, args GetScriptOutputArgs, opts ...pulumi.InvokeOption) GetScriptResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetScriptResultOutput, error) {
 			args := v.(GetScriptArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetScriptResult
-			secret, err := ctx.InvokePackageRaw("aws:glue/getScript:getScript", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:glue/getScript:getScript", args, &rv, "", opts...)
 			if err != nil {
 				return GetScriptResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetScriptResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetScriptResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetScriptResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package ssm
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -71,6 +72,16 @@ import (
 // ```
 func LookupDocument(ctx *pulumi.Context, args *LookupDocumentArgs, opts ...pulumi.InvokeOption) (*LookupDocumentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupDocumentResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupDocumentResult{}, errors.New("DependsOn is not supported for direct form invoke LookupDocument, use LookupDocumentOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupDocumentResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupDocument, use LookupDocumentOutput instead")
+	}
 	var rv LookupDocumentResult
 	err := ctx.Invoke("aws:ssm/getDocument:getDocument", args, &rv, opts...)
 	if err != nil {
@@ -105,17 +116,18 @@ type LookupDocumentResult struct {
 }
 
 func LookupDocumentOutput(ctx *pulumi.Context, args LookupDocumentOutputArgs, opts ...pulumi.InvokeOption) LookupDocumentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDocumentResultOutput, error) {
 			args := v.(LookupDocumentArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDocumentResult
-			secret, err := ctx.InvokePackageRaw("aws:ssm/getDocument:getDocument", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ssm/getDocument:getDocument", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDocumentResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDocumentResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDocumentResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDocumentResultOutput), nil
 			}

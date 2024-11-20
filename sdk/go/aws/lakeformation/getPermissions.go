@@ -5,6 +5,7 @@ package lakeformation
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -121,6 +122,16 @@ import (
 // ```
 func LookupPermissions(ctx *pulumi.Context, args *LookupPermissionsArgs, opts ...pulumi.InvokeOption) (*LookupPermissionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupPermissionsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupPermissionsResult{}, errors.New("DependsOn is not supported for direct form invoke LookupPermissions, use LookupPermissionsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupPermissionsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupPermissions, use LookupPermissionsOutput instead")
+	}
 	var rv LookupPermissionsResult
 	err := ctx.Invoke("aws:lakeformation/getPermissions:getPermissions", args, &rv, opts...)
 	if err != nil {
@@ -178,17 +189,18 @@ type LookupPermissionsResult struct {
 }
 
 func LookupPermissionsOutput(ctx *pulumi.Context, args LookupPermissionsOutputArgs, opts ...pulumi.InvokeOption) LookupPermissionsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPermissionsResultOutput, error) {
 			args := v.(LookupPermissionsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupPermissionsResult
-			secret, err := ctx.InvokePackageRaw("aws:lakeformation/getPermissions:getPermissions", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:lakeformation/getPermissions:getPermissions", args, &rv, "", opts...)
 			if err != nil {
 				return LookupPermissionsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupPermissionsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupPermissionsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupPermissionsResultOutput), nil
 			}

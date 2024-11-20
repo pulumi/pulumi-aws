@@ -5,6 +5,7 @@ package ebs
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -16,6 +17,16 @@ import (
 // This data source can be useful for getting a list of volume IDs with (for example) matching tags.
 func GetEbsVolumes(ctx *pulumi.Context, args *GetEbsVolumesArgs, opts ...pulumi.InvokeOption) (*GetEbsVolumesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetEbsVolumesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetEbsVolumesResult{}, errors.New("DependsOn is not supported for direct form invoke GetEbsVolumes, use GetEbsVolumesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetEbsVolumesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetEbsVolumes, use GetEbsVolumesOutput instead")
+	}
 	var rv GetEbsVolumesResult
 	err := ctx.Invoke("aws:ebs/getEbsVolumes:getEbsVolumes", args, &rv, opts...)
 	if err != nil {
@@ -48,17 +59,18 @@ type GetEbsVolumesResult struct {
 }
 
 func GetEbsVolumesOutput(ctx *pulumi.Context, args GetEbsVolumesOutputArgs, opts ...pulumi.InvokeOption) GetEbsVolumesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetEbsVolumesResultOutput, error) {
 			args := v.(GetEbsVolumesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetEbsVolumesResult
-			secret, err := ctx.InvokePackageRaw("aws:ebs/getEbsVolumes:getEbsVolumes", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ebs/getEbsVolumes:getEbsVolumes", args, &rv, "", opts...)
 			if err != nil {
 				return GetEbsVolumesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetEbsVolumesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetEbsVolumesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetEbsVolumesResultOutput), nil
 			}

@@ -139,7 +139,7 @@ def get_location(location_code: Optional[str] = None,
         location_code=pulumi.get(__ret__, 'location_code'),
         location_name=pulumi.get(__ret__, 'location_name'))
 def get_location_output(location_code: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationResult]:
     """
     Retrieve information about a specific AWS Direct Connect location in the current AWS Region.
     These are the locations that can be specified when configuring `directconnect.Connection` or `directconnect.LinkAggregationGroup` resources.
@@ -160,7 +160,7 @@ def get_location_output(location_code: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['locationCode'] = location_code
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:directconnect/getLocation:getLocation', __args__, opts=opts, typ=GetLocationResult)
     return __ret__.apply(lambda __response__: GetLocationResult(
         available_macsec_port_speeds=pulumi.get(__response__, 'available_macsec_port_speeds'),

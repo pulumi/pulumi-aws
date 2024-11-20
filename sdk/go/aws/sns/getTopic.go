@@ -5,6 +5,7 @@ package sns
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.InvokeOption) (*LookupTopicResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupTopicResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupTopicResult{}, errors.New("DependsOn is not supported for direct form invoke LookupTopic, use LookupTopicOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupTopicResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupTopic, use LookupTopicOutput instead")
+	}
 	var rv LookupTopicResult
 	err := ctx.Invoke("aws:sns/getTopic:getTopic", args, &rv, opts...)
 	if err != nil {
@@ -70,17 +81,18 @@ type LookupTopicResult struct {
 }
 
 func LookupTopicOutput(ctx *pulumi.Context, args LookupTopicOutputArgs, opts ...pulumi.InvokeOption) LookupTopicResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupTopicResultOutput, error) {
 			args := v.(LookupTopicArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupTopicResult
-			secret, err := ctx.InvokePackageRaw("aws:sns/getTopic:getTopic", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:sns/getTopic:getTopic", args, &rv, "", opts...)
 			if err != nil {
 				return LookupTopicResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupTopicResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupTopicResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupTopicResultOutput), nil
 			}

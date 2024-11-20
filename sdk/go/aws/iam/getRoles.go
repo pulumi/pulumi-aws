@@ -5,6 +5,7 @@ package iam
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -149,6 +150,16 @@ import (
 // ```
 func GetRoles(ctx *pulumi.Context, args *GetRolesArgs, opts ...pulumi.InvokeOption) (*GetRolesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetRolesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetRolesResult{}, errors.New("DependsOn is not supported for direct form invoke GetRoles, use GetRolesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetRolesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetRoles, use GetRolesOutput instead")
+	}
 	var rv GetRolesResult
 	err := ctx.Invoke("aws:iam/getRoles:getRoles", args, &rv, opts...)
 	if err != nil {
@@ -178,17 +189,18 @@ type GetRolesResult struct {
 }
 
 func GetRolesOutput(ctx *pulumi.Context, args GetRolesOutputArgs, opts ...pulumi.InvokeOption) GetRolesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetRolesResultOutput, error) {
 			args := v.(GetRolesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetRolesResult
-			secret, err := ctx.InvokePackageRaw("aws:iam/getRoles:getRoles", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:iam/getRoles:getRoles", args, &rv, "", opts...)
 			if err != nil {
 				return GetRolesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetRolesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetRolesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetRolesResultOutput), nil
 			}

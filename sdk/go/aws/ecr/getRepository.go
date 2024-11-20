@@ -5,6 +5,7 @@ package ecr
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupRepository(ctx *pulumi.Context, args *LookupRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupRepositoryResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupRepositoryResult{}, errors.New("DependsOn is not supported for direct form invoke LookupRepository, use LookupRepositoryOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupRepositoryResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupRepository, use LookupRepositoryOutput instead")
+	}
 	var rv LookupRepositoryResult
 	err := ctx.Invoke("aws:ecr/getRepository:getRepository", args, &rv, opts...)
 	if err != nil {
@@ -81,17 +92,18 @@ type LookupRepositoryResult struct {
 }
 
 func LookupRepositoryOutput(ctx *pulumi.Context, args LookupRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRepositoryResultOutput, error) {
 			args := v.(LookupRepositoryArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupRepositoryResult
-			secret, err := ctx.InvokePackageRaw("aws:ecr/getRepository:getRepository", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ecr/getRepository:getRepository", args, &rv, "", opts...)
 			if err != nil {
 				return LookupRepositoryResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupRepositoryResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupRepositoryResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupRepositoryResultOutput), nil
 			}

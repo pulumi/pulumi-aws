@@ -5,6 +5,7 @@ package efs
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupAccessPoint(ctx *pulumi.Context, args *LookupAccessPointArgs, opts ...pulumi.InvokeOption) (*LookupAccessPointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupAccessPointResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupAccessPointResult{}, errors.New("DependsOn is not supported for direct form invoke LookupAccessPoint, use LookupAccessPointOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupAccessPointResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupAccessPoint, use LookupAccessPointOutput instead")
+	}
 	var rv LookupAccessPointResult
 	err := ctx.Invoke("aws:efs/getAccessPoint:getAccessPoint", args, &rv, opts...)
 	if err != nil {
@@ -77,17 +88,18 @@ type LookupAccessPointResult struct {
 }
 
 func LookupAccessPointOutput(ctx *pulumi.Context, args LookupAccessPointOutputArgs, opts ...pulumi.InvokeOption) LookupAccessPointResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAccessPointResultOutput, error) {
 			args := v.(LookupAccessPointArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupAccessPointResult
-			secret, err := ctx.InvokePackageRaw("aws:efs/getAccessPoint:getAccessPoint", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:efs/getAccessPoint:getAccessPoint", args, &rv, "", opts...)
 			if err != nil {
 				return LookupAccessPointResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupAccessPointResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupAccessPointResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupAccessPointResultOutput), nil
 			}

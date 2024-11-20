@@ -5,6 +5,7 @@ package quicksight
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetQuicksightAnalysis(ctx *pulumi.Context, args *GetQuicksightAnalysisArgs, opts ...pulumi.InvokeOption) (*GetQuicksightAnalysisResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetQuicksightAnalysisResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetQuicksightAnalysisResult{}, errors.New("DependsOn is not supported for direct form invoke GetQuicksightAnalysis, use GetQuicksightAnalysisOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetQuicksightAnalysisResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetQuicksightAnalysis, use GetQuicksightAnalysisOutput instead")
+	}
 	var rv GetQuicksightAnalysisResult
 	err := ctx.Invoke("aws:quicksight/getQuicksightAnalysis:getQuicksightAnalysis", args, &rv, opts...)
 	if err != nil {
@@ -79,17 +90,18 @@ type GetQuicksightAnalysisResult struct {
 }
 
 func GetQuicksightAnalysisOutput(ctx *pulumi.Context, args GetQuicksightAnalysisOutputArgs, opts ...pulumi.InvokeOption) GetQuicksightAnalysisResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetQuicksightAnalysisResultOutput, error) {
 			args := v.(GetQuicksightAnalysisArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetQuicksightAnalysisResult
-			secret, err := ctx.InvokePackageRaw("aws:quicksight/getQuicksightAnalysis:getQuicksightAnalysis", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:quicksight/getQuicksightAnalysis:getQuicksightAnalysis", args, &rv, "", opts...)
 			if err != nil {
 				return GetQuicksightAnalysisResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetQuicksightAnalysisResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetQuicksightAnalysisResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetQuicksightAnalysisResultOutput), nil
 			}

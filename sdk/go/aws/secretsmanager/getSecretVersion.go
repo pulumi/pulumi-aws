@@ -5,6 +5,7 @@ package secretsmanager
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -71,6 +72,16 @@ import (
 // ```
 func LookupSecretVersion(ctx *pulumi.Context, args *LookupSecretVersionArgs, opts ...pulumi.InvokeOption) (*LookupSecretVersionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupSecretVersionResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupSecretVersionResult{}, errors.New("DependsOn is not supported for direct form invoke LookupSecretVersion, use LookupSecretVersionOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupSecretVersionResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupSecretVersion, use LookupSecretVersionOutput instead")
+	}
 	var rv LookupSecretVersionResult
 	err := ctx.Invoke("aws:secretsmanager/getSecretVersion:getSecretVersion", args, &rv, opts...)
 	if err != nil {
@@ -109,17 +120,18 @@ type LookupSecretVersionResult struct {
 }
 
 func LookupSecretVersionOutput(ctx *pulumi.Context, args LookupSecretVersionOutputArgs, opts ...pulumi.InvokeOption) LookupSecretVersionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSecretVersionResultOutput, error) {
 			args := v.(LookupSecretVersionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSecretVersionResult
-			secret, err := ctx.InvokePackageRaw("aws:secretsmanager/getSecretVersion:getSecretVersion", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:secretsmanager/getSecretVersion:getSecretVersion", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSecretVersionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSecretVersionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSecretVersionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSecretVersionResultOutput), nil
 			}

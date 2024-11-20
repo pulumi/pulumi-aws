@@ -5,6 +5,7 @@ package cloudfront
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupOriginAccessIdentity(ctx *pulumi.Context, args *LookupOriginAccessIdentityArgs, opts ...pulumi.InvokeOption) (*LookupOriginAccessIdentityResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupOriginAccessIdentityResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupOriginAccessIdentityResult{}, errors.New("DependsOn is not supported for direct form invoke LookupOriginAccessIdentity, use LookupOriginAccessIdentityOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupOriginAccessIdentityResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupOriginAccessIdentity, use LookupOriginAccessIdentityOutput instead")
+	}
 	var rv LookupOriginAccessIdentityResult
 	err := ctx.Invoke("aws:cloudfront/getOriginAccessIdentity:getOriginAccessIdentity", args, &rv, opts...)
 	if err != nil {
@@ -81,17 +92,18 @@ type LookupOriginAccessIdentityResult struct {
 }
 
 func LookupOriginAccessIdentityOutput(ctx *pulumi.Context, args LookupOriginAccessIdentityOutputArgs, opts ...pulumi.InvokeOption) LookupOriginAccessIdentityResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupOriginAccessIdentityResultOutput, error) {
 			args := v.(LookupOriginAccessIdentityArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupOriginAccessIdentityResult
-			secret, err := ctx.InvokePackageRaw("aws:cloudfront/getOriginAccessIdentity:getOriginAccessIdentity", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:cloudfront/getOriginAccessIdentity:getOriginAccessIdentity", args, &rv, "", opts...)
 			if err != nil {
 				return LookupOriginAccessIdentityResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupOriginAccessIdentityResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupOriginAccessIdentityResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupOriginAccessIdentityResultOutput), nil
 			}

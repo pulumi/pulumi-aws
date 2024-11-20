@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetPublicIpv4Pool(ctx *pulumi.Context, args *GetPublicIpv4PoolArgs, opts ...pulumi.InvokeOption) (*GetPublicIpv4PoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetPublicIpv4PoolResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetPublicIpv4PoolResult{}, errors.New("DependsOn is not supported for direct form invoke GetPublicIpv4Pool, use GetPublicIpv4PoolOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetPublicIpv4PoolResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetPublicIpv4Pool, use GetPublicIpv4PoolOutput instead")
+	}
 	var rv GetPublicIpv4PoolResult
 	err := ctx.Invoke("aws:ec2/getPublicIpv4Pool:getPublicIpv4Pool", args, &rv, opts...)
 	if err != nil {
@@ -78,17 +89,18 @@ type GetPublicIpv4PoolResult struct {
 }
 
 func GetPublicIpv4PoolOutput(ctx *pulumi.Context, args GetPublicIpv4PoolOutputArgs, opts ...pulumi.InvokeOption) GetPublicIpv4PoolResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetPublicIpv4PoolResultOutput, error) {
 			args := v.(GetPublicIpv4PoolArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetPublicIpv4PoolResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getPublicIpv4Pool:getPublicIpv4Pool", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getPublicIpv4Pool:getPublicIpv4Pool", args, &rv, "", opts...)
 			if err != nil {
 				return GetPublicIpv4PoolResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetPublicIpv4PoolResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetPublicIpv4PoolResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetPublicIpv4PoolResultOutput), nil
 			}

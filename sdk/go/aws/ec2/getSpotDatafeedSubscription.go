@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupSpotDatafeedSubscription(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupSpotDatafeedSubscriptionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupSpotDatafeedSubscriptionResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupSpotDatafeedSubscriptionResult{}, errors.New("DependsOn is not supported for direct form invoke LookupSpotDatafeedSubscription, use LookupSpotDatafeedSubscriptionOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupSpotDatafeedSubscriptionResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupSpotDatafeedSubscription, use LookupSpotDatafeedSubscriptionOutput instead")
+	}
 	var rv LookupSpotDatafeedSubscriptionResult
 	err := ctx.Invoke("aws:ec2/getSpotDatafeedSubscription:getSpotDatafeedSubscription", nil, &rv, opts...)
 	if err != nil {

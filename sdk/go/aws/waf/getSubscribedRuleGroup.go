@@ -5,6 +5,7 @@ package waf
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -63,6 +64,16 @@ import (
 // ```
 func GetSubscribedRuleGroup(ctx *pulumi.Context, args *GetSubscribedRuleGroupArgs, opts ...pulumi.InvokeOption) (*GetSubscribedRuleGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetSubscribedRuleGroupResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetSubscribedRuleGroupResult{}, errors.New("DependsOn is not supported for direct form invoke GetSubscribedRuleGroup, use GetSubscribedRuleGroupOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetSubscribedRuleGroupResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetSubscribedRuleGroup, use GetSubscribedRuleGroupOutput instead")
+	}
 	var rv GetSubscribedRuleGroupResult
 	err := ctx.Invoke("aws:waf/getSubscribedRuleGroup:getSubscribedRuleGroup", args, &rv, opts...)
 	if err != nil {
@@ -88,17 +99,18 @@ type GetSubscribedRuleGroupResult struct {
 }
 
 func GetSubscribedRuleGroupOutput(ctx *pulumi.Context, args GetSubscribedRuleGroupOutputArgs, opts ...pulumi.InvokeOption) GetSubscribedRuleGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetSubscribedRuleGroupResultOutput, error) {
 			args := v.(GetSubscribedRuleGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetSubscribedRuleGroupResult
-			secret, err := ctx.InvokePackageRaw("aws:waf/getSubscribedRuleGroup:getSubscribedRuleGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:waf/getSubscribedRuleGroup:getSubscribedRuleGroup", args, &rv, "", opts...)
 			if err != nil {
 				return GetSubscribedRuleGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetSubscribedRuleGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetSubscribedRuleGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetSubscribedRuleGroupResultOutput), nil
 			}

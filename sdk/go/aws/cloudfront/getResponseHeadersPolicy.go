@@ -5,6 +5,7 @@ package cloudfront
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -70,6 +71,16 @@ import (
 // ```
 func LookupResponseHeadersPolicy(ctx *pulumi.Context, args *LookupResponseHeadersPolicyArgs, opts ...pulumi.InvokeOption) (*LookupResponseHeadersPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupResponseHeadersPolicyResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupResponseHeadersPolicyResult{}, errors.New("DependsOn is not supported for direct form invoke LookupResponseHeadersPolicy, use LookupResponseHeadersPolicyOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupResponseHeadersPolicyResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupResponseHeadersPolicy, use LookupResponseHeadersPolicyOutput instead")
+	}
 	var rv LookupResponseHeadersPolicyResult
 	err := ctx.Invoke("aws:cloudfront/getResponseHeadersPolicy:getResponseHeadersPolicy", args, &rv, opts...)
 	if err != nil {
@@ -107,17 +118,18 @@ type LookupResponseHeadersPolicyResult struct {
 }
 
 func LookupResponseHeadersPolicyOutput(ctx *pulumi.Context, args LookupResponseHeadersPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupResponseHeadersPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupResponseHeadersPolicyResultOutput, error) {
 			args := v.(LookupResponseHeadersPolicyArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupResponseHeadersPolicyResult
-			secret, err := ctx.InvokePackageRaw("aws:cloudfront/getResponseHeadersPolicy:getResponseHeadersPolicy", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:cloudfront/getResponseHeadersPolicy:getResponseHeadersPolicy", args, &rv, "", opts...)
 			if err != nil {
 				return LookupResponseHeadersPolicyResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupResponseHeadersPolicyResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupResponseHeadersPolicyResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupResponseHeadersPolicyResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -59,6 +60,16 @@ import (
 // ```
 func LookupVpcPeeringConnection(ctx *pulumi.Context, args *LookupVpcPeeringConnectionArgs, opts ...pulumi.InvokeOption) (*LookupVpcPeeringConnectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupVpcPeeringConnectionResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupVpcPeeringConnectionResult{}, errors.New("DependsOn is not supported for direct form invoke LookupVpcPeeringConnection, use LookupVpcPeeringConnectionOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupVpcPeeringConnectionResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupVpcPeeringConnection, use LookupVpcPeeringConnectionOutput instead")
+	}
 	var rv LookupVpcPeeringConnectionResult
 	err := ctx.Invoke("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", args, &rv, opts...)
 	if err != nil {
@@ -131,17 +142,18 @@ type LookupVpcPeeringConnectionResult struct {
 }
 
 func LookupVpcPeeringConnectionOutput(ctx *pulumi.Context, args LookupVpcPeeringConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupVpcPeeringConnectionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVpcPeeringConnectionResultOutput, error) {
 			args := v.(LookupVpcPeeringConnectionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVpcPeeringConnectionResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVpcPeeringConnectionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVpcPeeringConnectionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVpcPeeringConnectionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVpcPeeringConnectionResultOutput), nil
 			}

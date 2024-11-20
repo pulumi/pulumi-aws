@@ -5,6 +5,7 @@ package oam
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupSink(ctx *pulumi.Context, args *LookupSinkArgs, opts ...pulumi.InvokeOption) (*LookupSinkResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupSinkResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupSinkResult{}, errors.New("DependsOn is not supported for direct form invoke LookupSink, use LookupSinkOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupSinkResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupSink, use LookupSinkOutput instead")
+	}
 	var rv LookupSinkResult
 	err := ctx.Invoke("aws:oam/getSink:getSink", args, &rv, opts...)
 	if err != nil {
@@ -74,17 +85,18 @@ type LookupSinkResult struct {
 }
 
 func LookupSinkOutput(ctx *pulumi.Context, args LookupSinkOutputArgs, opts ...pulumi.InvokeOption) LookupSinkResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSinkResultOutput, error) {
 			args := v.(LookupSinkArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSinkResult
-			secret, err := ctx.InvokePackageRaw("aws:oam/getSink:getSink", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:oam/getSink:getSink", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSinkResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSinkResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSinkResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSinkResultOutput), nil
 			}

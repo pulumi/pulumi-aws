@@ -5,6 +5,7 @@ package signer
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupSigningJob(ctx *pulumi.Context, args *LookupSigningJobArgs, opts ...pulumi.InvokeOption) (*LookupSigningJobResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupSigningJobResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupSigningJobResult{}, errors.New("DependsOn is not supported for direct form invoke LookupSigningJob, use LookupSigningJobOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupSigningJobResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupSigningJob, use LookupSigningJobOutput instead")
+	}
 	var rv LookupSigningJobResult
 	err := ctx.Invoke("aws:signer/getSigningJob:getSigningJob", args, &rv, opts...)
 	if err != nil {
@@ -92,17 +103,18 @@ type LookupSigningJobResult struct {
 }
 
 func LookupSigningJobOutput(ctx *pulumi.Context, args LookupSigningJobOutputArgs, opts ...pulumi.InvokeOption) LookupSigningJobResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSigningJobResultOutput, error) {
 			args := v.(LookupSigningJobArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSigningJobResult
-			secret, err := ctx.InvokePackageRaw("aws:signer/getSigningJob:getSigningJob", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:signer/getSigningJob:getSigningJob", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSigningJobResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSigningJobResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSigningJobResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSigningJobResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package location
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupPlaceIndex(ctx *pulumi.Context, args *LookupPlaceIndexArgs, opts ...pulumi.InvokeOption) (*LookupPlaceIndexResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupPlaceIndexResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupPlaceIndexResult{}, errors.New("DependsOn is not supported for direct form invoke LookupPlaceIndex, use LookupPlaceIndexOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupPlaceIndexResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupPlaceIndex, use LookupPlaceIndexOutput instead")
+	}
 	var rv LookupPlaceIndexResult
 	err := ctx.Invoke("aws:location/getPlaceIndex:getPlaceIndex", args, &rv, opts...)
 	if err != nil {
@@ -78,17 +89,18 @@ type LookupPlaceIndexResult struct {
 }
 
 func LookupPlaceIndexOutput(ctx *pulumi.Context, args LookupPlaceIndexOutputArgs, opts ...pulumi.InvokeOption) LookupPlaceIndexResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPlaceIndexResultOutput, error) {
 			args := v.(LookupPlaceIndexArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupPlaceIndexResult
-			secret, err := ctx.InvokePackageRaw("aws:location/getPlaceIndex:getPlaceIndex", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:location/getPlaceIndex:getPlaceIndex", args, &rv, "", opts...)
 			if err != nil {
 				return LookupPlaceIndexResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupPlaceIndexResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupPlaceIndexResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupPlaceIndexResultOutput), nil
 			}

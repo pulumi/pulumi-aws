@@ -5,6 +5,7 @@ package lb
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -45,6 +46,16 @@ import (
 // ```
 func GetLbs(ctx *pulumi.Context, args *GetLbsArgs, opts ...pulumi.InvokeOption) (*GetLbsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetLbsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetLbsResult{}, errors.New("DependsOn is not supported for direct form invoke GetLbs, use GetLbsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetLbsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetLbs, use GetLbsOutput instead")
+	}
 	var rv GetLbsResult
 	err := ctx.Invoke("aws:lb/getLbs:getLbs", args, &rv, opts...)
 	if err != nil {
@@ -70,17 +81,18 @@ type GetLbsResult struct {
 }
 
 func GetLbsOutput(ctx *pulumi.Context, args GetLbsOutputArgs, opts ...pulumi.InvokeOption) GetLbsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetLbsResultOutput, error) {
 			args := v.(GetLbsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetLbsResult
-			secret, err := ctx.InvokePackageRaw("aws:lb/getLbs:getLbs", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:lb/getLbs:getLbs", args, &rv, "", opts...)
 			if err != nil {
 				return GetLbsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetLbsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetLbsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetLbsResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -44,6 +45,16 @@ import (
 // ```
 func GetCapacityBlockOffering(ctx *pulumi.Context, args *GetCapacityBlockOfferingArgs, opts ...pulumi.InvokeOption) (*GetCapacityBlockOfferingResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetCapacityBlockOfferingResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetCapacityBlockOfferingResult{}, errors.New("DependsOn is not supported for direct form invoke GetCapacityBlockOffering, use GetCapacityBlockOfferingOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetCapacityBlockOfferingResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetCapacityBlockOffering, use GetCapacityBlockOfferingOutput instead")
+	}
 	var rv GetCapacityBlockOfferingResult
 	err := ctx.Invoke("aws:ec2/getCapacityBlockOffering:getCapacityBlockOffering", args, &rv, opts...)
 	if err != nil {
@@ -88,17 +99,18 @@ type GetCapacityBlockOfferingResult struct {
 }
 
 func GetCapacityBlockOfferingOutput(ctx *pulumi.Context, args GetCapacityBlockOfferingOutputArgs, opts ...pulumi.InvokeOption) GetCapacityBlockOfferingResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetCapacityBlockOfferingResultOutput, error) {
 			args := v.(GetCapacityBlockOfferingArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetCapacityBlockOfferingResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getCapacityBlockOffering:getCapacityBlockOffering", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getCapacityBlockOffering:getCapacityBlockOffering", args, &rv, "", opts...)
 			if err != nil {
 				return GetCapacityBlockOfferingResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetCapacityBlockOfferingResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetCapacityBlockOfferingResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetCapacityBlockOfferingResultOutput), nil
 			}

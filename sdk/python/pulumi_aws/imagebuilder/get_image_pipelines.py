@@ -115,7 +115,7 @@ def get_image_pipelines(filters: Optional[Sequence[Union['GetImagePipelinesFilte
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'))
 def get_image_pipelines_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetImagePipelinesFilterArgs', 'GetImagePipelinesFilterArgsDict']]]]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImagePipelinesResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImagePipelinesResult]:
     """
     Use this data source to get the ARNs and names of Image Builder Image Pipelines matching the specified criteria.
 
@@ -136,7 +136,7 @@ def get_image_pipelines_output(filters: Optional[pulumi.Input[Optional[Sequence[
     """
     __args__ = dict()
     __args__['filters'] = filters
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:imagebuilder/getImagePipelines:getImagePipelines', __args__, opts=opts, typ=GetImagePipelinesResult)
     return __ret__.apply(lambda __response__: GetImagePipelinesResult(
         arns=pulumi.get(__response__, 'arns'),

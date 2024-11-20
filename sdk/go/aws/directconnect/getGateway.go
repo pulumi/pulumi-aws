@@ -5,6 +5,7 @@ package directconnect
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupGateway(ctx *pulumi.Context, args *LookupGatewayArgs, opts ...pulumi.InvokeOption) (*LookupGatewayResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupGatewayResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupGatewayResult{}, errors.New("DependsOn is not supported for direct form invoke LookupGateway, use LookupGatewayOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupGatewayResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupGateway, use LookupGatewayOutput instead")
+	}
 	var rv LookupGatewayResult
 	err := ctx.Invoke("aws:directconnect/getGateway:getGateway", args, &rv, opts...)
 	if err != nil {
@@ -66,17 +77,18 @@ type LookupGatewayResult struct {
 }
 
 func LookupGatewayOutput(ctx *pulumi.Context, args LookupGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupGatewayResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupGatewayResultOutput, error) {
 			args := v.(LookupGatewayArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupGatewayResult
-			secret, err := ctx.InvokePackageRaw("aws:directconnect/getGateway:getGateway", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:directconnect/getGateway:getGateway", args, &rv, "", opts...)
 			if err != nil {
 				return LookupGatewayResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupGatewayResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupGatewayResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupGatewayResultOutput), nil
 			}

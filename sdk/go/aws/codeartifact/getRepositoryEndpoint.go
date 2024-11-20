@@ -5,6 +5,7 @@ package codeartifact
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetRepositoryEndpoint(ctx *pulumi.Context, args *GetRepositoryEndpointArgs, opts ...pulumi.InvokeOption) (*GetRepositoryEndpointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetRepositoryEndpointResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetRepositoryEndpointResult{}, errors.New("DependsOn is not supported for direct form invoke GetRepositoryEndpoint, use GetRepositoryEndpointOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetRepositoryEndpointResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetRepositoryEndpoint, use GetRepositoryEndpointOutput instead")
+	}
 	var rv GetRepositoryEndpointResult
 	err := ctx.Invoke("aws:codeartifact/getRepositoryEndpoint:getRepositoryEndpoint", args, &rv, opts...)
 	if err != nil {
@@ -75,17 +86,18 @@ type GetRepositoryEndpointResult struct {
 }
 
 func GetRepositoryEndpointOutput(ctx *pulumi.Context, args GetRepositoryEndpointOutputArgs, opts ...pulumi.InvokeOption) GetRepositoryEndpointResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetRepositoryEndpointResultOutput, error) {
 			args := v.(GetRepositoryEndpointArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetRepositoryEndpointResult
-			secret, err := ctx.InvokePackageRaw("aws:codeartifact/getRepositoryEndpoint:getRepositoryEndpoint", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:codeartifact/getRepositoryEndpoint:getRepositoryEndpoint", args, &rv, "", opts...)
 			if err != nil {
 				return GetRepositoryEndpointResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetRepositoryEndpointResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetRepositoryEndpointResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetRepositoryEndpointResultOutput), nil
 			}

@@ -322,7 +322,7 @@ def get_principal_policy_simulation_output(action_names: Optional[pulumi.Input[S
                                            resource_handling_option: Optional[pulumi.Input[Optional[str]]] = None,
                                            resource_owner_account_id: Optional[pulumi.Input[Optional[str]]] = None,
                                            resource_policy_json: Optional[pulumi.Input[Optional[str]]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrincipalPolicySimulationResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrincipalPolicySimulationResult]:
     """
     Runs a simulation of the IAM policies of a particular principal against a given hypothetical request.
 
@@ -445,7 +445,7 @@ def get_principal_policy_simulation_output(action_names: Optional[pulumi.Input[S
     __args__['resourceHandlingOption'] = resource_handling_option
     __args__['resourceOwnerAccountId'] = resource_owner_account_id
     __args__['resourcePolicyJson'] = resource_policy_json
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:iam/getPrincipalPolicySimulation:getPrincipalPolicySimulation', __args__, opts=opts, typ=GetPrincipalPolicySimulationResult)
     return __ret__.apply(lambda __response__: GetPrincipalPolicySimulationResult(
         action_names=pulumi.get(__response__, 'action_names'),

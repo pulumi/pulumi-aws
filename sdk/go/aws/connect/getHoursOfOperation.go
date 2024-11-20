@@ -5,6 +5,7 @@ package connect
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -70,6 +71,16 @@ import (
 // ```
 func LookupHoursOfOperation(ctx *pulumi.Context, args *LookupHoursOfOperationArgs, opts ...pulumi.InvokeOption) (*LookupHoursOfOperationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupHoursOfOperationResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupHoursOfOperationResult{}, errors.New("DependsOn is not supported for direct form invoke LookupHoursOfOperation, use LookupHoursOfOperationOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupHoursOfOperationResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupHoursOfOperation, use LookupHoursOfOperationOutput instead")
+	}
 	var rv LookupHoursOfOperationResult
 	err := ctx.Invoke("aws:connect/getHoursOfOperation:getHoursOfOperation", args, &rv, opts...)
 	if err != nil {
@@ -113,17 +124,18 @@ type LookupHoursOfOperationResult struct {
 }
 
 func LookupHoursOfOperationOutput(ctx *pulumi.Context, args LookupHoursOfOperationOutputArgs, opts ...pulumi.InvokeOption) LookupHoursOfOperationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupHoursOfOperationResultOutput, error) {
 			args := v.(LookupHoursOfOperationArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupHoursOfOperationResult
-			secret, err := ctx.InvokePackageRaw("aws:connect/getHoursOfOperation:getHoursOfOperation", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:connect/getHoursOfOperation:getHoursOfOperation", args, &rv, "", opts...)
 			if err != nil {
 				return LookupHoursOfOperationResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupHoursOfOperationResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupHoursOfOperationResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupHoursOfOperationResultOutput), nil
 			}

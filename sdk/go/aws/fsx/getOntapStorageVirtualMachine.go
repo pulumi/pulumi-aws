@@ -5,6 +5,7 @@ package fsx
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -75,6 +76,16 @@ import (
 // ```
 func LookupOntapStorageVirtualMachine(ctx *pulumi.Context, args *LookupOntapStorageVirtualMachineArgs, opts ...pulumi.InvokeOption) (*LookupOntapStorageVirtualMachineResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupOntapStorageVirtualMachineResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupOntapStorageVirtualMachineResult{}, errors.New("DependsOn is not supported for direct form invoke LookupOntapStorageVirtualMachine, use LookupOntapStorageVirtualMachineOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupOntapStorageVirtualMachineResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupOntapStorageVirtualMachine, use LookupOntapStorageVirtualMachineOutput instead")
+	}
 	var rv LookupOntapStorageVirtualMachineResult
 	err := ctx.Invoke("aws:fsx/getOntapStorageVirtualMachine:getOntapStorageVirtualMachine", args, &rv, opts...)
 	if err != nil {
@@ -121,17 +132,18 @@ type LookupOntapStorageVirtualMachineResult struct {
 }
 
 func LookupOntapStorageVirtualMachineOutput(ctx *pulumi.Context, args LookupOntapStorageVirtualMachineOutputArgs, opts ...pulumi.InvokeOption) LookupOntapStorageVirtualMachineResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupOntapStorageVirtualMachineResultOutput, error) {
 			args := v.(LookupOntapStorageVirtualMachineArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupOntapStorageVirtualMachineResult
-			secret, err := ctx.InvokePackageRaw("aws:fsx/getOntapStorageVirtualMachine:getOntapStorageVirtualMachine", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:fsx/getOntapStorageVirtualMachine:getOntapStorageVirtualMachine", args, &rv, "", opts...)
 			if err != nil {
 				return LookupOntapStorageVirtualMachineResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupOntapStorageVirtualMachineResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupOntapStorageVirtualMachineResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupOntapStorageVirtualMachineResultOutput), nil
 			}

@@ -136,7 +136,7 @@ def get_policy_store(id: Optional[str] = None,
         last_updated_date=pulumi.get(__ret__, 'last_updated_date'),
         validation_settings=pulumi.get(__ret__, 'validation_settings'))
 def get_policy_store_output(id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyStoreResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyStoreResult]:
     """
     Data source for managing an AWS Verified Permissions Policy Store.
 
@@ -156,7 +156,7 @@ def get_policy_store_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:verifiedpermissions/getPolicyStore:getPolicyStore', __args__, opts=opts, typ=GetPolicyStoreResult)
     return __ret__.apply(lambda __response__: GetPolicyStoreResult(
         arn=pulumi.get(__response__, 'arn'),

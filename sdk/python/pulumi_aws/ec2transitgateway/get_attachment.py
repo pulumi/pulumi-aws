@@ -243,7 +243,7 @@ def get_attachment(filters: Optional[Sequence[Union['GetAttachmentFilterArgs', '
 def get_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetAttachmentFilterArgs', 'GetAttachmentFilterArgsDict']]]]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                           transit_gateway_attachment_id: Optional[pulumi.Input[Optional[str]]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttachmentResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAttachmentResult]:
     """
     Get information on an EC2 Transit Gateway's attachment to a resource.
 
@@ -274,7 +274,7 @@ def get_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[Union
     __args__['filters'] = filters
     __args__['tags'] = tags
     __args__['transitGatewayAttachmentId'] = transit_gateway_attachment_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2transitgateway/getAttachment:getAttachment', __args__, opts=opts, typ=GetAttachmentResult)
     return __ret__.apply(lambda __response__: GetAttachmentResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -5,6 +5,7 @@ package apigateway
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupVpcLink(ctx *pulumi.Context, args *LookupVpcLinkArgs, opts ...pulumi.InvokeOption) (*LookupVpcLinkResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupVpcLinkResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupVpcLinkResult{}, errors.New("DependsOn is not supported for direct form invoke LookupVpcLink, use LookupVpcLinkOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupVpcLinkResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupVpcLink, use LookupVpcLinkOutput instead")
+	}
 	var rv LookupVpcLinkResult
 	err := ctx.Invoke("aws:apigateway/getVpcLink:getVpcLink", args, &rv, opts...)
 	if err != nil {
@@ -79,17 +90,18 @@ type LookupVpcLinkResult struct {
 }
 
 func LookupVpcLinkOutput(ctx *pulumi.Context, args LookupVpcLinkOutputArgs, opts ...pulumi.InvokeOption) LookupVpcLinkResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVpcLinkResultOutput, error) {
 			args := v.(LookupVpcLinkArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVpcLinkResult
-			secret, err := ctx.InvokePackageRaw("aws:apigateway/getVpcLink:getVpcLink", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:apigateway/getVpcLink:getVpcLink", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVpcLinkResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVpcLinkResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVpcLinkResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVpcLinkResultOutput), nil
 			}

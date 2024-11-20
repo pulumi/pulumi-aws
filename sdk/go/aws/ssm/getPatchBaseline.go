@@ -5,6 +5,7 @@ package ssm
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -73,6 +74,16 @@ import (
 // ```
 func LookupPatchBaseline(ctx *pulumi.Context, args *LookupPatchBaselineArgs, opts ...pulumi.InvokeOption) (*LookupPatchBaselineResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupPatchBaselineResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupPatchBaselineResult{}, errors.New("DependsOn is not supported for direct form invoke LookupPatchBaseline, use LookupPatchBaselineOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupPatchBaselineResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupPatchBaseline, use LookupPatchBaselineOutput instead")
+	}
 	var rv LookupPatchBaselineResult
 	err := ctx.Invoke("aws:ssm/getPatchBaseline:getPatchBaseline", args, &rv, opts...)
 	if err != nil {
@@ -128,17 +139,18 @@ type LookupPatchBaselineResult struct {
 }
 
 func LookupPatchBaselineOutput(ctx *pulumi.Context, args LookupPatchBaselineOutputArgs, opts ...pulumi.InvokeOption) LookupPatchBaselineResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPatchBaselineResultOutput, error) {
 			args := v.(LookupPatchBaselineArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupPatchBaselineResult
-			secret, err := ctx.InvokePackageRaw("aws:ssm/getPatchBaseline:getPatchBaseline", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ssm/getPatchBaseline:getPatchBaseline", args, &rv, "", opts...)
 			if err != nil {
 				return LookupPatchBaselineResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupPatchBaselineResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupPatchBaselineResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupPatchBaselineResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package organizations
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func GetDelegatedServices(ctx *pulumi.Context, args *GetDelegatedServicesArgs, opts ...pulumi.InvokeOption) (*GetDelegatedServicesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetDelegatedServicesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetDelegatedServicesResult{}, errors.New("DependsOn is not supported for direct form invoke GetDelegatedServices, use GetDelegatedServicesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetDelegatedServicesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetDelegatedServices, use GetDelegatedServicesOutput instead")
+	}
 	var rv GetDelegatedServicesResult
 	err := ctx.Invoke("aws:organizations/getDelegatedServices:getDelegatedServices", args, &rv, opts...)
 	if err != nil {
@@ -64,17 +75,18 @@ type GetDelegatedServicesResult struct {
 }
 
 func GetDelegatedServicesOutput(ctx *pulumi.Context, args GetDelegatedServicesOutputArgs, opts ...pulumi.InvokeOption) GetDelegatedServicesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetDelegatedServicesResultOutput, error) {
 			args := v.(GetDelegatedServicesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetDelegatedServicesResult
-			secret, err := ctx.InvokePackageRaw("aws:organizations/getDelegatedServices:getDelegatedServices", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:organizations/getDelegatedServices:getDelegatedServices", args, &rv, "", opts...)
 			if err != nil {
 				return GetDelegatedServicesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetDelegatedServicesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetDelegatedServicesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetDelegatedServicesResultOutput), nil
 			}

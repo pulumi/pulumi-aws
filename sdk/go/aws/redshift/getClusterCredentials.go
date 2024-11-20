@@ -5,6 +5,7 @@ package redshift
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func GetClusterCredentials(ctx *pulumi.Context, args *GetClusterCredentialsArgs, opts ...pulumi.InvokeOption) (*GetClusterCredentialsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetClusterCredentialsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetClusterCredentialsResult{}, errors.New("DependsOn is not supported for direct form invoke GetClusterCredentials, use GetClusterCredentialsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetClusterCredentialsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetClusterCredentials, use GetClusterCredentialsOutput instead")
+	}
 	var rv GetClusterCredentialsResult
 	err := ctx.Invoke("aws:redshift/getClusterCredentials:getClusterCredentials", args, &rv, opts...)
 	if err != nil {
@@ -82,17 +93,18 @@ type GetClusterCredentialsResult struct {
 }
 
 func GetClusterCredentialsOutput(ctx *pulumi.Context, args GetClusterCredentialsOutputArgs, opts ...pulumi.InvokeOption) GetClusterCredentialsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetClusterCredentialsResultOutput, error) {
 			args := v.(GetClusterCredentialsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetClusterCredentialsResult
-			secret, err := ctx.InvokePackageRaw("aws:redshift/getClusterCredentials:getClusterCredentials", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:redshift/getClusterCredentials:getClusterCredentials", args, &rv, "", opts...)
 			if err != nil {
 				return GetClusterCredentialsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetClusterCredentialsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetClusterCredentialsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetClusterCredentialsResultOutput), nil
 			}

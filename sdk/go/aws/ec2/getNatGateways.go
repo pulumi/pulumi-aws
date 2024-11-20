@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -14,6 +15,16 @@ import (
 // This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
 func GetNatGateways(ctx *pulumi.Context, args *GetNatGatewaysArgs, opts ...pulumi.InvokeOption) (*GetNatGatewaysResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetNatGatewaysResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetNatGatewaysResult{}, errors.New("DependsOn is not supported for direct form invoke GetNatGateways, use GetNatGatewaysOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetNatGatewaysResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetNatGateways, use GetNatGatewaysOutput instead")
+	}
 	var rv GetNatGatewaysResult
 	err := ctx.Invoke("aws:ec2/getNatGateways:getNatGateways", args, &rv, opts...)
 	if err != nil {
@@ -48,17 +59,18 @@ type GetNatGatewaysResult struct {
 }
 
 func GetNatGatewaysOutput(ctx *pulumi.Context, args GetNatGatewaysOutputArgs, opts ...pulumi.InvokeOption) GetNatGatewaysResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetNatGatewaysResultOutput, error) {
 			args := v.(GetNatGatewaysArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetNatGatewaysResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getNatGateways:getNatGateways", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getNatGateways:getNatGateways", args, &rv, "", opts...)
 			if err != nil {
 				return GetNatGatewaysResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetNatGatewaysResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetNatGatewaysResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetNatGatewaysResultOutput), nil
 			}

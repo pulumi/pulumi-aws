@@ -205,7 +205,7 @@ def get_connection(name: Optional[str] = None,
         vlan_id=pulumi.get(__ret__, 'vlan_id'))
 def get_connection_output(name: Optional[pulumi.Input[str]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionResult]:
     """
     Retrieve information about a Direct Connect Connection.
 
@@ -225,7 +225,7 @@ def get_connection_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:directconnect/getConnection:getConnection', __args__, opts=opts, typ=GetConnectionResult)
     return __ret__.apply(lambda __response__: GetConnectionResult(
         arn=pulumi.get(__response__, 'arn'),

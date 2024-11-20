@@ -5,6 +5,7 @@ package secretsmanager
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -68,6 +69,16 @@ import (
 // ```
 func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.InvokeOption) (*LookupSecretResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupSecretResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupSecretResult{}, errors.New("DependsOn is not supported for direct form invoke LookupSecret, use LookupSecretOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupSecretResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupSecret, use LookupSecretOutput instead")
+	}
 	var rv LookupSecretResult
 	err := ctx.Invoke("aws:secretsmanager/getSecret:getSecret", args, &rv, opts...)
 	if err != nil {
@@ -108,17 +119,18 @@ type LookupSecretResult struct {
 }
 
 func LookupSecretOutput(ctx *pulumi.Context, args LookupSecretOutputArgs, opts ...pulumi.InvokeOption) LookupSecretResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSecretResultOutput, error) {
 			args := v.(LookupSecretArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSecretResult
-			secret, err := ctx.InvokePackageRaw("aws:secretsmanager/getSecret:getSecret", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:secretsmanager/getSecret:getSecret", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSecretResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSecretResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSecretResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSecretResultOutput), nil
 			}

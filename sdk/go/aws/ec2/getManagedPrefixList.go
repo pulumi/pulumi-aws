@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -83,6 +84,16 @@ import (
 // ```
 func LookupManagedPrefixList(ctx *pulumi.Context, args *LookupManagedPrefixListArgs, opts ...pulumi.InvokeOption) (*LookupManagedPrefixListResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupManagedPrefixListResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupManagedPrefixListResult{}, errors.New("DependsOn is not supported for direct form invoke LookupManagedPrefixList, use LookupManagedPrefixListOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupManagedPrefixListResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupManagedPrefixList, use LookupManagedPrefixListOutput instead")
+	}
 	var rv LookupManagedPrefixListResult
 	err := ctx.Invoke("aws:ec2/getManagedPrefixList:getManagedPrefixList", args, &rv, opts...)
 	if err != nil {
@@ -126,17 +137,18 @@ type LookupManagedPrefixListResult struct {
 }
 
 func LookupManagedPrefixListOutput(ctx *pulumi.Context, args LookupManagedPrefixListOutputArgs, opts ...pulumi.InvokeOption) LookupManagedPrefixListResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupManagedPrefixListResultOutput, error) {
 			args := v.(LookupManagedPrefixListArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupManagedPrefixListResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getManagedPrefixList:getManagedPrefixList", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getManagedPrefixList:getManagedPrefixList", args, &rv, "", opts...)
 			if err != nil {
 				return LookupManagedPrefixListResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupManagedPrefixListResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupManagedPrefixListResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupManagedPrefixListResultOutput), nil
 			}

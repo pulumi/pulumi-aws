@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -45,6 +46,16 @@ import (
 // ```
 func GetLocalGateway(ctx *pulumi.Context, args *GetLocalGatewayArgs, opts ...pulumi.InvokeOption) (*GetLocalGatewayResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetLocalGatewayResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetLocalGatewayResult{}, errors.New("DependsOn is not supported for direct form invoke GetLocalGateway, use GetLocalGatewayOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetLocalGatewayResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetLocalGateway, use GetLocalGatewayOutput instead")
+	}
 	var rv GetLocalGatewayResult
 	err := ctx.Invoke("aws:ec2/getLocalGateway:getLocalGateway", args, &rv, opts...)
 	if err != nil {
@@ -84,17 +95,18 @@ type GetLocalGatewayResult struct {
 }
 
 func GetLocalGatewayOutput(ctx *pulumi.Context, args GetLocalGatewayOutputArgs, opts ...pulumi.InvokeOption) GetLocalGatewayResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetLocalGatewayResultOutput, error) {
 			args := v.(GetLocalGatewayArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetLocalGatewayResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getLocalGateway:getLocalGateway", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getLocalGateway:getLocalGateway", args, &rv, "", opts...)
 			if err != nil {
 				return GetLocalGatewayResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetLocalGatewayResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetLocalGatewayResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetLocalGatewayResultOutput), nil
 			}

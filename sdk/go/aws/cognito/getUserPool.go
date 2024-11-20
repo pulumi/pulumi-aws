@@ -5,6 +5,7 @@ package cognito
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupUserPool(ctx *pulumi.Context, args *LookupUserPoolArgs, opts ...pulumi.InvokeOption) (*LookupUserPoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupUserPoolResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupUserPoolResult{}, errors.New("DependsOn is not supported for direct form invoke LookupUserPool, use LookupUserPoolOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupUserPoolResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupUserPool, use LookupUserPoolOutput instead")
+	}
 	var rv LookupUserPoolResult
 	err := ctx.Invoke("aws:cognito/getUserPool:getUserPool", args, &rv, opts...)
 	if err != nil {
@@ -108,17 +119,18 @@ type LookupUserPoolResult struct {
 }
 
 func LookupUserPoolOutput(ctx *pulumi.Context, args LookupUserPoolOutputArgs, opts ...pulumi.InvokeOption) LookupUserPoolResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupUserPoolResultOutput, error) {
 			args := v.(LookupUserPoolArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupUserPoolResult
-			secret, err := ctx.InvokePackageRaw("aws:cognito/getUserPool:getUserPool", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:cognito/getUserPool:getUserPool", args, &rv, "", opts...)
 			if err != nil {
 				return LookupUserPoolResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupUserPoolResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupUserPoolResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupUserPoolResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package imagebuilder
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -47,6 +48,16 @@ import (
 // ```
 func GetImagePipelines(ctx *pulumi.Context, args *GetImagePipelinesArgs, opts ...pulumi.InvokeOption) (*GetImagePipelinesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetImagePipelinesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetImagePipelinesResult{}, errors.New("DependsOn is not supported for direct form invoke GetImagePipelines, use GetImagePipelinesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetImagePipelinesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetImagePipelines, use GetImagePipelinesOutput instead")
+	}
 	var rv GetImagePipelinesResult
 	err := ctx.Invoke("aws:imagebuilder/getImagePipelines:getImagePipelines", args, &rv, opts...)
 	if err != nil {
@@ -73,17 +84,18 @@ type GetImagePipelinesResult struct {
 }
 
 func GetImagePipelinesOutput(ctx *pulumi.Context, args GetImagePipelinesOutputArgs, opts ...pulumi.InvokeOption) GetImagePipelinesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetImagePipelinesResultOutput, error) {
 			args := v.(GetImagePipelinesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetImagePipelinesResult
-			secret, err := ctx.InvokePackageRaw("aws:imagebuilder/getImagePipelines:getImagePipelines", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:imagebuilder/getImagePipelines:getImagePipelines", args, &rv, "", opts...)
 			if err != nil {
 				return GetImagePipelinesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetImagePipelinesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetImagePipelinesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetImagePipelinesResultOutput), nil
 			}
