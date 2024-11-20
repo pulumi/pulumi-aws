@@ -5,6 +5,7 @@ package rds
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -62,6 +63,16 @@ import (
 // ```
 func LookupClusterSnapshot(ctx *pulumi.Context, args *LookupClusterSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupClusterSnapshotResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupClusterSnapshotResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupClusterSnapshotResult{}, errors.New("DependsOn is not supported for direct form invoke LookupClusterSnapshot, use LookupClusterSnapshotOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupClusterSnapshotResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupClusterSnapshot, use LookupClusterSnapshotOutput instead")
+	}
 	var rv LookupClusterSnapshotResult
 	err := ctx.Invoke("aws:rds/getClusterSnapshot:getClusterSnapshot", args, &rv, opts...)
 	if err != nil {
@@ -135,17 +146,18 @@ type LookupClusterSnapshotResult struct {
 }
 
 func LookupClusterSnapshotOutput(ctx *pulumi.Context, args LookupClusterSnapshotOutputArgs, opts ...pulumi.InvokeOption) LookupClusterSnapshotResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupClusterSnapshotResultOutput, error) {
 			args := v.(LookupClusterSnapshotArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupClusterSnapshotResult
-			secret, err := ctx.InvokePackageRaw("aws:rds/getClusterSnapshot:getClusterSnapshot", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:rds/getClusterSnapshot:getClusterSnapshot", args, &rv, "", opts...)
 			if err != nil {
 				return LookupClusterSnapshotResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupClusterSnapshotResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupClusterSnapshotResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupClusterSnapshotResultOutput), nil
 			}

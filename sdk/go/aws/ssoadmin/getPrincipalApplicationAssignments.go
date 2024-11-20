@@ -5,6 +5,7 @@ package ssoadmin
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -44,6 +45,16 @@ import (
 // ```
 func GetPrincipalApplicationAssignments(ctx *pulumi.Context, args *GetPrincipalApplicationAssignmentsArgs, opts ...pulumi.InvokeOption) (*GetPrincipalApplicationAssignmentsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetPrincipalApplicationAssignmentsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetPrincipalApplicationAssignmentsResult{}, errors.New("DependsOn is not supported for direct form invoke GetPrincipalApplicationAssignments, use GetPrincipalApplicationAssignmentsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetPrincipalApplicationAssignmentsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetPrincipalApplicationAssignments, use GetPrincipalApplicationAssignmentsOutput instead")
+	}
 	var rv GetPrincipalApplicationAssignmentsResult
 	err := ctx.Invoke("aws:ssoadmin/getPrincipalApplicationAssignments:getPrincipalApplicationAssignments", args, &rv, opts...)
 	if err != nil {
@@ -77,17 +88,18 @@ type GetPrincipalApplicationAssignmentsResult struct {
 }
 
 func GetPrincipalApplicationAssignmentsOutput(ctx *pulumi.Context, args GetPrincipalApplicationAssignmentsOutputArgs, opts ...pulumi.InvokeOption) GetPrincipalApplicationAssignmentsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetPrincipalApplicationAssignmentsResultOutput, error) {
 			args := v.(GetPrincipalApplicationAssignmentsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetPrincipalApplicationAssignmentsResult
-			secret, err := ctx.InvokePackageRaw("aws:ssoadmin/getPrincipalApplicationAssignments:getPrincipalApplicationAssignments", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ssoadmin/getPrincipalApplicationAssignments:getPrincipalApplicationAssignments", args, &rv, "", opts...)
 			if err != nil {
 				return GetPrincipalApplicationAssignmentsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetPrincipalApplicationAssignmentsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetPrincipalApplicationAssignmentsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetPrincipalApplicationAssignmentsResultOutput), nil
 			}

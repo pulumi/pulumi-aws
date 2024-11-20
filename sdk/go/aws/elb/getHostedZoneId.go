@@ -5,6 +5,7 @@ package elb
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -55,6 +56,16 @@ import (
 // ```
 func GetHostedZoneId(ctx *pulumi.Context, args *GetHostedZoneIdArgs, opts ...pulumi.InvokeOption) (*GetHostedZoneIdResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetHostedZoneIdResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetHostedZoneIdResult{}, errors.New("DependsOn is not supported for direct form invoke GetHostedZoneId, use GetHostedZoneIdOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetHostedZoneIdResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetHostedZoneId, use GetHostedZoneIdOutput instead")
+	}
 	var rv GetHostedZoneIdResult
 	err := ctx.Invoke("aws:elb/getHostedZoneId:getHostedZoneId", args, &rv, opts...)
 	if err != nil {
@@ -78,17 +89,18 @@ type GetHostedZoneIdResult struct {
 }
 
 func GetHostedZoneIdOutput(ctx *pulumi.Context, args GetHostedZoneIdOutputArgs, opts ...pulumi.InvokeOption) GetHostedZoneIdResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetHostedZoneIdResultOutput, error) {
 			args := v.(GetHostedZoneIdArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetHostedZoneIdResult
-			secret, err := ctx.InvokePackageRaw("aws:elb/getHostedZoneId:getHostedZoneId", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:elb/getHostedZoneId:getHostedZoneId", args, &rv, "", opts...)
 			if err != nil {
 				return GetHostedZoneIdResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetHostedZoneIdResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetHostedZoneIdResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetHostedZoneIdResultOutput), nil
 			}

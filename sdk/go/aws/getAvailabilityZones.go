@@ -5,6 +5,7 @@ package aws
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -134,6 +135,16 @@ import (
 // ```
 func GetAvailabilityZones(ctx *pulumi.Context, args *GetAvailabilityZonesArgs, opts ...pulumi.InvokeOption) (*GetAvailabilityZonesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetAvailabilityZonesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetAvailabilityZonesResult{}, errors.New("DependsOn is not supported for direct form invoke GetAvailabilityZones, use GetAvailabilityZonesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetAvailabilityZonesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetAvailabilityZones, use GetAvailabilityZonesOutput instead")
+	}
 	var rv GetAvailabilityZonesResult
 	err := ctx.Invoke("aws:index/getAvailabilityZones:getAvailabilityZones", args, &rv, opts...)
 	if err != nil {
@@ -177,17 +188,18 @@ type GetAvailabilityZonesResult struct {
 }
 
 func GetAvailabilityZonesOutput(ctx *pulumi.Context, args GetAvailabilityZonesOutputArgs, opts ...pulumi.InvokeOption) GetAvailabilityZonesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAvailabilityZonesResultOutput, error) {
 			args := v.(GetAvailabilityZonesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetAvailabilityZonesResult
-			secret, err := ctx.InvokePackageRaw("aws:index/getAvailabilityZones:getAvailabilityZones", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:index/getAvailabilityZones:getAvailabilityZones", args, &rv, "", opts...)
 			if err != nil {
 				return GetAvailabilityZonesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetAvailabilityZonesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetAvailabilityZonesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetAvailabilityZonesResultOutput), nil
 			}

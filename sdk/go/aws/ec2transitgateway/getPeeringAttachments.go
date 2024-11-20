@@ -5,6 +5,7 @@ package ec2transitgateway
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func GetPeeringAttachments(ctx *pulumi.Context, args *GetPeeringAttachmentsArgs, opts ...pulumi.InvokeOption) (*GetPeeringAttachmentsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetPeeringAttachmentsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetPeeringAttachmentsResult{}, errors.New("DependsOn is not supported for direct form invoke GetPeeringAttachments, use GetPeeringAttachmentsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetPeeringAttachmentsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetPeeringAttachments, use GetPeeringAttachmentsOutput instead")
+	}
 	var rv GetPeeringAttachmentsResult
 	err := ctx.Invoke("aws:ec2transitgateway/getPeeringAttachments:getPeeringAttachments", args, &rv, opts...)
 	if err != nil {
@@ -64,17 +75,18 @@ type GetPeeringAttachmentsResult struct {
 }
 
 func GetPeeringAttachmentsOutput(ctx *pulumi.Context, args GetPeeringAttachmentsOutputArgs, opts ...pulumi.InvokeOption) GetPeeringAttachmentsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetPeeringAttachmentsResultOutput, error) {
 			args := v.(GetPeeringAttachmentsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetPeeringAttachmentsResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2transitgateway/getPeeringAttachments:getPeeringAttachments", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2transitgateway/getPeeringAttachments:getPeeringAttachments", args, &rv, "", opts...)
 			if err != nil {
 				return GetPeeringAttachmentsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetPeeringAttachmentsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetPeeringAttachmentsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetPeeringAttachmentsResultOutput), nil
 			}

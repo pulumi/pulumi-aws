@@ -5,6 +5,7 @@ package opensearch
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupServerlessSecurityConfig(ctx *pulumi.Context, args *LookupServerlessSecurityConfigArgs, opts ...pulumi.InvokeOption) (*LookupServerlessSecurityConfigResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupServerlessSecurityConfigResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupServerlessSecurityConfigResult{}, errors.New("DependsOn is not supported for direct form invoke LookupServerlessSecurityConfig, use LookupServerlessSecurityConfigOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupServerlessSecurityConfigResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupServerlessSecurityConfig, use LookupServerlessSecurityConfigOutput instead")
+	}
 	var rv LookupServerlessSecurityConfigResult
 	err := ctx.Invoke("aws:opensearch/getServerlessSecurityConfig:getServerlessSecurityConfig", args, &rv, opts...)
 	if err != nil {
@@ -76,17 +87,18 @@ type LookupServerlessSecurityConfigResult struct {
 }
 
 func LookupServerlessSecurityConfigOutput(ctx *pulumi.Context, args LookupServerlessSecurityConfigOutputArgs, opts ...pulumi.InvokeOption) LookupServerlessSecurityConfigResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupServerlessSecurityConfigResultOutput, error) {
 			args := v.(LookupServerlessSecurityConfigArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupServerlessSecurityConfigResult
-			secret, err := ctx.InvokePackageRaw("aws:opensearch/getServerlessSecurityConfig:getServerlessSecurityConfig", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:opensearch/getServerlessSecurityConfig:getServerlessSecurityConfig", args, &rv, "", opts...)
 			if err != nil {
 				return LookupServerlessSecurityConfigResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupServerlessSecurityConfigResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupServerlessSecurityConfigResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupServerlessSecurityConfigResultOutput), nil
 			}

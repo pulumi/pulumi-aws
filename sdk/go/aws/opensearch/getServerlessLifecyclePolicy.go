@@ -5,6 +5,7 @@ package opensearch
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupServerlessLifecyclePolicy(ctx *pulumi.Context, args *LookupServerlessLifecyclePolicyArgs, opts ...pulumi.InvokeOption) (*LookupServerlessLifecyclePolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupServerlessLifecyclePolicyResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupServerlessLifecyclePolicyResult{}, errors.New("DependsOn is not supported for direct form invoke LookupServerlessLifecyclePolicy, use LookupServerlessLifecyclePolicyOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupServerlessLifecyclePolicyResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupServerlessLifecyclePolicy, use LookupServerlessLifecyclePolicyOutput instead")
+	}
 	var rv LookupServerlessLifecyclePolicyResult
 	err := ctx.Invoke("aws:opensearch/getServerlessLifecyclePolicy:getServerlessLifecyclePolicy", args, &rv, opts...)
 	if err != nil {
@@ -77,17 +88,18 @@ type LookupServerlessLifecyclePolicyResult struct {
 }
 
 func LookupServerlessLifecyclePolicyOutput(ctx *pulumi.Context, args LookupServerlessLifecyclePolicyOutputArgs, opts ...pulumi.InvokeOption) LookupServerlessLifecyclePolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupServerlessLifecyclePolicyResultOutput, error) {
 			args := v.(LookupServerlessLifecyclePolicyArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupServerlessLifecyclePolicyResult
-			secret, err := ctx.InvokePackageRaw("aws:opensearch/getServerlessLifecyclePolicy:getServerlessLifecyclePolicy", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:opensearch/getServerlessLifecyclePolicy:getServerlessLifecyclePolicy", args, &rv, "", opts...)
 			if err != nil {
 				return LookupServerlessLifecyclePolicyResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupServerlessLifecyclePolicyResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupServerlessLifecyclePolicyResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupServerlessLifecyclePolicyResultOutput), nil
 			}

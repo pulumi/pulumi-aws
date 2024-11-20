@@ -5,6 +5,7 @@ package imagebuilder
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupDistributionConfiguration(ctx *pulumi.Context, args *LookupDistributionConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupDistributionConfigurationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupDistributionConfigurationResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupDistributionConfigurationResult{}, errors.New("DependsOn is not supported for direct form invoke LookupDistributionConfiguration, use LookupDistributionConfigurationOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupDistributionConfigurationResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupDistributionConfiguration, use LookupDistributionConfigurationOutput instead")
+	}
 	var rv LookupDistributionConfigurationResult
 	err := ctx.Invoke("aws:imagebuilder/getDistributionConfiguration:getDistributionConfiguration", args, &rv, opts...)
 	if err != nil {
@@ -76,17 +87,18 @@ type LookupDistributionConfigurationResult struct {
 }
 
 func LookupDistributionConfigurationOutput(ctx *pulumi.Context, args LookupDistributionConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupDistributionConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDistributionConfigurationResultOutput, error) {
 			args := v.(LookupDistributionConfigurationArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDistributionConfigurationResult
-			secret, err := ctx.InvokePackageRaw("aws:imagebuilder/getDistributionConfiguration:getDistributionConfiguration", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:imagebuilder/getDistributionConfiguration:getDistributionConfiguration", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDistributionConfigurationResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDistributionConfigurationResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDistributionConfigurationResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDistributionConfigurationResultOutput), nil
 			}

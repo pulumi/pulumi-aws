@@ -5,6 +5,7 @@ package sesv2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -48,6 +49,16 @@ import (
 // ```
 func LookupEmailIdentityMailFromAttributes(ctx *pulumi.Context, args *LookupEmailIdentityMailFromAttributesArgs, opts ...pulumi.InvokeOption) (*LookupEmailIdentityMailFromAttributesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupEmailIdentityMailFromAttributesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupEmailIdentityMailFromAttributesResult{}, errors.New("DependsOn is not supported for direct form invoke LookupEmailIdentityMailFromAttributes, use LookupEmailIdentityMailFromAttributesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupEmailIdentityMailFromAttributesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupEmailIdentityMailFromAttributes, use LookupEmailIdentityMailFromAttributesOutput instead")
+	}
 	var rv LookupEmailIdentityMailFromAttributesResult
 	err := ctx.Invoke("aws:sesv2/getEmailIdentityMailFromAttributes:getEmailIdentityMailFromAttributes", args, &rv, opts...)
 	if err != nil {
@@ -74,17 +85,18 @@ type LookupEmailIdentityMailFromAttributesResult struct {
 }
 
 func LookupEmailIdentityMailFromAttributesOutput(ctx *pulumi.Context, args LookupEmailIdentityMailFromAttributesOutputArgs, opts ...pulumi.InvokeOption) LookupEmailIdentityMailFromAttributesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupEmailIdentityMailFromAttributesResultOutput, error) {
 			args := v.(LookupEmailIdentityMailFromAttributesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupEmailIdentityMailFromAttributesResult
-			secret, err := ctx.InvokePackageRaw("aws:sesv2/getEmailIdentityMailFromAttributes:getEmailIdentityMailFromAttributes", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:sesv2/getEmailIdentityMailFromAttributes:getEmailIdentityMailFromAttributes", args, &rv, "", opts...)
 			if err != nil {
 				return LookupEmailIdentityMailFromAttributesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupEmailIdentityMailFromAttributesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupEmailIdentityMailFromAttributesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupEmailIdentityMailFromAttributesResultOutput), nil
 			}

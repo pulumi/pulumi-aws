@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -67,6 +68,16 @@ import (
 // Deprecated: aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs
 func GetVpcIamPoolCidrs(ctx *pulumi.Context, args *GetVpcIamPoolCidrsArgs, opts ...pulumi.InvokeOption) (*GetVpcIamPoolCidrsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetVpcIamPoolCidrsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetVpcIamPoolCidrsResult{}, errors.New("DependsOn is not supported for direct form invoke GetVpcIamPoolCidrs, use GetVpcIamPoolCidrsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetVpcIamPoolCidrsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetVpcIamPoolCidrs, use GetVpcIamPoolCidrsOutput instead")
+	}
 	var rv GetVpcIamPoolCidrsResult
 	err := ctx.Invoke("aws:ec2/getVpcIamPoolCidrs:getVpcIamPoolCidrs", args, &rv, opts...)
 	if err != nil {
@@ -94,17 +105,18 @@ type GetVpcIamPoolCidrsResult struct {
 }
 
 func GetVpcIamPoolCidrsOutput(ctx *pulumi.Context, args GetVpcIamPoolCidrsOutputArgs, opts ...pulumi.InvokeOption) GetVpcIamPoolCidrsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetVpcIamPoolCidrsResultOutput, error) {
 			args := v.(GetVpcIamPoolCidrsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetVpcIamPoolCidrsResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getVpcIamPoolCidrs:getVpcIamPoolCidrs", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getVpcIamPoolCidrs:getVpcIamPoolCidrs", args, &rv, "", opts...)
 			if err != nil {
 				return GetVpcIamPoolCidrsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetVpcIamPoolCidrsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetVpcIamPoolCidrsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetVpcIamPoolCidrsResultOutput), nil
 			}

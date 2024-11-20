@@ -5,6 +5,7 @@ package ec2transitgateway
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -75,6 +76,16 @@ import (
 // ```
 func LookupConnect(ctx *pulumi.Context, args *LookupConnectArgs, opts ...pulumi.InvokeOption) (*LookupConnectResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupConnectResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupConnectResult{}, errors.New("DependsOn is not supported for direct form invoke LookupConnect, use LookupConnectOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupConnectResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupConnect, use LookupConnectOutput instead")
+	}
 	var rv LookupConnectResult
 	err := ctx.Invoke("aws:ec2transitgateway/getConnect:getConnect", args, &rv, opts...)
 	if err != nil {
@@ -110,17 +121,18 @@ type LookupConnectResult struct {
 }
 
 func LookupConnectOutput(ctx *pulumi.Context, args LookupConnectOutputArgs, opts ...pulumi.InvokeOption) LookupConnectResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupConnectResultOutput, error) {
 			args := v.(LookupConnectArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupConnectResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2transitgateway/getConnect:getConnect", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2transitgateway/getConnect:getConnect", args, &rv, "", opts...)
 			if err != nil {
 				return LookupConnectResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupConnectResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupConnectResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupConnectResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package connect
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -70,6 +71,16 @@ import (
 // ```
 func LookupSecurityProfile(ctx *pulumi.Context, args *LookupSecurityProfileArgs, opts ...pulumi.InvokeOption) (*LookupSecurityProfileResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupSecurityProfileResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupSecurityProfileResult{}, errors.New("DependsOn is not supported for direct form invoke LookupSecurityProfile, use LookupSecurityProfileOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupSecurityProfileResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupSecurityProfile, use LookupSecurityProfileOutput instead")
+	}
 	var rv LookupSecurityProfileResult
 	err := ctx.Invoke("aws:connect/getSecurityProfile:getSecurityProfile", args, &rv, opts...)
 	if err != nil {
@@ -110,17 +121,18 @@ type LookupSecurityProfileResult struct {
 }
 
 func LookupSecurityProfileOutput(ctx *pulumi.Context, args LookupSecurityProfileOutputArgs, opts ...pulumi.InvokeOption) LookupSecurityProfileResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSecurityProfileResultOutput, error) {
 			args := v.(LookupSecurityProfileArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSecurityProfileResult
-			secret, err := ctx.InvokePackageRaw("aws:connect/getSecurityProfile:getSecurityProfile", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:connect/getSecurityProfile:getSecurityProfile", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSecurityProfileResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSecurityProfileResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSecurityProfileResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSecurityProfileResultOutput), nil
 			}

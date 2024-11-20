@@ -5,6 +5,7 @@ package oam
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func GetLinks(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetLinksResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetLinksResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetLinksResult{}, errors.New("DependsOn is not supported for direct form invoke GetLinks, use GetLinksOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetLinksResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetLinks, use GetLinksOutput instead")
+	}
 	var rv GetLinksResult
 	err := ctx.Invoke("aws:oam/getLinks:getLinks", nil, &rv, opts...)
 	if err != nil {

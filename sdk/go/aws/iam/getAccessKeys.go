@@ -5,6 +5,7 @@ package iam
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func GetAccessKeys(ctx *pulumi.Context, args *GetAccessKeysArgs, opts ...pulumi.InvokeOption) (*GetAccessKeysResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetAccessKeysResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetAccessKeysResult{}, errors.New("DependsOn is not supported for direct form invoke GetAccessKeys, use GetAccessKeysOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetAccessKeysResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetAccessKeys, use GetAccessKeysOutput instead")
+	}
 	var rv GetAccessKeysResult
 	err := ctx.Invoke("aws:iam/getAccessKeys:getAccessKeys", args, &rv, opts...)
 	if err != nil {
@@ -65,17 +76,18 @@ type GetAccessKeysResult struct {
 }
 
 func GetAccessKeysOutput(ctx *pulumi.Context, args GetAccessKeysOutputArgs, opts ...pulumi.InvokeOption) GetAccessKeysResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAccessKeysResultOutput, error) {
 			args := v.(GetAccessKeysArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetAccessKeysResult
-			secret, err := ctx.InvokePackageRaw("aws:iam/getAccessKeys:getAccessKeys", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:iam/getAccessKeys:getAccessKeys", args, &rv, "", opts...)
 			if err != nil {
 				return GetAccessKeysResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetAccessKeysResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetAccessKeysResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetAccessKeysResultOutput), nil
 			}

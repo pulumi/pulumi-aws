@@ -5,6 +5,7 @@ package ec2clientvpn
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -75,6 +76,16 @@ import (
 // ```
 func LookupEndpoint(ctx *pulumi.Context, args *LookupEndpointArgs, opts ...pulumi.InvokeOption) (*LookupEndpointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupEndpointResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupEndpointResult{}, errors.New("DependsOn is not supported for direct form invoke LookupEndpoint, use LookupEndpointOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupEndpointResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupEndpoint, use LookupEndpointOutput instead")
+	}
 	var rv LookupEndpointResult
 	err := ctx.Invoke("aws:ec2clientvpn/getEndpoint:getEndpoint", args, &rv, opts...)
 	if err != nil {
@@ -139,17 +150,18 @@ type LookupEndpointResult struct {
 }
 
 func LookupEndpointOutput(ctx *pulumi.Context, args LookupEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupEndpointResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupEndpointResultOutput, error) {
 			args := v.(LookupEndpointArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupEndpointResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2clientvpn/getEndpoint:getEndpoint", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2clientvpn/getEndpoint:getEndpoint", args, &rv, "", opts...)
 			if err != nil {
 				return LookupEndpointResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupEndpointResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupEndpointResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupEndpointResultOutput), nil
 			}

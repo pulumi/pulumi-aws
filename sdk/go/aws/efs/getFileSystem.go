@@ -5,6 +5,7 @@ package efs
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -54,6 +55,16 @@ import (
 // ```
 func LookupFileSystem(ctx *pulumi.Context, args *LookupFileSystemArgs, opts ...pulumi.InvokeOption) (*LookupFileSystemResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupFileSystemResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupFileSystemResult{}, errors.New("DependsOn is not supported for direct form invoke LookupFileSystem, use LookupFileSystemOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupFileSystemResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupFileSystem, use LookupFileSystemOutput instead")
+	}
 	var rv LookupFileSystemResult
 	err := ctx.Invoke("aws:efs/getFileSystem:getFileSystem", args, &rv, opts...)
 	if err != nil {
@@ -111,17 +122,18 @@ type LookupFileSystemResult struct {
 }
 
 func LookupFileSystemOutput(ctx *pulumi.Context, args LookupFileSystemOutputArgs, opts ...pulumi.InvokeOption) LookupFileSystemResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFileSystemResultOutput, error) {
 			args := v.(LookupFileSystemArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupFileSystemResult
-			secret, err := ctx.InvokePackageRaw("aws:efs/getFileSystem:getFileSystem", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:efs/getFileSystem:getFileSystem", args, &rv, "", opts...)
 			if err != nil {
 				return LookupFileSystemResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupFileSystemResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupFileSystemResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupFileSystemResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package route53
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -77,6 +78,16 @@ import (
 // ```
 func GetQueryLogConfig(ctx *pulumi.Context, args *GetQueryLogConfigArgs, opts ...pulumi.InvokeOption) (*GetQueryLogConfigResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetQueryLogConfigResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetQueryLogConfigResult{}, errors.New("DependsOn is not supported for direct form invoke GetQueryLogConfig, use GetQueryLogConfigOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetQueryLogConfigResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetQueryLogConfig, use GetQueryLogConfigOutput instead")
+	}
 	var rv GetQueryLogConfigResult
 	err := ctx.Invoke("aws:route53/getQueryLogConfig:getQueryLogConfig", args, &rv, opts...)
 	if err != nil {
@@ -118,17 +129,18 @@ type GetQueryLogConfigResult struct {
 }
 
 func GetQueryLogConfigOutput(ctx *pulumi.Context, args GetQueryLogConfigOutputArgs, opts ...pulumi.InvokeOption) GetQueryLogConfigResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetQueryLogConfigResultOutput, error) {
 			args := v.(GetQueryLogConfigArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetQueryLogConfigResult
-			secret, err := ctx.InvokePackageRaw("aws:route53/getQueryLogConfig:getQueryLogConfig", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:route53/getQueryLogConfig:getQueryLogConfig", args, &rv, "", opts...)
 			if err != nil {
 				return GetQueryLogConfigResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetQueryLogConfigResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetQueryLogConfigResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetQueryLogConfigResultOutput), nil
 			}

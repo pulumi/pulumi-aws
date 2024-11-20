@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -38,6 +39,16 @@ import (
 // ```
 func LookupSerialConsoleAccess(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupSerialConsoleAccessResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupSerialConsoleAccessResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupSerialConsoleAccessResult{}, errors.New("DependsOn is not supported for direct form invoke LookupSerialConsoleAccess, use LookupSerialConsoleAccessOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupSerialConsoleAccessResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupSerialConsoleAccess, use LookupSerialConsoleAccessOutput instead")
+	}
 	var rv LookupSerialConsoleAccessResult
 	err := ctx.Invoke("aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess", nil, &rv, opts...)
 	if err != nil {

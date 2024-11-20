@@ -5,6 +5,7 @@ package fsx
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -50,6 +51,16 @@ import (
 // ```
 func LookupOpenZfsSnapshot(ctx *pulumi.Context, args *LookupOpenZfsSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupOpenZfsSnapshotResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupOpenZfsSnapshotResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupOpenZfsSnapshotResult{}, errors.New("DependsOn is not supported for direct form invoke LookupOpenZfsSnapshot, use LookupOpenZfsSnapshotOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupOpenZfsSnapshotResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupOpenZfsSnapshot, use LookupOpenZfsSnapshotOutput instead")
+	}
 	var rv LookupOpenZfsSnapshotResult
 	err := ctx.Invoke("aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot", args, &rv, opts...)
 	if err != nil {
@@ -95,17 +106,18 @@ type LookupOpenZfsSnapshotResult struct {
 }
 
 func LookupOpenZfsSnapshotOutput(ctx *pulumi.Context, args LookupOpenZfsSnapshotOutputArgs, opts ...pulumi.InvokeOption) LookupOpenZfsSnapshotResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupOpenZfsSnapshotResultOutput, error) {
 			args := v.(LookupOpenZfsSnapshotArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupOpenZfsSnapshotResult
-			secret, err := ctx.InvokePackageRaw("aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot", args, &rv, "", opts...)
 			if err != nil {
 				return LookupOpenZfsSnapshotResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupOpenZfsSnapshotResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupOpenZfsSnapshotResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupOpenZfsSnapshotResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package msk
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func GetBootstrapBrokers(ctx *pulumi.Context, args *GetBootstrapBrokersArgs, opts ...pulumi.InvokeOption) (*GetBootstrapBrokersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetBootstrapBrokersResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetBootstrapBrokersResult{}, errors.New("DependsOn is not supported for direct form invoke GetBootstrapBrokers, use GetBootstrapBrokersOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetBootstrapBrokersResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetBootstrapBrokers, use GetBootstrapBrokersOutput instead")
+	}
 	var rv GetBootstrapBrokersResult
 	err := ctx.Invoke("aws:msk/getBootstrapBrokers:getBootstrapBrokers", args, &rv, opts...)
 	if err != nil {
@@ -82,17 +93,18 @@ type GetBootstrapBrokersResult struct {
 }
 
 func GetBootstrapBrokersOutput(ctx *pulumi.Context, args GetBootstrapBrokersOutputArgs, opts ...pulumi.InvokeOption) GetBootstrapBrokersResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetBootstrapBrokersResultOutput, error) {
 			args := v.(GetBootstrapBrokersArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetBootstrapBrokersResult
-			secret, err := ctx.InvokePackageRaw("aws:msk/getBootstrapBrokers:getBootstrapBrokers", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:msk/getBootstrapBrokers:getBootstrapBrokers", args, &rv, "", opts...)
 			if err != nil {
 				return GetBootstrapBrokersResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetBootstrapBrokersResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetBootstrapBrokersResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetBootstrapBrokersResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package redshift
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -44,6 +45,16 @@ import (
 // ```
 func GetOrderableCluster(ctx *pulumi.Context, args *GetOrderableClusterArgs, opts ...pulumi.InvokeOption) (*GetOrderableClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetOrderableClusterResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetOrderableClusterResult{}, errors.New("DependsOn is not supported for direct form invoke GetOrderableCluster, use GetOrderableClusterOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetOrderableClusterResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetOrderableCluster, use GetOrderableClusterOutput instead")
+	}
 	var rv GetOrderableClusterResult
 	err := ctx.Invoke("aws:redshift/getOrderableCluster:getOrderableCluster", args, &rv, opts...)
 	if err != nil {
@@ -77,17 +88,18 @@ type GetOrderableClusterResult struct {
 }
 
 func GetOrderableClusterOutput(ctx *pulumi.Context, args GetOrderableClusterOutputArgs, opts ...pulumi.InvokeOption) GetOrderableClusterResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetOrderableClusterResultOutput, error) {
 			args := v.(GetOrderableClusterArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetOrderableClusterResult
-			secret, err := ctx.InvokePackageRaw("aws:redshift/getOrderableCluster:getOrderableCluster", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:redshift/getOrderableCluster:getOrderableCluster", args, &rv, "", opts...)
 			if err != nil {
 				return GetOrderableClusterResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetOrderableClusterResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetOrderableClusterResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetOrderableClusterResultOutput), nil
 			}

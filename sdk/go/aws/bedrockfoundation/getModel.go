@@ -5,6 +5,7 @@ package bedrockfoundation
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -46,6 +47,16 @@ import (
 // ```
 func GetModel(ctx *pulumi.Context, args *GetModelArgs, opts ...pulumi.InvokeOption) (*GetModelResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetModelResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetModelResult{}, errors.New("DependsOn is not supported for direct form invoke GetModel, use GetModelOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetModelResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetModel, use GetModelOutput instead")
+	}
 	var rv GetModelResult
 	err := ctx.Invoke("aws:bedrockfoundation/getModel:getModel", args, &rv, opts...)
 	if err != nil {
@@ -83,17 +94,18 @@ type GetModelResult struct {
 }
 
 func GetModelOutput(ctx *pulumi.Context, args GetModelOutputArgs, opts ...pulumi.InvokeOption) GetModelResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetModelResultOutput, error) {
 			args := v.(GetModelArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetModelResult
-			secret, err := ctx.InvokePackageRaw("aws:bedrockfoundation/getModel:getModel", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:bedrockfoundation/getModel:getModel", args, &rv, "", opts...)
 			if err != nil {
 				return GetModelResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetModelResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetModelResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetModelResultOutput), nil
 			}

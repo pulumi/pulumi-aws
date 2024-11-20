@@ -5,6 +5,7 @@ package batch
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupSchedulingPolicy(ctx *pulumi.Context, args *LookupSchedulingPolicyArgs, opts ...pulumi.InvokeOption) (*LookupSchedulingPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupSchedulingPolicyResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupSchedulingPolicyResult{}, errors.New("DependsOn is not supported for direct form invoke LookupSchedulingPolicy, use LookupSchedulingPolicyOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupSchedulingPolicyResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupSchedulingPolicy, use LookupSchedulingPolicyOutput instead")
+	}
 	var rv LookupSchedulingPolicyResult
 	err := ctx.Invoke("aws:batch/getSchedulingPolicy:getSchedulingPolicy", args, &rv, opts...)
 	if err != nil {
@@ -69,17 +80,18 @@ type LookupSchedulingPolicyResult struct {
 }
 
 func LookupSchedulingPolicyOutput(ctx *pulumi.Context, args LookupSchedulingPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupSchedulingPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSchedulingPolicyResultOutput, error) {
 			args := v.(LookupSchedulingPolicyArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSchedulingPolicyResult
-			secret, err := ctx.InvokePackageRaw("aws:batch/getSchedulingPolicy:getSchedulingPolicy", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:batch/getSchedulingPolicy:getSchedulingPolicy", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSchedulingPolicyResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSchedulingPolicyResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSchedulingPolicyResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSchedulingPolicyResultOutput), nil
 			}

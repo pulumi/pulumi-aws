@@ -5,6 +5,7 @@ package amp
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -67,6 +68,16 @@ import (
 // ```
 func GetWorkspaces(ctx *pulumi.Context, args *GetWorkspacesArgs, opts ...pulumi.InvokeOption) (*GetWorkspacesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetWorkspacesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetWorkspacesResult{}, errors.New("DependsOn is not supported for direct form invoke GetWorkspaces, use GetWorkspacesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetWorkspacesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetWorkspaces, use GetWorkspacesOutput instead")
+	}
 	var rv GetWorkspacesResult
 	err := ctx.Invoke("aws:amp/getWorkspaces:getWorkspaces", args, &rv, opts...)
 	if err != nil {
@@ -95,17 +106,18 @@ type GetWorkspacesResult struct {
 }
 
 func GetWorkspacesOutput(ctx *pulumi.Context, args GetWorkspacesOutputArgs, opts ...pulumi.InvokeOption) GetWorkspacesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetWorkspacesResultOutput, error) {
 			args := v.(GetWorkspacesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetWorkspacesResult
-			secret, err := ctx.InvokePackageRaw("aws:amp/getWorkspaces:getWorkspaces", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:amp/getWorkspaces:getWorkspaces", args, &rv, "", opts...)
 			if err != nil {
 				return GetWorkspacesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetWorkspacesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetWorkspacesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetWorkspacesResultOutput), nil
 			}

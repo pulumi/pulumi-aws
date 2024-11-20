@@ -5,6 +5,7 @@ package apigateway
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupRestApi(ctx *pulumi.Context, args *LookupRestApiArgs, opts ...pulumi.InvokeOption) (*LookupRestApiResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupRestApiResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupRestApiResult{}, errors.New("DependsOn is not supported for direct form invoke LookupRestApi, use LookupRestApiOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupRestApiResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupRestApi, use LookupRestApiOutput instead")
+	}
 	var rv LookupRestApiResult
 	err := ctx.Invoke("aws:apigateway/getRestApi:getRestApi", args, &rv, opts...)
 	if err != nil {
@@ -87,17 +98,18 @@ type LookupRestApiResult struct {
 }
 
 func LookupRestApiOutput(ctx *pulumi.Context, args LookupRestApiOutputArgs, opts ...pulumi.InvokeOption) LookupRestApiResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRestApiResultOutput, error) {
 			args := v.(LookupRestApiArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupRestApiResult
-			secret, err := ctx.InvokePackageRaw("aws:apigateway/getRestApi:getRestApi", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:apigateway/getRestApi:getRestApi", args, &rv, "", opts...)
 			if err != nil {
 				return LookupRestApiResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupRestApiResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupRestApiResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupRestApiResultOutput), nil
 			}

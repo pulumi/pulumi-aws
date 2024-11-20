@@ -5,6 +5,7 @@ package connect
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -70,6 +71,16 @@ import (
 // ```
 func LookupUserHierarchyGroup(ctx *pulumi.Context, args *LookupUserHierarchyGroupArgs, opts ...pulumi.InvokeOption) (*LookupUserHierarchyGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupUserHierarchyGroupResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupUserHierarchyGroupResult{}, errors.New("DependsOn is not supported for direct form invoke LookupUserHierarchyGroup, use LookupUserHierarchyGroupOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupUserHierarchyGroupResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupUserHierarchyGroup, use LookupUserHierarchyGroupOutput instead")
+	}
 	var rv LookupUserHierarchyGroupResult
 	err := ctx.Invoke("aws:connect/getUserHierarchyGroup:getUserHierarchyGroup", args, &rv, opts...)
 	if err != nil {
@@ -109,17 +120,18 @@ type LookupUserHierarchyGroupResult struct {
 }
 
 func LookupUserHierarchyGroupOutput(ctx *pulumi.Context, args LookupUserHierarchyGroupOutputArgs, opts ...pulumi.InvokeOption) LookupUserHierarchyGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupUserHierarchyGroupResultOutput, error) {
 			args := v.(LookupUserHierarchyGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupUserHierarchyGroupResult
-			secret, err := ctx.InvokePackageRaw("aws:connect/getUserHierarchyGroup:getUserHierarchyGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:connect/getUserHierarchyGroup:getUserHierarchyGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupUserHierarchyGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupUserHierarchyGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupUserHierarchyGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupUserHierarchyGroupResultOutput), nil
 			}

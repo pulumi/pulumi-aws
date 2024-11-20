@@ -5,6 +5,7 @@ package servicecatalog
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupPortfolio(ctx *pulumi.Context, args *LookupPortfolioArgs, opts ...pulumi.InvokeOption) (*LookupPortfolioResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupPortfolioResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupPortfolioResult{}, errors.New("DependsOn is not supported for direct form invoke LookupPortfolio, use LookupPortfolioOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupPortfolioResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupPortfolio, use LookupPortfolioOutput instead")
+	}
 	var rv LookupPortfolioResult
 	err := ctx.Invoke("aws:servicecatalog/getPortfolio:getPortfolio", args, &rv, opts...)
 	if err != nil {
@@ -79,17 +90,18 @@ type LookupPortfolioResult struct {
 }
 
 func LookupPortfolioOutput(ctx *pulumi.Context, args LookupPortfolioOutputArgs, opts ...pulumi.InvokeOption) LookupPortfolioResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPortfolioResultOutput, error) {
 			args := v.(LookupPortfolioArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupPortfolioResult
-			secret, err := ctx.InvokePackageRaw("aws:servicecatalog/getPortfolio:getPortfolio", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:servicecatalog/getPortfolio:getPortfolio", args, &rv, "", opts...)
 			if err != nil {
 				return LookupPortfolioResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupPortfolioResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupPortfolioResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupPortfolioResultOutput), nil
 			}

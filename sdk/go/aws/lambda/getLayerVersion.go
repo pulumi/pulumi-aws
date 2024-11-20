@@ -5,6 +5,7 @@ package lambda
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupLayerVersion(ctx *pulumi.Context, args *LookupLayerVersionArgs, opts ...pulumi.InvokeOption) (*LookupLayerVersionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupLayerVersionResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupLayerVersionResult{}, errors.New("DependsOn is not supported for direct form invoke LookupLayerVersion, use LookupLayerVersionOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupLayerVersionResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupLayerVersion, use LookupLayerVersionOutput instead")
+	}
 	var rv LookupLayerVersionResult
 	err := ctx.Invoke("aws:lambda/getLayerVersion:getLayerVersion", args, &rv, opts...)
 	if err != nil {
@@ -101,17 +112,18 @@ type LookupLayerVersionResult struct {
 }
 
 func LookupLayerVersionOutput(ctx *pulumi.Context, args LookupLayerVersionOutputArgs, opts ...pulumi.InvokeOption) LookupLayerVersionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLayerVersionResultOutput, error) {
 			args := v.(LookupLayerVersionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupLayerVersionResult
-			secret, err := ctx.InvokePackageRaw("aws:lambda/getLayerVersion:getLayerVersion", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:lambda/getLayerVersion:getLayerVersion", args, &rv, "", opts...)
 			if err != nil {
 				return LookupLayerVersionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupLayerVersionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupLayerVersionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupLayerVersionResultOutput), nil
 			}

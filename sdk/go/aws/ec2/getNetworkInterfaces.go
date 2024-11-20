@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -101,6 +102,16 @@ import (
 // ```
 func GetNetworkInterfaces(ctx *pulumi.Context, args *GetNetworkInterfacesArgs, opts ...pulumi.InvokeOption) (*GetNetworkInterfacesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetNetworkInterfacesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetNetworkInterfacesResult{}, errors.New("DependsOn is not supported for direct form invoke GetNetworkInterfaces, use GetNetworkInterfacesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetNetworkInterfacesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetNetworkInterfaces, use GetNetworkInterfacesOutput instead")
+	}
 	var rv GetNetworkInterfacesResult
 	err := ctx.Invoke("aws:ec2/getNetworkInterfaces:getNetworkInterfaces", args, &rv, opts...)
 	if err != nil {
@@ -132,17 +143,18 @@ type GetNetworkInterfacesResult struct {
 }
 
 func GetNetworkInterfacesOutput(ctx *pulumi.Context, args GetNetworkInterfacesOutputArgs, opts ...pulumi.InvokeOption) GetNetworkInterfacesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetNetworkInterfacesResultOutput, error) {
 			args := v.(GetNetworkInterfacesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetNetworkInterfacesResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getNetworkInterfaces:getNetworkInterfaces", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getNetworkInterfaces:getNetworkInterfaces", args, &rv, "", opts...)
 			if err != nil {
 				return GetNetworkInterfacesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetNetworkInterfacesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetNetworkInterfacesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetNetworkInterfacesResultOutput), nil
 			}

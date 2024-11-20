@@ -5,6 +5,7 @@ package oam
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func GetSinks(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetSinksResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetSinksResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetSinksResult{}, errors.New("DependsOn is not supported for direct form invoke GetSinks, use GetSinksOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetSinksResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetSinks, use GetSinksOutput instead")
+	}
 	var rv GetSinksResult
 	err := ctx.Invoke("aws:oam/getSinks:getSinks", nil, &rv, opts...)
 	if err != nil {

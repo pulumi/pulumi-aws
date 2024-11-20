@@ -5,6 +5,7 @@ package connect
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -70,6 +71,16 @@ import (
 // ```
 func LookupVocabulary(ctx *pulumi.Context, args *LookupVocabularyArgs, opts ...pulumi.InvokeOption) (*LookupVocabularyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupVocabularyResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupVocabularyResult{}, errors.New("DependsOn is not supported for direct form invoke LookupVocabulary, use LookupVocabularyOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupVocabularyResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupVocabulary, use LookupVocabularyOutput instead")
+	}
 	var rv LookupVocabularyResult
 	err := ctx.Invoke("aws:connect/getVocabulary:getVocabulary", args, &rv, opts...)
 	if err != nil {
@@ -115,17 +126,18 @@ type LookupVocabularyResult struct {
 }
 
 func LookupVocabularyOutput(ctx *pulumi.Context, args LookupVocabularyOutputArgs, opts ...pulumi.InvokeOption) LookupVocabularyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVocabularyResultOutput, error) {
 			args := v.(LookupVocabularyArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVocabularyResult
-			secret, err := ctx.InvokePackageRaw("aws:connect/getVocabulary:getVocabulary", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:connect/getVocabulary:getVocabulary", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVocabularyResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVocabularyResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVocabularyResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVocabularyResultOutput), nil
 			}

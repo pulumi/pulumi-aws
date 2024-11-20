@@ -5,6 +5,7 @@ package ssmcontacts
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupContactChannel(ctx *pulumi.Context, args *LookupContactChannelArgs, opts ...pulumi.InvokeOption) (*LookupContactChannelResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupContactChannelResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupContactChannelResult{}, errors.New("DependsOn is not supported for direct form invoke LookupContactChannel, use LookupContactChannelOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupContactChannelResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupContactChannel, use LookupContactChannelOutput instead")
+	}
 	var rv LookupContactChannelResult
 	err := ctx.Invoke("aws:ssmcontacts/getContactChannel:getContactChannel", args, &rv, opts...)
 	if err != nil {
@@ -74,17 +85,18 @@ type LookupContactChannelResult struct {
 }
 
 func LookupContactChannelOutput(ctx *pulumi.Context, args LookupContactChannelOutputArgs, opts ...pulumi.InvokeOption) LookupContactChannelResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupContactChannelResultOutput, error) {
 			args := v.(LookupContactChannelArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupContactChannelResult
-			secret, err := ctx.InvokePackageRaw("aws:ssmcontacts/getContactChannel:getContactChannel", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ssmcontacts/getContactChannel:getContactChannel", args, &rv, "", opts...)
 			if err != nil {
 				return LookupContactChannelResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupContactChannelResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupContactChannelResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupContactChannelResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package lambda
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupFunctionUrl(ctx *pulumi.Context, args *LookupFunctionUrlArgs, opts ...pulumi.InvokeOption) (*LookupFunctionUrlResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupFunctionUrlResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupFunctionUrlResult{}, errors.New("DependsOn is not supported for direct form invoke LookupFunctionUrl, use LookupFunctionUrlOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupFunctionUrlResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupFunctionUrl, use LookupFunctionUrlOutput instead")
+	}
 	var rv LookupFunctionUrlResult
 	err := ctx.Invoke("aws:lambda/getFunctionUrl:getFunctionUrl", args, &rv, opts...)
 	if err != nil {
@@ -84,17 +95,18 @@ type LookupFunctionUrlResult struct {
 }
 
 func LookupFunctionUrlOutput(ctx *pulumi.Context, args LookupFunctionUrlOutputArgs, opts ...pulumi.InvokeOption) LookupFunctionUrlResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFunctionUrlResultOutput, error) {
 			args := v.(LookupFunctionUrlArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupFunctionUrlResult
-			secret, err := ctx.InvokePackageRaw("aws:lambda/getFunctionUrl:getFunctionUrl", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:lambda/getFunctionUrl:getFunctionUrl", args, &rv, "", opts...)
 			if err != nil {
 				return LookupFunctionUrlResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupFunctionUrlResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupFunctionUrlResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupFunctionUrlResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package polly
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -66,6 +67,16 @@ import (
 // ```
 func GetVoices(ctx *pulumi.Context, args *GetVoicesArgs, opts ...pulumi.InvokeOption) (*GetVoicesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetVoicesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetVoicesResult{}, errors.New("DependsOn is not supported for direct form invoke GetVoices, use GetVoicesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetVoicesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetVoices, use GetVoicesOutput instead")
+	}
 	var rv GetVoicesResult
 	err := ctx.Invoke("aws:polly/getVoices:getVoices", args, &rv, opts...)
 	if err != nil {
@@ -99,17 +110,18 @@ type GetVoicesResult struct {
 }
 
 func GetVoicesOutput(ctx *pulumi.Context, args GetVoicesOutputArgs, opts ...pulumi.InvokeOption) GetVoicesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetVoicesResultOutput, error) {
 			args := v.(GetVoicesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetVoicesResult
-			secret, err := ctx.InvokePackageRaw("aws:polly/getVoices:getVoices", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:polly/getVoices:getVoices", args, &rv, "", opts...)
 			if err != nil {
 				return GetVoicesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetVoicesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetVoicesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetVoicesResultOutput), nil
 			}

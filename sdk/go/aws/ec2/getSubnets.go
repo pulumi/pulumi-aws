@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -14,6 +15,16 @@ import (
 // This resource can be useful for getting back a set of subnet IDs.
 func GetSubnets(ctx *pulumi.Context, args *GetSubnetsArgs, opts ...pulumi.InvokeOption) (*GetSubnetsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetSubnetsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetSubnetsResult{}, errors.New("DependsOn is not supported for direct form invoke GetSubnets, use GetSubnetsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetSubnetsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetSubnets, use GetSubnetsOutput instead")
+	}
 	var rv GetSubnetsResult
 	err := ctx.Invoke("aws:ec2/getSubnets:getSubnets", args, &rv, opts...)
 	if err != nil {
@@ -45,17 +56,18 @@ type GetSubnetsResult struct {
 }
 
 func GetSubnetsOutput(ctx *pulumi.Context, args GetSubnetsOutputArgs, opts ...pulumi.InvokeOption) GetSubnetsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetSubnetsResultOutput, error) {
 			args := v.(GetSubnetsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetSubnetsResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getSubnets:getSubnets", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getSubnets:getSubnets", args, &rv, "", opts...)
 			if err != nil {
 				return GetSubnetsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetSubnetsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetSubnetsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetSubnetsResultOutput), nil
 			}

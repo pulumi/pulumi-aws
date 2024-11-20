@@ -5,6 +5,7 @@ package route53
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupResolverRule(ctx *pulumi.Context, args *LookupResolverRuleArgs, opts ...pulumi.InvokeOption) (*LookupResolverRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupResolverRuleResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupResolverRuleResult{}, errors.New("DependsOn is not supported for direct form invoke LookupResolverRule, use LookupResolverRuleOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupResolverRuleResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupResolverRule, use LookupResolverRuleOutput instead")
+	}
 	var rv LookupResolverRuleResult
 	err := ctx.Invoke("aws:route53/getResolverRule:getResolverRule", args, &rv, opts...)
 	if err != nil {
@@ -88,17 +99,18 @@ type LookupResolverRuleResult struct {
 }
 
 func LookupResolverRuleOutput(ctx *pulumi.Context, args LookupResolverRuleOutputArgs, opts ...pulumi.InvokeOption) LookupResolverRuleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupResolverRuleResultOutput, error) {
 			args := v.(LookupResolverRuleArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupResolverRuleResult
-			secret, err := ctx.InvokePackageRaw("aws:route53/getResolverRule:getResolverRule", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:route53/getResolverRule:getResolverRule", args, &rv, "", opts...)
 			if err != nil {
 				return LookupResolverRuleResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupResolverRuleResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupResolverRuleResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupResolverRuleResultOutput), nil
 			}

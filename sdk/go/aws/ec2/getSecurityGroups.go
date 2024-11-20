@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -78,6 +79,16 @@ import (
 // ```
 func GetSecurityGroups(ctx *pulumi.Context, args *GetSecurityGroupsArgs, opts ...pulumi.InvokeOption) (*GetSecurityGroupsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetSecurityGroupsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetSecurityGroupsResult{}, errors.New("DependsOn is not supported for direct form invoke GetSecurityGroups, use GetSecurityGroupsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetSecurityGroupsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetSecurityGroups, use GetSecurityGroupsOutput instead")
+	}
 	var rv GetSecurityGroupsResult
 	err := ctx.Invoke("aws:ec2/getSecurityGroups:getSecurityGroups", args, &rv, opts...)
 	if err != nil {
@@ -109,17 +120,18 @@ type GetSecurityGroupsResult struct {
 }
 
 func GetSecurityGroupsOutput(ctx *pulumi.Context, args GetSecurityGroupsOutputArgs, opts ...pulumi.InvokeOption) GetSecurityGroupsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetSecurityGroupsResultOutput, error) {
 			args := v.(GetSecurityGroupsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetSecurityGroupsResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getSecurityGroups:getSecurityGroups", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getSecurityGroups:getSecurityGroups", args, &rv, "", opts...)
 			if err != nil {
 				return GetSecurityGroupsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetSecurityGroupsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetSecurityGroupsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetSecurityGroupsResultOutput), nil
 			}

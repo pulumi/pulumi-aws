@@ -5,6 +5,7 @@ package route53
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -44,6 +45,16 @@ import (
 // ```
 func LookupResolverFirewallRuleGroup(ctx *pulumi.Context, args *LookupResolverFirewallRuleGroupArgs, opts ...pulumi.InvokeOption) (*LookupResolverFirewallRuleGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupResolverFirewallRuleGroupResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupResolverFirewallRuleGroupResult{}, errors.New("DependsOn is not supported for direct form invoke LookupResolverFirewallRuleGroup, use LookupResolverFirewallRuleGroupOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupResolverFirewallRuleGroupResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupResolverFirewallRuleGroup, use LookupResolverFirewallRuleGroupOutput instead")
+	}
 	var rv LookupResolverFirewallRuleGroupResult
 	err := ctx.Invoke("aws:route53/getResolverFirewallRuleGroup:getResolverFirewallRuleGroup", args, &rv, opts...)
 	if err != nil {
@@ -78,17 +89,18 @@ type LookupResolverFirewallRuleGroupResult struct {
 }
 
 func LookupResolverFirewallRuleGroupOutput(ctx *pulumi.Context, args LookupResolverFirewallRuleGroupOutputArgs, opts ...pulumi.InvokeOption) LookupResolverFirewallRuleGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupResolverFirewallRuleGroupResultOutput, error) {
 			args := v.(LookupResolverFirewallRuleGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupResolverFirewallRuleGroupResult
-			secret, err := ctx.InvokePackageRaw("aws:route53/getResolverFirewallRuleGroup:getResolverFirewallRuleGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:route53/getResolverFirewallRuleGroup:getResolverFirewallRuleGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupResolverFirewallRuleGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupResolverFirewallRuleGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupResolverFirewallRuleGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupResolverFirewallRuleGroupResultOutput), nil
 			}

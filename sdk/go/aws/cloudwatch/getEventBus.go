@@ -5,6 +5,7 @@ package cloudwatch
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupEventBus(ctx *pulumi.Context, args *LookupEventBusArgs, opts ...pulumi.InvokeOption) (*LookupEventBusResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupEventBusResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupEventBusResult{}, errors.New("DependsOn is not supported for direct form invoke LookupEventBus, use LookupEventBusOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupEventBusResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupEventBus, use LookupEventBusOutput instead")
+	}
 	var rv LookupEventBusResult
 	err := ctx.Invoke("aws:cloudwatch/getEventBus:getEventBus", args, &rv, opts...)
 	if err != nil {
@@ -70,17 +81,18 @@ type LookupEventBusResult struct {
 }
 
 func LookupEventBusOutput(ctx *pulumi.Context, args LookupEventBusOutputArgs, opts ...pulumi.InvokeOption) LookupEventBusResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupEventBusResultOutput, error) {
 			args := v.(LookupEventBusArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupEventBusResult
-			secret, err := ctx.InvokePackageRaw("aws:cloudwatch/getEventBus:getEventBus", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:cloudwatch/getEventBus:getEventBus", args, &rv, "", opts...)
 			if err != nil {
 				return LookupEventBusResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupEventBusResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupEventBusResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupEventBusResultOutput), nil
 			}

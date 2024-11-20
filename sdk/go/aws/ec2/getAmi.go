@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -68,6 +69,16 @@ import (
 // ```
 func LookupAmi(ctx *pulumi.Context, args *LookupAmiArgs, opts ...pulumi.InvokeOption) (*LookupAmiResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupAmiResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupAmiResult{}, errors.New("DependsOn is not supported for direct form invoke LookupAmi, use LookupAmiOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupAmiResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupAmi, use LookupAmiOutput instead")
+	}
 	var rv LookupAmiResult
 	err := ctx.Invoke("aws:ec2/getAmi:getAmi", args, &rv, opts...)
 	if err != nil {
@@ -197,17 +208,18 @@ type LookupAmiResult struct {
 }
 
 func LookupAmiOutput(ctx *pulumi.Context, args LookupAmiOutputArgs, opts ...pulumi.InvokeOption) LookupAmiResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAmiResultOutput, error) {
 			args := v.(LookupAmiArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupAmiResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getAmi:getAmi", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getAmi:getAmi", args, &rv, "", opts...)
 			if err != nil {
 				return LookupAmiResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupAmiResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupAmiResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupAmiResultOutput), nil
 			}

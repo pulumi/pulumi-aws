@@ -5,6 +5,7 @@ package iot
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -14,6 +15,16 @@ import (
 // Returns a unique endpoint specific to the AWS account making the call.
 func GetEndpoint(ctx *pulumi.Context, args *GetEndpointArgs, opts ...pulumi.InvokeOption) (*GetEndpointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetEndpointResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetEndpointResult{}, errors.New("DependsOn is not supported for direct form invoke GetEndpoint, use GetEndpointOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetEndpointResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetEndpoint, use GetEndpointOutput instead")
+	}
 	var rv GetEndpointResult
 	err := ctx.Invoke("aws:iot/getEndpoint:getEndpoint", args, &rv, opts...)
 	if err != nil {
@@ -43,17 +54,18 @@ type GetEndpointResult struct {
 }
 
 func GetEndpointOutput(ctx *pulumi.Context, args GetEndpointOutputArgs, opts ...pulumi.InvokeOption) GetEndpointResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetEndpointResultOutput, error) {
 			args := v.(GetEndpointArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetEndpointResult
-			secret, err := ctx.InvokePackageRaw("aws:iot/getEndpoint:getEndpoint", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:iot/getEndpoint:getEndpoint", args, &rv, "", opts...)
 			if err != nil {
 				return GetEndpointResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetEndpointResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetEndpointResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetEndpointResultOutput), nil
 			}

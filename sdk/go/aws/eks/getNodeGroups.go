@@ -5,6 +5,7 @@ package eks
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -14,6 +15,16 @@ import (
 // Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
 func GetNodeGroups(ctx *pulumi.Context, args *GetNodeGroupsArgs, opts ...pulumi.InvokeOption) (*GetNodeGroupsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetNodeGroupsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetNodeGroupsResult{}, errors.New("DependsOn is not supported for direct form invoke GetNodeGroups, use GetNodeGroupsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetNodeGroupsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetNodeGroups, use GetNodeGroupsOutput instead")
+	}
 	var rv GetNodeGroupsResult
 	err := ctx.Invoke("aws:eks/getNodeGroups:getNodeGroups", args, &rv, opts...)
 	if err != nil {
@@ -38,17 +49,18 @@ type GetNodeGroupsResult struct {
 }
 
 func GetNodeGroupsOutput(ctx *pulumi.Context, args GetNodeGroupsOutputArgs, opts ...pulumi.InvokeOption) GetNodeGroupsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetNodeGroupsResultOutput, error) {
 			args := v.(GetNodeGroupsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetNodeGroupsResult
-			secret, err := ctx.InvokePackageRaw("aws:eks/getNodeGroups:getNodeGroups", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:eks/getNodeGroups:getNodeGroups", args, &rv, "", opts...)
 			if err != nil {
 				return GetNodeGroupsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetNodeGroupsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetNodeGroupsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetNodeGroupsResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package s3
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -115,6 +116,16 @@ import (
 // ```
 func LookupBucketObject(ctx *pulumi.Context, args *LookupBucketObjectArgs, opts ...pulumi.InvokeOption) (*LookupBucketObjectResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupBucketObjectResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupBucketObjectResult{}, errors.New("DependsOn is not supported for direct form invoke LookupBucketObject, use LookupBucketObjectOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupBucketObjectResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupBucketObject, use LookupBucketObjectOutput instead")
+	}
 	var rv LookupBucketObjectResult
 	err := ctx.Invoke("aws:s3/getBucketObject:getBucketObject", args, &rv, opts...)
 	if err != nil {
@@ -194,17 +205,18 @@ type LookupBucketObjectResult struct {
 }
 
 func LookupBucketObjectOutput(ctx *pulumi.Context, args LookupBucketObjectOutputArgs, opts ...pulumi.InvokeOption) LookupBucketObjectResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupBucketObjectResultOutput, error) {
 			args := v.(LookupBucketObjectArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupBucketObjectResult
-			secret, err := ctx.InvokePackageRaw("aws:s3/getBucketObject:getBucketObject", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:s3/getBucketObject:getBucketObject", args, &rv, "", opts...)
 			if err != nil {
 				return LookupBucketObjectResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupBucketObjectResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupBucketObjectResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupBucketObjectResultOutput), nil
 			}

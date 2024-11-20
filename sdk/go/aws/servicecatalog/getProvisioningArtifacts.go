@@ -5,6 +5,7 @@ package servicecatalog
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetProvisioningArtifacts(ctx *pulumi.Context, args *GetProvisioningArtifactsArgs, opts ...pulumi.InvokeOption) (*GetProvisioningArtifactsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetProvisioningArtifactsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetProvisioningArtifactsResult{}, errors.New("DependsOn is not supported for direct form invoke GetProvisioningArtifacts, use GetProvisioningArtifactsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetProvisioningArtifactsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetProvisioningArtifacts, use GetProvisioningArtifactsOutput instead")
+	}
 	var rv GetProvisioningArtifactsResult
 	err := ctx.Invoke("aws:servicecatalog/getProvisioningArtifacts:getProvisioningArtifacts", args, &rv, opts...)
 	if err != nil {
@@ -71,17 +82,18 @@ type GetProvisioningArtifactsResult struct {
 }
 
 func GetProvisioningArtifactsOutput(ctx *pulumi.Context, args GetProvisioningArtifactsOutputArgs, opts ...pulumi.InvokeOption) GetProvisioningArtifactsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetProvisioningArtifactsResultOutput, error) {
 			args := v.(GetProvisioningArtifactsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetProvisioningArtifactsResult
-			secret, err := ctx.InvokePackageRaw("aws:servicecatalog/getProvisioningArtifacts:getProvisioningArtifacts", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:servicecatalog/getProvisioningArtifacts:getProvisioningArtifacts", args, &rv, "", opts...)
 			if err != nil {
 				return GetProvisioningArtifactsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetProvisioningArtifactsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetProvisioningArtifactsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetProvisioningArtifactsResultOutput), nil
 			}

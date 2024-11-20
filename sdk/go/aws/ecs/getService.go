@@ -5,6 +5,7 @@ package ecs
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupServiceResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupServiceResult{}, errors.New("DependsOn is not supported for direct form invoke LookupService, use LookupServiceOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupServiceResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupService, use LookupServiceOutput instead")
+	}
 	var rv LookupServiceResult
 	err := ctx.Invoke("aws:ecs/getService:getService", args, &rv, opts...)
 	if err != nil {
@@ -81,17 +92,18 @@ type LookupServiceResult struct {
 }
 
 func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts ...pulumi.InvokeOption) LookupServiceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupServiceResultOutput, error) {
 			args := v.(LookupServiceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupServiceResult
-			secret, err := ctx.InvokePackageRaw("aws:ecs/getService:getService", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ecs/getService:getService", args, &rv, "", opts...)
 			if err != nil {
 				return LookupServiceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupServiceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupServiceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupServiceResultOutput), nil
 			}

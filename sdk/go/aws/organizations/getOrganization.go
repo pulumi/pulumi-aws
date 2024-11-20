@@ -5,6 +5,7 @@ package organizations
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -113,6 +114,16 @@ import (
 // ```
 func LookupOrganization(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupOrganizationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupOrganizationResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupOrganizationResult{}, errors.New("DependsOn is not supported for direct form invoke LookupOrganization, use LookupOrganizationOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupOrganizationResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupOrganization, use LookupOrganizationOutput instead")
+	}
 	var rv LookupOrganizationResult
 	err := ctx.Invoke("aws:organizations/getOrganization:getOrganization", nil, &rv, opts...)
 	if err != nil {

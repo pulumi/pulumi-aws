@@ -5,6 +5,7 @@ package kendra
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupThesaurus(ctx *pulumi.Context, args *LookupThesaurusArgs, opts ...pulumi.InvokeOption) (*LookupThesaurusResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupThesaurusResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupThesaurusResult{}, errors.New("DependsOn is not supported for direct form invoke LookupThesaurus, use LookupThesaurusOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupThesaurusResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupThesaurus, use LookupThesaurusOutput instead")
+	}
 	var rv LookupThesaurusResult
 	err := ctx.Invoke("aws:kendra/getThesaurus:getThesaurus", args, &rv, opts...)
 	if err != nil {
@@ -94,17 +105,18 @@ type LookupThesaurusResult struct {
 }
 
 func LookupThesaurusOutput(ctx *pulumi.Context, args LookupThesaurusOutputArgs, opts ...pulumi.InvokeOption) LookupThesaurusResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupThesaurusResultOutput, error) {
 			args := v.(LookupThesaurusArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupThesaurusResult
-			secret, err := ctx.InvokePackageRaw("aws:kendra/getThesaurus:getThesaurus", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:kendra/getThesaurus:getThesaurus", args, &rv, "", opts...)
 			if err != nil {
 				return LookupThesaurusResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupThesaurusResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupThesaurusResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupThesaurusResultOutput), nil
 			}

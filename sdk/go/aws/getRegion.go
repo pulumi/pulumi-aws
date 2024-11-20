@@ -5,6 +5,7 @@ package aws
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -46,6 +47,16 @@ import (
 // ```
 func GetRegion(ctx *pulumi.Context, args *GetRegionArgs, opts ...pulumi.InvokeOption) (*GetRegionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetRegionResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetRegionResult{}, errors.New("DependsOn is not supported for direct form invoke GetRegion, use GetRegionOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetRegionResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetRegion, use GetRegionOutput instead")
+	}
 	var rv GetRegionResult
 	err := ctx.Invoke("aws:index/getRegion:getRegion", args, &rv, opts...)
 	if err != nil {
@@ -75,17 +86,18 @@ type GetRegionResult struct {
 }
 
 func GetRegionOutput(ctx *pulumi.Context, args GetRegionOutputArgs, opts ...pulumi.InvokeOption) GetRegionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetRegionResultOutput, error) {
 			args := v.(GetRegionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetRegionResult
-			secret, err := ctx.InvokePackageRaw("aws:index/getRegion:getRegion", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:index/getRegion:getRegion", args, &rv, "", opts...)
 			if err != nil {
 				return GetRegionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetRegionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetRegionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetRegionResultOutput), nil
 			}

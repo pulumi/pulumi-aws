@@ -5,6 +5,7 @@ package mq
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -64,6 +65,16 @@ import (
 // ```
 func GetInstanceTypeOfferings(ctx *pulumi.Context, args *GetInstanceTypeOfferingsArgs, opts ...pulumi.InvokeOption) (*GetInstanceTypeOfferingsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetInstanceTypeOfferingsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetInstanceTypeOfferingsResult{}, errors.New("DependsOn is not supported for direct form invoke GetInstanceTypeOfferings, use GetInstanceTypeOfferingsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetInstanceTypeOfferingsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetInstanceTypeOfferings, use GetInstanceTypeOfferingsOutput instead")
+	}
 	var rv GetInstanceTypeOfferingsResult
 	err := ctx.Invoke("aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings", args, &rv, opts...)
 	if err != nil {
@@ -97,17 +108,18 @@ type GetInstanceTypeOfferingsResult struct {
 }
 
 func GetInstanceTypeOfferingsOutput(ctx *pulumi.Context, args GetInstanceTypeOfferingsOutputArgs, opts ...pulumi.InvokeOption) GetInstanceTypeOfferingsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetInstanceTypeOfferingsResultOutput, error) {
 			args := v.(GetInstanceTypeOfferingsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetInstanceTypeOfferingsResult
-			secret, err := ctx.InvokePackageRaw("aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings", args, &rv, "", opts...)
 			if err != nil {
 				return GetInstanceTypeOfferingsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetInstanceTypeOfferingsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetInstanceTypeOfferingsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetInstanceTypeOfferingsResultOutput), nil
 			}

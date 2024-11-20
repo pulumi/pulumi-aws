@@ -5,6 +5,7 @@ package quicksight
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupTheme(ctx *pulumi.Context, args *LookupThemeArgs, opts ...pulumi.InvokeOption) (*LookupThemeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupThemeResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupThemeResult{}, errors.New("DependsOn is not supported for direct form invoke LookupTheme, use LookupThemeOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupThemeResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupTheme, use LookupThemeOutput instead")
+	}
 	var rv LookupThemeResult
 	err := ctx.Invoke("aws:quicksight/getTheme:getTheme", args, &rv, opts...)
 	if err != nil {
@@ -93,17 +104,18 @@ type LookupThemeResult struct {
 }
 
 func LookupThemeOutput(ctx *pulumi.Context, args LookupThemeOutputArgs, opts ...pulumi.InvokeOption) LookupThemeResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupThemeResultOutput, error) {
 			args := v.(LookupThemeArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupThemeResult
-			secret, err := ctx.InvokePackageRaw("aws:quicksight/getTheme:getTheme", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:quicksight/getTheme:getTheme", args, &rv, "", opts...)
 			if err != nil {
 				return LookupThemeResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupThemeResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupThemeResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupThemeResultOutput), nil
 			}

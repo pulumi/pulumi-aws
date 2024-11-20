@@ -5,6 +5,7 @@ package kendra
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupFaq(ctx *pulumi.Context, args *LookupFaqArgs, opts ...pulumi.InvokeOption) (*LookupFaqResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupFaqResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupFaqResult{}, errors.New("DependsOn is not supported for direct form invoke LookupFaq, use LookupFaqOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupFaqResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupFaq, use LookupFaqOutput instead")
+	}
 	var rv LookupFaqResult
 	err := ctx.Invoke("aws:kendra/getFaq:getFaq", args, &rv, opts...)
 	if err != nil {
@@ -92,17 +103,18 @@ type LookupFaqResult struct {
 }
 
 func LookupFaqOutput(ctx *pulumi.Context, args LookupFaqOutputArgs, opts ...pulumi.InvokeOption) LookupFaqResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFaqResultOutput, error) {
 			args := v.(LookupFaqArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupFaqResult
-			secret, err := ctx.InvokePackageRaw("aws:kendra/getFaq:getFaq", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:kendra/getFaq:getFaq", args, &rv, "", opts...)
 			if err != nil {
 				return LookupFaqResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupFaqResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupFaqResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupFaqResultOutput), nil
 			}

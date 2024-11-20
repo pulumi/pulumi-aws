@@ -5,6 +5,7 @@ package appconfig
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupConfigurationProfile(ctx *pulumi.Context, args *LookupConfigurationProfileArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationProfileResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupConfigurationProfileResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupConfigurationProfileResult{}, errors.New("DependsOn is not supported for direct form invoke LookupConfigurationProfile, use LookupConfigurationProfileOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupConfigurationProfileResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupConfigurationProfile, use LookupConfigurationProfileOutput instead")
+	}
 	var rv LookupConfigurationProfileResult
 	err := ctx.Invoke("aws:appconfig/getConfigurationProfile:getConfigurationProfile", args, &rv, opts...)
 	if err != nil {
@@ -87,17 +98,18 @@ type LookupConfigurationProfileResult struct {
 }
 
 func LookupConfigurationProfileOutput(ctx *pulumi.Context, args LookupConfigurationProfileOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationProfileResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupConfigurationProfileResultOutput, error) {
 			args := v.(LookupConfigurationProfileArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupConfigurationProfileResult
-			secret, err := ctx.InvokePackageRaw("aws:appconfig/getConfigurationProfile:getConfigurationProfile", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:appconfig/getConfigurationProfile:getConfigurationProfile", args, &rv, "", opts...)
 			if err != nil {
 				return LookupConfigurationProfileResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupConfigurationProfileResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupConfigurationProfileResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupConfigurationProfileResultOutput), nil
 			}

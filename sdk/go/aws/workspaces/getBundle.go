@@ -5,6 +5,7 @@ package workspaces
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -69,6 +70,16 @@ import (
 // ```
 func GetBundle(ctx *pulumi.Context, args *GetBundleArgs, opts ...pulumi.InvokeOption) (*GetBundleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetBundleResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetBundleResult{}, errors.New("DependsOn is not supported for direct form invoke GetBundle, use GetBundleOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetBundleResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetBundle, use GetBundleOutput instead")
+	}
 	var rv GetBundleResult
 	err := ctx.Invoke("aws:workspaces/getBundle:getBundle", args, &rv, opts...)
 	if err != nil {
@@ -108,17 +119,18 @@ type GetBundleResult struct {
 }
 
 func GetBundleOutput(ctx *pulumi.Context, args GetBundleOutputArgs, opts ...pulumi.InvokeOption) GetBundleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetBundleResultOutput, error) {
 			args := v.(GetBundleArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetBundleResult
-			secret, err := ctx.InvokePackageRaw("aws:workspaces/getBundle:getBundle", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:workspaces/getBundle:getBundle", args, &rv, "", opts...)
 			if err != nil {
 				return GetBundleResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetBundleResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetBundleResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetBundleResultOutput), nil
 			}

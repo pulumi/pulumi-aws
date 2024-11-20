@@ -120,7 +120,7 @@ def get_auth_policy(policy: Optional[str] = None,
 def get_auth_policy_output(policy: Optional[pulumi.Input[Optional[str]]] = None,
                            resource_identifier: Optional[pulumi.Input[str]] = None,
                            state: Optional[pulumi.Input[Optional[str]]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthPolicyResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthPolicyResult]:
     """
     Data source for managing an AWS VPC Lattice Auth Policy.
 
@@ -144,7 +144,7 @@ def get_auth_policy_output(policy: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['policy'] = policy
     __args__['resourceIdentifier'] = resource_identifier
     __args__['state'] = state
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:vpclattice/getAuthPolicy:getAuthPolicy', __args__, opts=opts, typ=GetAuthPolicyResult)
     return __ret__.apply(lambda __response__: GetAuthPolicyResult(
         id=pulumi.get(__response__, 'id'),

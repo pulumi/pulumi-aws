@@ -5,6 +5,7 @@ package ecs
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -79,6 +80,16 @@ import (
 // ```
 func LookupTaskDefinition(ctx *pulumi.Context, args *LookupTaskDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupTaskDefinitionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupTaskDefinitionResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupTaskDefinitionResult{}, errors.New("DependsOn is not supported for direct form invoke LookupTaskDefinition, use LookupTaskDefinitionOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupTaskDefinitionResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupTaskDefinition, use LookupTaskDefinitionOutput instead")
+	}
 	var rv LookupTaskDefinitionResult
 	err := ctx.Invoke("aws:ecs/getTaskDefinition:getTaskDefinition", args, &rv, opts...)
 	if err != nil {
@@ -117,17 +128,18 @@ type LookupTaskDefinitionResult struct {
 }
 
 func LookupTaskDefinitionOutput(ctx *pulumi.Context, args LookupTaskDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupTaskDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupTaskDefinitionResultOutput, error) {
 			args := v.(LookupTaskDefinitionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupTaskDefinitionResult
-			secret, err := ctx.InvokePackageRaw("aws:ecs/getTaskDefinition:getTaskDefinition", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ecs/getTaskDefinition:getTaskDefinition", args, &rv, "", opts...)
 			if err != nil {
 				return LookupTaskDefinitionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupTaskDefinitionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupTaskDefinitionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupTaskDefinitionResultOutput), nil
 			}

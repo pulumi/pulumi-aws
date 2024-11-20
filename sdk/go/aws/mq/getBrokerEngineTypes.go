@@ -5,6 +5,7 @@ package mq
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetBrokerEngineTypes(ctx *pulumi.Context, args *GetBrokerEngineTypesArgs, opts ...pulumi.InvokeOption) (*GetBrokerEngineTypesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetBrokerEngineTypesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetBrokerEngineTypesResult{}, errors.New("DependsOn is not supported for direct form invoke GetBrokerEngineTypes, use GetBrokerEngineTypesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetBrokerEngineTypesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetBrokerEngineTypes, use GetBrokerEngineTypesOutput instead")
+	}
 	var rv GetBrokerEngineTypesResult
 	err := ctx.Invoke("aws:mq/getBrokerEngineTypes:getBrokerEngineTypes", args, &rv, opts...)
 	if err != nil {
@@ -67,17 +78,18 @@ type GetBrokerEngineTypesResult struct {
 }
 
 func GetBrokerEngineTypesOutput(ctx *pulumi.Context, args GetBrokerEngineTypesOutputArgs, opts ...pulumi.InvokeOption) GetBrokerEngineTypesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetBrokerEngineTypesResultOutput, error) {
 			args := v.(GetBrokerEngineTypesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetBrokerEngineTypesResult
-			secret, err := ctx.InvokePackageRaw("aws:mq/getBrokerEngineTypes:getBrokerEngineTypes", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:mq/getBrokerEngineTypes:getBrokerEngineTypes", args, &rv, "", opts...)
 			if err != nil {
 				return GetBrokerEngineTypesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetBrokerEngineTypesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetBrokerEngineTypesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetBrokerEngineTypesResultOutput), nil
 			}

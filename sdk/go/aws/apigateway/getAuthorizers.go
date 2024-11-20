@@ -5,6 +5,7 @@ package apigateway
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func GetAuthorizers(ctx *pulumi.Context, args *GetAuthorizersArgs, opts ...pulumi.InvokeOption) (*GetAuthorizersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetAuthorizersResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetAuthorizersResult{}, errors.New("DependsOn is not supported for direct form invoke GetAuthorizers, use GetAuthorizersOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetAuthorizersResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetAuthorizers, use GetAuthorizersOutput instead")
+	}
 	var rv GetAuthorizersResult
 	err := ctx.Invoke("aws:apigateway/getAuthorizers:getAuthorizers", args, &rv, opts...)
 	if err != nil {
@@ -64,17 +75,18 @@ type GetAuthorizersResult struct {
 }
 
 func GetAuthorizersOutput(ctx *pulumi.Context, args GetAuthorizersOutputArgs, opts ...pulumi.InvokeOption) GetAuthorizersResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAuthorizersResultOutput, error) {
 			args := v.(GetAuthorizersArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetAuthorizersResult
-			secret, err := ctx.InvokePackageRaw("aws:apigateway/getAuthorizers:getAuthorizers", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:apigateway/getAuthorizers:getAuthorizers", args, &rv, "", opts...)
 			if err != nil {
 				return GetAuthorizersResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetAuthorizersResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetAuthorizersResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetAuthorizersResultOutput), nil
 			}

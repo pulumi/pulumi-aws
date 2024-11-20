@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -49,6 +50,16 @@ import (
 // ```
 func GetSpotPrice(ctx *pulumi.Context, args *GetSpotPriceArgs, opts ...pulumi.InvokeOption) (*GetSpotPriceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetSpotPriceResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetSpotPriceResult{}, errors.New("DependsOn is not supported for direct form invoke GetSpotPrice, use GetSpotPriceOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetSpotPriceResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetSpotPrice, use GetSpotPriceOutput instead")
+	}
 	var rv GetSpotPriceResult
 	err := ctx.Invoke("aws:ec2/getSpotPrice:getSpotPrice", args, &rv, opts...)
 	if err != nil {
@@ -81,17 +92,18 @@ type GetSpotPriceResult struct {
 }
 
 func GetSpotPriceOutput(ctx *pulumi.Context, args GetSpotPriceOutputArgs, opts ...pulumi.InvokeOption) GetSpotPriceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetSpotPriceResultOutput, error) {
 			args := v.(GetSpotPriceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetSpotPriceResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getSpotPrice:getSpotPrice", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getSpotPrice:getSpotPrice", args, &rv, "", opts...)
 			if err != nil {
 				return GetSpotPriceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetSpotPriceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetSpotPriceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetSpotPriceResultOutput), nil
 			}

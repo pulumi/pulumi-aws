@@ -5,6 +5,7 @@ package wafv2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupIpSet(ctx *pulumi.Context, args *LookupIpSetArgs, opts ...pulumi.InvokeOption) (*LookupIpSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupIpSetResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupIpSetResult{}, errors.New("DependsOn is not supported for direct form invoke LookupIpSet, use LookupIpSetOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupIpSetResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupIpSet, use LookupIpSetOutput instead")
+	}
 	var rv LookupIpSetResult
 	err := ctx.Invoke("aws:wafv2/getIpSet:getIpSet", args, &rv, opts...)
 	if err != nil {
@@ -74,17 +85,18 @@ type LookupIpSetResult struct {
 }
 
 func LookupIpSetOutput(ctx *pulumi.Context, args LookupIpSetOutputArgs, opts ...pulumi.InvokeOption) LookupIpSetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupIpSetResultOutput, error) {
 			args := v.(LookupIpSetArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupIpSetResult
-			secret, err := ctx.InvokePackageRaw("aws:wafv2/getIpSet:getIpSet", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:wafv2/getIpSet:getIpSet", args, &rv, "", opts...)
 			if err != nil {
 				return LookupIpSetResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupIpSetResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupIpSetResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupIpSetResultOutput), nil
 			}

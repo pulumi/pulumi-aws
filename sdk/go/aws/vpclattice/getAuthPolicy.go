@@ -5,6 +5,7 @@ package vpclattice
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupAuthPolicy(ctx *pulumi.Context, args *LookupAuthPolicyArgs, opts ...pulumi.InvokeOption) (*LookupAuthPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupAuthPolicyResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupAuthPolicyResult{}, errors.New("DependsOn is not supported for direct form invoke LookupAuthPolicy, use LookupAuthPolicyOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupAuthPolicyResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupAuthPolicy, use LookupAuthPolicyOutput instead")
+	}
 	var rv LookupAuthPolicyResult
 	err := ctx.Invoke("aws:vpclattice/getAuthPolicy:getAuthPolicy", args, &rv, opts...)
 	if err != nil {
@@ -72,17 +83,18 @@ type LookupAuthPolicyResult struct {
 }
 
 func LookupAuthPolicyOutput(ctx *pulumi.Context, args LookupAuthPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupAuthPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAuthPolicyResultOutput, error) {
 			args := v.(LookupAuthPolicyArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupAuthPolicyResult
-			secret, err := ctx.InvokePackageRaw("aws:vpclattice/getAuthPolicy:getAuthPolicy", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:vpclattice/getAuthPolicy:getAuthPolicy", args, &rv, "", opts...)
 			if err != nil {
 				return LookupAuthPolicyResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupAuthPolicyResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupAuthPolicyResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupAuthPolicyResultOutput), nil
 			}

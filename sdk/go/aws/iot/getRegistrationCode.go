@@ -5,6 +5,7 @@ package iot
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -55,6 +56,16 @@ import (
 // ```
 func GetRegistrationCode(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetRegistrationCodeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetRegistrationCodeResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetRegistrationCodeResult{}, errors.New("DependsOn is not supported for direct form invoke GetRegistrationCode, use GetRegistrationCodeOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetRegistrationCodeResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetRegistrationCode, use GetRegistrationCodeOutput instead")
+	}
 	var rv GetRegistrationCodeResult
 	err := ctx.Invoke("aws:iot/getRegistrationCode:getRegistrationCode", nil, &rv, opts...)
 	if err != nil {

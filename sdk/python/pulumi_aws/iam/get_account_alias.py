@@ -83,7 +83,7 @@ def get_account_alias(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableG
     return AwaitableGetAccountAliasResult(
         account_alias=pulumi.get(__ret__, 'account_alias'),
         id=pulumi.get(__ret__, 'id'))
-def get_account_alias_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountAliasResult]:
+def get_account_alias_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountAliasResult]:
     """
     The IAM Account Alias data source allows access to the account alias
     for the effective account in which this provider is working.
@@ -99,7 +99,7 @@ def get_account_alias_output(opts: Optional[pulumi.InvokeOptions] = None) -> pul
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:iam/getAccountAlias:getAccountAlias', __args__, opts=opts, typ=GetAccountAliasResult)
     return __ret__.apply(lambda __response__: GetAccountAliasResult(
         account_alias=pulumi.get(__response__, 'account_alias'),

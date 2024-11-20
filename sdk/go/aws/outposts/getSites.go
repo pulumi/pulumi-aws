@@ -5,6 +5,7 @@ package outposts
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -38,6 +39,16 @@ import (
 // ```
 func GetSites(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetSitesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetSitesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetSitesResult{}, errors.New("DependsOn is not supported for direct form invoke GetSites, use GetSitesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetSitesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetSites, use GetSitesOutput instead")
+	}
 	var rv GetSitesResult
 	err := ctx.Invoke("aws:outposts/getSites:getSites", nil, &rv, opts...)
 	if err != nil {

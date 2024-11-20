@@ -5,6 +5,7 @@ package secretsmanager
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func GetRandomPassword(ctx *pulumi.Context, args *GetRandomPasswordArgs, opts ...pulumi.InvokeOption) (*GetRandomPasswordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetRandomPasswordResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetRandomPasswordResult{}, errors.New("DependsOn is not supported for direct form invoke GetRandomPassword, use GetRandomPasswordOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetRandomPasswordResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetRandomPassword, use GetRandomPasswordOutput instead")
+	}
 	var rv GetRandomPasswordResult
 	err := ctx.Invoke("aws:secretsmanager/getRandomPassword:getRandomPassword", args, &rv, opts...)
 	if err != nil {
@@ -86,17 +97,18 @@ type GetRandomPasswordResult struct {
 }
 
 func GetRandomPasswordOutput(ctx *pulumi.Context, args GetRandomPasswordOutputArgs, opts ...pulumi.InvokeOption) GetRandomPasswordResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetRandomPasswordResultOutput, error) {
 			args := v.(GetRandomPasswordArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetRandomPasswordResult
-			secret, err := ctx.InvokePackageRaw("aws:secretsmanager/getRandomPassword:getRandomPassword", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:secretsmanager/getRandomPassword:getRandomPassword", args, &rv, "", opts...)
 			if err != nil {
 				return GetRandomPasswordResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetRandomPasswordResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetRandomPasswordResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetRandomPasswordResultOutput), nil
 			}

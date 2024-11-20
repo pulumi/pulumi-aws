@@ -5,6 +5,7 @@ package lb
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -57,6 +58,16 @@ import (
 // ```
 func LookupTrustStore(ctx *pulumi.Context, args *LookupTrustStoreArgs, opts ...pulumi.InvokeOption) (*LookupTrustStoreResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupTrustStoreResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupTrustStoreResult{}, errors.New("DependsOn is not supported for direct form invoke LookupTrustStore, use LookupTrustStoreOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupTrustStoreResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupTrustStore, use LookupTrustStoreOutput instead")
+	}
 	var rv LookupTrustStoreResult
 	err := ctx.Invoke("aws:lb/getTrustStore:getTrustStore", args, &rv, opts...)
 	if err != nil {
@@ -84,17 +95,18 @@ type LookupTrustStoreResult struct {
 }
 
 func LookupTrustStoreOutput(ctx *pulumi.Context, args LookupTrustStoreOutputArgs, opts ...pulumi.InvokeOption) LookupTrustStoreResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupTrustStoreResultOutput, error) {
 			args := v.(LookupTrustStoreArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupTrustStoreResult
-			secret, err := ctx.InvokePackageRaw("aws:lb/getTrustStore:getTrustStore", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:lb/getTrustStore:getTrustStore", args, &rv, "", opts...)
 			if err != nil {
 				return LookupTrustStoreResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupTrustStoreResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupTrustStoreResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupTrustStoreResultOutput), nil
 			}

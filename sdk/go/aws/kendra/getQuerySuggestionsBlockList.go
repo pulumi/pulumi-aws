@@ -5,6 +5,7 @@ package kendra
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupQuerySuggestionsBlockList(ctx *pulumi.Context, args *LookupQuerySuggestionsBlockListArgs, opts ...pulumi.InvokeOption) (*LookupQuerySuggestionsBlockListResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupQuerySuggestionsBlockListResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupQuerySuggestionsBlockListResult{}, errors.New("DependsOn is not supported for direct form invoke LookupQuerySuggestionsBlockList, use LookupQuerySuggestionsBlockListOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupQuerySuggestionsBlockListResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupQuerySuggestionsBlockList, use LookupQuerySuggestionsBlockListOutput instead")
+	}
 	var rv LookupQuerySuggestionsBlockListResult
 	err := ctx.Invoke("aws:kendra/getQuerySuggestionsBlockList:getQuerySuggestionsBlockList", args, &rv, opts...)
 	if err != nil {
@@ -92,17 +103,18 @@ type LookupQuerySuggestionsBlockListResult struct {
 }
 
 func LookupQuerySuggestionsBlockListOutput(ctx *pulumi.Context, args LookupQuerySuggestionsBlockListOutputArgs, opts ...pulumi.InvokeOption) LookupQuerySuggestionsBlockListResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupQuerySuggestionsBlockListResultOutput, error) {
 			args := v.(LookupQuerySuggestionsBlockListArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupQuerySuggestionsBlockListResult
-			secret, err := ctx.InvokePackageRaw("aws:kendra/getQuerySuggestionsBlockList:getQuerySuggestionsBlockList", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:kendra/getQuerySuggestionsBlockList:getQuerySuggestionsBlockList", args, &rv, "", opts...)
 			if err != nil {
 				return LookupQuerySuggestionsBlockListResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupQuerySuggestionsBlockListResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupQuerySuggestionsBlockListResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupQuerySuggestionsBlockListResultOutput), nil
 			}

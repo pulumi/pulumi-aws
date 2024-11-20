@@ -5,6 +5,7 @@ package directconnect
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func GetLocation(ctx *pulumi.Context, args *GetLocationArgs, opts ...pulumi.InvokeOption) (*GetLocationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetLocationResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetLocationResult{}, errors.New("DependsOn is not supported for direct form invoke GetLocation, use GetLocationOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetLocationResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetLocation, use GetLocationOutput instead")
+	}
 	var rv GetLocationResult
 	err := ctx.Invoke("aws:directconnect/getLocation:getLocation", args, &rv, opts...)
 	if err != nil {
@@ -73,17 +84,18 @@ type GetLocationResult struct {
 }
 
 func GetLocationOutput(ctx *pulumi.Context, args GetLocationOutputArgs, opts ...pulumi.InvokeOption) GetLocationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetLocationResultOutput, error) {
 			args := v.(GetLocationArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetLocationResult
-			secret, err := ctx.InvokePackageRaw("aws:directconnect/getLocation:getLocation", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:directconnect/getLocation:getLocation", args, &rv, "", opts...)
 			if err != nil {
 				return GetLocationResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetLocationResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetLocationResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetLocationResultOutput), nil
 			}
