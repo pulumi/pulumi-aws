@@ -271,7 +271,7 @@ def get_multicast_domain(filters: Optional[Sequence[Union['GetMulticastDomainFil
 def get_multicast_domain_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetMulticastDomainFilterArgs', 'GetMulticastDomainFilterArgsDict']]]]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                 transit_gateway_multicast_domain_id: Optional[pulumi.Input[Optional[str]]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMulticastDomainResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMulticastDomainResult]:
     """
     Get information on an EC2 Transit Gateway Multicast Domain.
 
@@ -307,7 +307,7 @@ def get_multicast_domain_output(filters: Optional[pulumi.Input[Optional[Sequence
     __args__['filters'] = filters
     __args__['tags'] = tags
     __args__['transitGatewayMulticastDomainId'] = transit_gateway_multicast_domain_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2transitgateway/getMulticastDomain:getMulticastDomain', __args__, opts=opts, typ=GetMulticastDomainResult)
     return __ret__.apply(lambda __response__: GetMulticastDomainResult(
         arn=pulumi.get(__response__, 'arn'),

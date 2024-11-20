@@ -167,7 +167,7 @@ def get_map(map_name: Optional[str] = None,
         update_time=pulumi.get(__ret__, 'update_time'))
 def get_map_output(map_name: Optional[pulumi.Input[str]] = None,
                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMapResult]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMapResult]:
     """
     Retrieve information about a Location Service Map.
 
@@ -187,7 +187,7 @@ def get_map_output(map_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['mapName'] = map_name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:location/getMap:getMap', __args__, opts=opts, typ=GetMapResult)
     return __ret__.apply(lambda __response__: GetMapResult(
         configurations=pulumi.get(__response__, 'configurations'),

@@ -105,7 +105,7 @@ def get_bot_association(instance_id: Optional[str] = None,
         lex_bot=pulumi.get(__ret__, 'lex_bot'))
 def get_bot_association_output(instance_id: Optional[pulumi.Input[str]] = None,
                                lex_bot: Optional[pulumi.Input[Union['GetBotAssociationLexBotArgs', 'GetBotAssociationLexBotArgsDict']]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBotAssociationResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBotAssociationResult]:
     """
     Provides details about a specific Lex (V1) Bot associated with an Amazon Connect instance.
 
@@ -130,7 +130,7 @@ def get_bot_association_output(instance_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['instanceId'] = instance_id
     __args__['lexBot'] = lex_bot
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:connect/getBotAssociation:getBotAssociation', __args__, opts=opts, typ=GetBotAssociationResult)
     return __ret__.apply(lambda __response__: GetBotAssociationResult(
         id=pulumi.get(__response__, 'id'),

@@ -157,7 +157,7 @@ def get_quicksight_group(aws_account_id: Optional[str] = None,
 def get_quicksight_group_output(aws_account_id: Optional[pulumi.Input[Optional[str]]] = None,
                                 group_name: Optional[pulumi.Input[str]] = None,
                                 namespace: Optional[pulumi.Input[Optional[str]]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQuicksightGroupResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQuicksightGroupResult]:
     """
     This data source can be used to fetch information about a specific
     QuickSight group. By using this data source, you can reference QuickSight group
@@ -185,7 +185,7 @@ def get_quicksight_group_output(aws_account_id: Optional[pulumi.Input[Optional[s
     __args__['awsAccountId'] = aws_account_id
     __args__['groupName'] = group_name
     __args__['namespace'] = namespace
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:quicksight/getQuicksightGroup:getQuicksightGroup', __args__, opts=opts, typ=GetQuicksightGroupResult)
     return __ret__.apply(lambda __response__: GetQuicksightGroupResult(
         arn=pulumi.get(__response__, 'arn'),

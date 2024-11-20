@@ -134,7 +134,7 @@ def get_named_query(name: Optional[str] = None,
         workgroup=pulumi.get(__ret__, 'workgroup'))
 def get_named_query_output(name: Optional[pulumi.Input[str]] = None,
                            workgroup: Optional[pulumi.Input[Optional[str]]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamedQueryResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamedQueryResult]:
     """
     Provides an Athena Named Query data source.
 
@@ -154,7 +154,7 @@ def get_named_query_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['workgroup'] = workgroup
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:athena/getNamedQuery:getNamedQuery', __args__, opts=opts, typ=GetNamedQueryResult)
     return __ret__.apply(lambda __response__: GetNamedQueryResult(
         database=pulumi.get(__response__, 'database'),

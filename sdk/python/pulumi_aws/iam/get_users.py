@@ -146,7 +146,7 @@ def get_users(name_regex: Optional[str] = None,
         path_prefix=pulumi.get(__ret__, 'path_prefix'))
 def get_users_output(name_regex: Optional[pulumi.Input[Optional[str]]] = None,
                      path_prefix: Optional[pulumi.Input[Optional[str]]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUsersResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUsersResult]:
     """
     Use this data source to get the ARNs and Names of IAM Users.
 
@@ -188,7 +188,7 @@ def get_users_output(name_regex: Optional[pulumi.Input[Optional[str]]] = None,
     __args__ = dict()
     __args__['nameRegex'] = name_regex
     __args__['pathPrefix'] = path_prefix
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:iam/getUsers:getUsers', __args__, opts=opts, typ=GetUsersResult)
     return __ret__.apply(lambda __response__: GetUsersResult(
         arns=pulumi.get(__response__, 'arns'),

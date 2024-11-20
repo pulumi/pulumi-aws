@@ -312,7 +312,7 @@ def get_target_group_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                             load_balancing_anomaly_mitigation: Optional[pulumi.Input[Optional[str]]] = None,
                             name: Optional[pulumi.Input[Optional[str]]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTargetGroupResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTargetGroupResult]:
     """
     > **Note:** `alb.TargetGroup` is known as `lb.TargetGroup`. The functionality is identical.
 
@@ -351,7 +351,7 @@ def get_target_group_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['loadBalancingAnomalyMitigation'] = load_balancing_anomaly_mitigation
     __args__['name'] = name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:alb/getTargetGroup:getTargetGroup', __args__, opts=opts, typ=GetTargetGroupResult)
     return __ret__.apply(lambda __response__: GetTargetGroupResult(
         arn=pulumi.get(__response__, 'arn'),
