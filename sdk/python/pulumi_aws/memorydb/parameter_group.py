@@ -32,7 +32,7 @@ class ParameterGroupArgs:
         :param pulumi.Input[str] family: The engine version that the parameter group can be used with.
                
                The following arguments are optional:
-        :param pulumi.Input[str] description: Description for the parameter group.
+        :param pulumi.Input[str] description: Description for the parameter group. Defaults to `"Managed by Pulumi"`.
         :param pulumi.Input[str] name: Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]] parameters: Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
@@ -68,7 +68,7 @@ class ParameterGroupArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description for the parameter group.
+        Description for the parameter group. Defaults to `"Managed by Pulumi"`.
         """
         return pulumi.get(self, "description")
 
@@ -139,7 +139,7 @@ class _ParameterGroupState:
         """
         Input properties used for looking up and filtering ParameterGroup resources.
         :param pulumi.Input[str] arn: The ARN of the parameter group.
-        :param pulumi.Input[str] description: Description for the parameter group.
+        :param pulumi.Input[str] description: Description for the parameter group. Defaults to `"Managed by Pulumi"`.
         :param pulumi.Input[str] family: The engine version that the parameter group can be used with.
                
                The following arguments are optional:
@@ -185,7 +185,7 @@ class _ParameterGroupState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description for the parameter group.
+        Description for the parameter group. Defaults to `"Managed by Pulumi"`.
         """
         return pulumi.get(self, "description")
 
@@ -311,7 +311,7 @@ class ParameterGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Description for the parameter group.
+        :param pulumi.Input[str] description: Description for the parameter group. Defaults to `"Managed by Pulumi"`.
         :param pulumi.Input[str] family: The engine version that the parameter group can be used with.
                
                The following arguments are optional:
@@ -420,7 +420,7 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the parameter group.
-        :param pulumi.Input[str] description: Description for the parameter group.
+        :param pulumi.Input[str] description: Description for the parameter group. Defaults to `"Managed by Pulumi"`.
         :param pulumi.Input[str] family: The engine version that the parameter group can be used with.
                
                The following arguments are optional:
@@ -456,7 +456,7 @@ class ParameterGroup(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        Description for the parameter group.
+        Description for the parameter group. Defaults to `"Managed by Pulumi"`.
         """
         return pulumi.get(self, "description")
 

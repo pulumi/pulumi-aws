@@ -101,7 +101,7 @@ type OptionGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// Description of the option group.
+	// Description of the option group. Defaults to "Managed by Pulumi".
 	OptionGroupDescription pulumi.StringOutput `pulumi:"optionGroupDescription"`
 	// The options to apply. See `option` Block below for more details.
 	Options OptionGroupOptionArrayOutput `pulumi:"options"`
@@ -164,7 +164,7 @@ type optionGroupState struct {
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
 	NamePrefix *string `pulumi:"namePrefix"`
-	// Description of the option group.
+	// Description of the option group. Defaults to "Managed by Pulumi".
 	OptionGroupDescription *string `pulumi:"optionGroupDescription"`
 	// The options to apply. See `option` Block below for more details.
 	Options []OptionGroupOption `pulumi:"options"`
@@ -189,7 +189,7 @@ type OptionGroupState struct {
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
 	NamePrefix pulumi.StringPtrInput
-	// Description of the option group.
+	// Description of the option group. Defaults to "Managed by Pulumi".
 	OptionGroupDescription pulumi.StringPtrInput
 	// The options to apply. See `option` Block below for more details.
 	Options OptionGroupOptionArrayInput
@@ -216,7 +216,7 @@ type optionGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
 	NamePrefix *string `pulumi:"namePrefix"`
-	// Description of the option group.
+	// Description of the option group. Defaults to "Managed by Pulumi".
 	OptionGroupDescription *string `pulumi:"optionGroupDescription"`
 	// The options to apply. See `option` Block below for more details.
 	Options []OptionGroupOption `pulumi:"options"`
@@ -236,7 +236,7 @@ type OptionGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
 	NamePrefix pulumi.StringPtrInput
-	// Description of the option group.
+	// Description of the option group. Defaults to "Managed by Pulumi".
 	OptionGroupDescription pulumi.StringPtrInput
 	// The options to apply. See `option` Block below for more details.
 	Options OptionGroupOptionArrayInput
@@ -358,7 +358,7 @@ func (o OptionGroupOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// Description of the option group.
+// Description of the option group. Defaults to "Managed by Pulumi".
 func (o OptionGroupOutput) OptionGroupDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.OptionGroupDescription }).(pulumi.StringOutput)
 }

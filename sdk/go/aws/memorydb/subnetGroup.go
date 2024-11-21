@@ -72,7 +72,7 @@ type SubnetGroup struct {
 
 	// The ARN of the subnet group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Description for the subnet group.
+	// Description for the subnet group. Defaults to `"Managed by Pulumi"`.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -127,7 +127,7 @@ func GetSubnetGroup(ctx *pulumi.Context,
 type subnetGroupState struct {
 	// The ARN of the subnet group.
 	Arn *string `pulumi:"arn"`
-	// Description for the subnet group.
+	// Description for the subnet group. Defaults to `"Managed by Pulumi"`.
 	Description *string `pulumi:"description"`
 	// Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
@@ -150,7 +150,7 @@ type subnetGroupState struct {
 type SubnetGroupState struct {
 	// The ARN of the subnet group.
 	Arn pulumi.StringPtrInput
-	// Description for the subnet group.
+	// Description for the subnet group. Defaults to `"Managed by Pulumi"`.
 	Description pulumi.StringPtrInput
 	// Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
@@ -175,7 +175,7 @@ func (SubnetGroupState) ElementType() reflect.Type {
 }
 
 type subnetGroupArgs struct {
-	// Description for the subnet group.
+	// Description for the subnet group. Defaults to `"Managed by Pulumi"`.
 	Description *string `pulumi:"description"`
 	// Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
@@ -191,7 +191,7 @@ type subnetGroupArgs struct {
 
 // The set of arguments for constructing a SubnetGroup resource.
 type SubnetGroupArgs struct {
-	// Description for the subnet group.
+	// Description for the subnet group. Defaults to `"Managed by Pulumi"`.
 	Description pulumi.StringPtrInput
 	// Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
@@ -297,7 +297,7 @@ func (o SubnetGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Description for the subnet group.
+// Description for the subnet group. Defaults to `"Managed by Pulumi"`.
 func (o SubnetGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

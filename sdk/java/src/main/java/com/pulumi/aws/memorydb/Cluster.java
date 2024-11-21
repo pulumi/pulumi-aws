@@ -140,14 +140,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dataTiering);
     }
     /**
-     * Description for the cluster.
+     * Description for the cluster. Defaults to `&#34;Managed by Pulumi&#34;`.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return Description for the cluster.
+     * @return Description for the cluster. Defaults to `&#34;Managed by Pulumi&#34;`.
      * 
      */
     public Output<Optional<String>> description() {

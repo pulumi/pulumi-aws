@@ -115,7 +115,7 @@ export class OptionGroup extends pulumi.CustomResource {
      */
     public readonly namePrefix!: pulumi.Output<string>;
     /**
-     * Description of the option group.
+     * Description of the option group. Defaults to "Managed by Pulumi".
      */
     public readonly optionGroupDescription!: pulumi.Output<string>;
     /**
@@ -209,7 +209,7 @@ export interface OptionGroupState {
      */
     namePrefix?: pulumi.Input<string>;
     /**
-     * Description of the option group.
+     * Description of the option group. Defaults to "Managed by Pulumi".
      */
     optionGroupDescription?: pulumi.Input<string>;
     /**
@@ -253,7 +253,7 @@ export interface OptionGroupArgs {
      */
     namePrefix?: pulumi.Input<string>;
     /**
-     * Description of the option group.
+     * Description of the option group. Defaults to "Managed by Pulumi".
      */
     optionGroupDescription?: pulumi.Input<string>;
     /**
