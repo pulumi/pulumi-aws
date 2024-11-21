@@ -215,7 +215,7 @@ jobs:
             with:
               ref: ${{ env.PR_COMMIT_SHA }}
               submodules: true
-          - uses: pulumi/provider-version-action@v1
+          - uses: pulumi/provider-version-action@7c54f136703646f7d6eaa3d3b3c877e5a805d6ab # v1
             with:
               set-env: PROVIDER_VERSION
           - name: Setup tools
@@ -253,7 +253,7 @@ jobs:
             with:
               ref: ${{ env.PR_COMMIT_SHA }}
               submodules: true
-          - uses: pulumi/provider-version-action@v1
+          - uses: pulumi/provider-version-action@7c54f136703646f7d6eaa3d3b3c877e5a805d6ab # v1
             with:
               set-env: PROVIDER_VERSION
           - name: Setup tools
@@ -332,7 +332,7 @@ jobs:
             with:
               ref: ${{ env.PR_COMMIT_SHA }}
               submodules: true
-          - uses: pulumi/provider-version-action@v1
+          - uses: pulumi/provider-version-action@7c54f136703646f7d6eaa3d3b3c877e5a805d6ab # v1
             with:
               set-env: PROVIDER_VERSION
           - name: Setup tools
