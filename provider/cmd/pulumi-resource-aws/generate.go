@@ -29,7 +29,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/provider/v6/pkg/minimalschema"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/cmdutil"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
@@ -113,12 +112,8 @@ func main() {
 		log.Fatal("VERSION environment variable is required but was not set")
 	}
 
-	// If called with PULUMI_AWS_MINIMAL_SCHEMA=true, process the minimal schema only and stop.
-	if cmdutil.IsTruthy(os.Getenv("PULUMI_AWS_MINIMAL_SCHEMA")) {
-		computeMinimalSchema(version)
-		embedMinimalSchema(version)
-		return
-	}
+	computeMinimalSchema(version)
+	embedMinimalSchema(version)
 
 	// Clean up schema.go as it may be present & gitignored and tolerate an error if the file is not present.
 	err := os.Remove("./schema.go")
@@ -134,7 +129,4 @@ func main() {
 	}); err != nil {
 		log.Fatal(err)
 	}
-
-	// Also compute the embedded version of the minimal schema.
-	embedMinimalSchema(version)
 }
