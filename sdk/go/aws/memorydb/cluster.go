@@ -69,7 +69,7 @@ type Cluster struct {
 	ClusterEndpoints        ClusterClusterEndpointArrayOutput `pulumi:"clusterEndpoints"`
 	// Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
 	DataTiering pulumi.BoolPtrOutput `pulumi:"dataTiering"`
-	// Description for the cluster.
+	// Description for the cluster. Defaults to `"Managed by Pulumi"`.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Patch version number of the Redis engine used by the cluster.
 	EnginePatchVersion pulumi.StringOutput `pulumi:"enginePatchVersion"`
@@ -168,7 +168,7 @@ type clusterState struct {
 	ClusterEndpoints        []ClusterClusterEndpoint `pulumi:"clusterEndpoints"`
 	// Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
 	DataTiering *bool `pulumi:"dataTiering"`
-	// Description for the cluster.
+	// Description for the cluster. Defaults to `"Managed by Pulumi"`.
 	Description *string `pulumi:"description"`
 	// Patch version number of the Redis engine used by the cluster.
 	EnginePatchVersion *string `pulumi:"enginePatchVersion"`
@@ -232,7 +232,7 @@ type ClusterState struct {
 	ClusterEndpoints        ClusterClusterEndpointArrayInput
 	// Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
 	DataTiering pulumi.BoolPtrInput
-	// Description for the cluster.
+	// Description for the cluster. Defaults to `"Managed by Pulumi"`.
 	Description pulumi.StringPtrInput
 	// Patch version number of the Redis engine used by the cluster.
 	EnginePatchVersion pulumi.StringPtrInput
@@ -297,7 +297,7 @@ type clusterArgs struct {
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
 	// Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
 	DataTiering *bool `pulumi:"dataTiering"`
-	// Description for the cluster.
+	// Description for the cluster. Defaults to `"Managed by Pulumi"`.
 	Description *string `pulumi:"description"`
 	// Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
 	EngineVersion *string `pulumi:"engineVersion"`
@@ -351,7 +351,7 @@ type ClusterArgs struct {
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
 	// Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
 	DataTiering pulumi.BoolPtrInput
-	// Description for the cluster.
+	// Description for the cluster. Defaults to `"Managed by Pulumi"`.
 	Description pulumi.StringPtrInput
 	// Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
 	EngineVersion pulumi.StringPtrInput
@@ -508,7 +508,7 @@ func (o ClusterOutput) DataTiering() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.DataTiering }).(pulumi.BoolPtrOutput)
 }
 
-// Description for the cluster.
+// Description for the cluster. Defaults to `"Managed by Pulumi"`.
 func (o ClusterOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

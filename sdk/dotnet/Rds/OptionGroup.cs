@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
-        /// Description of the option group.
+        /// Description of the option group. Defaults to "Managed by Pulumi".
         /// </summary>
         [Output("optionGroupDescription")]
         public Output<string> OptionGroupDescription { get; private set; } = null!;
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// Description of the option group.
+        /// Description of the option group. Defaults to "Managed by Pulumi".
         /// </summary>
         [Input("optionGroupDescription")]
         public Input<string>? OptionGroupDescription { get; set; }
@@ -296,7 +296,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// Description of the option group.
+        /// Description of the option group. Defaults to "Managed by Pulumi".
         /// </summary>
         [Input("optionGroupDescription")]
         public Input<string>? OptionGroupDescription { get; set; }

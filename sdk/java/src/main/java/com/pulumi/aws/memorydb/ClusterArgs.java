@@ -66,14 +66,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Description for the cluster.
+     * Description for the cluster. Defaults to `&#34;Managed by Pulumi&#34;`.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description for the cluster.
+     * @return Description for the cluster. Defaults to `&#34;Managed by Pulumi&#34;`.
      * 
      */
     public Optional<Output<String>> description() {
@@ -495,7 +495,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Description for the cluster.
+         * @param description Description for the cluster. Defaults to `&#34;Managed by Pulumi&#34;`.
          * 
          * @return builder
          * 
@@ -506,7 +506,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Description for the cluster.
+         * @param description Description for the cluster. Defaults to `&#34;Managed by Pulumi&#34;`.
          * 
          * @return builder
          * 

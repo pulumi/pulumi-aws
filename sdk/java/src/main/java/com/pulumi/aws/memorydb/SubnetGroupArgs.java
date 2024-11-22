@@ -19,14 +19,14 @@ public final class SubnetGroupArgs extends com.pulumi.resources.ResourceArgs {
     public static final SubnetGroupArgs Empty = new SubnetGroupArgs();
 
     /**
-     * Description for the subnet group.
+     * Description for the subnet group. Defaults to `&#34;Managed by Pulumi&#34;`.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description for the subnet group.
+     * @return Description for the subnet group. Defaults to `&#34;Managed by Pulumi&#34;`.
      * 
      */
     public Optional<Output<String>> description() {
@@ -126,7 +126,7 @@ public final class SubnetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Description for the subnet group.
+         * @param description Description for the subnet group. Defaults to `&#34;Managed by Pulumi&#34;`.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class SubnetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Description for the subnet group.
+         * @param description Description for the subnet group. Defaults to `&#34;Managed by Pulumi&#34;`.
          * 
          * @return builder
          * 

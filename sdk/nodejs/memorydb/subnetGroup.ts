@@ -68,7 +68,7 @@ export class SubnetGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Description for the subnet group.
+     * Description for the subnet group. Defaults to `"Managed by Pulumi"`.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -149,7 +149,7 @@ export interface SubnetGroupState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * Description for the subnet group.
+     * Description for the subnet group. Defaults to `"Managed by Pulumi"`.
      */
     description?: pulumi.Input<string>;
     /**
@@ -187,7 +187,7 @@ export interface SubnetGroupState {
  */
 export interface SubnetGroupArgs {
     /**
-     * Description for the subnet group.
+     * Description for the subnet group. Defaults to `"Managed by Pulumi"`.
      */
     description?: pulumi.Input<string>;
     /**

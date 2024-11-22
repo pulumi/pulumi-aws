@@ -35,7 +35,7 @@ class OptionGroupArgs:
         :param pulumi.Input[str] major_engine_version: Specifies the major version of the engine that this option group should be associated with.
         :param pulumi.Input[str] name: Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
-        :param pulumi.Input[str] option_group_description: Description of the option group.
+        :param pulumi.Input[str] option_group_description: Description of the option group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]] options: The options to apply. See `option` Block below for more details.
         :param pulumi.Input[bool] skip_destroy: Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -109,7 +109,7 @@ class OptionGroupArgs:
     @pulumi.getter(name="optionGroupDescription")
     def option_group_description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of the option group.
+        Description of the option group. Defaults to "Managed by Pulumi".
         """
         return pulumi.get(self, "option_group_description")
 
@@ -174,7 +174,7 @@ class _OptionGroupState:
         :param pulumi.Input[str] major_engine_version: Specifies the major version of the engine that this option group should be associated with.
         :param pulumi.Input[str] name: Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
-        :param pulumi.Input[str] option_group_description: Description of the option group.
+        :param pulumi.Input[str] option_group_description: Description of the option group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]] options: The options to apply. See `option` Block below for more details.
         :param pulumi.Input[bool] skip_destroy: Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -270,7 +270,7 @@ class _OptionGroupState:
     @pulumi.getter(name="optionGroupDescription")
     def option_group_description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of the option group.
+        Description of the option group. Defaults to "Managed by Pulumi".
         """
         return pulumi.get(self, "option_group_description")
 
@@ -406,7 +406,7 @@ class OptionGroup(pulumi.CustomResource):
         :param pulumi.Input[str] major_engine_version: Specifies the major version of the engine that this option group should be associated with.
         :param pulumi.Input[str] name: Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
-        :param pulumi.Input[str] option_group_description: Description of the option group.
+        :param pulumi.Input[str] option_group_description: Description of the option group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict']]]] options: The options to apply. See `option` Block below for more details.
         :param pulumi.Input[bool] skip_destroy: Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -555,7 +555,7 @@ class OptionGroup(pulumi.CustomResource):
         :param pulumi.Input[str] major_engine_version: Specifies the major version of the engine that this option group should be associated with.
         :param pulumi.Input[str] name: Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
-        :param pulumi.Input[str] option_group_description: Description of the option group.
+        :param pulumi.Input[str] option_group_description: Description of the option group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict']]]] options: The options to apply. See `option` Block below for more details.
         :param pulumi.Input[bool] skip_destroy: Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -621,7 +621,7 @@ class OptionGroup(pulumi.CustomResource):
     @pulumi.getter(name="optionGroupDescription")
     def option_group_description(self) -> pulumi.Output[str]:
         """
-        Description of the option group.
+        Description of the option group. Defaults to "Managed by Pulumi".
         """
         return pulumi.get(self, "option_group_description")
 
