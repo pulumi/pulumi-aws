@@ -82,14 +82,14 @@ public final class OptionGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Description of the option group.
+     * Description of the option group. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
     @Import(name="optionGroupDescription")
     private @Nullable Output<String> optionGroupDescription;
 
     /**
-     * @return Description of the option group.
+     * @return Description of the option group. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
     public Optional<Output<String>> optionGroupDescription() {
@@ -257,7 +257,7 @@ public final class OptionGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param optionGroupDescription Description of the option group.
+         * @param optionGroupDescription Description of the option group. Defaults to &#34;Managed by Pulumi&#34;.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class OptionGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param optionGroupDescription Description of the option group.
+         * @param optionGroupDescription Description of the option group. Defaults to &#34;Managed by Pulumi&#34;.
          * 
          * @return builder
          * 

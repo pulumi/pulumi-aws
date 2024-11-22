@@ -83,7 +83,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly dataTiering!: pulumi.Output<boolean | undefined>;
     /**
-     * Description for the cluster.
+     * Description for the cluster. Defaults to `"Managed by Pulumi"`.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -290,7 +290,7 @@ export interface ClusterState {
      */
     dataTiering?: pulumi.Input<boolean>;
     /**
-     * Description for the cluster.
+     * Description for the cluster. Defaults to `"Managed by Pulumi"`.
      */
     description?: pulumi.Input<string>;
     /**
@@ -408,7 +408,7 @@ export interface ClusterArgs {
      */
     dataTiering?: pulumi.Input<boolean>;
     /**
-     * Description for the cluster.
+     * Description for the cluster. Defaults to `"Managed by Pulumi"`.
      */
     description?: pulumi.Input<string>;
     /**

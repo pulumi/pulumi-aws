@@ -20,14 +20,14 @@ public final class ParameterGroupArgs extends com.pulumi.resources.ResourceArgs 
     public static final ParameterGroupArgs Empty = new ParameterGroupArgs();
 
     /**
-     * Description for the parameter group.
+     * Description for the parameter group. Defaults to `&#34;Managed by Pulumi&#34;`.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description for the parameter group.
+     * @return Description for the parameter group. Defaults to `&#34;Managed by Pulumi&#34;`.
      * 
      */
     public Optional<Output<String>> description() {
@@ -143,7 +143,7 @@ public final class ParameterGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param description Description for the parameter group.
+         * @param description Description for the parameter group. Defaults to `&#34;Managed by Pulumi&#34;`.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class ParameterGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param description Description for the parameter group.
+         * @param description Description for the parameter group. Defaults to `&#34;Managed by Pulumi&#34;`.
          * 
          * @return builder
          * 

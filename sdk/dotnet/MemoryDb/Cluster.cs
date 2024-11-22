@@ -80,7 +80,7 @@ namespace Pulumi.Aws.MemoryDb
         public Output<bool?> DataTiering { get; private set; } = null!;
 
         /// <summary>
-        /// Description for the cluster.
+        /// Description for the cluster. Defaults to `"Managed by Pulumi"`.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -290,7 +290,7 @@ namespace Pulumi.Aws.MemoryDb
         public Input<bool>? DataTiering { get; set; }
 
         /// <summary>
-        /// Description for the cluster.
+        /// Description for the cluster. Defaults to `"Managed by Pulumi"`.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -476,7 +476,7 @@ namespace Pulumi.Aws.MemoryDb
         public Input<bool>? DataTiering { get; set; }
 
         /// <summary>
-        /// Description for the cluster.
+        /// Description for the cluster. Defaults to `"Managed by Pulumi"`.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

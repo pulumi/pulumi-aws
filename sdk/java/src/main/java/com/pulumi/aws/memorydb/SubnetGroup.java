@@ -97,14 +97,14 @@ public class SubnetGroup extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Description for the subnet group.
+     * Description for the subnet group. Defaults to `&#34;Managed by Pulumi&#34;`.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return Description for the subnet group.
+     * @return Description for the subnet group. Defaults to `&#34;Managed by Pulumi&#34;`.
      * 
      */
     public Output<Optional<String>> description() {

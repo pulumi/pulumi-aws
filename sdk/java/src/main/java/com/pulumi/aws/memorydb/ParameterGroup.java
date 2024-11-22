@@ -89,14 +89,14 @@ public class ParameterGroup extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Description for the parameter group.
+     * Description for the parameter group. Defaults to `&#34;Managed by Pulumi&#34;`.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return Description for the parameter group.
+     * @return Description for the parameter group. Defaults to `&#34;Managed by Pulumi&#34;`.
      * 
      */
     public Output<Optional<String>> description() {

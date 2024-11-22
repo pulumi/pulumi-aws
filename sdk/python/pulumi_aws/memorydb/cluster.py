@@ -53,7 +53,7 @@ class ClusterArgs:
                The following arguments are optional:
         :param pulumi.Input[bool] auto_minor_version_upgrade: When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
         :param pulumi.Input[bool] data_tiering: Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
-        :param pulumi.Input[str] description: Description for the cluster.
+        :param pulumi.Input[str] description: Description for the cluster. Defaults to `"Managed by Pulumi"`.
         :param pulumi.Input[str] engine_version: Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
         :param pulumi.Input[str] final_snapshot_name: Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] kms_key_arn: ARN of the KMS key used to encrypt the cluster at rest.
@@ -175,7 +175,7 @@ class ClusterArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description for the cluster.
+        Description for the cluster. Defaults to `"Managed by Pulumi"`.
         """
         return pulumi.get(self, "description")
 
@@ -450,7 +450,7 @@ class _ClusterState:
         :param pulumi.Input[str] arn: The ARN of the cluster.
         :param pulumi.Input[bool] auto_minor_version_upgrade: When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
         :param pulumi.Input[bool] data_tiering: Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
-        :param pulumi.Input[str] description: Description for the cluster.
+        :param pulumi.Input[str] description: Description for the cluster. Defaults to `"Managed by Pulumi"`.
         :param pulumi.Input[str] engine_patch_version: Patch version number of the Redis engine used by the cluster.
         :param pulumi.Input[str] engine_version: Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
         :param pulumi.Input[str] final_snapshot_name: Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
@@ -600,7 +600,7 @@ class _ClusterState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description for the cluster.
+        Description for the cluster. Defaults to `"Managed by Pulumi"`.
         """
         return pulumi.get(self, "description")
 
@@ -952,7 +952,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] acl_name: The name of the Access Control List to associate with the cluster.
         :param pulumi.Input[bool] auto_minor_version_upgrade: When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
         :param pulumi.Input[bool] data_tiering: Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
-        :param pulumi.Input[str] description: Description for the cluster.
+        :param pulumi.Input[str] description: Description for the cluster. Defaults to `"Managed by Pulumi"`.
         :param pulumi.Input[str] engine_version: Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
         :param pulumi.Input[str] final_snapshot_name: Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] kms_key_arn: ARN of the KMS key used to encrypt the cluster at rest.
@@ -1142,7 +1142,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the cluster.
         :param pulumi.Input[bool] auto_minor_version_upgrade: When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
         :param pulumi.Input[bool] data_tiering: Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
-        :param pulumi.Input[str] description: Description for the cluster.
+        :param pulumi.Input[str] description: Description for the cluster. Defaults to `"Managed by Pulumi"`.
         :param pulumi.Input[str] engine_patch_version: Patch version number of the Redis engine used by the cluster.
         :param pulumi.Input[str] engine_version: Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
         :param pulumi.Input[str] final_snapshot_name: Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
@@ -1245,7 +1245,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        Description for the cluster.
+        Description for the cluster. Defaults to `"Managed by Pulumi"`.
         """
         return pulumi.get(self, "description")
 

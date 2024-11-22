@@ -59,7 +59,7 @@ namespace Pulumi.Aws.MemoryDb
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Description for the parameter group.
+        /// Description for the parameter group. Defaults to `"Managed by Pulumi"`.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.MemoryDb
     public sealed class ParameterGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Description for the parameter group.
+        /// Description for the parameter group. Defaults to `"Managed by Pulumi"`.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -213,7 +213,7 @@ namespace Pulumi.Aws.MemoryDb
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Description for the parameter group.
+        /// Description for the parameter group. Defaults to `"Managed by Pulumi"`.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

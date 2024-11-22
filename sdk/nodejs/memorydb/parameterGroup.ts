@@ -69,7 +69,7 @@ export class ParameterGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Description for the parameter group.
+     * Description for the parameter group. Defaults to `"Managed by Pulumi"`.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -150,7 +150,7 @@ export interface ParameterGroupState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * Description for the parameter group.
+     * Description for the parameter group. Defaults to `"Managed by Pulumi"`.
      */
     description?: pulumi.Input<string>;
     /**
@@ -188,7 +188,7 @@ export interface ParameterGroupState {
  */
 export interface ParameterGroupArgs {
     /**
-     * Description for the parameter group.
+     * Description for the parameter group. Defaults to `"Managed by Pulumi"`.
      */
     description?: pulumi.Input<string>;
     /**
