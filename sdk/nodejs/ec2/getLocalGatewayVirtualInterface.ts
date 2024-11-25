@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = .reduce((__obj, [, ]) => ({ ...__obj, [__key]: aws.ec2.getLocalGatewayVirtualInterface({
+ * const example = .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.ec2.getLocalGatewayVirtualInterface({
  *     id: __value,
  * }) }));
  * ```
@@ -91,7 +91,7 @@ export interface GetLocalGatewayVirtualInterfaceResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = .reduce((__obj, [, ]) => ({ ...__obj, [__key]: aws.ec2.getLocalGatewayVirtualInterface({
+ * const example = .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.ec2.getLocalGatewayVirtualInterface({
  *     id: __value,
  * }) }));
  * ```

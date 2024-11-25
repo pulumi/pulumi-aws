@@ -127,7 +127,7 @@ def get_resource(path: Optional[str] = None,
         rest_api_id=pulumi.get(__ret__, 'rest_api_id'))
 def get_resource_output(path: Optional[pulumi.Input[str]] = None,
                         rest_api_id: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceResult]:
     """
     Use this data source to get the id of a Resource in API Gateway.
     To fetch the Resource, you must provide the REST API id as well as the full path.
@@ -150,7 +150,7 @@ def get_resource_output(path: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['path'] = path
     __args__['restApiId'] = rest_api_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:apigateway/getResource:getResource', __args__, opts=opts, typ=GetResourceResult)
     return __ret__.apply(lambda __response__: GetResourceResult(
         id=pulumi.get(__response__, 'id'),
