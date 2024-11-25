@@ -5,10 +5,10 @@ Subject: [PATCH] Fail fast when PF resources are dropped
 
 
 diff --git a/internal/provider/fwprovider/provider.go b/internal/provider/fwprovider/provider.go
-index 9735b9e20a..c8d0d9ed03 100644
+index a64bcd031d..0d730c8ea4 100644
 --- a/internal/provider/fwprovider/provider.go
 +++ b/internal/provider/fwprovider/provider.go
-@@ -452,9 +452,8 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
+@@ -453,9 +453,8 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
  	}
  
  	if err := errors.Join(errs...); err != nil {
