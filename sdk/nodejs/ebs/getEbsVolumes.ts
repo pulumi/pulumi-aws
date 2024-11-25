@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *         VolumeSet: "TestVolumeSet",
  *     },
  * });
- * const exampleGetVolume = example.then(example => .reduce((__obj, [, ]) => ({ ...__obj, [__key]: aws.ebs.getVolume({
+ * const exampleGetVolume = example.then(example => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.ebs.getVolume({
  *     filters: [{
  *         name: "volume-id",
  *         values: [__value],
@@ -95,7 +95,7 @@ export interface GetEbsVolumesResult {
  *         VolumeSet: "TestVolumeSet",
  *     },
  * });
- * const exampleGetVolume = example.then(example => .reduce((__obj, [, ]) => ({ ...__obj, [__key]: aws.ebs.getVolume({
+ * const exampleGetVolume = example.then(example => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.ebs.getVolume({
  *     filters: [{
  *         name: "volume-id",
  *         values: [__value],

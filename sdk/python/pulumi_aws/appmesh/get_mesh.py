@@ -190,7 +190,7 @@ def get_mesh(mesh_owner: Optional[str] = None,
 def get_mesh_output(mesh_owner: Optional[pulumi.Input[Optional[str]]] = None,
                     name: Optional[pulumi.Input[str]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMeshResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMeshResult]:
     """
     The App Mesh Mesh data source allows details of an App Mesh Mesh to be retrieved by its name and optionally the mesh_owner.
 
@@ -221,7 +221,7 @@ def get_mesh_output(mesh_owner: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['meshOwner'] = mesh_owner
     __args__['name'] = name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:appmesh/getMesh:getMesh', __args__, opts=opts, typ=GetMeshResult)
     return __ret__.apply(lambda __response__: GetMeshResult(
         arn=pulumi.get(__response__, 'arn'),

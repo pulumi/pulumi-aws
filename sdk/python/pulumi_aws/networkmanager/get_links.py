@@ -156,7 +156,7 @@ def get_links_output(global_network_id: Optional[pulumi.Input[str]] = None,
                      site_id: Optional[pulumi.Input[Optional[str]]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                      type: Optional[pulumi.Input[Optional[str]]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinksResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinksResult]:
     """
     Retrieve information about link.
 
@@ -185,7 +185,7 @@ def get_links_output(global_network_id: Optional[pulumi.Input[str]] = None,
     __args__['siteId'] = site_id
     __args__['tags'] = tags
     __args__['type'] = type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:networkmanager/getLinks:getLinks', __args__, opts=opts, typ=GetLinksResult)
     return __ret__.apply(lambda __response__: GetLinksResult(
         global_network_id=pulumi.get(__response__, 'global_network_id'),

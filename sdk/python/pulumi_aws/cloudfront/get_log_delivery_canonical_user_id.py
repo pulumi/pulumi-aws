@@ -107,7 +107,7 @@ def get_log_delivery_canonical_user_id(region: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
 def get_log_delivery_canonical_user_id_output(region: Optional[pulumi.Input[Optional[str]]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogDeliveryCanonicalUserIdResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogDeliveryCanonicalUserIdResult]:
     """
     The CloudFront Log Delivery Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS `awslogsdelivery` account for CloudFront bucket logging.
     See the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) for more information.
@@ -148,7 +148,7 @@ def get_log_delivery_canonical_user_id_output(region: Optional[pulumi.Input[Opti
     """
     __args__ = dict()
     __args__['region'] = region
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId', __args__, opts=opts, typ=GetLogDeliveryCanonicalUserIdResult)
     return __ret__.apply(lambda __response__: GetLogDeliveryCanonicalUserIdResult(
         id=pulumi.get(__response__, 'id'),
