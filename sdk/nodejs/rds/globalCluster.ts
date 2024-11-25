@@ -214,6 +214,10 @@ export class GlobalCluster extends pulumi.CustomResource {
      */
     public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
     /**
+     * Writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
+     */
+    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    /**
      * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `sourceDbClusterIdentifier`.
      */
     public readonly engine!: pulumi.Output<string>;
@@ -267,6 +271,7 @@ export class GlobalCluster extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["databaseName"] = state ? state.databaseName : undefined;
             resourceInputs["deletionProtection"] = state ? state.deletionProtection : undefined;
+            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
             resourceInputs["engine"] = state ? state.engine : undefined;
             resourceInputs["engineLifecycleSupport"] = state ? state.engineLifecycleSupport : undefined;
             resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
@@ -292,6 +297,7 @@ export class GlobalCluster extends pulumi.CustomResource {
             resourceInputs["sourceDbClusterIdentifier"] = args ? args.sourceDbClusterIdentifier : undefined;
             resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["engineVersionActual"] = undefined /*out*/;
             resourceInputs["globalClusterMembers"] = undefined /*out*/;
             resourceInputs["globalClusterResourceId"] = undefined /*out*/;
@@ -317,6 +323,10 @@ export interface GlobalClusterState {
      * If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
      */
     deletionProtection?: pulumi.Input<boolean>;
+    /**
+     * Writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
+     */
+    endpoint?: pulumi.Input<string>;
     /**
      * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `sourceDbClusterIdentifier`.
      */

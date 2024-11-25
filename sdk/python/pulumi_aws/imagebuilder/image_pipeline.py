@@ -628,20 +628,7 @@ class ImagePipeline(pulumi.CustomResource):
         """
         Manages an Image Builder Image Pipeline.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.imagebuilder.ImagePipeline("example",
-            image_recipe_arn=example_aws_imagebuilder_image_recipe["arn"],
-            infrastructure_configuration_arn=example_aws_imagebuilder_infrastructure_configuration["arn"],
-            name="example",
-            schedule={
-                "schedule_expression": "cron(0 0 * * ? *)",
-            })
-        ```
+        > **NOTE:** Starting with version `5.74.0`, lifecycle meta-argument `replace_triggered_by` must be used in order to prevent a dependency error on destroy.
 
         ## Import
 
@@ -679,20 +666,7 @@ class ImagePipeline(pulumi.CustomResource):
         """
         Manages an Image Builder Image Pipeline.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.imagebuilder.ImagePipeline("example",
-            image_recipe_arn=example_aws_imagebuilder_image_recipe["arn"],
-            infrastructure_configuration_arn=example_aws_imagebuilder_infrastructure_configuration["arn"],
-            name="example",
-            schedule={
-                "schedule_expression": "cron(0 0 * * ? *)",
-            })
-        ```
+        > **NOTE:** Starting with version `5.74.0`, lifecycle meta-argument `replace_triggered_by` must be used in order to prevent a dependency error on destroy.
 
         ## Import
 

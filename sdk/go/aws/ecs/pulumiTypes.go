@@ -4609,6 +4609,121 @@ func (o ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayOutput) I
 	}).(ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutput)
 }
 
+type ServiceVpcLatticeConfiguration struct {
+	// The name of the port for a target group associated with the VPC Lattice configuration.
+	PortName string `pulumi:"portName"`
+	// The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
+	RoleArn string `pulumi:"roleArn"`
+	// The full ARN of the target group or groups associated with the VPC Lattice configuration.
+	TargetGroupArn string `pulumi:"targetGroupArn"`
+}
+
+// ServiceVpcLatticeConfigurationInput is an input type that accepts ServiceVpcLatticeConfigurationArgs and ServiceVpcLatticeConfigurationOutput values.
+// You can construct a concrete instance of `ServiceVpcLatticeConfigurationInput` via:
+//
+//	ServiceVpcLatticeConfigurationArgs{...}
+type ServiceVpcLatticeConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceVpcLatticeConfigurationOutput() ServiceVpcLatticeConfigurationOutput
+	ToServiceVpcLatticeConfigurationOutputWithContext(context.Context) ServiceVpcLatticeConfigurationOutput
+}
+
+type ServiceVpcLatticeConfigurationArgs struct {
+	// The name of the port for a target group associated with the VPC Lattice configuration.
+	PortName pulumi.StringInput `pulumi:"portName"`
+	// The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The full ARN of the target group or groups associated with the VPC Lattice configuration.
+	TargetGroupArn pulumi.StringInput `pulumi:"targetGroupArn"`
+}
+
+func (ServiceVpcLatticeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceVpcLatticeConfiguration)(nil)).Elem()
+}
+
+func (i ServiceVpcLatticeConfigurationArgs) ToServiceVpcLatticeConfigurationOutput() ServiceVpcLatticeConfigurationOutput {
+	return i.ToServiceVpcLatticeConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceVpcLatticeConfigurationArgs) ToServiceVpcLatticeConfigurationOutputWithContext(ctx context.Context) ServiceVpcLatticeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceVpcLatticeConfigurationOutput)
+}
+
+// ServiceVpcLatticeConfigurationArrayInput is an input type that accepts ServiceVpcLatticeConfigurationArray and ServiceVpcLatticeConfigurationArrayOutput values.
+// You can construct a concrete instance of `ServiceVpcLatticeConfigurationArrayInput` via:
+//
+//	ServiceVpcLatticeConfigurationArray{ ServiceVpcLatticeConfigurationArgs{...} }
+type ServiceVpcLatticeConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToServiceVpcLatticeConfigurationArrayOutput() ServiceVpcLatticeConfigurationArrayOutput
+	ToServiceVpcLatticeConfigurationArrayOutputWithContext(context.Context) ServiceVpcLatticeConfigurationArrayOutput
+}
+
+type ServiceVpcLatticeConfigurationArray []ServiceVpcLatticeConfigurationInput
+
+func (ServiceVpcLatticeConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceVpcLatticeConfiguration)(nil)).Elem()
+}
+
+func (i ServiceVpcLatticeConfigurationArray) ToServiceVpcLatticeConfigurationArrayOutput() ServiceVpcLatticeConfigurationArrayOutput {
+	return i.ToServiceVpcLatticeConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceVpcLatticeConfigurationArray) ToServiceVpcLatticeConfigurationArrayOutputWithContext(ctx context.Context) ServiceVpcLatticeConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceVpcLatticeConfigurationArrayOutput)
+}
+
+type ServiceVpcLatticeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceVpcLatticeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceVpcLatticeConfiguration)(nil)).Elem()
+}
+
+func (o ServiceVpcLatticeConfigurationOutput) ToServiceVpcLatticeConfigurationOutput() ServiceVpcLatticeConfigurationOutput {
+	return o
+}
+
+func (o ServiceVpcLatticeConfigurationOutput) ToServiceVpcLatticeConfigurationOutputWithContext(ctx context.Context) ServiceVpcLatticeConfigurationOutput {
+	return o
+}
+
+// The name of the port for a target group associated with the VPC Lattice configuration.
+func (o ServiceVpcLatticeConfigurationOutput) PortName() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceVpcLatticeConfiguration) string { return v.PortName }).(pulumi.StringOutput)
+}
+
+// The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
+func (o ServiceVpcLatticeConfigurationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceVpcLatticeConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// The full ARN of the target group or groups associated with the VPC Lattice configuration.
+func (o ServiceVpcLatticeConfigurationOutput) TargetGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceVpcLatticeConfiguration) string { return v.TargetGroupArn }).(pulumi.StringOutput)
+}
+
+type ServiceVpcLatticeConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceVpcLatticeConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceVpcLatticeConfiguration)(nil)).Elem()
+}
+
+func (o ServiceVpcLatticeConfigurationArrayOutput) ToServiceVpcLatticeConfigurationArrayOutput() ServiceVpcLatticeConfigurationArrayOutput {
+	return o
+}
+
+func (o ServiceVpcLatticeConfigurationArrayOutput) ToServiceVpcLatticeConfigurationArrayOutputWithContext(ctx context.Context) ServiceVpcLatticeConfigurationArrayOutput {
+	return o
+}
+
+func (o ServiceVpcLatticeConfigurationArrayOutput) Index(i pulumi.IntInput) ServiceVpcLatticeConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceVpcLatticeConfiguration {
+		return vs[0].([]ServiceVpcLatticeConfiguration)[vs[1].(int)]
+	}).(ServiceVpcLatticeConfigurationOutput)
+}
+
 type TaskDefinitionEphemeralStorage struct {
 	// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
 	SizeInGib int `pulumi:"sizeInGib"`
@@ -8617,6 +8732,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVolumeConfigurationManagedEbsVolumePtrInput)(nil)).Elem(), ServiceVolumeConfigurationManagedEbsVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationInput)(nil)).Elem(), ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayInput)(nil)).Elem(), ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVpcLatticeConfigurationInput)(nil)).Elem(), ServiceVpcLatticeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVpcLatticeConfigurationArrayInput)(nil)).Elem(), ServiceVpcLatticeConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionEphemeralStorageInput)(nil)).Elem(), TaskDefinitionEphemeralStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionEphemeralStoragePtrInput)(nil)).Elem(), TaskDefinitionEphemeralStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionInferenceAcceleratorInput)(nil)).Elem(), TaskDefinitionInferenceAcceleratorArgs{})
@@ -8729,6 +8846,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceVolumeConfigurationManagedEbsVolumePtrOutput{})
 	pulumi.RegisterOutputType(ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutput{})
 	pulumi.RegisterOutputType(ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(ServiceVpcLatticeConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceVpcLatticeConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionEphemeralStorageOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionEphemeralStoragePtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionInferenceAcceleratorOutput{})

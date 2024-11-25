@@ -54,7 +54,7 @@ type DataSet struct {
 
 	// The Amazon Resource Name of this data set.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The type of asset that is added to a data set. Valid values are: `S3_SNAPSHOT`, `REDSHIFT_DATA_SHARE`, and `API_GATEWAY_API`.
+	// The type of asset that is added to a data set. Valid values include `API_GATEWAY_API`, `LAKE_FORMATION_DATA_PERMISSION`, `REDSHIFT_DATA_SHARE`, `S3_DATA_ACCESS`, `S3_SNAPSHOT`.
 	AssetType pulumi.StringOutput `pulumi:"assetType"`
 	// A description for the data set.
 	Description pulumi.StringOutput `pulumi:"description"`
@@ -106,7 +106,7 @@ func GetDataSet(ctx *pulumi.Context,
 type dataSetState struct {
 	// The Amazon Resource Name of this data set.
 	Arn *string `pulumi:"arn"`
-	// The type of asset that is added to a data set. Valid values are: `S3_SNAPSHOT`, `REDSHIFT_DATA_SHARE`, and `API_GATEWAY_API`.
+	// The type of asset that is added to a data set. Valid values include `API_GATEWAY_API`, `LAKE_FORMATION_DATA_PERMISSION`, `REDSHIFT_DATA_SHARE`, `S3_DATA_ACCESS`, `S3_SNAPSHOT`.
 	AssetType *string `pulumi:"assetType"`
 	// A description for the data set.
 	Description *string `pulumi:"description"`
@@ -123,7 +123,7 @@ type dataSetState struct {
 type DataSetState struct {
 	// The Amazon Resource Name of this data set.
 	Arn pulumi.StringPtrInput
-	// The type of asset that is added to a data set. Valid values are: `S3_SNAPSHOT`, `REDSHIFT_DATA_SHARE`, and `API_GATEWAY_API`.
+	// The type of asset that is added to a data set. Valid values include `API_GATEWAY_API`, `LAKE_FORMATION_DATA_PERMISSION`, `REDSHIFT_DATA_SHARE`, `S3_DATA_ACCESS`, `S3_SNAPSHOT`.
 	AssetType pulumi.StringPtrInput
 	// A description for the data set.
 	Description pulumi.StringPtrInput
@@ -142,7 +142,7 @@ func (DataSetState) ElementType() reflect.Type {
 }
 
 type dataSetArgs struct {
-	// The type of asset that is added to a data set. Valid values are: `S3_SNAPSHOT`, `REDSHIFT_DATA_SHARE`, and `API_GATEWAY_API`.
+	// The type of asset that is added to a data set. Valid values include `API_GATEWAY_API`, `LAKE_FORMATION_DATA_PERMISSION`, `REDSHIFT_DATA_SHARE`, `S3_DATA_ACCESS`, `S3_SNAPSHOT`.
 	AssetType string `pulumi:"assetType"`
 	// A description for the data set.
 	Description string `pulumi:"description"`
@@ -154,7 +154,7 @@ type dataSetArgs struct {
 
 // The set of arguments for constructing a DataSet resource.
 type DataSetArgs struct {
-	// The type of asset that is added to a data set. Valid values are: `S3_SNAPSHOT`, `REDSHIFT_DATA_SHARE`, and `API_GATEWAY_API`.
+	// The type of asset that is added to a data set. Valid values include `API_GATEWAY_API`, `LAKE_FORMATION_DATA_PERMISSION`, `REDSHIFT_DATA_SHARE`, `S3_DATA_ACCESS`, `S3_SNAPSHOT`.
 	AssetType pulumi.StringInput
 	// A description for the data set.
 	Description pulumi.StringInput
@@ -256,7 +256,7 @@ func (o DataSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The type of asset that is added to a data set. Valid values are: `S3_SNAPSHOT`, `REDSHIFT_DATA_SHARE`, and `API_GATEWAY_API`.
+// The type of asset that is added to a data set. Valid values include `API_GATEWAY_API`, `LAKE_FORMATION_DATA_PERMISSION`, `REDSHIFT_DATA_SHARE`, `S3_DATA_ACCESS`, `S3_SNAPSHOT`.
 func (o DataSetOutput) AssetType() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringOutput { return v.AssetType }).(pulumi.StringOutput)
 }

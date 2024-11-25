@@ -26,6 +26,7 @@ __all__ = [
     'ExportTaskTimeouts',
     'GlobalClusterGlobalClusterMember',
     'InstanceBlueGreenUpdate',
+    'InstanceDesiredStateTimeouts',
     'InstanceListenerEndpoint',
     'InstanceMasterUserSecret',
     'InstanceRestoreToPointInTime',
@@ -625,6 +626,37 @@ class InstanceBlueGreenUpdate(dict):
         https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
         """
         return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class InstanceDesiredStateTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 update: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
 
 
 @pulumi.output_type

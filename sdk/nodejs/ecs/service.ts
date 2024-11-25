@@ -158,6 +158,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly alarms!: pulumi.Output<outputs.ecs.ServiceAlarms | undefined>;
     /**
+     * ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
+     */
+    public readonly availabilityZoneRebalancing!: pulumi.Output<string | undefined>;
+    /**
      * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launchType`.
      */
     public readonly capacityProviderStrategies!: pulumi.Output<outputs.ecs.ServiceCapacityProviderStrategy[] | undefined>;
@@ -279,6 +283,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly volumeConfiguration!: pulumi.Output<outputs.ecs.ServiceVolumeConfiguration | undefined>;
     /**
+     * The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
+     */
+    public readonly vpcLatticeConfigurations!: pulumi.Output<outputs.ecs.ServiceVpcLatticeConfiguration[] | undefined>;
+    /**
      * If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
      */
     public readonly waitForSteadyState!: pulumi.Output<boolean | undefined>;
@@ -297,6 +305,7 @@ export class Service extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ServiceState | undefined;
             resourceInputs["alarms"] = state ? state.alarms : undefined;
+            resourceInputs["availabilityZoneRebalancing"] = state ? state.availabilityZoneRebalancing : undefined;
             resourceInputs["capacityProviderStrategies"] = state ? state.capacityProviderStrategies : undefined;
             resourceInputs["cluster"] = state ? state.cluster : undefined;
             resourceInputs["deploymentCircuitBreaker"] = state ? state.deploymentCircuitBreaker : undefined;
@@ -326,10 +335,12 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["taskDefinition"] = state ? state.taskDefinition : undefined;
             resourceInputs["triggers"] = state ? state.triggers : undefined;
             resourceInputs["volumeConfiguration"] = state ? state.volumeConfiguration : undefined;
+            resourceInputs["vpcLatticeConfigurations"] = state ? state.vpcLatticeConfigurations : undefined;
             resourceInputs["waitForSteadyState"] = state ? state.waitForSteadyState : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
             resourceInputs["alarms"] = args ? args.alarms : undefined;
+            resourceInputs["availabilityZoneRebalancing"] = args ? args.availabilityZoneRebalancing : undefined;
             resourceInputs["capacityProviderStrategies"] = args ? args.capacityProviderStrategies : undefined;
             resourceInputs["cluster"] = args ? args.cluster : undefined;
             resourceInputs["deploymentCircuitBreaker"] = args ? args.deploymentCircuitBreaker : undefined;
@@ -358,6 +369,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["taskDefinition"] = args ? args.taskDefinition : undefined;
             resourceInputs["triggers"] = args ? args.triggers : undefined;
             resourceInputs["volumeConfiguration"] = args ? args.volumeConfiguration : undefined;
+            resourceInputs["vpcLatticeConfigurations"] = args ? args.vpcLatticeConfigurations : undefined;
             resourceInputs["waitForSteadyState"] = args ? args.waitForSteadyState : undefined;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -374,6 +386,10 @@ export interface ServiceState {
      * Information about the CloudWatch alarms. See below.
      */
     alarms?: pulumi.Input<inputs.ecs.ServiceAlarms>;
+    /**
+     * ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
+     */
+    availabilityZoneRebalancing?: pulumi.Input<string>;
     /**
      * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launchType`.
      */
@@ -496,6 +512,10 @@ export interface ServiceState {
      */
     volumeConfiguration?: pulumi.Input<inputs.ecs.ServiceVolumeConfiguration>;
     /**
+     * The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
+     */
+    vpcLatticeConfigurations?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceVpcLatticeConfiguration>[]>;
+    /**
      * If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
      */
     waitForSteadyState?: pulumi.Input<boolean>;
@@ -509,6 +529,10 @@ export interface ServiceArgs {
      * Information about the CloudWatch alarms. See below.
      */
     alarms?: pulumi.Input<inputs.ecs.ServiceAlarms>;
+    /**
+     * ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
+     */
+    availabilityZoneRebalancing?: pulumi.Input<string>;
     /**
      * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launchType`.
      */
@@ -624,6 +648,10 @@ export interface ServiceArgs {
      * Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
      */
     volumeConfiguration?: pulumi.Input<inputs.ecs.ServiceVolumeConfiguration>;
+    /**
+     * The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
+     */
+    vpcLatticeConfigurations?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceVpcLatticeConfiguration>[]>;
     /**
      * If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
      */

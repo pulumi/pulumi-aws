@@ -33,14 +33,14 @@ public final class BucketAclV2Args extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Canned ACL to apply to the bucket.
+     * Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
      * 
      */
     @Import(name="acl")
     private @Nullable Output<String> acl;
 
     /**
-     * @return Canned ACL to apply to the bucket.
+     * @return Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
      * 
      */
     public Optional<Output<String>> acl() {
@@ -126,7 +126,7 @@ public final class BucketAclV2Args extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param acl Canned ACL to apply to the bucket.
+         * @param acl Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class BucketAclV2Args extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param acl Canned ACL to apply to the bucket.
+         * @param acl Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
          * 
          * @return builder
          * 

@@ -50,7 +50,7 @@ namespace Pulumi.Aws.DataExchange
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The type of asset that is added to a data set. Valid values are: `S3_SNAPSHOT`, `REDSHIFT_DATA_SHARE`, and `API_GATEWAY_API`.
+        /// The type of asset that is added to a data set. Valid values include `API_GATEWAY_API`, `LAKE_FORMATION_DATA_PERMISSION`, `REDSHIFT_DATA_SHARE`, `S3_DATA_ACCESS`, `S3_SNAPSHOT`.
         /// </summary>
         [Output("assetType")]
         public Output<string> AssetType { get; private set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.DataExchange
     public sealed class DataSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of asset that is added to a data set. Valid values are: `S3_SNAPSHOT`, `REDSHIFT_DATA_SHARE`, and `API_GATEWAY_API`.
+        /// The type of asset that is added to a data set. Valid values include `API_GATEWAY_API`, `LAKE_FORMATION_DATA_PERMISSION`, `REDSHIFT_DATA_SHARE`, `S3_DATA_ACCESS`, `S3_SNAPSHOT`.
         /// </summary>
         [Input("assetType", required: true)]
         public Input<string> AssetType { get; set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.DataExchange
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The type of asset that is added to a data set. Valid values are: `S3_SNAPSHOT`, `REDSHIFT_DATA_SHARE`, and `API_GATEWAY_API`.
+        /// The type of asset that is added to a data set. Valid values include `API_GATEWAY_API`, `LAKE_FORMATION_DATA_PERMISSION`, `REDSHIFT_DATA_SHARE`, `S3_DATA_ACCESS`, `S3_SNAPSHOT`.
         /// </summary>
         [Input("assetType")]
         public Input<string>? AssetType { get; set; }

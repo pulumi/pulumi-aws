@@ -203,6 +203,12 @@ namespace Pulumi.Aws.Ecs
         public Output<Outputs.ServiceAlarms?> Alarms { get; private set; } = null!;
 
         /// <summary>
+        /// ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
+        /// </summary>
+        [Output("availabilityZoneRebalancing")]
+        public Output<string?> AvailabilityZoneRebalancing { get; private set; } = null!;
+
+        /// <summary>
         /// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
         /// </summary>
         [Output("capacityProviderStrategies")]
@@ -380,6 +386,12 @@ namespace Pulumi.Aws.Ecs
         public Output<Outputs.ServiceVolumeConfiguration?> VolumeConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
+        /// </summary>
+        [Output("vpcLatticeConfigurations")]
+        public Output<ImmutableArray<Outputs.ServiceVpcLatticeConfiguration>> VpcLatticeConfigurations { get; private set; } = null!;
+
+        /// <summary>
         /// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
         /// </summary>
         [Output("waitForSteadyState")]
@@ -436,6 +448,12 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Input("alarms")]
         public Input<Inputs.ServiceAlarmsArgs>? Alarms { get; set; }
+
+        /// <summary>
+        /// ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
+        /// </summary>
+        [Input("availabilityZoneRebalancing")]
+        public Input<string>? AvailabilityZoneRebalancing { get; set; }
 
         [Input("capacityProviderStrategies")]
         private InputList<Inputs.ServiceCapacityProviderStrategyArgs>? _capacityProviderStrategies;
@@ -644,6 +662,18 @@ namespace Pulumi.Aws.Ecs
         [Input("volumeConfiguration")]
         public Input<Inputs.ServiceVolumeConfigurationArgs>? VolumeConfiguration { get; set; }
 
+        [Input("vpcLatticeConfigurations")]
+        private InputList<Inputs.ServiceVpcLatticeConfigurationArgs>? _vpcLatticeConfigurations;
+
+        /// <summary>
+        /// The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
+        /// </summary>
+        public InputList<Inputs.ServiceVpcLatticeConfigurationArgs> VpcLatticeConfigurations
+        {
+            get => _vpcLatticeConfigurations ?? (_vpcLatticeConfigurations = new InputList<Inputs.ServiceVpcLatticeConfigurationArgs>());
+            set => _vpcLatticeConfigurations = value;
+        }
+
         /// <summary>
         /// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
         /// </summary>
@@ -663,6 +693,12 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Input("alarms")]
         public Input<Inputs.ServiceAlarmsGetArgs>? Alarms { get; set; }
+
+        /// <summary>
+        /// ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
+        /// </summary>
+        [Input("availabilityZoneRebalancing")]
+        public Input<string>? AvailabilityZoneRebalancing { get; set; }
 
         [Input("capacityProviderStrategies")]
         private InputList<Inputs.ServiceCapacityProviderStrategyGetArgs>? _capacityProviderStrategies;
@@ -883,6 +919,18 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Input("volumeConfiguration")]
         public Input<Inputs.ServiceVolumeConfigurationGetArgs>? VolumeConfiguration { get; set; }
+
+        [Input("vpcLatticeConfigurations")]
+        private InputList<Inputs.ServiceVpcLatticeConfigurationGetArgs>? _vpcLatticeConfigurations;
+
+        /// <summary>
+        /// The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
+        /// </summary>
+        public InputList<Inputs.ServiceVpcLatticeConfigurationGetArgs> VpcLatticeConfigurations
+        {
+            get => _vpcLatticeConfigurations ?? (_vpcLatticeConfigurations = new InputList<Inputs.ServiceVpcLatticeConfigurationGetArgs>());
+            set => _vpcLatticeConfigurations = value;
+        }
 
         /// <summary>
         /// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.

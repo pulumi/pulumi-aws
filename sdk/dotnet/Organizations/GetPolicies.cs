@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Organizations
     public sealed class GetPoliciesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The type of policies to be returned in the response. Valid values are `SERVICE_CONTROL_POLICY | TAG_POLICY | BACKUP_POLICY | AISERVICES_OPT_OUT_POLICY`
+        /// The type of policies to be returned in the response. Valid values are `AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY`
         /// </summary>
         [Input("filter", required: true)]
         public string Filter { get; set; } = null!;
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Organizations
     public sealed class GetPoliciesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The type of policies to be returned in the response. Valid values are `SERVICE_CONTROL_POLICY | TAG_POLICY | BACKUP_POLICY | AISERVICES_OPT_OUT_POLICY`
+        /// The type of policies to be returned in the response. Valid values are `AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY`
         /// </summary>
         [Input("filter", required: true)]
         public Input<string> Filter { get; set; } = null!;

@@ -14,14 +14,14 @@ public final class GetPoliciesForTargetPlainArgs extends com.pulumi.resources.In
     public static final GetPoliciesForTargetPlainArgs Empty = new GetPoliciesForTargetPlainArgs();
 
     /**
-     * Must supply one of the 4 different policy filters for a target (SERVICE_CONTROL_POLICY | TAG_POLICY | BACKUP_POLICY | AISERVICES_OPT_OUT_POLICY)
+     * Must supply one of the 5 different policy filters for a target (AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY)
      * 
      */
     @Import(name="filter", required=true)
     private String filter;
 
     /**
-     * @return Must supply one of the 4 different policy filters for a target (SERVICE_CONTROL_POLICY | TAG_POLICY | BACKUP_POLICY | AISERVICES_OPT_OUT_POLICY)
+     * @return Must supply one of the 5 different policy filters for a target (AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY)
      * 
      */
     public String filter() {
@@ -69,7 +69,7 @@ public final class GetPoliciesForTargetPlainArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param filter Must supply one of the 4 different policy filters for a target (SERVICE_CONTROL_POLICY | TAG_POLICY | BACKUP_POLICY | AISERVICES_OPT_OUT_POLICY)
+         * @param filter Must supply one of the 5 different policy filters for a target (AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY)
          * 
          * @return builder
          * 

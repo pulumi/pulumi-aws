@@ -14,7 +14,7 @@ import (
 
 // ## Import
 //
-// Using `pulumi import`, import exclusive management of customer managed policy assignments using the `user_name`. For example:
+// Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `user_name`. For example:
 //
 // ```sh
 // $ pulumi import aws:iam/userPolicyAttachmentsExclusive:UserPolicyAttachmentsExclusive example MyUser
@@ -22,7 +22,7 @@ import (
 type UserPolicyAttachmentsExclusive struct {
 	pulumi.CustomResourceState
 
-	// A list of customer managed policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
+	// A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
 	PolicyArns pulumi.StringArrayOutput `pulumi:"policyArns"`
 	// IAM user name.
 	UserName pulumi.StringOutput `pulumi:"userName"`
@@ -64,14 +64,14 @@ func GetUserPolicyAttachmentsExclusive(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserPolicyAttachmentsExclusive resources.
 type userPolicyAttachmentsExclusiveState struct {
-	// A list of customer managed policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
+	// A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
 	PolicyArns []string `pulumi:"policyArns"`
 	// IAM user name.
 	UserName *string `pulumi:"userName"`
 }
 
 type UserPolicyAttachmentsExclusiveState struct {
-	// A list of customer managed policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
+	// A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
 	PolicyArns pulumi.StringArrayInput
 	// IAM user name.
 	UserName pulumi.StringPtrInput
@@ -82,7 +82,7 @@ func (UserPolicyAttachmentsExclusiveState) ElementType() reflect.Type {
 }
 
 type userPolicyAttachmentsExclusiveArgs struct {
-	// A list of customer managed policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
+	// A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
 	PolicyArns []string `pulumi:"policyArns"`
 	// IAM user name.
 	UserName string `pulumi:"userName"`
@@ -90,7 +90,7 @@ type userPolicyAttachmentsExclusiveArgs struct {
 
 // The set of arguments for constructing a UserPolicyAttachmentsExclusive resource.
 type UserPolicyAttachmentsExclusiveArgs struct {
-	// A list of customer managed policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
+	// A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
 	PolicyArns pulumi.StringArrayInput
 	// IAM user name.
 	UserName pulumi.StringInput
@@ -183,7 +183,7 @@ func (o UserPolicyAttachmentsExclusiveOutput) ToUserPolicyAttachmentsExclusiveOu
 	return o
 }
 
-// A list of customer managed policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
+// A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
 func (o UserPolicyAttachmentsExclusiveOutput) PolicyArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserPolicyAttachmentsExclusive) pulumi.StringArrayOutput { return v.PolicyArns }).(pulumi.StringArrayOutput)
 }

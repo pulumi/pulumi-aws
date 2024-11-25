@@ -221,7 +221,7 @@ namespace Pulumi.Aws.S3
         public Output<Outputs.BucketAclV2AccessControlPolicy> AccessControlPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Canned ACL to apply to the bucket.
+        /// Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
         /// </summary>
         [Output("acl")]
         public Output<string?> Acl { get; private set; } = null!;
@@ -291,7 +291,7 @@ namespace Pulumi.Aws.S3
         public Input<Inputs.BucketAclV2AccessControlPolicyArgs>? AccessControlPolicy { get; set; }
 
         /// <summary>
-        /// Canned ACL to apply to the bucket.
+        /// Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
         /// </summary>
         [Input("acl")]
         public Input<string>? Acl { get; set; }
@@ -323,7 +323,7 @@ namespace Pulumi.Aws.S3
         public Input<Inputs.BucketAclV2AccessControlPolicyGetArgs>? AccessControlPolicy { get; set; }
 
         /// <summary>
-        /// Canned ACL to apply to the bucket.
+        /// Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
         /// </summary>
         [Input("acl")]
         public Input<string>? Acl { get; set; }

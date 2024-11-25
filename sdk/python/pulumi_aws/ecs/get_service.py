@@ -26,10 +26,13 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, arn=None, cluster_arn=None, desired_count=None, id=None, launch_type=None, scheduling_strategy=None, service_name=None, tags=None, task_definition=None):
+    def __init__(__self__, arn=None, availability_zone_rebalancing=None, cluster_arn=None, desired_count=None, id=None, launch_type=None, scheduling_strategy=None, service_name=None, tags=None, task_definition=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if availability_zone_rebalancing and not isinstance(availability_zone_rebalancing, str):
+            raise TypeError("Expected argument 'availability_zone_rebalancing' to be a str")
+        pulumi.set(__self__, "availability_zone_rebalancing", availability_zone_rebalancing)
         if cluster_arn and not isinstance(cluster_arn, str):
             raise TypeError("Expected argument 'cluster_arn' to be a str")
         pulumi.set(__self__, "cluster_arn", cluster_arn)
@@ -62,6 +65,11 @@ class GetServiceResult:
         ARN of the ECS Service
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="availabilityZoneRebalancing")
+    def availability_zone_rebalancing(self) -> str:
+        return pulumi.get(self, "availability_zone_rebalancing")
 
     @property
     @pulumi.getter(name="clusterArn")
@@ -129,6 +137,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             yield self
         return GetServiceResult(
             arn=self.arn,
+            availability_zone_rebalancing=self.availability_zone_rebalancing,
             cluster_arn=self.cluster_arn,
             desired_count=self.desired_count,
             id=self.id,
@@ -171,6 +180,7 @@ def get_service(cluster_arn: Optional[str] = None,
 
     return AwaitableGetServiceResult(
         arn=pulumi.get(__ret__, 'arn'),
+        availability_zone_rebalancing=pulumi.get(__ret__, 'availability_zone_rebalancing'),
         cluster_arn=pulumi.get(__ret__, 'cluster_arn'),
         desired_count=pulumi.get(__ret__, 'desired_count'),
         id=pulumi.get(__ret__, 'id'),
@@ -210,6 +220,7 @@ def get_service_output(cluster_arn: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws:ecs/getService:getService', __args__, opts=opts, typ=GetServiceResult)
     return __ret__.apply(lambda __response__: GetServiceResult(
         arn=pulumi.get(__response__, 'arn'),
+        availability_zone_rebalancing=pulumi.get(__response__, 'availability_zone_rebalancing'),
         cluster_arn=pulumi.get(__response__, 'cluster_arn'),
         desired_count=pulumi.get(__response__, 'desired_count'),
         id=pulumi.get(__response__, 'id'),

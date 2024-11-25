@@ -23,7 +23,7 @@ class UserPolicyAttachmentsExclusiveArgs:
                  user_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a UserPolicyAttachmentsExclusive resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_arns: A list of customer managed policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_arns: A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
         :param pulumi.Input[str] user_name: IAM user name.
         """
         pulumi.set(__self__, "policy_arns", policy_arns)
@@ -33,7 +33,7 @@ class UserPolicyAttachmentsExclusiveArgs:
     @pulumi.getter(name="policyArns")
     def policy_arns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        A list of customer managed policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
+        A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
         """
         return pulumi.get(self, "policy_arns")
 
@@ -61,7 +61,7 @@ class _UserPolicyAttachmentsExclusiveState:
                  user_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering UserPolicyAttachmentsExclusive resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_arns: A list of customer managed policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_arns: A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
         :param pulumi.Input[str] user_name: IAM user name.
         """
         if policy_arns is not None:
@@ -73,7 +73,7 @@ class _UserPolicyAttachmentsExclusiveState:
     @pulumi.getter(name="policyArns")
     def policy_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of customer managed policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
+        A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
         """
         return pulumi.get(self, "policy_arns")
 
@@ -105,7 +105,7 @@ class UserPolicyAttachmentsExclusive(pulumi.CustomResource):
         """
         ## Import
 
-        Using `pulumi import`, import exclusive management of customer managed policy assignments using the `user_name`. For example:
+        Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `user_name`. For example:
 
         ```sh
         $ pulumi import aws:iam/userPolicyAttachmentsExclusive:UserPolicyAttachmentsExclusive example MyUser
@@ -113,7 +113,7 @@ class UserPolicyAttachmentsExclusive(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_arns: A list of customer managed policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_arns: A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
         :param pulumi.Input[str] user_name: IAM user name.
         """
         ...
@@ -125,7 +125,7 @@ class UserPolicyAttachmentsExclusive(pulumi.CustomResource):
         """
         ## Import
 
-        Using `pulumi import`, import exclusive management of customer managed policy assignments using the `user_name`. For example:
+        Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `user_name`. For example:
 
         ```sh
         $ pulumi import aws:iam/userPolicyAttachmentsExclusive:UserPolicyAttachmentsExclusive example MyUser
@@ -182,7 +182,7 @@ class UserPolicyAttachmentsExclusive(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_arns: A list of customer managed policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_arns: A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
         :param pulumi.Input[str] user_name: IAM user name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -197,7 +197,7 @@ class UserPolicyAttachmentsExclusive(pulumi.CustomResource):
     @pulumi.getter(name="policyArns")
     def policy_arns(self) -> pulumi.Output[Sequence[str]]:
         """
-        A list of customer managed policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
+        A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
         """
         return pulumi.get(self, "policy_arns")
 

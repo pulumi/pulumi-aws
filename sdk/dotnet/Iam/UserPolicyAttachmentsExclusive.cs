@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Iam
     /// <summary>
     /// ## Import
     /// 
-    /// Using `pulumi import`, import exclusive management of customer managed policy assignments using the `user_name`. For example:
+    /// Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `user_name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:iam/userPolicyAttachmentsExclusive:UserPolicyAttachmentsExclusive example MyUser
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Iam
     public partial class UserPolicyAttachmentsExclusive : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of customer managed policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
+        /// A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
         /// </summary>
         [Output("policyArns")]
         public Output<ImmutableArray<string>> PolicyArns { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Iam
         private InputList<string>? _policyArns;
 
         /// <summary>
-        /// A list of customer managed policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
+        /// A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
         /// </summary>
         public InputList<string> PolicyArns
         {
@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Iam
         private InputList<string>? _policyArns;
 
         /// <summary>
-        /// A list of customer managed policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
+        /// A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
         /// </summary>
         public InputList<string> PolicyArns
         {

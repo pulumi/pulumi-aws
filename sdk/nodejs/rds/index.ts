@@ -152,6 +152,11 @@ export type InstanceAutomatedBackupsReplication = import("./instanceAutomatedBac
 export const InstanceAutomatedBackupsReplication: typeof import("./instanceAutomatedBackupsReplication").InstanceAutomatedBackupsReplication = null as any;
 utilities.lazyLoad(exports, ["InstanceAutomatedBackupsReplication"], () => require("./instanceAutomatedBackupsReplication"));
 
+export { InstanceDesiredStateArgs, InstanceDesiredStateState } from "./instanceDesiredState";
+export type InstanceDesiredState = import("./instanceDesiredState").InstanceDesiredState;
+export const InstanceDesiredState: typeof import("./instanceDesiredState").InstanceDesiredState = null as any;
+utilities.lazyLoad(exports, ["InstanceDesiredState"], () => require("./instanceDesiredState"));
+
 export * from "./instanceType";
 export { IntegrationArgs, IntegrationState } from "./integration";
 export type Integration = import("./integration").Integration;
@@ -250,6 +255,8 @@ const _module = {
                 return new Instance(name, <any>undefined, { urn })
             case "aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication":
                 return new InstanceAutomatedBackupsReplication(name, <any>undefined, { urn })
+            case "aws:rds/instanceDesiredState:InstanceDesiredState":
+                return new InstanceDesiredState(name, <any>undefined, { urn })
             case "aws:rds/integration:Integration":
                 return new Integration(name, <any>undefined, { urn })
             case "aws:rds/optionGroup:OptionGroup":
@@ -293,6 +300,7 @@ pulumi.runtime.registerResourceModule("aws", "rds/exportTask", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/globalCluster", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/instance", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/instanceAutomatedBackupsReplication", _module)
+pulumi.runtime.registerResourceModule("aws", "rds/instanceDesiredState", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/integration", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/optionGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/parameterGroup", _module)

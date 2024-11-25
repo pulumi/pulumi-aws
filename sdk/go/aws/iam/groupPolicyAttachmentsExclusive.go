@@ -14,7 +14,7 @@ import (
 
 // ## Import
 //
-// Using `pulumi import`, import exclusive management of customer managed policy assignments using the `group_name`. For example:
+// Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `group_name`. For example:
 //
 // ```sh
 // $ pulumi import aws:iam/groupPolicyAttachmentsExclusive:GroupPolicyAttachmentsExclusive example MyGroup
@@ -24,7 +24,7 @@ type GroupPolicyAttachmentsExclusive struct {
 
 	// IAM group name.
 	GroupName pulumi.StringOutput `pulumi:"groupName"`
-	// A list of customer managed policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
+	// A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
 	PolicyArns pulumi.StringArrayOutput `pulumi:"policyArns"`
 }
 
@@ -66,14 +66,14 @@ func GetGroupPolicyAttachmentsExclusive(ctx *pulumi.Context,
 type groupPolicyAttachmentsExclusiveState struct {
 	// IAM group name.
 	GroupName *string `pulumi:"groupName"`
-	// A list of customer managed policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
+	// A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
 	PolicyArns []string `pulumi:"policyArns"`
 }
 
 type GroupPolicyAttachmentsExclusiveState struct {
 	// IAM group name.
 	GroupName pulumi.StringPtrInput
-	// A list of customer managed policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
+	// A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
 	PolicyArns pulumi.StringArrayInput
 }
 
@@ -84,7 +84,7 @@ func (GroupPolicyAttachmentsExclusiveState) ElementType() reflect.Type {
 type groupPolicyAttachmentsExclusiveArgs struct {
 	// IAM group name.
 	GroupName string `pulumi:"groupName"`
-	// A list of customer managed policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
+	// A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
 	PolicyArns []string `pulumi:"policyArns"`
 }
 
@@ -92,7 +92,7 @@ type groupPolicyAttachmentsExclusiveArgs struct {
 type GroupPolicyAttachmentsExclusiveArgs struct {
 	// IAM group name.
 	GroupName pulumi.StringInput
-	// A list of customer managed policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
+	// A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
 	PolicyArns pulumi.StringArrayInput
 }
 
@@ -188,7 +188,7 @@ func (o GroupPolicyAttachmentsExclusiveOutput) GroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupPolicyAttachmentsExclusive) pulumi.StringOutput { return v.GroupName }).(pulumi.StringOutput)
 }
 
-// A list of customer managed policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
+// A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
 func (o GroupPolicyAttachmentsExclusiveOutput) PolicyArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupPolicyAttachmentsExclusive) pulumi.StringArrayOutput { return v.PolicyArns }).(pulumi.StringArrayOutput)
 }

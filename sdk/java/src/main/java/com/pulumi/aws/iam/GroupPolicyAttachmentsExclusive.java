@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 /**
  * ## Import
  * 
- * Using `pulumi import`, import exclusive management of customer managed policy assignments using the `group_name`. For example:
+ * Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `group_name`. For example:
  * 
  * ```sh
  * $ pulumi import aws:iam/groupPolicyAttachmentsExclusive:GroupPolicyAttachmentsExclusive example MyGroup
@@ -41,14 +41,14 @@ public class GroupPolicyAttachmentsExclusive extends com.pulumi.resources.Custom
         return this.groupName;
     }
     /**
-     * A list of customer managed policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
+     * A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
      * 
      */
     @Export(name="policyArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> policyArns;
 
     /**
-     * @return A list of customer managed policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
+     * @return A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
      * 
      */
     public Output<List<String>> policyArns() {

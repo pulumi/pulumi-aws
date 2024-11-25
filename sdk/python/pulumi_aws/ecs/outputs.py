@@ -45,6 +45,7 @@ __all__ = [
     'ServiceVolumeConfiguration',
     'ServiceVolumeConfigurationManagedEbsVolume',
     'ServiceVolumeConfigurationManagedEbsVolumeTagSpecification',
+    'ServiceVpcLatticeConfiguration',
     'TaskDefinitionEphemeralStorage',
     'TaskDefinitionInferenceAccelerator',
     'TaskDefinitionPlacementConstraint',
@@ -1793,6 +1794,67 @@ class ServiceVolumeConfigurationManagedEbsVolumeTagSpecification(dict):
         The tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can't be used.
         """
         return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class ServiceVpcLatticeConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "portName":
+            suggest = "port_name"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "targetGroupArn":
+            suggest = "target_group_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceVpcLatticeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceVpcLatticeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceVpcLatticeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 port_name: str,
+                 role_arn: str,
+                 target_group_arn: str):
+        """
+        :param str port_name: The name of the port for a target group associated with the VPC Lattice configuration.
+        :param str role_arn: The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
+        :param str target_group_arn: The full ARN of the target group or groups associated with the VPC Lattice configuration.
+        """
+        pulumi.set(__self__, "port_name", port_name)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "target_group_arn", target_group_arn)
+
+    @property
+    @pulumi.getter(name="portName")
+    def port_name(self) -> str:
+        """
+        The name of the port for a target group associated with the VPC Lattice configuration.
+        """
+        return pulumi.get(self, "port_name")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="targetGroupArn")
+    def target_group_arn(self) -> str:
+        """
+        The full ARN of the target group or groups associated with the VPC Lattice configuration.
+        """
+        return pulumi.get(self, "target_group_arn")
 
 
 @pulumi.output_type

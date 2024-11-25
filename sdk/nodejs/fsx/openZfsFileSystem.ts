@@ -91,7 +91,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
      */
     public readonly deleteOptions!: pulumi.Output<string[] | undefined>;
     /**
-     * The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
+     * Filesystem deployment type. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemOpenZFSConfiguration.html#FSx-Type-CreateFileSystemOpenZFSConfiguration-DeploymentType) for a list of valid values.
      */
     public readonly deploymentType!: pulumi.Output<string>;
     /**
@@ -310,7 +310,7 @@ export interface OpenZfsFileSystemState {
      */
     deleteOptions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
+     * Filesystem deployment type. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemOpenZFSConfiguration.html#FSx-Type-CreateFileSystemOpenZFSConfiguration-DeploymentType) for a list of valid values.
      */
     deploymentType?: pulumi.Input<string>;
     /**
@@ -436,7 +436,7 @@ export interface OpenZfsFileSystemArgs {
      */
     deleteOptions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
+     * Filesystem deployment type. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemOpenZFSConfiguration.html#FSx-Type-CreateFileSystemOpenZFSConfiguration-DeploymentType) for a list of valid values.
      */
     deploymentType: pulumi.Input<string>;
     /**

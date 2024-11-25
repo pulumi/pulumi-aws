@@ -32,14 +32,14 @@ public final class GroupPolicyAttachmentsExclusiveState extends com.pulumi.resou
     }
 
     /**
-     * A list of customer managed policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
+     * A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
      * 
      */
     @Import(name="policyArns")
     private @Nullable Output<List<String>> policyArns;
 
     /**
-     * @return A list of customer managed policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
+     * @return A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
      * 
      */
     public Optional<Output<List<String>>> policyArns() {
@@ -93,7 +93,7 @@ public final class GroupPolicyAttachmentsExclusiveState extends com.pulumi.resou
         }
 
         /**
-         * @param policyArns A list of customer managed policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
+         * @param policyArns A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class GroupPolicyAttachmentsExclusiveState extends com.pulumi.resou
         }
 
         /**
-         * @param policyArns A list of customer managed policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
+         * @param policyArns A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class GroupPolicyAttachmentsExclusiveState extends com.pulumi.resou
         }
 
         /**
-         * @param policyArns A list of customer managed policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
+         * @param policyArns A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
          * 
          * @return builder
          * 
