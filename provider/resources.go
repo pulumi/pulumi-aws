@@ -5916,4 +5916,9 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	) (resource.ID, error) {
 		return attrWithSeparator(state, "id"), nil
 	}
+	prov.Resources["aws_rds_instance_state"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attrWithSeparator(state, "identifier"), nil
+	}
 }
