@@ -79,7 +79,7 @@ export interface GetPromptResult {
  * });
  * ```
  */
-export function getPromptOutput(args: GetPromptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPromptResult> {
+export function getPromptOutput(args: GetPromptOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPromptResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:connect/getPrompt:getPrompt", {
         "instanceId": args.instanceId,

@@ -98,7 +98,7 @@ export interface GetAttachmentsResult {
  * })));
  * ```
  */
-export function getAttachmentsOutput(args?: GetAttachmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttachmentsResult> {
+export function getAttachmentsOutput(args?: GetAttachmentsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAttachmentsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getAttachments:getAttachments", {

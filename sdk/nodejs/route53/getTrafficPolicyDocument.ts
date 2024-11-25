@@ -315,7 +315,7 @@ export interface GetTrafficPolicyDocumentResult {
  * });
  * ```
  */
-export function getTrafficPolicyDocumentOutput(args?: GetTrafficPolicyDocumentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficPolicyDocumentResult> {
+export function getTrafficPolicyDocumentOutput(args?: GetTrafficPolicyDocumentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTrafficPolicyDocumentResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:route53/getTrafficPolicyDocument:getTrafficPolicyDocument", {

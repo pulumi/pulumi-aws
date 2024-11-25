@@ -166,7 +166,7 @@ def get_route_calculator(calculator_name: Optional[str] = None,
         update_time=pulumi.get(__ret__, 'update_time'))
 def get_route_calculator_output(calculator_name: Optional[pulumi.Input[str]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteCalculatorResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteCalculatorResult]:
     """
     Retrieve information about a Location Service Route Calculator.
 
@@ -186,7 +186,7 @@ def get_route_calculator_output(calculator_name: Optional[pulumi.Input[str]] = N
     __args__ = dict()
     __args__['calculatorName'] = calculator_name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:location/getRouteCalculator:getRouteCalculator', __args__, opts=opts, typ=GetRouteCalculatorResult)
     return __ret__.apply(lambda __response__: GetRouteCalculatorResult(
         calculator_arn=pulumi.get(__response__, 'calculator_arn'),

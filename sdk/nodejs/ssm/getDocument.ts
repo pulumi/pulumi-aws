@@ -115,7 +115,7 @@ export interface GetDocumentResult {
  * });
  * ```
  */
-export function getDocumentOutput(args: GetDocumentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDocumentResult> {
+export function getDocumentOutput(args: GetDocumentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDocumentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssm/getDocument:getDocument", {
         "documentFormat": args.documentFormat,

@@ -120,7 +120,7 @@ def get_route_table_routes(filters: Optional[Sequence[Union['GetRouteTableRoutes
         transit_gateway_route_table_id=pulumi.get(__ret__, 'transit_gateway_route_table_id'))
 def get_route_table_routes_output(filters: Optional[pulumi.Input[Sequence[Union['GetRouteTableRoutesFilterArgs', 'GetRouteTableRoutesFilterArgsDict']]]] = None,
                                   transit_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteTableRoutesResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteTableRoutesResult]:
     """
     Provides informations for routes of a specific transit gateway, such as state, type, cidr
 
@@ -147,7 +147,7 @@ def get_route_table_routes_output(filters: Optional[pulumi.Input[Sequence[Union[
     __args__ = dict()
     __args__['filters'] = filters
     __args__['transitGatewayRouteTableId'] = transit_gateway_route_table_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2transitgateway/getRouteTableRoutes:getRouteTableRoutes', __args__, opts=opts, typ=GetRouteTableRoutesResult)
     return __ret__.apply(lambda __response__: GetRouteTableRoutesResult(
         filters=pulumi.get(__response__, 'filters'),

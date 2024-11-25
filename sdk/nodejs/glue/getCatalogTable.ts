@@ -145,7 +145,7 @@ export interface GetCatalogTableResult {
  * });
  * ```
  */
-export function getCatalogTableOutput(args: GetCatalogTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCatalogTableResult> {
+export function getCatalogTableOutput(args: GetCatalogTableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCatalogTableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:glue/getCatalogTable:getCatalogTable", {
         "catalogId": args.catalogId,

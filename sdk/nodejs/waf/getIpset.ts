@@ -59,7 +59,7 @@ export interface GetIpsetResult {
  * });
  * ```
  */
-export function getIpsetOutput(args: GetIpsetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpsetResult> {
+export function getIpsetOutput(args: GetIpsetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIpsetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:waf/getIpset:getIpset", {
         "name": args.name,

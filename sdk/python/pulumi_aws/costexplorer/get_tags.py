@@ -160,7 +160,7 @@ def get_tags_output(filter: Optional[pulumi.Input[Optional[Union['GetTagsFilterA
                     sort_bies: Optional[pulumi.Input[Optional[Sequence[Union['GetTagsSortByArgs', 'GetTagsSortByArgsDict']]]]] = None,
                     tag_key: Optional[pulumi.Input[Optional[str]]] = None,
                     time_period: Optional[pulumi.Input[Union['GetTagsTimePeriodArgs', 'GetTagsTimePeriodArgsDict']]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagsResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagsResult]:
     """
     Provides the available cost allocation tag keys and tag values for a specified period.
 
@@ -191,7 +191,7 @@ def get_tags_output(filter: Optional[pulumi.Input[Optional[Union['GetTagsFilterA
     __args__['sortBies'] = sort_bies
     __args__['tagKey'] = tag_key
     __args__['timePeriod'] = time_period
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:costexplorer/getTags:getTags', __args__, opts=opts, typ=GetTagsResult)
     return __ret__.apply(lambda __response__: GetTagsResult(
         filter=pulumi.get(__response__, 'filter'),

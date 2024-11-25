@@ -189,7 +189,7 @@ export interface GetClusterSnapshotResult {
  * });
  * ```
  */
-export function getClusterSnapshotOutput(args?: GetClusterSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterSnapshotResult> {
+export function getClusterSnapshotOutput(args?: GetClusterSnapshotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterSnapshotResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:rds/getClusterSnapshot:getClusterSnapshot", {

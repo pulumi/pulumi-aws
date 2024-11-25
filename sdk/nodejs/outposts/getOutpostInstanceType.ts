@@ -83,7 +83,7 @@ export interface GetOutpostInstanceTypeResult {
  * const exampleEc2Instance = new aws.index.Ec2Instance("example", {instanceType: example.instanceType});
  * ```
  */
-export function getOutpostInstanceTypeOutput(args: GetOutpostInstanceTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutpostInstanceTypeResult> {
+export function getOutpostInstanceTypeOutput(args: GetOutpostInstanceTypeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOutpostInstanceTypeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:outposts/getOutpostInstanceType:getOutpostInstanceType", {
         "arn": args.arn,

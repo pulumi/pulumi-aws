@@ -88,7 +88,7 @@ export interface GetCustomRoutingAcceleratorResult {
  * });
  * ```
  */
-export function getCustomRoutingAcceleratorOutput(args?: GetCustomRoutingAcceleratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomRoutingAcceleratorResult> {
+export function getCustomRoutingAcceleratorOutput(args?: GetCustomRoutingAcceleratorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomRoutingAcceleratorResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:globalaccelerator/getCustomRoutingAccelerator:getCustomRoutingAccelerator", {

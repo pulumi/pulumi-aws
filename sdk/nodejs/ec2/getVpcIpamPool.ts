@@ -185,7 +185,7 @@ export interface GetVpcIpamPoolResult {
  * });
  * ```
  */
-export function getVpcIpamPoolOutput(args?: GetVpcIpamPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcIpamPoolResult> {
+export function getVpcIpamPoolOutput(args?: GetVpcIpamPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcIpamPoolResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getVpcIpamPool:getVpcIpamPool", {

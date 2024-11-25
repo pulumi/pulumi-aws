@@ -134,7 +134,7 @@ def get_direct_connect_gateway_attachment_output(dx_gateway_id: Optional[pulumi.
                                                  filters: Optional[pulumi.Input[Optional[Sequence[Union['GetDirectConnectGatewayAttachmentFilterArgs', 'GetDirectConnectGatewayAttachmentFilterArgsDict']]]]] = None,
                                                  tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                                  transit_gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
-                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDirectConnectGatewayAttachmentResult]:
+                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDirectConnectGatewayAttachmentResult]:
     """
     Get information on an EC2 Transit Gateway's attachment to a Direct Connect Gateway.
 
@@ -161,7 +161,7 @@ def get_direct_connect_gateway_attachment_output(dx_gateway_id: Optional[pulumi.
     __args__['filters'] = filters
     __args__['tags'] = tags
     __args__['transitGatewayId'] = transit_gateway_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment', __args__, opts=opts, typ=GetDirectConnectGatewayAttachmentResult)
     return __ret__.apply(lambda __response__: GetDirectConnectGatewayAttachmentResult(
         dx_gateway_id=pulumi.get(__response__, 'dx_gateway_id'),
