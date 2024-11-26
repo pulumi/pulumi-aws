@@ -102,7 +102,7 @@ export interface GetBrokerResult {
  * });
  * ```
  */
-export function getBrokerOutput(args?: GetBrokerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBrokerResult> {
+export function getBrokerOutput(args?: GetBrokerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBrokerResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:mq/getBroker:getBroker", {

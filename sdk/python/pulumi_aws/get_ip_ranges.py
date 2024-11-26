@@ -191,7 +191,7 @@ def get_ip_ranges_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                          regions: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                          services: Optional[pulumi.Input[Sequence[str]]] = None,
                          url: Optional[pulumi.Input[Optional[str]]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpRangesResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpRangesResult]:
     """
     Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html).
 
@@ -240,7 +240,7 @@ def get_ip_ranges_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['regions'] = regions
     __args__['services'] = services
     __args__['url'] = url
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:index/getIpRanges:getIpRanges', __args__, opts=opts, typ=GetIpRangesResult)
     return __ret__.apply(lambda __response__: GetIpRangesResult(
         cidr_blocks=pulumi.get(__response__, 'cidr_blocks'),

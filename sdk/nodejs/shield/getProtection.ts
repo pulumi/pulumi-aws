@@ -97,7 +97,7 @@ export interface GetProtectionResult {
  * });
  * ```
  */
-export function getProtectionOutput(args?: GetProtectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectionResult> {
+export function getProtectionOutput(args?: GetProtectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProtectionResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:shield/getProtection:getProtection", {

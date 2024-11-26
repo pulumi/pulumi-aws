@@ -151,7 +151,7 @@ def get_credentials(db_name: Optional[str] = None,
 def get_credentials_output(db_name: Optional[pulumi.Input[Optional[str]]] = None,
                            duration_seconds: Optional[pulumi.Input[Optional[int]]] = None,
                            workgroup_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCredentialsResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCredentialsResult]:
     """
     Provides redshift serverless temporary credentials for a workgroup.
 
@@ -173,7 +173,7 @@ def get_credentials_output(db_name: Optional[pulumi.Input[Optional[str]]] = None
     __args__['dbName'] = db_name
     __args__['durationSeconds'] = duration_seconds
     __args__['workgroupName'] = workgroup_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:redshiftserverless/getCredentials:getCredentials', __args__, opts=opts, typ=GetCredentialsResult)
     return __ret__.apply(lambda __response__: GetCredentialsResult(
         db_name=pulumi.get(__response__, 'db_name'),

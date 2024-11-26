@@ -66,7 +66,7 @@ export interface GetApplicationProvidersResult {
  * const example = aws.ssoadmin.getApplicationProviders({});
  * ```
  */
-export function getApplicationProvidersOutput(args?: GetApplicationProvidersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationProvidersResult> {
+export function getApplicationProvidersOutput(args?: GetApplicationProvidersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationProvidersResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssoadmin/getApplicationProviders:getApplicationProviders", {

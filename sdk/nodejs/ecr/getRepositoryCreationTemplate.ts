@@ -103,7 +103,7 @@ export interface GetRepositoryCreationTemplateResult {
  * });
  * ```
  */
-export function getRepositoryCreationTemplateOutput(args: GetRepositoryCreationTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryCreationTemplateResult> {
+export function getRepositoryCreationTemplateOutput(args: GetRepositoryCreationTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRepositoryCreationTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ecr/getRepositoryCreationTemplate:getRepositoryCreationTemplate", {
         "prefix": args.prefix,

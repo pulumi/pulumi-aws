@@ -75,7 +75,7 @@ export interface GetRuleGroupResult {
  * });
  * ```
  */
-export function getRuleGroupOutput(args: GetRuleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleGroupResult> {
+export function getRuleGroupOutput(args: GetRuleGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRuleGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:wafv2/getRuleGroup:getRuleGroup", {
         "name": args.name,

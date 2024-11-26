@@ -166,7 +166,7 @@ def get_vpc_connection(arn: Optional[str] = None,
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
 def get_vpc_connection_output(arn: Optional[pulumi.Input[str]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcConnectionResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcConnectionResult]:
     """
     Get information on an Amazon MSK VPC Connection.
 
@@ -186,7 +186,7 @@ def get_vpc_connection_output(arn: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['arn'] = arn
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:msk/getVpcConnection:getVpcConnection', __args__, opts=opts, typ=GetVpcConnectionResult)
     return __ret__.apply(lambda __response__: GetVpcConnectionResult(
         arn=pulumi.get(__response__, 'arn'),

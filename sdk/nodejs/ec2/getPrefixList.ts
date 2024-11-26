@@ -156,7 +156,7 @@ export interface GetPrefixListResult {
  * });
  * ```
  */
-export function getPrefixListOutput(args?: GetPrefixListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrefixListResult> {
+export function getPrefixListOutput(args?: GetPrefixListOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrefixListResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getPrefixList:getPrefixList", {

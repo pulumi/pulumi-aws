@@ -181,7 +181,7 @@ def get_cluster_credentials_output(auto_create: Optional[pulumi.Input[Optional[b
                                    db_name: Optional[pulumi.Input[Optional[str]]] = None,
                                    db_user: Optional[pulumi.Input[str]] = None,
                                    duration_seconds: Optional[pulumi.Input[Optional[int]]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterCredentialsResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterCredentialsResult]:
     """
     Provides redshift cluster temporary credentials.
 
@@ -210,7 +210,7 @@ def get_cluster_credentials_output(auto_create: Optional[pulumi.Input[Optional[b
     __args__['dbName'] = db_name
     __args__['dbUser'] = db_user
     __args__['durationSeconds'] = duration_seconds
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:redshift/getClusterCredentials:getClusterCredentials', __args__, opts=opts, typ=GetClusterCredentialsResult)
     return __ret__.apply(lambda __response__: GetClusterCredentialsResult(
         auto_create=pulumi.get(__response__, 'auto_create'),

@@ -117,7 +117,7 @@ def get_caller_identity(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         user_id=pulumi.get(__ret__, 'user_id'))
 def get_caller_identity_output(id: Optional[pulumi.Input[Optional[str]]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCallerIdentityResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCallerIdentityResult]:
     """
     Use this data source to get the access to the effective Account ID, User ID, and ARN in
     which this provider is authorized.
@@ -139,7 +139,7 @@ def get_caller_identity_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:index/getCallerIdentity:getCallerIdentity', __args__, opts=opts, typ=GetCallerIdentityResult)
     return __ret__.apply(lambda __response__: GetCallerIdentityResult(
         account_id=pulumi.get(__response__, 'account_id'),

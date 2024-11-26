@@ -176,7 +176,7 @@ def get_certificate(id: Optional[str] = None,
         valid_till=pulumi.get(__ret__, 'valid_till'))
 def get_certificate_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                            latest_valid_till: Optional[pulumi.Input[Optional[bool]]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Information about an RDS Certificate.
 
@@ -196,7 +196,7 @@ def get_certificate_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     __args__ = dict()
     __args__['id'] = id
     __args__['latestValidTill'] = latest_valid_till
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:rds/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult)
     return __ret__.apply(lambda __response__: GetCertificateResult(
         arn=pulumi.get(__response__, 'arn'),

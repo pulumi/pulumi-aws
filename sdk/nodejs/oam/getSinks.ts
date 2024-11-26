@@ -51,7 +51,7 @@ export interface GetSinksResult {
  * const example = aws.oam.getSinks({});
  * ```
  */
-export function getSinksOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSinksResult> {
+export function getSinksOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSinksResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:oam/getSinks:getSinks", {
     }, opts);

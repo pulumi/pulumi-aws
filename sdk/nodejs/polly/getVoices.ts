@@ -109,7 +109,7 @@ export interface GetVoicesResult {
  * });
  * ```
  */
-export function getVoicesOutput(args?: GetVoicesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVoicesResult> {
+export function getVoicesOutput(args?: GetVoicesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVoicesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:polly/getVoices:getVoices", {

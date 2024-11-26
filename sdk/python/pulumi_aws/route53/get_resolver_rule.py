@@ -200,7 +200,7 @@ def get_resolver_rule_output(domain_name: Optional[pulumi.Input[Optional[str]]] 
                              resolver_rule_id: Optional[pulumi.Input[Optional[str]]] = None,
                              rule_type: Optional[pulumi.Input[Optional[str]]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverRuleResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverRuleResult]:
     """
     `route53.ResolverRule` provides details about a specific Route53 Resolver rule.
 
@@ -231,7 +231,7 @@ def get_resolver_rule_output(domain_name: Optional[pulumi.Input[Optional[str]]] 
     __args__['resolverRuleId'] = resolver_rule_id
     __args__['ruleType'] = rule_type
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:route53/getResolverRule:getResolverRule', __args__, opts=opts, typ=GetResolverRuleResult)
     return __ret__.apply(lambda __response__: GetResolverRuleResult(
         arn=pulumi.get(__response__, 'arn'),

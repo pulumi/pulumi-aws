@@ -199,7 +199,7 @@ def get_analysis(analysis_id: Optional[str] = None,
 def get_analysis_output(analysis_id: Optional[pulumi.Input[str]] = None,
                         aws_account_id: Optional[pulumi.Input[Optional[str]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnalysisResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAnalysisResult]:
     """
     Data source for managing an AWS QuickSight Analysis.
 
@@ -225,7 +225,7 @@ def get_analysis_output(analysis_id: Optional[pulumi.Input[str]] = None,
     __args__['analysisId'] = analysis_id
     __args__['awsAccountId'] = aws_account_id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:quicksight/getAnalysis:getAnalysis', __args__, opts=opts, typ=GetAnalysisResult)
     return __ret__.apply(lambda __response__: GetAnalysisResult(
         analysis_id=pulumi.get(__response__, 'analysis_id'),

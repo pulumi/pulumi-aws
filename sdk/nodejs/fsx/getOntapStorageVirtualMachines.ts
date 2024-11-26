@@ -77,7 +77,7 @@ export interface GetOntapStorageVirtualMachinesResult {
  * });
  * ```
  */
-export function getOntapStorageVirtualMachinesOutput(args?: GetOntapStorageVirtualMachinesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOntapStorageVirtualMachinesResult> {
+export function getOntapStorageVirtualMachinesOutput(args?: GetOntapStorageVirtualMachinesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOntapStorageVirtualMachinesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:fsx/getOntapStorageVirtualMachines:getOntapStorageVirtualMachines", {

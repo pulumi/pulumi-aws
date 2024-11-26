@@ -216,7 +216,7 @@ def get_authorizer(authorizer_id: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_authorizer_output(authorizer_id: Optional[pulumi.Input[str]] = None,
                           rest_api_id: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizerResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizerResult]:
     """
     Provides details about a specific API Gateway Authorizer.
 
@@ -237,7 +237,7 @@ def get_authorizer_output(authorizer_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['authorizerId'] = authorizer_id
     __args__['restApiId'] = rest_api_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:apigateway/getAuthorizer:getAuthorizer', __args__, opts=opts, typ=GetAuthorizerResult)
     return __ret__.apply(lambda __response__: GetAuthorizerResult(
         arn=pulumi.get(__response__, 'arn'),
