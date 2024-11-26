@@ -153,25 +153,19 @@ extraTests:
       uses: ./.github/actions/setup-tools
       with:
         tools: pulumictl, pulumi, go, node
-    - name: Download provider + tfgen binaries
-      uses: actions/download-artifact@v4
-      with:
-        name: aws-provider.tar.gz
-        path: ${{ github.workspace }}/bin
-    - name: Untar provider binaries
-      run: >-
-        tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
-        github.workspace}}/bin
-
-        find ${{ github.workspace }} -name "pulumi-*-aws" -print -exec chmod +x {} \;
+    - name: Prepare local workspace
+      run: make prepare_local_workspace
+    - name: Download bin
+      uses: ./.github/actions/download-bin
     - name: Download SDK
+      uses: ./.github/actions/download-sdk
+      with:
+        language: ${{ matrix.language }}
+    - name: Restore makefile progress
       uses: actions/download-artifact@v4
       with:
-        name: ${{ matrix.language }}-sdk.tar.gz
-        path: ${{ github.workspace}}/sdk/
-    - name: Uncompress SDK folder
-      run: tar -zxf ${{ github.workspace }}/sdk/${{ matrix.language }}.tar.gz -C ${{
-        github.workspace }}/sdk/${{ matrix.language }}
+        name: build_${{ matrix.language }}.make
+        path: .make
     - name: Update path
       run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
     - name: Install dependencies
@@ -181,8 +175,6 @@ extraTests:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         version: v2.4.0
-    - name: Prepare local workspace
-      run: make prepare_local_workspace
     - name: Run selected tests with manual web identity/OIDC auth
       run: cd examples && go test -v -json -count=1 -run TestAccCloudWatchOidcManual -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
     - name: Configure AWS Credentials for OIDC
