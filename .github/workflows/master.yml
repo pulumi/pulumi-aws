@@ -226,8 +226,8 @@ jobs:
             uses: ./.github/actions/setup-tools
             with:
               tools: pulumictl, pulumi, go
-          - name: Make upstream
-            run: make upstream
+          - name: Prepare local workspace
+            run: make prepare_local_workspace
           - name: go test
             run: |
               cd upstream
@@ -264,8 +264,8 @@ jobs:
             uses: ./.github/actions/setup-tools
             with:
               tools: pulumictl, pulumi, go, node, dotnet, python, java
-          - name: Make upstream
-            run: make upstream
+          - name: Prepare local workspace
+            run: make prepare_local_workspace
           - name: Download provider + tfgen binaries
             uses: actions/download-artifact@v4
             with:
@@ -368,8 +368,8 @@ jobs:
             with:
               token: ${{ secrets.GITHUB_TOKEN }}
               version: v2.4.0
-          - name: Make upstream
-            run: make upstream
+          - name: Prepare local workspace
+            run: make prepare_local_workspace
           - name: Run selected tests with manual web identity/OIDC auth
             run: cd examples && go test -v -json -count=1 -run TestAccCloudWatchOidcManual -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
           - name: Configure AWS Credentials for OIDC
@@ -406,8 +406,8 @@ jobs:
             with:
               cache: false
               go-version: 1.23.x
-          - name: Make upstream
-            run: make upstream
+          - name: Prepare local workspace
+            run: make prepare_local_workspace
           - name: upstream lint
             run: |
               cd upstream
