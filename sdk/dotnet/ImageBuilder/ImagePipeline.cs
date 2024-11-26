@@ -12,29 +12,7 @@ namespace Pulumi.Aws.ImageBuilder
     /// <summary>
     /// Manages an Image Builder Image Pipeline.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ImageBuilder.ImagePipeline("example", new()
-    ///     {
-    ///         ImageRecipeArn = exampleAwsImagebuilderImageRecipe.Arn,
-    ///         InfrastructureConfigurationArn = exampleAwsImagebuilderInfrastructureConfiguration.Arn,
-    ///         Name = "example",
-    ///         Schedule = new Aws.ImageBuilder.Inputs.ImagePipelineScheduleArgs
-    ///         {
-    ///             ScheduleExpression = "cron(0 0 * * ? *)",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
+    /// &gt; **NOTE:** Starting with version `5.74.0`, lifecycle meta-argument `replace_triggered_by` must be used in order to prevent a dependency error on destroy.
     /// 
     /// ## Import
     /// 

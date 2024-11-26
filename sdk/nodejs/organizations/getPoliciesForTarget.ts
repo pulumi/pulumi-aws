@@ -22,7 +22,7 @@ export function getPoliciesForTarget(args: GetPoliciesForTargetArgs, opts?: pulu
  */
 export interface GetPoliciesForTargetArgs {
     /**
-     * Must supply one of the 4 different policy filters for a target (SERVICE_CONTROL_POLICY | TAG_POLICY | BACKUP_POLICY | AISERVICES_OPT_OUT_POLICY)
+     * Must supply one of the 5 different policy filters for a target (AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY)
      */
     filter: string;
     /**
@@ -64,7 +64,7 @@ export function getPoliciesForTargetOutput(args: GetPoliciesForTargetOutputArgs,
  */
 export interface GetPoliciesForTargetOutputArgs {
     /**
-     * Must supply one of the 4 different policy filters for a target (SERVICE_CONTROL_POLICY | TAG_POLICY | BACKUP_POLICY | AISERVICES_OPT_OUT_POLICY)
+     * Must supply one of the 5 different policy filters for a target (AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY)
      */
     filter: pulumi.Input<string>;
     /**

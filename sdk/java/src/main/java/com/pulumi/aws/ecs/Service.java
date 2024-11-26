@@ -17,6 +17,7 @@ import com.pulumi.aws.ecs.outputs.ServicePlacementConstraint;
 import com.pulumi.aws.ecs.outputs.ServiceServiceConnectConfiguration;
 import com.pulumi.aws.ecs.outputs.ServiceServiceRegistries;
 import com.pulumi.aws.ecs.outputs.ServiceVolumeConfiguration;
+import com.pulumi.aws.ecs.outputs.ServiceVpcLatticeConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -313,6 +314,20 @@ public class Service extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<ServiceAlarms>> alarms() {
         return Codegen.optional(this.alarms);
+    }
+    /**
+     * ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
+     * 
+     */
+    @Export(name="availabilityZoneRebalancing", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> availabilityZoneRebalancing;
+
+    /**
+     * @return ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
+     * 
+     */
+    public Output<Optional<String>> availabilityZoneRebalancing() {
+        return Codegen.optional(this.availabilityZoneRebalancing);
     }
     /**
      * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
@@ -729,6 +744,20 @@ public class Service extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<ServiceVolumeConfiguration>> volumeConfiguration() {
         return Codegen.optional(this.volumeConfiguration);
+    }
+    /**
+     * The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
+     * 
+     */
+    @Export(name="vpcLatticeConfigurations", refs={List.class,ServiceVpcLatticeConfiguration.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<ServiceVpcLatticeConfiguration>> vpcLatticeConfigurations;
+
+    /**
+     * @return The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
+     * 
+     */
+    public Output<Optional<List<ServiceVpcLatticeConfiguration>>> vpcLatticeConfigurations() {
+        return Codegen.optional(this.vpcLatticeConfigurations);
     }
     /**
      * If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.

@@ -17,6 +17,7 @@ public final class GetServiceResult {
      * 
      */
     private String arn;
+    private String availabilityZoneRebalancing;
     private String clusterArn;
     /**
      * @return Number of tasks for the ECS Service
@@ -57,6 +58,9 @@ public final class GetServiceResult {
      */
     public String arn() {
         return this.arn;
+    }
+    public String availabilityZoneRebalancing() {
+        return this.availabilityZoneRebalancing;
     }
     public String clusterArn() {
         return this.clusterArn;
@@ -117,6 +121,7 @@ public final class GetServiceResult {
     @CustomType.Builder
     public static final class Builder {
         private String arn;
+        private String availabilityZoneRebalancing;
         private String clusterArn;
         private Integer desiredCount;
         private String id;
@@ -129,6 +134,7 @@ public final class GetServiceResult {
         public Builder(GetServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
+    	      this.availabilityZoneRebalancing = defaults.availabilityZoneRebalancing;
     	      this.clusterArn = defaults.clusterArn;
     	      this.desiredCount = defaults.desiredCount;
     	      this.id = defaults.id;
@@ -145,6 +151,14 @@ public final class GetServiceResult {
               throw new MissingRequiredPropertyException("GetServiceResult", "arn");
             }
             this.arn = arn;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder availabilityZoneRebalancing(String availabilityZoneRebalancing) {
+            if (availabilityZoneRebalancing == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "availabilityZoneRebalancing");
+            }
+            this.availabilityZoneRebalancing = availabilityZoneRebalancing;
             return this;
         }
         @CustomType.Setter
@@ -214,6 +228,7 @@ public final class GetServiceResult {
         public GetServiceResult build() {
             final var _resultValue = new GetServiceResult();
             _resultValue.arn = arn;
+            _resultValue.availabilityZoneRebalancing = availabilityZoneRebalancing;
             _resultValue.clusterArn = clusterArn;
             _resultValue.desiredCount = desiredCount;
             _resultValue.id = id;

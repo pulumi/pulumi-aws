@@ -26,7 +26,7 @@ func GetPolicies(ctx *pulumi.Context, args *GetPoliciesArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getPolicies.
 type GetPoliciesArgs struct {
-	// The type of policies to be returned in the response. Valid values are `SERVICE_CONTROL_POLICY | TAG_POLICY | BACKUP_POLICY | AISERVICES_OPT_OUT_POLICY`
+	// The type of policies to be returned in the response. Valid values are `AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY`
 	Filter string `pulumi:"filter"`
 }
 
@@ -60,7 +60,7 @@ func GetPoliciesOutput(ctx *pulumi.Context, args GetPoliciesOutputArgs, opts ...
 
 // A collection of arguments for invoking getPolicies.
 type GetPoliciesOutputArgs struct {
-	// The type of policies to be returned in the response. Valid values are `SERVICE_CONTROL_POLICY | TAG_POLICY | BACKUP_POLICY | AISERVICES_OPT_OUT_POLICY`
+	// The type of policies to be returned in the response. Valid values are `AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY`
 	Filter pulumi.StringInput `pulumi:"filter"`
 }
 

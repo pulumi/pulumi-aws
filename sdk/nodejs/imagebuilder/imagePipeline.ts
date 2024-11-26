@@ -10,21 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Manages an Image Builder Image Pipeline.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.imagebuilder.ImagePipeline("example", {
- *     imageRecipeArn: exampleAwsImagebuilderImageRecipe.arn,
- *     infrastructureConfigurationArn: exampleAwsImagebuilderInfrastructureConfiguration.arn,
- *     name: "example",
- *     schedule: {
- *         scheduleExpression: "cron(0 0 * * ? *)",
- *     },
- * });
- * ```
+ * > **NOTE:** Starting with version `5.74.0`, lifecycle meta-argument `replaceTriggeredBy` must be used in order to prevent a dependency error on destroy.
  *
  * ## Import
  *

@@ -55,6 +55,7 @@ export interface GetServiceResult {
      * ARN of the ECS Service
      */
     readonly arn: string;
+    readonly availabilityZoneRebalancing: string;
     readonly clusterArn: string;
     /**
      * Number of tasks for the ECS Service

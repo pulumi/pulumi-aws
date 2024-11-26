@@ -3130,6 +3130,11 @@ compatibility shim in favor of the new "name" field.`)
 					},
 				},
 			},
+			"aws_rds_instance_state": {
+				// Pulumi cannot call this resource InstanceState because SDKs such as the Node SDK
+				// reserve the name to an auxillary structure for the Instance resource.
+				Tok: awsResource(rdsMod, "InstanceDesiredState"),
+			},
 			"aws_rds_cluster_endpoint": {Tok: awsResource(rdsMod, "ClusterEndpoint")},
 			"aws_rds_cluster_instance": {
 				Tok: awsResource(rdsMod, "ClusterInstance"),
@@ -5915,5 +5920,10 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		ctx context.Context, state resource.PropertyMap,
 	) (resource.ID, error) {
 		return attrWithSeparator(state, "id"), nil
+	}
+	prov.Resources["aws_rds_instance_state"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attrWithSeparator(state, "identifier"), nil
 	}
 }

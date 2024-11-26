@@ -73,6 +73,8 @@ __all__ = [
     'ServiceVolumeConfigurationManagedEbsVolumeArgsDict',
     'ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs',
     'ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgsDict',
+    'ServiceVpcLatticeConfigurationArgs',
+    'ServiceVpcLatticeConfigurationArgsDict',
     'TaskDefinitionEphemeralStorageArgs',
     'TaskDefinitionEphemeralStorageArgsDict',
     'TaskDefinitionInferenceAcceleratorArgs',
@@ -2257,6 +2259,75 @@ class ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+
+if not MYPY:
+    class ServiceVpcLatticeConfigurationArgsDict(TypedDict):
+        port_name: pulumi.Input[str]
+        """
+        The name of the port for a target group associated with the VPC Lattice configuration.
+        """
+        role_arn: pulumi.Input[str]
+        """
+        The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
+        """
+        target_group_arn: pulumi.Input[str]
+        """
+        The full ARN of the target group or groups associated with the VPC Lattice configuration.
+        """
+elif False:
+    ServiceVpcLatticeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceVpcLatticeConfigurationArgs:
+    def __init__(__self__, *,
+                 port_name: pulumi.Input[str],
+                 role_arn: pulumi.Input[str],
+                 target_group_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] port_name: The name of the port for a target group associated with the VPC Lattice configuration.
+        :param pulumi.Input[str] role_arn: The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
+        :param pulumi.Input[str] target_group_arn: The full ARN of the target group or groups associated with the VPC Lattice configuration.
+        """
+        pulumi.set(__self__, "port_name", port_name)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "target_group_arn", target_group_arn)
+
+    @property
+    @pulumi.getter(name="portName")
+    def port_name(self) -> pulumi.Input[str]:
+        """
+        The name of the port for a target group associated with the VPC Lattice configuration.
+        """
+        return pulumi.get(self, "port_name")
+
+    @port_name.setter
+    def port_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "port_name", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="targetGroupArn")
+    def target_group_arn(self) -> pulumi.Input[str]:
+        """
+        The full ARN of the target group or groups associated with the VPC Lattice configuration.
+        """
+        return pulumi.get(self, "target_group_arn")
+
+    @target_group_arn.setter
+    def target_group_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_group_arn", value)
 
 
 if not MYPY:

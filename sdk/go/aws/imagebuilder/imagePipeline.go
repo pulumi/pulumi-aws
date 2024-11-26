@@ -14,36 +14,7 @@ import (
 
 // Manages an Image Builder Image Pipeline.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.NewImagePipeline(ctx, "example", &imagebuilder.ImagePipelineArgs{
-//				ImageRecipeArn:                 pulumi.Any(exampleAwsImagebuilderImageRecipe.Arn),
-//				InfrastructureConfigurationArn: pulumi.Any(exampleAwsImagebuilderInfrastructureConfiguration.Arn),
-//				Name:                           pulumi.String("example"),
-//				Schedule: &imagebuilder.ImagePipelineScheduleArgs{
-//					ScheduleExpression: pulumi.String("cron(0 0 * * ? *)"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
+// > **NOTE:** Starting with version `5.74.0`, lifecycle meta-argument `replaceTriggeredBy` must be used in order to prevent a dependency error on destroy.
 //
 // ## Import
 //

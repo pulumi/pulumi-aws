@@ -1726,6 +1726,7 @@
         "rds/index.ts",
         "rds/instance.ts",
         "rds/instanceAutomatedBackupsReplication.ts",
+        "rds/instanceDesiredState.ts",
         "rds/instanceType.ts",
         "rds/integration.ts",
         "rds/optionGroup.ts",

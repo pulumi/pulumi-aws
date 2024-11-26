@@ -17,14 +17,14 @@ public final class RolePolicyAttachmentsExclusiveState extends com.pulumi.resour
     public static final RolePolicyAttachmentsExclusiveState Empty = new RolePolicyAttachmentsExclusiveState();
 
     /**
-     * A list of customer managed policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
+     * A list of managed IAM policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
      * 
      */
     @Import(name="policyArns")
     private @Nullable Output<List<String>> policyArns;
 
     /**
-     * @return A list of customer managed policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
+     * @return A list of managed IAM policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
      * 
      */
     public Optional<Output<List<String>>> policyArns() {
@@ -72,7 +72,7 @@ public final class RolePolicyAttachmentsExclusiveState extends com.pulumi.resour
         }
 
         /**
-         * @param policyArns A list of customer managed policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
+         * @param policyArns A list of managed IAM policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class RolePolicyAttachmentsExclusiveState extends com.pulumi.resour
         }
 
         /**
-         * @param policyArns A list of customer managed policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
+         * @param policyArns A list of managed IAM policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class RolePolicyAttachmentsExclusiveState extends com.pulumi.resour
         }
 
         /**
-         * @param policyArns A list of customer managed policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
+         * @param policyArns A list of managed IAM policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
          * 
          * @return builder
          * 

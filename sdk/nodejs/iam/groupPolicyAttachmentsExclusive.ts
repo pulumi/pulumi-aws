@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * ## Import
  *
- * Using `pulumi import`, import exclusive management of customer managed policy assignments using the `group_name`. For example:
+ * Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `group_name`. For example:
  *
  * ```sh
  * $ pulumi import aws:iam/groupPolicyAttachmentsExclusive:GroupPolicyAttachmentsExclusive example MyGroup
@@ -46,7 +46,7 @@ export class GroupPolicyAttachmentsExclusive extends pulumi.CustomResource {
      */
     public readonly groupName!: pulumi.Output<string>;
     /**
-     * A list of customer managed policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
+     * A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
      */
     public readonly policyArns!: pulumi.Output<string[]>;
 
@@ -90,7 +90,7 @@ export interface GroupPolicyAttachmentsExclusiveState {
      */
     groupName?: pulumi.Input<string>;
     /**
-     * A list of customer managed policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
+     * A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
      */
     policyArns?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -104,7 +104,7 @@ export interface GroupPolicyAttachmentsExclusiveArgs {
      */
     groupName: pulumi.Input<string>;
     /**
-     * A list of customer managed policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
+     * A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
      */
     policyArns: pulumi.Input<pulumi.Input<string>[]>;
 }

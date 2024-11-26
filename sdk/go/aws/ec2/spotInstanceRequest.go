@@ -202,11 +202,11 @@ type SpotInstanceRequest struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
 	Tenancy pulumi.StringOutput `pulumi:"tenancy"`
-	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate.
+	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
 	UserData pulumi.StringOutput `pulumi:"userData"`
-	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate.
+	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
 	UserDataBase64 pulumi.StringOutput `pulumi:"userDataBase64"`
-	// When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
+	// When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate of the EC2 instance when set to `true`. Defaults to `false` if not set.
 	UserDataReplaceOnChange pulumi.BoolPtrOutput `pulumi:"userDataReplaceOnChange"`
 	// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
 	ValidFrom pulumi.StringOutput `pulumi:"validFrom"`
@@ -385,11 +385,11 @@ type spotInstanceRequestState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
 	Tenancy *string `pulumi:"tenancy"`
-	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate.
+	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
 	UserData *string `pulumi:"userData"`
-	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate.
+	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
 	UserDataBase64 *string `pulumi:"userDataBase64"`
-	// When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
+	// When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate of the EC2 instance when set to `true`. Defaults to `false` if not set.
 	UserDataReplaceOnChange *bool `pulumi:"userDataReplaceOnChange"`
 	// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
 	ValidFrom *string `pulumi:"validFrom"`
@@ -539,11 +539,11 @@ type SpotInstanceRequestState struct {
 	TagsAll pulumi.StringMapInput
 	// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
 	Tenancy pulumi.StringPtrInput
-	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate.
+	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
 	UserData pulumi.StringPtrInput
-	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate.
+	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
 	UserDataBase64 pulumi.StringPtrInput
-	// When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
+	// When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate of the EC2 instance when set to `true`. Defaults to `false` if not set.
 	UserDataReplaceOnChange pulumi.BoolPtrInput
 	// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
 	ValidFrom pulumi.StringPtrInput
@@ -668,11 +668,11 @@ type spotInstanceRequestArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
 	Tenancy *string `pulumi:"tenancy"`
-	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate.
+	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
 	UserData *string `pulumi:"userData"`
-	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate.
+	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
 	UserDataBase64 *string `pulumi:"userDataBase64"`
-	// When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
+	// When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate of the EC2 instance when set to `true`. Defaults to `false` if not set.
 	UserDataReplaceOnChange *bool `pulumi:"userDataReplaceOnChange"`
 	// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
 	ValidFrom *string `pulumi:"validFrom"`
@@ -794,11 +794,11 @@ type SpotInstanceRequestArgs struct {
 	Tags pulumi.StringMapInput
 	// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
 	Tenancy pulumi.StringPtrInput
-	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate.
+	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
 	UserData pulumi.StringPtrInput
-	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate.
+	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
 	UserDataBase64 pulumi.StringPtrInput
-	// When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
+	// When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate of the EC2 instance when set to `true`. Defaults to `false` if not set.
 	UserDataReplaceOnChange pulumi.BoolPtrInput
 	// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
 	ValidFrom pulumi.StringPtrInput
@@ -1215,17 +1215,17 @@ func (o SpotInstanceRequestOutput) Tenancy() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.Tenancy }).(pulumi.StringOutput)
 }
 
-// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate.
+// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
 func (o SpotInstanceRequestOutput) UserData() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.UserData }).(pulumi.StringOutput)
 }
 
-// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate.
+// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
 func (o SpotInstanceRequestOutput) UserDataBase64() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.UserDataBase64 }).(pulumi.StringOutput)
 }
 
-// When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
+// When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate of the EC2 instance when set to `true`. Defaults to `false` if not set.
 func (o SpotInstanceRequestOutput) UserDataReplaceOnChange() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.BoolPtrOutput { return v.UserDataReplaceOnChange }).(pulumi.BoolPtrOutput)
 }

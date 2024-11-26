@@ -180,7 +180,7 @@ export class BucketAclV2 extends pulumi.CustomResource {
      */
     public readonly accessControlPolicy!: pulumi.Output<outputs.s3.BucketAclV2AccessControlPolicy>;
     /**
-     * Canned ACL to apply to the bucket.
+     * Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
      */
     public readonly acl!: pulumi.Output<string | undefined>;
     /**
@@ -233,7 +233,7 @@ export interface BucketAclV2State {
      */
     accessControlPolicy?: pulumi.Input<inputs.s3.BucketAclV2AccessControlPolicy>;
     /**
-     * Canned ACL to apply to the bucket.
+     * Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
      */
     acl?: pulumi.Input<string>;
     /**
@@ -255,7 +255,7 @@ export interface BucketAclV2Args {
      */
     accessControlPolicy?: pulumi.Input<inputs.s3.BucketAclV2AccessControlPolicy>;
     /**
-     * Canned ACL to apply to the bucket.
+     * Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
      */
     acl?: pulumi.Input<string>;
     /**

@@ -137,6 +137,7 @@ namespace Pulumi.Aws.Ecs
         /// ARN of the ECS Service
         /// </summary>
         public readonly string Arn;
+        public readonly string AvailabilityZoneRebalancing;
         public readonly string ClusterArn;
         /// <summary>
         /// Number of tasks for the ECS Service
@@ -168,6 +169,8 @@ namespace Pulumi.Aws.Ecs
         private GetServiceResult(
             string arn,
 
+            string availabilityZoneRebalancing,
+
             string clusterArn,
 
             int desiredCount,
@@ -185,6 +188,7 @@ namespace Pulumi.Aws.Ecs
             string taskDefinition)
         {
             Arn = arn;
+            AvailabilityZoneRebalancing = availabilityZoneRebalancing;
             ClusterArn = clusterArn;
             DesiredCount = desiredCount;
             Id = id;

@@ -24,46 +24,7 @@ import javax.annotation.Nullable;
 /**
  * Manages an Image Builder Image Pipeline.
  * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.imagebuilder.ImagePipeline;
- * import com.pulumi.aws.imagebuilder.ImagePipelineArgs;
- * import com.pulumi.aws.imagebuilder.inputs.ImagePipelineScheduleArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ImagePipeline("example", ImagePipelineArgs.builder()
- *             .imageRecipeArn(exampleAwsImagebuilderImageRecipe.arn())
- *             .infrastructureConfigurationArn(exampleAwsImagebuilderInfrastructureConfiguration.arn())
- *             .name("example")
- *             .schedule(ImagePipelineScheduleArgs.builder()
- *                 .scheduleExpression("cron(0 0 * * ? *)")
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
+ * &gt; **NOTE:** Starting with version `5.74.0`, lifecycle meta-argument `replace_triggered_by` must be used in order to prevent a dependency error on destroy.
  * 
  * ## Import
  * 

@@ -351,6 +351,20 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.deletionProtection);
     }
     /**
+     * Writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
+     * 
+     */
+    @Export(name="endpoint", refs={String.class}, tree="[0]")
+    private Output<String> endpoint;
+
+    /**
+     * @return Writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
+     * 
+     */
+    public Output<String> endpoint() {
+        return this.endpoint;
+    }
+    /**
      * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
      * 
      */

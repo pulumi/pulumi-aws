@@ -18,14 +18,14 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
     public static final DataSetArgs Empty = new DataSetArgs();
 
     /**
-     * The type of asset that is added to a data set. Valid values are: `S3_SNAPSHOT`, `REDSHIFT_DATA_SHARE`, and `API_GATEWAY_API`.
+     * The type of asset that is added to a data set. Valid values include `API_GATEWAY_API`, `LAKE_FORMATION_DATA_PERMISSION`, `REDSHIFT_DATA_SHARE`, `S3_DATA_ACCESS`, `S3_SNAPSHOT`.
      * 
      */
     @Import(name="assetType", required=true)
     private Output<String> assetType;
 
     /**
-     * @return The type of asset that is added to a data set. Valid values are: `S3_SNAPSHOT`, `REDSHIFT_DATA_SHARE`, and `API_GATEWAY_API`.
+     * @return The type of asset that is added to a data set. Valid values include `API_GATEWAY_API`, `LAKE_FORMATION_DATA_PERMISSION`, `REDSHIFT_DATA_SHARE`, `S3_DATA_ACCESS`, `S3_SNAPSHOT`.
      * 
      */
     public Output<String> assetType() {
@@ -105,7 +105,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param assetType The type of asset that is added to a data set. Valid values are: `S3_SNAPSHOT`, `REDSHIFT_DATA_SHARE`, and `API_GATEWAY_API`.
+         * @param assetType The type of asset that is added to a data set. Valid values include `API_GATEWAY_API`, `LAKE_FORMATION_DATA_PERMISSION`, `REDSHIFT_DATA_SHARE`, `S3_DATA_ACCESS`, `S3_SNAPSHOT`.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param assetType The type of asset that is added to a data set. Valid values are: `S3_SNAPSHOT`, `REDSHIFT_DATA_SHARE`, and `API_GATEWAY_API`.
+         * @param assetType The type of asset that is added to a data set. Valid values include `API_GATEWAY_API`, `LAKE_FORMATION_DATA_PERMISSION`, `REDSHIFT_DATA_SHARE`, `S3_DATA_ACCESS`, `S3_SNAPSHOT`.
          * 
          * @return builder
          * 

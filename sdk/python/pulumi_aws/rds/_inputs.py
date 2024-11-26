@@ -34,6 +34,8 @@ __all__ = [
     'GlobalClusterGlobalClusterMemberArgsDict',
     'InstanceBlueGreenUpdateArgs',
     'InstanceBlueGreenUpdateArgsDict',
+    'InstanceDesiredStateTimeoutsArgs',
+    'InstanceDesiredStateTimeoutsArgsDict',
     'InstanceListenerEndpointArgs',
     'InstanceListenerEndpointArgsDict',
     'InstanceMasterUserSecretArgs',
@@ -783,6 +785,58 @@ class InstanceBlueGreenUpdateArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+
+if not MYPY:
+    class InstanceDesiredStateTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        update: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    InstanceDesiredStateTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class InstanceDesiredStateTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 update: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update", value)
 
 
 if not MYPY:

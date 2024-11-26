@@ -232,6 +232,8 @@ type Service struct {
 
 	// Information about the CloudWatch alarms. See below.
 	Alarms ServiceAlarmsPtrOutput `pulumi:"alarms"`
+	// ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
+	AvailabilityZoneRebalancing pulumi.StringPtrOutput `pulumi:"availabilityZoneRebalancing"`
 	// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launchType`.
 	CapacityProviderStrategies ServiceCapacityProviderStrategyArrayOutput `pulumi:"capacityProviderStrategies"`
 	// ARN of an ECS cluster.
@@ -295,6 +297,8 @@ type Service struct {
 	Triggers pulumi.StringMapOutput `pulumi:"triggers"`
 	// Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
 	VolumeConfiguration ServiceVolumeConfigurationPtrOutput `pulumi:"volumeConfiguration"`
+	// The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
+	VpcLatticeConfigurations ServiceVpcLatticeConfigurationArrayOutput `pulumi:"vpcLatticeConfigurations"`
 	// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
 	WaitForSteadyState pulumi.BoolPtrOutput `pulumi:"waitForSteadyState"`
 }
@@ -331,6 +335,8 @@ func GetService(ctx *pulumi.Context,
 type serviceState struct {
 	// Information about the CloudWatch alarms. See below.
 	Alarms *ServiceAlarms `pulumi:"alarms"`
+	// ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
+	AvailabilityZoneRebalancing *string `pulumi:"availabilityZoneRebalancing"`
 	// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launchType`.
 	CapacityProviderStrategies []ServiceCapacityProviderStrategy `pulumi:"capacityProviderStrategies"`
 	// ARN of an ECS cluster.
@@ -394,6 +400,8 @@ type serviceState struct {
 	Triggers map[string]string `pulumi:"triggers"`
 	// Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
 	VolumeConfiguration *ServiceVolumeConfiguration `pulumi:"volumeConfiguration"`
+	// The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
+	VpcLatticeConfigurations []ServiceVpcLatticeConfiguration `pulumi:"vpcLatticeConfigurations"`
 	// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
 	WaitForSteadyState *bool `pulumi:"waitForSteadyState"`
 }
@@ -401,6 +409,8 @@ type serviceState struct {
 type ServiceState struct {
 	// Information about the CloudWatch alarms. See below.
 	Alarms ServiceAlarmsPtrInput
+	// ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
+	AvailabilityZoneRebalancing pulumi.StringPtrInput
 	// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launchType`.
 	CapacityProviderStrategies ServiceCapacityProviderStrategyArrayInput
 	// ARN of an ECS cluster.
@@ -464,6 +474,8 @@ type ServiceState struct {
 	Triggers pulumi.StringMapInput
 	// Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
 	VolumeConfiguration ServiceVolumeConfigurationPtrInput
+	// The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
+	VpcLatticeConfigurations ServiceVpcLatticeConfigurationArrayInput
 	// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
 	WaitForSteadyState pulumi.BoolPtrInput
 }
@@ -475,6 +487,8 @@ func (ServiceState) ElementType() reflect.Type {
 type serviceArgs struct {
 	// Information about the CloudWatch alarms. See below.
 	Alarms *ServiceAlarms `pulumi:"alarms"`
+	// ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
+	AvailabilityZoneRebalancing *string `pulumi:"availabilityZoneRebalancing"`
 	// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launchType`.
 	CapacityProviderStrategies []ServiceCapacityProviderStrategy `pulumi:"capacityProviderStrategies"`
 	// ARN of an ECS cluster.
@@ -534,6 +548,8 @@ type serviceArgs struct {
 	Triggers map[string]string `pulumi:"triggers"`
 	// Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
 	VolumeConfiguration *ServiceVolumeConfiguration `pulumi:"volumeConfiguration"`
+	// The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
+	VpcLatticeConfigurations []ServiceVpcLatticeConfiguration `pulumi:"vpcLatticeConfigurations"`
 	// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
 	WaitForSteadyState *bool `pulumi:"waitForSteadyState"`
 }
@@ -542,6 +558,8 @@ type serviceArgs struct {
 type ServiceArgs struct {
 	// Information about the CloudWatch alarms. See below.
 	Alarms ServiceAlarmsPtrInput
+	// ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
+	AvailabilityZoneRebalancing pulumi.StringPtrInput
 	// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launchType`.
 	CapacityProviderStrategies ServiceCapacityProviderStrategyArrayInput
 	// ARN of an ECS cluster.
@@ -601,6 +619,8 @@ type ServiceArgs struct {
 	Triggers pulumi.StringMapInput
 	// Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
 	VolumeConfiguration ServiceVolumeConfigurationPtrInput
+	// The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
+	VpcLatticeConfigurations ServiceVpcLatticeConfigurationArrayInput
 	// If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
 	WaitForSteadyState pulumi.BoolPtrInput
 }
@@ -695,6 +715,11 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 // Information about the CloudWatch alarms. See below.
 func (o ServiceOutput) Alarms() ServiceAlarmsPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceAlarmsPtrOutput { return v.Alarms }).(ServiceAlarmsPtrOutput)
+}
+
+// ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
+func (o ServiceOutput) AvailabilityZoneRebalancing() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.AvailabilityZoneRebalancing }).(pulumi.StringPtrOutput)
 }
 
 // Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `forceNewDeployment = true` and not changing from 0 `capacityProviderStrategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launchType`.
@@ -845,6 +870,11 @@ func (o ServiceOutput) Triggers() pulumi.StringMapOutput {
 // Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
 func (o ServiceOutput) VolumeConfiguration() ServiceVolumeConfigurationPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceVolumeConfigurationPtrOutput { return v.VolumeConfiguration }).(ServiceVolumeConfigurationPtrOutput)
+}
+
+// The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
+func (o ServiceOutput) VpcLatticeConfigurations() ServiceVpcLatticeConfigurationArrayOutput {
+	return o.ApplyT(func(v *Service) ServiceVpcLatticeConfigurationArrayOutput { return v.VpcLatticeConfigurations }).(ServiceVpcLatticeConfigurationArrayOutput)
 }
 
 // If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.

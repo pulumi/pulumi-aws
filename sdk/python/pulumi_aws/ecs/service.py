@@ -22,6 +22,7 @@ __all__ = ['ServiceArgs', 'Service']
 class ServiceArgs:
     def __init__(__self__, *,
                  alarms: Optional[pulumi.Input['ServiceAlarmsArgs']] = None,
+                 availability_zone_rebalancing: Optional[pulumi.Input[str]] = None,
                  capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArgs']]]] = None,
                  cluster: Optional[pulumi.Input[str]] = None,
                  deployment_circuit_breaker: Optional[pulumi.Input['ServiceDeploymentCircuitBreakerArgs']] = None,
@@ -50,10 +51,12 @@ class ServiceArgs:
                  task_definition: Optional[pulumi.Input[str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  volume_configuration: Optional[pulumi.Input['ServiceVolumeConfigurationArgs']] = None,
+                 vpc_lattice_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceVpcLatticeConfigurationArgs']]]] = None,
                  wait_for_steady_state: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Service resource.
         :param pulumi.Input['ServiceAlarmsArgs'] alarms: Information about the CloudWatch alarms. See below.
+        :param pulumi.Input[str] availability_zone_rebalancing: ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArgs']]] capacity_provider_strategies: Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
         :param pulumi.Input[str] cluster: ARN of an ECS cluster.
         :param pulumi.Input['ServiceDeploymentCircuitBreakerArgs'] deployment_circuit_breaker: Configuration block for deployment circuit breaker. See below.
@@ -85,10 +88,13 @@ class ServiceArgs:
         :param pulumi.Input[str] task_definition: Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. When using the triggers property you also need to set the forceNewDeployment property to True.
         :param pulumi.Input['ServiceVolumeConfigurationArgs'] volume_configuration: Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceVpcLatticeConfigurationArgs']]] vpc_lattice_configurations: The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
         :param pulumi.Input[bool] wait_for_steady_state: If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
         """
         if alarms is not None:
             pulumi.set(__self__, "alarms", alarms)
+        if availability_zone_rebalancing is not None:
+            pulumi.set(__self__, "availability_zone_rebalancing", availability_zone_rebalancing)
         if capacity_provider_strategies is not None:
             pulumi.set(__self__, "capacity_provider_strategies", capacity_provider_strategies)
         if cluster is not None:
@@ -145,6 +151,8 @@ class ServiceArgs:
             pulumi.set(__self__, "triggers", triggers)
         if volume_configuration is not None:
             pulumi.set(__self__, "volume_configuration", volume_configuration)
+        if vpc_lattice_configurations is not None:
+            pulumi.set(__self__, "vpc_lattice_configurations", vpc_lattice_configurations)
         if wait_for_steady_state is not None:
             pulumi.set(__self__, "wait_for_steady_state", wait_for_steady_state)
 
@@ -159,6 +167,18 @@ class ServiceArgs:
     @alarms.setter
     def alarms(self, value: Optional[pulumi.Input['ServiceAlarmsArgs']]):
         pulumi.set(self, "alarms", value)
+
+    @property
+    @pulumi.getter(name="availabilityZoneRebalancing")
+    def availability_zone_rebalancing(self) -> Optional[pulumi.Input[str]]:
+        """
+        ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
+        """
+        return pulumi.get(self, "availability_zone_rebalancing")
+
+    @availability_zone_rebalancing.setter
+    def availability_zone_rebalancing(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone_rebalancing", value)
 
     @property
     @pulumi.getter(name="capacityProviderStrategies")
@@ -500,6 +520,18 @@ class ServiceArgs:
         pulumi.set(self, "volume_configuration", value)
 
     @property
+    @pulumi.getter(name="vpcLatticeConfigurations")
+    def vpc_lattice_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceVpcLatticeConfigurationArgs']]]]:
+        """
+        The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
+        """
+        return pulumi.get(self, "vpc_lattice_configurations")
+
+    @vpc_lattice_configurations.setter
+    def vpc_lattice_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceVpcLatticeConfigurationArgs']]]]):
+        pulumi.set(self, "vpc_lattice_configurations", value)
+
+    @property
     @pulumi.getter(name="waitForSteadyState")
     def wait_for_steady_state(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -516,6 +548,7 @@ class ServiceArgs:
 class _ServiceState:
     def __init__(__self__, *,
                  alarms: Optional[pulumi.Input['ServiceAlarmsArgs']] = None,
+                 availability_zone_rebalancing: Optional[pulumi.Input[str]] = None,
                  capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArgs']]]] = None,
                  cluster: Optional[pulumi.Input[str]] = None,
                  deployment_circuit_breaker: Optional[pulumi.Input['ServiceDeploymentCircuitBreakerArgs']] = None,
@@ -545,10 +578,12 @@ class _ServiceState:
                  task_definition: Optional[pulumi.Input[str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  volume_configuration: Optional[pulumi.Input['ServiceVolumeConfigurationArgs']] = None,
+                 vpc_lattice_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceVpcLatticeConfigurationArgs']]]] = None,
                  wait_for_steady_state: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Service resources.
         :param pulumi.Input['ServiceAlarmsArgs'] alarms: Information about the CloudWatch alarms. See below.
+        :param pulumi.Input[str] availability_zone_rebalancing: ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArgs']]] capacity_provider_strategies: Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
         :param pulumi.Input[str] cluster: ARN of an ECS cluster.
         :param pulumi.Input['ServiceDeploymentCircuitBreakerArgs'] deployment_circuit_breaker: Configuration block for deployment circuit breaker. See below.
@@ -581,10 +616,13 @@ class _ServiceState:
         :param pulumi.Input[str] task_definition: Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. When using the triggers property you also need to set the forceNewDeployment property to True.
         :param pulumi.Input['ServiceVolumeConfigurationArgs'] volume_configuration: Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceVpcLatticeConfigurationArgs']]] vpc_lattice_configurations: The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
         :param pulumi.Input[bool] wait_for_steady_state: If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
         """
         if alarms is not None:
             pulumi.set(__self__, "alarms", alarms)
+        if availability_zone_rebalancing is not None:
+            pulumi.set(__self__, "availability_zone_rebalancing", availability_zone_rebalancing)
         if capacity_provider_strategies is not None:
             pulumi.set(__self__, "capacity_provider_strategies", capacity_provider_strategies)
         if cluster is not None:
@@ -646,6 +684,8 @@ class _ServiceState:
             pulumi.set(__self__, "triggers", triggers)
         if volume_configuration is not None:
             pulumi.set(__self__, "volume_configuration", volume_configuration)
+        if vpc_lattice_configurations is not None:
+            pulumi.set(__self__, "vpc_lattice_configurations", vpc_lattice_configurations)
         if wait_for_steady_state is not None:
             pulumi.set(__self__, "wait_for_steady_state", wait_for_steady_state)
 
@@ -660,6 +700,18 @@ class _ServiceState:
     @alarms.setter
     def alarms(self, value: Optional[pulumi.Input['ServiceAlarmsArgs']]):
         pulumi.set(self, "alarms", value)
+
+    @property
+    @pulumi.getter(name="availabilityZoneRebalancing")
+    def availability_zone_rebalancing(self) -> Optional[pulumi.Input[str]]:
+        """
+        ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
+        """
+        return pulumi.get(self, "availability_zone_rebalancing")
+
+    @availability_zone_rebalancing.setter
+    def availability_zone_rebalancing(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone_rebalancing", value)
 
     @property
     @pulumi.getter(name="capacityProviderStrategies")
@@ -1014,6 +1066,18 @@ class _ServiceState:
         pulumi.set(self, "volume_configuration", value)
 
     @property
+    @pulumi.getter(name="vpcLatticeConfigurations")
+    def vpc_lattice_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceVpcLatticeConfigurationArgs']]]]:
+        """
+        The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
+        """
+        return pulumi.get(self, "vpc_lattice_configurations")
+
+    @vpc_lattice_configurations.setter
+    def vpc_lattice_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceVpcLatticeConfigurationArgs']]]]):
+        pulumi.set(self, "vpc_lattice_configurations", value)
+
+    @property
     @pulumi.getter(name="waitForSteadyState")
     def wait_for_steady_state(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -1032,6 +1096,7 @@ class Service(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alarms: Optional[pulumi.Input[Union['ServiceAlarmsArgs', 'ServiceAlarmsArgsDict']]] = None,
+                 availability_zone_rebalancing: Optional[pulumi.Input[str]] = None,
                  capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyArgs', 'ServiceCapacityProviderStrategyArgsDict']]]]] = None,
                  cluster: Optional[pulumi.Input[str]] = None,
                  deployment_circuit_breaker: Optional[pulumi.Input[Union['ServiceDeploymentCircuitBreakerArgs', 'ServiceDeploymentCircuitBreakerArgsDict']]] = None,
@@ -1060,6 +1125,7 @@ class Service(pulumi.CustomResource):
                  task_definition: Optional[pulumi.Input[str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  volume_configuration: Optional[pulumi.Input[Union['ServiceVolumeConfigurationArgs', 'ServiceVolumeConfigurationArgsDict']]] = None,
+                 vpc_lattice_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceVpcLatticeConfigurationArgs', 'ServiceVpcLatticeConfigurationArgsDict']]]]] = None,
                  wait_for_steady_state: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -1177,6 +1243,7 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServiceAlarmsArgs', 'ServiceAlarmsArgsDict']] alarms: Information about the CloudWatch alarms. See below.
+        :param pulumi.Input[str] availability_zone_rebalancing: ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyArgs', 'ServiceCapacityProviderStrategyArgsDict']]]] capacity_provider_strategies: Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
         :param pulumi.Input[str] cluster: ARN of an ECS cluster.
         :param pulumi.Input[Union['ServiceDeploymentCircuitBreakerArgs', 'ServiceDeploymentCircuitBreakerArgsDict']] deployment_circuit_breaker: Configuration block for deployment circuit breaker. See below.
@@ -1208,6 +1275,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] task_definition: Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. When using the triggers property you also need to set the forceNewDeployment property to True.
         :param pulumi.Input[Union['ServiceVolumeConfigurationArgs', 'ServiceVolumeConfigurationArgsDict']] volume_configuration: Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceVpcLatticeConfigurationArgs', 'ServiceVpcLatticeConfigurationArgsDict']]]] vpc_lattice_configurations: The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
         :param pulumi.Input[bool] wait_for_steady_state: If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
         """
         ...
@@ -1344,6 +1412,7 @@ class Service(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alarms: Optional[pulumi.Input[Union['ServiceAlarmsArgs', 'ServiceAlarmsArgsDict']]] = None,
+                 availability_zone_rebalancing: Optional[pulumi.Input[str]] = None,
                  capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyArgs', 'ServiceCapacityProviderStrategyArgsDict']]]]] = None,
                  cluster: Optional[pulumi.Input[str]] = None,
                  deployment_circuit_breaker: Optional[pulumi.Input[Union['ServiceDeploymentCircuitBreakerArgs', 'ServiceDeploymentCircuitBreakerArgsDict']]] = None,
@@ -1372,6 +1441,7 @@ class Service(pulumi.CustomResource):
                  task_definition: Optional[pulumi.Input[str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  volume_configuration: Optional[pulumi.Input[Union['ServiceVolumeConfigurationArgs', 'ServiceVolumeConfigurationArgsDict']]] = None,
+                 vpc_lattice_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceVpcLatticeConfigurationArgs', 'ServiceVpcLatticeConfigurationArgsDict']]]]] = None,
                  wait_for_steady_state: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1383,6 +1453,7 @@ class Service(pulumi.CustomResource):
             __props__ = ServiceArgs.__new__(ServiceArgs)
 
             __props__.__dict__["alarms"] = alarms
+            __props__.__dict__["availability_zone_rebalancing"] = availability_zone_rebalancing
             __props__.__dict__["capacity_provider_strategies"] = capacity_provider_strategies
             __props__.__dict__["cluster"] = cluster
             __props__.__dict__["deployment_circuit_breaker"] = deployment_circuit_breaker
@@ -1411,6 +1482,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["task_definition"] = task_definition
             __props__.__dict__["triggers"] = triggers
             __props__.__dict__["volume_configuration"] = volume_configuration
+            __props__.__dict__["vpc_lattice_configurations"] = vpc_lattice_configurations
             __props__.__dict__["wait_for_steady_state"] = wait_for_steady_state
             __props__.__dict__["tags_all"] = None
         super(Service, __self__).__init__(
@@ -1424,6 +1496,7 @@ class Service(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             alarms: Optional[pulumi.Input[Union['ServiceAlarmsArgs', 'ServiceAlarmsArgsDict']]] = None,
+            availability_zone_rebalancing: Optional[pulumi.Input[str]] = None,
             capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyArgs', 'ServiceCapacityProviderStrategyArgsDict']]]]] = None,
             cluster: Optional[pulumi.Input[str]] = None,
             deployment_circuit_breaker: Optional[pulumi.Input[Union['ServiceDeploymentCircuitBreakerArgs', 'ServiceDeploymentCircuitBreakerArgsDict']]] = None,
@@ -1453,6 +1526,7 @@ class Service(pulumi.CustomResource):
             task_definition: Optional[pulumi.Input[str]] = None,
             triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             volume_configuration: Optional[pulumi.Input[Union['ServiceVolumeConfigurationArgs', 'ServiceVolumeConfigurationArgsDict']]] = None,
+            vpc_lattice_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceVpcLatticeConfigurationArgs', 'ServiceVpcLatticeConfigurationArgsDict']]]]] = None,
             wait_for_steady_state: Optional[pulumi.Input[bool]] = None) -> 'Service':
         """
         Get an existing Service resource's state with the given name, id, and optional extra
@@ -1462,6 +1536,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServiceAlarmsArgs', 'ServiceAlarmsArgsDict']] alarms: Information about the CloudWatch alarms. See below.
+        :param pulumi.Input[str] availability_zone_rebalancing: ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyArgs', 'ServiceCapacityProviderStrategyArgsDict']]]] capacity_provider_strategies: Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
         :param pulumi.Input[str] cluster: ARN of an ECS cluster.
         :param pulumi.Input[Union['ServiceDeploymentCircuitBreakerArgs', 'ServiceDeploymentCircuitBreakerArgsDict']] deployment_circuit_breaker: Configuration block for deployment circuit breaker. See below.
@@ -1494,6 +1569,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] task_definition: Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. When using the triggers property you also need to set the forceNewDeployment property to True.
         :param pulumi.Input[Union['ServiceVolumeConfigurationArgs', 'ServiceVolumeConfigurationArgsDict']] volume_configuration: Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceVpcLatticeConfigurationArgs', 'ServiceVpcLatticeConfigurationArgsDict']]]] vpc_lattice_configurations: The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
         :param pulumi.Input[bool] wait_for_steady_state: If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1501,6 +1577,7 @@ class Service(pulumi.CustomResource):
         __props__ = _ServiceState.__new__(_ServiceState)
 
         __props__.__dict__["alarms"] = alarms
+        __props__.__dict__["availability_zone_rebalancing"] = availability_zone_rebalancing
         __props__.__dict__["capacity_provider_strategies"] = capacity_provider_strategies
         __props__.__dict__["cluster"] = cluster
         __props__.__dict__["deployment_circuit_breaker"] = deployment_circuit_breaker
@@ -1530,6 +1607,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["task_definition"] = task_definition
         __props__.__dict__["triggers"] = triggers
         __props__.__dict__["volume_configuration"] = volume_configuration
+        __props__.__dict__["vpc_lattice_configurations"] = vpc_lattice_configurations
         __props__.__dict__["wait_for_steady_state"] = wait_for_steady_state
         return Service(resource_name, opts=opts, __props__=__props__)
 
@@ -1540,6 +1618,14 @@ class Service(pulumi.CustomResource):
         Information about the CloudWatch alarms. See below.
         """
         return pulumi.get(self, "alarms")
+
+    @property
+    @pulumi.getter(name="availabilityZoneRebalancing")
+    def availability_zone_rebalancing(self) -> pulumi.Output[Optional[str]]:
+        """
+        ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
+        """
+        return pulumi.get(self, "availability_zone_rebalancing")
 
     @property
     @pulumi.getter(name="capacityProviderStrategies")
@@ -1776,6 +1862,14 @@ class Service(pulumi.CustomResource):
         Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
         """
         return pulumi.get(self, "volume_configuration")
+
+    @property
+    @pulumi.getter(name="vpcLatticeConfigurations")
+    def vpc_lattice_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceVpcLatticeConfiguration']]]:
+        """
+        The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
+        """
+        return pulumi.get(self, "vpc_lattice_configurations")
 
     @property
     @pulumi.getter(name="waitForSteadyState")

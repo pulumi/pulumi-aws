@@ -27503,6 +27503,21 @@ export namespace ecs {
         tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
+    export interface ServiceVpcLatticeConfiguration {
+        /**
+         * The name of the port for a target group associated with the VPC Lattice configuration.
+         */
+        portName: pulumi.Input<string>;
+        /**
+         * The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
+         */
+        roleArn: pulumi.Input<string>;
+        /**
+         * The full ARN of the target group or groups associated with the VPC Lattice configuration.
+         */
+        targetGroupArn: pulumi.Input<string>;
+    }
+
     export interface TaskDefinitionEphemeralStorage {
         /**
          * The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
@@ -64561,6 +64576,17 @@ export namespace rds {
          * https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
          */
         enabled?: pulumi.Input<boolean>;
+    }
+
+    export interface InstanceDesiredStateTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string>;
     }
 
     export interface InstanceListenerEndpoint {

@@ -9124,6 +9124,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "rds/instanceDesiredState",
+  "fqn": "pulumi_aws.rds",
+  "classes": {
+   "aws:rds/instanceDesiredState:InstanceDesiredState": "InstanceDesiredState"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "rds/integration",
   "fqn": "pulumi_aws.rds",
   "classes": {

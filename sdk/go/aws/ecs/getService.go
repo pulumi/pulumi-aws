@@ -63,8 +63,9 @@ type LookupServiceArgs struct {
 // A collection of values returned by getService.
 type LookupServiceResult struct {
 	// ARN of the ECS Service
-	Arn        string `pulumi:"arn"`
-	ClusterArn string `pulumi:"clusterArn"`
+	Arn                         string `pulumi:"arn"`
+	AvailabilityZoneRebalancing string `pulumi:"availabilityZoneRebalancing"`
+	ClusterArn                  string `pulumi:"clusterArn"`
 	// Number of tasks for the ECS Service
 	DesiredCount int `pulumi:"desiredCount"`
 	// The provider-assigned unique ID for this managed resource.
@@ -131,6 +132,10 @@ func (o LookupServiceResultOutput) ToLookupServiceResultOutputWithContext(ctx co
 // ARN of the ECS Service
 func (o LookupServiceResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o LookupServiceResultOutput) AvailabilityZoneRebalancing() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.AvailabilityZoneRebalancing }).(pulumi.StringOutput)
 }
 
 func (o LookupServiceResultOutput) ClusterArn() pulumi.StringOutput {

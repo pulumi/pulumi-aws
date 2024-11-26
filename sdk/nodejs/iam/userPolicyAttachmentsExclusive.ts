@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * ## Import
  *
- * Using `pulumi import`, import exclusive management of customer managed policy assignments using the `user_name`. For example:
+ * Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `user_name`. For example:
  *
  * ```sh
  * $ pulumi import aws:iam/userPolicyAttachmentsExclusive:UserPolicyAttachmentsExclusive example MyUser
@@ -42,7 +42,7 @@ export class UserPolicyAttachmentsExclusive extends pulumi.CustomResource {
     }
 
     /**
-     * A list of customer managed policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
+     * A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
      */
     public readonly policyArns!: pulumi.Output<string[]>;
     /**
@@ -86,7 +86,7 @@ export class UserPolicyAttachmentsExclusive extends pulumi.CustomResource {
  */
 export interface UserPolicyAttachmentsExclusiveState {
     /**
-     * A list of customer managed policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
+     * A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
      */
     policyArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -100,7 +100,7 @@ export interface UserPolicyAttachmentsExclusiveState {
  */
 export interface UserPolicyAttachmentsExclusiveArgs {
     /**
-     * A list of customer managed policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
+     * A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
      */
     policyArns: pulumi.Input<pulumi.Input<string>[]>;
     /**

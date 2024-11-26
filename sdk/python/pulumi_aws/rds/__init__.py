@@ -35,6 +35,7 @@ from .get_subnet_group import *
 from .global_cluster import *
 from .instance import *
 from .instance_automated_backups_replication import *
+from .instance_desired_state import *
 from .integration import *
 from .option_group import *
 from .parameter_group import *

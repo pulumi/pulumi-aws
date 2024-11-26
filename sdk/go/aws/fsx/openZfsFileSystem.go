@@ -71,7 +71,7 @@ type OpenZfsFileSystem struct {
 	DailyAutomaticBackupStartTime pulumi.StringOutput `pulumi:"dailyAutomaticBackupStartTime"`
 	// List of delete options, which at present supports only one value that specifies whether to delete all child volumes and snapshots when the file system is deleted. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`.
 	DeleteOptions pulumi.StringArrayOutput `pulumi:"deleteOptions"`
-	// The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
+	// Filesystem deployment type. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemOpenZFSConfiguration.html#FSx-Type-CreateFileSystemOpenZFSConfiguration-DeploymentType) for a list of valid values.
 	DeploymentType pulumi.StringOutput `pulumi:"deploymentType"`
 	// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `diskIopsConfiguration` Block for details.
 	DiskIopsConfiguration OpenZfsFileSystemDiskIopsConfigurationOutput `pulumi:"diskIopsConfiguration"`
@@ -176,7 +176,7 @@ type openZfsFileSystemState struct {
 	DailyAutomaticBackupStartTime *string `pulumi:"dailyAutomaticBackupStartTime"`
 	// List of delete options, which at present supports only one value that specifies whether to delete all child volumes and snapshots when the file system is deleted. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`.
 	DeleteOptions []string `pulumi:"deleteOptions"`
-	// The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
+	// Filesystem deployment type. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemOpenZFSConfiguration.html#FSx-Type-CreateFileSystemOpenZFSConfiguration-DeploymentType) for a list of valid values.
 	DeploymentType *string `pulumi:"deploymentType"`
 	// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `diskIopsConfiguration` Block for details.
 	DiskIopsConfiguration *OpenZfsFileSystemDiskIopsConfiguration `pulumi:"diskIopsConfiguration"`
@@ -243,7 +243,7 @@ type OpenZfsFileSystemState struct {
 	DailyAutomaticBackupStartTime pulumi.StringPtrInput
 	// List of delete options, which at present supports only one value that specifies whether to delete all child volumes and snapshots when the file system is deleted. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`.
 	DeleteOptions pulumi.StringArrayInput
-	// The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
+	// Filesystem deployment type. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemOpenZFSConfiguration.html#FSx-Type-CreateFileSystemOpenZFSConfiguration-DeploymentType) for a list of valid values.
 	DeploymentType pulumi.StringPtrInput
 	// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `diskIopsConfiguration` Block for details.
 	DiskIopsConfiguration OpenZfsFileSystemDiskIopsConfigurationPtrInput
@@ -312,7 +312,7 @@ type openZfsFileSystemArgs struct {
 	DailyAutomaticBackupStartTime *string `pulumi:"dailyAutomaticBackupStartTime"`
 	// List of delete options, which at present supports only one value that specifies whether to delete all child volumes and snapshots when the file system is deleted. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`.
 	DeleteOptions []string `pulumi:"deleteOptions"`
-	// The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
+	// Filesystem deployment type. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemOpenZFSConfiguration.html#FSx-Type-CreateFileSystemOpenZFSConfiguration-DeploymentType) for a list of valid values.
 	DeploymentType string `pulumi:"deploymentType"`
 	// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `diskIopsConfiguration` Block for details.
 	DiskIopsConfiguration *OpenZfsFileSystemDiskIopsConfiguration `pulumi:"diskIopsConfiguration"`
@@ -362,7 +362,7 @@ type OpenZfsFileSystemArgs struct {
 	DailyAutomaticBackupStartTime pulumi.StringPtrInput
 	// List of delete options, which at present supports only one value that specifies whether to delete all child volumes and snapshots when the file system is deleted. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`.
 	DeleteOptions pulumi.StringArrayInput
-	// The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
+	// Filesystem deployment type. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemOpenZFSConfiguration.html#FSx-Type-CreateFileSystemOpenZFSConfiguration-DeploymentType) for a list of valid values.
 	DeploymentType pulumi.StringInput
 	// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `diskIopsConfiguration` Block for details.
 	DiskIopsConfiguration OpenZfsFileSystemDiskIopsConfigurationPtrInput
@@ -520,7 +520,7 @@ func (o OpenZfsFileSystemOutput) DeleteOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringArrayOutput { return v.DeleteOptions }).(pulumi.StringArrayOutput)
 }
 
-// The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
+// Filesystem deployment type. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemOpenZFSConfiguration.html#FSx-Type-CreateFileSystemOpenZFSConfiguration-DeploymentType) for a list of valid values.
 func (o OpenZfsFileSystemOutput) DeploymentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringOutput { return v.DeploymentType }).(pulumi.StringOutput)
 }

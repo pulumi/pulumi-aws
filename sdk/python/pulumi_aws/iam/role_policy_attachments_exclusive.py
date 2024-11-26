@@ -23,7 +23,7 @@ class RolePolicyAttachmentsExclusiveArgs:
                  role_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a RolePolicyAttachmentsExclusive resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_arns: A list of customer managed policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_arns: A list of managed IAM policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
         :param pulumi.Input[str] role_name: IAM role name.
         """
         pulumi.set(__self__, "policy_arns", policy_arns)
@@ -33,7 +33,7 @@ class RolePolicyAttachmentsExclusiveArgs:
     @pulumi.getter(name="policyArns")
     def policy_arns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        A list of customer managed policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
+        A list of managed IAM policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
         """
         return pulumi.get(self, "policy_arns")
 
@@ -61,7 +61,7 @@ class _RolePolicyAttachmentsExclusiveState:
                  role_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RolePolicyAttachmentsExclusive resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_arns: A list of customer managed policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_arns: A list of managed IAM policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
         :param pulumi.Input[str] role_name: IAM role name.
         """
         if policy_arns is not None:
@@ -73,7 +73,7 @@ class _RolePolicyAttachmentsExclusiveState:
     @pulumi.getter(name="policyArns")
     def policy_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of customer managed policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
+        A list of managed IAM policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
         """
         return pulumi.get(self, "policy_arns")
 
@@ -105,11 +105,11 @@ class RolePolicyAttachmentsExclusive(pulumi.CustomResource):
         """
         > **NOTE:**: To reliably detect drift between customer managed policies listed in this resource and actual policies attached to the role in the cloud, you currently need to run Pulumi with `pulumi up --refresh`. See [#4766](https://github.com/pulumi/pulumi-aws/issues/4766) for tracking making this work with regular `pulumi up`
 
-        Resource for maintaining exclusive management of customer managed policies assigned to an AWS IAM (Identity & Access Management) role.
+        Resource for maintaining exclusive management of managed IAM policies assigned to an AWS IAM (Identity & Access Management) role.
 
-        !> This resource takes exclusive ownership over customer managed policies attached to a role. This includes removal of customer managed policies which are not explicitly configured. To prevent persistent drift, ensure any `iam.RolePolicyAttachment` resources managed alongside this resource are included in the `policy_arns` argument.
+        !> This resource takes exclusive ownership over managed IAM policies attached to a role. This includes removal of managed IAM policies which are not explicitly configured. To prevent persistent drift, ensure any `iam.RolePolicyAttachment` resources managed alongside this resource are included in the `policy_arns` argument.
 
-        > Destruction of this resource means Pulumi will no longer manage reconciliation of the configured policy attachments. It __will not__ detach the configured policies from the role.
+        > Destruction of this resource means Pulumi will no longer manage reconciliation of the configured policy attachments. It **will not** detach the configured policies from the role.
 
         ## Example Usage
 
@@ -124,11 +124,11 @@ class RolePolicyAttachmentsExclusive(pulumi.CustomResource):
             policy_arns=[example_aws_iam_policy["arn"]])
         ```
 
-        ### Disallow Customer Managed Policies
+        ### Disallow Managed IAM Policies
 
-        To automatically remove any configured customer managed policies, set the `policy_arns` argument to an empty list.
+        To automatically remove any configured managed IAM policies, set the `policy_arns` argument to an empty list.
 
-        > This will not __prevent__ customer managed policies from being assigned to a role via Pulumi (or any other interface). This resource enables bringing customer managed policy assignments into a configured state, however, this reconciliation happens only when `apply` is proactively run.
+        > This will not **prevent** managed IAM policies from being assigned to a role via Pulumi (or any other interface). This resource enables bringing managed IAM policy assignments into a configured state, however, this reconciliation happens only when `apply` is proactively run.
 
         ```python
         import pulumi
@@ -141,7 +141,7 @@ class RolePolicyAttachmentsExclusive(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import exclusive management of customer managed policy assignments using the `role_name`. For example:
+        Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `role_name`. For example:
 
         ```sh
         $ pulumi import aws:iam/rolePolicyAttachmentsExclusive:RolePolicyAttachmentsExclusive example MyRole
@@ -149,7 +149,7 @@ class RolePolicyAttachmentsExclusive(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_arns: A list of customer managed policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_arns: A list of managed IAM policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
         :param pulumi.Input[str] role_name: IAM role name.
         """
         ...
@@ -161,11 +161,11 @@ class RolePolicyAttachmentsExclusive(pulumi.CustomResource):
         """
         > **NOTE:**: To reliably detect drift between customer managed policies listed in this resource and actual policies attached to the role in the cloud, you currently need to run Pulumi with `pulumi up --refresh`. See [#4766](https://github.com/pulumi/pulumi-aws/issues/4766) for tracking making this work with regular `pulumi up`
 
-        Resource for maintaining exclusive management of customer managed policies assigned to an AWS IAM (Identity & Access Management) role.
+        Resource for maintaining exclusive management of managed IAM policies assigned to an AWS IAM (Identity & Access Management) role.
 
-        !> This resource takes exclusive ownership over customer managed policies attached to a role. This includes removal of customer managed policies which are not explicitly configured. To prevent persistent drift, ensure any `iam.RolePolicyAttachment` resources managed alongside this resource are included in the `policy_arns` argument.
+        !> This resource takes exclusive ownership over managed IAM policies attached to a role. This includes removal of managed IAM policies which are not explicitly configured. To prevent persistent drift, ensure any `iam.RolePolicyAttachment` resources managed alongside this resource are included in the `policy_arns` argument.
 
-        > Destruction of this resource means Pulumi will no longer manage reconciliation of the configured policy attachments. It __will not__ detach the configured policies from the role.
+        > Destruction of this resource means Pulumi will no longer manage reconciliation of the configured policy attachments. It **will not** detach the configured policies from the role.
 
         ## Example Usage
 
@@ -180,11 +180,11 @@ class RolePolicyAttachmentsExclusive(pulumi.CustomResource):
             policy_arns=[example_aws_iam_policy["arn"]])
         ```
 
-        ### Disallow Customer Managed Policies
+        ### Disallow Managed IAM Policies
 
-        To automatically remove any configured customer managed policies, set the `policy_arns` argument to an empty list.
+        To automatically remove any configured managed IAM policies, set the `policy_arns` argument to an empty list.
 
-        > This will not __prevent__ customer managed policies from being assigned to a role via Pulumi (or any other interface). This resource enables bringing customer managed policy assignments into a configured state, however, this reconciliation happens only when `apply` is proactively run.
+        > This will not **prevent** managed IAM policies from being assigned to a role via Pulumi (or any other interface). This resource enables bringing managed IAM policy assignments into a configured state, however, this reconciliation happens only when `apply` is proactively run.
 
         ```python
         import pulumi
@@ -197,7 +197,7 @@ class RolePolicyAttachmentsExclusive(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import exclusive management of customer managed policy assignments using the `role_name`. For example:
+        Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `role_name`. For example:
 
         ```sh
         $ pulumi import aws:iam/rolePolicyAttachmentsExclusive:RolePolicyAttachmentsExclusive example MyRole
@@ -254,7 +254,7 @@ class RolePolicyAttachmentsExclusive(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_arns: A list of customer managed policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_arns: A list of managed IAM policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
         :param pulumi.Input[str] role_name: IAM role name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -269,7 +269,7 @@ class RolePolicyAttachmentsExclusive(pulumi.CustomResource):
     @pulumi.getter(name="policyArns")
     def policy_arns(self) -> pulumi.Output[Sequence[str]]:
         """
-        A list of customer managed policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
+        A list of managed IAM policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
         """
         return pulumi.get(self, "policy_arns")
 

@@ -12,11 +12,11 @@ namespace Pulumi.Aws.Iam
     /// <summary>
     /// &gt; **NOTE:**: To reliably detect drift between customer managed policies listed in this resource and actual policies attached to the role in the cloud, you currently need to run Pulumi with `pulumi up --refresh`. See [#4766](https://github.com/pulumi/pulumi-aws/issues/4766) for tracking making this work with regular `pulumi up`
     /// 
-    /// Resource for maintaining exclusive management of customer managed policies assigned to an AWS IAM (Identity &amp; Access Management) role.
+    /// Resource for maintaining exclusive management of managed IAM policies assigned to an AWS IAM (Identity &amp; Access Management) role.
     /// 
-    /// !&gt; This resource takes exclusive ownership over customer managed policies attached to a role. This includes removal of customer managed policies which are not explicitly configured. To prevent persistent drift, ensure any `aws.iam.RolePolicyAttachment` resources managed alongside this resource are included in the `policy_arns` argument.
+    /// !&gt; This resource takes exclusive ownership over managed IAM policies attached to a role. This includes removal of managed IAM policies which are not explicitly configured. To prevent persistent drift, ensure any `aws.iam.RolePolicyAttachment` resources managed alongside this resource are included in the `policy_arns` argument.
     /// 
-    /// &gt; Destruction of this resource means Pulumi will no longer manage reconciliation of the configured policy attachments. It __will not__ detach the configured policies from the role.
+    /// &gt; Destruction of this resource means Pulumi will no longer manage reconciliation of the configured policy attachments. It **will not** detach the configured policies from the role.
     /// 
     /// ## Example Usage
     /// 
@@ -42,11 +42,11 @@ namespace Pulumi.Aws.Iam
     /// });
     /// ```
     /// 
-    /// ### Disallow Customer Managed Policies
+    /// ### Disallow Managed IAM Policies
     /// 
-    /// To automatically remove any configured customer managed policies, set the `policy_arns` argument to an empty list.
+    /// To automatically remove any configured managed IAM policies, set the `policy_arns` argument to an empty list.
     /// 
-    /// &gt; This will not __prevent__ customer managed policies from being assigned to a role via Pulumi (or any other interface). This resource enables bringing customer managed policy assignments into a configured state, however, this reconciliation happens only when `apply` is proactively run.
+    /// &gt; This will not **prevent** managed IAM policies from being assigned to a role via Pulumi (or any other interface). This resource enables bringing managed IAM policy assignments into a configured state, however, this reconciliation happens only when `apply` is proactively run.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import exclusive management of customer managed policy assignments using the `role_name`. For example:
+    /// Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `role_name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:iam/rolePolicyAttachmentsExclusive:RolePolicyAttachmentsExclusive example MyRole
@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Iam
     public partial class RolePolicyAttachmentsExclusive : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of customer managed policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
+        /// A list of managed IAM policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
         /// </summary>
         [Output("policyArns")]
         public Output<ImmutableArray<string>> PolicyArns { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.Iam
         private InputList<string>? _policyArns;
 
         /// <summary>
-        /// A list of customer managed policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
+        /// A list of managed IAM policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
         /// </summary>
         public InputList<string> PolicyArns
         {
@@ -164,7 +164,7 @@ namespace Pulumi.Aws.Iam
         private InputList<string>? _policyArns;
 
         /// <summary>
-        /// A list of customer managed policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
+        /// A list of managed IAM policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
         /// </summary>
         public InputList<string> PolicyArns
         {

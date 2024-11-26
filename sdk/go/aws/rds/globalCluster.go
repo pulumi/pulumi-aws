@@ -278,6 +278,8 @@ type GlobalCluster struct {
 	DatabaseName pulumi.StringPtrOutput `pulumi:"databaseName"`
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
+	// Writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
+	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `sourceDbClusterIdentifier`.
 	Engine pulumi.StringOutput `pulumi:"engine"`
 	// The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
@@ -338,6 +340,8 @@ type globalClusterState struct {
 	DatabaseName *string `pulumi:"databaseName"`
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
+	// Writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
+	Endpoint *string `pulumi:"endpoint"`
 	// Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `sourceDbClusterIdentifier`.
 	Engine *string `pulumi:"engine"`
 	// The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
@@ -366,6 +370,8 @@ type GlobalClusterState struct {
 	DatabaseName pulumi.StringPtrInput
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection pulumi.BoolPtrInput
+	// Writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
+	Endpoint pulumi.StringPtrInput
 	// Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `sourceDbClusterIdentifier`.
 	Engine pulumi.StringPtrInput
 	// The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
@@ -534,6 +540,11 @@ func (o GlobalClusterOutput) DatabaseName() pulumi.StringPtrOutput {
 // If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 func (o GlobalClusterOutput) DeletionProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GlobalCluster) pulumi.BoolPtrOutput { return v.DeletionProtection }).(pulumi.BoolPtrOutput)
+}
+
+// Writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
+func (o GlobalClusterOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *GlobalCluster) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
 // Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `sourceDbClusterIdentifier`.

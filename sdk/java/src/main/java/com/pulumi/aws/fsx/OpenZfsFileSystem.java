@@ -173,14 +173,14 @@ public class OpenZfsFileSystem extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.deleteOptions);
     }
     /**
-     * The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
+     * Filesystem deployment type. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemOpenZFSConfiguration.html#FSx-Type-CreateFileSystemOpenZFSConfiguration-DeploymentType) for a list of valid values.
      * 
      */
     @Export(name="deploymentType", refs={String.class}, tree="[0]")
     private Output<String> deploymentType;
 
     /**
-     * @return The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
+     * @return Filesystem deployment type. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemOpenZFSConfiguration.html#FSx-Type-CreateFileSystemOpenZFSConfiguration-DeploymentType) for a list of valid values.
      * 
      */
     public Output<String> deploymentType() {

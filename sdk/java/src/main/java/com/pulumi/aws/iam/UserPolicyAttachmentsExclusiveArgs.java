@@ -16,14 +16,14 @@ public final class UserPolicyAttachmentsExclusiveArgs extends com.pulumi.resourc
     public static final UserPolicyAttachmentsExclusiveArgs Empty = new UserPolicyAttachmentsExclusiveArgs();
 
     /**
-     * A list of customer managed policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
+     * A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
      * 
      */
     @Import(name="policyArns", required=true)
     private Output<List<String>> policyArns;
 
     /**
-     * @return A list of customer managed policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
+     * @return A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
      * 
      */
     public Output<List<String>> policyArns() {
@@ -71,7 +71,7 @@ public final class UserPolicyAttachmentsExclusiveArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param policyArns A list of customer managed policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
+         * @param policyArns A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class UserPolicyAttachmentsExclusiveArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param policyArns A list of customer managed policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
+         * @param policyArns A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class UserPolicyAttachmentsExclusiveArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param policyArns A list of customer managed policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
+         * @param policyArns A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
          * 
          * @return builder
          * 

@@ -15,14 +15,14 @@ public final class GetPoliciesForTargetArgs extends com.pulumi.resources.InvokeA
     public static final GetPoliciesForTargetArgs Empty = new GetPoliciesForTargetArgs();
 
     /**
-     * Must supply one of the 4 different policy filters for a target (SERVICE_CONTROL_POLICY | TAG_POLICY | BACKUP_POLICY | AISERVICES_OPT_OUT_POLICY)
+     * Must supply one of the 5 different policy filters for a target (AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY)
      * 
      */
     @Import(name="filter", required=true)
     private Output<String> filter;
 
     /**
-     * @return Must supply one of the 4 different policy filters for a target (SERVICE_CONTROL_POLICY | TAG_POLICY | BACKUP_POLICY | AISERVICES_OPT_OUT_POLICY)
+     * @return Must supply one of the 5 different policy filters for a target (AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY)
      * 
      */
     public Output<String> filter() {
@@ -70,7 +70,7 @@ public final class GetPoliciesForTargetArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param filter Must supply one of the 4 different policy filters for a target (SERVICE_CONTROL_POLICY | TAG_POLICY | BACKUP_POLICY | AISERVICES_OPT_OUT_POLICY)
+         * @param filter Must supply one of the 5 different policy filters for a target (AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY)
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class GetPoliciesForTargetArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param filter Must supply one of the 4 different policy filters for a target (SERVICE_CONTROL_POLICY | TAG_POLICY | BACKUP_POLICY | AISERVICES_OPT_OUT_POLICY)
+         * @param filter Must supply one of the 5 different policy filters for a target (AISERVICES_OPT_OUT_POLICY | BACKUP_POLICY | RESOURCE_CONTROL_POLICY | SERVICE_CONTROL_POLICY | TAG_POLICY)
          * 
          * @return builder
          * 

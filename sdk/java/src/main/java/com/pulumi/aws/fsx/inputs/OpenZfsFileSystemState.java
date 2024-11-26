@@ -127,14 +127,14 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
+     * Filesystem deployment type. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemOpenZFSConfiguration.html#FSx-Type-CreateFileSystemOpenZFSConfiguration-DeploymentType) for a list of valid values.
      * 
      */
     @Import(name="deploymentType")
     private @Nullable Output<String> deploymentType;
 
     /**
-     * @return The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
+     * @return Filesystem deployment type. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemOpenZFSConfiguration.html#FSx-Type-CreateFileSystemOpenZFSConfiguration-DeploymentType) for a list of valid values.
      * 
      */
     public Optional<Output<String>> deploymentType() {
@@ -694,7 +694,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param deploymentType The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
+         * @param deploymentType Filesystem deployment type. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemOpenZFSConfiguration.html#FSx-Type-CreateFileSystemOpenZFSConfiguration-DeploymentType) for a list of valid values.
          * 
          * @return builder
          * 
@@ -705,7 +705,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param deploymentType The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
+         * @param deploymentType Filesystem deployment type. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemOpenZFSConfiguration.html#FSx-Type-CreateFileSystemOpenZFSConfiguration-DeploymentType) for a list of valid values.
          * 
          * @return builder
          * 

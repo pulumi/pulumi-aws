@@ -1506,6 +1506,162 @@ func (o InstanceBlueGreenUpdatePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type InstanceDesiredStateTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// InstanceDesiredStateTimeoutsInput is an input type that accepts InstanceDesiredStateTimeoutsArgs and InstanceDesiredStateTimeoutsOutput values.
+// You can construct a concrete instance of `InstanceDesiredStateTimeoutsInput` via:
+//
+//	InstanceDesiredStateTimeoutsArgs{...}
+type InstanceDesiredStateTimeoutsInput interface {
+	pulumi.Input
+
+	ToInstanceDesiredStateTimeoutsOutput() InstanceDesiredStateTimeoutsOutput
+	ToInstanceDesiredStateTimeoutsOutputWithContext(context.Context) InstanceDesiredStateTimeoutsOutput
+}
+
+type InstanceDesiredStateTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (InstanceDesiredStateTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceDesiredStateTimeouts)(nil)).Elem()
+}
+
+func (i InstanceDesiredStateTimeoutsArgs) ToInstanceDesiredStateTimeoutsOutput() InstanceDesiredStateTimeoutsOutput {
+	return i.ToInstanceDesiredStateTimeoutsOutputWithContext(context.Background())
+}
+
+func (i InstanceDesiredStateTimeoutsArgs) ToInstanceDesiredStateTimeoutsOutputWithContext(ctx context.Context) InstanceDesiredStateTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceDesiredStateTimeoutsOutput)
+}
+
+func (i InstanceDesiredStateTimeoutsArgs) ToInstanceDesiredStateTimeoutsPtrOutput() InstanceDesiredStateTimeoutsPtrOutput {
+	return i.ToInstanceDesiredStateTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceDesiredStateTimeoutsArgs) ToInstanceDesiredStateTimeoutsPtrOutputWithContext(ctx context.Context) InstanceDesiredStateTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceDesiredStateTimeoutsOutput).ToInstanceDesiredStateTimeoutsPtrOutputWithContext(ctx)
+}
+
+// InstanceDesiredStateTimeoutsPtrInput is an input type that accepts InstanceDesiredStateTimeoutsArgs, InstanceDesiredStateTimeoutsPtr and InstanceDesiredStateTimeoutsPtrOutput values.
+// You can construct a concrete instance of `InstanceDesiredStateTimeoutsPtrInput` via:
+//
+//	        InstanceDesiredStateTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceDesiredStateTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToInstanceDesiredStateTimeoutsPtrOutput() InstanceDesiredStateTimeoutsPtrOutput
+	ToInstanceDesiredStateTimeoutsPtrOutputWithContext(context.Context) InstanceDesiredStateTimeoutsPtrOutput
+}
+
+type instanceDesiredStateTimeoutsPtrType InstanceDesiredStateTimeoutsArgs
+
+func InstanceDesiredStateTimeoutsPtr(v *InstanceDesiredStateTimeoutsArgs) InstanceDesiredStateTimeoutsPtrInput {
+	return (*instanceDesiredStateTimeoutsPtrType)(v)
+}
+
+func (*instanceDesiredStateTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceDesiredStateTimeouts)(nil)).Elem()
+}
+
+func (i *instanceDesiredStateTimeoutsPtrType) ToInstanceDesiredStateTimeoutsPtrOutput() InstanceDesiredStateTimeoutsPtrOutput {
+	return i.ToInstanceDesiredStateTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceDesiredStateTimeoutsPtrType) ToInstanceDesiredStateTimeoutsPtrOutputWithContext(ctx context.Context) InstanceDesiredStateTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceDesiredStateTimeoutsPtrOutput)
+}
+
+type InstanceDesiredStateTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (InstanceDesiredStateTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceDesiredStateTimeouts)(nil)).Elem()
+}
+
+func (o InstanceDesiredStateTimeoutsOutput) ToInstanceDesiredStateTimeoutsOutput() InstanceDesiredStateTimeoutsOutput {
+	return o
+}
+
+func (o InstanceDesiredStateTimeoutsOutput) ToInstanceDesiredStateTimeoutsOutputWithContext(ctx context.Context) InstanceDesiredStateTimeoutsOutput {
+	return o
+}
+
+func (o InstanceDesiredStateTimeoutsOutput) ToInstanceDesiredStateTimeoutsPtrOutput() InstanceDesiredStateTimeoutsPtrOutput {
+	return o.ToInstanceDesiredStateTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceDesiredStateTimeoutsOutput) ToInstanceDesiredStateTimeoutsPtrOutputWithContext(ctx context.Context) InstanceDesiredStateTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceDesiredStateTimeouts) *InstanceDesiredStateTimeouts {
+		return &v
+	}).(InstanceDesiredStateTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o InstanceDesiredStateTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceDesiredStateTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o InstanceDesiredStateTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceDesiredStateTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type InstanceDesiredStateTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceDesiredStateTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceDesiredStateTimeouts)(nil)).Elem()
+}
+
+func (o InstanceDesiredStateTimeoutsPtrOutput) ToInstanceDesiredStateTimeoutsPtrOutput() InstanceDesiredStateTimeoutsPtrOutput {
+	return o
+}
+
+func (o InstanceDesiredStateTimeoutsPtrOutput) ToInstanceDesiredStateTimeoutsPtrOutputWithContext(ctx context.Context) InstanceDesiredStateTimeoutsPtrOutput {
+	return o
+}
+
+func (o InstanceDesiredStateTimeoutsPtrOutput) Elem() InstanceDesiredStateTimeoutsOutput {
+	return o.ApplyT(func(v *InstanceDesiredStateTimeouts) InstanceDesiredStateTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceDesiredStateTimeouts
+		return ret
+	}).(InstanceDesiredStateTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o InstanceDesiredStateTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceDesiredStateTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o InstanceDesiredStateTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceDesiredStateTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type InstanceListenerEndpoint struct {
 	// Specifies the DNS address of the DB instance.
 	Address *string `pulumi:"address"`
@@ -3853,6 +4009,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterGlobalClusterMemberArrayInput)(nil)).Elem(), GlobalClusterGlobalClusterMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceBlueGreenUpdateInput)(nil)).Elem(), InstanceBlueGreenUpdateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceBlueGreenUpdatePtrInput)(nil)).Elem(), InstanceBlueGreenUpdateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceDesiredStateTimeoutsInput)(nil)).Elem(), InstanceDesiredStateTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceDesiredStateTimeoutsPtrInput)(nil)).Elem(), InstanceDesiredStateTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceListenerEndpointInput)(nil)).Elem(), InstanceListenerEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceListenerEndpointArrayInput)(nil)).Elem(), InstanceListenerEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMasterUserSecretInput)(nil)).Elem(), InstanceMasterUserSecretArgs{})
@@ -3905,6 +4063,8 @@ func init() {
 	pulumi.RegisterOutputType(GlobalClusterGlobalClusterMemberArrayOutput{})
 	pulumi.RegisterOutputType(InstanceBlueGreenUpdateOutput{})
 	pulumi.RegisterOutputType(InstanceBlueGreenUpdatePtrOutput{})
+	pulumi.RegisterOutputType(InstanceDesiredStateTimeoutsOutput{})
+	pulumi.RegisterOutputType(InstanceDesiredStateTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceListenerEndpointOutput{})
 	pulumi.RegisterOutputType(InstanceListenerEndpointArrayOutput{})
 	pulumi.RegisterOutputType(InstanceMasterUserSecretOutput{})
