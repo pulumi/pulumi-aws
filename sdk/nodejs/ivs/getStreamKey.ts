@@ -80,7 +80,7 @@ export interface GetStreamKeyResult {
  * });
  * ```
  */
-export function getStreamKeyOutput(args: GetStreamKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamKeyResult> {
+export function getStreamKeyOutput(args: GetStreamKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStreamKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ivs/getStreamKey:getStreamKey", {
         "channelArn": args.channelArn,

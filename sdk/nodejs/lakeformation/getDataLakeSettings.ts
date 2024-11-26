@@ -103,7 +103,7 @@ export interface GetDataLakeSettingsResult {
  * });
  * ```
  */
-export function getDataLakeSettingsOutput(args?: GetDataLakeSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataLakeSettingsResult> {
+export function getDataLakeSettingsOutput(args?: GetDataLakeSettingsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataLakeSettingsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:lakeformation/getDataLakeSettings:getDataLakeSettings", {

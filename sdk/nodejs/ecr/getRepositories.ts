@@ -51,7 +51,7 @@ export interface GetRepositoriesResult {
  * const example = aws.ecr.getRepositories({});
  * ```
  */
-export function getRepositoriesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoriesResult> {
+export function getRepositoriesOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRepositoriesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ecr/getRepositories:getRepositories", {
     }, opts);

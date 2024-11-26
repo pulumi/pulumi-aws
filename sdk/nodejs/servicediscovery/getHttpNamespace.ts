@@ -76,7 +76,7 @@ export interface GetHttpNamespaceResult {
  * });
  * ```
  */
-export function getHttpNamespaceOutput(args: GetHttpNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHttpNamespaceResult> {
+export function getHttpNamespaceOutput(args: GetHttpNamespaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHttpNamespaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:servicediscovery/getHttpNamespace:getHttpNamespace", {
         "name": args.name,

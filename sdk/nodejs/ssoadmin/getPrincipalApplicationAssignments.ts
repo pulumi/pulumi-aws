@@ -94,7 +94,7 @@ export interface GetPrincipalApplicationAssignmentsResult {
  * });
  * ```
  */
-export function getPrincipalApplicationAssignmentsOutput(args: GetPrincipalApplicationAssignmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrincipalApplicationAssignmentsResult> {
+export function getPrincipalApplicationAssignmentsOutput(args: GetPrincipalApplicationAssignmentsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrincipalApplicationAssignmentsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssoadmin/getPrincipalApplicationAssignments:getPrincipalApplicationAssignments", {
         "applicationAssignments": args.applicationAssignments,

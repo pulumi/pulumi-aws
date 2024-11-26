@@ -100,7 +100,7 @@ export interface GetConfigurationSetResult {
  * });
  * ```
  */
-export function getConfigurationSetOutput(args: GetConfigurationSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationSetResult> {
+export function getConfigurationSetOutput(args: GetConfigurationSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:sesv2/getConfigurationSet:getConfigurationSet", {
         "configurationSetName": args.configurationSetName,

@@ -79,7 +79,7 @@ export interface GetPipelineDefinitionResult {
  * });
  * ```
  */
-export function getPipelineDefinitionOutput(args: GetPipelineDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineDefinitionResult> {
+export function getPipelineDefinitionOutput(args: GetPipelineDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPipelineDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:datapipeline/getPipelineDefinition:getPipelineDefinition", {
         "parameterValues": args.parameterValues,

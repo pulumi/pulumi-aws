@@ -101,7 +101,7 @@ def get_resource_tags(resource_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_resource_tags_output(resource_id: Optional[pulumi.Input[str]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceTagsResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceTagsResult]:
     """
     Get tags attached to the specified AWS Organizations resource.
 
@@ -121,7 +121,7 @@ def get_resource_tags_output(resource_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['resourceId'] = resource_id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:organizations/getResourceTags:getResourceTags', __args__, opts=opts, typ=GetResourceTagsResult)
     return __ret__.apply(lambda __response__: GetResourceTagsResult(
         id=pulumi.get(__response__, 'id'),

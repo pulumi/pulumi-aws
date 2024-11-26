@@ -122,7 +122,7 @@ export interface GetConnectResult {
  * });
  * ```
  */
-export function getConnectOutput(args?: GetConnectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectResult> {
+export function getConnectOutput(args?: GetConnectOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getConnect:getConnect", {

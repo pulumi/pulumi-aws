@@ -100,7 +100,7 @@ export interface GetInferenceProfileResult {
  * }));
  * ```
  */
-export function getInferenceProfileOutput(args: GetInferenceProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInferenceProfileResult> {
+export function getInferenceProfileOutput(args: GetInferenceProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInferenceProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:bedrock/getInferenceProfile:getInferenceProfile", {
         "inferenceProfileId": args.inferenceProfileId,

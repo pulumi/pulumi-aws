@@ -95,7 +95,7 @@ export interface GetVirtualClusterResult {
  * export const arn = example.then(example => example.arn);
  * ```
  */
-export function getVirtualClusterOutput(args: GetVirtualClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualClusterResult> {
+export function getVirtualClusterOutput(args: GetVirtualClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:emrcontainers/getVirtualCluster:getVirtualCluster", {
         "tags": args.tags,

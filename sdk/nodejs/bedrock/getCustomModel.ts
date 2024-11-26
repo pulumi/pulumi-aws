@@ -119,7 +119,7 @@ export interface GetCustomModelResult {
  * });
  * ```
  */
-export function getCustomModelOutput(args: GetCustomModelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomModelResult> {
+export function getCustomModelOutput(args: GetCustomModelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomModelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:bedrock/getCustomModel:getCustomModel", {
         "modelId": args.modelId,
