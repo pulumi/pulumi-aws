@@ -162,7 +162,7 @@ export interface GetPatchBaselineResult {
  * });
  * ```
  */
-export function getPatchBaselineOutput(args: GetPatchBaselineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPatchBaselineResult> {
+export function getPatchBaselineOutput(args: GetPatchBaselineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPatchBaselineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssm/getPatchBaseline:getPatchBaseline", {
         "defaultBaseline": args.defaultBaseline,

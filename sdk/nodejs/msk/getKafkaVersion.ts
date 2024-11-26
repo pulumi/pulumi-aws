@@ -84,7 +84,7 @@ export interface GetKafkaVersionResult {
  * });
  * ```
  */
-export function getKafkaVersionOutput(args?: GetKafkaVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKafkaVersionResult> {
+export function getKafkaVersionOutput(args?: GetKafkaVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKafkaVersionResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:msk/getKafkaVersion:getKafkaVersion", {

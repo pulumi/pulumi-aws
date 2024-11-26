@@ -83,7 +83,7 @@ export interface GetVpcAttachmentsResult {
  * })));
  * ```
  */
-export function getVpcAttachmentsOutput(args?: GetVpcAttachmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcAttachmentsResult> {
+export function getVpcAttachmentsOutput(args?: GetVpcAttachmentsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcAttachmentsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getVpcAttachments:getVpcAttachments", {

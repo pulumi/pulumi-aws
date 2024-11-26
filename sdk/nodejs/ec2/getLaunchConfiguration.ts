@@ -129,7 +129,7 @@ export interface GetLaunchConfigurationResult {
  * });
  * ```
  */
-export function getLaunchConfigurationOutput(args: GetLaunchConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchConfigurationResult> {
+export function getLaunchConfigurationOutput(args: GetLaunchConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLaunchConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getLaunchConfiguration:getLaunchConfiguration", {
         "name": args.name,

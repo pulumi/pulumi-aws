@@ -83,7 +83,7 @@ export interface GetCredentialsResult {
  * });
  * ```
  */
-export function getCredentialsOutput(args: GetCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCredentialsResult> {
+export function getCredentialsOutput(args: GetCredentialsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:redshiftserverless/getCredentials:getCredentials", {
         "dbName": args.dbName,

@@ -68,7 +68,7 @@ export interface GetFindingIdsResult {
  * });
  * ```
  */
-export function getFindingIdsOutput(args: GetFindingIdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFindingIdsResult> {
+export function getFindingIdsOutput(args: GetFindingIdsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFindingIdsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:guardduty/getFindingIds:getFindingIds", {
         "detectorId": args.detectorId,

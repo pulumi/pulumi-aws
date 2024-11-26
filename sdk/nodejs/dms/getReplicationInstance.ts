@@ -122,7 +122,7 @@ export interface GetReplicationInstanceResult {
  * });
  * ```
  */
-export function getReplicationInstanceOutput(args: GetReplicationInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationInstanceResult> {
+export function getReplicationInstanceOutput(args: GetReplicationInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:dms/getReplicationInstance:getReplicationInstance", {
         "replicationInstanceId": args.replicationInstanceId,

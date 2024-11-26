@@ -127,7 +127,7 @@ export interface GetAssetsResult {
  * });
  * ```
  */
-export function getAssetsOutput(args: GetAssetsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetsResult> {
+export function getAssetsOutput(args: GetAssetsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssetsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:outposts/getAssets:getAssets", {
         "arn": args.arn,

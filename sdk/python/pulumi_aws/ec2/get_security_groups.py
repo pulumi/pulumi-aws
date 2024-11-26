@@ -158,7 +158,7 @@ def get_security_groups(filters: Optional[Sequence[Union['GetSecurityGroupsFilte
         vpc_ids=pulumi.get(__ret__, 'vpc_ids'))
 def get_security_groups_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSecurityGroupsFilterArgs', 'GetSecurityGroupsFilterArgsDict']]]]] = None,
                                tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityGroupsResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityGroupsResult]:
     """
     Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
 
@@ -197,7 +197,7 @@ def get_security_groups_output(filters: Optional[pulumi.Input[Optional[Sequence[
     __args__ = dict()
     __args__['filters'] = filters
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getSecurityGroups:getSecurityGroups', __args__, opts=opts, typ=GetSecurityGroupsResult)
     return __ret__.apply(lambda __response__: GetSecurityGroupsResult(
         arns=pulumi.get(__response__, 'arns'),

@@ -116,7 +116,7 @@ def get_user_pools(name: Optional[str] = None,
         ids=pulumi.get(__ret__, 'ids'),
         name=pulumi.get(__ret__, 'name'))
 def get_user_pools_output(name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolsResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolsResult]:
     """
     Use this data source to get a list of cognito user pools.
 
@@ -140,7 +140,7 @@ def get_user_pools_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cognito/getUserPools:getUserPools', __args__, opts=opts, typ=GetUserPoolsResult)
     return __ret__.apply(lambda __response__: GetUserPoolsResult(
         arns=pulumi.get(__response__, 'arns'),

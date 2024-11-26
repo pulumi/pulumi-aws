@@ -92,7 +92,7 @@ export interface GetEmailIdentityResult {
  * });
  * ```
  */
-export function getEmailIdentityOutput(args: GetEmailIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailIdentityResult> {
+export function getEmailIdentityOutput(args: GetEmailIdentityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEmailIdentityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:sesv2/getEmailIdentity:getEmailIdentity", {
         "emailIdentity": args.emailIdentity,

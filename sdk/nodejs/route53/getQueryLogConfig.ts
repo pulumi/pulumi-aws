@@ -127,7 +127,7 @@ export interface GetQueryLogConfigResult {
  * });
  * ```
  */
-export function getQueryLogConfigOutput(args?: GetQueryLogConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueryLogConfigResult> {
+export function getQueryLogConfigOutput(args?: GetQueryLogConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetQueryLogConfigResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:route53/getQueryLogConfig:getQueryLogConfig", {

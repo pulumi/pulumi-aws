@@ -136,7 +136,7 @@ def get_portfolio_constraints(accept_language: Optional[str] = None,
 def get_portfolio_constraints_output(accept_language: Optional[pulumi.Input[Optional[str]]] = None,
                                      portfolio_id: Optional[pulumi.Input[str]] = None,
                                      product_id: Optional[pulumi.Input[Optional[str]]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPortfolioConstraintsResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPortfolioConstraintsResult]:
     """
     Provides information on Service Catalog Portfolio Constraints.
 
@@ -162,7 +162,7 @@ def get_portfolio_constraints_output(accept_language: Optional[pulumi.Input[Opti
     __args__['acceptLanguage'] = accept_language
     __args__['portfolioId'] = portfolio_id
     __args__['productId'] = product_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints', __args__, opts=opts, typ=GetPortfolioConstraintsResult)
     return __ret__.apply(lambda __response__: GetPortfolioConstraintsResult(
         accept_language=pulumi.get(__response__, 'accept_language'),
