@@ -154,7 +154,7 @@ def get_session_context(arn: Optional[str] = None,
         issuer_name=pulumi.get(__ret__, 'issuer_name'),
         session_name=pulumi.get(__ret__, 'session_name'))
 def get_session_context_output(arn: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSessionContextResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSessionContextResult]:
     """
     This data source provides information on the IAM source role of an STS assumed role. For non-role ARNs, this data source simply passes the ARN through in `issuer_arn`.
 
@@ -190,7 +190,7 @@ def get_session_context_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:iam/getSessionContext:getSessionContext', __args__, opts=opts, typ=GetSessionContextResult)
     return __ret__.apply(lambda __response__: GetSessionContextResult(
         arn=pulumi.get(__response__, 'arn'),

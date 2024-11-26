@@ -80,7 +80,7 @@ export interface GetReceivedLicensesResult {
  * });
  * ```
  */
-export function getReceivedLicensesOutput(args?: GetReceivedLicensesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReceivedLicensesResult> {
+export function getReceivedLicensesOutput(args?: GetReceivedLicensesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReceivedLicensesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:licensemanager/getReceivedLicenses:getReceivedLicenses", {

@@ -77,7 +77,7 @@ export interface GetConfigurationProfilesResult {
  * }) })));
  * ```
  */
-export function getConfigurationProfilesOutput(args: GetConfigurationProfilesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfilesResult> {
+export function getConfigurationProfilesOutput(args: GetConfigurationProfilesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationProfilesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:appconfig/getConfigurationProfiles:getConfigurationProfiles", {
         "applicationId": args.applicationId,

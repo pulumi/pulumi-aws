@@ -107,7 +107,7 @@ def get_delegation_set(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name_servers=pulumi.get(__ret__, 'name_servers'))
 def get_delegation_set_output(id: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDelegationSetResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDelegationSetResult]:
     """
     `route53.DelegationSet` provides details about a specific Route 53 Delegation Set.
 
@@ -131,7 +131,7 @@ def get_delegation_set_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:route53/getDelegationSet:getDelegationSet', __args__, opts=opts, typ=GetDelegationSetResult)
     return __ret__.apply(lambda __response__: GetDelegationSetResult(
         arn=pulumi.get(__response__, 'arn'),

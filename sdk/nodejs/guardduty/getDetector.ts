@@ -71,7 +71,7 @@ export interface GetDetectorResult {
  * const example = aws.guardduty.getDetector({});
  * ```
  */
-export function getDetectorOutput(args?: GetDetectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDetectorResult> {
+export function getDetectorOutput(args?: GetDetectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDetectorResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:guardduty/getDetector:getDetector", {

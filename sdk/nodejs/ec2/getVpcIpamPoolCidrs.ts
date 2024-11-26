@@ -154,7 +154,7 @@ export interface GetVpcIpamPoolCidrsResult {
  * });
  * ```
  */
-export function getVpcIpamPoolCidrsOutput(args: GetVpcIpamPoolCidrsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcIpamPoolCidrsResult> {
+export function getVpcIpamPoolCidrsOutput(args: GetVpcIpamPoolCidrsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcIpamPoolCidrsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getVpcIpamPoolCidrs:getVpcIpamPoolCidrs", {
         "filters": args.filters,

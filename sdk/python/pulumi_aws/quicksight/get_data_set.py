@@ -250,7 +250,7 @@ def get_data_set_output(aws_account_id: Optional[pulumi.Input[Optional[str]]] = 
                         data_set_id: Optional[pulumi.Input[str]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                         tags_all: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataSetResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataSetResult]:
     """
     Data source for managing a QuickSight Data Set.
 
@@ -276,7 +276,7 @@ def get_data_set_output(aws_account_id: Optional[pulumi.Input[Optional[str]]] = 
     __args__['dataSetId'] = data_set_id
     __args__['tags'] = tags
     __args__['tagsAll'] = tags_all
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:quicksight/getDataSet:getDataSet', __args__, opts=opts, typ=GetDataSetResult)
     return __ret__.apply(lambda __response__: GetDataSetResult(
         arn=pulumi.get(__response__, 'arn'),

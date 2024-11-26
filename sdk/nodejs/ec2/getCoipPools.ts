@@ -55,7 +55,7 @@ export interface GetCoipPoolsResult {
 /**
  * Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
  */
-export function getCoipPoolsOutput(args?: GetCoipPoolsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCoipPoolsResult> {
+export function getCoipPoolsOutput(args?: GetCoipPoolsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCoipPoolsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getCoipPools:getCoipPools", {
