@@ -293,7 +293,7 @@ def get_serverless_cache(name: Optional[str] = None,
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         user_group_id=pulumi.get(__ret__, 'user_group_id'))
 def get_serverless_cache_output(name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerlessCacheResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessCacheResult]:
     """
     Use this data source to get information about an ElastiCache Serverless Cache.
 
@@ -311,7 +311,7 @@ def get_serverless_cache_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:elasticache/getServerlessCache:getServerlessCache', __args__, opts=opts, typ=GetServerlessCacheResult)
     return __ret__.apply(lambda __response__: GetServerlessCacheResult(
         arn=pulumi.get(__response__, 'arn'),

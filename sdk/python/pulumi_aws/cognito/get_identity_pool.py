@@ -208,7 +208,7 @@ def get_identity_pool(identity_pool_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_identity_pool_output(identity_pool_name: Optional[pulumi.Input[str]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdentityPoolResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdentityPoolResult]:
     """
     Data source for managing an AWS Cognito Identity Pool.
 
@@ -230,7 +230,7 @@ def get_identity_pool_output(identity_pool_name: Optional[pulumi.Input[str]] = N
     __args__ = dict()
     __args__['identityPoolName'] = identity_pool_name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cognito/getIdentityPool:getIdentityPool', __args__, opts=opts, typ=GetIdentityPoolResult)
     return __ret__.apply(lambda __response__: GetIdentityPoolResult(
         allow_classic_flow=pulumi.get(__response__, 'allow_classic_flow'),

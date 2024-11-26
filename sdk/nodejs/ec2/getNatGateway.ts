@@ -157,7 +157,7 @@ export interface GetNatGatewayResult {
  * });
  * ```
  */
-export function getNatGatewayOutput(args?: GetNatGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNatGatewayResult> {
+export function getNatGatewayOutput(args?: GetNatGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNatGatewayResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getNatGateway:getNatGateway", {

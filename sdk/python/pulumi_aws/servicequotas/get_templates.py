@@ -105,7 +105,7 @@ def get_templates(region: Optional[str] = None,
         templates=pulumi.get(__ret__, 'templates'))
 def get_templates_output(region: Optional[pulumi.Input[str]] = None,
                          templates: Optional[pulumi.Input[Optional[Sequence[Union['GetTemplatesTemplateArgs', 'GetTemplatesTemplateArgsDict']]]]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTemplatesResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTemplatesResult]:
     """
     Data source for managing an AWS Service Quotas Templates.
 
@@ -127,7 +127,7 @@ def get_templates_output(region: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['region'] = region
     __args__['templates'] = templates
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:servicequotas/getTemplates:getTemplates', __args__, opts=opts, typ=GetTemplatesResult)
     return __ret__.apply(lambda __response__: GetTemplatesResult(
         id=pulumi.get(__response__, 'id'),

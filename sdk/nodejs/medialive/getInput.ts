@@ -119,7 +119,7 @@ export interface GetInputResult {
  * });
  * ```
  */
-export function getInputOutput(args: GetInputOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInputResult> {
+export function getInputOutput(args: GetInputOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInputResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:medialive/getInput:getInput", {
         "id": args.id,

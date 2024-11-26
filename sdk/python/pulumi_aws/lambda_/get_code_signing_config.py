@@ -152,7 +152,7 @@ def get_code_signing_config(arn: Optional[str] = None,
         last_modified=pulumi.get(__ret__, 'last_modified'),
         policies=pulumi.get(__ret__, 'policies'))
 def get_code_signing_config_output(arn: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCodeSigningConfigResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCodeSigningConfigResult]:
     """
     Provides information about a Lambda Code Signing Config. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
 
@@ -172,7 +172,7 @@ def get_code_signing_config_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:lambda/getCodeSigningConfig:getCodeSigningConfig', __args__, opts=opts, typ=GetCodeSigningConfigResult)
     return __ret__.apply(lambda __response__: GetCodeSigningConfigResult(
         allowed_publishers=pulumi.get(__response__, 'allowed_publishers'),

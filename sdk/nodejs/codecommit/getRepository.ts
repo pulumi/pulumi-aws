@@ -79,7 +79,7 @@ export interface GetRepositoryResult {
  * });
  * ```
  */
-export function getRepositoryOutput(args: GetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryResult> {
+export function getRepositoryOutput(args: GetRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:codecommit/getRepository:getRepository", {
         "repositoryName": args.repositoryName,

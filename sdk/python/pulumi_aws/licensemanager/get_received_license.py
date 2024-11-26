@@ -270,7 +270,7 @@ def get_received_license(license_arn: Optional[str] = None,
         validities=pulumi.get(__ret__, 'validities'),
         version=pulumi.get(__ret__, 'version'))
 def get_received_license_output(license_arn: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReceivedLicenseResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReceivedLicenseResult]:
     """
     This resource can be used to get data on a received license using an ARN. This can be helpful for pulling in data on a license from the AWS marketplace and sharing that license with another account.
 
@@ -290,7 +290,7 @@ def get_received_license_output(license_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['licenseArn'] = license_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:licensemanager/getReceivedLicense:getReceivedLicense', __args__, opts=opts, typ=GetReceivedLicenseResult)
     return __ret__.apply(lambda __response__: GetReceivedLicenseResult(
         beneficiary=pulumi.get(__response__, 'beneficiary'),

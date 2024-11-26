@@ -101,7 +101,7 @@ export interface GetVpcPeeringConnectionsResult {
  * })));
  * ```
  */
-export function getVpcPeeringConnectionsOutput(args?: GetVpcPeeringConnectionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcPeeringConnectionsResult> {
+export function getVpcPeeringConnectionsOutput(args?: GetVpcPeeringConnectionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcPeeringConnectionsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getVpcPeeringConnections:getVpcPeeringConnections", {

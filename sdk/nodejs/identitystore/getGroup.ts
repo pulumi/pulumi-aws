@@ -117,7 +117,7 @@ export interface GetGroupResult {
  * export const groupId = exampleGetGroup.then(exampleGetGroup => exampleGetGroup.groupId);
  * ```
  */
-export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
+export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:identitystore/getGroup:getGroup", {
         "alternateIdentifier": args.alternateIdentifier,

@@ -53,7 +53,7 @@ export interface GetLocationsResult {
  * const available = aws.directconnect.getLocations({});
  * ```
  */
-export function getLocationsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationsResult> {
+export function getLocationsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:directconnect/getLocations:getLocations", {
     }, opts);

@@ -67,7 +67,7 @@ export interface GetStateMachineVersionsResult {
  * });
  * ```
  */
-export function getStateMachineVersionsOutput(args: GetStateMachineVersionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStateMachineVersionsResult> {
+export function getStateMachineVersionsOutput(args: GetStateMachineVersionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStateMachineVersionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:sfn/getStateMachineVersions:getStateMachineVersions", {
         "statemachineArn": args.statemachineArn,
