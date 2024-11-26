@@ -12,3 +12,4 @@ bin/darwin-amd64/$(PROVIDER): minimal_schema_no_deps
 bin/darwin-arm64/$(PROVIDER): minimal_schema_no_deps
 bin/windows-amd64/$(PROVIDER).exe: minimal_schema_no_deps
 provider_no_deps: minimal_schema_no_deps
+provider: minimal_schema_no_deps
