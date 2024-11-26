@@ -45,6 +45,8 @@ jobs:
         uses: ./.github/actions/setup-tools
         with:
           tools: pulumictl, go
+      - name: Prepare local workspace before restoring previously built
+        run: make prepare_local_workspace
       - name: Download schema-embed.json
         uses: actions/download-artifact@v4
         with:
@@ -53,9 +55,11 @@ jobs:
           # Avoid creating directories for each artifact
           merge-multiple: true
           path: provider/cmd/pulumi-resource-aws/schema-embed.json
-      - name: Prepare for build
-        # This installs plugins and prepares upstream
-        run: make upstream
+      - name: Restore makefile progress
+        uses: actions/download-artifact@v4
+        with:
+          name: prerequisites.make
+          path: .make
       - name: Build & package provider
         run: make provider_dist-${{ matrix.platform.os }}-${{ matrix.platform.arch }}
       - name: Upload artifacts

@@ -67,20 +67,16 @@ jobs:
         path: |
           .pulumi/examples-cache
         key: ${{ runner.os }}-${{ hashFiles('provider/go.sum') }}
-    - name: Prepare upstream code
-      run: make upstream
     - name: Setup tools
       uses: ./.github/actions/setup-tools
       with:
         tools: go, pulumictl, pulumicli, schema-tools
-    - name: Build schema generator binary
-      run: make tfgen_build_only
-    - name: Install plugins
-      run: make install_plugins
+    - name: Prepare local workspace before restoring previously built files
+      run: make prepare_local_workspace
     - name: Generate schema
-      run: make tfgen_no_deps
+      run: make schema
     - name: Build provider binary
-      run: make provider_no_deps
+      run: make provider
     - name: Unit-test provider code
       run: make test_provider
     - if: inputs.is_pr
@@ -92,6 +88,12 @@ jobs:
           schema-tools compare -r github://api.github.com/pulumi -p aws -o "${{ inputs.default_branch }}" -n --local-path=provider/cmd/pulumi-resource-aws/schema.json;
           echo "$EOF";
         } >> "$GITHUB_ENV"
+    - name: Save makefile progress
+      uses: actions/upload-artifact@v4
+      with:
+        name: prerequisites.make
+        path: .make
+        include-hidden-files: true
     - if: inputs.is_pr && inputs.is_automated == false
       name: Comment on PR with Details of Schema Check
       uses: thollander/actions-comment-pull-request@v2

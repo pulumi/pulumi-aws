@@ -72,15 +72,19 @@ jobs:
       uses: ./.github/actions/setup-tools
       with:
         tools: pulumictl, pulumicli, ${{ matrix.language}}
+    - name: Prepare local workspace
+      run: make prepare_local_workspace
     - name: Download bin
       uses: ./.github/actions/download-bin
-    - name: Add NuGet source
-      if: matrix.language == 'dotnet'
-      run: dotnet nuget add source ${{ github.workspace }}/nuget
     - name: Download SDK
       uses: ./.github/actions/download-sdk
       with:
         language: ${{ matrix.language }}
+    - name: Restore makefile progress
+      uses: actions/download-artifact@v4
+      with:
+        name: build_${{ matrix.language }}.make
+        path: .make
     - name: Update path
       run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
     - name: Install Python deps
