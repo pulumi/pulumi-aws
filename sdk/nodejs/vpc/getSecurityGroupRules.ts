@@ -80,7 +80,7 @@ export interface GetSecurityGroupRulesResult {
  * });
  * ```
  */
-export function getSecurityGroupRulesOutput(args?: GetSecurityGroupRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityGroupRulesResult> {
+export function getSecurityGroupRulesOutput(args?: GetSecurityGroupRulesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityGroupRulesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:vpc/getSecurityGroupRules:getSecurityGroupRules", {

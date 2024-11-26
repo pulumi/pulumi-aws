@@ -81,7 +81,7 @@ export interface GetDevicesResult {
  * });
  * ```
  */
-export function getDevicesOutput(args: GetDevicesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevicesResult> {
+export function getDevicesOutput(args: GetDevicesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDevicesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:networkmanager/getDevices:getDevices", {
         "globalNetworkId": args.globalNetworkId,

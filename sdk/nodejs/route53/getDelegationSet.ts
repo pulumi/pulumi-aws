@@ -68,7 +68,7 @@ export interface GetDelegationSetResult {
  * });
  * ```
  */
-export function getDelegationSetOutput(args: GetDelegationSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDelegationSetResult> {
+export function getDelegationSetOutput(args: GetDelegationSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDelegationSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:route53/getDelegationSet:getDelegationSet", {
         "id": args.id,

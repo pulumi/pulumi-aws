@@ -224,7 +224,7 @@ def get_queue_output(instance_id: Optional[pulumi.Input[str]] = None,
                      name: Optional[pulumi.Input[Optional[str]]] = None,
                      queue_id: Optional[pulumi.Input[Optional[str]]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueueResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueueResult]:
     """
     Provides details about a specific Amazon Connect Queue.
 
@@ -261,7 +261,7 @@ def get_queue_output(instance_id: Optional[pulumi.Input[str]] = None,
     __args__['name'] = name
     __args__['queueId'] = queue_id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:connect/getQueue:getQueue', __args__, opts=opts, typ=GetQueueResult)
     return __ret__.apply(lambda __response__: GetQueueResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -130,7 +130,7 @@ export interface GetContactFlowModuleResult {
  * });
  * ```
  */
-export function getContactFlowModuleOutput(args: GetContactFlowModuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactFlowModuleResult> {
+export function getContactFlowModuleOutput(args: GetContactFlowModuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContactFlowModuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:connect/getContactFlowModule:getContactFlowModule", {
         "contactFlowModuleId": args.contactFlowModuleId,

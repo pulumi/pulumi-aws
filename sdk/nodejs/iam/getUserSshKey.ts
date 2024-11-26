@@ -87,7 +87,7 @@ export interface GetUserSshKeyResult {
  * });
  * ```
  */
-export function getUserSshKeyOutput(args: GetUserSshKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserSshKeyResult> {
+export function getUserSshKeyOutput(args: GetUserSshKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserSshKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:iam/getUserSshKey:getUserSshKey", {
         "encoding": args.encoding,

@@ -119,7 +119,7 @@ def get_instance_types(filters: Optional[Sequence[Union['GetInstanceTypesFilterA
         id=pulumi.get(__ret__, 'id'),
         instance_types=pulumi.get(__ret__, 'instance_types'))
 def get_instance_types_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetInstanceTypesFilterArgs', 'GetInstanceTypesFilterArgsDict']]]]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceTypesResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceTypesResult]:
     """
     Information about EC2 Instance Types.
 
@@ -157,7 +157,7 @@ def get_instance_types_output(filters: Optional[pulumi.Input[Optional[Sequence[U
     """
     __args__ = dict()
     __args__['filters'] = filters
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getInstanceTypes:getInstanceTypes', __args__, opts=opts, typ=GetInstanceTypesResult)
     return __ret__.apply(lambda __response__: GetInstanceTypesResult(
         filters=pulumi.get(__response__, 'filters'),

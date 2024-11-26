@@ -91,7 +91,7 @@ export interface GetProfilingGroupResult {
  * });
  * ```
  */
-export function getProfilingGroupOutput(args: GetProfilingGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfilingGroupResult> {
+export function getProfilingGroupOutput(args: GetProfilingGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProfilingGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:codeguruprofiler/getProfilingGroup:getProfilingGroup", {
         "name": args.name,

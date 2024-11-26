@@ -188,7 +188,7 @@ def get_listener_rule_output(actions: Optional[pulumi.Input[Optional[Sequence[Un
                              conditions: Optional[pulumi.Input[Optional[Sequence[Union['GetListenerRuleConditionArgs', 'GetListenerRuleConditionArgsDict']]]]] = None,
                              listener_arn: Optional[pulumi.Input[Optional[str]]] = None,
                              priority: Optional[pulumi.Input[Optional[float]]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetListenerRuleResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetListenerRuleResult]:
     """
     Provides information about an AWS Elastic Load Balancing Listener Rule.
 
@@ -236,7 +236,7 @@ def get_listener_rule_output(actions: Optional[pulumi.Input[Optional[Sequence[Un
     __args__['conditions'] = conditions
     __args__['listenerArn'] = listener_arn
     __args__['priority'] = priority
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:lb/getListenerRule:getListenerRule', __args__, opts=opts, typ=GetListenerRuleResult)
     return __ret__.apply(lambda __response__: GetListenerRuleResult(
         actions=pulumi.get(__response__, 'actions'),

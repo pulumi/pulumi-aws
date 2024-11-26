@@ -78,7 +78,7 @@ export interface GetBotAssociationResult {
  * });
  * ```
  */
-export function getBotAssociationOutput(args: GetBotAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotAssociationResult> {
+export function getBotAssociationOutput(args: GetBotAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBotAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:connect/getBotAssociation:getBotAssociation", {
         "instanceId": args.instanceId,

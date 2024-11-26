@@ -183,7 +183,7 @@ def get_framework(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_framework_output(name: Optional[pulumi.Input[str]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFrameworkResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFrameworkResult]:
     """
     Use this data source to get information on an existing backup framework.
 
@@ -203,7 +203,7 @@ def get_framework_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:backup/getFramework:getFramework', __args__, opts=opts, typ=GetFrameworkResult)
     return __ret__.apply(lambda __response__: GetFrameworkResult(
         arn=pulumi.get(__response__, 'arn'),

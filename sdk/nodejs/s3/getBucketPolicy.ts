@@ -69,7 +69,7 @@ export interface GetBucketPolicyResult {
  * export const foo = example.then(example => example.policy);
  * ```
  */
-export function getBucketPolicyOutput(args: GetBucketPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBucketPolicyResult> {
+export function getBucketPolicyOutput(args: GetBucketPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBucketPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:s3/getBucketPolicy:getBucketPolicy", {
         "bucket": args.bucket,

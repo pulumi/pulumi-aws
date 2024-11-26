@@ -88,7 +88,7 @@ export interface GetDnsNamespaceResult {
  * });
  * ```
  */
-export function getDnsNamespaceOutput(args: GetDnsNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsNamespaceResult> {
+export function getDnsNamespaceOutput(args: GetDnsNamespaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDnsNamespaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:servicediscovery/getDnsNamespace:getDnsNamespace", {
         "name": args.name,

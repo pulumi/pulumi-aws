@@ -151,7 +151,7 @@ def get_models_output(by_customization_type: Optional[pulumi.Input[Optional[str]
                       by_inference_type: Optional[pulumi.Input[Optional[str]]] = None,
                       by_output_modality: Optional[pulumi.Input[Optional[str]]] = None,
                       by_provider: Optional[pulumi.Input[Optional[str]]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModelsResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModelsResult]:
     """
     Data source for managing AWS Bedrock Foundation Models.
 
@@ -186,7 +186,7 @@ def get_models_output(by_customization_type: Optional[pulumi.Input[Optional[str]
     __args__['byInferenceType'] = by_inference_type
     __args__['byOutputModality'] = by_output_modality
     __args__['byProvider'] = by_provider
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:bedrockfoundation/getModels:getModels', __args__, opts=opts, typ=GetModelsResult)
     return __ret__.apply(lambda __response__: GetModelsResult(
         by_customization_type=pulumi.get(__response__, 'by_customization_type'),

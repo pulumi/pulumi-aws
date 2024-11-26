@@ -77,7 +77,7 @@ export interface GetEmailIdentityMailFromAttributesResult {
  * }));
  * ```
  */
-export function getEmailIdentityMailFromAttributesOutput(args: GetEmailIdentityMailFromAttributesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailIdentityMailFromAttributesResult> {
+export function getEmailIdentityMailFromAttributesOutput(args: GetEmailIdentityMailFromAttributesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEmailIdentityMailFromAttributesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:sesv2/getEmailIdentityMailFromAttributes:getEmailIdentityMailFromAttributes", {
         "emailIdentity": args.emailIdentity,

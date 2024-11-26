@@ -117,7 +117,7 @@ def get_export(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         value=pulumi.get(__ret__, 'value'))
 def get_export_output(name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExportResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExportResult]:
     """
     The CloudFormation Export data source allows access to stack
     exports specified in the [Output](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) section of the Cloudformation Template using the optional Export Property.
@@ -142,7 +142,7 @@ def get_export_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cloudformation/getExport:getExport', __args__, opts=opts, typ=GetExportResult)
     return __ret__.apply(lambda __response__: GetExportResult(
         exporting_stack_id=pulumi.get(__response__, 'exporting_stack_id'),

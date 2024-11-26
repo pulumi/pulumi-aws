@@ -137,7 +137,7 @@ export interface GetResourceShareResult {
  * });
  * ```
  */
-export function getResourceShareOutput(args: GetResourceShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceShareResult> {
+export function getResourceShareOutput(args: GetResourceShareOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceShareResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ram/getResourceShare:getResourceShare", {
         "filters": args.filters,
