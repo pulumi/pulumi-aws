@@ -47,7 +47,7 @@ export interface GetSitesResult {
  * const all = aws.outposts.getSites({});
  * ```
  */
-export function getSitesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSitesResult> {
+export function getSitesOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSitesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:outposts/getSites:getSites", {
     }, opts);

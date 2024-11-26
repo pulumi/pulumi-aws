@@ -104,7 +104,7 @@ export interface GetVirtualGatewayResult {
  * });
  * ```
  */
-export function getVirtualGatewayOutput(args: GetVirtualGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualGatewayResult> {
+export function getVirtualGatewayOutput(args: GetVirtualGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:appmesh/getVirtualGateway:getVirtualGateway", {
         "meshName": args.meshName,

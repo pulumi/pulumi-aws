@@ -157,7 +157,7 @@ export interface GetVpcIamPoolCidrsResult {
  * ```
  */
 /** @deprecated aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs */
-export function getVpcIamPoolCidrsOutput(args: GetVpcIamPoolCidrsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcIamPoolCidrsResult> {
+export function getVpcIamPoolCidrsOutput(args: GetVpcIamPoolCidrsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcIamPoolCidrsResult> {
     pulumi.log.warn("getVpcIamPoolCidrs is deprecated: aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs")
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getVpcIamPoolCidrs:getVpcIamPoolCidrs", {

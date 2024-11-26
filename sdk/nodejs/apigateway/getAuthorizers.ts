@@ -63,7 +63,7 @@ export interface GetAuthorizersResult {
  * });
  * ```
  */
-export function getAuthorizersOutput(args: GetAuthorizersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizersResult> {
+export function getAuthorizersOutput(args: GetAuthorizersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAuthorizersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:apigateway/getAuthorizers:getAuthorizers", {
         "restApiId": args.restApiId,

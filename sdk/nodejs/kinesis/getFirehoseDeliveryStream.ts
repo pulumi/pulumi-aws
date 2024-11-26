@@ -67,7 +67,7 @@ export interface GetFirehoseDeliveryStreamResult {
  * });
  * ```
  */
-export function getFirehoseDeliveryStreamOutput(args: GetFirehoseDeliveryStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirehoseDeliveryStreamResult> {
+export function getFirehoseDeliveryStreamOutput(args: GetFirehoseDeliveryStreamOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFirehoseDeliveryStreamResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:kinesis/getFirehoseDeliveryStream:getFirehoseDeliveryStream", {
         "name": args.name,

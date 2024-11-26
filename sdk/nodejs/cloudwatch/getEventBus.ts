@@ -75,7 +75,7 @@ export interface GetEventBusResult {
  * });
  * ```
  */
-export function getEventBusOutput(args: GetEventBusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventBusResult> {
+export function getEventBusOutput(args: GetEventBusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEventBusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cloudwatch/getEventBus:getEventBus", {
         "name": args.name,

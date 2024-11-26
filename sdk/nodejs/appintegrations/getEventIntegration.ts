@@ -87,7 +87,7 @@ export interface GetEventIntegrationResult {
  * });
  * ```
  */
-export function getEventIntegrationOutput(args: GetEventIntegrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventIntegrationResult> {
+export function getEventIntegrationOutput(args: GetEventIntegrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEventIntegrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:appintegrations/getEventIntegration:getEventIntegration", {
         "name": args.name,

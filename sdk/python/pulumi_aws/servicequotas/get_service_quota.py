@@ -209,7 +209,7 @@ def get_service_quota(quota_code: Optional[str] = None,
 def get_service_quota_output(quota_code: Optional[pulumi.Input[Optional[str]]] = None,
                              quota_name: Optional[pulumi.Input[Optional[str]]] = None,
                              service_code: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceQuotaResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceQuotaResult]:
     """
     Retrieve information about a Service Quota.
 
@@ -236,7 +236,7 @@ def get_service_quota_output(quota_code: Optional[pulumi.Input[Optional[str]]] =
     __args__['quotaCode'] = quota_code
     __args__['quotaName'] = quota_name
     __args__['serviceCode'] = service_code
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:servicequotas/getServiceQuota:getServiceQuota', __args__, opts=opts, typ=GetServiceQuotaResult)
     return __ret__.apply(lambda __response__: GetServiceQuotaResult(
         adjustable=pulumi.get(__response__, 'adjustable'),

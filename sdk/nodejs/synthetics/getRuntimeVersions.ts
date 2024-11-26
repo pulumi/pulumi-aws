@@ -66,7 +66,7 @@ export interface GetRuntimeVersionsResult {
  * const example = aws.synthetics.getRuntimeVersions({});
  * ```
  */
-export function getRuntimeVersionsOutput(args?: GetRuntimeVersionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuntimeVersionsResult> {
+export function getRuntimeVersionsOutput(args?: GetRuntimeVersionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRuntimeVersionsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:synthetics/getRuntimeVersions:getRuntimeVersions", {

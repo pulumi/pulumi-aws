@@ -103,7 +103,7 @@ export interface GetReservedInstanceOfferingResult {
  * });
  * ```
  */
-export function getReservedInstanceOfferingOutput(args: GetReservedInstanceOfferingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReservedInstanceOfferingResult> {
+export function getReservedInstanceOfferingOutput(args: GetReservedInstanceOfferingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReservedInstanceOfferingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:rds/getReservedInstanceOffering:getReservedInstanceOffering", {
         "dbInstanceClass": args.dbInstanceClass,

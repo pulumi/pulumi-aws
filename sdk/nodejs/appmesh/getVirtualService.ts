@@ -129,7 +129,7 @@ export interface GetVirtualServiceResult {
  * }));
  * ```
  */
-export function getVirtualServiceOutput(args: GetVirtualServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualServiceResult> {
+export function getVirtualServiceOutput(args: GetVirtualServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:appmesh/getVirtualService:getVirtualService", {
         "meshName": args.meshName,

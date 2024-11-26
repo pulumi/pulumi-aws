@@ -111,7 +111,7 @@ export interface GetOriginRequestPolicyResult {
  * });
  * ```
  */
-export function getOriginRequestPolicyOutput(args?: GetOriginRequestPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginRequestPolicyResult> {
+export function getOriginRequestPolicyOutput(args?: GetOriginRequestPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOriginRequestPolicyResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cloudfront/getOriginRequestPolicy:getOriginRequestPolicy", {

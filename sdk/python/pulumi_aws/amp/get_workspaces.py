@@ -135,7 +135,7 @@ def get_workspaces(alias_prefix: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         workspace_ids=pulumi.get(__ret__, 'workspace_ids'))
 def get_workspaces_output(alias_prefix: Optional[pulumi.Input[Optional[str]]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspacesResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspacesResult]:
     """
     Provides the aliases, ARNs, and workspace IDs of Amazon Prometheus workspaces.
 
@@ -165,7 +165,7 @@ def get_workspaces_output(alias_prefix: Optional[pulumi.Input[Optional[str]]] = 
     """
     __args__ = dict()
     __args__['aliasPrefix'] = alias_prefix
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:amp/getWorkspaces:getWorkspaces', __args__, opts=opts, typ=GetWorkspacesResult)
     return __ret__.apply(lambda __response__: GetWorkspacesResult(
         alias_prefix=pulumi.get(__response__, 'alias_prefix'),

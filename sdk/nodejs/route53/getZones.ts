@@ -50,7 +50,7 @@ export interface GetZonesResult {
  * export const example = all.then(all => all.ids);
  * ```
  */
-export function getZonesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetZonesResult> {
+export function getZonesOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetZonesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:route53/getZones:getZones", {
     }, opts);

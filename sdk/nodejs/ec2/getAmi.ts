@@ -288,7 +288,7 @@ export interface GetAmiResult {
  * });
  * ```
  */
-export function getAmiOutput(args?: GetAmiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAmiResult> {
+export function getAmiOutput(args?: GetAmiOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAmiResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getAmi:getAmi", {

@@ -425,7 +425,7 @@ def get_snapshot_output(db_instance_identifier: Optional[pulumi.Input[Optional[s
                         most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
                         snapshot_type: Optional[pulumi.Input[Optional[str]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSnapshotResult]:
     """
     Use this data source to get information about a DB Snapshot for use when provisioning DB instances
 
@@ -481,7 +481,7 @@ def get_snapshot_output(db_instance_identifier: Optional[pulumi.Input[Optional[s
     __args__['mostRecent'] = most_recent
     __args__['snapshotType'] = snapshot_type
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:rds/getSnapshot:getSnapshot', __args__, opts=opts, typ=GetSnapshotResult)
     return __ret__.apply(lambda __response__: GetSnapshotResult(
         allocated_storage=pulumi.get(__response__, 'allocated_storage'),

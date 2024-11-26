@@ -80,7 +80,7 @@ export interface GetEventSourceResult {
  * });
  * ```
  */
-export function getEventSourceOutput(args?: GetEventSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventSourceResult> {
+export function getEventSourceOutput(args?: GetEventSourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEventSourceResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cloudwatch/getEventSource:getEventSource", {

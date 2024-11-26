@@ -81,7 +81,7 @@ export interface GetRulesPackagesResult {
  * });
  * ```
  */
-export function getRulesPackagesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetRulesPackagesResult> {
+export function getRulesPackagesOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRulesPackagesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:inspector/getRulesPackages:getRulesPackages", {
     }, opts);

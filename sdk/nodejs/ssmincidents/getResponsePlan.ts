@@ -78,7 +78,7 @@ export interface GetResponsePlanResult {
  *
  * ## Example Usage
  */
-export function getResponsePlanOutput(args: GetResponsePlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResponsePlanResult> {
+export function getResponsePlanOutput(args: GetResponsePlanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResponsePlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssmincidents/getResponsePlan:getResponsePlan", {
         "arn": args.arn,
