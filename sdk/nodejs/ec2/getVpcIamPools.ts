@@ -96,7 +96,7 @@ export interface GetVpcIamPoolsResult {
  * ```
  */
 /** @deprecated aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools */
-export function getVpcIamPoolsOutput(args?: GetVpcIamPoolsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcIamPoolsResult> {
+export function getVpcIamPoolsOutput(args?: GetVpcIamPoolsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcIamPoolsResult> {
     pulumi.log.warn("getVpcIamPools is deprecated: aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools")
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

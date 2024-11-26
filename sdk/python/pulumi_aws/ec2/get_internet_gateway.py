@@ -159,7 +159,7 @@ def get_internet_gateway(filters: Optional[Sequence[Union['GetInternetGatewayFil
 def get_internet_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetInternetGatewayFilterArgs', 'GetInternetGatewayFilterArgsDict']]]]] = None,
                                 internet_gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInternetGatewayResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInternetGatewayResult]:
     """
     `ec2.InternetGateway` provides details about a specific Internet Gateway.
 
@@ -190,7 +190,7 @@ def get_internet_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence
     __args__['filters'] = filters
     __args__['internetGatewayId'] = internet_gateway_id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getInternetGateway:getInternetGateway', __args__, opts=opts, typ=GetInternetGatewayResult)
     return __ret__.apply(lambda __response__: GetInternetGatewayResult(
         arn=pulumi.get(__response__, 'arn'),

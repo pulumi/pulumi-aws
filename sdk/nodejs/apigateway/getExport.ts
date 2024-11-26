@@ -95,7 +95,7 @@ export interface GetExportResult {
  * });
  * ```
  */
-export function getExportOutput(args: GetExportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExportResult> {
+export function getExportOutput(args: GetExportOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExportResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:apigateway/getExport:getExport", {
         "accepts": args.accepts,

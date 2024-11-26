@@ -238,7 +238,7 @@ def get_stream(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_stream_output(name: Optional[pulumi.Input[str]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamResult]:
     """
     Use this data source to get information about a Kinesis Stream for use in other
     resources.
@@ -261,7 +261,7 @@ def get_stream_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:kinesis/getStream:getStream', __args__, opts=opts, typ=GetStreamResult)
     return __ret__.apply(lambda __response__: GetStreamResult(
         arn=pulumi.get(__response__, 'arn'),

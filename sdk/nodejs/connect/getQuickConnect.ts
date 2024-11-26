@@ -128,7 +128,7 @@ export interface GetQuickConnectResult {
  * });
  * ```
  */
-export function getQuickConnectOutput(args: GetQuickConnectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQuickConnectResult> {
+export function getQuickConnectOutput(args: GetQuickConnectOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetQuickConnectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:connect/getQuickConnect:getQuickConnect", {
         "instanceId": args.instanceId,

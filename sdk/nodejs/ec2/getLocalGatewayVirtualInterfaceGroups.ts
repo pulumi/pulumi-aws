@@ -73,7 +73,7 @@ export interface GetLocalGatewayVirtualInterfaceGroupsResult {
  * const all = aws.ec2.getLocalGatewayVirtualInterfaceGroups({});
  * ```
  */
-export function getLocalGatewayVirtualInterfaceGroupsOutput(args?: GetLocalGatewayVirtualInterfaceGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewayVirtualInterfaceGroupsResult> {
+export function getLocalGatewayVirtualInterfaceGroupsOutput(args?: GetLocalGatewayVirtualInterfaceGroupsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalGatewayVirtualInterfaceGroupsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getLocalGatewayVirtualInterfaceGroups:getLocalGatewayVirtualInterfaceGroups", {

@@ -76,7 +76,7 @@ export interface GetParameterResult {
  *
  * > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
  */
-export function getParameterOutput(args: GetParameterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetParameterResult> {
+export function getParameterOutput(args: GetParameterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetParameterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssm/getParameter:getParameter", {
         "name": args.name,

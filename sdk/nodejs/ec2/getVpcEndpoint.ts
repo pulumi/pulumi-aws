@@ -164,7 +164,7 @@ export interface GetVpcEndpointResult {
  * });
  * ```
  */
-export function getVpcEndpointOutput(args?: GetVpcEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcEndpointResult> {
+export function getVpcEndpointOutput(args?: GetVpcEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcEndpointResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getVpcEndpoint:getVpcEndpoint", {

@@ -139,7 +139,7 @@ export interface GetNetworkInterfaceResult {
  * });
  * ```
  */
-export function getNetworkInterfaceOutput(args?: GetNetworkInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfaceResult> {
+export function getNetworkInterfaceOutput(args?: GetNetworkInterfaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkInterfaceResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getNetworkInterface:getNetworkInterface", {

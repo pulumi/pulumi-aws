@@ -126,7 +126,7 @@ export interface GetSecurityProfileResult {
  * });
  * ```
  */
-export function getSecurityProfileOutput(args: GetSecurityProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityProfileResult> {
+export function getSecurityProfileOutput(args: GetSecurityProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:connect/getSecurityProfile:getSecurityProfile", {
         "instanceId": args.instanceId,

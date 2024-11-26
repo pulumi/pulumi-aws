@@ -207,7 +207,7 @@ def get_compute_environment(compute_environment_name: Optional[str] = None,
         update_policies=pulumi.get(__ret__, 'update_policies'))
 def get_compute_environment_output(compute_environment_name: Optional[pulumi.Input[str]] = None,
                                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComputeEnvironmentResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComputeEnvironmentResult]:
     """
     The Batch Compute Environment data source allows access to details of a specific
     compute environment within AWS Batch.
@@ -228,7 +228,7 @@ def get_compute_environment_output(compute_environment_name: Optional[pulumi.Inp
     __args__ = dict()
     __args__['computeEnvironmentName'] = compute_environment_name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:batch/getComputeEnvironment:getComputeEnvironment', __args__, opts=opts, typ=GetComputeEnvironmentResult)
     return __ret__.apply(lambda __response__: GetComputeEnvironmentResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -59,7 +59,7 @@ export interface GetParametersByPathResult {
     readonly values: string[];
     readonly withDecryption?: boolean;
 }
-export function getParametersByPathOutput(args: GetParametersByPathOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetParametersByPathResult> {
+export function getParametersByPathOutput(args: GetParametersByPathOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetParametersByPathResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssm/getParametersByPath:getParametersByPath", {
         "path": args.path,

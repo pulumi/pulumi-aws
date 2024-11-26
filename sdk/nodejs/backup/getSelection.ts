@@ -79,7 +79,7 @@ export interface GetSelectionResult {
  * });
  * ```
  */
-export function getSelectionOutput(args: GetSelectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSelectionResult> {
+export function getSelectionOutput(args: GetSelectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSelectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:backup/getSelection:getSelection", {
         "planId": args.planId,
