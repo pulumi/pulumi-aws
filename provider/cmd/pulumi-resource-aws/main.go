@@ -17,10 +17,9 @@
 package main
 
 import (
-	"bytes"
 	"compress/gzip"
 	"context"
-	_ "embed"
+	"embed"
 	"io"
 	"os"
 
@@ -30,16 +29,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
-//go:embed schema-embed.json
-var pulumiSchema []byte
-
-//go:embed schema-minimal-embed.json
-var pulumiMinimalSchema []byte
+//go:embed schema*embed.json
+var schemas embed.FS
 
 // The data in the minimal schema is compressed with GZIP to avoid bloating the provider size at the cost of slightly
 // slower init for uses of the feature.
 func decompressMinimalSchema() []byte {
-	reader, err := gzip.NewReader(bytes.NewReader(pulumiMinimalSchema))
+	reader0, err := schemas.Open("schema-minimal-embed.json")
+	contract.AssertNoErrorf(err, "Failed to open a reader into the embedded schema-minimal-embed.json")
+	reader, err := gzip.NewReader(reader0)
 	contract.AssertNoErrorf(err, "Failed to open a reader into schema-minimal-embed.json")
 	bytes, err := io.ReadAll(reader)
 	contract.AssertNoErrorf(err, "Failed to read schema-minimal-embed.json")
@@ -50,10 +48,15 @@ func main() {
 	ctx := context.Background()
 	info := aws.Provider()
 
-	s := pulumiSchema
+	var schemaBytes []byte
 	if cmdutil.IsTruthy(os.Getenv("PULUMI_AWS_MINIMAL_SCHEMA")) {
-		s = decompressMinimalSchema()
+		schemaBytes = decompressMinimalSchema()
+	} else {
+		schemaReader, err := schemas.Open("schema-embed.json")
+		contract.AssertNoErrorf(err, "Failed to open a reader into the embedded schema-embed.json")
+		schemaBytes, err = io.ReadAll(schemaReader)
+		contract.AssertNoErrorf(err, "Failed to read schema-embed.json")
 	}
 
-	pf.MainWithMuxer(ctx, "aws", *info, s)
+	pf.MainWithMuxer(ctx, "aws", *info, schemaBytes)
 }

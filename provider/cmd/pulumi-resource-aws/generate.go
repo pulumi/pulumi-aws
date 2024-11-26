@@ -134,7 +134,4 @@ func main() {
 	}); err != nil {
 		log.Fatal(err)
 	}
-
-	// Also compute the embedded version of the minimal schema.
-	embedMinimalSchema(version)
 }
