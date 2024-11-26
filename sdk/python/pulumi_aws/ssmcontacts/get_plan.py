@@ -100,7 +100,7 @@ def get_plan(contact_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         stages=pulumi.get(__ret__, 'stages'))
 def get_plan_output(contact_id: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlanResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlanResult]:
     """
     Data source for managing a Plan of an AWS SSM Contact.
 
@@ -120,7 +120,7 @@ def get_plan_output(contact_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['contactId'] = contact_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssmcontacts/getPlan:getPlan', __args__, opts=opts, typ=GetPlanResult)
     return __ret__.apply(lambda __response__: GetPlanResult(
         contact_id=pulumi.get(__response__, 'contact_id'),

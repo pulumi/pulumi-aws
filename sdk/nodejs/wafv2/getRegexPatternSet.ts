@@ -82,7 +82,7 @@ export interface GetRegexPatternSetResult {
  * });
  * ```
  */
-export function getRegexPatternSetOutput(args: GetRegexPatternSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegexPatternSetResult> {
+export function getRegexPatternSetOutput(args: GetRegexPatternSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegexPatternSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:wafv2/getRegexPatternSet:getRegexPatternSet", {
         "name": args.name,

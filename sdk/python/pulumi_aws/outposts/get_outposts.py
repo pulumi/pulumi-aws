@@ -152,7 +152,7 @@ def get_outposts_output(availability_zone: Optional[pulumi.Input[Optional[str]]]
                         availability_zone_id: Optional[pulumi.Input[Optional[str]]] = None,
                         owner_id: Optional[pulumi.Input[Optional[str]]] = None,
                         site_id: Optional[pulumi.Input[Optional[str]]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOutpostsResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOutpostsResult]:
     """
     Provides details about multiple Outposts.
 
@@ -176,7 +176,7 @@ def get_outposts_output(availability_zone: Optional[pulumi.Input[Optional[str]]]
     __args__['availabilityZoneId'] = availability_zone_id
     __args__['ownerId'] = owner_id
     __args__['siteId'] = site_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:outposts/getOutposts:getOutposts', __args__, opts=opts, typ=GetOutpostsResult)
     return __ret__.apply(lambda __response__: GetOutpostsResult(
         arns=pulumi.get(__response__, 'arns'),

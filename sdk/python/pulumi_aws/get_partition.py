@@ -119,7 +119,7 @@ def get_partition(id: Optional[str] = None,
         partition=pulumi.get(__ret__, 'partition'),
         reverse_dns_prefix=pulumi.get(__ret__, 'reverse_dns_prefix'))
 def get_partition_output(id: Optional[pulumi.Input[Optional[str]]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartitionResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPartitionResult]:
     """
     Use this data source to lookup information about the current AWS partition in
     which the provider is working.
@@ -143,7 +143,7 @@ def get_partition_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:index/getPartition:getPartition', __args__, opts=opts, typ=GetPartitionResult)
     return __ret__.apply(lambda __response__: GetPartitionResult(
         dns_suffix=pulumi.get(__response__, 'dns_suffix'),

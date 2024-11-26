@@ -75,7 +75,7 @@ export interface GetSitesResult {
  * });
  * ```
  */
-export function getSitesOutput(args: GetSitesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSitesResult> {
+export function getSitesOutput(args: GetSitesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSitesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:networkmanager/getSites:getSites", {
         "globalNetworkId": args.globalNetworkId,

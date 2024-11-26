@@ -169,7 +169,7 @@ def get_virtual_cluster(tags: Optional[Mapping[str, str]] = None,
         virtual_cluster_id=pulumi.get(__ret__, 'virtual_cluster_id'))
 def get_virtual_cluster_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                virtual_cluster_id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualClusterResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualClusterResult]:
     """
     Retrieve information about an EMR Containers (EMR on EKS) Virtual Cluster.
 
@@ -191,7 +191,7 @@ def get_virtual_cluster_output(tags: Optional[pulumi.Input[Optional[Mapping[str,
     __args__ = dict()
     __args__['tags'] = tags
     __args__['virtualClusterId'] = virtual_cluster_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:emrcontainers/getVirtualCluster:getVirtualCluster', __args__, opts=opts, typ=GetVirtualClusterResult)
     return __ret__.apply(lambda __response__: GetVirtualClusterResult(
         arn=pulumi.get(__response__, 'arn'),

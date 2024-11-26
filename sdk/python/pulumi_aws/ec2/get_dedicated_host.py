@@ -284,7 +284,7 @@ def get_dedicated_host(filters: Optional[Sequence[Union['GetDedicatedHostFilterA
 def get_dedicated_host_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetDedicatedHostFilterArgs', 'GetDedicatedHostFilterArgsDict']]]]] = None,
                               host_id: Optional[pulumi.Input[Optional[str]]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedHostResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDedicatedHostResult]:
     """
     Use this data source to get information about an EC2 Dedicated Host.
 
@@ -320,7 +320,7 @@ def get_dedicated_host_output(filters: Optional[pulumi.Input[Optional[Sequence[U
     __args__['filters'] = filters
     __args__['hostId'] = host_id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getDedicatedHost:getDedicatedHost', __args__, opts=opts, typ=GetDedicatedHostResult)
     return __ret__.apply(lambda __response__: GetDedicatedHostResult(
         arn=pulumi.get(__response__, 'arn'),

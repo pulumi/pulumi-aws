@@ -54,7 +54,7 @@ export interface GetProfilesProfilesResult {
  * const example = aws.route53.getProfilesProfiles({});
  * ```
  */
-export function getProfilesProfilesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetProfilesProfilesResult> {
+export function getProfilesProfilesOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProfilesProfilesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:route53/getProfilesProfiles:getProfilesProfiles", {
     }, opts);

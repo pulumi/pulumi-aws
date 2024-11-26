@@ -88,7 +88,7 @@ export interface GetStateMachineResult {
  * });
  * ```
  */
-export function getStateMachineOutput(args: GetStateMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStateMachineResult> {
+export function getStateMachineOutput(args: GetStateMachineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStateMachineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:sfn/getStateMachine:getStateMachine", {
         "name": args.name,

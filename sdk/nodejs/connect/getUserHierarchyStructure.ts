@@ -66,7 +66,7 @@ export interface GetUserHierarchyStructureResult {
  * });
  * ```
  */
-export function getUserHierarchyStructureOutput(args: GetUserHierarchyStructureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserHierarchyStructureResult> {
+export function getUserHierarchyStructureOutput(args: GetUserHierarchyStructureOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserHierarchyStructureResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:connect/getUserHierarchyStructure:getUserHierarchyStructure", {
         "instanceId": args.instanceId,

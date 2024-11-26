@@ -98,7 +98,7 @@ export interface GetFrameworkResult {
  * });
  * ```
  */
-export function getFrameworkOutput(args: GetFrameworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrameworkResult> {
+export function getFrameworkOutput(args: GetFrameworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFrameworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:backup/getFramework:getFramework", {
         "name": args.name,

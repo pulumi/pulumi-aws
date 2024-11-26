@@ -102,7 +102,7 @@ def get_maintenance_windows(filters: Optional[Sequence[Union['GetMaintenanceWind
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'))
 def get_maintenance_windows_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetMaintenanceWindowsFilterArgs', 'GetMaintenanceWindowsFilterArgsDict']]]]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMaintenanceWindowsResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMaintenanceWindowsResult]:
     """
     Use this data source to get the window IDs of SSM maintenance windows.
 
@@ -123,7 +123,7 @@ def get_maintenance_windows_output(filters: Optional[pulumi.Input[Optional[Seque
     """
     __args__ = dict()
     __args__['filters'] = filters
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssm/getMaintenanceWindows:getMaintenanceWindows', __args__, opts=opts, typ=GetMaintenanceWindowsResult)
     return __ret__.apply(lambda __response__: GetMaintenanceWindowsResult(
         filters=pulumi.get(__response__, 'filters'),

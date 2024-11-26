@@ -114,7 +114,7 @@ export interface GetNetworkInsightsPathResult {
  * });
  * ```
  */
-export function getNetworkInsightsPathOutput(args?: GetNetworkInsightsPathOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInsightsPathResult> {
+export function getNetworkInsightsPathOutput(args?: GetNetworkInsightsPathOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkInsightsPathResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getNetworkInsightsPath:getNetworkInsightsPath", {

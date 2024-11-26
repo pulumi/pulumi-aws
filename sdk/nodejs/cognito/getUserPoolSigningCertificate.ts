@@ -63,7 +63,7 @@ export interface GetUserPoolSigningCertificateResult {
  * });
  * ```
  */
-export function getUserPoolSigningCertificateOutput(args: GetUserPoolSigningCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolSigningCertificateResult> {
+export function getUserPoolSigningCertificateOutput(args: GetUserPoolSigningCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserPoolSigningCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cognito/getUserPoolSigningCertificate:getUserPoolSigningCertificate", {
         "userPoolId": args.userPoolId,
