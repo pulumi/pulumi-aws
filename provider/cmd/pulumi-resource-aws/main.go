@@ -29,7 +29,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
-//go:embed schema-*-embed.json
+//go:embed schema*embed.json
 var schemas embed.FS
 
 // The data in the minimal schema is compressed with GZIP to avoid bloating the provider size at the cost of slightly
