@@ -5,6 +5,7 @@ package kms
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -13,6 +14,16 @@ import (
 
 func GetSecret(ctx *pulumi.Context, args *GetSecretArgs, opts ...pulumi.InvokeOption) (*GetSecretResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetSecretResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetSecretResult{}, errors.New("DependsOn is not supported for direct form invoke GetSecret, use GetSecretOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetSecretResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetSecret, use GetSecretOutput instead")
+	}
 	var rv GetSecretResult
 	err := ctx.Invoke("aws:kms/getSecret:getSecret", args, &rv, opts...)
 	if err != nil {
@@ -34,17 +45,18 @@ type GetSecretResult struct {
 }
 
 func GetSecretOutput(ctx *pulumi.Context, args GetSecretOutputArgs, opts ...pulumi.InvokeOption) GetSecretResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetSecretResultOutput, error) {
 			args := v.(GetSecretArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetSecretResult
-			secret, err := ctx.InvokePackageRaw("aws:kms/getSecret:getSecret", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:kms/getSecret:getSecret", args, &rv, "", opts...)
 			if err != nil {
 				return GetSecretResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetSecretResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetSecretResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetSecretResultOutput), nil
 			}

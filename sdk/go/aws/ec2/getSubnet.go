@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -98,6 +99,16 @@ import (
 // ```
 func LookupSubnet(ctx *pulumi.Context, args *LookupSubnetArgs, opts ...pulumi.InvokeOption) (*LookupSubnetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupSubnetResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupSubnetResult{}, errors.New("DependsOn is not supported for direct form invoke LookupSubnet, use LookupSubnetOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupSubnetResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupSubnet, use LookupSubnetOutput instead")
+	}
 	var rv LookupSubnetResult
 	err := ctx.Invoke("aws:ec2/getSubnet:getSubnet", args, &rv, opts...)
 	if err != nil {
@@ -175,17 +186,18 @@ type LookupSubnetResult struct {
 }
 
 func LookupSubnetOutput(ctx *pulumi.Context, args LookupSubnetOutputArgs, opts ...pulumi.InvokeOption) LookupSubnetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSubnetResultOutput, error) {
 			args := v.(LookupSubnetArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSubnetResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getSubnet:getSubnet", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getSubnet:getSubnet", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSubnetResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSubnetResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSubnetResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSubnetResultOutput), nil
 			}

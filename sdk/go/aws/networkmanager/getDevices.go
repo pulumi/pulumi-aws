@@ -5,6 +5,7 @@ package networkmanager
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func GetDevices(ctx *pulumi.Context, args *GetDevicesArgs, opts ...pulumi.InvokeOption) (*GetDevicesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetDevicesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetDevicesResult{}, errors.New("DependsOn is not supported for direct form invoke GetDevices, use GetDevicesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetDevicesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetDevices, use GetDevicesOutput instead")
+	}
 	var rv GetDevicesResult
 	err := ctx.Invoke("aws:networkmanager/getDevices:getDevices", args, &rv, opts...)
 	if err != nil {
@@ -73,17 +84,18 @@ type GetDevicesResult struct {
 }
 
 func GetDevicesOutput(ctx *pulumi.Context, args GetDevicesOutputArgs, opts ...pulumi.InvokeOption) GetDevicesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetDevicesResultOutput, error) {
 			args := v.(GetDevicesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetDevicesResult
-			secret, err := ctx.InvokePackageRaw("aws:networkmanager/getDevices:getDevices", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:networkmanager/getDevices:getDevices", args, &rv, "", opts...)
 			if err != nil {
 				return GetDevicesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetDevicesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetDevicesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetDevicesResultOutput), nil
 			}

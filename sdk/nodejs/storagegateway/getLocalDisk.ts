@@ -77,7 +77,7 @@ export interface GetLocalDiskResult {
  * });
  * ```
  */
-export function getLocalDiskOutput(args: GetLocalDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalDiskResult> {
+export function getLocalDiskOutput(args: GetLocalDiskOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalDiskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:storagegateway/getLocalDisk:getLocalDisk", {
         "diskNode": args.diskNode,

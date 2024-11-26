@@ -81,7 +81,7 @@ export interface GetRouteTableAssociationsResult {
  * });
  * ```
  */
-export function getRouteTableAssociationsOutput(args: GetRouteTableAssociationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTableAssociationsResult> {
+export function getRouteTableAssociationsOutput(args: GetRouteTableAssociationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRouteTableAssociationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getRouteTableAssociations:getRouteTableAssociations", {
         "filters": args.filters,

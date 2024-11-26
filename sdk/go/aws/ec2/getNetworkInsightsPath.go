@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupNetworkInsightsPath(ctx *pulumi.Context, args *LookupNetworkInsightsPathArgs, opts ...pulumi.InvokeOption) (*LookupNetworkInsightsPathResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupNetworkInsightsPathResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupNetworkInsightsPathResult{}, errors.New("DependsOn is not supported for direct form invoke LookupNetworkInsightsPath, use LookupNetworkInsightsPathOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupNetworkInsightsPathResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupNetworkInsightsPath, use LookupNetworkInsightsPathOutput instead")
+	}
 	var rv LookupNetworkInsightsPathResult
 	err := ctx.Invoke("aws:ec2/getNetworkInsightsPath:getNetworkInsightsPath", args, &rv, opts...)
 	if err != nil {
@@ -87,17 +98,18 @@ type LookupNetworkInsightsPathResult struct {
 }
 
 func LookupNetworkInsightsPathOutput(ctx *pulumi.Context, args LookupNetworkInsightsPathOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkInsightsPathResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNetworkInsightsPathResultOutput, error) {
 			args := v.(LookupNetworkInsightsPathArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupNetworkInsightsPathResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getNetworkInsightsPath:getNetworkInsightsPath", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getNetworkInsightsPath:getNetworkInsightsPath", args, &rv, "", opts...)
 			if err != nil {
 				return LookupNetworkInsightsPathResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupNetworkInsightsPathResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupNetworkInsightsPathResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupNetworkInsightsPathResultOutput), nil
 			}

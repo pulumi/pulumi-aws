@@ -5,6 +5,7 @@ package elasticbeanstalk
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -38,6 +39,16 @@ import (
 // ```
 func GetHostedZone(ctx *pulumi.Context, args *GetHostedZoneArgs, opts ...pulumi.InvokeOption) (*GetHostedZoneResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetHostedZoneResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetHostedZoneResult{}, errors.New("DependsOn is not supported for direct form invoke GetHostedZone, use GetHostedZoneOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetHostedZoneResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetHostedZone, use GetHostedZoneOutput instead")
+	}
 	var rv GetHostedZoneResult
 	err := ctx.Invoke("aws:elasticbeanstalk/getHostedZone:getHostedZone", args, &rv, opts...)
 	if err != nil {
@@ -61,17 +72,18 @@ type GetHostedZoneResult struct {
 }
 
 func GetHostedZoneOutput(ctx *pulumi.Context, args GetHostedZoneOutputArgs, opts ...pulumi.InvokeOption) GetHostedZoneResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetHostedZoneResultOutput, error) {
 			args := v.(GetHostedZoneArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetHostedZoneResult
-			secret, err := ctx.InvokePackageRaw("aws:elasticbeanstalk/getHostedZone:getHostedZone", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:elasticbeanstalk/getHostedZone:getHostedZone", args, &rv, "", opts...)
 			if err != nil {
 				return GetHostedZoneResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetHostedZoneResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetHostedZoneResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetHostedZoneResultOutput), nil
 			}

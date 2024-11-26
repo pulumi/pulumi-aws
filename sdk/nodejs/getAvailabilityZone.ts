@@ -215,7 +215,7 @@ export interface GetAvailabilityZoneResult {
  * });
  * ```
  */
-export function getAvailabilityZoneOutput(args?: GetAvailabilityZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvailabilityZoneResult> {
+export function getAvailabilityZoneOutput(args?: GetAvailabilityZoneOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAvailabilityZoneResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:index/getAvailabilityZone:getAvailabilityZone", {

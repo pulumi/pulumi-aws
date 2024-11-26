@@ -5,6 +5,7 @@ package ses
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupEmailIdentity(ctx *pulumi.Context, args *LookupEmailIdentityArgs, opts ...pulumi.InvokeOption) (*LookupEmailIdentityResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupEmailIdentityResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupEmailIdentityResult{}, errors.New("DependsOn is not supported for direct form invoke LookupEmailIdentity, use LookupEmailIdentityOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupEmailIdentityResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupEmailIdentity, use LookupEmailIdentityOutput instead")
+	}
 	var rv LookupEmailIdentityResult
 	err := ctx.Invoke("aws:ses/getEmailIdentity:getEmailIdentity", args, &rv, opts...)
 	if err != nil {
@@ -65,17 +76,18 @@ type LookupEmailIdentityResult struct {
 }
 
 func LookupEmailIdentityOutput(ctx *pulumi.Context, args LookupEmailIdentityOutputArgs, opts ...pulumi.InvokeOption) LookupEmailIdentityResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupEmailIdentityResultOutput, error) {
 			args := v.(LookupEmailIdentityArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupEmailIdentityResult
-			secret, err := ctx.InvokePackageRaw("aws:ses/getEmailIdentity:getEmailIdentity", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ses/getEmailIdentity:getEmailIdentity", args, &rv, "", opts...)
 			if err != nil {
 				return LookupEmailIdentityResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupEmailIdentityResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupEmailIdentityResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupEmailIdentityResultOutput), nil
 			}

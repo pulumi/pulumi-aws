@@ -5,6 +5,7 @@ package kms
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -61,6 +62,16 @@ import (
 // ```
 func LookupKey(ctx *pulumi.Context, args *LookupKeyArgs, opts ...pulumi.InvokeOption) (*LookupKeyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupKeyResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupKeyResult{}, errors.New("DependsOn is not supported for direct form invoke LookupKey, use LookupKeyOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupKeyResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupKey, use LookupKeyOutput instead")
+	}
 	var rv LookupKeyResult
 	err := ctx.Invoke("aws:kms/getKey:getKey", args, &rv, opts...)
 	if err != nil {
@@ -130,17 +141,18 @@ type LookupKeyResult struct {
 }
 
 func LookupKeyOutput(ctx *pulumi.Context, args LookupKeyOutputArgs, opts ...pulumi.InvokeOption) LookupKeyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupKeyResultOutput, error) {
 			args := v.(LookupKeyArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupKeyResult
-			secret, err := ctx.InvokePackageRaw("aws:kms/getKey:getKey", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:kms/getKey:getKey", args, &rv, "", opts...)
 			if err != nil {
 				return LookupKeyResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupKeyResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupKeyResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupKeyResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package aws
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetCallerIdentity(ctx *pulumi.Context, args *GetCallerIdentityArgs, opts ...pulumi.InvokeOption) (*GetCallerIdentityResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetCallerIdentityResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetCallerIdentityResult{}, errors.New("DependsOn is not supported for direct form invoke GetCallerIdentity, use GetCallerIdentityOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetCallerIdentityResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetCallerIdentity, use GetCallerIdentityOutput instead")
+	}
 	var rv GetCallerIdentityResult
 	err := ctx.Invoke("aws:index/getCallerIdentity:getCallerIdentity", args, &rv, opts...)
 	if err != nil {
@@ -69,17 +80,18 @@ type GetCallerIdentityResult struct {
 }
 
 func GetCallerIdentityOutput(ctx *pulumi.Context, args GetCallerIdentityOutputArgs, opts ...pulumi.InvokeOption) GetCallerIdentityResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetCallerIdentityResultOutput, error) {
 			args := v.(GetCallerIdentityArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetCallerIdentityResult
-			secret, err := ctx.InvokePackageRaw("aws:index/getCallerIdentity:getCallerIdentity", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:index/getCallerIdentity:getCallerIdentity", args, &rv, "", opts...)
 			if err != nil {
 				return GetCallerIdentityResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetCallerIdentityResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetCallerIdentityResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetCallerIdentityResultOutput), nil
 			}

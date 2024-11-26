@@ -5,6 +5,7 @@ package cloudformation
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupCloudFormationType(ctx *pulumi.Context, args *LookupCloudFormationTypeArgs, opts ...pulumi.InvokeOption) (*LookupCloudFormationTypeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupCloudFormationTypeResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupCloudFormationTypeResult{}, errors.New("DependsOn is not supported for direct form invoke LookupCloudFormationType, use LookupCloudFormationTypeOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupCloudFormationTypeResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupCloudFormationType, use LookupCloudFormationTypeOutput instead")
+	}
 	var rv LookupCloudFormationTypeResult
 	err := ctx.Invoke("aws:cloudformation/getCloudFormationType:getCloudFormationType", args, &rv, opts...)
 	if err != nil {
@@ -95,17 +106,18 @@ type LookupCloudFormationTypeResult struct {
 }
 
 func LookupCloudFormationTypeOutput(ctx *pulumi.Context, args LookupCloudFormationTypeOutputArgs, opts ...pulumi.InvokeOption) LookupCloudFormationTypeResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCloudFormationTypeResultOutput, error) {
 			args := v.(LookupCloudFormationTypeArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupCloudFormationTypeResult
-			secret, err := ctx.InvokePackageRaw("aws:cloudformation/getCloudFormationType:getCloudFormationType", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:cloudformation/getCloudFormationType:getCloudFormationType", args, &rv, "", opts...)
 			if err != nil {
 				return LookupCloudFormationTypeResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupCloudFormationTypeResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupCloudFormationTypeResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupCloudFormationTypeResultOutput), nil
 			}

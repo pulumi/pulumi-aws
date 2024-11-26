@@ -5,6 +5,7 @@ package ssmcontacts
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupContact(ctx *pulumi.Context, args *LookupContactArgs, opts ...pulumi.InvokeOption) (*LookupContactResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupContactResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupContactResult{}, errors.New("DependsOn is not supported for direct form invoke LookupContact, use LookupContactOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupContactResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupContact, use LookupContactOutput instead")
+	}
 	var rv LookupContactResult
 	err := ctx.Invoke("aws:ssmcontacts/getContact:getContact", args, &rv, opts...)
 	if err != nil {
@@ -74,17 +85,18 @@ type LookupContactResult struct {
 }
 
 func LookupContactOutput(ctx *pulumi.Context, args LookupContactOutputArgs, opts ...pulumi.InvokeOption) LookupContactResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupContactResultOutput, error) {
 			args := v.(LookupContactArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupContactResult
-			secret, err := ctx.InvokePackageRaw("aws:ssmcontacts/getContact:getContact", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ssmcontacts/getContact:getContact", args, &rv, "", opts...)
 			if err != nil {
 				return LookupContactResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupContactResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupContactResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupContactResultOutput), nil
 			}

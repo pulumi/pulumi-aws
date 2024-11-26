@@ -5,6 +5,7 @@ package connect
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupInstanceStorageConfig(ctx *pulumi.Context, args *LookupInstanceStorageConfigArgs, opts ...pulumi.InvokeOption) (*LookupInstanceStorageConfigResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupInstanceStorageConfigResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupInstanceStorageConfigResult{}, errors.New("DependsOn is not supported for direct form invoke LookupInstanceStorageConfig, use LookupInstanceStorageConfigOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupInstanceStorageConfigResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupInstanceStorageConfig, use LookupInstanceStorageConfigOutput instead")
+	}
 	var rv LookupInstanceStorageConfigResult
 	err := ctx.Invoke("aws:connect/getInstanceStorageConfig:getInstanceStorageConfig", args, &rv, opts...)
 	if err != nil {
@@ -72,17 +83,18 @@ type LookupInstanceStorageConfigResult struct {
 }
 
 func LookupInstanceStorageConfigOutput(ctx *pulumi.Context, args LookupInstanceStorageConfigOutputArgs, opts ...pulumi.InvokeOption) LookupInstanceStorageConfigResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupInstanceStorageConfigResultOutput, error) {
 			args := v.(LookupInstanceStorageConfigArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupInstanceStorageConfigResult
-			secret, err := ctx.InvokePackageRaw("aws:connect/getInstanceStorageConfig:getInstanceStorageConfig", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:connect/getInstanceStorageConfig:getInstanceStorageConfig", args, &rv, "", opts...)
 			if err != nil {
 				return LookupInstanceStorageConfigResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupInstanceStorageConfigResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupInstanceStorageConfigResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupInstanceStorageConfigResultOutput), nil
 			}

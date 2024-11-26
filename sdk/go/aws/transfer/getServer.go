@@ -5,6 +5,7 @@ package transfer
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.InvokeOption) (*LookupServerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupServerResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupServerResult{}, errors.New("DependsOn is not supported for direct form invoke LookupServer, use LookupServerOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupServerResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupServer, use LookupServerOutput instead")
+	}
 	var rv LookupServerResult
 	err := ctx.Invoke("aws:transfer/getServer:getServer", args, &rv, opts...)
 	if err != nil {
@@ -91,17 +102,18 @@ type LookupServerResult struct {
 }
 
 func LookupServerOutput(ctx *pulumi.Context, args LookupServerOutputArgs, opts ...pulumi.InvokeOption) LookupServerResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupServerResultOutput, error) {
 			args := v.(LookupServerArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupServerResult
-			secret, err := ctx.InvokePackageRaw("aws:transfer/getServer:getServer", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:transfer/getServer:getServer", args, &rv, "", opts...)
 			if err != nil {
 				return LookupServerResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupServerResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupServerResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupServerResultOutput), nil
 			}

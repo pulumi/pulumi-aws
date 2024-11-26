@@ -5,6 +5,7 @@ package rds
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupClusterParameterGroup(ctx *pulumi.Context, args *LookupClusterParameterGroupArgs, opts ...pulumi.InvokeOption) (*LookupClusterParameterGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupClusterParameterGroupResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupClusterParameterGroupResult{}, errors.New("DependsOn is not supported for direct form invoke LookupClusterParameterGroup, use LookupClusterParameterGroupOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupClusterParameterGroupResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupClusterParameterGroup, use LookupClusterParameterGroupOutput instead")
+	}
 	var rv LookupClusterParameterGroupResult
 	err := ctx.Invoke("aws:rds/getClusterParameterGroup:getClusterParameterGroup", args, &rv, opts...)
 	if err != nil {
@@ -68,17 +79,18 @@ type LookupClusterParameterGroupResult struct {
 }
 
 func LookupClusterParameterGroupOutput(ctx *pulumi.Context, args LookupClusterParameterGroupOutputArgs, opts ...pulumi.InvokeOption) LookupClusterParameterGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupClusterParameterGroupResultOutput, error) {
 			args := v.(LookupClusterParameterGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupClusterParameterGroupResult
-			secret, err := ctx.InvokePackageRaw("aws:rds/getClusterParameterGroup:getClusterParameterGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:rds/getClusterParameterGroup:getClusterParameterGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupClusterParameterGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupClusterParameterGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupClusterParameterGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupClusterParameterGroupResultOutput), nil
 			}

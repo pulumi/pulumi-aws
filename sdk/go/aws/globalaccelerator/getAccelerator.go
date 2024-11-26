@@ -5,6 +5,7 @@ package globalaccelerator
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -51,6 +52,16 @@ import (
 // ```
 func LookupAccelerator(ctx *pulumi.Context, args *LookupAcceleratorArgs, opts ...pulumi.InvokeOption) (*LookupAcceleratorResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupAcceleratorResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupAcceleratorResult{}, errors.New("DependsOn is not supported for direct form invoke LookupAccelerator, use LookupAcceleratorOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupAcceleratorResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupAccelerator, use LookupAcceleratorOutput instead")
+	}
 	var rv LookupAcceleratorResult
 	err := ctx.Invoke("aws:globalaccelerator/getAccelerator:getAccelerator", args, &rv, opts...)
 	if err != nil {
@@ -86,17 +97,18 @@ type LookupAcceleratorResult struct {
 }
 
 func LookupAcceleratorOutput(ctx *pulumi.Context, args LookupAcceleratorOutputArgs, opts ...pulumi.InvokeOption) LookupAcceleratorResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAcceleratorResultOutput, error) {
 			args := v.(LookupAcceleratorArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupAcceleratorResult
-			secret, err := ctx.InvokePackageRaw("aws:globalaccelerator/getAccelerator:getAccelerator", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:globalaccelerator/getAccelerator:getAccelerator", args, &rv, "", opts...)
 			if err != nil {
 				return LookupAcceleratorResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupAcceleratorResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupAcceleratorResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupAcceleratorResultOutput), nil
 			}

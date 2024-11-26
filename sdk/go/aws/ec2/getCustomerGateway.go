@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -63,6 +64,16 @@ import (
 // ```
 func LookupCustomerGateway(ctx *pulumi.Context, args *LookupCustomerGatewayArgs, opts ...pulumi.InvokeOption) (*LookupCustomerGatewayResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupCustomerGatewayResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupCustomerGatewayResult{}, errors.New("DependsOn is not supported for direct form invoke LookupCustomerGateway, use LookupCustomerGatewayOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupCustomerGatewayResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupCustomerGateway, use LookupCustomerGatewayOutput instead")
+	}
 	var rv LookupCustomerGatewayResult
 	err := ctx.Invoke("aws:ec2/getCustomerGateway:getCustomerGateway", args, &rv, opts...)
 	if err != nil {
@@ -106,17 +117,18 @@ type LookupCustomerGatewayResult struct {
 }
 
 func LookupCustomerGatewayOutput(ctx *pulumi.Context, args LookupCustomerGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupCustomerGatewayResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCustomerGatewayResultOutput, error) {
 			args := v.(LookupCustomerGatewayArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupCustomerGatewayResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getCustomerGateway:getCustomerGateway", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getCustomerGateway:getCustomerGateway", args, &rv, "", opts...)
 			if err != nil {
 				return LookupCustomerGatewayResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupCustomerGatewayResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupCustomerGatewayResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupCustomerGatewayResultOutput), nil
 			}

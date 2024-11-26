@@ -68,7 +68,7 @@ export interface GetLogGroupsResult {
  * });
  * ```
  */
-export function getLogGroupsOutput(args?: GetLogGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogGroupsResult> {
+export function getLogGroupsOutput(args?: GetLogGroupsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogGroupsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cloudwatch/getLogGroups:getLogGroups", {

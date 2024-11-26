@@ -126,7 +126,7 @@ def get_secret_versions(include_deprecated: Optional[bool] = None,
         versions=pulumi.get(__ret__, 'versions'))
 def get_secret_versions_output(include_deprecated: Optional[pulumi.Input[Optional[bool]]] = None,
                                secret_id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretVersionsResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretVersionsResult]:
     """
     Use this data source to access information about an existing resource.
 
@@ -137,7 +137,7 @@ def get_secret_versions_output(include_deprecated: Optional[pulumi.Input[Optiona
     __args__ = dict()
     __args__['includeDeprecated'] = include_deprecated
     __args__['secretId'] = secret_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:secretsmanager/getSecretVersions:getSecretVersions', __args__, opts=opts, typ=GetSecretVersionsResult)
     return __ret__.apply(lambda __response__: GetSecretVersionsResult(
         arn=pulumi.get(__response__, 'arn'),

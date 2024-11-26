@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -46,6 +47,16 @@ import (
 // ```
 func GetEips(ctx *pulumi.Context, args *GetEipsArgs, opts ...pulumi.InvokeOption) (*GetEipsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetEipsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetEipsResult{}, errors.New("DependsOn is not supported for direct form invoke GetEips, use GetEipsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetEipsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetEips, use GetEipsOutput instead")
+	}
 	var rv GetEipsResult
 	err := ctx.Invoke("aws:ec2/getEips:getEips", args, &rv, opts...)
 	if err != nil {
@@ -75,17 +86,18 @@ type GetEipsResult struct {
 }
 
 func GetEipsOutput(ctx *pulumi.Context, args GetEipsOutputArgs, opts ...pulumi.InvokeOption) GetEipsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetEipsResultOutput, error) {
 			args := v.(GetEipsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetEipsResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getEips:getEips", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getEips:getEips", args, &rv, "", opts...)
 			if err != nil {
 				return GetEipsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetEipsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetEipsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetEipsResultOutput), nil
 			}

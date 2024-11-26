@@ -5,6 +5,7 @@ package appmesh
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -70,6 +71,16 @@ import (
 // ```
 func LookupMesh(ctx *pulumi.Context, args *LookupMeshArgs, opts ...pulumi.InvokeOption) (*LookupMeshResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupMeshResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupMeshResult{}, errors.New("DependsOn is not supported for direct form invoke LookupMesh, use LookupMeshOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupMeshResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupMesh, use LookupMeshOutput instead")
+	}
 	var rv LookupMeshResult
 	err := ctx.Invoke("aws:appmesh/getMesh:getMesh", args, &rv, opts...)
 	if err != nil {
@@ -109,17 +120,18 @@ type LookupMeshResult struct {
 }
 
 func LookupMeshOutput(ctx *pulumi.Context, args LookupMeshOutputArgs, opts ...pulumi.InvokeOption) LookupMeshResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupMeshResultOutput, error) {
 			args := v.(LookupMeshArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupMeshResult
-			secret, err := ctx.InvokePackageRaw("aws:appmesh/getMesh:getMesh", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:appmesh/getMesh:getMesh", args, &rv, "", opts...)
 			if err != nil {
 				return LookupMeshResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupMeshResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupMeshResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupMeshResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package s3
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -16,6 +17,16 @@ import (
 // The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
 func GetObjects(ctx *pulumi.Context, args *GetObjectsArgs, opts ...pulumi.InvokeOption) (*GetObjectsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetObjectsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetObjectsResult{}, errors.New("DependsOn is not supported for direct form invoke GetObjects, use GetObjectsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetObjectsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetObjects, use GetObjectsOutput instead")
+	}
 	var rv GetObjectsResult
 	err := ctx.Invoke("aws:s3/getObjects:getObjects", args, &rv, opts...)
 	if err != nil {
@@ -67,17 +78,18 @@ type GetObjectsResult struct {
 }
 
 func GetObjectsOutput(ctx *pulumi.Context, args GetObjectsOutputArgs, opts ...pulumi.InvokeOption) GetObjectsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetObjectsResultOutput, error) {
 			args := v.(GetObjectsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetObjectsResult
-			secret, err := ctx.InvokePackageRaw("aws:s3/getObjects:getObjects", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:s3/getObjects:getObjects", args, &rv, "", opts...)
 			if err != nil {
 				return GetObjectsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetObjectsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetObjectsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetObjectsResultOutput), nil
 			}

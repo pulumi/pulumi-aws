@@ -122,7 +122,7 @@ def get_managed_prefix_lists(filters: Optional[Sequence[Union['GetManagedPrefixL
         tags=pulumi.get(__ret__, 'tags'))
 def get_managed_prefix_lists_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetManagedPrefixListsFilterArgs', 'GetManagedPrefixListsFilterArgsDict']]]]] = None,
                                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedPrefixListsResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedPrefixListsResult]:
     """
     This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
 
@@ -151,7 +151,7 @@ def get_managed_prefix_lists_output(filters: Optional[pulumi.Input[Optional[Sequ
     __args__ = dict()
     __args__['filters'] = filters
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getManagedPrefixLists:getManagedPrefixLists', __args__, opts=opts, typ=GetManagedPrefixListsResult)
     return __ret__.apply(lambda __response__: GetManagedPrefixListsResult(
         filters=pulumi.get(__response__, 'filters'),

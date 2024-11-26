@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -49,6 +50,16 @@ import (
 // ```
 func LookupVpnGateway(ctx *pulumi.Context, args *LookupVpnGatewayArgs, opts ...pulumi.InvokeOption) (*LookupVpnGatewayResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupVpnGatewayResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupVpnGatewayResult{}, errors.New("DependsOn is not supported for direct form invoke LookupVpnGateway, use LookupVpnGatewayOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupVpnGatewayResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupVpnGateway, use LookupVpnGatewayOutput instead")
+	}
 	var rv LookupVpnGatewayResult
 	err := ctx.Invoke("aws:ec2/getVpnGateway:getVpnGateway", args, &rv, opts...)
 	if err != nil {
@@ -92,17 +103,18 @@ type LookupVpnGatewayResult struct {
 }
 
 func LookupVpnGatewayOutput(ctx *pulumi.Context, args LookupVpnGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupVpnGatewayResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVpnGatewayResultOutput, error) {
 			args := v.(LookupVpnGatewayArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVpnGatewayResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getVpnGateway:getVpnGateway", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getVpnGateway:getVpnGateway", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVpnGatewayResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVpnGatewayResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVpnGatewayResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVpnGatewayResultOutput), nil
 			}

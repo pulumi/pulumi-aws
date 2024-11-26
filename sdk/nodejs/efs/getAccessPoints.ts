@@ -67,7 +67,7 @@ export interface GetAccessPointsResult {
  * });
  * ```
  */
-export function getAccessPointsOutput(args: GetAccessPointsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPointsResult> {
+export function getAccessPointsOutput(args: GetAccessPointsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessPointsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:efs/getAccessPoints:getAccessPoints", {
         "fileSystemId": args.fileSystemId,

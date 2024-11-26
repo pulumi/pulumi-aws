@@ -5,6 +5,7 @@ package vpc
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -45,6 +46,16 @@ import (
 // ```
 func GetSecurityGroupRules(ctx *pulumi.Context, args *GetSecurityGroupRulesArgs, opts ...pulumi.InvokeOption) (*GetSecurityGroupRulesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetSecurityGroupRulesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetSecurityGroupRulesResult{}, errors.New("DependsOn is not supported for direct form invoke GetSecurityGroupRules, use GetSecurityGroupRulesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetSecurityGroupRulesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetSecurityGroupRules, use GetSecurityGroupRulesOutput instead")
+	}
 	var rv GetSecurityGroupRulesResult
 	err := ctx.Invoke("aws:vpc/getSecurityGroupRules:getSecurityGroupRules", args, &rv, opts...)
 	if err != nil {
@@ -75,17 +86,18 @@ type GetSecurityGroupRulesResult struct {
 }
 
 func GetSecurityGroupRulesOutput(ctx *pulumi.Context, args GetSecurityGroupRulesOutputArgs, opts ...pulumi.InvokeOption) GetSecurityGroupRulesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetSecurityGroupRulesResultOutput, error) {
 			args := v.(GetSecurityGroupRulesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetSecurityGroupRulesResult
-			secret, err := ctx.InvokePackageRaw("aws:vpc/getSecurityGroupRules:getSecurityGroupRules", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:vpc/getSecurityGroupRules:getSecurityGroupRules", args, &rv, "", opts...)
 			if err != nil {
 				return GetSecurityGroupRulesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetSecurityGroupRulesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetSecurityGroupRulesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetSecurityGroupRulesResultOutput), nil
 			}

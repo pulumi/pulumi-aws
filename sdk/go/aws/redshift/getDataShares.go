@@ -5,6 +5,7 @@ package redshift
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func GetDataShares(ctx *pulumi.Context, args *GetDataSharesArgs, opts ...pulumi.InvokeOption) (*GetDataSharesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetDataSharesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetDataSharesResult{}, errors.New("DependsOn is not supported for direct form invoke GetDataShares, use GetDataSharesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetDataSharesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetDataShares, use GetDataSharesOutput instead")
+	}
 	var rv GetDataSharesResult
 	err := ctx.Invoke("aws:redshift/getDataShares:getDataShares", args, &rv, opts...)
 	if err != nil {
@@ -63,17 +74,18 @@ type GetDataSharesResult struct {
 }
 
 func GetDataSharesOutput(ctx *pulumi.Context, args GetDataSharesOutputArgs, opts ...pulumi.InvokeOption) GetDataSharesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetDataSharesResultOutput, error) {
 			args := v.(GetDataSharesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetDataSharesResult
-			secret, err := ctx.InvokePackageRaw("aws:redshift/getDataShares:getDataShares", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:redshift/getDataShares:getDataShares", args, &rv, "", opts...)
 			if err != nil {
 				return GetDataSharesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetDataSharesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetDataSharesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetDataSharesResultOutput), nil
 			}

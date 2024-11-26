@@ -5,6 +5,7 @@ package servicecatalog
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupConstraint(ctx *pulumi.Context, args *LookupConstraintArgs, opts ...pulumi.InvokeOption) (*LookupConstraintResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupConstraintResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupConstraintResult{}, errors.New("DependsOn is not supported for direct form invoke LookupConstraint, use LookupConstraintOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupConstraintResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupConstraint, use LookupConstraintOutput instead")
+	}
 	var rv LookupConstraintResult
 	err := ctx.Invoke("aws:servicecatalog/getConstraint:getConstraint", args, &rv, opts...)
 	if err != nil {
@@ -84,17 +95,18 @@ type LookupConstraintResult struct {
 }
 
 func LookupConstraintOutput(ctx *pulumi.Context, args LookupConstraintOutputArgs, opts ...pulumi.InvokeOption) LookupConstraintResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupConstraintResultOutput, error) {
 			args := v.(LookupConstraintArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupConstraintResult
-			secret, err := ctx.InvokePackageRaw("aws:servicecatalog/getConstraint:getConstraint", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:servicecatalog/getConstraint:getConstraint", args, &rv, "", opts...)
 			if err != nil {
 				return LookupConstraintResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupConstraintResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupConstraintResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupConstraintResultOutput), nil
 			}

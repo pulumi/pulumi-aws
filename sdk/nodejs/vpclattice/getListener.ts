@@ -117,7 +117,7 @@ export interface GetListenerResult {
  * const example = aws.vpclattice.getListener({});
  * ```
  */
-export function getListenerOutput(args: GetListenerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetListenerResult> {
+export function getListenerOutput(args: GetListenerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetListenerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:vpclattice/getListener:getListener", {
         "listenerIdentifier": args.listenerIdentifier,

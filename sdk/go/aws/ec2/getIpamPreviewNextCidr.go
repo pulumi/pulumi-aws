@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -52,6 +53,16 @@ import (
 // ```
 func GetIpamPreviewNextCidr(ctx *pulumi.Context, args *GetIpamPreviewNextCidrArgs, opts ...pulumi.InvokeOption) (*GetIpamPreviewNextCidrResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetIpamPreviewNextCidrResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetIpamPreviewNextCidrResult{}, errors.New("DependsOn is not supported for direct form invoke GetIpamPreviewNextCidr, use GetIpamPreviewNextCidrOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetIpamPreviewNextCidrResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetIpamPreviewNextCidr, use GetIpamPreviewNextCidrOutput instead")
+	}
 	var rv GetIpamPreviewNextCidrResult
 	err := ctx.Invoke("aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr", args, &rv, opts...)
 	if err != nil {
@@ -82,17 +93,18 @@ type GetIpamPreviewNextCidrResult struct {
 }
 
 func GetIpamPreviewNextCidrOutput(ctx *pulumi.Context, args GetIpamPreviewNextCidrOutputArgs, opts ...pulumi.InvokeOption) GetIpamPreviewNextCidrResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetIpamPreviewNextCidrResultOutput, error) {
 			args := v.(GetIpamPreviewNextCidrArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetIpamPreviewNextCidrResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr", args, &rv, "", opts...)
 			if err != nil {
 				return GetIpamPreviewNextCidrResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetIpamPreviewNextCidrResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetIpamPreviewNextCidrResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetIpamPreviewNextCidrResultOutput), nil
 			}

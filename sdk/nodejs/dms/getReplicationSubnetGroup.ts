@@ -80,7 +80,7 @@ export interface GetReplicationSubnetGroupResult {
  * });
  * ```
  */
-export function getReplicationSubnetGroupOutput(args: GetReplicationSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationSubnetGroupResult> {
+export function getReplicationSubnetGroupOutput(args: GetReplicationSubnetGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationSubnetGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup", {
         "replicationSubnetGroupId": args.replicationSubnetGroupId,

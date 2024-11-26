@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -48,6 +49,16 @@ import (
 // ```
 func LookupInternetGateway(ctx *pulumi.Context, args *LookupInternetGatewayArgs, opts ...pulumi.InvokeOption) (*LookupInternetGatewayResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupInternetGatewayResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupInternetGatewayResult{}, errors.New("DependsOn is not supported for direct form invoke LookupInternetGateway, use LookupInternetGatewayOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupInternetGatewayResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupInternetGateway, use LookupInternetGatewayOutput instead")
+	}
 	var rv LookupInternetGatewayResult
 	err := ctx.Invoke("aws:ec2/getInternetGateway:getInternetGateway", args, &rv, opts...)
 	if err != nil {
@@ -85,17 +96,18 @@ type LookupInternetGatewayResult struct {
 }
 
 func LookupInternetGatewayOutput(ctx *pulumi.Context, args LookupInternetGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupInternetGatewayResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupInternetGatewayResultOutput, error) {
 			args := v.(LookupInternetGatewayArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupInternetGatewayResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getInternetGateway:getInternetGateway", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getInternetGateway:getInternetGateway", args, &rv, "", opts...)
 			if err != nil {
 				return LookupInternetGatewayResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupInternetGatewayResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupInternetGatewayResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupInternetGatewayResultOutput), nil
 			}

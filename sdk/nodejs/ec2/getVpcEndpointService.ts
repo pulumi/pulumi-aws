@@ -210,7 +210,7 @@ export interface GetVpcEndpointServiceResult {
  * });
  * ```
  */
-export function getVpcEndpointServiceOutput(args?: GetVpcEndpointServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcEndpointServiceResult> {
+export function getVpcEndpointServiceOutput(args?: GetVpcEndpointServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcEndpointServiceResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getVpcEndpointService:getVpcEndpointService", {

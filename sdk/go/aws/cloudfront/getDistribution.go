@@ -5,6 +5,7 @@ package cloudfront
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupDistribution(ctx *pulumi.Context, args *LookupDistributionArgs, opts ...pulumi.InvokeOption) (*LookupDistributionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupDistributionResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupDistributionResult{}, errors.New("DependsOn is not supported for direct form invoke LookupDistribution, use LookupDistributionOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupDistributionResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupDistribution, use LookupDistributionOutput instead")
+	}
 	var rv LookupDistributionResult
 	err := ctx.Invoke("aws:cloudfront/getDistribution:getDistribution", args, &rv, opts...)
 	if err != nil {
@@ -89,17 +100,18 @@ type LookupDistributionResult struct {
 }
 
 func LookupDistributionOutput(ctx *pulumi.Context, args LookupDistributionOutputArgs, opts ...pulumi.InvokeOption) LookupDistributionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDistributionResultOutput, error) {
 			args := v.(LookupDistributionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDistributionResult
-			secret, err := ctx.InvokePackageRaw("aws:cloudfront/getDistribution:getDistribution", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:cloudfront/getDistribution:getDistribution", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDistributionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDistributionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDistributionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDistributionResultOutput), nil
 			}

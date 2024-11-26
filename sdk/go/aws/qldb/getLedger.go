@@ -5,6 +5,7 @@ package qldb
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupLedger(ctx *pulumi.Context, args *LookupLedgerArgs, opts ...pulumi.InvokeOption) (*LookupLedgerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupLedgerResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupLedgerResult{}, errors.New("DependsOn is not supported for direct form invoke LookupLedger, use LookupLedgerOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupLedgerResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupLedger, use LookupLedgerOutput instead")
+	}
 	var rv LookupLedgerResult
 	err := ctx.Invoke("aws:qldb/getLedger:getLedger", args, &rv, opts...)
 	if err != nil {
@@ -68,17 +79,18 @@ type LookupLedgerResult struct {
 }
 
 func LookupLedgerOutput(ctx *pulumi.Context, args LookupLedgerOutputArgs, opts ...pulumi.InvokeOption) LookupLedgerResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLedgerResultOutput, error) {
 			args := v.(LookupLedgerArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupLedgerResult
-			secret, err := ctx.InvokePackageRaw("aws:qldb/getLedger:getLedger", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:qldb/getLedger:getLedger", args, &rv, "", opts...)
 			if err != nil {
 				return LookupLedgerResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupLedgerResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupLedgerResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupLedgerResultOutput), nil
 			}

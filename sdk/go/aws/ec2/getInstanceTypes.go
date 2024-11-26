@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -66,6 +67,16 @@ import (
 // ```
 func GetInstanceTypes(ctx *pulumi.Context, args *GetInstanceTypesArgs, opts ...pulumi.InvokeOption) (*GetInstanceTypesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetInstanceTypesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetInstanceTypesResult{}, errors.New("DependsOn is not supported for direct form invoke GetInstanceTypes, use GetInstanceTypesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetInstanceTypesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetInstanceTypes, use GetInstanceTypesOutput instead")
+	}
 	var rv GetInstanceTypesResult
 	err := ctx.Invoke("aws:ec2/getInstanceTypes:getInstanceTypes", args, &rv, opts...)
 	if err != nil {
@@ -90,17 +101,18 @@ type GetInstanceTypesResult struct {
 }
 
 func GetInstanceTypesOutput(ctx *pulumi.Context, args GetInstanceTypesOutputArgs, opts ...pulumi.InvokeOption) GetInstanceTypesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetInstanceTypesResultOutput, error) {
 			args := v.(GetInstanceTypesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetInstanceTypesResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getInstanceTypes:getInstanceTypes", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getInstanceTypes:getInstanceTypes", args, &rv, "", opts...)
 			if err != nil {
 				return GetInstanceTypesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetInstanceTypesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetInstanceTypesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetInstanceTypesResultOutput), nil
 			}

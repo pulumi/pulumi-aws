@@ -5,6 +5,7 @@ package imagebuilder
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -47,6 +48,16 @@ import (
 // ```
 func GetInfrastructureConfigurations(ctx *pulumi.Context, args *GetInfrastructureConfigurationsArgs, opts ...pulumi.InvokeOption) (*GetInfrastructureConfigurationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetInfrastructureConfigurationsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetInfrastructureConfigurationsResult{}, errors.New("DependsOn is not supported for direct form invoke GetInfrastructureConfigurations, use GetInfrastructureConfigurationsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetInfrastructureConfigurationsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetInfrastructureConfigurations, use GetInfrastructureConfigurationsOutput instead")
+	}
 	var rv GetInfrastructureConfigurationsResult
 	err := ctx.Invoke("aws:imagebuilder/getInfrastructureConfigurations:getInfrastructureConfigurations", args, &rv, opts...)
 	if err != nil {
@@ -73,17 +84,18 @@ type GetInfrastructureConfigurationsResult struct {
 }
 
 func GetInfrastructureConfigurationsOutput(ctx *pulumi.Context, args GetInfrastructureConfigurationsOutputArgs, opts ...pulumi.InvokeOption) GetInfrastructureConfigurationsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetInfrastructureConfigurationsResultOutput, error) {
 			args := v.(GetInfrastructureConfigurationsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetInfrastructureConfigurationsResult
-			secret, err := ctx.InvokePackageRaw("aws:imagebuilder/getInfrastructureConfigurations:getInfrastructureConfigurations", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:imagebuilder/getInfrastructureConfigurations:getInfrastructureConfigurations", args, &rv, "", opts...)
 			if err != nil {
 				return GetInfrastructureConfigurationsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetInfrastructureConfigurationsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetInfrastructureConfigurationsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetInfrastructureConfigurationsResultOutput), nil
 			}

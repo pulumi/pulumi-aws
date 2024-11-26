@@ -5,6 +5,7 @@ package rds
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupParameterGroup(ctx *pulumi.Context, args *LookupParameterGroupArgs, opts ...pulumi.InvokeOption) (*LookupParameterGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupParameterGroupResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupParameterGroupResult{}, errors.New("DependsOn is not supported for direct form invoke LookupParameterGroup, use LookupParameterGroupOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupParameterGroupResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupParameterGroup, use LookupParameterGroupOutput instead")
+	}
 	var rv LookupParameterGroupResult
 	err := ctx.Invoke("aws:rds/getParameterGroup:getParameterGroup", args, &rv, opts...)
 	if err != nil {
@@ -68,17 +79,18 @@ type LookupParameterGroupResult struct {
 }
 
 func LookupParameterGroupOutput(ctx *pulumi.Context, args LookupParameterGroupOutputArgs, opts ...pulumi.InvokeOption) LookupParameterGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupParameterGroupResultOutput, error) {
 			args := v.(LookupParameterGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupParameterGroupResult
-			secret, err := ctx.InvokePackageRaw("aws:rds/getParameterGroup:getParameterGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:rds/getParameterGroup:getParameterGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupParameterGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupParameterGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupParameterGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupParameterGroupResultOutput), nil
 			}

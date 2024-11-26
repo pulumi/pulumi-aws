@@ -5,6 +5,7 @@ package networkmanager
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupSite(ctx *pulumi.Context, args *LookupSiteArgs, opts ...pulumi.InvokeOption) (*LookupSiteResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupSiteResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupSiteResult{}, errors.New("DependsOn is not supported for direct form invoke LookupSite, use LookupSiteOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupSiteResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupSite, use LookupSiteOutput instead")
+	}
 	var rv LookupSiteResult
 	err := ctx.Invoke("aws:networkmanager/getSite:getSite", args, &rv, opts...)
 	if err != nil {
@@ -76,17 +87,18 @@ type LookupSiteResult struct {
 }
 
 func LookupSiteOutput(ctx *pulumi.Context, args LookupSiteOutputArgs, opts ...pulumi.InvokeOption) LookupSiteResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSiteResultOutput, error) {
 			args := v.(LookupSiteArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSiteResult
-			secret, err := ctx.InvokePackageRaw("aws:networkmanager/getSite:getSite", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:networkmanager/getSite:getSite", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSiteResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSiteResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSiteResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSiteResultOutput), nil
 			}

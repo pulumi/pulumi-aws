@@ -5,6 +5,7 @@ package cur
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -44,6 +45,16 @@ import (
 // ```
 func LookupReportDefinition(ctx *pulumi.Context, args *LookupReportDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupReportDefinitionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupReportDefinitionResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupReportDefinitionResult{}, errors.New("DependsOn is not supported for direct form invoke LookupReportDefinition, use LookupReportDefinitionOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupReportDefinitionResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupReportDefinition, use LookupReportDefinitionOutput instead")
+	}
 	var rv LookupReportDefinitionResult
 	err := ctx.Invoke("aws:cur/getReportDefinition:getReportDefinition", args, &rv, opts...)
 	if err != nil {
@@ -90,17 +101,18 @@ type LookupReportDefinitionResult struct {
 }
 
 func LookupReportDefinitionOutput(ctx *pulumi.Context, args LookupReportDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupReportDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupReportDefinitionResultOutput, error) {
 			args := v.(LookupReportDefinitionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupReportDefinitionResult
-			secret, err := ctx.InvokePackageRaw("aws:cur/getReportDefinition:getReportDefinition", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:cur/getReportDefinition:getReportDefinition", args, &rv, "", opts...)
 			if err != nil {
 				return LookupReportDefinitionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupReportDefinitionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupReportDefinitionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupReportDefinitionResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package quicksight
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -44,6 +45,16 @@ import (
 // ```
 func GetQuicksightGroup(ctx *pulumi.Context, args *GetQuicksightGroupArgs, opts ...pulumi.InvokeOption) (*GetQuicksightGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetQuicksightGroupResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetQuicksightGroupResult{}, errors.New("DependsOn is not supported for direct form invoke GetQuicksightGroup, use GetQuicksightGroupOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetQuicksightGroupResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetQuicksightGroup, use GetQuicksightGroupOutput instead")
+	}
 	var rv GetQuicksightGroupResult
 	err := ctx.Invoke("aws:quicksight/getQuicksightGroup:getQuicksightGroup", args, &rv, opts...)
 	if err != nil {
@@ -80,17 +91,18 @@ type GetQuicksightGroupResult struct {
 }
 
 func GetQuicksightGroupOutput(ctx *pulumi.Context, args GetQuicksightGroupOutputArgs, opts ...pulumi.InvokeOption) GetQuicksightGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetQuicksightGroupResultOutput, error) {
 			args := v.(GetQuicksightGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetQuicksightGroupResult
-			secret, err := ctx.InvokePackageRaw("aws:quicksight/getQuicksightGroup:getQuicksightGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:quicksight/getQuicksightGroup:getQuicksightGroup", args, &rv, "", opts...)
 			if err != nil {
 				return GetQuicksightGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetQuicksightGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetQuicksightGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetQuicksightGroupResultOutput), nil
 			}

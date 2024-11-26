@@ -5,6 +5,7 @@ package datapipeline
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupPipelineDefinition(ctx *pulumi.Context, args *LookupPipelineDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupPipelineDefinitionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupPipelineDefinitionResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupPipelineDefinitionResult{}, errors.New("DependsOn is not supported for direct form invoke LookupPipelineDefinition, use LookupPipelineDefinitionOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupPipelineDefinitionResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupPipelineDefinition, use LookupPipelineDefinitionOutput instead")
+	}
 	var rv LookupPipelineDefinitionResult
 	err := ctx.Invoke("aws:datapipeline/getPipelineDefinition:getPipelineDefinition", args, &rv, opts...)
 	if err != nil {
@@ -70,17 +81,18 @@ type LookupPipelineDefinitionResult struct {
 }
 
 func LookupPipelineDefinitionOutput(ctx *pulumi.Context, args LookupPipelineDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupPipelineDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPipelineDefinitionResultOutput, error) {
 			args := v.(LookupPipelineDefinitionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupPipelineDefinitionResult
-			secret, err := ctx.InvokePackageRaw("aws:datapipeline/getPipelineDefinition:getPipelineDefinition", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:datapipeline/getPipelineDefinition:getPipelineDefinition", args, &rv, "", opts...)
 			if err != nil {
 				return LookupPipelineDefinitionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupPipelineDefinitionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupPipelineDefinitionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupPipelineDefinitionResultOutput), nil
 			}

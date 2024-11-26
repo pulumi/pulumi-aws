@@ -108,7 +108,7 @@ export interface GetOrderableDbInstanceResult {
  * });
  * ```
  */
-export function getOrderableDbInstanceOutput(args?: GetOrderableDbInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderableDbInstanceResult> {
+export function getOrderableDbInstanceOutput(args?: GetOrderableDbInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrderableDbInstanceResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:docdb/getOrderableDbInstance:getOrderableDbInstance", {

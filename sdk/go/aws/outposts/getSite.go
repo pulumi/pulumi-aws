@@ -5,6 +5,7 @@ package outposts
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func GetSite(ctx *pulumi.Context, args *GetSiteArgs, opts ...pulumi.InvokeOption) (*GetSiteResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetSiteResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetSiteResult{}, errors.New("DependsOn is not supported for direct form invoke GetSite, use GetSiteOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetSiteResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetSite, use GetSiteOutput instead")
+	}
 	var rv GetSiteResult
 	err := ctx.Invoke("aws:outposts/getSite:getSite", args, &rv, opts...)
 	if err != nil {
@@ -67,17 +78,18 @@ type GetSiteResult struct {
 }
 
 func GetSiteOutput(ctx *pulumi.Context, args GetSiteOutputArgs, opts ...pulumi.InvokeOption) GetSiteResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetSiteResultOutput, error) {
 			args := v.(GetSiteArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetSiteResult
-			secret, err := ctx.InvokePackageRaw("aws:outposts/getSite:getSite", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:outposts/getSite:getSite", args, &rv, "", opts...)
 			if err != nil {
 				return GetSiteResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetSiteResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetSiteResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetSiteResultOutput), nil
 			}

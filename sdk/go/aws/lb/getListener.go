@@ -5,6 +5,7 @@ package lb
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -61,6 +62,16 @@ import (
 // ```
 func LookupListener(ctx *pulumi.Context, args *LookupListenerArgs, opts ...pulumi.InvokeOption) (*LookupListenerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupListenerResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupListenerResult{}, errors.New("DependsOn is not supported for direct form invoke LookupListener, use LookupListenerOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupListenerResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupListener, use LookupListenerOutput instead")
+	}
 	var rv LookupListenerResult
 	err := ctx.Invoke("aws:lb/getListener:getListener", args, &rv, opts...)
 	if err != nil {
@@ -97,17 +108,18 @@ type LookupListenerResult struct {
 }
 
 func LookupListenerOutput(ctx *pulumi.Context, args LookupListenerOutputArgs, opts ...pulumi.InvokeOption) LookupListenerResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupListenerResultOutput, error) {
 			args := v.(LookupListenerArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupListenerResult
-			secret, err := ctx.InvokePackageRaw("aws:lb/getListener:getListener", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:lb/getListener:getListener", args, &rv, "", opts...)
 			if err != nil {
 				return LookupListenerResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupListenerResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupListenerResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupListenerResultOutput), nil
 			}

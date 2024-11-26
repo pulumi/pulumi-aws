@@ -5,6 +5,7 @@ package rds
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupCertificateResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupCertificateResult{}, errors.New("DependsOn is not supported for direct form invoke LookupCertificate, use LookupCertificateOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupCertificateResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupCertificate, use LookupCertificateOutput instead")
+	}
 	var rv LookupCertificateResult
 	err := ctx.Invoke("aws:rds/getCertificate:getCertificate", args, &rv, opts...)
 	if err != nil {
@@ -77,17 +88,18 @@ type LookupCertificateResult struct {
 }
 
 func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCertificateResultOutput, error) {
 			args := v.(LookupCertificateArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupCertificateResult
-			secret, err := ctx.InvokePackageRaw("aws:rds/getCertificate:getCertificate", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:rds/getCertificate:getCertificate", args, &rv, "", opts...)
 			if err != nil {
 				return LookupCertificateResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupCertificateResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupCertificateResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupCertificateResultOutput), nil
 			}

@@ -100,7 +100,7 @@ export interface GetAccessEntryResult {
  * export const eksAccessEntryOutputs = exampleAwsEksAccessEntry;
  * ```
  */
-export function getAccessEntryOutput(args: GetAccessEntryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessEntryResult> {
+export function getAccessEntryOutput(args: GetAccessEntryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessEntryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:eks/getAccessEntry:getAccessEntry", {
         "clusterName": args.clusterName,

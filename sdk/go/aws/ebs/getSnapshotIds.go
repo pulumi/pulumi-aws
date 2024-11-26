@@ -5,6 +5,7 @@ package ebs
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -57,6 +58,16 @@ import (
 // ```
 func GetSnapshotIds(ctx *pulumi.Context, args *GetSnapshotIdsArgs, opts ...pulumi.InvokeOption) (*GetSnapshotIdsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetSnapshotIdsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetSnapshotIdsResult{}, errors.New("DependsOn is not supported for direct form invoke GetSnapshotIds, use GetSnapshotIdsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetSnapshotIdsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetSnapshotIds, use GetSnapshotIdsOutput instead")
+	}
 	var rv GetSnapshotIdsResult
 	err := ctx.Invoke("aws:ebs/getSnapshotIds:getSnapshotIds", args, &rv, opts...)
 	if err != nil {
@@ -89,17 +100,18 @@ type GetSnapshotIdsResult struct {
 }
 
 func GetSnapshotIdsOutput(ctx *pulumi.Context, args GetSnapshotIdsOutputArgs, opts ...pulumi.InvokeOption) GetSnapshotIdsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetSnapshotIdsResultOutput, error) {
 			args := v.(GetSnapshotIdsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetSnapshotIdsResult
-			secret, err := ctx.InvokePackageRaw("aws:ebs/getSnapshotIds:getSnapshotIds", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ebs/getSnapshotIds:getSnapshotIds", args, &rv, "", opts...)
 			if err != nil {
 				return GetSnapshotIdsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetSnapshotIdsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetSnapshotIdsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetSnapshotIdsResultOutput), nil
 			}

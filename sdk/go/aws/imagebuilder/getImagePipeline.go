@@ -5,6 +5,7 @@ package imagebuilder
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupImagePipeline(ctx *pulumi.Context, args *LookupImagePipelineArgs, opts ...pulumi.InvokeOption) (*LookupImagePipelineResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupImagePipelineResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupImagePipelineResult{}, errors.New("DependsOn is not supported for direct form invoke LookupImagePipeline, use LookupImagePipelineOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupImagePipelineResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupImagePipeline, use LookupImagePipelineOutput instead")
+	}
 	var rv LookupImagePipelineResult
 	err := ctx.Invoke("aws:imagebuilder/getImagePipeline:getImagePipeline", args, &rv, opts...)
 	if err != nil {
@@ -97,17 +108,18 @@ type LookupImagePipelineResult struct {
 }
 
 func LookupImagePipelineOutput(ctx *pulumi.Context, args LookupImagePipelineOutputArgs, opts ...pulumi.InvokeOption) LookupImagePipelineResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupImagePipelineResultOutput, error) {
 			args := v.(LookupImagePipelineArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupImagePipelineResult
-			secret, err := ctx.InvokePackageRaw("aws:imagebuilder/getImagePipeline:getImagePipeline", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:imagebuilder/getImagePipeline:getImagePipeline", args, &rv, "", opts...)
 			if err != nil {
 				return LookupImagePipelineResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupImagePipelineResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupImagePipelineResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupImagePipelineResultOutput), nil
 			}

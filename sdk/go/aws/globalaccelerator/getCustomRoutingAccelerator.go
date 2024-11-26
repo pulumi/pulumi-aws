@@ -5,6 +5,7 @@ package globalaccelerator
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -51,6 +52,16 @@ import (
 // ```
 func LookupCustomRoutingAccelerator(ctx *pulumi.Context, args *LookupCustomRoutingAcceleratorArgs, opts ...pulumi.InvokeOption) (*LookupCustomRoutingAcceleratorResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupCustomRoutingAcceleratorResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupCustomRoutingAcceleratorResult{}, errors.New("DependsOn is not supported for direct form invoke LookupCustomRoutingAccelerator, use LookupCustomRoutingAcceleratorOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupCustomRoutingAcceleratorResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupCustomRoutingAccelerator, use LookupCustomRoutingAcceleratorOutput instead")
+	}
 	var rv LookupCustomRoutingAcceleratorResult
 	err := ctx.Invoke("aws:globalaccelerator/getCustomRoutingAccelerator:getCustomRoutingAccelerator", args, &rv, opts...)
 	if err != nil {
@@ -86,17 +97,18 @@ type LookupCustomRoutingAcceleratorResult struct {
 }
 
 func LookupCustomRoutingAcceleratorOutput(ctx *pulumi.Context, args LookupCustomRoutingAcceleratorOutputArgs, opts ...pulumi.InvokeOption) LookupCustomRoutingAcceleratorResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCustomRoutingAcceleratorResultOutput, error) {
 			args := v.(LookupCustomRoutingAcceleratorArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupCustomRoutingAcceleratorResult
-			secret, err := ctx.InvokePackageRaw("aws:globalaccelerator/getCustomRoutingAccelerator:getCustomRoutingAccelerator", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:globalaccelerator/getCustomRoutingAccelerator:getCustomRoutingAccelerator", args, &rv, "", opts...)
 			if err != nil {
 				return LookupCustomRoutingAcceleratorResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupCustomRoutingAcceleratorResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupCustomRoutingAcceleratorResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupCustomRoutingAcceleratorResultOutput), nil
 			}

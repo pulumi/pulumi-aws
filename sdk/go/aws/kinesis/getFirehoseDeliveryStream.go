@@ -5,6 +5,7 @@ package kinesis
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupFirehoseDeliveryStream(ctx *pulumi.Context, args *LookupFirehoseDeliveryStreamArgs, opts ...pulumi.InvokeOption) (*LookupFirehoseDeliveryStreamResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupFirehoseDeliveryStreamResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupFirehoseDeliveryStreamResult{}, errors.New("DependsOn is not supported for direct form invoke LookupFirehoseDeliveryStream, use LookupFirehoseDeliveryStreamOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupFirehoseDeliveryStreamResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupFirehoseDeliveryStream, use LookupFirehoseDeliveryStreamOutput instead")
+	}
 	var rv LookupFirehoseDeliveryStreamResult
 	err := ctx.Invoke("aws:kinesis/getFirehoseDeliveryStream:getFirehoseDeliveryStream", args, &rv, opts...)
 	if err != nil {
@@ -66,17 +77,18 @@ type LookupFirehoseDeliveryStreamResult struct {
 }
 
 func LookupFirehoseDeliveryStreamOutput(ctx *pulumi.Context, args LookupFirehoseDeliveryStreamOutputArgs, opts ...pulumi.InvokeOption) LookupFirehoseDeliveryStreamResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFirehoseDeliveryStreamResultOutput, error) {
 			args := v.(LookupFirehoseDeliveryStreamArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupFirehoseDeliveryStreamResult
-			secret, err := ctx.InvokePackageRaw("aws:kinesis/getFirehoseDeliveryStream:getFirehoseDeliveryStream", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:kinesis/getFirehoseDeliveryStream:getFirehoseDeliveryStream", args, &rv, "", opts...)
 			if err != nil {
 				return LookupFirehoseDeliveryStreamResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupFirehoseDeliveryStreamResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupFirehoseDeliveryStreamResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupFirehoseDeliveryStreamResultOutput), nil
 			}

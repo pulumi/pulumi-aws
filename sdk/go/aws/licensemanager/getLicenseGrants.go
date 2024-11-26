@@ -5,6 +5,7 @@ package licensemanager
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -56,6 +57,16 @@ import (
 // ```
 func GetLicenseGrants(ctx *pulumi.Context, args *GetLicenseGrantsArgs, opts ...pulumi.InvokeOption) (*GetLicenseGrantsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetLicenseGrantsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetLicenseGrantsResult{}, errors.New("DependsOn is not supported for direct form invoke GetLicenseGrants, use GetLicenseGrantsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetLicenseGrantsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetLicenseGrants, use GetLicenseGrantsOutput instead")
+	}
 	var rv GetLicenseGrantsResult
 	err := ctx.Invoke("aws:licensemanager/getLicenseGrants:getLicenseGrants", args, &rv, opts...)
 	if err != nil {
@@ -83,17 +94,18 @@ type GetLicenseGrantsResult struct {
 }
 
 func GetLicenseGrantsOutput(ctx *pulumi.Context, args GetLicenseGrantsOutputArgs, opts ...pulumi.InvokeOption) GetLicenseGrantsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetLicenseGrantsResultOutput, error) {
 			args := v.(GetLicenseGrantsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetLicenseGrantsResult
-			secret, err := ctx.InvokePackageRaw("aws:licensemanager/getLicenseGrants:getLicenseGrants", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:licensemanager/getLicenseGrants:getLicenseGrants", args, &rv, "", opts...)
 			if err != nil {
 				return GetLicenseGrantsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetLicenseGrantsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetLicenseGrantsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetLicenseGrantsResultOutput), nil
 			}

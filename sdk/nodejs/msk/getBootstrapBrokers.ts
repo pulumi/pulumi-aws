@@ -99,7 +99,7 @@ export interface GetBootstrapBrokersResult {
  * });
  * ```
  */
-export function getBootstrapBrokersOutput(args: GetBootstrapBrokersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBootstrapBrokersResult> {
+export function getBootstrapBrokersOutput(args: GetBootstrapBrokersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBootstrapBrokersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:msk/getBootstrapBrokers:getBootstrapBrokers", {
         "clusterArn": args.clusterArn,

@@ -5,6 +5,7 @@ package imagebuilder
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupComponent(ctx *pulumi.Context, args *LookupComponentArgs, opts ...pulumi.InvokeOption) (*LookupComponentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupComponentResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupComponentResult{}, errors.New("DependsOn is not supported for direct form invoke LookupComponent, use LookupComponentOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupComponentResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupComponent, use LookupComponentOutput instead")
+	}
 	var rv LookupComponentResult
 	err := ctx.Invoke("aws:imagebuilder/getComponent:getComponent", args, &rv, opts...)
 	if err != nil {
@@ -90,17 +101,18 @@ type LookupComponentResult struct {
 }
 
 func LookupComponentOutput(ctx *pulumi.Context, args LookupComponentOutputArgs, opts ...pulumi.InvokeOption) LookupComponentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupComponentResultOutput, error) {
 			args := v.(LookupComponentArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupComponentResult
-			secret, err := ctx.InvokePackageRaw("aws:imagebuilder/getComponent:getComponent", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:imagebuilder/getComponent:getComponent", args, &rv, "", opts...)
 			if err != nil {
 				return LookupComponentResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupComponentResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupComponentResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupComponentResultOutput), nil
 			}

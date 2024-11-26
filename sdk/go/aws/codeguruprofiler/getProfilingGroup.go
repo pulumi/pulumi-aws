@@ -5,6 +5,7 @@ package codeguruprofiler
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupProfilingGroup(ctx *pulumi.Context, args *LookupProfilingGroupArgs, opts ...pulumi.InvokeOption) (*LookupProfilingGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupProfilingGroupResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupProfilingGroupResult{}, errors.New("DependsOn is not supported for direct form invoke LookupProfilingGroup, use LookupProfilingGroupOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupProfilingGroupResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupProfilingGroup, use LookupProfilingGroupOutput instead")
+	}
 	var rv LookupProfilingGroupResult
 	err := ctx.Invoke("aws:codeguruprofiler/getProfilingGroup:getProfilingGroup", args, &rv, opts...)
 	if err != nil {
@@ -77,17 +88,18 @@ type LookupProfilingGroupResult struct {
 }
 
 func LookupProfilingGroupOutput(ctx *pulumi.Context, args LookupProfilingGroupOutputArgs, opts ...pulumi.InvokeOption) LookupProfilingGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupProfilingGroupResultOutput, error) {
 			args := v.(LookupProfilingGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupProfilingGroupResult
-			secret, err := ctx.InvokePackageRaw("aws:codeguruprofiler/getProfilingGroup:getProfilingGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:codeguruprofiler/getProfilingGroup:getProfilingGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupProfilingGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupProfilingGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupProfilingGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupProfilingGroupResultOutput), nil
 			}

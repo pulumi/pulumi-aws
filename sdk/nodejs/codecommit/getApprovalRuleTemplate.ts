@@ -87,7 +87,7 @@ export interface GetApprovalRuleTemplateResult {
  * });
  * ```
  */
-export function getApprovalRuleTemplateOutput(args: GetApprovalRuleTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApprovalRuleTemplateResult> {
+export function getApprovalRuleTemplateOutput(args: GetApprovalRuleTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApprovalRuleTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:codecommit/getApprovalRuleTemplate:getApprovalRuleTemplate", {
         "name": args.name,

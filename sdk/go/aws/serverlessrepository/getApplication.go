@@ -5,6 +5,7 @@ package serverlessrepository
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -49,6 +50,16 @@ import (
 // ```
 func GetApplication(ctx *pulumi.Context, args *GetApplicationArgs, opts ...pulumi.InvokeOption) (*GetApplicationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetApplicationResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetApplicationResult{}, errors.New("DependsOn is not supported for direct form invoke GetApplication, use GetApplicationOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetApplicationResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetApplication, use GetApplicationOutput instead")
+	}
 	var rv GetApplicationResult
 	err := ctx.Invoke("aws:serverlessrepository/getApplication:getApplication", args, &rv, opts...)
 	if err != nil {
@@ -83,17 +94,18 @@ type GetApplicationResult struct {
 }
 
 func GetApplicationOutput(ctx *pulumi.Context, args GetApplicationOutputArgs, opts ...pulumi.InvokeOption) GetApplicationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetApplicationResultOutput, error) {
 			args := v.(GetApplicationArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetApplicationResult
-			secret, err := ctx.InvokePackageRaw("aws:serverlessrepository/getApplication:getApplication", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:serverlessrepository/getApplication:getApplication", args, &rv, "", opts...)
 			if err != nil {
 				return GetApplicationResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetApplicationResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetApplicationResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetApplicationResultOutput), nil
 			}

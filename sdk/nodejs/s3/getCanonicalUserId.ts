@@ -55,7 +55,7 @@ export interface GetCanonicalUserIdResult {
  * export const canonicalUserId = current.then(current => current.id);
  * ```
  */
-export function getCanonicalUserIdOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCanonicalUserIdResult> {
+export function getCanonicalUserIdOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCanonicalUserIdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:s3/getCanonicalUserId:getCanonicalUserId", {
     }, opts);

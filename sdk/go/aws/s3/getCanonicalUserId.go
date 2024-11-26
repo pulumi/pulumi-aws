@@ -5,6 +5,7 @@ package s3
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetCanonicalUserId(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetCanonicalUserIdResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetCanonicalUserIdResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetCanonicalUserIdResult{}, errors.New("DependsOn is not supported for direct form invoke GetCanonicalUserId, use GetCanonicalUserIdOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetCanonicalUserIdResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetCanonicalUserId, use GetCanonicalUserIdOutput instead")
+	}
 	var rv GetCanonicalUserIdResult
 	err := ctx.Invoke("aws:s3/getCanonicalUserId:getCanonicalUserId", nil, &rv, opts...)
 	if err != nil {

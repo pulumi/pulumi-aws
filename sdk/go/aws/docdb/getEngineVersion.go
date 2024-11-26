@@ -5,6 +5,7 @@ package docdb
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func GetEngineVersion(ctx *pulumi.Context, args *GetEngineVersionArgs, opts ...pulumi.InvokeOption) (*GetEngineVersionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetEngineVersionResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetEngineVersionResult{}, errors.New("DependsOn is not supported for direct form invoke GetEngineVersion, use GetEngineVersionOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetEngineVersionResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetEngineVersion, use GetEngineVersionOutput instead")
+	}
 	var rv GetEngineVersionResult
 	err := ctx.Invoke("aws:docdb/getEngineVersion:getEngineVersion", args, &rv, opts...)
 	if err != nil {
@@ -81,17 +92,18 @@ type GetEngineVersionResult struct {
 }
 
 func GetEngineVersionOutput(ctx *pulumi.Context, args GetEngineVersionOutputArgs, opts ...pulumi.InvokeOption) GetEngineVersionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetEngineVersionResultOutput, error) {
 			args := v.(GetEngineVersionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetEngineVersionResult
-			secret, err := ctx.InvokePackageRaw("aws:docdb/getEngineVersion:getEngineVersion", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:docdb/getEngineVersion:getEngineVersion", args, &rv, "", opts...)
 			if err != nil {
 				return GetEngineVersionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetEngineVersionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetEngineVersionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetEngineVersionResultOutput), nil
 			}

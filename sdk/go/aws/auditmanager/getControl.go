@@ -5,6 +5,7 @@ package auditmanager
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -101,6 +102,16 @@ import (
 // ```
 func LookupControl(ctx *pulumi.Context, args *LookupControlArgs, opts ...pulumi.InvokeOption) (*LookupControlResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupControlResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupControlResult{}, errors.New("DependsOn is not supported for direct form invoke LookupControl, use LookupControlOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupControlResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupControl, use LookupControlOutput instead")
+	}
 	var rv LookupControlResult
 	err := ctx.Invoke("aws:auditmanager/getControl:getControl", args, &rv, opts...)
 	if err != nil {
@@ -133,17 +144,18 @@ type LookupControlResult struct {
 }
 
 func LookupControlOutput(ctx *pulumi.Context, args LookupControlOutputArgs, opts ...pulumi.InvokeOption) LookupControlResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupControlResultOutput, error) {
 			args := v.(LookupControlArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupControlResult
-			secret, err := ctx.InvokePackageRaw("aws:auditmanager/getControl:getControl", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:auditmanager/getControl:getControl", args, &rv, "", opts...)
 			if err != nil {
 				return LookupControlResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupControlResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupControlResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupControlResultOutput), nil
 			}

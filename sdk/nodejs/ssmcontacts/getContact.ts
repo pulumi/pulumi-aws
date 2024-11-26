@@ -84,7 +84,7 @@ export interface GetContactResult {
  * });
  * ```
  */
-export function getContactOutput(args: GetContactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactResult> {
+export function getContactOutput(args: GetContactOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContactResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssmcontacts/getContact:getContact", {
         "arn": args.arn,

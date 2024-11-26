@@ -108,7 +108,7 @@ def get_subnets(filters: Optional[Sequence[Union['GetSubnetsFilterArgs', 'GetSub
         tags=pulumi.get(__ret__, 'tags'))
 def get_subnets_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSubnetsFilterArgs', 'GetSubnetsFilterArgsDict']]]]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetsResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubnetsResult]:
     """
     This resource can be useful for getting back a set of subnet IDs.
 
@@ -123,7 +123,7 @@ def get_subnets_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['G
     __args__ = dict()
     __args__['filters'] = filters
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getSubnets:getSubnets', __args__, opts=opts, typ=GetSubnetsResult)
     return __ret__.apply(lambda __response__: GetSubnetsResult(
         filters=pulumi.get(__response__, 'filters'),

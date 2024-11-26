@@ -5,6 +5,7 @@ package eks
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupNodeGroup(ctx *pulumi.Context, args *LookupNodeGroupArgs, opts ...pulumi.InvokeOption) (*LookupNodeGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupNodeGroupResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupNodeGroupResult{}, errors.New("DependsOn is not supported for direct form invoke LookupNodeGroup, use LookupNodeGroupOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupNodeGroupResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupNodeGroup, use LookupNodeGroupOutput instead")
+	}
 	var rv LookupNodeGroupResult
 	err := ctx.Invoke("aws:eks/getNodeGroup:getNodeGroup", args, &rv, opts...)
 	if err != nil {
@@ -102,17 +113,18 @@ type LookupNodeGroupResult struct {
 }
 
 func LookupNodeGroupOutput(ctx *pulumi.Context, args LookupNodeGroupOutputArgs, opts ...pulumi.InvokeOption) LookupNodeGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNodeGroupResultOutput, error) {
 			args := v.(LookupNodeGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupNodeGroupResult
-			secret, err := ctx.InvokePackageRaw("aws:eks/getNodeGroup:getNodeGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:eks/getNodeGroup:getNodeGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupNodeGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupNodeGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupNodeGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupNodeGroupResultOutput), nil
 			}

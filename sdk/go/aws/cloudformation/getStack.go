@@ -5,6 +5,7 @@ package cloudformation
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -53,6 +54,16 @@ import (
 // ```
 func LookupStack(ctx *pulumi.Context, args *LookupStackArgs, opts ...pulumi.InvokeOption) (*LookupStackResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupStackResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupStackResult{}, errors.New("DependsOn is not supported for direct form invoke LookupStack, use LookupStackOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupStackResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupStack, use LookupStackOutput instead")
+	}
 	var rv LookupStackResult
 	err := ctx.Invoke("aws:cloudformation/getStack:getStack", args, &rv, opts...)
 	if err != nil {
@@ -97,17 +108,18 @@ type LookupStackResult struct {
 }
 
 func LookupStackOutput(ctx *pulumi.Context, args LookupStackOutputArgs, opts ...pulumi.InvokeOption) LookupStackResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupStackResultOutput, error) {
 			args := v.(LookupStackArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupStackResult
-			secret, err := ctx.InvokePackageRaw("aws:cloudformation/getStack:getStack", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:cloudformation/getStack:getStack", args, &rv, "", opts...)
 			if err != nil {
 				return LookupStackResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupStackResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupStackResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupStackResultOutput), nil
 			}

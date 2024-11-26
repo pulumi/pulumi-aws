@@ -307,7 +307,7 @@ def get_catalog_table_output(catalog_id: Optional[pulumi.Input[Optional[str]]] =
                              name: Optional[pulumi.Input[str]] = None,
                              query_as_of_time: Optional[pulumi.Input[Optional[str]]] = None,
                              transaction_id: Optional[pulumi.Input[Optional[int]]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCatalogTableResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCatalogTableResult]:
     """
     This data source can be used to fetch information about an AWS Glue Data Catalog Table.
 
@@ -334,7 +334,7 @@ def get_catalog_table_output(catalog_id: Optional[pulumi.Input[Optional[str]]] =
     __args__['name'] = name
     __args__['queryAsOfTime'] = query_as_of_time
     __args__['transactionId'] = transaction_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:glue/getCatalogTable:getCatalogTable', __args__, opts=opts, typ=GetCatalogTableResult)
     return __ret__.apply(lambda __response__: GetCatalogTableResult(
         arn=pulumi.get(__response__, 'arn'),

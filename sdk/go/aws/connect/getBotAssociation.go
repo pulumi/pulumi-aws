@@ -5,6 +5,7 @@ package connect
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -45,6 +46,16 @@ import (
 // ```
 func LookupBotAssociation(ctx *pulumi.Context, args *LookupBotAssociationArgs, opts ...pulumi.InvokeOption) (*LookupBotAssociationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupBotAssociationResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupBotAssociationResult{}, errors.New("DependsOn is not supported for direct form invoke LookupBotAssociation, use LookupBotAssociationOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupBotAssociationResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupBotAssociation, use LookupBotAssociationOutput instead")
+	}
 	var rv LookupBotAssociationResult
 	err := ctx.Invoke("aws:connect/getBotAssociation:getBotAssociation", args, &rv, opts...)
 	if err != nil {
@@ -70,17 +81,18 @@ type LookupBotAssociationResult struct {
 }
 
 func LookupBotAssociationOutput(ctx *pulumi.Context, args LookupBotAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupBotAssociationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupBotAssociationResultOutput, error) {
 			args := v.(LookupBotAssociationArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupBotAssociationResult
-			secret, err := ctx.InvokePackageRaw("aws:connect/getBotAssociation:getBotAssociation", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:connect/getBotAssociation:getBotAssociation", args, &rv, "", opts...)
 			if err != nil {
 				return LookupBotAssociationResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupBotAssociationResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupBotAssociationResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupBotAssociationResultOutput), nil
 			}

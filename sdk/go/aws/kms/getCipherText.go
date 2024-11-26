@@ -5,6 +5,7 @@ package kms
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -48,6 +49,16 @@ import (
 // ```
 func GetCipherText(ctx *pulumi.Context, args *GetCipherTextArgs, opts ...pulumi.InvokeOption) (*GetCipherTextResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetCipherTextResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetCipherTextResult{}, errors.New("DependsOn is not supported for direct form invoke GetCipherText, use GetCipherTextOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetCipherTextResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetCipherText, use GetCipherTextOutput instead")
+	}
 	var rv GetCipherTextResult
 	err := ctx.Invoke("aws:kms/getCipherText:getCipherText", args, &rv, opts...)
 	if err != nil {
@@ -78,17 +89,18 @@ type GetCipherTextResult struct {
 }
 
 func GetCipherTextOutput(ctx *pulumi.Context, args GetCipherTextOutputArgs, opts ...pulumi.InvokeOption) GetCipherTextResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetCipherTextResultOutput, error) {
 			args := v.(GetCipherTextArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetCipherTextResult
-			secret, err := ctx.InvokePackageRaw("aws:kms/getCipherText:getCipherText", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:kms/getCipherText:getCipherText", args, &rv, "", opts...)
 			if err != nil {
 				return GetCipherTextResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetCipherTextResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetCipherTextResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetCipherTextResultOutput), nil
 			}

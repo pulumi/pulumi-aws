@@ -57,7 +57,7 @@ export interface GetDefaultKmsKeyResult {
  * });
  * ```
  */
-export function getDefaultKmsKeyOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultKmsKeyResult> {
+export function getDefaultKmsKeyOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDefaultKmsKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", {
     }, opts);

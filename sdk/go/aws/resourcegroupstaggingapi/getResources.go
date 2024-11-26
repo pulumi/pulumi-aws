@@ -5,6 +5,7 @@ package resourcegroupstaggingapi
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -102,6 +103,16 @@ import (
 // ```
 func GetResources(ctx *pulumi.Context, args *GetResourcesArgs, opts ...pulumi.InvokeOption) (*GetResourcesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetResourcesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetResourcesResult{}, errors.New("DependsOn is not supported for direct form invoke GetResources, use GetResourcesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetResourcesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetResources, use GetResourcesOutput instead")
+	}
 	var rv GetResourcesResult
 	err := ctx.Invoke("aws:resourcegroupstaggingapi/getResources:getResources", args, &rv, opts...)
 	if err != nil {
@@ -138,17 +149,18 @@ type GetResourcesResult struct {
 }
 
 func GetResourcesOutput(ctx *pulumi.Context, args GetResourcesOutputArgs, opts ...pulumi.InvokeOption) GetResourcesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetResourcesResultOutput, error) {
 			args := v.(GetResourcesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetResourcesResult
-			secret, err := ctx.InvokePackageRaw("aws:resourcegroupstaggingapi/getResources:getResources", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:resourcegroupstaggingapi/getResources:getResources", args, &rv, "", opts...)
 			if err != nil {
 				return GetResourcesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetResourcesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetResourcesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetResourcesResultOutput), nil
 			}

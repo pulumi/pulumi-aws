@@ -90,7 +90,7 @@ export interface GetParameterGroupResult {
  * });
  * ```
  */
-export function getParameterGroupOutput(args: GetParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetParameterGroupResult> {
+export function getParameterGroupOutput(args: GetParameterGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetParameterGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:memorydb/getParameterGroup:getParameterGroup", {
         "name": args.name,

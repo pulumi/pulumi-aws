@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -66,6 +67,16 @@ import (
 // ```
 func GetRouteTables(ctx *pulumi.Context, args *GetRouteTablesArgs, opts ...pulumi.InvokeOption) (*GetRouteTablesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetRouteTablesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetRouteTablesResult{}, errors.New("DependsOn is not supported for direct form invoke GetRouteTables, use GetRouteTablesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetRouteTablesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetRouteTables, use GetRouteTablesOutput instead")
+	}
 	var rv GetRouteTablesResult
 	err := ctx.Invoke("aws:ec2/getRouteTables:getRouteTables", args, &rv, opts...)
 	if err != nil {
@@ -100,17 +111,18 @@ type GetRouteTablesResult struct {
 }
 
 func GetRouteTablesOutput(ctx *pulumi.Context, args GetRouteTablesOutputArgs, opts ...pulumi.InvokeOption) GetRouteTablesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetRouteTablesResultOutput, error) {
 			args := v.(GetRouteTablesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetRouteTablesResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getRouteTables:getRouteTables", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getRouteTables:getRouteTables", args, &rv, "", opts...)
 			if err != nil {
 				return GetRouteTablesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetRouteTablesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetRouteTablesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetRouteTablesResultOutput), nil
 			}

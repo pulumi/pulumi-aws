@@ -5,6 +5,7 @@ package route53
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func GetProfilesProfiles(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetProfilesProfilesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetProfilesProfilesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetProfilesProfilesResult{}, errors.New("DependsOn is not supported for direct form invoke GetProfilesProfiles, use GetProfilesProfilesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetProfilesProfilesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetProfilesProfiles, use GetProfilesProfilesOutput instead")
+	}
 	var rv GetProfilesProfilesResult
 	err := ctx.Invoke("aws:route53/getProfilesProfiles:getProfilesProfiles", nil, &rv, opts...)
 	if err != nil {

@@ -5,6 +5,7 @@ package waf
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupWebAcl(ctx *pulumi.Context, args *LookupWebAclArgs, opts ...pulumi.InvokeOption) (*LookupWebAclResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupWebAclResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupWebAclResult{}, errors.New("DependsOn is not supported for direct form invoke LookupWebAcl, use LookupWebAclOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupWebAclResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupWebAcl, use LookupWebAclOutput instead")
+	}
 	var rv LookupWebAclResult
 	err := ctx.Invoke("aws:waf/getWebAcl:getWebAcl", args, &rv, opts...)
 	if err != nil {
@@ -62,17 +73,18 @@ type LookupWebAclResult struct {
 }
 
 func LookupWebAclOutput(ctx *pulumi.Context, args LookupWebAclOutputArgs, opts ...pulumi.InvokeOption) LookupWebAclResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupWebAclResultOutput, error) {
 			args := v.(LookupWebAclArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupWebAclResult
-			secret, err := ctx.InvokePackageRaw("aws:waf/getWebAcl:getWebAcl", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:waf/getWebAcl:getWebAcl", args, &rv, "", opts...)
 			if err != nil {
 				return LookupWebAclResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupWebAclResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupWebAclResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupWebAclResultOutput), nil
 			}

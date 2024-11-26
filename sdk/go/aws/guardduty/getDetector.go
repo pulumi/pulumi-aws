@@ -5,6 +5,7 @@ package guardduty
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -38,6 +39,16 @@ import (
 // ```
 func LookupDetector(ctx *pulumi.Context, args *LookupDetectorArgs, opts ...pulumi.InvokeOption) (*LookupDetectorResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupDetectorResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupDetectorResult{}, errors.New("DependsOn is not supported for direct form invoke LookupDetector, use LookupDetectorOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupDetectorResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupDetector, use LookupDetectorOutput instead")
+	}
 	var rv LookupDetectorResult
 	err := ctx.Invoke("aws:guardduty/getDetector:getDetector", args, &rv, opts...)
 	if err != nil {
@@ -66,17 +77,18 @@ type LookupDetectorResult struct {
 }
 
 func LookupDetectorOutput(ctx *pulumi.Context, args LookupDetectorOutputArgs, opts ...pulumi.InvokeOption) LookupDetectorResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDetectorResultOutput, error) {
 			args := v.(LookupDetectorArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDetectorResult
-			secret, err := ctx.InvokePackageRaw("aws:guardduty/getDetector:getDetector", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:guardduty/getDetector:getDetector", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDetectorResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDetectorResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDetectorResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDetectorResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package iam
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -66,6 +67,16 @@ import (
 // ```
 func LookupOpenIdConnectProvider(ctx *pulumi.Context, args *LookupOpenIdConnectProviderArgs, opts ...pulumi.InvokeOption) (*LookupOpenIdConnectProviderResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupOpenIdConnectProviderResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupOpenIdConnectProviderResult{}, errors.New("DependsOn is not supported for direct form invoke LookupOpenIdConnectProvider, use LookupOpenIdConnectProviderOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupOpenIdConnectProviderResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupOpenIdConnectProvider, use LookupOpenIdConnectProviderOutput instead")
+	}
 	var rv LookupOpenIdConnectProviderResult
 	err := ctx.Invoke("aws:iam/getOpenIdConnectProvider:getOpenIdConnectProvider", args, &rv, opts...)
 	if err != nil {
@@ -99,17 +110,18 @@ type LookupOpenIdConnectProviderResult struct {
 }
 
 func LookupOpenIdConnectProviderOutput(ctx *pulumi.Context, args LookupOpenIdConnectProviderOutputArgs, opts ...pulumi.InvokeOption) LookupOpenIdConnectProviderResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupOpenIdConnectProviderResultOutput, error) {
 			args := v.(LookupOpenIdConnectProviderArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupOpenIdConnectProviderResult
-			secret, err := ctx.InvokePackageRaw("aws:iam/getOpenIdConnectProvider:getOpenIdConnectProvider", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:iam/getOpenIdConnectProvider:getOpenIdConnectProvider", args, &rv, "", opts...)
 			if err != nil {
 				return LookupOpenIdConnectProviderResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupOpenIdConnectProviderResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupOpenIdConnectProviderResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupOpenIdConnectProviderResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package rds
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -49,6 +50,16 @@ import (
 // ```
 func GetClusters(ctx *pulumi.Context, args *GetClustersArgs, opts ...pulumi.InvokeOption) (*GetClustersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetClustersResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetClustersResult{}, errors.New("DependsOn is not supported for direct form invoke GetClusters, use GetClustersOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetClustersResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetClusters, use GetClustersOutput instead")
+	}
 	var rv GetClustersResult
 	err := ctx.Invoke("aws:rds/getClusters:getClusters", args, &rv, opts...)
 	if err != nil {
@@ -75,17 +86,18 @@ type GetClustersResult struct {
 }
 
 func GetClustersOutput(ctx *pulumi.Context, args GetClustersOutputArgs, opts ...pulumi.InvokeOption) GetClustersResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetClustersResultOutput, error) {
 			args := v.(GetClustersArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetClustersResult
-			secret, err := ctx.InvokePackageRaw("aws:rds/getClusters:getClusters", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:rds/getClusters:getClusters", args, &rv, "", opts...)
 			if err != nil {
 				return GetClustersResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetClustersResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetClustersResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetClustersResultOutput), nil
 			}

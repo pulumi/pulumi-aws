@@ -5,6 +5,7 @@ package mskconnect
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupCustomPlugin(ctx *pulumi.Context, args *LookupCustomPluginArgs, opts ...pulumi.InvokeOption) (*LookupCustomPluginResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupCustomPluginResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupCustomPluginResult{}, errors.New("DependsOn is not supported for direct form invoke LookupCustomPlugin, use LookupCustomPluginOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupCustomPluginResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupCustomPlugin, use LookupCustomPluginOutput instead")
+	}
 	var rv LookupCustomPluginResult
 	err := ctx.Invoke("aws:mskconnect/getCustomPlugin:getCustomPlugin", args, &rv, opts...)
 	if err != nil {
@@ -74,17 +85,18 @@ type LookupCustomPluginResult struct {
 }
 
 func LookupCustomPluginOutput(ctx *pulumi.Context, args LookupCustomPluginOutputArgs, opts ...pulumi.InvokeOption) LookupCustomPluginResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCustomPluginResultOutput, error) {
 			args := v.(LookupCustomPluginArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupCustomPluginResult
-			secret, err := ctx.InvokePackageRaw("aws:mskconnect/getCustomPlugin:getCustomPlugin", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:mskconnect/getCustomPlugin:getCustomPlugin", args, &rv, "", opts...)
 			if err != nil {
 				return LookupCustomPluginResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupCustomPluginResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupCustomPluginResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupCustomPluginResultOutput), nil
 			}

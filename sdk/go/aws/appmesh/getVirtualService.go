@@ -5,6 +5,7 @@ package appmesh
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -72,6 +73,16 @@ import (
 // ```
 func LookupVirtualService(ctx *pulumi.Context, args *LookupVirtualServiceArgs, opts ...pulumi.InvokeOption) (*LookupVirtualServiceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupVirtualServiceResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupVirtualServiceResult{}, errors.New("DependsOn is not supported for direct form invoke LookupVirtualService, use LookupVirtualServiceOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupVirtualServiceResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupVirtualService, use LookupVirtualServiceOutput instead")
+	}
 	var rv LookupVirtualServiceResult
 	err := ctx.Invoke("aws:appmesh/getVirtualService:getVirtualService", args, &rv, opts...)
 	if err != nil {
@@ -114,17 +125,18 @@ type LookupVirtualServiceResult struct {
 }
 
 func LookupVirtualServiceOutput(ctx *pulumi.Context, args LookupVirtualServiceOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualServiceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVirtualServiceResultOutput, error) {
 			args := v.(LookupVirtualServiceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVirtualServiceResult
-			secret, err := ctx.InvokePackageRaw("aws:appmesh/getVirtualService:getVirtualService", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:appmesh/getVirtualService:getVirtualService", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVirtualServiceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVirtualServiceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVirtualServiceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVirtualServiceResultOutput), nil
 			}

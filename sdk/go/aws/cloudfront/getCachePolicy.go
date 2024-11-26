@@ -5,6 +5,7 @@ package cloudfront
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -70,6 +71,16 @@ import (
 // ```
 func LookupCachePolicy(ctx *pulumi.Context, args *LookupCachePolicyArgs, opts ...pulumi.InvokeOption) (*LookupCachePolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupCachePolicyResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupCachePolicyResult{}, errors.New("DependsOn is not supported for direct form invoke LookupCachePolicy, use LookupCachePolicyOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupCachePolicyResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupCachePolicy, use LookupCachePolicyOutput instead")
+	}
 	var rv LookupCachePolicyResult
 	err := ctx.Invoke("aws:cloudfront/getCachePolicy:getCachePolicy", args, &rv, opts...)
 	if err != nil {
@@ -105,17 +116,18 @@ type LookupCachePolicyResult struct {
 }
 
 func LookupCachePolicyOutput(ctx *pulumi.Context, args LookupCachePolicyOutputArgs, opts ...pulumi.InvokeOption) LookupCachePolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCachePolicyResultOutput, error) {
 			args := v.(LookupCachePolicyArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupCachePolicyResult
-			secret, err := ctx.InvokePackageRaw("aws:cloudfront/getCachePolicy:getCachePolicy", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:cloudfront/getCachePolicy:getCachePolicy", args, &rv, "", opts...)
 			if err != nil {
 				return LookupCachePolicyResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupCachePolicyResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupCachePolicyResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupCachePolicyResultOutput), nil
 			}

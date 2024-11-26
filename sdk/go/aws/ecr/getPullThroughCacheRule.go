@@ -5,6 +5,7 @@ package ecr
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupPullThroughCacheRule(ctx *pulumi.Context, args *LookupPullThroughCacheRuleArgs, opts ...pulumi.InvokeOption) (*LookupPullThroughCacheRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupPullThroughCacheRuleResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupPullThroughCacheRuleResult{}, errors.New("DependsOn is not supported for direct form invoke LookupPullThroughCacheRule, use LookupPullThroughCacheRuleOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupPullThroughCacheRuleResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupPullThroughCacheRule, use LookupPullThroughCacheRuleOutput instead")
+	}
 	var rv LookupPullThroughCacheRuleResult
 	err := ctx.Invoke("aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule", args, &rv, opts...)
 	if err != nil {
@@ -68,17 +79,18 @@ type LookupPullThroughCacheRuleResult struct {
 }
 
 func LookupPullThroughCacheRuleOutput(ctx *pulumi.Context, args LookupPullThroughCacheRuleOutputArgs, opts ...pulumi.InvokeOption) LookupPullThroughCacheRuleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPullThroughCacheRuleResultOutput, error) {
 			args := v.(LookupPullThroughCacheRuleArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupPullThroughCacheRuleResult
-			secret, err := ctx.InvokePackageRaw("aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule", args, &rv, "", opts...)
 			if err != nil {
 				return LookupPullThroughCacheRuleResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupPullThroughCacheRuleResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupPullThroughCacheRuleResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupPullThroughCacheRuleResultOutput), nil
 			}

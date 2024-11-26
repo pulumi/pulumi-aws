@@ -5,6 +5,7 @@ package elb
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -110,6 +111,16 @@ import (
 // ```
 func GetServiceAccount(ctx *pulumi.Context, args *GetServiceAccountArgs, opts ...pulumi.InvokeOption) (*GetServiceAccountResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetServiceAccountResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetServiceAccountResult{}, errors.New("DependsOn is not supported for direct form invoke GetServiceAccount, use GetServiceAccountOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetServiceAccountResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetServiceAccount, use GetServiceAccountOutput instead")
+	}
 	var rv GetServiceAccountResult
 	err := ctx.Invoke("aws:elb/getServiceAccount:getServiceAccount", args, &rv, opts...)
 	if err != nil {
@@ -135,17 +146,18 @@ type GetServiceAccountResult struct {
 }
 
 func GetServiceAccountOutput(ctx *pulumi.Context, args GetServiceAccountOutputArgs, opts ...pulumi.InvokeOption) GetServiceAccountResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetServiceAccountResultOutput, error) {
 			args := v.(GetServiceAccountArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetServiceAccountResult
-			secret, err := ctx.InvokePackageRaw("aws:elb/getServiceAccount:getServiceAccount", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:elb/getServiceAccount:getServiceAccount", args, &rv, "", opts...)
 			if err != nil {
 				return GetServiceAccountResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetServiceAccountResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetServiceAccountResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetServiceAccountResultOutput), nil
 			}
