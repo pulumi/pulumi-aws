@@ -89,13 +89,13 @@ jobs:
     steps:
     # Run as first step so we don't delete things that have just been installed
     - name: Free Disk Space (Ubuntu)
-      uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be
+      uses: jlumbroso/free-disk-space@v1.3.1
       with:
         tool-cache: false
         swap-storage: false
         dotnet: false
     - name: Checkout Repo
-      uses: actions/checkout@v4
+      uses: actions/checkout@v4.2.2
       with:
         submodules: true
         persist-credentials: false
@@ -112,10 +112,7 @@ jobs:
       with:
         language: ${{ matrix.language }}
     - name: Restore makefile progress
-      uses: actions/download-artifact@v4
-      with:
-        name: build_${{ matrix.language }}.make
-        path: .make
+      run: make --touch provider schema build_${{ matrix.language }}
     - name: Update path
       run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
     - name: Install Python deps
@@ -220,10 +217,7 @@ jobs:
             with:
               language: ${{ matrix.language }}
           - name: Restore makefile progress
-            uses: actions/download-artifact@v4
-            with:
-              name: build_${{ matrix.language }}.make
-              path: .make
+            run: make --touch provider schema build_${{ matrix.language }}
           - name: Update path
             run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
           - name: Install Python deps
@@ -293,10 +287,7 @@ jobs:
             with:
               language: ${{ matrix.language }}
           - name: Restore makefile progress
-            uses: actions/download-artifact@v4
-            with:
-              name: build_${{ matrix.language }}.make
-              path: .make
+            run: make --touch provider schema build_${{ matrix.language }}
           - name: Update path
             run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
           - name: Install dependencies
