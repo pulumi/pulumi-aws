@@ -10,7 +10,7 @@ runs:
   using: "composite"
   steps:
     - name: Download ${{ inputs.language }} SDK
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v4.1.8
       with:
         name: ${{ inputs.language }}-sdk.tar.gz
         path: ${{ github.workspace}}/sdk/

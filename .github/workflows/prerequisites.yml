@@ -47,13 +47,13 @@ jobs:
     steps:
     # Run as first step so we don't delete things that have just been installed
     - name: Free Disk Space (Ubuntu)
-      uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be
+      uses: jlumbroso/free-disk-space@v1.3.1
       with:
         tool-cache: false
         swap-storage: false
         dotnet: false
     - name: Checkout Repo
-      uses: actions/checkout@v4
+      uses: actions/checkout@v4.2.2
       with:
         submodules: true
         persist-credentials: false
@@ -88,15 +88,9 @@ jobs:
           schema-tools compare -r github://api.github.com/pulumi -p aws -o "${{ inputs.default_branch }}" -n --local-path=provider/cmd/pulumi-resource-aws/schema.json;
           echo "$EOF";
         } >> "$GITHUB_ENV"
-    - name: Save makefile progress
-      uses: actions/upload-artifact@v4
-      with:
-        name: prerequisites.make
-        path: .make
-        include-hidden-files: true
     - if: inputs.is_pr && inputs.is_automated == false
       name: Comment on PR with Details of Schema Check
-      uses: thollander/actions-comment-pull-request@v2
+      uses: thollander/actions-comment-pull-request@v2.5.0
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         comment_tag: schemaCheck
@@ -110,7 +104,7 @@ jobs:
       uses: ./.github/actions/upload-bin
 
     - name: Upload schema-embed.json
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v4.4.3
       with:
         name: schema-embed.json
         path: provider/cmd/pulumi-resource-aws/schema-embed.json

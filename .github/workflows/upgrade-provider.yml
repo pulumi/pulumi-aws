@@ -22,9 +22,15 @@ on:
     # 3 AM UTC ~ 8 PM PDT / 7 PM PST daily. Time chosen to run during off hours.
     - cron: 0 3 * * *
 
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
 env:
-  GH_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
+  GH_TOKEN: ${{ secrets.PULUMI_PROVIDER_AUTOMATION_TOKEN || secrets.PULUMI_BOT_TOKEN || secrets.GITHUB_TOKEN }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   upgrade_provider:
     name: upgrade-provider
@@ -32,13 +38,13 @@ jobs:
     steps:
       # Run as first step so we don't delete things that have just been installed
       - name: Free Disk Space (Ubuntu)
-        uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be
+        uses: jlumbroso/free-disk-space@v1.3.1
         with:
           tool-cache: false
           swap-storage: false
           dotnet: false
       - name: Checkout Repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2
         with:
           submodules: true
           # Persist credentials so upgrade-provider can push a new branch.
