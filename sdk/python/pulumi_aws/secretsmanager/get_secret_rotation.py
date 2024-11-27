@@ -126,7 +126,7 @@ def get_secret_rotation(secret_id: Optional[str] = None,
         rotation_rules=pulumi.get(__ret__, 'rotation_rules'),
         secret_id=pulumi.get(__ret__, 'secret_id'))
 def get_secret_rotation_output(secret_id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretRotationResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretRotationResult]:
     """
     Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the `secretsmanager.Secret` data source. To retrieve a secret value, see the `secretsmanager.SecretVersion` data source.
 
@@ -146,7 +146,7 @@ def get_secret_rotation_output(secret_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['secretId'] = secret_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:secretsmanager/getSecretRotation:getSecretRotation', __args__, opts=opts, typ=GetSecretRotationResult)
     return __ret__.apply(lambda __response__: GetSecretRotationResult(
         id=pulumi.get(__response__, 'id'),

@@ -196,7 +196,7 @@ def get_resolver_endpoint(filters: Optional[Sequence[Union['GetResolverEndpointF
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
 def get_resolver_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetResolverEndpointFilterArgs', 'GetResolverEndpointFilterArgsDict']]]]] = None,
                                  resolver_endpoint_id: Optional[pulumi.Input[Optional[str]]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverEndpointResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverEndpointResult]:
     """
     `route53.ResolverEndpoint` provides details about a specific Route53 Resolver Endpoint.
 
@@ -232,7 +232,7 @@ def get_resolver_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequenc
     __args__ = dict()
     __args__['filters'] = filters
     __args__['resolverEndpointId'] = resolver_endpoint_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:route53/getResolverEndpoint:getResolverEndpoint', __args__, opts=opts, typ=GetResolverEndpointResult)
     return __ret__.apply(lambda __response__: GetResolverEndpointResult(
         arn=pulumi.get(__response__, 'arn'),

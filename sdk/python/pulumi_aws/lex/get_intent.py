@@ -187,7 +187,7 @@ def get_intent(name: Optional[str] = None,
         version=pulumi.get(__ret__, 'version'))
 def get_intent_output(name: Optional[pulumi.Input[str]] = None,
                       version: Optional[pulumi.Input[Optional[str]]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntentResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntentResult]:
     """
     Provides details about a specific Amazon Lex Intent.
 
@@ -208,7 +208,7 @@ def get_intent_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['version'] = version
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:lex/getIntent:getIntent', __args__, opts=opts, typ=GetIntentResult)
     return __ret__.apply(lambda __response__: GetIntentResult(
         arn=pulumi.get(__response__, 'arn'),

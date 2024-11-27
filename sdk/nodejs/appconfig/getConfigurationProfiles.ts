@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * const example = aws.appconfig.getConfigurationProfiles({
  *     applicationId: "a1d3rpe",
  * });
- * const exampleGetConfigurationProfile = example.then(example => .reduce((__obj, [, ]) => ({ ...__obj, [__key]: aws.appconfig.getConfigurationProfile({
+ * const exampleGetConfigurationProfile = example.then(example => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.appconfig.getConfigurationProfile({
  *     configurationProfileId: __value,
  *     applicationId: exampleAwsAppconfigApplication.id,
  * }) })));
@@ -71,7 +71,7 @@ export interface GetConfigurationProfilesResult {
  * const example = aws.appconfig.getConfigurationProfiles({
  *     applicationId: "a1d3rpe",
  * });
- * const exampleGetConfigurationProfile = example.then(example => .reduce((__obj, [, ]) => ({ ...__obj, [__key]: aws.appconfig.getConfigurationProfile({
+ * const exampleGetConfigurationProfile = example.then(example => .reduce((__obj, [__key, __value]) => ({ ...__obj, [__key]: aws.appconfig.getConfigurationProfile({
  *     configurationProfileId: __value,
  *     applicationId: exampleAwsAppconfigApplication.id,
  * }) })));

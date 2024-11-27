@@ -208,7 +208,7 @@ def get_routing_profile_output(instance_id: Optional[pulumi.Input[str]] = None,
                                name: Optional[pulumi.Input[Optional[str]]] = None,
                                routing_profile_id: Optional[pulumi.Input[Optional[str]]] = None,
                                tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoutingProfileResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoutingProfileResult]:
     """
     Provides details about a specific Amazon Connect Routing Profile.
 
@@ -245,7 +245,7 @@ def get_routing_profile_output(instance_id: Optional[pulumi.Input[str]] = None,
     __args__['name'] = name
     __args__['routingProfileId'] = routing_profile_id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:connect/getRoutingProfile:getRoutingProfile', __args__, opts=opts, typ=GetRoutingProfileResult)
     return __ret__.apply(lambda __response__: GetRoutingProfileResult(
         arn=pulumi.get(__response__, 'arn'),

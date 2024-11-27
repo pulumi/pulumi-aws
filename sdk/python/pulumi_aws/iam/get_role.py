@@ -221,7 +221,7 @@ def get_role(name: Optional[str] = None,
         unique_id=pulumi.get(__ret__, 'unique_id'))
 def get_role_output(name: Optional[pulumi.Input[str]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleResult]:
     """
     This data source can be used to fetch information about a specific
     IAM role. By using this data source, you can reference IAM role
@@ -243,7 +243,7 @@ def get_role_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:iam/getRole:getRole', __args__, opts=opts, typ=GetRoleResult)
     return __ret__.apply(lambda __response__: GetRoleResult(
         arn=pulumi.get(__response__, 'arn'),

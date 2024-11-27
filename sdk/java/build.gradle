@@ -5,7 +5,7 @@ plugins {
     id("signing")
     id("java-library")
     id("maven-publish")
-    id("io.github.gradle-nexus.publish-plugin") version "1.1.0"
+    id("io.github.gradle-nexus.publish-plugin") version "2.0.0"
 }
 
 group = "com.pulumi"
@@ -44,7 +44,7 @@ repositories {
 dependencies {
     implementation("com.google.code.findbugs:jsr305:3.0.2")
     implementation("com.google.code.gson:gson:2.8.9")
-    implementation("com.pulumi:pulumi:0.17.0")
+    implementation("com.pulumi:pulumi:0.18.0")
 }
 
 task sourcesJar(type: Jar) {
