@@ -20,7 +20,7 @@ runs:
   steps:
     - name: Install Go
       if: inputs.tools == 'all' || contains(inputs.tools, 'go')
-      uses: actions/setup-go@v5
+      uses: actions/setup-go@41dfa10bad2bb2ae585af6ee5bb4d7d973ad74ed # v5
       with:
         go-version: "1.23.x"
         cache-dependency-path: |
@@ -30,45 +30,45 @@ runs:
 
     - name: Install pulumictl
       if: inputs.tools == 'all' || contains(inputs.tools, 'pulumictl')
-      uses: jaxxstorm/action-install-gh-release@v1.11.0
+      uses: jaxxstorm/action-install-gh-release@71d17cb091aa850acb2a1a4cf87258d183eb941b # v1.11.0
       with:
         tag: v0.0.46
         repo: pulumi/pulumictl
 
     - name: Install Pulumi CLI
       if: inputs.tools == 'all' || contains(inputs.tools, 'pulumicli')
-      uses: pulumi/actions@v5
+      uses: pulumi/actions@c7fad9e2f0b79653172b36538b8b34b3c0291952 # v6
       with:
         pulumi-version: "dev"
 
     - name: Install Schema Tools
       if: inputs.tools == 'all' || contains(inputs.tools, 'schema-tools')
-      uses: jaxxstorm/action-install-gh-release@v1.11.0
+      uses: jaxxstorm/action-install-gh-release@71d17cb091aa850acb2a1a4cf87258d183eb941b # v1.11.0
       with:
         repo: pulumi/schema-tools
 
     - name: Setup Node
       if: inputs.tools == 'all' || contains(inputs.tools, 'nodejs')
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4
       with:
         node-version: 20.x
         registry-url: https://registry.npmjs.org
 
     - name: Setup DotNet
       if: inputs.tools == 'all' || contains(inputs.tools, 'dotnet')
-      uses: actions/setup-dotnet@v4
+      uses: actions/setup-dotnet@3e891b0cb619bf60e2c25674b222b8940e2c1c25 # v4
       with:
         dotnet-version: 6.0.x
 
     - name: Setup Python
       if: inputs.tools == 'all' || contains(inputs.tools, 'python')
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5
       with:
         python-version: 3.11.8
 
     - name: Setup Java
       if: inputs.tools == 'all' || contains(inputs.tools, 'java')
-      uses: actions/setup-java@v4
+      uses: actions/setup-java@8df1039502a15bceb9433410b1a100fbe190c53b # v4
       with:
         cache: gradle
         distribution: temurin
@@ -76,6 +76,6 @@ runs:
 
     - name: Setup Gradle
       if: inputs.tools == 'all' || contains(inputs.tools, 'java')
-      uses: gradle/gradle-build-action@v3
+      uses: gradle/gradle-build-action@ac2d340dc04d9e1113182899e983b5400c17cda1 # v3
       with:
         gradle-version: 7.6

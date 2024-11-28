@@ -47,22 +47,22 @@ jobs:
     steps:
     # Run as first step so we don't delete things that have just been installed
     - name: Free Disk Space (Ubuntu)
-      uses: jlumbroso/free-disk-space@v1.3.1
+      uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be # v1.3.1
       with:
         tool-cache: false
         swap-storage: false
         dotnet: false
     - name: Checkout Repo
-      uses: actions/checkout@v4.2.2
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       with:
         submodules: true
         persist-credentials: false
-    - uses: pulumi/provider-version-action@v1
+    - uses: pulumi/provider-version-action@0391d47b9b0d865d33dd0a295b1fcf9f7021dd4c # v1.5.3
       id: provider-version
       with:
         set-env: 'PROVIDER_VERSION'
     - name: Cache examples generation
-      uses: actions/cache@v4
+      uses: actions/cache@6849a6489940f00c2f30c0fb92c6274307ccb58a # v4
       with:
         path: |
           .pulumi/examples-cache
@@ -90,7 +90,7 @@ jobs:
         } >> "$GITHUB_ENV"
     - if: inputs.is_pr && inputs.is_automated == false
       name: Comment on PR with Details of Schema Check
-      uses: thollander/actions-comment-pull-request@v2.5.0
+      uses: thollander/actions-comment-pull-request@fabd468d3a1a0b97feee5f6b9e499eab0dd903f6 # v2.5.0
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         comment_tag: schemaCheck
@@ -104,7 +104,7 @@ jobs:
       uses: ./.github/actions/upload-bin
 
     - name: Upload schema-embed.json
-      uses: actions/upload-artifact@v4.4.3
+      uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
       with:
         name: schema-embed.json
         path: provider/cmd/pulumi-resource-aws/schema-embed.json

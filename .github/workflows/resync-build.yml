@@ -28,13 +28,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@v4.2.2
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       with:
         submodules: true
         # Persist credentials so we can push a new branch.
         persist-credentials: true
     - name: Checkout repo
-      uses: actions/checkout@v4.2.2
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       with:
         path: ci-mgmt
         repository: pulumi/ci-mgmt
@@ -69,7 +69,7 @@ jobs:
     - name: Build
       run: make build
     - name: Create PR (no linked issue)
-      uses: peter-evans/create-pull-request@v3.12.0
+      uses: peter-evans/create-pull-request@5e914681df9dc83aa4e4905692ca88beb2f9e91f # v7.0.5
       with:
         author: pulumi-bot <bot@pulumi.com>
         base: master
