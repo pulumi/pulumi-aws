@@ -49,7 +49,7 @@ jobs:
       if: inputs.skipGoSdk && inputs.isPrerelease == false
       run: echo "Can't skip Go SDK for stable releases. This is likely a bug in the calling workflow." && exit 1
     - name: Checkout Repo
-      uses: actions/checkout@v4.2.2
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       with:
         submodules: true
         persist-credentials: false
@@ -58,7 +58,7 @@ jobs:
       with:
         tools: pulumictl, pulumicli, go, schema-tools
     - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v4.0.2
+      uses: aws-actions/configure-aws-credentials@e3dd6a429d7300a6a4c196c26e071d42e0343502 # v4.0.2
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-region: us-east-2
@@ -70,7 +70,7 @@ jobs:
     - name: Create dist directory
       run: mkdir -p dist
     - name: Download provider assets
-      uses: actions/download-artifact@v4.1.8
+      uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 # v4.1.8
       with:
         pattern: pulumi-resource-aws-v${{ inputs.version }}-*
         path: dist
@@ -95,7 +95,7 @@ jobs:
     - name: Upload Provider Binaries
       run: aws s3 cp dist s3://get.pulumi.com/releases/plugins/ --recursive
     - name: Create GH Release
-      uses: softprops/action-gh-release@v2
+      uses: softprops/action-gh-release@e7a8f85e1c67a31e6ed99a94b41bd0b71bbee6b8 # v2
       if: inputs.isPrerelease == false
       with:
         tag_name: v${{ inputs.version }}
@@ -114,7 +114,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@v4.2.2
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       with:
         submodules: true
         # Persist credentials so we can push back to the repo
@@ -124,7 +124,7 @@ jobs:
       with:
         tools: pulumictl, pulumicli, nodejs, python, dotnet, go, java
     - name: Publish SDKs
-      uses: pulumi/pulumi-package-publisher@v0.0.20
+      uses: pulumi/pulumi-package-publisher@1c0359ba74243cf6651efacfd839c751d8ff87e2 # v0.0.20
       with:
         sdk: all
         version: ${{ inputs.version }}
@@ -154,7 +154,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Dispatch Metadata build
-        uses: peter-evans/repository-dispatch@v3
+        uses: peter-evans/repository-dispatch@ff45666b9427631e3450c54a1bcbee4d9ff4d7c0 # v3
         with:
           token: ${{ secrets.PULUMI_BOT_TOKEN }}
           repository: pulumi/registry
@@ -175,7 +175,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@v4.2.2
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       with:
         persist-credentials: false
     - name: Clean up release labels
