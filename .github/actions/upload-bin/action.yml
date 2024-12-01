@@ -8,7 +8,7 @@ runs:
       shell: bash
       run: tar -zcf ${{ github.workspace }}/bin/provider.tar.gz -C ${{ github.workspace }}/bin/ pulumi-resource-aws pulumi-tfgen-aws
     - name: Upload artifacts
-      uses: actions/upload-artifact@v4.4.3
+      uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
       with:
         name: aws-provider.tar.gz
         path: ${{ github.workspace }}/bin/provider.tar.gz
