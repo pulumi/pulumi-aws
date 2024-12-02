@@ -31,13 +31,13 @@ jobs:
     steps:
       # Run as first step so we don't delete things that have just been installed
       - name: Free Disk Space (Ubuntu)
-        uses: jlumbroso/free-disk-space@v1.3.1
+        uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be
         with:
           tool-cache: false
           swap-storage: false
           dotnet: false
       - name: Checkout Repo
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v4
         with:
           submodules: true
           persist-credentials: false
@@ -48,7 +48,7 @@ jobs:
       - name: Prepare local workspace before restoring previously built
         run: make prepare_local_workspace
       - name: Download schema-embed.json
-        uses: actions/download-artifact@v4.1.8
+        uses: actions/download-artifact@v4
         with:
           # Use a pattern to avoid failing if the artifact doesn't exist
           pattern: schema-embed.*
@@ -56,11 +56,14 @@ jobs:
           merge-multiple: true
           path: provider/cmd/pulumi-resource-aws/schema-embed.json
       - name: Restore makefile progress
-        run: make --touch provider schema
+        uses: actions/download-artifact@v4
+        with:
+          name: prerequisites.make
+          path: .make
       - name: Build & package provider
         run: make provider_dist-${{ matrix.platform.os }}-${{ matrix.platform.arch }}
       - name: Upload artifacts
-        uses: actions/upload-artifact@v4.4.3
+        uses: actions/upload-artifact@v4
         with:
           name: pulumi-resource-aws-v${{ inputs.version }}-${{ matrix.platform.os }}-${{ matrix.platform.arch }}.tar.gz
           path: bin/pulumi-resource-aws-v${{ inputs.version }}-${{ matrix.platform.os }}-${{ matrix.platform.arch }}.tar.gz

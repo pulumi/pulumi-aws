@@ -162,7 +162,10 @@ extraTests:
       with:
         language: ${{ matrix.language }}
     - name: Restore makefile progress
-      run: make --touch provider schema build_${{ matrix.language }}
+      uses: actions/download-artifact@v4
+      with:
+        name: build_${{ matrix.language }}.make
+        path: .make
     - name: Update path
       run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
     - name: Install dependencies
@@ -224,7 +227,10 @@ extraTests:
         with:
           language: ${{ matrix.language }}
       - name: Restore makefile progress
-        run: make --touch provider schema build_${{ matrix.language }}
+        uses: actions/download-artifact@v4
+        with:
+          name: build_${{ matrix.language }}.make
+          path: .make
       - name: Update path
         run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
       - name: Install Python deps

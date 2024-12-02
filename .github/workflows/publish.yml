@@ -49,7 +49,7 @@ jobs:
       if: inputs.skipGoSdk && inputs.isPrerelease == false
       run: echo "Can't skip Go SDK for stable releases. This is likely a bug in the calling workflow." && exit 1
     - name: Checkout Repo
-      uses: actions/checkout@v4.2.2
+      uses: actions/checkout@v4
       with:
         submodules: true
         persist-credentials: false
@@ -58,7 +58,7 @@ jobs:
       with:
         tools: pulumictl, pulumicli, go, schema-tools
     - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v4.0.2
+      uses: aws-actions/configure-aws-credentials@v4
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-region: us-east-2
@@ -70,7 +70,7 @@ jobs:
     - name: Create dist directory
       run: mkdir -p dist
     - name: Download provider assets
-      uses: actions/download-artifact@v4.1.8
+      uses: actions/download-artifact@v4
       with:
         pattern: pulumi-resource-aws-v${{ inputs.version }}-*
         path: dist
@@ -114,7 +114,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@v4.2.2
+      uses: actions/checkout@v4
       with:
         submodules: true
         # Persist credentials so we can push back to the repo
@@ -175,7 +175,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@v4.2.2
+      uses: actions/checkout@v4
       with:
         persist-credentials: false
     - name: Clean up release labels

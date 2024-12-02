@@ -45,13 +45,13 @@ jobs:
     steps:
       # Run as first step so we don't delete things that have just been installed
       - name: Free Disk Space (Ubuntu)
-        uses: jlumbroso/free-disk-space@v1.3.1
+        uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be
         with:
           tool-cache: false
           swap-storage: false
           dotnet: false
       - name: Checkout Repo
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v4
         with:
           submodules: true
           persist-credentials: false
@@ -72,7 +72,10 @@ jobs:
       - name: Update path
         run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
       - name: Restore makefile progress
-        run: make --touch provider schema
+        uses: actions/download-artifact@v4
+        with:
+          name: prerequisites.make
+          path: .make
       - name: Build SDK
         run: make build_${{ matrix.language }}
       - name: Check worktree clean
@@ -88,3 +91,9 @@ jobs:
         uses: ./.github/actions/upload-sdk
         with:
           language: ${{ matrix.language }}
+      - name: Save makefile progress
+        uses: actions/upload-artifact@v4
+        with:
+          name: build_${{ matrix.language }}.make
+          path: .make
+          include-hidden-files: true

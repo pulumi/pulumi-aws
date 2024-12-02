@@ -28,13 +28,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@v4.2.2
+      uses: actions/checkout@v4
       with:
         submodules: true
         # Persist credentials so we can push a new branch.
         persist-credentials: true
     - name: Checkout repo
-      uses: actions/checkout@v4.2.2
+      uses: actions/checkout@v4
       with:
         path: ci-mgmt
         repository: pulumi/ci-mgmt
