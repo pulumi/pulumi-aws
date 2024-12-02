@@ -20,6 +20,7 @@ yarn.lock
 ci-scripts
 provider/shim/coverage.txt
 provider/**/*-embed.json
+provider/**/schema-minimal.json
 **/version.txt
 **/nuget
 **/dist
