@@ -87,17 +87,18 @@ type LookupNetworkInsightsPathResult struct {
 }
 
 func LookupNetworkInsightsPathOutput(ctx *pulumi.Context, args LookupNetworkInsightsPathOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkInsightsPathResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNetworkInsightsPathResultOutput, error) {
 			args := v.(LookupNetworkInsightsPathArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupNetworkInsightsPathResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getNetworkInsightsPath:getNetworkInsightsPath", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getNetworkInsightsPath:getNetworkInsightsPath", args, &rv, "", opts...)
 			if err != nil {
 				return LookupNetworkInsightsPathResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupNetworkInsightsPathResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupNetworkInsightsPathResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupNetworkInsightsPathResultOutput), nil
 			}

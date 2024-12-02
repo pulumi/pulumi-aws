@@ -79,17 +79,18 @@ type GetQuicksightAnalysisResult struct {
 }
 
 func GetQuicksightAnalysisOutput(ctx *pulumi.Context, args GetQuicksightAnalysisOutputArgs, opts ...pulumi.InvokeOption) GetQuicksightAnalysisResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetQuicksightAnalysisResultOutput, error) {
 			args := v.(GetQuicksightAnalysisArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetQuicksightAnalysisResult
-			secret, err := ctx.InvokePackageRaw("aws:quicksight/getQuicksightAnalysis:getQuicksightAnalysis", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:quicksight/getQuicksightAnalysis:getQuicksightAnalysis", args, &rv, "", opts...)
 			if err != nil {
 				return GetQuicksightAnalysisResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetQuicksightAnalysisResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetQuicksightAnalysisResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetQuicksightAnalysisResultOutput), nil
 			}

@@ -97,17 +97,18 @@ type GetInstanceTypeOfferingsResult struct {
 }
 
 func GetInstanceTypeOfferingsOutput(ctx *pulumi.Context, args GetInstanceTypeOfferingsOutputArgs, opts ...pulumi.InvokeOption) GetInstanceTypeOfferingsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetInstanceTypeOfferingsResultOutput, error) {
 			args := v.(GetInstanceTypeOfferingsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetInstanceTypeOfferingsResult
-			secret, err := ctx.InvokePackageRaw("aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings", args, &rv, "", opts...)
 			if err != nil {
 				return GetInstanceTypeOfferingsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetInstanceTypeOfferingsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetInstanceTypeOfferingsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetInstanceTypeOfferingsResultOutput), nil
 			}

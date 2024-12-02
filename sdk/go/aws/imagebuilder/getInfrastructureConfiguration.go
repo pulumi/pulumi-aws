@@ -95,17 +95,18 @@ type LookupInfrastructureConfigurationResult struct {
 }
 
 func LookupInfrastructureConfigurationOutput(ctx *pulumi.Context, args LookupInfrastructureConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupInfrastructureConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupInfrastructureConfigurationResultOutput, error) {
 			args := v.(LookupInfrastructureConfigurationArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupInfrastructureConfigurationResult
-			secret, err := ctx.InvokePackageRaw("aws:imagebuilder/getInfrastructureConfiguration:getInfrastructureConfiguration", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:imagebuilder/getInfrastructureConfiguration:getInfrastructureConfiguration", args, &rv, "", opts...)
 			if err != nil {
 				return LookupInfrastructureConfigurationResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupInfrastructureConfigurationResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupInfrastructureConfigurationResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupInfrastructureConfigurationResultOutput), nil
 			}

@@ -78,17 +78,18 @@ type LookupResolverFirewallRuleGroupResult struct {
 }
 
 func LookupResolverFirewallRuleGroupOutput(ctx *pulumi.Context, args LookupResolverFirewallRuleGroupOutputArgs, opts ...pulumi.InvokeOption) LookupResolverFirewallRuleGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupResolverFirewallRuleGroupResultOutput, error) {
 			args := v.(LookupResolverFirewallRuleGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupResolverFirewallRuleGroupResult
-			secret, err := ctx.InvokePackageRaw("aws:route53/getResolverFirewallRuleGroup:getResolverFirewallRuleGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:route53/getResolverFirewallRuleGroup:getResolverFirewallRuleGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupResolverFirewallRuleGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupResolverFirewallRuleGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupResolverFirewallRuleGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupResolverFirewallRuleGroupResultOutput), nil
 			}

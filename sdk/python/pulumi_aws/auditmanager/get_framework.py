@@ -152,7 +152,7 @@ def get_framework(control_sets: Optional[Sequence[Union['GetFrameworkControlSetA
 def get_framework_output(control_sets: Optional[pulumi.Input[Optional[Sequence[Union['GetFrameworkControlSetArgs', 'GetFrameworkControlSetArgsDict']]]]] = None,
                          framework_type: Optional[pulumi.Input[str]] = None,
                          name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFrameworkResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFrameworkResult]:
     """
     Data source for managing an AWS Audit Manager Framework.
 
@@ -175,7 +175,7 @@ def get_framework_output(control_sets: Optional[pulumi.Input[Optional[Sequence[U
     __args__['controlSets'] = control_sets
     __args__['frameworkType'] = framework_type
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:auditmanager/getFramework:getFramework', __args__, opts=opts, typ=GetFrameworkResult)
     return __ret__.apply(lambda __response__: GetFrameworkResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -77,17 +77,18 @@ type GetContainerRecipesResult struct {
 }
 
 func GetContainerRecipesOutput(ctx *pulumi.Context, args GetContainerRecipesOutputArgs, opts ...pulumi.InvokeOption) GetContainerRecipesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetContainerRecipesResultOutput, error) {
 			args := v.(GetContainerRecipesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetContainerRecipesResult
-			secret, err := ctx.InvokePackageRaw("aws:imagebuilder/getContainerRecipes:getContainerRecipes", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:imagebuilder/getContainerRecipes:getContainerRecipes", args, &rv, "", opts...)
 			if err != nil {
 				return GetContainerRecipesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetContainerRecipesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetContainerRecipesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetContainerRecipesResultOutput), nil
 			}

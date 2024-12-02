@@ -148,7 +148,7 @@ def get_database(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         table_count=pulumi.get(__ret__, 'table_count'))
 def get_database_output(name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseResult]:
     """
     Data source for managing an AWS Timestream Write Database.
 
@@ -165,7 +165,7 @@ def get_database_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:timestreamwrite/getDatabase:getDatabase', __args__, opts=opts, typ=GetDatabaseResult)
     return __ret__.apply(lambda __response__: GetDatabaseResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -81,17 +81,18 @@ type LookupConfigurationSetResult struct {
 }
 
 func LookupConfigurationSetOutput(ctx *pulumi.Context, args LookupConfigurationSetOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationSetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupConfigurationSetResultOutput, error) {
 			args := v.(LookupConfigurationSetArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupConfigurationSetResult
-			secret, err := ctx.InvokePackageRaw("aws:sesv2/getConfigurationSet:getConfigurationSet", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:sesv2/getConfigurationSet:getConfigurationSet", args, &rv, "", opts...)
 			if err != nil {
 				return LookupConfigurationSetResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupConfigurationSetResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupConfigurationSetResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupConfigurationSetResultOutput), nil
 			}

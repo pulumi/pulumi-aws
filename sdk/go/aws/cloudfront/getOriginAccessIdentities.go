@@ -99,17 +99,18 @@ type GetOriginAccessIdentitiesResult struct {
 }
 
 func GetOriginAccessIdentitiesOutput(ctx *pulumi.Context, args GetOriginAccessIdentitiesOutputArgs, opts ...pulumi.InvokeOption) GetOriginAccessIdentitiesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetOriginAccessIdentitiesResultOutput, error) {
 			args := v.(GetOriginAccessIdentitiesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetOriginAccessIdentitiesResult
-			secret, err := ctx.InvokePackageRaw("aws:cloudfront/getOriginAccessIdentities:getOriginAccessIdentities", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:cloudfront/getOriginAccessIdentities:getOriginAccessIdentities", args, &rv, "", opts...)
 			if err != nil {
 				return GetOriginAccessIdentitiesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetOriginAccessIdentitiesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetOriginAccessIdentitiesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetOriginAccessIdentitiesResultOutput), nil
 			}

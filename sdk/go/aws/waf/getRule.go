@@ -62,17 +62,18 @@ type LookupRuleResult struct {
 }
 
 func LookupRuleOutput(ctx *pulumi.Context, args LookupRuleOutputArgs, opts ...pulumi.InvokeOption) LookupRuleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRuleResultOutput, error) {
 			args := v.(LookupRuleArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupRuleResult
-			secret, err := ctx.InvokePackageRaw("aws:waf/getRule:getRule", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:waf/getRule:getRule", args, &rv, "", opts...)
 			if err != nil {
 				return LookupRuleResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupRuleResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupRuleResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupRuleResultOutput), nil
 			}

@@ -78,17 +78,18 @@ type LookupTrackerResult struct {
 }
 
 func LookupTrackerOutput(ctx *pulumi.Context, args LookupTrackerOutputArgs, opts ...pulumi.InvokeOption) LookupTrackerResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupTrackerResultOutput, error) {
 			args := v.(LookupTrackerArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupTrackerResult
-			secret, err := ctx.InvokePackageRaw("aws:location/getTracker:getTracker", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:location/getTracker:getTracker", args, &rv, "", opts...)
 			if err != nil {
 				return LookupTrackerResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupTrackerResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupTrackerResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupTrackerResultOutput), nil
 			}

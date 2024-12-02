@@ -132,7 +132,7 @@ export interface GetAttachmentResult {
  * });
  * ```
  */
-export function getAttachmentOutput(args?: GetAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttachmentResult> {
+export function getAttachmentOutput(args?: GetAttachmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAttachmentResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getAttachment:getAttachment", {

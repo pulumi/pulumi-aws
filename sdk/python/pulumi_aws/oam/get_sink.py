@@ -142,7 +142,7 @@ def get_sink(sink_identifier: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_sink_output(sink_identifier: Optional[pulumi.Input[str]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSinkResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSinkResult]:
     """
     Data source for managing an AWS CloudWatch Observability Access Manager Sink.
 
@@ -164,7 +164,7 @@ def get_sink_output(sink_identifier: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['sinkIdentifier'] = sink_identifier
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:oam/getSink:getSink', __args__, opts=opts, typ=GetSinkResult)
     return __ret__.apply(lambda __response__: GetSinkResult(
         arn=pulumi.get(__response__, 'arn'),

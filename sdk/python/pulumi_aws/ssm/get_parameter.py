@@ -152,7 +152,7 @@ def get_parameter(name: Optional[str] = None,
         with_decryption=pulumi.get(__ret__, 'with_decryption'))
 def get_parameter_output(name: Optional[pulumi.Input[str]] = None,
                          with_decryption: Optional[pulumi.Input[Optional[bool]]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetParameterResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetParameterResult]:
     """
     Provides an SSM Parameter data source.
 
@@ -176,7 +176,7 @@ def get_parameter_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['withDecryption'] = with_decryption
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssm/getParameter:getParameter', __args__, opts=opts, typ=GetParameterResult)
     return __ret__.apply(lambda __response__: GetParameterResult(
         arn=pulumi.get(__response__, 'arn'),

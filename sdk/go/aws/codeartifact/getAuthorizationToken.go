@@ -72,17 +72,18 @@ type GetAuthorizationTokenResult struct {
 }
 
 func GetAuthorizationTokenOutput(ctx *pulumi.Context, args GetAuthorizationTokenOutputArgs, opts ...pulumi.InvokeOption) GetAuthorizationTokenResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAuthorizationTokenResultOutput, error) {
 			args := v.(GetAuthorizationTokenArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetAuthorizationTokenResult
-			secret, err := ctx.InvokePackageRaw("aws:codeartifact/getAuthorizationToken:getAuthorizationToken", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:codeartifact/getAuthorizationToken:getAuthorizationToken", args, &rv, "", opts...)
 			if err != nil {
 				return GetAuthorizationTokenResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetAuthorizationTokenResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetAuthorizationTokenResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetAuthorizationTokenResultOutput), nil
 			}

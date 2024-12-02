@@ -83,17 +83,18 @@ type GetContainerDefinitionResult struct {
 }
 
 func GetContainerDefinitionOutput(ctx *pulumi.Context, args GetContainerDefinitionOutputArgs, opts ...pulumi.InvokeOption) GetContainerDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetContainerDefinitionResultOutput, error) {
 			args := v.(GetContainerDefinitionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetContainerDefinitionResult
-			secret, err := ctx.InvokePackageRaw("aws:ecs/getContainerDefinition:getContainerDefinition", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ecs/getContainerDefinition:getContainerDefinition", args, &rv, "", opts...)
 			if err != nil {
 				return GetContainerDefinitionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetContainerDefinitionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetContainerDefinitionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetContainerDefinitionResultOutput), nil
 			}

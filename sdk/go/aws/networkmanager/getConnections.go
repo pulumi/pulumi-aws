@@ -73,17 +73,18 @@ type GetConnectionsResult struct {
 }
 
 func GetConnectionsOutput(ctx *pulumi.Context, args GetConnectionsOutputArgs, opts ...pulumi.InvokeOption) GetConnectionsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetConnectionsResultOutput, error) {
 			args := v.(GetConnectionsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetConnectionsResult
-			secret, err := ctx.InvokePackageRaw("aws:networkmanager/getConnections:getConnections", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:networkmanager/getConnections:getConnections", args, &rv, "", opts...)
 			if err != nil {
 				return GetConnectionsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetConnectionsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetConnectionsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetConnectionsResultOutput), nil
 			}

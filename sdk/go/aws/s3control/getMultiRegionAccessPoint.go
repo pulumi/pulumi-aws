@@ -79,17 +79,18 @@ type LookupMultiRegionAccessPointResult struct {
 }
 
 func LookupMultiRegionAccessPointOutput(ctx *pulumi.Context, args LookupMultiRegionAccessPointOutputArgs, opts ...pulumi.InvokeOption) LookupMultiRegionAccessPointResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupMultiRegionAccessPointResultOutput, error) {
 			args := v.(LookupMultiRegionAccessPointArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupMultiRegionAccessPointResult
-			secret, err := ctx.InvokePackageRaw("aws:s3control/getMultiRegionAccessPoint:getMultiRegionAccessPoint", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:s3control/getMultiRegionAccessPoint:getMultiRegionAccessPoint", args, &rv, "", opts...)
 			if err != nil {
 				return LookupMultiRegionAccessPointResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupMultiRegionAccessPointResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupMultiRegionAccessPointResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupMultiRegionAccessPointResultOutput), nil
 			}

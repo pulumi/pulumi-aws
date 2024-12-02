@@ -132,17 +132,18 @@ type GetProductResult struct {
 }
 
 func GetProductOutput(ctx *pulumi.Context, args GetProductOutputArgs, opts ...pulumi.InvokeOption) GetProductResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetProductResultOutput, error) {
 			args := v.(GetProductArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetProductResult
-			secret, err := ctx.InvokePackageRaw("aws:pricing/getProduct:getProduct", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:pricing/getProduct:getProduct", args, &rv, "", opts...)
 			if err != nil {
 				return GetProductResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetProductResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetProductResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetProductResultOutput), nil
 			}

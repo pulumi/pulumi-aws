@@ -68,17 +68,18 @@ type GetAgentAgentVersionsResult struct {
 }
 
 func GetAgentAgentVersionsOutput(ctx *pulumi.Context, args GetAgentAgentVersionsOutputArgs, opts ...pulumi.InvokeOption) GetAgentAgentVersionsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAgentAgentVersionsResultOutput, error) {
 			args := v.(GetAgentAgentVersionsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetAgentAgentVersionsResult
-			secret, err := ctx.InvokePackageRaw("aws:bedrock/getAgentAgentVersions:getAgentAgentVersions", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:bedrock/getAgentAgentVersions:getAgentAgentVersions", args, &rv, "", opts...)
 			if err != nil {
 				return GetAgentAgentVersionsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetAgentAgentVersionsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetAgentAgentVersionsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetAgentAgentVersionsResultOutput), nil
 			}

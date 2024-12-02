@@ -98,17 +98,18 @@ type LookupReplicationGroupResult struct {
 }
 
 func LookupReplicationGroupOutput(ctx *pulumi.Context, args LookupReplicationGroupOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupReplicationGroupResultOutput, error) {
 			args := v.(LookupReplicationGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupReplicationGroupResult
-			secret, err := ctx.InvokePackageRaw("aws:elasticache/getReplicationGroup:getReplicationGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:elasticache/getReplicationGroup:getReplicationGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupReplicationGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupReplicationGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupReplicationGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupReplicationGroupResultOutput), nil
 			}

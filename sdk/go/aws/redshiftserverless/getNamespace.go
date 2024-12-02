@@ -78,17 +78,18 @@ type LookupNamespaceResult struct {
 }
 
 func LookupNamespaceOutput(ctx *pulumi.Context, args LookupNamespaceOutputArgs, opts ...pulumi.InvokeOption) LookupNamespaceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNamespaceResultOutput, error) {
 			args := v.(LookupNamespaceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupNamespaceResult
-			secret, err := ctx.InvokePackageRaw("aws:redshiftserverless/getNamespace:getNamespace", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:redshiftserverless/getNamespace:getNamespace", args, &rv, "", opts...)
 			if err != nil {
 				return LookupNamespaceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupNamespaceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupNamespaceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupNamespaceResultOutput), nil
 			}

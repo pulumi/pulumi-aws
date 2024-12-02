@@ -86,17 +86,18 @@ type GetOrderableDbInstanceResult struct {
 }
 
 func GetOrderableDbInstanceOutput(ctx *pulumi.Context, args GetOrderableDbInstanceOutputArgs, opts ...pulumi.InvokeOption) GetOrderableDbInstanceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetOrderableDbInstanceResultOutput, error) {
 			args := v.(GetOrderableDbInstanceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetOrderableDbInstanceResult
-			secret, err := ctx.InvokePackageRaw("aws:docdb/getOrderableDbInstance:getOrderableDbInstance", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:docdb/getOrderableDbInstance:getOrderableDbInstance", args, &rv, "", opts...)
 			if err != nil {
 				return GetOrderableDbInstanceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetOrderableDbInstanceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetOrderableDbInstanceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetOrderableDbInstanceResultOutput), nil
 			}

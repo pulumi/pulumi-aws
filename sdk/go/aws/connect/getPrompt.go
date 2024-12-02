@@ -72,17 +72,18 @@ type GetPromptResult struct {
 }
 
 func GetPromptOutput(ctx *pulumi.Context, args GetPromptOutputArgs, opts ...pulumi.InvokeOption) GetPromptResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetPromptResultOutput, error) {
 			args := v.(GetPromptArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetPromptResult
-			secret, err := ctx.InvokePackageRaw("aws:connect/getPrompt:getPrompt", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:connect/getPrompt:getPrompt", args, &rv, "", opts...)
 			if err != nil {
 				return GetPromptResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetPromptResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetPromptResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetPromptResultOutput), nil
 			}

@@ -65,17 +65,18 @@ type GetAccessKeysResult struct {
 }
 
 func GetAccessKeysOutput(ctx *pulumi.Context, args GetAccessKeysOutputArgs, opts ...pulumi.InvokeOption) GetAccessKeysResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAccessKeysResultOutput, error) {
 			args := v.(GetAccessKeysArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetAccessKeysResult
-			secret, err := ctx.InvokePackageRaw("aws:iam/getAccessKeys:getAccessKeys", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:iam/getAccessKeys:getAccessKeys", args, &rv, "", opts...)
 			if err != nil {
 				return GetAccessKeysResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetAccessKeysResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetAccessKeysResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetAccessKeysResultOutput), nil
 			}

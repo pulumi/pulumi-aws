@@ -84,17 +84,18 @@ type LookupTrustStoreResult struct {
 }
 
 func LookupTrustStoreOutput(ctx *pulumi.Context, args LookupTrustStoreOutputArgs, opts ...pulumi.InvokeOption) LookupTrustStoreResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupTrustStoreResultOutput, error) {
 			args := v.(LookupTrustStoreArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupTrustStoreResult
-			secret, err := ctx.InvokePackageRaw("aws:lb/getTrustStore:getTrustStore", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:lb/getTrustStore:getTrustStore", args, &rv, "", opts...)
 			if err != nil {
 				return LookupTrustStoreResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupTrustStoreResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupTrustStoreResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupTrustStoreResultOutput), nil
 			}

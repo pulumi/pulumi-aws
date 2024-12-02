@@ -99,7 +99,7 @@ def get_slack_workspace(slack_team_name: Optional[str] = None,
         slack_team_id=pulumi.get(__ret__, 'slack_team_id'),
         slack_team_name=pulumi.get(__ret__, 'slack_team_name'))
 def get_slack_workspace_output(slack_team_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSlackWorkspaceResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSlackWorkspaceResult]:
     """
     Data source for managing an AWS Chatbot Slack Workspace.
 
@@ -119,7 +119,7 @@ def get_slack_workspace_output(slack_team_name: Optional[pulumi.Input[str]] = No
     """
     __args__ = dict()
     __args__['slackTeamName'] = slack_team_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:chatbot/getSlackWorkspace:getSlackWorkspace', __args__, opts=opts, typ=GetSlackWorkspaceResult)
     return __ret__.apply(lambda __response__: GetSlackWorkspaceResult(
         id=pulumi.get(__response__, 'id'),

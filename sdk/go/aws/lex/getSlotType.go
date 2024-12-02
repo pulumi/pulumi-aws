@@ -86,17 +86,18 @@ type LookupSlotTypeResult struct {
 }
 
 func LookupSlotTypeOutput(ctx *pulumi.Context, args LookupSlotTypeOutputArgs, opts ...pulumi.InvokeOption) LookupSlotTypeResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSlotTypeResultOutput, error) {
 			args := v.(LookupSlotTypeArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSlotTypeResult
-			secret, err := ctx.InvokePackageRaw("aws:lex/getSlotType:getSlotType", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:lex/getSlotType:getSlotType", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSlotTypeResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSlotTypeResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSlotTypeResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSlotTypeResultOutput), nil
 			}

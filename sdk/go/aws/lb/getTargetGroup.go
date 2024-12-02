@@ -106,17 +106,18 @@ type LookupTargetGroupResult struct {
 }
 
 func LookupTargetGroupOutput(ctx *pulumi.Context, args LookupTargetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupTargetGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupTargetGroupResultOutput, error) {
 			args := v.(LookupTargetGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupTargetGroupResult
-			secret, err := ctx.InvokePackageRaw("aws:lb/getTargetGroup:getTargetGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:lb/getTargetGroup:getTargetGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupTargetGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupTargetGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupTargetGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupTargetGroupResultOutput), nil
 			}

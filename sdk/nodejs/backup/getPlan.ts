@@ -87,7 +87,7 @@ export interface GetPlanResult {
  * });
  * ```
  */
-export function getPlanOutput(args: GetPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlanResult> {
+export function getPlanOutput(args: GetPlanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:backup/getPlan:getPlan", {
         "planId": args.planId,

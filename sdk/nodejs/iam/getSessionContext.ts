@@ -113,7 +113,7 @@ export interface GetSessionContextResult {
  * }));
  * ```
  */
-export function getSessionContextOutput(args: GetSessionContextOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSessionContextResult> {
+export function getSessionContextOutput(args: GetSessionContextOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSessionContextResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:iam/getSessionContext:getSessionContext", {
         "arn": args.arn,

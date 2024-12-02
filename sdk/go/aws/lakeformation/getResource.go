@@ -66,17 +66,18 @@ type LookupResourceResult struct {
 }
 
 func LookupResourceOutput(ctx *pulumi.Context, args LookupResourceOutputArgs, opts ...pulumi.InvokeOption) LookupResourceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupResourceResultOutput, error) {
 			args := v.(LookupResourceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupResourceResult
-			secret, err := ctx.InvokePackageRaw("aws:lakeformation/getResource:getResource", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:lakeformation/getResource:getResource", args, &rv, "", opts...)
 			if err != nil {
 				return LookupResourceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupResourceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupResourceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupResourceResultOutput), nil
 			}

@@ -85,17 +85,18 @@ type GetPartitionResult struct {
 }
 
 func GetPartitionOutput(ctx *pulumi.Context, args GetPartitionOutputArgs, opts ...pulumi.InvokeOption) GetPartitionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetPartitionResultOutput, error) {
 			args := v.(GetPartitionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetPartitionResult
-			secret, err := ctx.InvokePackageRaw("aws:index/getPartition:getPartition", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:index/getPartition:getPartition", args, &rv, "", opts...)
 			if err != nil {
 				return GetPartitionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetPartitionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetPartitionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetPartitionResultOutput), nil
 			}

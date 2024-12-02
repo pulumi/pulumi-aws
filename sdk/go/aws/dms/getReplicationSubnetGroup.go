@@ -74,17 +74,18 @@ type LookupReplicationSubnetGroupResult struct {
 }
 
 func LookupReplicationSubnetGroupOutput(ctx *pulumi.Context, args LookupReplicationSubnetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationSubnetGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupReplicationSubnetGroupResultOutput, error) {
 			args := v.(LookupReplicationSubnetGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupReplicationSubnetGroupResult
-			secret, err := ctx.InvokePackageRaw("aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupReplicationSubnetGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupReplicationSubnetGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupReplicationSubnetGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupReplicationSubnetGroupResultOutput), nil
 			}

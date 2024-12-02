@@ -114,17 +114,18 @@ type LookupVirtualServiceResult struct {
 }
 
 func LookupVirtualServiceOutput(ctx *pulumi.Context, args LookupVirtualServiceOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualServiceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVirtualServiceResultOutput, error) {
 			args := v.(LookupVirtualServiceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVirtualServiceResult
-			secret, err := ctx.InvokePackageRaw("aws:appmesh/getVirtualService:getVirtualService", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:appmesh/getVirtualService:getVirtualService", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVirtualServiceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVirtualServiceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVirtualServiceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVirtualServiceResultOutput), nil
 			}

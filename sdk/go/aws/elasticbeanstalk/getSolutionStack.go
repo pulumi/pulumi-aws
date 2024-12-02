@@ -75,17 +75,18 @@ type GetSolutionStackResult struct {
 }
 
 func GetSolutionStackOutput(ctx *pulumi.Context, args GetSolutionStackOutputArgs, opts ...pulumi.InvokeOption) GetSolutionStackResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetSolutionStackResultOutput, error) {
 			args := v.(GetSolutionStackArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetSolutionStackResult
-			secret, err := ctx.InvokePackageRaw("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", args, &rv, "", opts...)
 			if err != nil {
 				return GetSolutionStackResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetSolutionStackResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetSolutionStackResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetSolutionStackResultOutput), nil
 			}

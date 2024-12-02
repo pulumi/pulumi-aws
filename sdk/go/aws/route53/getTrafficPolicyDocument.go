@@ -217,17 +217,18 @@ type GetTrafficPolicyDocumentResult struct {
 }
 
 func GetTrafficPolicyDocumentOutput(ctx *pulumi.Context, args GetTrafficPolicyDocumentOutputArgs, opts ...pulumi.InvokeOption) GetTrafficPolicyDocumentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetTrafficPolicyDocumentResultOutput, error) {
 			args := v.(GetTrafficPolicyDocumentArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetTrafficPolicyDocumentResult
-			secret, err := ctx.InvokePackageRaw("aws:route53/getTrafficPolicyDocument:getTrafficPolicyDocument", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:route53/getTrafficPolicyDocument:getTrafficPolicyDocument", args, &rv, "", opts...)
 			if err != nil {
 				return GetTrafficPolicyDocumentResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetTrafficPolicyDocumentResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetTrafficPolicyDocumentResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetTrafficPolicyDocumentResultOutput), nil
 			}

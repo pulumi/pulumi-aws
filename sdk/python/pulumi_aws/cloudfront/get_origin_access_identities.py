@@ -139,7 +139,7 @@ def get_origin_access_identities(comments: Optional[Sequence[str]] = None,
         ids=pulumi.get(__ret__, 'ids'),
         s3_canonical_user_ids=pulumi.get(__ret__, 's3_canonical_user_ids'))
 def get_origin_access_identities_output(comments: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginAccessIdentitiesResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOriginAccessIdentitiesResult]:
     """
     Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
 
@@ -173,7 +173,7 @@ def get_origin_access_identities_output(comments: Optional[pulumi.Input[Optional
     """
     __args__ = dict()
     __args__['comments'] = comments
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cloudfront/getOriginAccessIdentities:getOriginAccessIdentities', __args__, opts=opts, typ=GetOriginAccessIdentitiesResult)
     return __ret__.apply(lambda __response__: GetOriginAccessIdentitiesResult(
         comments=pulumi.get(__response__, 'comments'),

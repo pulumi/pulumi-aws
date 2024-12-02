@@ -83,17 +83,18 @@ type LookupVirtualGatewayResult struct {
 }
 
 func LookupVirtualGatewayOutput(ctx *pulumi.Context, args LookupVirtualGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualGatewayResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVirtualGatewayResultOutput, error) {
 			args := v.(LookupVirtualGatewayArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVirtualGatewayResult
-			secret, err := ctx.InvokePackageRaw("aws:appmesh/getVirtualGateway:getVirtualGateway", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:appmesh/getVirtualGateway:getVirtualGateway", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVirtualGatewayResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVirtualGatewayResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVirtualGatewayResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVirtualGatewayResultOutput), nil
 			}

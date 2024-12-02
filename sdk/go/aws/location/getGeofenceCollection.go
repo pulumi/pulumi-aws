@@ -80,17 +80,18 @@ type LookupGeofenceCollectionResult struct {
 }
 
 func LookupGeofenceCollectionOutput(ctx *pulumi.Context, args LookupGeofenceCollectionOutputArgs, opts ...pulumi.InvokeOption) LookupGeofenceCollectionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupGeofenceCollectionResultOutput, error) {
 			args := v.(LookupGeofenceCollectionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupGeofenceCollectionResult
-			secret, err := ctx.InvokePackageRaw("aws:location/getGeofenceCollection:getGeofenceCollection", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:location/getGeofenceCollection:getGeofenceCollection", args, &rv, "", opts...)
 			if err != nil {
 				return LookupGeofenceCollectionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupGeofenceCollectionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupGeofenceCollectionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupGeofenceCollectionResultOutput), nil
 			}

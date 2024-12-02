@@ -85,17 +85,18 @@ type LookupAddonResult struct {
 }
 
 func LookupAddonOutput(ctx *pulumi.Context, args LookupAddonOutputArgs, opts ...pulumi.InvokeOption) LookupAddonResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAddonResultOutput, error) {
 			args := v.(LookupAddonArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupAddonResult
-			secret, err := ctx.InvokePackageRaw("aws:eks/getAddon:getAddon", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:eks/getAddon:getAddon", args, &rv, "", opts...)
 			if err != nil {
 				return LookupAddonResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupAddonResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupAddonResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupAddonResultOutput), nil
 			}

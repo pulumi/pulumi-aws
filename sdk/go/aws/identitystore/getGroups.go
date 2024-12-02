@@ -71,17 +71,18 @@ type GetGroupsResult struct {
 }
 
 func GetGroupsOutput(ctx *pulumi.Context, args GetGroupsOutputArgs, opts ...pulumi.InvokeOption) GetGroupsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetGroupsResultOutput, error) {
 			args := v.(GetGroupsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetGroupsResult
-			secret, err := ctx.InvokePackageRaw("aws:identitystore/getGroups:getGroups", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:identitystore/getGroups:getGroups", args, &rv, "", opts...)
 			if err != nil {
 				return GetGroupsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetGroupsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetGroupsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetGroupsResultOutput), nil
 			}

@@ -70,17 +70,18 @@ type LookupTopicResult struct {
 }
 
 func LookupTopicOutput(ctx *pulumi.Context, args LookupTopicOutputArgs, opts ...pulumi.InvokeOption) LookupTopicResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupTopicResultOutput, error) {
 			args := v.(LookupTopicArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupTopicResult
-			secret, err := ctx.InvokePackageRaw("aws:sns/getTopic:getTopic", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:sns/getTopic:getTopic", args, &rv, "", opts...)
 			if err != nil {
 				return LookupTopicResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupTopicResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupTopicResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupTopicResultOutput), nil
 			}

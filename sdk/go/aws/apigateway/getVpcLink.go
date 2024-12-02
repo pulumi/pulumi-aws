@@ -79,17 +79,18 @@ type LookupVpcLinkResult struct {
 }
 
 func LookupVpcLinkOutput(ctx *pulumi.Context, args LookupVpcLinkOutputArgs, opts ...pulumi.InvokeOption) LookupVpcLinkResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVpcLinkResultOutput, error) {
 			args := v.(LookupVpcLinkArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVpcLinkResult
-			secret, err := ctx.InvokePackageRaw("aws:apigateway/getVpcLink:getVpcLink", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:apigateway/getVpcLink:getVpcLink", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVpcLinkResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVpcLinkResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVpcLinkResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVpcLinkResultOutput), nil
 			}

@@ -100,17 +100,18 @@ type LookupDevEnvironmentResult struct {
 }
 
 func LookupDevEnvironmentOutput(ctx *pulumi.Context, args LookupDevEnvironmentOutputArgs, opts ...pulumi.InvokeOption) LookupDevEnvironmentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDevEnvironmentResultOutput, error) {
 			args := v.(LookupDevEnvironmentArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDevEnvironmentResult
-			secret, err := ctx.InvokePackageRaw("aws:codecatalyst/getDevEnvironment:getDevEnvironment", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:codecatalyst/getDevEnvironment:getDevEnvironment", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDevEnvironmentResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDevEnvironmentResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDevEnvironmentResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDevEnvironmentResultOutput), nil
 			}

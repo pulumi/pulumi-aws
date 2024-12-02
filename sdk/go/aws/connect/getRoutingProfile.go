@@ -112,17 +112,18 @@ type LookupRoutingProfileResult struct {
 }
 
 func LookupRoutingProfileOutput(ctx *pulumi.Context, args LookupRoutingProfileOutputArgs, opts ...pulumi.InvokeOption) LookupRoutingProfileResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRoutingProfileResultOutput, error) {
 			args := v.(LookupRoutingProfileArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupRoutingProfileResult
-			secret, err := ctx.InvokePackageRaw("aws:connect/getRoutingProfile:getRoutingProfile", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:connect/getRoutingProfile:getRoutingProfile", args, &rv, "", opts...)
 			if err != nil {
 				return LookupRoutingProfileResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupRoutingProfileResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupRoutingProfileResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupRoutingProfileResultOutput), nil
 			}

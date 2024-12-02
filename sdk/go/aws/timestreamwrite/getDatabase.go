@@ -73,17 +73,18 @@ type LookupDatabaseResult struct {
 }
 
 func LookupDatabaseOutput(ctx *pulumi.Context, args LookupDatabaseOutputArgs, opts ...pulumi.InvokeOption) LookupDatabaseResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDatabaseResultOutput, error) {
 			args := v.(LookupDatabaseArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDatabaseResult
-			secret, err := ctx.InvokePackageRaw("aws:timestreamwrite/getDatabase:getDatabase", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:timestreamwrite/getDatabase:getDatabase", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDatabaseResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDatabaseResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDatabaseResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDatabaseResultOutput), nil
 			}

@@ -121,17 +121,18 @@ type LookupOntapStorageVirtualMachineResult struct {
 }
 
 func LookupOntapStorageVirtualMachineOutput(ctx *pulumi.Context, args LookupOntapStorageVirtualMachineOutputArgs, opts ...pulumi.InvokeOption) LookupOntapStorageVirtualMachineResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupOntapStorageVirtualMachineResultOutput, error) {
 			args := v.(LookupOntapStorageVirtualMachineArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupOntapStorageVirtualMachineResult
-			secret, err := ctx.InvokePackageRaw("aws:fsx/getOntapStorageVirtualMachine:getOntapStorageVirtualMachine", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:fsx/getOntapStorageVirtualMachine:getOntapStorageVirtualMachine", args, &rv, "", opts...)
 			if err != nil {
 				return LookupOntapStorageVirtualMachineResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupOntapStorageVirtualMachineResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupOntapStorageVirtualMachineResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupOntapStorageVirtualMachineResultOutput), nil
 			}

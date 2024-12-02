@@ -31,7 +31,7 @@ export interface GetSecretResult {
     readonly id: string;
     readonly secrets: outputs.kms.GetSecretSecret[];
 }
-export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
+export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecretResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:kms/getSecret:getSecret", {
         "secrets": args.secrets,

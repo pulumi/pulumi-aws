@@ -83,17 +83,18 @@ type LookupComputeEnvironmentResult struct {
 }
 
 func LookupComputeEnvironmentOutput(ctx *pulumi.Context, args LookupComputeEnvironmentOutputArgs, opts ...pulumi.InvokeOption) LookupComputeEnvironmentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupComputeEnvironmentResultOutput, error) {
 			args := v.(LookupComputeEnvironmentArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupComputeEnvironmentResult
-			secret, err := ctx.InvokePackageRaw("aws:batch/getComputeEnvironment:getComputeEnvironment", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:batch/getComputeEnvironment:getComputeEnvironment", args, &rv, "", opts...)
 			if err != nil {
 				return LookupComputeEnvironmentResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupComputeEnvironmentResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupComputeEnvironmentResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupComputeEnvironmentResultOutput), nil
 			}

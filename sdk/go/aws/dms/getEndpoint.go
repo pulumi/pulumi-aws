@@ -89,17 +89,18 @@ type LookupEndpointResult struct {
 }
 
 func LookupEndpointOutput(ctx *pulumi.Context, args LookupEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupEndpointResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupEndpointResultOutput, error) {
 			args := v.(LookupEndpointArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupEndpointResult
-			secret, err := ctx.InvokePackageRaw("aws:dms/getEndpoint:getEndpoint", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:dms/getEndpoint:getEndpoint", args, &rv, "", opts...)
 			if err != nil {
 				return LookupEndpointResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupEndpointResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupEndpointResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupEndpointResultOutput), nil
 			}

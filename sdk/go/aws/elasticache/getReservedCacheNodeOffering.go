@@ -85,17 +85,18 @@ type GetReservedCacheNodeOfferingResult struct {
 }
 
 func GetReservedCacheNodeOfferingOutput(ctx *pulumi.Context, args GetReservedCacheNodeOfferingOutputArgs, opts ...pulumi.InvokeOption) GetReservedCacheNodeOfferingResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetReservedCacheNodeOfferingResultOutput, error) {
 			args := v.(GetReservedCacheNodeOfferingArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetReservedCacheNodeOfferingResult
-			secret, err := ctx.InvokePackageRaw("aws:elasticache/getReservedCacheNodeOffering:getReservedCacheNodeOffering", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:elasticache/getReservedCacheNodeOffering:getReservedCacheNodeOffering", args, &rv, "", opts...)
 			if err != nil {
 				return GetReservedCacheNodeOfferingResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetReservedCacheNodeOfferingResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetReservedCacheNodeOfferingResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetReservedCacheNodeOfferingResultOutput), nil
 			}

@@ -67,17 +67,18 @@ type GetObjectsResult struct {
 }
 
 func GetObjectsOutput(ctx *pulumi.Context, args GetObjectsOutputArgs, opts ...pulumi.InvokeOption) GetObjectsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetObjectsResultOutput, error) {
 			args := v.(GetObjectsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetObjectsResult
-			secret, err := ctx.InvokePackageRaw("aws:s3/getObjects:getObjects", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:s3/getObjects:getObjects", args, &rv, "", opts...)
 			if err != nil {
 				return GetObjectsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetObjectsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetObjectsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetObjectsResultOutput), nil
 			}

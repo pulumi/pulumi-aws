@@ -118,17 +118,18 @@ type GetQueryLogConfigResult struct {
 }
 
 func GetQueryLogConfigOutput(ctx *pulumi.Context, args GetQueryLogConfigOutputArgs, opts ...pulumi.InvokeOption) GetQueryLogConfigResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetQueryLogConfigResultOutput, error) {
 			args := v.(GetQueryLogConfigArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetQueryLogConfigResult
-			secret, err := ctx.InvokePackageRaw("aws:route53/getQueryLogConfig:getQueryLogConfig", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:route53/getQueryLogConfig:getQueryLogConfig", args, &rv, "", opts...)
 			if err != nil {
 				return GetQueryLogConfigResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetQueryLogConfigResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetQueryLogConfigResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetQueryLogConfigResultOutput), nil
 			}

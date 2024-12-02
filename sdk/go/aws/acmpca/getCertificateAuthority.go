@@ -87,17 +87,18 @@ type LookupCertificateAuthorityResult struct {
 }
 
 func LookupCertificateAuthorityOutput(ctx *pulumi.Context, args LookupCertificateAuthorityOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateAuthorityResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCertificateAuthorityResultOutput, error) {
 			args := v.(LookupCertificateAuthorityArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupCertificateAuthorityResult
-			secret, err := ctx.InvokePackageRaw("aws:acmpca/getCertificateAuthority:getCertificateAuthority", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:acmpca/getCertificateAuthority:getCertificateAuthority", args, &rv, "", opts...)
 			if err != nil {
 				return LookupCertificateAuthorityResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupCertificateAuthorityResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupCertificateAuthorityResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupCertificateAuthorityResultOutput), nil
 			}
