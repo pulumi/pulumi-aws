@@ -32,14 +32,29 @@ public final class SnapshotClusterConfigurationArgs extends com.pulumi.resources
     }
 
     /**
-     * Version number of the Redis engine used by the cluster.
+     * The engine that will run on cluster nodes.
+     * 
+     */
+    @Import(name="engine")
+    private @Nullable Output<String> engine;
+
+    /**
+     * @return The engine that will run on cluster nodes.
+     * 
+     */
+    public Optional<Output<String>> engine() {
+        return Optional.ofNullable(this.engine);
+    }
+
+    /**
+     * Version number of the engine used by the cluster.
      * 
      */
     @Import(name="engineVersion")
     private @Nullable Output<String> engineVersion;
 
     /**
-     * @return Version number of the Redis engine used by the cluster.
+     * @return Version number of the engine used by the cluster.
      * 
      */
     public Optional<Output<String>> engineVersion() {
@@ -215,6 +230,7 @@ public final class SnapshotClusterConfigurationArgs extends com.pulumi.resources
 
     private SnapshotClusterConfigurationArgs(SnapshotClusterConfigurationArgs $) {
         this.description = $.description;
+        this.engine = $.engine;
         this.engineVersion = $.engineVersion;
         this.maintenanceWindow = $.maintenanceWindow;
         this.name = $.name;
@@ -269,7 +285,28 @@ public final class SnapshotClusterConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param engineVersion Version number of the Redis engine used by the cluster.
+         * @param engine The engine that will run on cluster nodes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder engine(@Nullable Output<String> engine) {
+            $.engine = engine;
+            return this;
+        }
+
+        /**
+         * @param engine The engine that will run on cluster nodes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder engine(String engine) {
+            return engine(Output.of(engine));
+        }
+
+        /**
+         * @param engineVersion Version number of the engine used by the cluster.
          * 
          * @return builder
          * 
@@ -280,7 +317,7 @@ public final class SnapshotClusterConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param engineVersion Version number of the Redis engine used by the cluster.
+         * @param engineVersion Version number of the engine used by the cluster.
          * 
          * @return builder
          * 

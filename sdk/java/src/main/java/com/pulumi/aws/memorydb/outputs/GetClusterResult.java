@@ -43,12 +43,17 @@ public final class GetClusterResult {
      */
     private String description;
     /**
-     * @return Patch version number of the Redis engine used by the cluster.
+     * @return Engine that will run on cluster nodes.
+     * 
+     */
+    private String engine;
+    /**
+     * @return Patch version number of the engine used by the cluster.
      * 
      */
     private String enginePatchVersion;
     /**
-     * @return Version number of the Redis engine used by the cluster.
+     * @return Version number of the engine used by the cluster.
      * 
      */
     private String engineVersion;
@@ -183,14 +188,21 @@ public final class GetClusterResult {
         return this.description;
     }
     /**
-     * @return Patch version number of the Redis engine used by the cluster.
+     * @return Engine that will run on cluster nodes.
+     * 
+     */
+    public String engine() {
+        return this.engine;
+    }
+    /**
+     * @return Patch version number of the engine used by the cluster.
      * 
      */
     public String enginePatchVersion() {
         return this.enginePatchVersion;
     }
     /**
-     * @return Version number of the Redis engine used by the cluster.
+     * @return Version number of the engine used by the cluster.
      * 
      */
     public String engineVersion() {
@@ -338,6 +350,7 @@ public final class GetClusterResult {
         private List<GetClusterClusterEndpoint> clusterEndpoints;
         private Boolean dataTiering;
         private String description;
+        private String engine;
         private String enginePatchVersion;
         private String engineVersion;
         private String finalSnapshotName;
@@ -367,6 +380,7 @@ public final class GetClusterResult {
     	      this.clusterEndpoints = defaults.clusterEndpoints;
     	      this.dataTiering = defaults.dataTiering;
     	      this.description = defaults.description;
+    	      this.engine = defaults.engine;
     	      this.enginePatchVersion = defaults.enginePatchVersion;
     	      this.engineVersion = defaults.engineVersion;
     	      this.finalSnapshotName = defaults.finalSnapshotName;
@@ -438,6 +452,14 @@ public final class GetClusterResult {
               throw new MissingRequiredPropertyException("GetClusterResult", "description");
             }
             this.description = description;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder engine(String engine) {
+            if (engine == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "engine");
+            }
+            this.engine = engine;
             return this;
         }
         @CustomType.Setter
@@ -614,6 +636,7 @@ public final class GetClusterResult {
             _resultValue.clusterEndpoints = clusterEndpoints;
             _resultValue.dataTiering = dataTiering;
             _resultValue.description = description;
+            _resultValue.engine = engine;
             _resultValue.enginePatchVersion = enginePatchVersion;
             _resultValue.engineVersion = engineVersion;
             _resultValue.finalSnapshotName = finalSnapshotName;

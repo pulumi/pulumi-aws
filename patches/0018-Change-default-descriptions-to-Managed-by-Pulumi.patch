@@ -122,23 +122,23 @@ index 961d1f0438..710fd0b998 100644
  			"hls_ingest": {
  				Type:     schema.TypeList,
 diff --git a/internal/service/memorydb/cluster.go b/internal/service/memorydb/cluster.go
-index 57542e6c86..9d63e79904 100644
+index ec8b06cf70..2be5b88de3 100644
 --- a/internal/service/memorydb/cluster.go
 +++ b/internal/service/memorydb/cluster.go
-@@ -74,7 +74,7 @@ func resourceCluster() *schema.Resource {
- 			names.AttrDescription: {
- 				Type:     schema.TypeString,
- 				Optional: true,
--				Default:  "Managed by Terraform",
-+				Default:  "Managed by Pulumi",
- 			},
- 			"engine_patch_version": {
- 				Type:     schema.TypeString,
+@@ -79,7 +79,7 @@ func resourceCluster() *schema.Resource {
+ 				names.AttrDescription: {
+ 					Type:     schema.TypeString,
+ 					Optional: true,
+-					Default:  "Managed by Terraform",
++					Default:  "Managed by Pulumi",
+ 				},
+ 				"engine_patch_version": {
+ 					Type:     schema.TypeString,
 diff --git a/internal/service/memorydb/parameter_group.go b/internal/service/memorydb/parameter_group.go
-index 0444678df5..f788d07914 100644
+index 625357ac1b..c10f1daa43 100644
 --- a/internal/service/memorydb/parameter_group.go
 +++ b/internal/service/memorydb/parameter_group.go
-@@ -53,7 +53,7 @@ func resourceParameterGroup() *schema.Resource {
+@@ -54,7 +54,7 @@ func resourceParameterGroup() *schema.Resource {
  				Type:     schema.TypeString,
  				Optional: true,
  				ForceNew: true,
@@ -148,10 +148,10 @@ index 0444678df5..f788d07914 100644
  			names.AttrFamily: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/memorydb/subnet_group.go b/internal/service/memorydb/subnet_group.go
-index c4c6f7c64b..df3d2d3544 100644
+index b01015569f..1e3d84acfa 100644
 --- a/internal/service/memorydb/subnet_group.go
 +++ b/internal/service/memorydb/subnet_group.go
-@@ -47,7 +47,7 @@ func resourceSubnetGroup() *schema.Resource {
+@@ -49,7 +49,7 @@ func resourceSubnetGroup() *schema.Resource {
  			names.AttrDescription: {
  				Type:     schema.TypeString,
  				Optional: true,

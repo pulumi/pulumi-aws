@@ -4883,7 +4883,7 @@ type TargetGroupHealthCheck struct {
 	Matcher *string `pulumi:"matcher"`
 	// Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
 	// * For HTTP and HTTPS health checks, the default is `/`.
-	// * For gRPC health checks, the default is `/Amazon Web Services.ALB/healthcheck`.
+	// * For gRPC health checks, the default is `/AWS.ALB/healthcheck`.
 	Path *string `pulumi:"path"`
 	// The port the load balancer uses when performing health checks on targets.
 	// Valid values are either `traffic-port`, to use the same port as the target group, or a valid port number between `1` and `65536`.
@@ -4929,7 +4929,7 @@ type TargetGroupHealthCheckArgs struct {
 	Matcher pulumi.StringPtrInput `pulumi:"matcher"`
 	// Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
 	// * For HTTP and HTTPS health checks, the default is `/`.
-	// * For gRPC health checks, the default is `/Amazon Web Services.ALB/healthcheck`.
+	// * For gRPC health checks, the default is `/AWS.ALB/healthcheck`.
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// The port the load balancer uses when performing health checks on targets.
 	// Valid values are either `traffic-port`, to use the same port as the target group, or a valid port number between `1` and `65536`.
@@ -5052,7 +5052,7 @@ func (o TargetGroupHealthCheckOutput) Matcher() pulumi.StringPtrOutput {
 
 // Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
 // * For HTTP and HTTPS health checks, the default is `/`.
-// * For gRPC health checks, the default is `/Amazon Web Services.ALB/healthcheck`.
+// * For gRPC health checks, the default is `/AWS.ALB/healthcheck`.
 func (o TargetGroupHealthCheckOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupHealthCheck) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -5155,7 +5155,7 @@ func (o TargetGroupHealthCheckPtrOutput) Matcher() pulumi.StringPtrOutput {
 
 // Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
 // * For HTTP and HTTPS health checks, the default is `/`.
-// * For gRPC health checks, the default is `/Amazon Web Services.ALB/healthcheck`.
+// * For gRPC health checks, the default is `/AWS.ALB/healthcheck`.
 func (o TargetGroupHealthCheckPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupHealthCheck) *string {
 		if v == nil {

@@ -14,7 +14,8 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class GuardrailContentPolicyConfig
     {
         /// <summary>
-        /// List of content filter configs in content policy. See Filters Config for more information.
+        /// Set of content filter configs in content policy.
+        /// See Filters Config for more information.
         /// </summary>
         public readonly ImmutableArray<Outputs.GuardrailContentPolicyConfigFiltersConfig> FiltersConfigs;
 

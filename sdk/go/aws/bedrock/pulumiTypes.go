@@ -3919,7 +3919,8 @@ func (o AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemantic
 type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration struct {
 	// The intermediate storage for custom transformation.
 	IntermediateStorage *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage `pulumi:"intermediateStorage"`
-	Transformation      *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation      `pulumi:"transformation"`
+	// A custom processing step for documents moving through the data source ingestion pipeline.
+	Transformation *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation `pulumi:"transformation"`
 }
 
 // AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs and AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutput values.
@@ -3936,7 +3937,8 @@ type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguratio
 type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs struct {
 	// The intermediate storage for custom transformation.
 	IntermediateStorage AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrInput `pulumi:"intermediateStorage"`
-	Transformation      AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrInput      `pulumi:"transformation"`
+	// A custom processing step for documents moving through the data source ingestion pipeline.
+	Transformation AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrInput `pulumi:"transformation"`
 }
 
 func (AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs) ElementType() reflect.Type {
@@ -4023,6 +4025,7 @@ func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigura
 	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput)
 }
 
+// A custom processing step for documents moving through the data source ingestion pipeline.
 func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationOutput) Transformation() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation {
 		return v.Transformation
@@ -4063,6 +4066,7 @@ func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigura
 	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStoragePtrOutput)
 }
 
+// A custom processing step for documents moving through the data source ingestion pipeline.
 func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationPtrOutput) Transformation() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation {
 		if v == nil {
@@ -4351,9 +4355,9 @@ func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigura
 }
 
 type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation struct {
-	// Currently only `POST_CHUNKING` is supported.
+	// When the service applies the transformation. Currently only `POST_CHUNKING` is supported.
 	StepToApply string `pulumi:"stepToApply"`
-	// The configuration of transformation function.
+	// The lambda function that processes documents.
 	TransformationFunction *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction `pulumi:"transformationFunction"`
 }
 
@@ -4369,9 +4373,9 @@ type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguratio
 }
 
 type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs struct {
-	// Currently only `POST_CHUNKING` is supported.
+	// When the service applies the transformation. Currently only `POST_CHUNKING` is supported.
 	StepToApply pulumi.StringInput `pulumi:"stepToApply"`
-	// The configuration of transformation function.
+	// The lambda function that processes documents.
 	TransformationFunction AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrInput `pulumi:"transformationFunction"`
 }
 
@@ -4452,14 +4456,14 @@ func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigura
 	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput)
 }
 
-// Currently only `POST_CHUNKING` is supported.
+// When the service applies the transformation. Currently only `POST_CHUNKING` is supported.
 func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationOutput) StepToApply() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation) string {
 		return v.StepToApply
 	}).(pulumi.StringOutput)
 }
 
-// The configuration of transformation function.
+// The lambda function that processes documents.
 func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationOutput) TransformationFunction() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction {
 		return v.TransformationFunction
@@ -4490,7 +4494,7 @@ func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigura
 	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationOutput)
 }
 
-// Currently only `POST_CHUNKING` is supported.
+// When the service applies the transformation. Currently only `POST_CHUNKING` is supported.
 func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput) StepToApply() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation) *string {
 		if v == nil {
@@ -4500,7 +4504,7 @@ func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigura
 	}).(pulumi.StringPtrOutput)
 }
 
-// The configuration of transformation function.
+// The lambda function that processes documents.
 func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationPtrOutput) TransformationFunction() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction {
 		if v == nil {
@@ -4511,7 +4515,7 @@ func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigura
 }
 
 type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction struct {
-	// The lambda configuration for custom transformation.
+	// The configuration of the lambda function.
 	TransformationLambdaConfiguration *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration `pulumi:"transformationLambdaConfiguration"`
 }
 
@@ -4527,7 +4531,7 @@ type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguratio
 }
 
 type AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs struct {
-	// The lambda configuration for custom transformation.
+	// The configuration of the lambda function.
 	TransformationLambdaConfiguration AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrInput `pulumi:"transformationLambdaConfiguration"`
 }
 
@@ -4608,7 +4612,7 @@ func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigura
 	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput)
 }
 
-// The lambda configuration for custom transformation.
+// The configuration of the lambda function.
 func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionOutput) TransformationLambdaConfiguration() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration {
 		return v.TransformationLambdaConfiguration
@@ -4639,7 +4643,7 @@ func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigura
 	}).(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionOutput)
 }
 
-// The lambda configuration for custom transformation.
+// The configuration of the lambda function.
 func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionPtrOutput) TransformationLambdaConfiguration() AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction) *AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration {
 		if v == nil {
@@ -8475,7 +8479,8 @@ func (o CustomModelVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 }
 
 type GuardrailContentPolicyConfig struct {
-	// List of content filter configs in content policy. See Filters Config for more information.
+	// Set of content filter configs in content policy.
+	// See Filters Config for more information.
 	FiltersConfigs []GuardrailContentPolicyConfigFiltersConfig `pulumi:"filtersConfigs"`
 }
 
@@ -8491,7 +8496,8 @@ type GuardrailContentPolicyConfigInput interface {
 }
 
 type GuardrailContentPolicyConfigArgs struct {
-	// List of content filter configs in content policy. See Filters Config for more information.
+	// Set of content filter configs in content policy.
+	// See Filters Config for more information.
 	FiltersConfigs GuardrailContentPolicyConfigFiltersConfigArrayInput `pulumi:"filtersConfigs"`
 }
 
@@ -8572,7 +8578,8 @@ func (o GuardrailContentPolicyConfigOutput) ToGuardrailContentPolicyConfigPtrOut
 	}).(GuardrailContentPolicyConfigPtrOutput)
 }
 
-// List of content filter configs in content policy. See Filters Config for more information.
+// Set of content filter configs in content policy.
+// See Filters Config for more information.
 func (o GuardrailContentPolicyConfigOutput) FiltersConfigs() GuardrailContentPolicyConfigFiltersConfigArrayOutput {
 	return o.ApplyT(func(v GuardrailContentPolicyConfig) []GuardrailContentPolicyConfigFiltersConfig {
 		return v.FiltersConfigs
@@ -8603,7 +8610,8 @@ func (o GuardrailContentPolicyConfigPtrOutput) Elem() GuardrailContentPolicyConf
 	}).(GuardrailContentPolicyConfigOutput)
 }
 
-// List of content filter configs in content policy. See Filters Config for more information.
+// Set of content filter configs in content policy.
+// See Filters Config for more information.
 func (o GuardrailContentPolicyConfigPtrOutput) FiltersConfigs() GuardrailContentPolicyConfigFiltersConfigArrayOutput {
 	return o.ApplyT(func(v *GuardrailContentPolicyConfig) []GuardrailContentPolicyConfigFiltersConfig {
 		if v == nil {

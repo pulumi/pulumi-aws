@@ -69,11 +69,15 @@ export interface GetClusterResult {
      */
     readonly description: string;
     /**
-     * Patch version number of the Redis engine used by the cluster.
+     * Engine that will run on cluster nodes.
+     */
+    readonly engine: string;
+    /**
+     * Patch version number of the engine used by the cluster.
      */
     readonly enginePatchVersion: string;
     /**
-     * Version number of the Redis engine used by the cluster.
+     * Version number of the engine used by the cluster.
      */
     readonly engineVersion: string;
     /**

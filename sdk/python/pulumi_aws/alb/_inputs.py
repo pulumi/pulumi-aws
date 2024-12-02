@@ -2674,7 +2674,7 @@ if not MYPY:
         """
         Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
         * For HTTP and HTTPS health checks, the default is `/`.
-        * For gRPC health checks, the default is `/Amazon Web Services.ALB/healthcheck`.
+        * For gRPC health checks, the default is `/AWS.ALB/healthcheck`.
         """
         port: NotRequired[pulumi.Input[str]]
         """
@@ -2726,7 +2726,7 @@ class TargetGroupHealthCheckArgs:
                * When the `target_type` is `lambda`, values can be between `200` and `499`. The default is `200`.
         :param pulumi.Input[str] path: Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
                * For HTTP and HTTPS health checks, the default is `/`.
-               * For gRPC health checks, the default is `/Amazon Web Services.ALB/healthcheck`.
+               * For gRPC health checks, the default is `/AWS.ALB/healthcheck`.
         :param pulumi.Input[str] port: The port the load balancer uses when performing health checks on targets.
                Valid values are either `traffic-port`, to use the same port as the target group, or a valid port number between `1` and `65536`.
                Default is `traffic-port`.
@@ -2817,7 +2817,7 @@ class TargetGroupHealthCheckArgs:
         """
         Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
         * For HTTP and HTTPS health checks, the default is `/`.
-        * For gRPC health checks, the default is `/Amazon Web Services.ALB/healthcheck`.
+        * For gRPC health checks, the default is `/AWS.ALB/healthcheck`.
         """
         return pulumi.get(self, "path")
 

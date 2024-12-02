@@ -29,6 +29,8 @@ namespace Pulumi.Aws.MemoryDb
     ///         AclName = "open-access",
     ///         Name = "my-cluster",
     ///         NodeType = "db.t4g.small",
+    ///         Engine = "redis",
+    ///         EngineVersion = "7.1",
     ///         NumShards = 2,
     ///         SecurityGroupIds = new[]
     ///         {
@@ -86,13 +88,19 @@ namespace Pulumi.Aws.MemoryDb
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Patch version number of the Redis engine used by the cluster.
+        /// The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+        /// </summary>
+        [Output("engine")]
+        public Output<string> Engine { get; private set; } = null!;
+
+        /// <summary>
+        /// Patch version number of the engine used by the cluster.
         /// </summary>
         [Output("enginePatchVersion")]
         public Output<string> EnginePatchVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+        /// Version number of the engine to be used for the cluster. Downgrades are not supported.
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
@@ -296,7 +304,13 @@ namespace Pulumi.Aws.MemoryDb
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+        /// The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+        /// </summary>
+        [Input("engine")]
+        public Input<string>? Engine { get; set; }
+
+        /// <summary>
+        /// Version number of the engine to be used for the cluster. Downgrades are not supported.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -482,13 +496,19 @@ namespace Pulumi.Aws.MemoryDb
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Patch version number of the Redis engine used by the cluster.
+        /// The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+        /// </summary>
+        [Input("engine")]
+        public Input<string>? Engine { get; set; }
+
+        /// <summary>
+        /// Patch version number of the engine used by the cluster.
         /// </summary>
         [Input("enginePatchVersion")]
         public Input<string>? EnginePatchVersion { get; set; }
 
         /// <summary>
-        /// Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+        /// Version number of the engine to be used for the cluster. Downgrades are not supported.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }

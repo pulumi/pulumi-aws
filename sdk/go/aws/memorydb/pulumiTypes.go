@@ -579,7 +579,9 @@ func (o ParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ParameterGr
 type SnapshotClusterConfiguration struct {
 	// Description for the cluster.
 	Description *string `pulumi:"description"`
-	// Version number of the Redis engine used by the cluster.
+	// The engine that will run on cluster nodes.
+	Engine *string `pulumi:"engine"`
+	// Version number of the engine used by the cluster.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The weekly time range during which maintenance on the cluster is performed.
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
@@ -619,7 +621,9 @@ type SnapshotClusterConfigurationInput interface {
 type SnapshotClusterConfigurationArgs struct {
 	// Description for the cluster.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Version number of the Redis engine used by the cluster.
+	// The engine that will run on cluster nodes.
+	Engine pulumi.StringPtrInput `pulumi:"engine"`
+	// Version number of the engine used by the cluster.
 	EngineVersion pulumi.StringPtrInput `pulumi:"engineVersion"`
 	// The weekly time range during which maintenance on the cluster is performed.
 	MaintenanceWindow pulumi.StringPtrInput `pulumi:"maintenanceWindow"`
@@ -701,7 +705,12 @@ func (o SnapshotClusterConfigurationOutput) Description() pulumi.StringPtrOutput
 	return o.ApplyT(func(v SnapshotClusterConfiguration) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Version number of the Redis engine used by the cluster.
+// The engine that will run on cluster nodes.
+func (o SnapshotClusterConfigurationOutput) Engine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapshotClusterConfiguration) *string { return v.Engine }).(pulumi.StringPtrOutput)
+}
+
+// Version number of the engine used by the cluster.
 func (o SnapshotClusterConfigurationOutput) EngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotClusterConfiguration) *string { return v.EngineVersion }).(pulumi.StringPtrOutput)
 }
@@ -1522,7 +1531,9 @@ func (o GetParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) GetParam
 type GetSnapshotClusterConfiguration struct {
 	// Description for the cluster.
 	Description string `pulumi:"description"`
-	// Version number of the Redis engine used by the cluster.
+	// The engine that will run on cluster nodes.
+	Engine string `pulumi:"engine"`
+	// Version number of the engine used by the cluster.
 	EngineVersion string `pulumi:"engineVersion"`
 	// The weekly time range during which maintenance on the cluster is performed.
 	MaintenanceWindow string `pulumi:"maintenanceWindow"`
@@ -1562,7 +1573,9 @@ type GetSnapshotClusterConfigurationInput interface {
 type GetSnapshotClusterConfigurationArgs struct {
 	// Description for the cluster.
 	Description pulumi.StringInput `pulumi:"description"`
-	// Version number of the Redis engine used by the cluster.
+	// The engine that will run on cluster nodes.
+	Engine pulumi.StringInput `pulumi:"engine"`
+	// Version number of the engine used by the cluster.
 	EngineVersion pulumi.StringInput `pulumi:"engineVersion"`
 	// The weekly time range during which maintenance on the cluster is performed.
 	MaintenanceWindow pulumi.StringInput `pulumi:"maintenanceWindow"`
@@ -1644,7 +1657,12 @@ func (o GetSnapshotClusterConfigurationOutput) Description() pulumi.StringOutput
 	return o.ApplyT(func(v GetSnapshotClusterConfiguration) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Version number of the Redis engine used by the cluster.
+// The engine that will run on cluster nodes.
+func (o GetSnapshotClusterConfigurationOutput) Engine() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotClusterConfiguration) string { return v.Engine }).(pulumi.StringOutput)
+}
+
+// Version number of the engine used by the cluster.
 func (o GetSnapshotClusterConfigurationOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSnapshotClusterConfiguration) string { return v.EngineVersion }).(pulumi.StringOutput)
 }

@@ -27,7 +27,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, acl_name=None, arn=None, auto_minor_version_upgrade=None, cluster_endpoints=None, data_tiering=None, description=None, engine_patch_version=None, engine_version=None, final_snapshot_name=None, id=None, kms_key_arn=None, maintenance_window=None, name=None, node_type=None, num_replicas_per_shard=None, num_shards=None, parameter_group_name=None, port=None, security_group_ids=None, shards=None, snapshot_retention_limit=None, snapshot_window=None, sns_topic_arn=None, subnet_group_name=None, tags=None, tls_enabled=None):
+    def __init__(__self__, acl_name=None, arn=None, auto_minor_version_upgrade=None, cluster_endpoints=None, data_tiering=None, description=None, engine=None, engine_patch_version=None, engine_version=None, final_snapshot_name=None, id=None, kms_key_arn=None, maintenance_window=None, name=None, node_type=None, num_replicas_per_shard=None, num_shards=None, parameter_group_name=None, port=None, security_group_ids=None, shards=None, snapshot_retention_limit=None, snapshot_window=None, sns_topic_arn=None, subnet_group_name=None, tags=None, tls_enabled=None):
         if acl_name and not isinstance(acl_name, str):
             raise TypeError("Expected argument 'acl_name' to be a str")
         pulumi.set(__self__, "acl_name", acl_name)
@@ -46,6 +46,9 @@ class GetClusterResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if engine and not isinstance(engine, str):
+            raise TypeError("Expected argument 'engine' to be a str")
+        pulumi.set(__self__, "engine", engine)
         if engine_patch_version and not isinstance(engine_patch_version, str):
             raise TypeError("Expected argument 'engine_patch_version' to be a str")
         pulumi.set(__self__, "engine_patch_version", engine_patch_version)
@@ -153,10 +156,18 @@ class GetClusterResult:
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter
+    def engine(self) -> str:
+        """
+        Engine that will run on cluster nodes.
+        """
+        return pulumi.get(self, "engine")
+
+    @property
     @pulumi.getter(name="enginePatchVersion")
     def engine_patch_version(self) -> str:
         """
-        Patch version number of the Redis engine used by the cluster.
+        Patch version number of the engine used by the cluster.
         """
         return pulumi.get(self, "engine_patch_version")
 
@@ -164,7 +175,7 @@ class GetClusterResult:
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> str:
         """
-        Version number of the Redis engine used by the cluster.
+        Version number of the engine used by the cluster.
         """
         return pulumi.get(self, "engine_version")
 
@@ -325,6 +336,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             cluster_endpoints=self.cluster_endpoints,
             data_tiering=self.data_tiering,
             description=self.description,
+            engine=self.engine,
             engine_patch_version=self.engine_patch_version,
             engine_version=self.engine_version,
             final_snapshot_name=self.final_snapshot_name,
@@ -379,6 +391,7 @@ def get_cluster(name: Optional[str] = None,
         cluster_endpoints=pulumi.get(__ret__, 'cluster_endpoints'),
         data_tiering=pulumi.get(__ret__, 'data_tiering'),
         description=pulumi.get(__ret__, 'description'),
+        engine=pulumi.get(__ret__, 'engine'),
         engine_patch_version=pulumi.get(__ret__, 'engine_patch_version'),
         engine_version=pulumi.get(__ret__, 'engine_version'),
         final_snapshot_name=pulumi.get(__ret__, 'final_snapshot_name'),
@@ -430,6 +443,7 @@ def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
         cluster_endpoints=pulumi.get(__response__, 'cluster_endpoints'),
         data_tiering=pulumi.get(__response__, 'data_tiering'),
         description=pulumi.get(__response__, 'description'),
+        engine=pulumi.get(__response__, 'engine'),
         engine_patch_version=pulumi.get(__response__, 'engine_patch_version'),
         engine_version=pulumi.get(__response__, 'engine_version'),
         final_snapshot_name=pulumi.get(__response__, 'final_snapshot_name'),

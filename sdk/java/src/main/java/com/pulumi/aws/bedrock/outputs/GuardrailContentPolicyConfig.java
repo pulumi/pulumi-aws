@@ -12,14 +12,16 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GuardrailContentPolicyConfig {
     /**
-     * @return List of content filter configs in content policy. See Filters Config for more information.
+     * @return Set of content filter configs in content policy.
+     * See Filters Config for more information.
      * 
      */
     private @Nullable List<GuardrailContentPolicyConfigFiltersConfig> filtersConfigs;
 
     private GuardrailContentPolicyConfig() {}
     /**
-     * @return List of content filter configs in content policy. See Filters Config for more information.
+     * @return Set of content filter configs in content policy.
+     * See Filters Config for more information.
      * 
      */
     public List<GuardrailContentPolicyConfigFiltersConfig> filtersConfigs() {

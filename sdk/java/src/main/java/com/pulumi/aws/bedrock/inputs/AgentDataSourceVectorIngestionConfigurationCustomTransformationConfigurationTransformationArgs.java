@@ -18,14 +18,14 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
     public static final AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs Empty = new AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs();
 
     /**
-     * Currently only `POST_CHUNKING` is supported.
+     * When the service applies the transformation. Currently only `POST_CHUNKING` is supported.
      * 
      */
     @Import(name="stepToApply", required=true)
     private Output<String> stepToApply;
 
     /**
-     * @return Currently only `POST_CHUNKING` is supported.
+     * @return When the service applies the transformation. Currently only `POST_CHUNKING` is supported.
      * 
      */
     public Output<String> stepToApply() {
@@ -33,14 +33,14 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
     }
 
     /**
-     * The configuration of transformation function.
+     * The lambda function that processes documents.
      * 
      */
     @Import(name="transformationFunction")
     private @Nullable Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs> transformationFunction;
 
     /**
-     * @return The configuration of transformation function.
+     * @return The lambda function that processes documents.
      * 
      */
     public Optional<Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs>> transformationFunction() {
@@ -73,7 +73,7 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
         }
 
         /**
-         * @param stepToApply Currently only `POST_CHUNKING` is supported.
+         * @param stepToApply When the service applies the transformation. Currently only `POST_CHUNKING` is supported.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
         }
 
         /**
-         * @param stepToApply Currently only `POST_CHUNKING` is supported.
+         * @param stepToApply When the service applies the transformation. Currently only `POST_CHUNKING` is supported.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
         }
 
         /**
-         * @param transformationFunction The configuration of transformation function.
+         * @param transformationFunction The lambda function that processes documents.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
         }
 
         /**
-         * @param transformationFunction The configuration of transformation function.
+         * @param transformationFunction The lambda function that processes documents.
          * 
          * @return builder
          * 

@@ -5,10 +5,10 @@ Subject: [PATCH] Patch tags_all Computed for chatbot, timestreaminfluxdb
 
 
 diff --git a/internal/service/chatbot/slack_channel_configuration.go b/internal/service/chatbot/slack_channel_configuration.go
-index 06e5c259f3..a52d436e13 100644
+index a878965774..3ea3c705c3 100644
 --- a/internal/service/chatbot/slack_channel_configuration.go
 +++ b/internal/service/chatbot/slack_channel_configuration.go
-@@ -104,7 +104,7 @@ func (r *slackChannelConfigurationResource) Schema(ctx context.Context, request
+@@ -105,7 +105,7 @@ func (r *slackChannelConfigurationResource) Schema(ctx context.Context, request
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -18,10 +18,10 @@ index 06e5c259f3..a52d436e13 100644
  				Optional: true,
  				Computed: true,
 diff --git a/internal/service/chatbot/teams_channel_configuration.go b/internal/service/chatbot/teams_channel_configuration.go
-index ddfb41cfc6..3c986c63be 100644
+index c472864a12..2db6c0504a 100644
 --- a/internal/service/chatbot/teams_channel_configuration.go
 +++ b/internal/service/chatbot/teams_channel_configuration.go
-@@ -101,7 +101,7 @@ func (r *teamsChannelConfigurationResource) Schema(ctx context.Context, request
+@@ -102,7 +102,7 @@ func (r *teamsChannelConfigurationResource) Schema(ctx context.Context, request
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),

@@ -6436,6 +6436,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "iam/organizationsFeatures",
+  "fqn": "pulumi_aws.iam",
+  "classes": {
+   "aws:iam/organizationsFeatures:OrganizationsFeatures": "OrganizationsFeatures"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "iam/policy",
   "fqn": "pulumi_aws.iam",
   "classes": {

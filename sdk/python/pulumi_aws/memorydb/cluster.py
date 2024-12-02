@@ -26,6 +26,7 @@ class ClusterArgs:
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  data_tiering: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_name: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
@@ -54,7 +55,8 @@ class ClusterArgs:
         :param pulumi.Input[bool] auto_minor_version_upgrade: When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
         :param pulumi.Input[bool] data_tiering: Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
         :param pulumi.Input[str] description: Description for the cluster. Defaults to `"Managed by Pulumi"`.
-        :param pulumi.Input[str] engine_version: Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+        :param pulumi.Input[str] engine: The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+        :param pulumi.Input[str] engine_version: Version number of the engine to be used for the cluster. Downgrades are not supported.
         :param pulumi.Input[str] final_snapshot_name: Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] kms_key_arn: ARN of the KMS key used to encrypt the cluster at rest.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
@@ -82,6 +84,8 @@ class ClusterArgs:
             pulumi.set(__self__, "data_tiering", data_tiering)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if engine is not None:
+            pulumi.set(__self__, "engine", engine)
         if engine_version is not None:
             pulumi.set(__self__, "engine_version", engine_version)
         if final_snapshot_name is not None:
@@ -184,10 +188,22 @@ class ClusterArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter
+    def engine(self) -> Optional[pulumi.Input[str]]:
+        """
+        The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+        """
+        return pulumi.get(self, "engine")
+
+    @engine.setter
+    def engine(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engine", value)
+
+    @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+        Version number of the engine to be used for the cluster. Downgrades are not supported.
         """
         return pulumi.get(self, "engine_version")
 
@@ -421,6 +437,7 @@ class _ClusterState:
                  cluster_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterEndpointArgs']]]] = None,
                  data_tiering: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 engine: Optional[pulumi.Input[str]] = None,
                  engine_patch_version: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_name: Optional[pulumi.Input[str]] = None,
@@ -451,8 +468,9 @@ class _ClusterState:
         :param pulumi.Input[bool] auto_minor_version_upgrade: When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
         :param pulumi.Input[bool] data_tiering: Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
         :param pulumi.Input[str] description: Description for the cluster. Defaults to `"Managed by Pulumi"`.
-        :param pulumi.Input[str] engine_patch_version: Patch version number of the Redis engine used by the cluster.
-        :param pulumi.Input[str] engine_version: Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+        :param pulumi.Input[str] engine: The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+        :param pulumi.Input[str] engine_patch_version: Patch version number of the engine used by the cluster.
+        :param pulumi.Input[str] engine_version: Version number of the engine to be used for the cluster. Downgrades are not supported.
         :param pulumi.Input[str] final_snapshot_name: Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] kms_key_arn: ARN of the KMS key used to encrypt the cluster at rest.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
@@ -489,6 +507,8 @@ class _ClusterState:
             pulumi.set(__self__, "data_tiering", data_tiering)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if engine is not None:
+            pulumi.set(__self__, "engine", engine)
         if engine_patch_version is not None:
             pulumi.set(__self__, "engine_patch_version", engine_patch_version)
         if engine_version is not None:
@@ -609,10 +629,22 @@ class _ClusterState:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter
+    def engine(self) -> Optional[pulumi.Input[str]]:
+        """
+        The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+        """
+        return pulumi.get(self, "engine")
+
+    @engine.setter
+    def engine(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engine", value)
+
+    @property
     @pulumi.getter(name="enginePatchVersion")
     def engine_patch_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Patch version number of the Redis engine used by the cluster.
+        Patch version number of the engine used by the cluster.
         """
         return pulumi.get(self, "engine_patch_version")
 
@@ -624,7 +656,7 @@ class _ClusterState:
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+        Version number of the engine to be used for the cluster. Downgrades are not supported.
         """
         return pulumi.get(self, "engine_version")
 
@@ -897,6 +929,7 @@ class Cluster(pulumi.CustomResource):
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  data_tiering: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_name: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
@@ -933,6 +966,8 @@ class Cluster(pulumi.CustomResource):
             acl_name="open-access",
             name="my-cluster",
             node_type="db.t4g.small",
+            engine="redis",
+            engine_version="7.1",
             num_shards=2,
             security_group_ids=[example_aws_security_group["id"]],
             snapshot_retention_limit=7,
@@ -953,7 +988,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_minor_version_upgrade: When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
         :param pulumi.Input[bool] data_tiering: Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
         :param pulumi.Input[str] description: Description for the cluster. Defaults to `"Managed by Pulumi"`.
-        :param pulumi.Input[str] engine_version: Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+        :param pulumi.Input[str] engine: The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+        :param pulumi.Input[str] engine_version: Version number of the engine to be used for the cluster. Downgrades are not supported.
         :param pulumi.Input[str] final_snapshot_name: Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] kms_key_arn: ARN of the KMS key used to encrypt the cluster at rest.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
@@ -997,6 +1033,8 @@ class Cluster(pulumi.CustomResource):
             acl_name="open-access",
             name="my-cluster",
             node_type="db.t4g.small",
+            engine="redis",
+            engine_version="7.1",
             num_shards=2,
             security_group_ids=[example_aws_security_group["id"]],
             snapshot_retention_limit=7,
@@ -1030,6 +1068,7 @@ class Cluster(pulumi.CustomResource):
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  data_tiering: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_name: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
@@ -1065,6 +1104,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
             __props__.__dict__["data_tiering"] = data_tiering
             __props__.__dict__["description"] = description
+            __props__.__dict__["engine"] = engine
             __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["final_snapshot_name"] = final_snapshot_name
             __props__.__dict__["kms_key_arn"] = kms_key_arn
@@ -1108,6 +1148,7 @@ class Cluster(pulumi.CustomResource):
             cluster_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterClusterEndpointArgs', 'ClusterClusterEndpointArgsDict']]]]] = None,
             data_tiering: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            engine: Optional[pulumi.Input[str]] = None,
             engine_patch_version: Optional[pulumi.Input[str]] = None,
             engine_version: Optional[pulumi.Input[str]] = None,
             final_snapshot_name: Optional[pulumi.Input[str]] = None,
@@ -1143,8 +1184,9 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_minor_version_upgrade: When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
         :param pulumi.Input[bool] data_tiering: Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
         :param pulumi.Input[str] description: Description for the cluster. Defaults to `"Managed by Pulumi"`.
-        :param pulumi.Input[str] engine_patch_version: Patch version number of the Redis engine used by the cluster.
-        :param pulumi.Input[str] engine_version: Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+        :param pulumi.Input[str] engine: The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+        :param pulumi.Input[str] engine_patch_version: Patch version number of the engine used by the cluster.
+        :param pulumi.Input[str] engine_version: Version number of the engine to be used for the cluster. Downgrades are not supported.
         :param pulumi.Input[str] final_snapshot_name: Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] kms_key_arn: ARN of the KMS key used to encrypt the cluster at rest.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
@@ -1179,6 +1221,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["cluster_endpoints"] = cluster_endpoints
         __props__.__dict__["data_tiering"] = data_tiering
         __props__.__dict__["description"] = description
+        __props__.__dict__["engine"] = engine
         __props__.__dict__["engine_patch_version"] = engine_patch_version
         __props__.__dict__["engine_version"] = engine_version
         __props__.__dict__["final_snapshot_name"] = final_snapshot_name
@@ -1250,10 +1293,18 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter
+    def engine(self) -> pulumi.Output[str]:
+        """
+        The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+        """
+        return pulumi.get(self, "engine")
+
+    @property
     @pulumi.getter(name="enginePatchVersion")
     def engine_patch_version(self) -> pulumi.Output[str]:
         """
-        Patch version number of the Redis engine used by the cluster.
+        Patch version number of the engine used by the cluster.
         """
         return pulumi.get(self, "engine_patch_version")
 
@@ -1261,7 +1312,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[str]:
         """
-        Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+        Version number of the engine to be used for the cluster. Downgrades are not supported.
         """
         return pulumi.get(self, "engine_version")
 

@@ -45,7 +45,7 @@ namespace Pulumi.Aws.LB.Inputs
         /// <summary>
         /// Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
         /// * For HTTP and HTTPS health checks, the default is `/`.
-        /// * For gRPC health checks, the default is `/Amazon Web Services.ALB/healthcheck`.
+        /// * For gRPC health checks, the default is `/AWS.ALB/healthcheck`.
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }

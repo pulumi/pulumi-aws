@@ -104,14 +104,29 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Patch version number of the Redis engine used by the cluster.
+     * The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+     * 
+     */
+    @Import(name="engine")
+    private @Nullable Output<String> engine;
+
+    /**
+     * @return The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+     * 
+     */
+    public Optional<Output<String>> engine() {
+        return Optional.ofNullable(this.engine);
+    }
+
+    /**
+     * Patch version number of the engine used by the cluster.
      * 
      */
     @Import(name="enginePatchVersion")
     private @Nullable Output<String> enginePatchVersion;
 
     /**
-     * @return Patch version number of the Redis engine used by the cluster.
+     * @return Patch version number of the engine used by the cluster.
      * 
      */
     public Optional<Output<String>> enginePatchVersion() {
@@ -119,14 +134,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+     * Version number of the engine to be used for the cluster. Downgrades are not supported.
      * 
      */
     @Import(name="engineVersion")
     private @Nullable Output<String> engineVersion;
 
     /**
-     * @return Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+     * @return Version number of the engine to be used for the cluster. Downgrades are not supported.
      * 
      */
     public Optional<Output<String>> engineVersion() {
@@ -469,6 +484,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.clusterEndpoints = $.clusterEndpoints;
         this.dataTiering = $.dataTiering;
         this.description = $.description;
+        this.engine = $.engine;
         this.enginePatchVersion = $.enginePatchVersion;
         this.engineVersion = $.engineVersion;
         this.finalSnapshotName = $.finalSnapshotName;
@@ -631,7 +647,28 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enginePatchVersion Patch version number of the Redis engine used by the cluster.
+         * @param engine The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder engine(@Nullable Output<String> engine) {
+            $.engine = engine;
+            return this;
+        }
+
+        /**
+         * @param engine The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder engine(String engine) {
+            return engine(Output.of(engine));
+        }
+
+        /**
+         * @param enginePatchVersion Patch version number of the engine used by the cluster.
          * 
          * @return builder
          * 
@@ -642,7 +679,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enginePatchVersion Patch version number of the Redis engine used by the cluster.
+         * @param enginePatchVersion Patch version number of the engine used by the cluster.
          * 
          * @return builder
          * 
@@ -652,7 +689,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineVersion Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+         * @param engineVersion Version number of the engine to be used for the cluster. Downgrades are not supported.
          * 
          * @return builder
          * 
@@ -663,7 +700,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineVersion Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+         * @param engineVersion Version number of the engine to be used for the cluster. Downgrades are not supported.
          * 
          * @return builder
          * 

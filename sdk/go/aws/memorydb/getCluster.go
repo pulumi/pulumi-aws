@@ -69,9 +69,11 @@ type LookupClusterResult struct {
 	DataTiering bool `pulumi:"dataTiering"`
 	// Description for the cluster.
 	Description string `pulumi:"description"`
-	// Patch version number of the Redis engine used by the cluster.
+	// Engine that will run on cluster nodes.
+	Engine string `pulumi:"engine"`
+	// Patch version number of the engine used by the cluster.
 	EnginePatchVersion string `pulumi:"enginePatchVersion"`
-	// Version number of the Redis engine used by the cluster.
+	// Version number of the engine used by the cluster.
 	EngineVersion string `pulumi:"engineVersion"`
 	// Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
 	FinalSnapshotName string `pulumi:"finalSnapshotName"`
@@ -186,12 +188,17 @@ func (o LookupClusterResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Patch version number of the Redis engine used by the cluster.
+// Engine that will run on cluster nodes.
+func (o LookupClusterResultOutput) Engine() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Engine }).(pulumi.StringOutput)
+}
+
+// Patch version number of the engine used by the cluster.
 func (o LookupClusterResultOutput) EnginePatchVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.EnginePatchVersion }).(pulumi.StringOutput)
 }
 
-// Version number of the Redis engine used by the cluster.
+// Version number of the engine used by the cluster.
 func (o LookupClusterResultOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.EngineVersion }).(pulumi.StringOutput)
 }

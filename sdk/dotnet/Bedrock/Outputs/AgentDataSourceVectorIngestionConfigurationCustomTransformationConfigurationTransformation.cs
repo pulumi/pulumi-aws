@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation
     {
         /// <summary>
-        /// Currently only `POST_CHUNKING` is supported.
+        /// When the service applies the transformation. Currently only `POST_CHUNKING` is supported.
         /// </summary>
         public readonly string StepToApply;
         /// <summary>
-        /// The configuration of transformation function.
+        /// The lambda function that processes documents.
         /// </summary>
         public readonly Outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction? TransformationFunction;
 
