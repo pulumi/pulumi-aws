@@ -81,17 +81,18 @@ type GetSpotPriceResult struct {
 }
 
 func GetSpotPriceOutput(ctx *pulumi.Context, args GetSpotPriceOutputArgs, opts ...pulumi.InvokeOption) GetSpotPriceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetSpotPriceResultOutput, error) {
 			args := v.(GetSpotPriceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetSpotPriceResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getSpotPrice:getSpotPrice", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getSpotPrice:getSpotPrice", args, &rv, "", opts...)
 			if err != nil {
 				return GetSpotPriceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetSpotPriceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetSpotPriceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetSpotPriceResultOutput), nil
 			}

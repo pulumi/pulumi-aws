@@ -130,7 +130,7 @@ export interface GetKeyPairResult {
  * export const id = example.then(example => example.id);
  * ```
  */
-export function getKeyPairOutput(args?: GetKeyPairOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyPairResult> {
+export function getKeyPairOutput(args?: GetKeyPairOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKeyPairResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getKeyPair:getKeyPair", {

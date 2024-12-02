@@ -137,17 +137,18 @@ type GetResolverRulesResult struct {
 }
 
 func GetResolverRulesOutput(ctx *pulumi.Context, args GetResolverRulesOutputArgs, opts ...pulumi.InvokeOption) GetResolverRulesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetResolverRulesResultOutput, error) {
 			args := v.(GetResolverRulesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetResolverRulesResult
-			secret, err := ctx.InvokePackageRaw("aws:route53/getResolverRules:getResolverRules", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:route53/getResolverRules:getResolverRules", args, &rv, "", opts...)
 			if err != nil {
 				return GetResolverRulesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetResolverRulesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetResolverRulesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetResolverRulesResultOutput), nil
 			}

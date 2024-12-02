@@ -68,17 +68,18 @@ type LookupTrackerAssociationResult struct {
 }
 
 func LookupTrackerAssociationOutput(ctx *pulumi.Context, args LookupTrackerAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupTrackerAssociationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupTrackerAssociationResultOutput, error) {
 			args := v.(LookupTrackerAssociationArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupTrackerAssociationResult
-			secret, err := ctx.InvokePackageRaw("aws:location/getTrackerAssociation:getTrackerAssociation", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:location/getTrackerAssociation:getTrackerAssociation", args, &rv, "", opts...)
 			if err != nil {
 				return LookupTrackerAssociationResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupTrackerAssociationResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupTrackerAssociationResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupTrackerAssociationResultOutput), nil
 			}

@@ -85,17 +85,18 @@ type LookupPermissionSetResult struct {
 }
 
 func LookupPermissionSetOutput(ctx *pulumi.Context, args LookupPermissionSetOutputArgs, opts ...pulumi.InvokeOption) LookupPermissionSetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPermissionSetResultOutput, error) {
 			args := v.(LookupPermissionSetArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupPermissionSetResult
-			secret, err := ctx.InvokePackageRaw("aws:ssoadmin/getPermissionSet:getPermissionSet", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ssoadmin/getPermissionSet:getPermissionSet", args, &rv, "", opts...)
 			if err != nil {
 				return LookupPermissionSetResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupPermissionSetResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupPermissionSetResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupPermissionSetResultOutput), nil
 			}

@@ -109,17 +109,18 @@ type GetSessionContextResult struct {
 }
 
 func GetSessionContextOutput(ctx *pulumi.Context, args GetSessionContextOutputArgs, opts ...pulumi.InvokeOption) GetSessionContextResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetSessionContextResultOutput, error) {
 			args := v.(GetSessionContextArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetSessionContextResult
-			secret, err := ctx.InvokePackageRaw("aws:iam/getSessionContext:getSessionContext", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:iam/getSessionContext:getSessionContext", args, &rv, "", opts...)
 			if err != nil {
 				return GetSessionContextResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetSessionContextResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetSessionContextResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetSessionContextResultOutput), nil
 			}

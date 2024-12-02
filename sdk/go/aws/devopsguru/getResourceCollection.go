@@ -72,17 +72,18 @@ type LookupResourceCollectionResult struct {
 }
 
 func LookupResourceCollectionOutput(ctx *pulumi.Context, args LookupResourceCollectionOutputArgs, opts ...pulumi.InvokeOption) LookupResourceCollectionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupResourceCollectionResultOutput, error) {
 			args := v.(LookupResourceCollectionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupResourceCollectionResult
-			secret, err := ctx.InvokePackageRaw("aws:devopsguru/getResourceCollection:getResourceCollection", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:devopsguru/getResourceCollection:getResourceCollection", args, &rv, "", opts...)
 			if err != nil {
 				return LookupResourceCollectionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupResourceCollectionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupResourceCollectionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupResourceCollectionResultOutput), nil
 			}

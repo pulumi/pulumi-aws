@@ -260,7 +260,7 @@ def get_query_suggestions_block_list(index_id: Optional[str] = None,
 def get_query_suggestions_block_list_output(index_id: Optional[pulumi.Input[str]] = None,
                                             query_suggestions_block_list_id: Optional[pulumi.Input[str]] = None,
                                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQuerySuggestionsBlockListResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQuerySuggestionsBlockListResult]:
     """
     Provides details about a specific Amazon Kendra block list used for query suggestions for an index.
 
@@ -283,7 +283,7 @@ def get_query_suggestions_block_list_output(index_id: Optional[pulumi.Input[str]
     __args__['indexId'] = index_id
     __args__['querySuggestionsBlockListId'] = query_suggestions_block_list_id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:kendra/getQuerySuggestionsBlockList:getQuerySuggestionsBlockList', __args__, opts=opts, typ=GetQuerySuggestionsBlockListResult)
     return __ret__.apply(lambda __response__: GetQuerySuggestionsBlockListResult(
         arn=pulumi.get(__response__, 'arn'),

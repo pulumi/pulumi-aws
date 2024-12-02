@@ -68,17 +68,18 @@ type GetApplicationAssignmentsResult struct {
 }
 
 func GetApplicationAssignmentsOutput(ctx *pulumi.Context, args GetApplicationAssignmentsOutputArgs, opts ...pulumi.InvokeOption) GetApplicationAssignmentsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetApplicationAssignmentsResultOutput, error) {
 			args := v.(GetApplicationAssignmentsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetApplicationAssignmentsResult
-			secret, err := ctx.InvokePackageRaw("aws:ssoadmin/getApplicationAssignments:getApplicationAssignments", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ssoadmin/getApplicationAssignments:getApplicationAssignments", args, &rv, "", opts...)
 			if err != nil {
 				return GetApplicationAssignmentsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetApplicationAssignmentsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetApplicationAssignmentsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetApplicationAssignmentsResultOutput), nil
 			}

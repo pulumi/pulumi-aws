@@ -67,7 +67,7 @@ export interface GetDelegatedAdministratorsResult {
  * });
  * ```
  */
-export function getDelegatedAdministratorsOutput(args?: GetDelegatedAdministratorsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDelegatedAdministratorsResult> {
+export function getDelegatedAdministratorsOutput(args?: GetDelegatedAdministratorsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDelegatedAdministratorsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:organizations/getDelegatedAdministrators:getDelegatedAdministrators", {

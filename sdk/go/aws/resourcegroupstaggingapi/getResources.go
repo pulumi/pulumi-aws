@@ -138,17 +138,18 @@ type GetResourcesResult struct {
 }
 
 func GetResourcesOutput(ctx *pulumi.Context, args GetResourcesOutputArgs, opts ...pulumi.InvokeOption) GetResourcesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetResourcesResultOutput, error) {
 			args := v.(GetResourcesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetResourcesResult
-			secret, err := ctx.InvokePackageRaw("aws:resourcegroupstaggingapi/getResources:getResources", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:resourcegroupstaggingapi/getResources:getResources", args, &rv, "", opts...)
 			if err != nil {
 				return GetResourcesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetResourcesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetResourcesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetResourcesResultOutput), nil
 			}

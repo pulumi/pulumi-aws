@@ -72,17 +72,18 @@ type LookupAclResult struct {
 }
 
 func LookupAclOutput(ctx *pulumi.Context, args LookupAclOutputArgs, opts ...pulumi.InvokeOption) LookupAclResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAclResultOutput, error) {
 			args := v.(LookupAclArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupAclResult
-			secret, err := ctx.InvokePackageRaw("aws:memorydb/getAcl:getAcl", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:memorydb/getAcl:getAcl", args, &rv, "", opts...)
 			if err != nil {
 				return LookupAclResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupAclResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupAclResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupAclResultOutput), nil
 			}

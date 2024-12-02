@@ -109,17 +109,18 @@ type LookupSecretVersionResult struct {
 }
 
 func LookupSecretVersionOutput(ctx *pulumi.Context, args LookupSecretVersionOutputArgs, opts ...pulumi.InvokeOption) LookupSecretVersionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSecretVersionResultOutput, error) {
 			args := v.(LookupSecretVersionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSecretVersionResult
-			secret, err := ctx.InvokePackageRaw("aws:secretsmanager/getSecretVersion:getSecretVersion", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:secretsmanager/getSecretVersion:getSecretVersion", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSecretVersionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSecretVersionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSecretVersionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSecretVersionResultOutput), nil
 			}

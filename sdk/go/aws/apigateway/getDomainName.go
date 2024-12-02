@@ -90,17 +90,18 @@ type LookupDomainNameResult struct {
 }
 
 func LookupDomainNameOutput(ctx *pulumi.Context, args LookupDomainNameOutputArgs, opts ...pulumi.InvokeOption) LookupDomainNameResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDomainNameResultOutput, error) {
 			args := v.(LookupDomainNameArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDomainNameResult
-			secret, err := ctx.InvokePackageRaw("aws:apigateway/getDomainName:getDomainName", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:apigateway/getDomainName:getDomainName", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDomainNameResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDomainNameResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDomainNameResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDomainNameResultOutput), nil
 			}

@@ -106,7 +106,7 @@ export interface GetProxyResult {
  * });
  * ```
  */
-export function getProxyOutput(args: GetProxyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProxyResult> {
+export function getProxyOutput(args: GetProxyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProxyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:rds/getProxy:getProxy", {
         "name": args.name,

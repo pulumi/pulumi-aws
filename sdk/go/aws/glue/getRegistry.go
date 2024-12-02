@@ -68,17 +68,18 @@ type LookupRegistryResult struct {
 }
 
 func LookupRegistryOutput(ctx *pulumi.Context, args LookupRegistryOutputArgs, opts ...pulumi.InvokeOption) LookupRegistryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRegistryResultOutput, error) {
 			args := v.(LookupRegistryArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupRegistryResult
-			secret, err := ctx.InvokePackageRaw("aws:glue/getRegistry:getRegistry", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:glue/getRegistry:getRegistry", args, &rv, "", opts...)
 			if err != nil {
 				return LookupRegistryResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupRegistryResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupRegistryResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupRegistryResultOutput), nil
 			}

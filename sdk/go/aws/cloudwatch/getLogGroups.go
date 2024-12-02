@@ -66,17 +66,18 @@ type GetLogGroupsResult struct {
 }
 
 func GetLogGroupsOutput(ctx *pulumi.Context, args GetLogGroupsOutputArgs, opts ...pulumi.InvokeOption) GetLogGroupsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetLogGroupsResultOutput, error) {
 			args := v.(GetLogGroupsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetLogGroupsResult
-			secret, err := ctx.InvokePackageRaw("aws:cloudwatch/getLogGroups:getLogGroups", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:cloudwatch/getLogGroups:getLogGroups", args, &rv, "", opts...)
 			if err != nil {
 				return GetLogGroupsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetLogGroupsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetLogGroupsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetLogGroupsResultOutput), nil
 			}

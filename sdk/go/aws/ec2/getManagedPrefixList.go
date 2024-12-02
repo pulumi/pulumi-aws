@@ -126,17 +126,18 @@ type LookupManagedPrefixListResult struct {
 }
 
 func LookupManagedPrefixListOutput(ctx *pulumi.Context, args LookupManagedPrefixListOutputArgs, opts ...pulumi.InvokeOption) LookupManagedPrefixListResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupManagedPrefixListResultOutput, error) {
 			args := v.(LookupManagedPrefixListArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupManagedPrefixListResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getManagedPrefixList:getManagedPrefixList", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getManagedPrefixList:getManagedPrefixList", args, &rv, "", opts...)
 			if err != nil {
 				return LookupManagedPrefixListResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupManagedPrefixListResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupManagedPrefixListResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupManagedPrefixListResultOutput), nil
 			}

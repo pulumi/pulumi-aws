@@ -123,7 +123,7 @@ export interface GetFaqResult {
  * });
  * ```
  */
-export function getFaqOutput(args: GetFaqOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFaqResult> {
+export function getFaqOutput(args: GetFaqOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFaqResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:kendra/getFaq:getFaq", {
         "faqId": args.faqId,

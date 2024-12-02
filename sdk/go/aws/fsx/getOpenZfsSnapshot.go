@@ -95,17 +95,18 @@ type LookupOpenZfsSnapshotResult struct {
 }
 
 func LookupOpenZfsSnapshotOutput(ctx *pulumi.Context, args LookupOpenZfsSnapshotOutputArgs, opts ...pulumi.InvokeOption) LookupOpenZfsSnapshotResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupOpenZfsSnapshotResultOutput, error) {
 			args := v.(LookupOpenZfsSnapshotArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupOpenZfsSnapshotResult
-			secret, err := ctx.InvokePackageRaw("aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot", args, &rv, "", opts...)
 			if err != nil {
 				return LookupOpenZfsSnapshotResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupOpenZfsSnapshotResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupOpenZfsSnapshotResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupOpenZfsSnapshotResultOutput), nil
 			}

@@ -43,17 +43,18 @@ type GetPoliciesForTargetResult struct {
 }
 
 func GetPoliciesForTargetOutput(ctx *pulumi.Context, args GetPoliciesForTargetOutputArgs, opts ...pulumi.InvokeOption) GetPoliciesForTargetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetPoliciesForTargetResultOutput, error) {
 			args := v.(GetPoliciesForTargetArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetPoliciesForTargetResult
-			secret, err := ctx.InvokePackageRaw("aws:organizations/getPoliciesForTarget:getPoliciesForTarget", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:organizations/getPoliciesForTarget:getPoliciesForTarget", args, &rv, "", opts...)
 			if err != nil {
 				return GetPoliciesForTargetResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetPoliciesForTargetResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetPoliciesForTargetResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetPoliciesForTargetResultOutput), nil
 			}

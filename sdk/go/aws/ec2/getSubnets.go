@@ -45,17 +45,18 @@ type GetSubnetsResult struct {
 }
 
 func GetSubnetsOutput(ctx *pulumi.Context, args GetSubnetsOutputArgs, opts ...pulumi.InvokeOption) GetSubnetsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetSubnetsResultOutput, error) {
 			args := v.(GetSubnetsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetSubnetsResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getSubnets:getSubnets", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getSubnets:getSubnets", args, &rv, "", opts...)
 			if err != nil {
 				return GetSubnetsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetSubnetsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetSubnetsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetSubnetsResultOutput), nil
 			}

@@ -49,17 +49,18 @@ type LookupInvocationResult struct {
 }
 
 func LookupInvocationOutput(ctx *pulumi.Context, args LookupInvocationOutputArgs, opts ...pulumi.InvokeOption) LookupInvocationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupInvocationResultOutput, error) {
 			args := v.(LookupInvocationArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupInvocationResult
-			secret, err := ctx.InvokePackageRaw("aws:lambda/getInvocation:getInvocation", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:lambda/getInvocation:getInvocation", args, &rv, "", opts...)
 			if err != nil {
 				return LookupInvocationResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupInvocationResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupInvocationResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupInvocationResultOutput), nil
 			}

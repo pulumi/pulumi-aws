@@ -125,17 +125,18 @@ type LookupMulticastDomainResult struct {
 }
 
 func LookupMulticastDomainOutput(ctx *pulumi.Context, args LookupMulticastDomainOutputArgs, opts ...pulumi.InvokeOption) LookupMulticastDomainResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupMulticastDomainResultOutput, error) {
 			args := v.(LookupMulticastDomainArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupMulticastDomainResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2transitgateway/getMulticastDomain:getMulticastDomain", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2transitgateway/getMulticastDomain:getMulticastDomain", args, &rv, "", opts...)
 			if err != nil {
 				return LookupMulticastDomainResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupMulticastDomainResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupMulticastDomainResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupMulticastDomainResultOutput), nil
 			}

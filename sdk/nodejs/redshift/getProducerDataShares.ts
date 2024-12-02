@@ -86,7 +86,7 @@ export interface GetProducerDataSharesResult {
  * });
  * ```
  */
-export function getProducerDataSharesOutput(args: GetProducerDataSharesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProducerDataSharesResult> {
+export function getProducerDataSharesOutput(args: GetProducerDataSharesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProducerDataSharesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:redshift/getProducerDataShares:getProducerDataShares", {
         "dataShares": args.dataShares,

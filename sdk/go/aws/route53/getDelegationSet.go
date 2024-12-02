@@ -69,17 +69,18 @@ type LookupDelegationSetResult struct {
 }
 
 func LookupDelegationSetOutput(ctx *pulumi.Context, args LookupDelegationSetOutputArgs, opts ...pulumi.InvokeOption) LookupDelegationSetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDelegationSetResultOutput, error) {
 			args := v.(LookupDelegationSetArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDelegationSetResult
-			secret, err := ctx.InvokePackageRaw("aws:route53/getDelegationSet:getDelegationSet", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:route53/getDelegationSet:getDelegationSet", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDelegationSetResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDelegationSetResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDelegationSetResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDelegationSetResultOutput), nil
 			}

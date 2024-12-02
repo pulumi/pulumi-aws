@@ -74,17 +74,18 @@ type LookupContactChannelResult struct {
 }
 
 func LookupContactChannelOutput(ctx *pulumi.Context, args LookupContactChannelOutputArgs, opts ...pulumi.InvokeOption) LookupContactChannelResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupContactChannelResultOutput, error) {
 			args := v.(LookupContactChannelArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupContactChannelResult
-			secret, err := ctx.InvokePackageRaw("aws:ssmcontacts/getContactChannel:getContactChannel", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ssmcontacts/getContactChannel:getContactChannel", args, &rv, "", opts...)
 			if err != nil {
 				return LookupContactChannelResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupContactChannelResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupContactChannelResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupContactChannelResultOutput), nil
 			}

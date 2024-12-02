@@ -73,17 +73,18 @@ type GetImagePipelinesResult struct {
 }
 
 func GetImagePipelinesOutput(ctx *pulumi.Context, args GetImagePipelinesOutputArgs, opts ...pulumi.InvokeOption) GetImagePipelinesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetImagePipelinesResultOutput, error) {
 			args := v.(GetImagePipelinesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetImagePipelinesResult
-			secret, err := ctx.InvokePackageRaw("aws:imagebuilder/getImagePipelines:getImagePipelines", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:imagebuilder/getImagePipelines:getImagePipelines", args, &rv, "", opts...)
 			if err != nil {
 				return GetImagePipelinesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetImagePipelinesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetImagePipelinesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetImagePipelinesResultOutput), nil
 			}

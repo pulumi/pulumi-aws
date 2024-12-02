@@ -55,17 +55,18 @@ type LookupResponsePlanResult struct {
 }
 
 func LookupResponsePlanOutput(ctx *pulumi.Context, args LookupResponsePlanOutputArgs, opts ...pulumi.InvokeOption) LookupResponsePlanResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupResponsePlanResultOutput, error) {
 			args := v.(LookupResponsePlanArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupResponsePlanResult
-			secret, err := ctx.InvokePackageRaw("aws:ssmincidents/getResponsePlan:getResponsePlan", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ssmincidents/getResponsePlan:getResponsePlan", args, &rv, "", opts...)
 			if err != nil {
 				return LookupResponsePlanResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupResponsePlanResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupResponsePlanResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupResponsePlanResultOutput), nil
 			}

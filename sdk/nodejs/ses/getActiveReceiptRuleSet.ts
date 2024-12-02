@@ -51,7 +51,7 @@ export interface GetActiveReceiptRuleSetResult {
  * const main = aws.ses.getActiveReceiptRuleSet({});
  * ```
  */
-export function getActiveReceiptRuleSetOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetActiveReceiptRuleSetResult> {
+export function getActiveReceiptRuleSetOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActiveReceiptRuleSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", {
     }, opts);

@@ -94,17 +94,18 @@ type LookupReplicationInstanceResult struct {
 }
 
 func LookupReplicationInstanceOutput(ctx *pulumi.Context, args LookupReplicationInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationInstanceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupReplicationInstanceResultOutput, error) {
 			args := v.(LookupReplicationInstanceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupReplicationInstanceResult
-			secret, err := ctx.InvokePackageRaw("aws:dms/getReplicationInstance:getReplicationInstance", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:dms/getReplicationInstance:getReplicationInstance", args, &rv, "", opts...)
 			if err != nil {
 				return LookupReplicationInstanceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupReplicationInstanceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupReplicationInstanceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupReplicationInstanceResultOutput), nil
 			}

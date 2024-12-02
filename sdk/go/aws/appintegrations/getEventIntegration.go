@@ -74,17 +74,18 @@ type GetEventIntegrationResult struct {
 }
 
 func GetEventIntegrationOutput(ctx *pulumi.Context, args GetEventIntegrationOutputArgs, opts ...pulumi.InvokeOption) GetEventIntegrationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetEventIntegrationResultOutput, error) {
 			args := v.(GetEventIntegrationArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetEventIntegrationResult
-			secret, err := ctx.InvokePackageRaw("aws:appintegrations/getEventIntegration:getEventIntegration", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:appintegrations/getEventIntegration:getEventIntegration", args, &rv, "", opts...)
 			if err != nil {
 				return GetEventIntegrationResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetEventIntegrationResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetEventIntegrationResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetEventIntegrationResultOutput), nil
 			}

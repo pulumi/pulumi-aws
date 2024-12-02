@@ -134,17 +134,18 @@ type LookupFirewallPolicyResult struct {
 }
 
 func LookupFirewallPolicyOutput(ctx *pulumi.Context, args LookupFirewallPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupFirewallPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFirewallPolicyResultOutput, error) {
 			args := v.(LookupFirewallPolicyArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupFirewallPolicyResult
-			secret, err := ctx.InvokePackageRaw("aws:networkfirewall/getFirewallPolicy:getFirewallPolicy", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:networkfirewall/getFirewallPolicy:getFirewallPolicy", args, &rv, "", opts...)
 			if err != nil {
 				return LookupFirewallPolicyResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupFirewallPolicyResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupFirewallPolicyResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupFirewallPolicyResultOutput), nil
 			}

@@ -80,17 +80,18 @@ type GetVpcsResult struct {
 }
 
 func GetVpcsOutput(ctx *pulumi.Context, args GetVpcsOutputArgs, opts ...pulumi.InvokeOption) GetVpcsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetVpcsResultOutput, error) {
 			args := v.(GetVpcsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetVpcsResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getVpcs:getVpcs", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getVpcs:getVpcs", args, &rv, "", opts...)
 			if err != nil {
 				return GetVpcsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetVpcsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetVpcsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetVpcsResultOutput), nil
 			}

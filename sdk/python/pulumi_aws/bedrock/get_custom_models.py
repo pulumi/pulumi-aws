@@ -79,7 +79,7 @@ def get_custom_models(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableG
     return AwaitableGetCustomModelsResult(
         id=pulumi.get(__ret__, 'id'),
         model_summaries=pulumi.get(__ret__, 'model_summaries'))
-def get_custom_models_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomModelsResult]:
+def get_custom_models_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomModelsResult]:
     """
     Returns a list of Amazon Bedrock custom models.
 
@@ -93,7 +93,7 @@ def get_custom_models_output(opts: Optional[pulumi.InvokeOptions] = None) -> pul
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:bedrock/getCustomModels:getCustomModels', __args__, opts=opts, typ=GetCustomModelsResult)
     return __ret__.apply(lambda __response__: GetCustomModelsResult(
         id=pulumi.get(__response__, 'id'),

@@ -79,7 +79,7 @@ export interface GetPolicyStoreResult {
  * });
  * ```
  */
-export function getPolicyStoreOutput(args: GetPolicyStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyStoreResult> {
+export function getPolicyStoreOutput(args: GetPolicyStoreOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyStoreResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:verifiedpermissions/getPolicyStore:getPolicyStore", {
         "id": args.id,

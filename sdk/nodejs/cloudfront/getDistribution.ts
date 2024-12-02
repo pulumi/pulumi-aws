@@ -105,7 +105,7 @@ export interface GetDistributionResult {
  * });
  * ```
  */
-export function getDistributionOutput(args: GetDistributionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDistributionResult> {
+export function getDistributionOutput(args: GetDistributionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDistributionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cloudfront/getDistribution:getDistribution", {
         "id": args.id,

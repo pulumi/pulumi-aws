@@ -74,17 +74,18 @@ type LookupSubnetGroupResult struct {
 }
 
 func LookupSubnetGroupOutput(ctx *pulumi.Context, args LookupSubnetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupSubnetGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSubnetGroupResultOutput, error) {
 			args := v.(LookupSubnetGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSubnetGroupResult
-			secret, err := ctx.InvokePackageRaw("aws:elasticache/getSubnetGroup:getSubnetGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:elasticache/getSubnetGroup:getSubnetGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSubnetGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSubnetGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSubnetGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSubnetGroupResultOutput), nil
 			}

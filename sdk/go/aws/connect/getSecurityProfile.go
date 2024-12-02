@@ -110,17 +110,18 @@ type LookupSecurityProfileResult struct {
 }
 
 func LookupSecurityProfileOutput(ctx *pulumi.Context, args LookupSecurityProfileOutputArgs, opts ...pulumi.InvokeOption) LookupSecurityProfileResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSecurityProfileResultOutput, error) {
 			args := v.(LookupSecurityProfileArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSecurityProfileResult
-			secret, err := ctx.InvokePackageRaw("aws:connect/getSecurityProfile:getSecurityProfile", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:connect/getSecurityProfile:getSecurityProfile", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSecurityProfileResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSecurityProfileResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSecurityProfileResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSecurityProfileResultOutput), nil
 			}

@@ -119,7 +119,7 @@ export interface GetRuntimeVersionResult {
  * });
  * ```
  */
-export function getRuntimeVersionOutput(args: GetRuntimeVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuntimeVersionResult> {
+export function getRuntimeVersionOutput(args: GetRuntimeVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRuntimeVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:synthetics/getRuntimeVersion:getRuntimeVersion", {
         "latest": args.latest,

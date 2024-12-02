@@ -88,17 +88,18 @@ type GetSubscribedRuleGroupResult struct {
 }
 
 func GetSubscribedRuleGroupOutput(ctx *pulumi.Context, args GetSubscribedRuleGroupOutputArgs, opts ...pulumi.InvokeOption) GetSubscribedRuleGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetSubscribedRuleGroupResultOutput, error) {
 			args := v.(GetSubscribedRuleGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetSubscribedRuleGroupResult
-			secret, err := ctx.InvokePackageRaw("aws:wafregional/getSubscribedRuleGroup:getSubscribedRuleGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:wafregional/getSubscribedRuleGroup:getSubscribedRuleGroup", args, &rv, "", opts...)
 			if err != nil {
 				return GetSubscribedRuleGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetSubscribedRuleGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetSubscribedRuleGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetSubscribedRuleGroupResultOutput), nil
 			}

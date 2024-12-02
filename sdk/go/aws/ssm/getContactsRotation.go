@@ -73,17 +73,18 @@ type LookupContactsRotationResult struct {
 }
 
 func LookupContactsRotationOutput(ctx *pulumi.Context, args LookupContactsRotationOutputArgs, opts ...pulumi.InvokeOption) LookupContactsRotationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupContactsRotationResultOutput, error) {
 			args := v.(LookupContactsRotationArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupContactsRotationResult
-			secret, err := ctx.InvokePackageRaw("aws:ssm/getContactsRotation:getContactsRotation", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ssm/getContactsRotation:getContactsRotation", args, &rv, "", opts...)
 			if err != nil {
 				return LookupContactsRotationResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupContactsRotationResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupContactsRotationResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupContactsRotationResultOutput), nil
 			}

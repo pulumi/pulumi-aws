@@ -98,7 +98,7 @@ def get_delegated_services(account_id: Optional[str] = None,
         delegated_services=pulumi.get(__ret__, 'delegated_services'),
         id=pulumi.get(__ret__, 'id'))
 def get_delegated_services_output(account_id: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDelegatedServicesResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDelegatedServicesResult]:
     """
     Get a list the AWS services for which the specified account is a delegated administrator
 
@@ -116,7 +116,7 @@ def get_delegated_services_output(account_id: Optional[pulumi.Input[str]] = None
     """
     __args__ = dict()
     __args__['accountId'] = account_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:organizations/getDelegatedServices:getDelegatedServices', __args__, opts=opts, typ=GetDelegatedServicesResult)
     return __ret__.apply(lambda __response__: GetDelegatedServicesResult(
         account_id=pulumi.get(__response__, 'account_id'),

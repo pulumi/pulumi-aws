@@ -84,17 +84,18 @@ type LookupFunctionUrlResult struct {
 }
 
 func LookupFunctionUrlOutput(ctx *pulumi.Context, args LookupFunctionUrlOutputArgs, opts ...pulumi.InvokeOption) LookupFunctionUrlResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFunctionUrlResultOutput, error) {
 			args := v.(LookupFunctionUrlArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupFunctionUrlResult
-			secret, err := ctx.InvokePackageRaw("aws:lambda/getFunctionUrl:getFunctionUrl", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:lambda/getFunctionUrl:getFunctionUrl", args, &rv, "", opts...)
 			if err != nil {
 				return LookupFunctionUrlResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupFunctionUrlResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupFunctionUrlResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupFunctionUrlResultOutput), nil
 			}

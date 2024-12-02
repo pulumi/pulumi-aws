@@ -285,7 +285,7 @@ def get_infrastructure_configuration(arn: Optional[str] = None,
 def get_infrastructure_configuration_output(arn: Optional[pulumi.Input[str]] = None,
                                             resource_tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInfrastructureConfigurationResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInfrastructureConfigurationResult]:
     """
     Provides details about an Image Builder Infrastructure Configuration.
 
@@ -307,7 +307,7 @@ def get_infrastructure_configuration_output(arn: Optional[pulumi.Input[str]] = N
     __args__['arn'] = arn
     __args__['resourceTags'] = resource_tags
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:imagebuilder/getInfrastructureConfiguration:getInfrastructureConfiguration', __args__, opts=opts, typ=GetInfrastructureConfigurationResult)
     return __ret__.apply(lambda __response__: GetInfrastructureConfigurationResult(
         arn=pulumi.get(__response__, 'arn'),

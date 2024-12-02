@@ -66,17 +66,18 @@ type GetStateMachineVersionsResult struct {
 }
 
 func GetStateMachineVersionsOutput(ctx *pulumi.Context, args GetStateMachineVersionsOutputArgs, opts ...pulumi.InvokeOption) GetStateMachineVersionsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetStateMachineVersionsResultOutput, error) {
 			args := v.(GetStateMachineVersionsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetStateMachineVersionsResult
-			secret, err := ctx.InvokePackageRaw("aws:sfn/getStateMachineVersions:getStateMachineVersions", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:sfn/getStateMachineVersions:getStateMachineVersions", args, &rv, "", opts...)
 			if err != nil {
 				return GetStateMachineVersionsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetStateMachineVersionsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetStateMachineVersionsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetStateMachineVersionsResultOutput), nil
 			}

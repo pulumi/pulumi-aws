@@ -123,17 +123,18 @@ type LookupRouteResult struct {
 }
 
 func LookupRouteOutput(ctx *pulumi.Context, args LookupRouteOutputArgs, opts ...pulumi.InvokeOption) LookupRouteResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRouteResultOutput, error) {
 			args := v.(LookupRouteArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupRouteResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getRoute:getRoute", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getRoute:getRoute", args, &rv, "", opts...)
 			if err != nil {
 				return LookupRouteResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupRouteResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupRouteResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupRouteResultOutput), nil
 			}

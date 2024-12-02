@@ -72,17 +72,18 @@ type LookupGroupResult struct {
 }
 
 func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...pulumi.InvokeOption) LookupGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupGroupResultOutput, error) {
 			args := v.(LookupGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupGroupResult
-			secret, err := ctx.InvokePackageRaw("aws:iam/getGroup:getGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:iam/getGroup:getGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupGroupResultOutput), nil
 			}

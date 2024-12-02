@@ -84,17 +84,18 @@ type LookupIntentResult struct {
 }
 
 func LookupIntentOutput(ctx *pulumi.Context, args LookupIntentOutputArgs, opts ...pulumi.InvokeOption) LookupIntentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupIntentResultOutput, error) {
 			args := v.(LookupIntentArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupIntentResult
-			secret, err := ctx.InvokePackageRaw("aws:lex/getIntent:getIntent", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:lex/getIntent:getIntent", args, &rv, "", opts...)
 			if err != nil {
 				return LookupIntentResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupIntentResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupIntentResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupIntentResultOutput), nil
 			}

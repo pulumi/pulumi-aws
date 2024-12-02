@@ -80,17 +80,18 @@ type GetEnvironmentBlueprintResult struct {
 }
 
 func GetEnvironmentBlueprintOutput(ctx *pulumi.Context, args GetEnvironmentBlueprintOutputArgs, opts ...pulumi.InvokeOption) GetEnvironmentBlueprintResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetEnvironmentBlueprintResultOutput, error) {
 			args := v.(GetEnvironmentBlueprintArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetEnvironmentBlueprintResult
-			secret, err := ctx.InvokePackageRaw("aws:datazone/getEnvironmentBlueprint:getEnvironmentBlueprint", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:datazone/getEnvironmentBlueprint:getEnvironmentBlueprint", args, &rv, "", opts...)
 			if err != nil {
 				return GetEnvironmentBlueprintResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetEnvironmentBlueprintResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetEnvironmentBlueprintResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetEnvironmentBlueprintResultOutput), nil
 			}

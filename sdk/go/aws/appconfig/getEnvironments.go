@@ -67,17 +67,18 @@ type GetEnvironmentsResult struct {
 }
 
 func GetEnvironmentsOutput(ctx *pulumi.Context, args GetEnvironmentsOutputArgs, opts ...pulumi.InvokeOption) GetEnvironmentsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetEnvironmentsResultOutput, error) {
 			args := v.(GetEnvironmentsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetEnvironmentsResult
-			secret, err := ctx.InvokePackageRaw("aws:appconfig/getEnvironments:getEnvironments", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:appconfig/getEnvironments:getEnvironments", args, &rv, "", opts...)
 			if err != nil {
 				return GetEnvironmentsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetEnvironmentsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetEnvironmentsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetEnvironmentsResultOutput), nil
 			}

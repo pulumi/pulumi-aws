@@ -79,17 +79,18 @@ type LookupCostCategoryResult struct {
 }
 
 func LookupCostCategoryOutput(ctx *pulumi.Context, args LookupCostCategoryOutputArgs, opts ...pulumi.InvokeOption) LookupCostCategoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCostCategoryResultOutput, error) {
 			args := v.(LookupCostCategoryArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupCostCategoryResult
-			secret, err := ctx.InvokePackageRaw("aws:costexplorer/getCostCategory:getCostCategory", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:costexplorer/getCostCategory:getCostCategory", args, &rv, "", opts...)
 			if err != nil {
 				return LookupCostCategoryResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupCostCategoryResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupCostCategoryResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupCostCategoryResultOutput), nil
 			}

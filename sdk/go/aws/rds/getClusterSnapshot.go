@@ -135,17 +135,18 @@ type LookupClusterSnapshotResult struct {
 }
 
 func LookupClusterSnapshotOutput(ctx *pulumi.Context, args LookupClusterSnapshotOutputArgs, opts ...pulumi.InvokeOption) LookupClusterSnapshotResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupClusterSnapshotResultOutput, error) {
 			args := v.(LookupClusterSnapshotArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupClusterSnapshotResult
-			secret, err := ctx.InvokePackageRaw("aws:rds/getClusterSnapshot:getClusterSnapshot", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:rds/getClusterSnapshot:getClusterSnapshot", args, &rv, "", opts...)
 			if err != nil {
 				return LookupClusterSnapshotResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupClusterSnapshotResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupClusterSnapshotResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupClusterSnapshotResultOutput), nil
 			}

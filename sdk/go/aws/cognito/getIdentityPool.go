@@ -84,17 +84,18 @@ type LookupIdentityPoolResult struct {
 }
 
 func LookupIdentityPoolOutput(ctx *pulumi.Context, args LookupIdentityPoolOutputArgs, opts ...pulumi.InvokeOption) LookupIdentityPoolResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupIdentityPoolResultOutput, error) {
 			args := v.(LookupIdentityPoolArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupIdentityPoolResult
-			secret, err := ctx.InvokePackageRaw("aws:cognito/getIdentityPool:getIdentityPool", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:cognito/getIdentityPool:getIdentityPool", args, &rv, "", opts...)
 			if err != nil {
 				return LookupIdentityPoolResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupIdentityPoolResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupIdentityPoolResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupIdentityPoolResultOutput), nil
 			}

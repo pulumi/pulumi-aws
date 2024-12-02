@@ -84,17 +84,18 @@ type LookupConstraintResult struct {
 }
 
 func LookupConstraintOutput(ctx *pulumi.Context, args LookupConstraintOutputArgs, opts ...pulumi.InvokeOption) LookupConstraintResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupConstraintResultOutput, error) {
 			args := v.(LookupConstraintArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupConstraintResult
-			secret, err := ctx.InvokePackageRaw("aws:servicecatalog/getConstraint:getConstraint", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:servicecatalog/getConstraint:getConstraint", args, &rv, "", opts...)
 			if err != nil {
 				return LookupConstraintResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupConstraintResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupConstraintResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupConstraintResultOutput), nil
 			}

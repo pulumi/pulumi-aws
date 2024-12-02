@@ -112,17 +112,18 @@ type LookupContactFlowModuleResult struct {
 }
 
 func LookupContactFlowModuleOutput(ctx *pulumi.Context, args LookupContactFlowModuleOutputArgs, opts ...pulumi.InvokeOption) LookupContactFlowModuleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupContactFlowModuleResultOutput, error) {
 			args := v.(LookupContactFlowModuleArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupContactFlowModuleResult
-			secret, err := ctx.InvokePackageRaw("aws:connect/getContactFlowModule:getContactFlowModule", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:connect/getContactFlowModule:getContactFlowModule", args, &rv, "", opts...)
 			if err != nil {
 				return LookupContactFlowModuleResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupContactFlowModuleResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupContactFlowModuleResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupContactFlowModuleResultOutput), nil
 			}

@@ -70,17 +70,18 @@ type LookupBotAssociationResult struct {
 }
 
 func LookupBotAssociationOutput(ctx *pulumi.Context, args LookupBotAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupBotAssociationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupBotAssociationResultOutput, error) {
 			args := v.(LookupBotAssociationArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupBotAssociationResult
-			secret, err := ctx.InvokePackageRaw("aws:connect/getBotAssociation:getBotAssociation", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:connect/getBotAssociation:getBotAssociation", args, &rv, "", opts...)
 			if err != nil {
 				return LookupBotAssociationResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupBotAssociationResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupBotAssociationResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupBotAssociationResultOutput), nil
 			}

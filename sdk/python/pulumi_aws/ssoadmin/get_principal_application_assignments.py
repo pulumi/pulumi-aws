@@ -138,7 +138,7 @@ def get_principal_application_assignments_output(application_assignments: Option
                                                  instance_arn: Optional[pulumi.Input[str]] = None,
                                                  principal_id: Optional[pulumi.Input[str]] = None,
                                                  principal_type: Optional[pulumi.Input[str]] = None,
-                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrincipalApplicationAssignmentsResult]:
+                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrincipalApplicationAssignmentsResult]:
     """
     Data source for viewing AWS SSO Admin Principal Application Assignments.
 
@@ -166,7 +166,7 @@ def get_principal_application_assignments_output(application_assignments: Option
     __args__['instanceArn'] = instance_arn
     __args__['principalId'] = principal_id
     __args__['principalType'] = principal_type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssoadmin/getPrincipalApplicationAssignments:getPrincipalApplicationAssignments', __args__, opts=opts, typ=GetPrincipalApplicationAssignmentsResult)
     return __ret__.apply(lambda __response__: GetPrincipalApplicationAssignmentsResult(
         application_assignments=pulumi.get(__response__, 'application_assignments'),

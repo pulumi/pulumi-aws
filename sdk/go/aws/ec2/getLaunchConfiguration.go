@@ -95,17 +95,18 @@ type LookupLaunchConfigurationResult struct {
 }
 
 func LookupLaunchConfigurationOutput(ctx *pulumi.Context, args LookupLaunchConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupLaunchConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLaunchConfigurationResultOutput, error) {
 			args := v.(LookupLaunchConfigurationArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupLaunchConfigurationResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getLaunchConfiguration:getLaunchConfiguration", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getLaunchConfiguration:getLaunchConfiguration", args, &rv, "", opts...)
 			if err != nil {
 				return LookupLaunchConfigurationResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupLaunchConfigurationResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupLaunchConfigurationResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupLaunchConfigurationResultOutput), nil
 			}

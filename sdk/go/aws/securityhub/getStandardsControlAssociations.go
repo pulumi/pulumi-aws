@@ -71,17 +71,18 @@ type GetStandardsControlAssociationsResult struct {
 }
 
 func GetStandardsControlAssociationsOutput(ctx *pulumi.Context, args GetStandardsControlAssociationsOutputArgs, opts ...pulumi.InvokeOption) GetStandardsControlAssociationsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetStandardsControlAssociationsResultOutput, error) {
 			args := v.(GetStandardsControlAssociationsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetStandardsControlAssociationsResult
-			secret, err := ctx.InvokePackageRaw("aws:securityhub/getStandardsControlAssociations:getStandardsControlAssociations", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:securityhub/getStandardsControlAssociations:getStandardsControlAssociations", args, &rv, "", opts...)
 			if err != nil {
 				return GetStandardsControlAssociationsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetStandardsControlAssociationsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetStandardsControlAssociationsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetStandardsControlAssociationsResultOutput), nil
 			}

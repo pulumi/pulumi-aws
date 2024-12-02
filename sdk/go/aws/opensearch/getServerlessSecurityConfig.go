@@ -76,17 +76,18 @@ type LookupServerlessSecurityConfigResult struct {
 }
 
 func LookupServerlessSecurityConfigOutput(ctx *pulumi.Context, args LookupServerlessSecurityConfigOutputArgs, opts ...pulumi.InvokeOption) LookupServerlessSecurityConfigResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupServerlessSecurityConfigResultOutput, error) {
 			args := v.(LookupServerlessSecurityConfigArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupServerlessSecurityConfigResult
-			secret, err := ctx.InvokePackageRaw("aws:opensearch/getServerlessSecurityConfig:getServerlessSecurityConfig", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:opensearch/getServerlessSecurityConfig:getServerlessSecurityConfig", args, &rv, "", opts...)
 			if err != nil {
 				return LookupServerlessSecurityConfigResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupServerlessSecurityConfigResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupServerlessSecurityConfigResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupServerlessSecurityConfigResultOutput), nil
 			}

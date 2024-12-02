@@ -197,17 +197,18 @@ type LookupAmiResult struct {
 }
 
 func LookupAmiOutput(ctx *pulumi.Context, args LookupAmiOutputArgs, opts ...pulumi.InvokeOption) LookupAmiResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAmiResultOutput, error) {
 			args := v.(LookupAmiArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupAmiResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getAmi:getAmi", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getAmi:getAmi", args, &rv, "", opts...)
 			if err != nil {
 				return LookupAmiResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupAmiResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupAmiResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupAmiResultOutput), nil
 			}

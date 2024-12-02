@@ -77,17 +77,18 @@ type GetServicePrincipalResult struct {
 }
 
 func GetServicePrincipalOutput(ctx *pulumi.Context, args GetServicePrincipalOutputArgs, opts ...pulumi.InvokeOption) GetServicePrincipalResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetServicePrincipalResultOutput, error) {
 			args := v.(GetServicePrincipalArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetServicePrincipalResult
-			secret, err := ctx.InvokePackageRaw("aws:index/getServicePrincipal:getServicePrincipal", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:index/getServicePrincipal:getServicePrincipal", args, &rv, "", opts...)
 			if err != nil {
 				return GetServicePrincipalResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetServicePrincipalResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetServicePrincipalResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetServicePrincipalResultOutput), nil
 			}

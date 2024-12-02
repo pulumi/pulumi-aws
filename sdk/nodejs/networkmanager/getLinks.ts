@@ -93,7 +93,7 @@ export interface GetLinksResult {
  * });
  * ```
  */
-export function getLinksOutput(args: GetLinksOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinksResult> {
+export function getLinksOutput(args: GetLinksOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLinksResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:networkmanager/getLinks:getLinks", {
         "globalNetworkId": args.globalNetworkId,

@@ -66,17 +66,18 @@ type LookupDetectorResult struct {
 }
 
 func LookupDetectorOutput(ctx *pulumi.Context, args LookupDetectorOutputArgs, opts ...pulumi.InvokeOption) LookupDetectorResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDetectorResultOutput, error) {
 			args := v.(LookupDetectorArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDetectorResult
-			secret, err := ctx.InvokePackageRaw("aws:guardduty/getDetector:getDetector", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:guardduty/getDetector:getDetector", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDetectorResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDetectorResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDetectorResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDetectorResultOutput), nil
 			}

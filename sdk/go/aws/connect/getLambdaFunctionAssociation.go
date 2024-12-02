@@ -66,17 +66,18 @@ type LookupLambdaFunctionAssociationResult struct {
 }
 
 func LookupLambdaFunctionAssociationOutput(ctx *pulumi.Context, args LookupLambdaFunctionAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupLambdaFunctionAssociationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLambdaFunctionAssociationResultOutput, error) {
 			args := v.(LookupLambdaFunctionAssociationArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupLambdaFunctionAssociationResult
-			secret, err := ctx.InvokePackageRaw("aws:connect/getLambdaFunctionAssociation:getLambdaFunctionAssociation", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:connect/getLambdaFunctionAssociation:getLambdaFunctionAssociation", args, &rv, "", opts...)
 			if err != nil {
 				return LookupLambdaFunctionAssociationResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupLambdaFunctionAssociationResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupLambdaFunctionAssociationResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupLambdaFunctionAssociationResultOutput), nil
 			}

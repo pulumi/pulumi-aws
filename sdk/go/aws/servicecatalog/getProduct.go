@@ -97,17 +97,18 @@ type LookupProductResult struct {
 }
 
 func LookupProductOutput(ctx *pulumi.Context, args LookupProductOutputArgs, opts ...pulumi.InvokeOption) LookupProductResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupProductResultOutput, error) {
 			args := v.(LookupProductArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupProductResult
-			secret, err := ctx.InvokePackageRaw("aws:servicecatalog/getProduct:getProduct", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:servicecatalog/getProduct:getProduct", args, &rv, "", opts...)
 			if err != nil {
 				return LookupProductResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupProductResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupProductResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupProductResultOutput), nil
 			}

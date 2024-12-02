@@ -127,17 +127,18 @@ type LookupVpcDhcpOptionsResult struct {
 }
 
 func LookupVpcDhcpOptionsOutput(ctx *pulumi.Context, args LookupVpcDhcpOptionsOutputArgs, opts ...pulumi.InvokeOption) LookupVpcDhcpOptionsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVpcDhcpOptionsResultOutput, error) {
 			args := v.(LookupVpcDhcpOptionsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVpcDhcpOptionsResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVpcDhcpOptionsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVpcDhcpOptionsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVpcDhcpOptionsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVpcDhcpOptionsResultOutput), nil
 			}

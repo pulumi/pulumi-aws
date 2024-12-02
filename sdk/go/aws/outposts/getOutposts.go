@@ -75,17 +75,18 @@ type GetOutpostsResult struct {
 }
 
 func GetOutpostsOutput(ctx *pulumi.Context, args GetOutpostsOutputArgs, opts ...pulumi.InvokeOption) GetOutpostsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetOutpostsResultOutput, error) {
 			args := v.(GetOutpostsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetOutpostsResult
-			secret, err := ctx.InvokePackageRaw("aws:outposts/getOutposts:getOutposts", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:outposts/getOutposts:getOutposts", args, &rv, "", opts...)
 			if err != nil {
 				return GetOutpostsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetOutpostsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetOutpostsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetOutpostsResultOutput), nil
 			}

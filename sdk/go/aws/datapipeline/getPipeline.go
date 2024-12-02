@@ -70,17 +70,18 @@ type LookupPipelineResult struct {
 }
 
 func LookupPipelineOutput(ctx *pulumi.Context, args LookupPipelineOutputArgs, opts ...pulumi.InvokeOption) LookupPipelineResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPipelineResultOutput, error) {
 			args := v.(LookupPipelineArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupPipelineResult
-			secret, err := ctx.InvokePackageRaw("aws:datapipeline/getPipeline:getPipeline", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:datapipeline/getPipeline:getPipeline", args, &rv, "", opts...)
 			if err != nil {
 				return LookupPipelineResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupPipelineResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupPipelineResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupPipelineResultOutput), nil
 			}

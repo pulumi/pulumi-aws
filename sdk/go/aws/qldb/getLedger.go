@@ -68,17 +68,18 @@ type LookupLedgerResult struct {
 }
 
 func LookupLedgerOutput(ctx *pulumi.Context, args LookupLedgerOutputArgs, opts ...pulumi.InvokeOption) LookupLedgerResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLedgerResultOutput, error) {
 			args := v.(LookupLedgerArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupLedgerResult
-			secret, err := ctx.InvokePackageRaw("aws:qldb/getLedger:getLedger", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:qldb/getLedger:getLedger", args, &rv, "", opts...)
 			if err != nil {
 				return LookupLedgerResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupLedgerResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupLedgerResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupLedgerResultOutput), nil
 			}

@@ -180,7 +180,7 @@ def get_resolver_firewall_domain_list(firewall_domain_list_id: Optional[str] = N
         status=pulumi.get(__ret__, 'status'),
         status_message=pulumi.get(__ret__, 'status_message'))
 def get_resolver_firewall_domain_list_output(firewall_domain_list_id: Optional[pulumi.Input[str]] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverFirewallDomainListResult]:
+                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverFirewallDomainListResult]:
     """
     `route53.ResolverFirewallDomainList` Retrieves the specified firewall domain list.
 
@@ -204,7 +204,7 @@ def get_resolver_firewall_domain_list_output(firewall_domain_list_id: Optional[p
     """
     __args__ = dict()
     __args__['firewallDomainListId'] = firewall_domain_list_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList', __args__, opts=opts, typ=GetResolverFirewallDomainListResult)
     return __ret__.apply(lambda __response__: GetResolverFirewallDomainListResult(
         arn=pulumi.get(__response__, 'arn'),

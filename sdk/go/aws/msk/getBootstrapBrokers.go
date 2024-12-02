@@ -82,17 +82,18 @@ type GetBootstrapBrokersResult struct {
 }
 
 func GetBootstrapBrokersOutput(ctx *pulumi.Context, args GetBootstrapBrokersOutputArgs, opts ...pulumi.InvokeOption) GetBootstrapBrokersResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetBootstrapBrokersResultOutput, error) {
 			args := v.(GetBootstrapBrokersArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetBootstrapBrokersResult
-			secret, err := ctx.InvokePackageRaw("aws:msk/getBootstrapBrokers:getBootstrapBrokers", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:msk/getBootstrapBrokers:getBootstrapBrokers", args, &rv, "", opts...)
 			if err != nil {
 				return GetBootstrapBrokersResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetBootstrapBrokersResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetBootstrapBrokersResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetBootstrapBrokersResultOutput), nil
 			}

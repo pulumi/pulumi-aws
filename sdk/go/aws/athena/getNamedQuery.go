@@ -70,17 +70,18 @@ type LookupNamedQueryResult struct {
 }
 
 func LookupNamedQueryOutput(ctx *pulumi.Context, args LookupNamedQueryOutputArgs, opts ...pulumi.InvokeOption) LookupNamedQueryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNamedQueryResultOutput, error) {
 			args := v.(LookupNamedQueryArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupNamedQueryResult
-			secret, err := ctx.InvokePackageRaw("aws:athena/getNamedQuery:getNamedQuery", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:athena/getNamedQuery:getNamedQuery", args, &rv, "", opts...)
 			if err != nil {
 				return LookupNamedQueryResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupNamedQueryResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupNamedQueryResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupNamedQueryResultOutput), nil
 			}

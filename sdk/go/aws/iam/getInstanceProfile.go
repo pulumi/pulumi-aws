@@ -76,17 +76,18 @@ type LookupInstanceProfileResult struct {
 }
 
 func LookupInstanceProfileOutput(ctx *pulumi.Context, args LookupInstanceProfileOutputArgs, opts ...pulumi.InvokeOption) LookupInstanceProfileResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupInstanceProfileResultOutput, error) {
 			args := v.(LookupInstanceProfileArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupInstanceProfileResult
-			secret, err := ctx.InvokePackageRaw("aws:iam/getInstanceProfile:getInstanceProfile", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:iam/getInstanceProfile:getInstanceProfile", args, &rv, "", opts...)
 			if err != nil {
 				return LookupInstanceProfileResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupInstanceProfileResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupInstanceProfileResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupInstanceProfileResultOutput), nil
 			}

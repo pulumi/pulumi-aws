@@ -67,17 +67,18 @@ type GetReleaseLabelsResult struct {
 }
 
 func GetReleaseLabelsOutput(ctx *pulumi.Context, args GetReleaseLabelsOutputArgs, opts ...pulumi.InvokeOption) GetReleaseLabelsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetReleaseLabelsResultOutput, error) {
 			args := v.(GetReleaseLabelsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetReleaseLabelsResult
-			secret, err := ctx.InvokePackageRaw("aws:emr/getReleaseLabels:getReleaseLabels", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:emr/getReleaseLabels:getReleaseLabels", args, &rv, "", opts...)
 			if err != nil {
 				return GetReleaseLabelsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetReleaseLabelsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetReleaseLabelsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetReleaseLabelsResultOutput), nil
 			}

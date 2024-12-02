@@ -138,17 +138,18 @@ type LookupLaunchTemplateResult struct {
 }
 
 func LookupLaunchTemplateOutput(ctx *pulumi.Context, args LookupLaunchTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupLaunchTemplateResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLaunchTemplateResultOutput, error) {
 			args := v.(LookupLaunchTemplateArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupLaunchTemplateResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getLaunchTemplate:getLaunchTemplate", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getLaunchTemplate:getLaunchTemplate", args, &rv, "", opts...)
 			if err != nil {
 				return LookupLaunchTemplateResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupLaunchTemplateResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupLaunchTemplateResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupLaunchTemplateResultOutput), nil
 			}
