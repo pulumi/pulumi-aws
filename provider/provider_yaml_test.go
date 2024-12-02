@@ -753,6 +753,17 @@ func TestAccDefaultTagsWithImport(t *testing.T) {
 	}
 }
 
+func TestAssumeRoleSessionTags(t *testing.T) {
+	t.Parallel()
+	ptest := pulumiTest(t, filepath.Join("test-programs", "assume-role-session-tags"), opttest.SkipInstall())
+	result := ptest.Up(t)
+	t.Logf("STDOUT: %v", result.StdOut)
+	t.Logf("STDERR: %v", result.StdErr)
+
+	require.Contains(t, result.Outputs, "bucketArn")
+	assert.NotEmpty(t, result.Outputs["bucketArn"].Value.(string))
+}
+
 // testTagsPulumiLifecycle tests the complete lifecycle of a pulumi program
 // Scenarios that this tests:
 //  1. `Up` with both provider `defaultTags`/`ignoreTags` and resource level `tags`
