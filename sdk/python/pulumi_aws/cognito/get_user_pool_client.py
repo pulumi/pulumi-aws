@@ -367,7 +367,7 @@ def get_user_pool_client(client_id: Optional[str] = None,
         write_attributes=pulumi.get(__ret__, 'write_attributes'))
 def get_user_pool_client_output(client_id: Optional[pulumi.Input[str]] = None,
                                 user_pool_id: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolClientResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolClientResult]:
     """
     Provides a Cognito User Pool Client resource.
 
@@ -388,7 +388,7 @@ def get_user_pool_client_output(client_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['clientId'] = client_id
     __args__['userPoolId'] = user_pool_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cognito/getUserPoolClient:getUserPoolClient', __args__, opts=opts, typ=GetUserPoolClientResult)
     return __ret__.apply(lambda __response__: GetUserPoolClientResult(
         access_token_validity=pulumi.get(__response__, 'access_token_validity'),

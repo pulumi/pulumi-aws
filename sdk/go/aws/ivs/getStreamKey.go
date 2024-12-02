@@ -5,6 +5,7 @@ package ivs
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetStreamKey(ctx *pulumi.Context, args *GetStreamKeyArgs, opts ...pulumi.InvokeOption) (*GetStreamKeyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetStreamKeyResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetStreamKeyResult{}, errors.New("DependsOn is not supported for direct form invoke GetStreamKey, use GetStreamKeyOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetStreamKeyResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetStreamKey, use GetStreamKeyOutput instead")
+	}
 	var rv GetStreamKeyResult
 	err := ctx.Invoke("aws:ivs/getStreamKey:getStreamKey", args, &rv, opts...)
 	if err != nil {
@@ -72,17 +83,18 @@ type GetStreamKeyResult struct {
 }
 
 func GetStreamKeyOutput(ctx *pulumi.Context, args GetStreamKeyOutputArgs, opts ...pulumi.InvokeOption) GetStreamKeyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetStreamKeyResultOutput, error) {
 			args := v.(GetStreamKeyArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetStreamKeyResult
-			secret, err := ctx.InvokePackageRaw("aws:ivs/getStreamKey:getStreamKey", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ivs/getStreamKey:getStreamKey", args, &rv, "", opts...)
 			if err != nil {
 				return GetStreamKeyResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetStreamKeyResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetStreamKeyResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetStreamKeyResultOutput), nil
 			}

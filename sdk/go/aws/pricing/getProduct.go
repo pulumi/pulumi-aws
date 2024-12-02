@@ -5,6 +5,7 @@ package pricing
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -105,6 +106,16 @@ import (
 // ```
 func GetProduct(ctx *pulumi.Context, args *GetProductArgs, opts ...pulumi.InvokeOption) (*GetProductResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetProductResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetProductResult{}, errors.New("DependsOn is not supported for direct form invoke GetProduct, use GetProductOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetProductResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetProduct, use GetProductOutput instead")
+	}
 	var rv GetProductResult
 	err := ctx.Invoke("aws:pricing/getProduct:getProduct", args, &rv, opts...)
 	if err != nil {
@@ -132,17 +143,18 @@ type GetProductResult struct {
 }
 
 func GetProductOutput(ctx *pulumi.Context, args GetProductOutputArgs, opts ...pulumi.InvokeOption) GetProductResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetProductResultOutput, error) {
 			args := v.(GetProductArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetProductResult
-			secret, err := ctx.InvokePackageRaw("aws:pricing/getProduct:getProduct", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:pricing/getProduct:getProduct", args, &rv, "", opts...)
 			if err != nil {
 				return GetProductResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetProductResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetProductResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetProductResultOutput), nil
 			}

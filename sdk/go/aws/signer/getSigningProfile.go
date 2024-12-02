@@ -5,6 +5,7 @@ package signer
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupSigningProfile(ctx *pulumi.Context, args *LookupSigningProfileArgs, opts ...pulumi.InvokeOption) (*LookupSigningProfileResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupSigningProfileResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupSigningProfileResult{}, errors.New("DependsOn is not supported for direct form invoke LookupSigningProfile, use LookupSigningProfileOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupSigningProfileResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupSigningProfile, use LookupSigningProfileOutput instead")
+	}
 	var rv LookupSigningProfileResult
 	err := ctx.Invoke("aws:signer/getSigningProfile:getSigningProfile", args, &rv, opts...)
 	if err != nil {
@@ -82,17 +93,18 @@ type LookupSigningProfileResult struct {
 }
 
 func LookupSigningProfileOutput(ctx *pulumi.Context, args LookupSigningProfileOutputArgs, opts ...pulumi.InvokeOption) LookupSigningProfileResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSigningProfileResultOutput, error) {
 			args := v.(LookupSigningProfileArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupSigningProfileResult
-			secret, err := ctx.InvokePackageRaw("aws:signer/getSigningProfile:getSigningProfile", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:signer/getSigningProfile:getSigningProfile", args, &rv, "", opts...)
 			if err != nil {
 				return LookupSigningProfileResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupSigningProfileResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupSigningProfileResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupSigningProfileResultOutput), nil
 			}

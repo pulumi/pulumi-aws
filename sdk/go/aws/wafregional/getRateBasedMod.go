@@ -5,6 +5,7 @@ package wafregional
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func GetRateBasedMod(ctx *pulumi.Context, args *GetRateBasedModArgs, opts ...pulumi.InvokeOption) (*GetRateBasedModResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetRateBasedModResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetRateBasedModResult{}, errors.New("DependsOn is not supported for direct form invoke GetRateBasedMod, use GetRateBasedModOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetRateBasedModResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetRateBasedMod, use GetRateBasedModOutput instead")
+	}
 	var rv GetRateBasedModResult
 	err := ctx.Invoke("aws:wafregional/getRateBasedMod:getRateBasedMod", args, &rv, opts...)
 	if err != nil {
@@ -62,17 +73,18 @@ type GetRateBasedModResult struct {
 }
 
 func GetRateBasedModOutput(ctx *pulumi.Context, args GetRateBasedModOutputArgs, opts ...pulumi.InvokeOption) GetRateBasedModResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetRateBasedModResultOutput, error) {
 			args := v.(GetRateBasedModArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetRateBasedModResult
-			secret, err := ctx.InvokePackageRaw("aws:wafregional/getRateBasedMod:getRateBasedMod", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:wafregional/getRateBasedMod:getRateBasedMod", args, &rv, "", opts...)
 			if err != nil {
 				return GetRateBasedModResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetRateBasedModResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetRateBasedModResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetRateBasedModResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package imagebuilder
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupImageRecipe(ctx *pulumi.Context, args *LookupImageRecipeArgs, opts ...pulumi.InvokeOption) (*LookupImageRecipeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupImageRecipeResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupImageRecipeResult{}, errors.New("DependsOn is not supported for direct form invoke LookupImageRecipe, use LookupImageRecipeOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupImageRecipeResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupImageRecipe, use LookupImageRecipeOutput instead")
+	}
 	var rv LookupImageRecipeResult
 	err := ctx.Invoke("aws:imagebuilder/getImageRecipe:getImageRecipe", args, &rv, opts...)
 	if err != nil {
@@ -88,17 +99,18 @@ type LookupImageRecipeResult struct {
 }
 
 func LookupImageRecipeOutput(ctx *pulumi.Context, args LookupImageRecipeOutputArgs, opts ...pulumi.InvokeOption) LookupImageRecipeResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupImageRecipeResultOutput, error) {
 			args := v.(LookupImageRecipeArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupImageRecipeResult
-			secret, err := ctx.InvokePackageRaw("aws:imagebuilder/getImageRecipe:getImageRecipe", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:imagebuilder/getImageRecipe:getImageRecipe", args, &rv, "", opts...)
 			if err != nil {
 				return LookupImageRecipeResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupImageRecipeResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupImageRecipeResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupImageRecipeResultOutput), nil
 			}

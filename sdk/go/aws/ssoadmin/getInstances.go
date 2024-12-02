@@ -5,6 +5,7 @@ package ssoadmin
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func GetInstances(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetInstancesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetInstancesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetInstancesResult{}, errors.New("DependsOn is not supported for direct form invoke GetInstances, use GetInstancesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetInstancesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetInstances, use GetInstancesOutput instead")
+	}
 	var rv GetInstancesResult
 	err := ctx.Invoke("aws:ssoadmin/getInstances:getInstances", nil, &rv, opts...)
 	if err != nil {

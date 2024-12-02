@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -72,6 +73,16 @@ import (
 // ```
 func GetInstances(ctx *pulumi.Context, args *GetInstancesArgs, opts ...pulumi.InvokeOption) (*GetInstancesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetInstancesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetInstancesResult{}, errors.New("DependsOn is not supported for direct form invoke GetInstances, use GetInstancesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetInstancesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetInstances, use GetInstancesOutput instead")
+	}
 	var rv GetInstancesResult
 	err := ctx.Invoke("aws:ec2/getInstances:getInstances", args, &rv, opts...)
 	if err != nil {
@@ -111,17 +122,18 @@ type GetInstancesResult struct {
 }
 
 func GetInstancesOutput(ctx *pulumi.Context, args GetInstancesOutputArgs, opts ...pulumi.InvokeOption) GetInstancesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetInstancesResultOutput, error) {
 			args := v.(GetInstancesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetInstancesResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getInstances:getInstances", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getInstances:getInstances", args, &rv, "", opts...)
 			if err != nil {
 				return GetInstancesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetInstancesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetInstancesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetInstancesResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package appconfig
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func GetEnvironments(ctx *pulumi.Context, args *GetEnvironmentsArgs, opts ...pulumi.InvokeOption) (*GetEnvironmentsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetEnvironmentsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetEnvironmentsResult{}, errors.New("DependsOn is not supported for direct form invoke GetEnvironments, use GetEnvironmentsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetEnvironmentsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetEnvironments, use GetEnvironmentsOutput instead")
+	}
 	var rv GetEnvironmentsResult
 	err := ctx.Invoke("aws:appconfig/getEnvironments:getEnvironments", args, &rv, opts...)
 	if err != nil {
@@ -67,17 +78,18 @@ type GetEnvironmentsResult struct {
 }
 
 func GetEnvironmentsOutput(ctx *pulumi.Context, args GetEnvironmentsOutputArgs, opts ...pulumi.InvokeOption) GetEnvironmentsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetEnvironmentsResultOutput, error) {
 			args := v.(GetEnvironmentsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetEnvironmentsResult
-			secret, err := ctx.InvokePackageRaw("aws:appconfig/getEnvironments:getEnvironments", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:appconfig/getEnvironments:getEnvironments", args, &rv, "", opts...)
 			if err != nil {
 				return GetEnvironmentsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetEnvironmentsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetEnvironmentsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetEnvironmentsResultOutput), nil
 			}

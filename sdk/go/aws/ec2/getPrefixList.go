@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -106,6 +107,16 @@ import (
 // ```
 func GetPrefixList(ctx *pulumi.Context, args *GetPrefixListArgs, opts ...pulumi.InvokeOption) (*GetPrefixListResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetPrefixListResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetPrefixListResult{}, errors.New("DependsOn is not supported for direct form invoke GetPrefixList, use GetPrefixListOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetPrefixListResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetPrefixList, use GetPrefixListOutput instead")
+	}
 	var rv GetPrefixListResult
 	err := ctx.Invoke("aws:ec2/getPrefixList:getPrefixList", args, &rv, opts...)
 	if err != nil {
@@ -137,17 +148,18 @@ type GetPrefixListResult struct {
 }
 
 func GetPrefixListOutput(ctx *pulumi.Context, args GetPrefixListOutputArgs, opts ...pulumi.InvokeOption) GetPrefixListResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetPrefixListResultOutput, error) {
 			args := v.(GetPrefixListArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetPrefixListResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getPrefixList:getPrefixList", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getPrefixList:getPrefixList", args, &rv, "", opts...)
 			if err != nil {
 				return GetPrefixListResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetPrefixListResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetPrefixListResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetPrefixListResultOutput), nil
 			}

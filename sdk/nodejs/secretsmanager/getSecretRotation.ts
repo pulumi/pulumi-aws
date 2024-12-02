@@ -78,7 +78,7 @@ export interface GetSecretRotationResult {
  * });
  * ```
  */
-export function getSecretRotationOutput(args: GetSecretRotationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretRotationResult> {
+export function getSecretRotationOutput(args: GetSecretRotationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecretRotationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:secretsmanager/getSecretRotation:getSecretRotation", {
         "secretId": args.secretId,

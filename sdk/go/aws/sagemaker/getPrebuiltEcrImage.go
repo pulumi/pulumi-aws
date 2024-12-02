@@ -5,6 +5,7 @@ package sagemaker
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -45,6 +46,16 @@ import (
 // ```
 func GetPrebuiltEcrImage(ctx *pulumi.Context, args *GetPrebuiltEcrImageArgs, opts ...pulumi.InvokeOption) (*GetPrebuiltEcrImageResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetPrebuiltEcrImageResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetPrebuiltEcrImageResult{}, errors.New("DependsOn is not supported for direct form invoke GetPrebuiltEcrImage, use GetPrebuiltEcrImageOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetPrebuiltEcrImageResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetPrebuiltEcrImage, use GetPrebuiltEcrImageOutput instead")
+	}
 	var rv GetPrebuiltEcrImageResult
 	err := ctx.Invoke("aws:sagemaker/getPrebuiltEcrImage:getPrebuiltEcrImage", args, &rv, opts...)
 	if err != nil {
@@ -80,17 +91,18 @@ type GetPrebuiltEcrImageResult struct {
 }
 
 func GetPrebuiltEcrImageOutput(ctx *pulumi.Context, args GetPrebuiltEcrImageOutputArgs, opts ...pulumi.InvokeOption) GetPrebuiltEcrImageResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetPrebuiltEcrImageResultOutput, error) {
 			args := v.(GetPrebuiltEcrImageArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetPrebuiltEcrImageResult
-			secret, err := ctx.InvokePackageRaw("aws:sagemaker/getPrebuiltEcrImage:getPrebuiltEcrImage", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:sagemaker/getPrebuiltEcrImage:getPrebuiltEcrImage", args, &rv, "", opts...)
 			if err != nil {
 				return GetPrebuiltEcrImageResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetPrebuiltEcrImageResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetPrebuiltEcrImageResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetPrebuiltEcrImageResultOutput), nil
 			}

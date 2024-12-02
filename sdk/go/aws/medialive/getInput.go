@@ -5,6 +5,7 @@ package medialive
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupInput(ctx *pulumi.Context, args *LookupInputArgs, opts ...pulumi.InvokeOption) (*LookupInputResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupInputResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupInputResult{}, errors.New("DependsOn is not supported for direct form invoke LookupInput, use LookupInputOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupInputResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupInput, use LookupInputOutput instead")
+	}
 	var rv LookupInputResult
 	err := ctx.Invoke("aws:medialive/getInput:getInput", args, &rv, opts...)
 	if err != nil {
@@ -91,17 +102,18 @@ type LookupInputResult struct {
 }
 
 func LookupInputOutput(ctx *pulumi.Context, args LookupInputOutputArgs, opts ...pulumi.InvokeOption) LookupInputResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupInputResultOutput, error) {
 			args := v.(LookupInputArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupInputResult
-			secret, err := ctx.InvokePackageRaw("aws:medialive/getInput:getInput", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:medialive/getInput:getInput", args, &rv, "", opts...)
 			if err != nil {
 				return LookupInputResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupInputResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupInputResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupInputResultOutput), nil
 			}

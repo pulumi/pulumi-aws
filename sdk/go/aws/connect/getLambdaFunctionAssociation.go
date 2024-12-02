@@ -5,6 +5,7 @@ package connect
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupLambdaFunctionAssociation(ctx *pulumi.Context, args *LookupLambdaFunctionAssociationArgs, opts ...pulumi.InvokeOption) (*LookupLambdaFunctionAssociationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupLambdaFunctionAssociationResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupLambdaFunctionAssociationResult{}, errors.New("DependsOn is not supported for direct form invoke LookupLambdaFunctionAssociation, use LookupLambdaFunctionAssociationOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupLambdaFunctionAssociationResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupLambdaFunctionAssociation, use LookupLambdaFunctionAssociationOutput instead")
+	}
 	var rv LookupLambdaFunctionAssociationResult
 	err := ctx.Invoke("aws:connect/getLambdaFunctionAssociation:getLambdaFunctionAssociation", args, &rv, opts...)
 	if err != nil {
@@ -66,17 +77,18 @@ type LookupLambdaFunctionAssociationResult struct {
 }
 
 func LookupLambdaFunctionAssociationOutput(ctx *pulumi.Context, args LookupLambdaFunctionAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupLambdaFunctionAssociationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLambdaFunctionAssociationResultOutput, error) {
 			args := v.(LookupLambdaFunctionAssociationArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupLambdaFunctionAssociationResult
-			secret, err := ctx.InvokePackageRaw("aws:connect/getLambdaFunctionAssociation:getLambdaFunctionAssociation", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:connect/getLambdaFunctionAssociation:getLambdaFunctionAssociation", args, &rv, "", opts...)
 			if err != nil {
 				return LookupLambdaFunctionAssociationResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupLambdaFunctionAssociationResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupLambdaFunctionAssociationResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupLambdaFunctionAssociationResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package ec2transitgateway
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -75,6 +76,16 @@ import (
 // ```
 func LookupMulticastDomain(ctx *pulumi.Context, args *LookupMulticastDomainArgs, opts ...pulumi.InvokeOption) (*LookupMulticastDomainResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupMulticastDomainResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupMulticastDomainResult{}, errors.New("DependsOn is not supported for direct form invoke LookupMulticastDomain, use LookupMulticastDomainOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupMulticastDomainResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupMulticastDomain, use LookupMulticastDomainOutput instead")
+	}
 	var rv LookupMulticastDomainResult
 	err := ctx.Invoke("aws:ec2transitgateway/getMulticastDomain:getMulticastDomain", args, &rv, opts...)
 	if err != nil {
@@ -125,17 +136,18 @@ type LookupMulticastDomainResult struct {
 }
 
 func LookupMulticastDomainOutput(ctx *pulumi.Context, args LookupMulticastDomainOutputArgs, opts ...pulumi.InvokeOption) LookupMulticastDomainResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupMulticastDomainResultOutput, error) {
 			args := v.(LookupMulticastDomainArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupMulticastDomainResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2transitgateway/getMulticastDomain:getMulticastDomain", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2transitgateway/getMulticastDomain:getMulticastDomain", args, &rv, "", opts...)
 			if err != nil {
 				return LookupMulticastDomainResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupMulticastDomainResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupMulticastDomainResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupMulticastDomainResultOutput), nil
 			}

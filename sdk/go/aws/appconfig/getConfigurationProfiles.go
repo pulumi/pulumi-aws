@@ -5,6 +5,7 @@ package appconfig
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -17,6 +18,16 @@ import (
 // ## Example Usage
 func GetConfigurationProfiles(ctx *pulumi.Context, args *GetConfigurationProfilesArgs, opts ...pulumi.InvokeOption) (*GetConfigurationProfilesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetConfigurationProfilesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetConfigurationProfilesResult{}, errors.New("DependsOn is not supported for direct form invoke GetConfigurationProfiles, use GetConfigurationProfilesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetConfigurationProfilesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetConfigurationProfiles, use GetConfigurationProfilesOutput instead")
+	}
 	var rv GetConfigurationProfilesResult
 	err := ctx.Invoke("aws:appconfig/getConfigurationProfiles:getConfigurationProfiles", args, &rv, opts...)
 	if err != nil {
@@ -41,17 +52,18 @@ type GetConfigurationProfilesResult struct {
 }
 
 func GetConfigurationProfilesOutput(ctx *pulumi.Context, args GetConfigurationProfilesOutputArgs, opts ...pulumi.InvokeOption) GetConfigurationProfilesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetConfigurationProfilesResultOutput, error) {
 			args := v.(GetConfigurationProfilesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetConfigurationProfilesResult
-			secret, err := ctx.InvokePackageRaw("aws:appconfig/getConfigurationProfiles:getConfigurationProfiles", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:appconfig/getConfigurationProfiles:getConfigurationProfiles", args, &rv, "", opts...)
 			if err != nil {
 				return GetConfigurationProfilesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetConfigurationProfilesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetConfigurationProfilesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetConfigurationProfilesResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package ssoadmin
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func GetApplicationProviders(ctx *pulumi.Context, args *GetApplicationProvidersArgs, opts ...pulumi.InvokeOption) (*GetApplicationProvidersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetApplicationProvidersResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetApplicationProvidersResult{}, errors.New("DependsOn is not supported for direct form invoke GetApplicationProviders, use GetApplicationProvidersOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetApplicationProvidersResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetApplicationProviders, use GetApplicationProvidersOutput instead")
+	}
 	var rv GetApplicationProvidersResult
 	err := ctx.Invoke("aws:ssoadmin/getApplicationProviders:getApplicationProviders", args, &rv, opts...)
 	if err != nil {
@@ -63,17 +74,18 @@ type GetApplicationProvidersResult struct {
 }
 
 func GetApplicationProvidersOutput(ctx *pulumi.Context, args GetApplicationProvidersOutputArgs, opts ...pulumi.InvokeOption) GetApplicationProvidersResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetApplicationProvidersResultOutput, error) {
 			args := v.(GetApplicationProvidersArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetApplicationProvidersResult
-			secret, err := ctx.InvokePackageRaw("aws:ssoadmin/getApplicationProviders:getApplicationProviders", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ssoadmin/getApplicationProviders:getApplicationProviders", args, &rv, "", opts...)
 			if err != nil {
 				return GetApplicationProvidersResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetApplicationProvidersResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetApplicationProvidersResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetApplicationProvidersResultOutput), nil
 			}

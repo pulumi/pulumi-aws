@@ -5,6 +5,7 @@ package lb
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -76,6 +77,16 @@ import (
 // ```
 func LookupListenerRule(ctx *pulumi.Context, args *LookupListenerRuleArgs, opts ...pulumi.InvokeOption) (*LookupListenerRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupListenerRuleResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupListenerRuleResult{}, errors.New("DependsOn is not supported for direct form invoke LookupListenerRule, use LookupListenerRuleOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupListenerRuleResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupListenerRule, use LookupListenerRuleOutput instead")
+	}
 	var rv LookupListenerRuleResult
 	err := ctx.Invoke("aws:lb/getListenerRule:getListenerRule", args, &rv, opts...)
 	if err != nil {
@@ -122,17 +133,18 @@ type LookupListenerRuleResult struct {
 }
 
 func LookupListenerRuleOutput(ctx *pulumi.Context, args LookupListenerRuleOutputArgs, opts ...pulumi.InvokeOption) LookupListenerRuleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupListenerRuleResultOutput, error) {
 			args := v.(LookupListenerRuleArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupListenerRuleResult
-			secret, err := ctx.InvokePackageRaw("aws:lb/getListenerRule:getListenerRule", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:lb/getListenerRule:getListenerRule", args, &rv, "", opts...)
 			if err != nil {
 				return LookupListenerRuleResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupListenerRuleResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupListenerRuleResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupListenerRuleResultOutput), nil
 			}

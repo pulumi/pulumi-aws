@@ -5,6 +5,7 @@ package sesv2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupDedicatedIpPool(ctx *pulumi.Context, args *LookupDedicatedIpPoolArgs, opts ...pulumi.InvokeOption) (*LookupDedicatedIpPoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupDedicatedIpPoolResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupDedicatedIpPoolResult{}, errors.New("DependsOn is not supported for direct form invoke LookupDedicatedIpPool, use LookupDedicatedIpPoolOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupDedicatedIpPoolResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupDedicatedIpPool, use LookupDedicatedIpPoolOutput instead")
+	}
 	var rv LookupDedicatedIpPoolResult
 	err := ctx.Invoke("aws:sesv2/getDedicatedIpPool:getDedicatedIpPool", args, &rv, opts...)
 	if err != nil {
@@ -74,17 +85,18 @@ type LookupDedicatedIpPoolResult struct {
 }
 
 func LookupDedicatedIpPoolOutput(ctx *pulumi.Context, args LookupDedicatedIpPoolOutputArgs, opts ...pulumi.InvokeOption) LookupDedicatedIpPoolResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDedicatedIpPoolResultOutput, error) {
 			args := v.(LookupDedicatedIpPoolArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDedicatedIpPoolResult
-			secret, err := ctx.InvokePackageRaw("aws:sesv2/getDedicatedIpPool:getDedicatedIpPool", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:sesv2/getDedicatedIpPool:getDedicatedIpPool", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDedicatedIpPoolResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDedicatedIpPoolResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDedicatedIpPoolResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDedicatedIpPoolResultOutput), nil
 			}

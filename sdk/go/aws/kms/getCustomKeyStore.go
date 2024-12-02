@@ -5,6 +5,7 @@ package kms
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupCustomKeyStore(ctx *pulumi.Context, args *LookupCustomKeyStoreArgs, opts ...pulumi.InvokeOption) (*LookupCustomKeyStoreResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupCustomKeyStoreResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupCustomKeyStoreResult{}, errors.New("DependsOn is not supported for direct form invoke LookupCustomKeyStore, use LookupCustomKeyStoreOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupCustomKeyStoreResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupCustomKeyStore, use LookupCustomKeyStoreOutput instead")
+	}
 	var rv LookupCustomKeyStoreResult
 	err := ctx.Invoke("aws:kms/getCustomKeyStore:getCustomKeyStore", args, &rv, opts...)
 	if err != nil {
@@ -74,17 +85,18 @@ type LookupCustomKeyStoreResult struct {
 }
 
 func LookupCustomKeyStoreOutput(ctx *pulumi.Context, args LookupCustomKeyStoreOutputArgs, opts ...pulumi.InvokeOption) LookupCustomKeyStoreResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCustomKeyStoreResultOutput, error) {
 			args := v.(LookupCustomKeyStoreArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupCustomKeyStoreResult
-			secret, err := ctx.InvokePackageRaw("aws:kms/getCustomKeyStore:getCustomKeyStore", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:kms/getCustomKeyStore:getCustomKeyStore", args, &rv, "", opts...)
 			if err != nil {
 				return LookupCustomKeyStoreResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupCustomKeyStoreResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupCustomKeyStoreResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupCustomKeyStoreResultOutput), nil
 			}

@@ -128,7 +128,7 @@ def get_local_gateway_virtual_interface_group_output(filters: Optional[pulumi.In
                                                      id: Optional[pulumi.Input[Optional[str]]] = None,
                                                      local_gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
                                                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalGatewayVirtualInterfaceGroupResult]:
+                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalGatewayVirtualInterfaceGroupResult]:
     """
     Provides details about an EC2 Local Gateway Virtual Interface Group. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
 
@@ -152,7 +152,7 @@ def get_local_gateway_virtual_interface_group_output(filters: Optional[pulumi.In
     __args__['id'] = id
     __args__['localGatewayId'] = local_gateway_id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getLocalGatewayVirtualInterfaceGroup:getLocalGatewayVirtualInterfaceGroup', __args__, opts=opts, typ=GetLocalGatewayVirtualInterfaceGroupResult)
     return __ret__.apply(lambda __response__: GetLocalGatewayVirtualInterfaceGroupResult(
         filters=pulumi.get(__response__, 'filters'),

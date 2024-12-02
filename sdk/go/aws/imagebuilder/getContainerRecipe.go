@@ -5,6 +5,7 @@ package imagebuilder
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupContainerRecipe(ctx *pulumi.Context, args *LookupContainerRecipeArgs, opts ...pulumi.InvokeOption) (*LookupContainerRecipeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupContainerRecipeResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupContainerRecipeResult{}, errors.New("DependsOn is not supported for direct form invoke LookupContainerRecipe, use LookupContainerRecipeOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupContainerRecipeResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupContainerRecipe, use LookupContainerRecipeOutput instead")
+	}
 	var rv LookupContainerRecipeResult
 	err := ctx.Invoke("aws:imagebuilder/getContainerRecipe:getContainerRecipe", args, &rv, opts...)
 	if err != nil {
@@ -96,17 +107,18 @@ type LookupContainerRecipeResult struct {
 }
 
 func LookupContainerRecipeOutput(ctx *pulumi.Context, args LookupContainerRecipeOutputArgs, opts ...pulumi.InvokeOption) LookupContainerRecipeResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupContainerRecipeResultOutput, error) {
 			args := v.(LookupContainerRecipeArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupContainerRecipeResult
-			secret, err := ctx.InvokePackageRaw("aws:imagebuilder/getContainerRecipe:getContainerRecipe", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:imagebuilder/getContainerRecipe:getContainerRecipe", args, &rv, "", opts...)
 			if err != nil {
 				return LookupContainerRecipeResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupContainerRecipeResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupContainerRecipeResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupContainerRecipeResultOutput), nil
 			}

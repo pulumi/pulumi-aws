@@ -5,6 +5,7 @@ package backup
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupReportPlan(ctx *pulumi.Context, args *LookupReportPlanArgs, opts ...pulumi.InvokeOption) (*LookupReportPlanResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupReportPlanResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupReportPlanResult{}, errors.New("DependsOn is not supported for direct form invoke LookupReportPlan, use LookupReportPlanOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupReportPlanResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupReportPlan, use LookupReportPlanOutput instead")
+	}
 	var rv LookupReportPlanResult
 	err := ctx.Invoke("aws:backup/getReportPlan:getReportPlan", args, &rv, opts...)
 	if err != nil {
@@ -78,17 +89,18 @@ type LookupReportPlanResult struct {
 }
 
 func LookupReportPlanOutput(ctx *pulumi.Context, args LookupReportPlanOutputArgs, opts ...pulumi.InvokeOption) LookupReportPlanResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupReportPlanResultOutput, error) {
 			args := v.(LookupReportPlanArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupReportPlanResult
-			secret, err := ctx.InvokePackageRaw("aws:backup/getReportPlan:getReportPlan", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:backup/getReportPlan:getReportPlan", args, &rv, "", opts...)
 			if err != nil {
 				return LookupReportPlanResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupReportPlanResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupReportPlanResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupReportPlanResultOutput), nil
 			}

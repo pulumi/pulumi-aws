@@ -5,6 +5,7 @@ package lb
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -57,6 +58,16 @@ import (
 // ```
 func LookupTargetGroup(ctx *pulumi.Context, args *LookupTargetGroupArgs, opts ...pulumi.InvokeOption) (*LookupTargetGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupTargetGroupResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupTargetGroupResult{}, errors.New("DependsOn is not supported for direct form invoke LookupTargetGroup, use LookupTargetGroupOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupTargetGroupResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupTargetGroup, use LookupTargetGroupOutput instead")
+	}
 	var rv LookupTargetGroupResult
 	err := ctx.Invoke("aws:lb/getTargetGroup:getTargetGroup", args, &rv, opts...)
 	if err != nil {
@@ -106,17 +117,18 @@ type LookupTargetGroupResult struct {
 }
 
 func LookupTargetGroupOutput(ctx *pulumi.Context, args LookupTargetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupTargetGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupTargetGroupResultOutput, error) {
 			args := v.(LookupTargetGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupTargetGroupResult
-			secret, err := ctx.InvokePackageRaw("aws:lb/getTargetGroup:getTargetGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:lb/getTargetGroup:getTargetGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupTargetGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupTargetGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupTargetGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupTargetGroupResultOutput), nil
 			}

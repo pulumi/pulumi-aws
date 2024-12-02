@@ -5,6 +5,7 @@ package ec2transitgateway
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -16,6 +17,16 @@ import (
 // ## Example Usage
 func GetAttachments(ctx *pulumi.Context, args *GetAttachmentsArgs, opts ...pulumi.InvokeOption) (*GetAttachmentsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetAttachmentsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetAttachmentsResult{}, errors.New("DependsOn is not supported for direct form invoke GetAttachments, use GetAttachmentsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetAttachmentsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetAttachments, use GetAttachmentsOutput instead")
+	}
 	var rv GetAttachmentsResult
 	err := ctx.Invoke("aws:ec2transitgateway/getAttachments:getAttachments", args, &rv, opts...)
 	if err != nil {
@@ -42,17 +53,18 @@ type GetAttachmentsResult struct {
 }
 
 func GetAttachmentsOutput(ctx *pulumi.Context, args GetAttachmentsOutputArgs, opts ...pulumi.InvokeOption) GetAttachmentsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAttachmentsResultOutput, error) {
 			args := v.(GetAttachmentsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetAttachmentsResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2transitgateway/getAttachments:getAttachments", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2transitgateway/getAttachments:getAttachments", args, &rv, "", opts...)
 			if err != nil {
 				return GetAttachmentsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetAttachmentsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetAttachmentsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetAttachmentsResultOutput), nil
 			}

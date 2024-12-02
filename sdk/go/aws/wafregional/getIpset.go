@@ -5,6 +5,7 @@ package wafregional
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func GetIpset(ctx *pulumi.Context, args *GetIpsetArgs, opts ...pulumi.InvokeOption) (*GetIpsetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetIpsetResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetIpsetResult{}, errors.New("DependsOn is not supported for direct form invoke GetIpset, use GetIpsetOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetIpsetResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetIpset, use GetIpsetOutput instead")
+	}
 	var rv GetIpsetResult
 	err := ctx.Invoke("aws:wafregional/getIpset:getIpset", args, &rv, opts...)
 	if err != nil {
@@ -62,17 +73,18 @@ type GetIpsetResult struct {
 }
 
 func GetIpsetOutput(ctx *pulumi.Context, args GetIpsetOutputArgs, opts ...pulumi.InvokeOption) GetIpsetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetIpsetResultOutput, error) {
 			args := v.(GetIpsetArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetIpsetResult
-			secret, err := ctx.InvokePackageRaw("aws:wafregional/getIpset:getIpset", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:wafregional/getIpset:getIpset", args, &rv, "", opts...)
 			if err != nil {
 				return GetIpsetResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetIpsetResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetIpsetResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetIpsetResultOutput), nil
 			}

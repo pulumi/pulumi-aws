@@ -5,6 +5,7 @@ package dms
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupReplicationSubnetGroup(ctx *pulumi.Context, args *LookupReplicationSubnetGroupArgs, opts ...pulumi.InvokeOption) (*LookupReplicationSubnetGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupReplicationSubnetGroupResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupReplicationSubnetGroupResult{}, errors.New("DependsOn is not supported for direct form invoke LookupReplicationSubnetGroup, use LookupReplicationSubnetGroupOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupReplicationSubnetGroupResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupReplicationSubnetGroup, use LookupReplicationSubnetGroupOutput instead")
+	}
 	var rv LookupReplicationSubnetGroupResult
 	err := ctx.Invoke("aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup", args, &rv, opts...)
 	if err != nil {
@@ -74,17 +85,18 @@ type LookupReplicationSubnetGroupResult struct {
 }
 
 func LookupReplicationSubnetGroupOutput(ctx *pulumi.Context, args LookupReplicationSubnetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationSubnetGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupReplicationSubnetGroupResultOutput, error) {
 			args := v.(LookupReplicationSubnetGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupReplicationSubnetGroupResult
-			secret, err := ctx.InvokePackageRaw("aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupReplicationSubnetGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupReplicationSubnetGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupReplicationSubnetGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupReplicationSubnetGroupResultOutput), nil
 			}

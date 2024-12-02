@@ -5,6 +5,7 @@ package kinesis
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupStreamConsumer(ctx *pulumi.Context, args *LookupStreamConsumerArgs, opts ...pulumi.InvokeOption) (*LookupStreamConsumerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupStreamConsumerResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupStreamConsumerResult{}, errors.New("DependsOn is not supported for direct form invoke LookupStreamConsumer, use LookupStreamConsumerOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupStreamConsumerResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupStreamConsumer, use LookupStreamConsumerOutput instead")
+	}
 	var rv LookupStreamConsumerResult
 	err := ctx.Invoke("aws:kinesis/getStreamConsumer:getStreamConsumer", args, &rv, opts...)
 	if err != nil {
@@ -75,17 +86,18 @@ type LookupStreamConsumerResult struct {
 }
 
 func LookupStreamConsumerOutput(ctx *pulumi.Context, args LookupStreamConsumerOutputArgs, opts ...pulumi.InvokeOption) LookupStreamConsumerResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupStreamConsumerResultOutput, error) {
 			args := v.(LookupStreamConsumerArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupStreamConsumerResult
-			secret, err := ctx.InvokePackageRaw("aws:kinesis/getStreamConsumer:getStreamConsumer", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:kinesis/getStreamConsumer:getStreamConsumer", args, &rv, "", opts...)
 			if err != nil {
 				return LookupStreamConsumerResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupStreamConsumerResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupStreamConsumerResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupStreamConsumerResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package lambda
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -18,6 +19,16 @@ import (
 // > **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
 func LookupInvocation(ctx *pulumi.Context, args *LookupInvocationArgs, opts ...pulumi.InvokeOption) (*LookupInvocationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupInvocationResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupInvocationResult{}, errors.New("DependsOn is not supported for direct form invoke LookupInvocation, use LookupInvocationOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupInvocationResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupInvocation, use LookupInvocationOutput instead")
+	}
 	var rv LookupInvocationResult
 	err := ctx.Invoke("aws:lambda/getInvocation:getInvocation", args, &rv, opts...)
 	if err != nil {
@@ -49,17 +60,18 @@ type LookupInvocationResult struct {
 }
 
 func LookupInvocationOutput(ctx *pulumi.Context, args LookupInvocationOutputArgs, opts ...pulumi.InvokeOption) LookupInvocationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupInvocationResultOutput, error) {
 			args := v.(LookupInvocationArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupInvocationResult
-			secret, err := ctx.InvokePackageRaw("aws:lambda/getInvocation:getInvocation", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:lambda/getInvocation:getInvocation", args, &rv, "", opts...)
 			if err != nil {
 				return LookupInvocationResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupInvocationResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupInvocationResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupInvocationResultOutput), nil
 			}

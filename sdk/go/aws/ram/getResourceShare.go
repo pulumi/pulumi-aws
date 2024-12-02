@@ -5,6 +5,7 @@ package ram
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -75,6 +76,16 @@ import (
 // ```
 func LookupResourceShare(ctx *pulumi.Context, args *LookupResourceShareArgs, opts ...pulumi.InvokeOption) (*LookupResourceShareResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupResourceShareResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupResourceShareResult{}, errors.New("DependsOn is not supported for direct form invoke LookupResourceShare, use LookupResourceShareOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupResourceShareResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupResourceShare, use LookupResourceShareOutput instead")
+	}
 	var rv LookupResourceShareResult
 	err := ctx.Invoke("aws:ram/getResourceShare:getResourceShare", args, &rv, opts...)
 	if err != nil {
@@ -118,17 +129,18 @@ type LookupResourceShareResult struct {
 }
 
 func LookupResourceShareOutput(ctx *pulumi.Context, args LookupResourceShareOutputArgs, opts ...pulumi.InvokeOption) LookupResourceShareResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupResourceShareResultOutput, error) {
 			args := v.(LookupResourceShareArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupResourceShareResult
-			secret, err := ctx.InvokePackageRaw("aws:ram/getResourceShare:getResourceShare", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ram/getResourceShare:getResourceShare", args, &rv, "", opts...)
 			if err != nil {
 				return LookupResourceShareResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupResourceShareResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupResourceShareResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupResourceShareResultOutput), nil
 			}

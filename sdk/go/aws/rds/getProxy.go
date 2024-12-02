@@ -5,6 +5,7 @@ package rds
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupProxy(ctx *pulumi.Context, args *LookupProxyArgs, opts ...pulumi.InvokeOption) (*LookupProxyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupProxyResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupProxyResult{}, errors.New("DependsOn is not supported for direct form invoke LookupProxy, use LookupProxyOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupProxyResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupProxy, use LookupProxyOutput instead")
+	}
 	var rv LookupProxyResult
 	err := ctx.Invoke("aws:rds/getProxy:getProxy", args, &rv, opts...)
 	if err != nil {
@@ -84,17 +95,18 @@ type LookupProxyResult struct {
 }
 
 func LookupProxyOutput(ctx *pulumi.Context, args LookupProxyOutputArgs, opts ...pulumi.InvokeOption) LookupProxyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupProxyResultOutput, error) {
 			args := v.(LookupProxyArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupProxyResult
-			secret, err := ctx.InvokePackageRaw("aws:rds/getProxy:getProxy", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:rds/getProxy:getProxy", args, &rv, "", opts...)
 			if err != nil {
 				return LookupProxyResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupProxyResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupProxyResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupProxyResultOutput), nil
 			}

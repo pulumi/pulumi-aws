@@ -5,6 +5,7 @@ package cloudformation
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -52,6 +53,16 @@ import (
 // ```
 func GetExport(ctx *pulumi.Context, args *GetExportArgs, opts ...pulumi.InvokeOption) (*GetExportResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetExportResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetExportResult{}, errors.New("DependsOn is not supported for direct form invoke GetExport, use GetExportOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetExportResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetExport, use GetExportOutput instead")
+	}
 	var rv GetExportResult
 	err := ctx.Invoke("aws:cloudformation/getExport:getExport", args, &rv, opts...)
 	if err != nil {
@@ -78,17 +89,18 @@ type GetExportResult struct {
 }
 
 func GetExportOutput(ctx *pulumi.Context, args GetExportOutputArgs, opts ...pulumi.InvokeOption) GetExportResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetExportResultOutput, error) {
 			args := v.(GetExportArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetExportResult
-			secret, err := ctx.InvokePackageRaw("aws:cloudformation/getExport:getExport", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:cloudformation/getExport:getExport", args, &rv, "", opts...)
 			if err != nil {
 				return GetExportResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetExportResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetExportResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetExportResultOutput), nil
 			}

@@ -156,7 +156,7 @@ def get_site(global_network_id: Optional[str] = None,
 def get_site_output(global_network_id: Optional[pulumi.Input[str]] = None,
                     site_id: Optional[pulumi.Input[str]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSiteResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSiteResult]:
     """
     Retrieve information about a site.
 
@@ -179,7 +179,7 @@ def get_site_output(global_network_id: Optional[pulumi.Input[str]] = None,
     __args__['globalNetworkId'] = global_network_id
     __args__['siteId'] = site_id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:networkmanager/getSite:getSite', __args__, opts=opts, typ=GetSiteResult)
     return __ret__.apply(lambda __response__: GetSiteResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -14,6 +15,16 @@ import (
 // Provides details about an EC2 Local Gateway Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
 func GetLocalGatewayVirtualInterface(ctx *pulumi.Context, args *GetLocalGatewayVirtualInterfaceArgs, opts ...pulumi.InvokeOption) (*GetLocalGatewayVirtualInterfaceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetLocalGatewayVirtualInterfaceResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetLocalGatewayVirtualInterfaceResult{}, errors.New("DependsOn is not supported for direct form invoke GetLocalGatewayVirtualInterface, use GetLocalGatewayVirtualInterfaceOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetLocalGatewayVirtualInterfaceResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetLocalGatewayVirtualInterface, use GetLocalGatewayVirtualInterfaceOutput instead")
+	}
 	var rv GetLocalGatewayVirtualInterfaceResult
 	err := ctx.Invoke("aws:ec2/getLocalGatewayVirtualInterface:getLocalGatewayVirtualInterface", args, &rv, opts...)
 	if err != nil {
@@ -53,17 +64,18 @@ type GetLocalGatewayVirtualInterfaceResult struct {
 }
 
 func GetLocalGatewayVirtualInterfaceOutput(ctx *pulumi.Context, args GetLocalGatewayVirtualInterfaceOutputArgs, opts ...pulumi.InvokeOption) GetLocalGatewayVirtualInterfaceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetLocalGatewayVirtualInterfaceResultOutput, error) {
 			args := v.(GetLocalGatewayVirtualInterfaceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetLocalGatewayVirtualInterfaceResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getLocalGatewayVirtualInterface:getLocalGatewayVirtualInterface", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getLocalGatewayVirtualInterface:getLocalGatewayVirtualInterface", args, &rv, "", opts...)
 			if err != nil {
 				return GetLocalGatewayVirtualInterfaceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetLocalGatewayVirtualInterfaceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetLocalGatewayVirtualInterfaceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetLocalGatewayVirtualInterfaceResultOutput), nil
 			}

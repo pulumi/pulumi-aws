@@ -5,6 +5,7 @@ package ec2
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -49,6 +50,16 @@ import (
 // An example use case would be interpolate the `ec2.getVpcs` output into `count` of an ec2.FlowLog resource.
 func GetVpcs(ctx *pulumi.Context, args *GetVpcsArgs, opts ...pulumi.InvokeOption) (*GetVpcsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetVpcsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetVpcsResult{}, errors.New("DependsOn is not supported for direct form invoke GetVpcs, use GetVpcsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetVpcsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetVpcs, use GetVpcsOutput instead")
+	}
 	var rv GetVpcsResult
 	err := ctx.Invoke("aws:ec2/getVpcs:getVpcs", args, &rv, opts...)
 	if err != nil {
@@ -80,17 +91,18 @@ type GetVpcsResult struct {
 }
 
 func GetVpcsOutput(ctx *pulumi.Context, args GetVpcsOutputArgs, opts ...pulumi.InvokeOption) GetVpcsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetVpcsResultOutput, error) {
 			args := v.(GetVpcsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetVpcsResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getVpcs:getVpcs", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2/getVpcs:getVpcs", args, &rv, "", opts...)
 			if err != nil {
 				return GetVpcsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetVpcsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetVpcsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetVpcsResultOutput), nil
 			}

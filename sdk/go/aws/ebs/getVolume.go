@@ -5,6 +5,7 @@ package ebs
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -55,6 +56,16 @@ import (
 // ```
 func LookupVolume(ctx *pulumi.Context, args *LookupVolumeArgs, opts ...pulumi.InvokeOption) (*LookupVolumeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupVolumeResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupVolumeResult{}, errors.New("DependsOn is not supported for direct form invoke LookupVolume, use LookupVolumeOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupVolumeResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupVolume, use LookupVolumeOutput instead")
+	}
 	var rv LookupVolumeResult
 	err := ctx.Invoke("aws:ebs/getVolume:getVolume", args, &rv, opts...)
 	if err != nil {
@@ -111,17 +122,18 @@ type LookupVolumeResult struct {
 }
 
 func LookupVolumeOutput(ctx *pulumi.Context, args LookupVolumeOutputArgs, opts ...pulumi.InvokeOption) LookupVolumeResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVolumeResultOutput, error) {
 			args := v.(LookupVolumeArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVolumeResult
-			secret, err := ctx.InvokePackageRaw("aws:ebs/getVolume:getVolume", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ebs/getVolume:getVolume", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVolumeResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVolumeResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVolumeResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVolumeResultOutput), nil
 			}

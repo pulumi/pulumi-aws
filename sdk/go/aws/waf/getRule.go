@@ -5,6 +5,7 @@ package waf
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupRule(ctx *pulumi.Context, args *LookupRuleArgs, opts ...pulumi.InvokeOption) (*LookupRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupRuleResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupRuleResult{}, errors.New("DependsOn is not supported for direct form invoke LookupRule, use LookupRuleOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupRuleResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupRule, use LookupRuleOutput instead")
+	}
 	var rv LookupRuleResult
 	err := ctx.Invoke("aws:waf/getRule:getRule", args, &rv, opts...)
 	if err != nil {
@@ -62,17 +73,18 @@ type LookupRuleResult struct {
 }
 
 func LookupRuleOutput(ctx *pulumi.Context, args LookupRuleOutputArgs, opts ...pulumi.InvokeOption) LookupRuleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRuleResultOutput, error) {
 			args := v.(LookupRuleArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupRuleResult
-			secret, err := ctx.InvokePackageRaw("aws:waf/getRule:getRule", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:waf/getRule:getRule", args, &rv, "", opts...)
 			if err != nil {
 				return LookupRuleResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupRuleResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupRuleResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupRuleResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package ec2transitgateway
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -51,6 +52,16 @@ import (
 // ```
 func GetAttachment(ctx *pulumi.Context, args *GetAttachmentArgs, opts ...pulumi.InvokeOption) (*GetAttachmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetAttachmentResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetAttachmentResult{}, errors.New("DependsOn is not supported for direct form invoke GetAttachment, use GetAttachmentOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetAttachmentResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetAttachment, use GetAttachmentOutput instead")
+	}
 	var rv GetAttachmentResult
 	err := ctx.Invoke("aws:ec2transitgateway/getAttachment:getAttachment", args, &rv, opts...)
 	if err != nil {
@@ -98,17 +109,18 @@ type GetAttachmentResult struct {
 }
 
 func GetAttachmentOutput(ctx *pulumi.Context, args GetAttachmentOutputArgs, opts ...pulumi.InvokeOption) GetAttachmentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAttachmentResultOutput, error) {
 			args := v.(GetAttachmentArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetAttachmentResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2transitgateway/getAttachment:getAttachment", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2transitgateway/getAttachment:getAttachment", args, &rv, "", opts...)
 			if err != nil {
 				return GetAttachmentResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetAttachmentResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetAttachmentResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetAttachmentResultOutput), nil
 			}

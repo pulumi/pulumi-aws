@@ -5,6 +5,7 @@ package organizations
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -16,6 +17,16 @@ import (
 // ## Example Usage
 func GetPoliciesForTarget(ctx *pulumi.Context, args *GetPoliciesForTargetArgs, opts ...pulumi.InvokeOption) (*GetPoliciesForTargetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetPoliciesForTargetResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetPoliciesForTargetResult{}, errors.New("DependsOn is not supported for direct form invoke GetPoliciesForTarget, use GetPoliciesForTargetOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetPoliciesForTargetResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetPoliciesForTarget, use GetPoliciesForTargetOutput instead")
+	}
 	var rv GetPoliciesForTargetResult
 	err := ctx.Invoke("aws:organizations/getPoliciesForTarget:getPoliciesForTarget", args, &rv, opts...)
 	if err != nil {
@@ -43,17 +54,18 @@ type GetPoliciesForTargetResult struct {
 }
 
 func GetPoliciesForTargetOutput(ctx *pulumi.Context, args GetPoliciesForTargetOutputArgs, opts ...pulumi.InvokeOption) GetPoliciesForTargetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetPoliciesForTargetResultOutput, error) {
 			args := v.(GetPoliciesForTargetArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetPoliciesForTargetResult
-			secret, err := ctx.InvokePackageRaw("aws:organizations/getPoliciesForTarget:getPoliciesForTarget", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:organizations/getPoliciesForTarget:getPoliciesForTarget", args, &rv, "", opts...)
 			if err != nil {
 				return GetPoliciesForTargetResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetPoliciesForTargetResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetPoliciesForTargetResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetPoliciesForTargetResultOutput), nil
 			}

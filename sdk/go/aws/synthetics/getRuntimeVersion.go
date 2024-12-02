@@ -5,6 +5,7 @@ package synthetics
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -70,6 +71,16 @@ import (
 // ```
 func GetRuntimeVersion(ctx *pulumi.Context, args *GetRuntimeVersionArgs, opts ...pulumi.InvokeOption) (*GetRuntimeVersionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetRuntimeVersionResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetRuntimeVersionResult{}, errors.New("DependsOn is not supported for direct form invoke GetRuntimeVersion, use GetRuntimeVersionOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetRuntimeVersionResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetRuntimeVersion, use GetRuntimeVersionOutput instead")
+	}
 	var rv GetRuntimeVersionResult
 	err := ctx.Invoke("aws:synthetics/getRuntimeVersion:getRuntimeVersion", args, &rv, opts...)
 	if err != nil {
@@ -108,17 +119,18 @@ type GetRuntimeVersionResult struct {
 }
 
 func GetRuntimeVersionOutput(ctx *pulumi.Context, args GetRuntimeVersionOutputArgs, opts ...pulumi.InvokeOption) GetRuntimeVersionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetRuntimeVersionResultOutput, error) {
 			args := v.(GetRuntimeVersionArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetRuntimeVersionResult
-			secret, err := ctx.InvokePackageRaw("aws:synthetics/getRuntimeVersion:getRuntimeVersion", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:synthetics/getRuntimeVersion:getRuntimeVersion", args, &rv, "", opts...)
 			if err != nil {
 				return GetRuntimeVersionResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetRuntimeVersionResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetRuntimeVersionResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetRuntimeVersionResultOutput), nil
 			}

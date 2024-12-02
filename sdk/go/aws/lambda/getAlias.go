@@ -5,6 +5,7 @@ package lambda
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupAlias(ctx *pulumi.Context, args *LookupAliasArgs, opts ...pulumi.InvokeOption) (*LookupAliasResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupAliasResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupAliasResult{}, errors.New("DependsOn is not supported for direct form invoke LookupAlias, use LookupAliasOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupAliasResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupAlias, use LookupAliasOutput instead")
+	}
 	var rv LookupAliasResult
 	err := ctx.Invoke("aws:lambda/getAlias:getAlias", args, &rv, opts...)
 	if err != nil {
@@ -74,17 +85,18 @@ type LookupAliasResult struct {
 }
 
 func LookupAliasOutput(ctx *pulumi.Context, args LookupAliasOutputArgs, opts ...pulumi.InvokeOption) LookupAliasResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAliasResultOutput, error) {
 			args := v.(LookupAliasArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupAliasResult
-			secret, err := ctx.InvokePackageRaw("aws:lambda/getAlias:getAlias", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:lambda/getAlias:getAlias", args, &rv, "", opts...)
 			if err != nil {
 				return LookupAliasResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupAliasResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupAliasResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupAliasResultOutput), nil
 			}

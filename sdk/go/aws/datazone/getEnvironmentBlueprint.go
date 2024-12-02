@@ -5,6 +5,7 @@ package datazone
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -48,6 +49,16 @@ import (
 // ```
 func GetEnvironmentBlueprint(ctx *pulumi.Context, args *GetEnvironmentBlueprintArgs, opts ...pulumi.InvokeOption) (*GetEnvironmentBlueprintResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetEnvironmentBlueprintResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetEnvironmentBlueprintResult{}, errors.New("DependsOn is not supported for direct form invoke GetEnvironmentBlueprint, use GetEnvironmentBlueprintOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetEnvironmentBlueprintResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetEnvironmentBlueprint, use GetEnvironmentBlueprintOutput instead")
+	}
 	var rv GetEnvironmentBlueprintResult
 	err := ctx.Invoke("aws:datazone/getEnvironmentBlueprint:getEnvironmentBlueprint", args, &rv, opts...)
 	if err != nil {
@@ -80,17 +91,18 @@ type GetEnvironmentBlueprintResult struct {
 }
 
 func GetEnvironmentBlueprintOutput(ctx *pulumi.Context, args GetEnvironmentBlueprintOutputArgs, opts ...pulumi.InvokeOption) GetEnvironmentBlueprintResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetEnvironmentBlueprintResultOutput, error) {
 			args := v.(GetEnvironmentBlueprintArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetEnvironmentBlueprintResult
-			secret, err := ctx.InvokePackageRaw("aws:datazone/getEnvironmentBlueprint:getEnvironmentBlueprint", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:datazone/getEnvironmentBlueprint:getEnvironmentBlueprint", args, &rv, "", opts...)
 			if err != nil {
 				return GetEnvironmentBlueprintResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetEnvironmentBlueprintResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetEnvironmentBlueprintResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetEnvironmentBlueprintResultOutput), nil
 			}

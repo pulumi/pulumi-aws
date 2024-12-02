@@ -5,6 +5,7 @@ package cloudfront
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -81,6 +82,16 @@ import (
 // ```
 func GetLogDeliveryCanonicalUserId(ctx *pulumi.Context, args *GetLogDeliveryCanonicalUserIdArgs, opts ...pulumi.InvokeOption) (*GetLogDeliveryCanonicalUserIdResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetLogDeliveryCanonicalUserIdResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetLogDeliveryCanonicalUserIdResult{}, errors.New("DependsOn is not supported for direct form invoke GetLogDeliveryCanonicalUserId, use GetLogDeliveryCanonicalUserIdOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetLogDeliveryCanonicalUserIdResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetLogDeliveryCanonicalUserId, use GetLogDeliveryCanonicalUserIdOutput instead")
+	}
 	var rv GetLogDeliveryCanonicalUserIdResult
 	err := ctx.Invoke("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", args, &rv, opts...)
 	if err != nil {
@@ -103,17 +114,18 @@ type GetLogDeliveryCanonicalUserIdResult struct {
 }
 
 func GetLogDeliveryCanonicalUserIdOutput(ctx *pulumi.Context, args GetLogDeliveryCanonicalUserIdOutputArgs, opts ...pulumi.InvokeOption) GetLogDeliveryCanonicalUserIdResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetLogDeliveryCanonicalUserIdResultOutput, error) {
 			args := v.(GetLogDeliveryCanonicalUserIdArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetLogDeliveryCanonicalUserIdResult
-			secret, err := ctx.InvokePackageRaw("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", args, &rv, "", opts...)
 			if err != nil {
 				return GetLogDeliveryCanonicalUserIdResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetLogDeliveryCanonicalUserIdResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetLogDeliveryCanonicalUserIdResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetLogDeliveryCanonicalUserIdResultOutput), nil
 			}

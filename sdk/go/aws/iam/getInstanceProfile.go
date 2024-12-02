@@ -5,6 +5,7 @@ package iam
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupInstanceProfile(ctx *pulumi.Context, args *LookupInstanceProfileArgs, opts ...pulumi.InvokeOption) (*LookupInstanceProfileResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupInstanceProfileResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupInstanceProfileResult{}, errors.New("DependsOn is not supported for direct form invoke LookupInstanceProfile, use LookupInstanceProfileOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupInstanceProfileResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupInstanceProfile, use LookupInstanceProfileOutput instead")
+	}
 	var rv LookupInstanceProfileResult
 	err := ctx.Invoke("aws:iam/getInstanceProfile:getInstanceProfile", args, &rv, opts...)
 	if err != nil {
@@ -76,17 +87,18 @@ type LookupInstanceProfileResult struct {
 }
 
 func LookupInstanceProfileOutput(ctx *pulumi.Context, args LookupInstanceProfileOutputArgs, opts ...pulumi.InvokeOption) LookupInstanceProfileResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupInstanceProfileResultOutput, error) {
 			args := v.(LookupInstanceProfileArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupInstanceProfileResult
-			secret, err := ctx.InvokePackageRaw("aws:iam/getInstanceProfile:getInstanceProfile", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:iam/getInstanceProfile:getInstanceProfile", args, &rv, "", opts...)
 			if err != nil {
 				return LookupInstanceProfileResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupInstanceProfileResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupInstanceProfileResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupInstanceProfileResultOutput), nil
 			}

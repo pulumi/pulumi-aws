@@ -5,6 +5,7 @@ package ecr
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func GetRepositories(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetRepositoriesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetRepositoriesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetRepositoriesResult{}, errors.New("DependsOn is not supported for direct form invoke GetRepositories, use GetRepositoriesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetRepositoriesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetRepositories, use GetRepositoriesOutput instead")
+	}
 	var rv GetRepositoriesResult
 	err := ctx.Invoke("aws:ecr/getRepositories:getRepositories", nil, &rv, opts...)
 	if err != nil {

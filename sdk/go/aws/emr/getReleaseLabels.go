@@ -5,6 +5,7 @@ package emr
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func GetReleaseLabels(ctx *pulumi.Context, args *GetReleaseLabelsArgs, opts ...pulumi.InvokeOption) (*GetReleaseLabelsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetReleaseLabelsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetReleaseLabelsResult{}, errors.New("DependsOn is not supported for direct form invoke GetReleaseLabels, use GetReleaseLabelsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetReleaseLabelsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetReleaseLabels, use GetReleaseLabelsOutput instead")
+	}
 	var rv GetReleaseLabelsResult
 	err := ctx.Invoke("aws:emr/getReleaseLabels:getReleaseLabels", args, &rv, opts...)
 	if err != nil {
@@ -67,17 +78,18 @@ type GetReleaseLabelsResult struct {
 }
 
 func GetReleaseLabelsOutput(ctx *pulumi.Context, args GetReleaseLabelsOutputArgs, opts ...pulumi.InvokeOption) GetReleaseLabelsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetReleaseLabelsResultOutput, error) {
 			args := v.(GetReleaseLabelsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetReleaseLabelsResult
-			secret, err := ctx.InvokePackageRaw("aws:emr/getReleaseLabels:getReleaseLabels", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:emr/getReleaseLabels:getReleaseLabels", args, &rv, "", opts...)
 			if err != nil {
 				return GetReleaseLabelsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetReleaseLabelsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetReleaseLabelsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetReleaseLabelsResultOutput), nil
 			}

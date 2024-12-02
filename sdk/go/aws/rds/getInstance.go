@@ -5,6 +5,7 @@ package rds
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupInstance(ctx *pulumi.Context, args *LookupInstanceArgs, opts ...pulumi.InvokeOption) (*LookupInstanceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupInstanceResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupInstanceResult{}, errors.New("DependsOn is not supported for direct form invoke LookupInstance, use LookupInstanceOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupInstanceResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupInstance, use LookupInstanceOutput instead")
+	}
 	var rv LookupInstanceResult
 	err := ctx.Invoke("aws:rds/getInstance:getInstance", args, &rv, opts...)
 	if err != nil {
@@ -145,17 +156,18 @@ type LookupInstanceResult struct {
 }
 
 func LookupInstanceOutput(ctx *pulumi.Context, args LookupInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupInstanceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupInstanceResultOutput, error) {
 			args := v.(LookupInstanceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupInstanceResult
-			secret, err := ctx.InvokePackageRaw("aws:rds/getInstance:getInstance", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:rds/getInstance:getInstance", args, &rv, "", opts...)
 			if err != nil {
 				return LookupInstanceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupInstanceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupInstanceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupInstanceResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package s3
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -38,6 +39,16 @@ import (
 // ```
 func GetDirectoryBuckets(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetDirectoryBucketsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetDirectoryBucketsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetDirectoryBucketsResult{}, errors.New("DependsOn is not supported for direct form invoke GetDirectoryBuckets, use GetDirectoryBucketsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetDirectoryBucketsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetDirectoryBuckets, use GetDirectoryBucketsOutput instead")
+	}
 	var rv GetDirectoryBucketsResult
 	err := ctx.Invoke("aws:s3/getDirectoryBuckets:getDirectoryBuckets", nil, &rv, opts...)
 	if err != nil {

@@ -5,6 +5,7 @@ package cloudfront
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupOriginAccessControl(ctx *pulumi.Context, args *LookupOriginAccessControlArgs, opts ...pulumi.InvokeOption) (*LookupOriginAccessControlResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupOriginAccessControlResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupOriginAccessControlResult{}, errors.New("DependsOn is not supported for direct form invoke LookupOriginAccessControl, use LookupOriginAccessControlOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupOriginAccessControlResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupOriginAccessControl, use LookupOriginAccessControlOutput instead")
+	}
 	var rv LookupOriginAccessControlResult
 	err := ctx.Invoke("aws:cloudfront/getOriginAccessControl:getOriginAccessControl", args, &rv, opts...)
 	if err != nil {
@@ -74,17 +85,18 @@ type LookupOriginAccessControlResult struct {
 }
 
 func LookupOriginAccessControlOutput(ctx *pulumi.Context, args LookupOriginAccessControlOutputArgs, opts ...pulumi.InvokeOption) LookupOriginAccessControlResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupOriginAccessControlResultOutput, error) {
 			args := v.(LookupOriginAccessControlArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupOriginAccessControlResult
-			secret, err := ctx.InvokePackageRaw("aws:cloudfront/getOriginAccessControl:getOriginAccessControl", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:cloudfront/getOriginAccessControl:getOriginAccessControl", args, &rv, "", opts...)
 			if err != nil {
 				return LookupOriginAccessControlResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupOriginAccessControlResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupOriginAccessControlResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupOriginAccessControlResultOutput), nil
 			}

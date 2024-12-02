@@ -5,6 +5,7 @@ package apigateway
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupAuthorizer(ctx *pulumi.Context, args *LookupAuthorizerArgs, opts ...pulumi.InvokeOption) (*LookupAuthorizerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupAuthorizerResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupAuthorizerResult{}, errors.New("DependsOn is not supported for direct form invoke LookupAuthorizer, use LookupAuthorizerOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupAuthorizerResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupAuthorizer, use LookupAuthorizerOutput instead")
+	}
 	var rv LookupAuthorizerResult
 	err := ctx.Invoke("aws:apigateway/getAuthorizer:getAuthorizer", args, &rv, opts...)
 	if err != nil {
@@ -84,17 +95,18 @@ type LookupAuthorizerResult struct {
 }
 
 func LookupAuthorizerOutput(ctx *pulumi.Context, args LookupAuthorizerOutputArgs, opts ...pulumi.InvokeOption) LookupAuthorizerResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAuthorizerResultOutput, error) {
 			args := v.(LookupAuthorizerArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupAuthorizerResult
-			secret, err := ctx.InvokePackageRaw("aws:apigateway/getAuthorizer:getAuthorizer", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:apigateway/getAuthorizer:getAuthorizer", args, &rv, "", opts...)
 			if err != nil {
 				return LookupAuthorizerResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupAuthorizerResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupAuthorizerResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupAuthorizerResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package memorydb
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupAcl(ctx *pulumi.Context, args *LookupAclArgs, opts ...pulumi.InvokeOption) (*LookupAclResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupAclResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupAclResult{}, errors.New("DependsOn is not supported for direct form invoke LookupAcl, use LookupAclOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupAclResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupAcl, use LookupAclOutput instead")
+	}
 	var rv LookupAclResult
 	err := ctx.Invoke("aws:memorydb/getAcl:getAcl", args, &rv, opts...)
 	if err != nil {
@@ -72,17 +83,18 @@ type LookupAclResult struct {
 }
 
 func LookupAclOutput(ctx *pulumi.Context, args LookupAclOutputArgs, opts ...pulumi.InvokeOption) LookupAclResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAclResultOutput, error) {
 			args := v.(LookupAclArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupAclResult
-			secret, err := ctx.InvokePackageRaw("aws:memorydb/getAcl:getAcl", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:memorydb/getAcl:getAcl", args, &rv, "", opts...)
 			if err != nil {
 				return LookupAclResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupAclResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupAclResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupAclResultOutput), nil
 			}

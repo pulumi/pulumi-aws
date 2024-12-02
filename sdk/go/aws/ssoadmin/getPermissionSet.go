@@ -5,6 +5,7 @@ package ssoadmin
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -46,6 +47,16 @@ import (
 // ```
 func LookupPermissionSet(ctx *pulumi.Context, args *LookupPermissionSetArgs, opts ...pulumi.InvokeOption) (*LookupPermissionSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupPermissionSetResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupPermissionSetResult{}, errors.New("DependsOn is not supported for direct form invoke LookupPermissionSet, use LookupPermissionSetOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupPermissionSetResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupPermissionSet, use LookupPermissionSetOutput instead")
+	}
 	var rv LookupPermissionSetResult
 	err := ctx.Invoke("aws:ssoadmin/getPermissionSet:getPermissionSet", args, &rv, opts...)
 	if err != nil {
@@ -85,17 +96,18 @@ type LookupPermissionSetResult struct {
 }
 
 func LookupPermissionSetOutput(ctx *pulumi.Context, args LookupPermissionSetOutputArgs, opts ...pulumi.InvokeOption) LookupPermissionSetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPermissionSetResultOutput, error) {
 			args := v.(LookupPermissionSetArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupPermissionSetResult
-			secret, err := ctx.InvokePackageRaw("aws:ssoadmin/getPermissionSet:getPermissionSet", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ssoadmin/getPermissionSet:getPermissionSet", args, &rv, "", opts...)
 			if err != nil {
 				return LookupPermissionSetResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupPermissionSetResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupPermissionSetResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupPermissionSetResultOutput), nil
 			}

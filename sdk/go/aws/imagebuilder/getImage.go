@@ -5,6 +5,7 @@ package imagebuilder
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupImage(ctx *pulumi.Context, args *LookupImageArgs, opts ...pulumi.InvokeOption) (*LookupImageResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupImageResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupImageResult{}, errors.New("DependsOn is not supported for direct form invoke LookupImage, use LookupImageOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupImageResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupImage, use LookupImageOutput instead")
+	}
 	var rv LookupImageResult
 	err := ctx.Invoke("aws:imagebuilder/getImage:getImage", args, &rv, opts...)
 	if err != nil {
@@ -96,17 +107,18 @@ type LookupImageResult struct {
 }
 
 func LookupImageOutput(ctx *pulumi.Context, args LookupImageOutputArgs, opts ...pulumi.InvokeOption) LookupImageResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupImageResultOutput, error) {
 			args := v.(LookupImageArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupImageResult
-			secret, err := ctx.InvokePackageRaw("aws:imagebuilder/getImage:getImage", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:imagebuilder/getImage:getImage", args, &rv, "", opts...)
 			if err != nil {
 				return LookupImageResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupImageResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupImageResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupImageResultOutput), nil
 			}

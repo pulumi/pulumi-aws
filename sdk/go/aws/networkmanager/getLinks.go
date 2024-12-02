@@ -5,6 +5,7 @@ package networkmanager
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func GetLinks(ctx *pulumi.Context, args *GetLinksArgs, opts ...pulumi.InvokeOption) (*GetLinksResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetLinksResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetLinksResult{}, errors.New("DependsOn is not supported for direct form invoke GetLinks, use GetLinksOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetLinksResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetLinks, use GetLinksOutput instead")
+	}
 	var rv GetLinksResult
 	err := ctx.Invoke("aws:networkmanager/getLinks:getLinks", args, &rv, opts...)
 	if err != nil {
@@ -79,17 +90,18 @@ type GetLinksResult struct {
 }
 
 func GetLinksOutput(ctx *pulumi.Context, args GetLinksOutputArgs, opts ...pulumi.InvokeOption) GetLinksResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetLinksResultOutput, error) {
 			args := v.(GetLinksArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetLinksResult
-			secret, err := ctx.InvokePackageRaw("aws:networkmanager/getLinks:getLinks", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:networkmanager/getLinks:getLinks", args, &rv, "", opts...)
 			if err != nil {
 				return GetLinksResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetLinksResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetLinksResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetLinksResultOutput), nil
 			}

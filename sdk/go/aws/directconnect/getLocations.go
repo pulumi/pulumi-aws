@@ -5,6 +5,7 @@ package directconnect
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func GetLocations(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetLocationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetLocationsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetLocationsResult{}, errors.New("DependsOn is not supported for direct form invoke GetLocations, use GetLocationsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetLocationsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetLocations, use GetLocationsOutput instead")
+	}
 	var rv GetLocationsResult
 	err := ctx.Invoke("aws:directconnect/getLocations:getLocations", nil, &rv, opts...)
 	if err != nil {

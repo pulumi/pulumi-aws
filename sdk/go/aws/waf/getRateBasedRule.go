@@ -5,6 +5,7 @@ package waf
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupRateBasedRule(ctx *pulumi.Context, args *LookupRateBasedRuleArgs, opts ...pulumi.InvokeOption) (*LookupRateBasedRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupRateBasedRuleResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupRateBasedRuleResult{}, errors.New("DependsOn is not supported for direct form invoke LookupRateBasedRule, use LookupRateBasedRuleOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupRateBasedRuleResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupRateBasedRule, use LookupRateBasedRuleOutput instead")
+	}
 	var rv LookupRateBasedRuleResult
 	err := ctx.Invoke("aws:waf/getRateBasedRule:getRateBasedRule", args, &rv, opts...)
 	if err != nil {
@@ -62,17 +73,18 @@ type LookupRateBasedRuleResult struct {
 }
 
 func LookupRateBasedRuleOutput(ctx *pulumi.Context, args LookupRateBasedRuleOutputArgs, opts ...pulumi.InvokeOption) LookupRateBasedRuleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRateBasedRuleResultOutput, error) {
 			args := v.(LookupRateBasedRuleArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupRateBasedRuleResult
-			secret, err := ctx.InvokePackageRaw("aws:waf/getRateBasedRule:getRateBasedRule", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:waf/getRateBasedRule:getRateBasedRule", args, &rv, "", opts...)
 			if err != nil {
 				return LookupRateBasedRuleResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupRateBasedRuleResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupRateBasedRuleResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupRateBasedRuleResultOutput), nil
 			}

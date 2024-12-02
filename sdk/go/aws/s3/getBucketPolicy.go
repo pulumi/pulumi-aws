@@ -5,6 +5,7 @@ package s3
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupBucketPolicy(ctx *pulumi.Context, args *LookupBucketPolicyArgs, opts ...pulumi.InvokeOption) (*LookupBucketPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupBucketPolicyResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupBucketPolicyResult{}, errors.New("DependsOn is not supported for direct form invoke LookupBucketPolicy, use LookupBucketPolicyOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupBucketPolicyResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupBucketPolicy, use LookupBucketPolicyOutput instead")
+	}
 	var rv LookupBucketPolicyResult
 	err := ctx.Invoke("aws:s3/getBucketPolicy:getBucketPolicy", args, &rv, opts...)
 	if err != nil {
@@ -67,17 +78,18 @@ type LookupBucketPolicyResult struct {
 }
 
 func LookupBucketPolicyOutput(ctx *pulumi.Context, args LookupBucketPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupBucketPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupBucketPolicyResultOutput, error) {
 			args := v.(LookupBucketPolicyArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupBucketPolicyResult
-			secret, err := ctx.InvokePackageRaw("aws:s3/getBucketPolicy:getBucketPolicy", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:s3/getBucketPolicy:getBucketPolicy", args, &rv, "", opts...)
 			if err != nil {
 				return LookupBucketPolicyResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupBucketPolicyResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupBucketPolicyResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupBucketPolicyResultOutput), nil
 			}

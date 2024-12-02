@@ -93,7 +93,7 @@ export interface GetPublicIpv4PoolResult {
  * });
  * ```
  */
-export function getPublicIpv4PoolOutput(args: GetPublicIpv4PoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIpv4PoolResult> {
+export function getPublicIpv4PoolOutput(args: GetPublicIpv4PoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPublicIpv4PoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getPublicIpv4Pool:getPublicIpv4Pool", {
         "poolId": args.poolId,

@@ -5,6 +5,7 @@ package opensearch
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupServerlessAccessPolicy(ctx *pulumi.Context, args *LookupServerlessAccessPolicyArgs, opts ...pulumi.InvokeOption) (*LookupServerlessAccessPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupServerlessAccessPolicyResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupServerlessAccessPolicyResult{}, errors.New("DependsOn is not supported for direct form invoke LookupServerlessAccessPolicy, use LookupServerlessAccessPolicyOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupServerlessAccessPolicyResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupServerlessAccessPolicy, use LookupServerlessAccessPolicyOutput instead")
+	}
 	var rv LookupServerlessAccessPolicyResult
 	err := ctx.Invoke("aws:opensearch/getServerlessAccessPolicy:getServerlessAccessPolicy", args, &rv, opts...)
 	if err != nil {
@@ -73,17 +84,18 @@ type LookupServerlessAccessPolicyResult struct {
 }
 
 func LookupServerlessAccessPolicyOutput(ctx *pulumi.Context, args LookupServerlessAccessPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupServerlessAccessPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupServerlessAccessPolicyResultOutput, error) {
 			args := v.(LookupServerlessAccessPolicyArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupServerlessAccessPolicyResult
-			secret, err := ctx.InvokePackageRaw("aws:opensearch/getServerlessAccessPolicy:getServerlessAccessPolicy", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:opensearch/getServerlessAccessPolicy:getServerlessAccessPolicy", args, &rv, "", opts...)
 			if err != nil {
 				return LookupServerlessAccessPolicyResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupServerlessAccessPolicyResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupServerlessAccessPolicyResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupServerlessAccessPolicyResultOutput), nil
 			}

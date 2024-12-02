@@ -5,6 +5,7 @@ package inspector
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -66,6 +67,16 @@ import (
 // ```
 func GetRulesPackages(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetRulesPackagesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetRulesPackagesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetRulesPackagesResult{}, errors.New("DependsOn is not supported for direct form invoke GetRulesPackages, use GetRulesPackagesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetRulesPackagesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetRulesPackages, use GetRulesPackagesOutput instead")
+	}
 	var rv GetRulesPackagesResult
 	err := ctx.Invoke("aws:inspector/getRulesPackages:getRulesPackages", nil, &rv, opts...)
 	if err != nil {

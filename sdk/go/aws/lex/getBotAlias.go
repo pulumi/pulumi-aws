@@ -5,6 +5,7 @@ package lex
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupBotAlias(ctx *pulumi.Context, args *LookupBotAliasArgs, opts ...pulumi.InvokeOption) (*LookupBotAliasResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupBotAliasResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupBotAliasResult{}, errors.New("DependsOn is not supported for direct form invoke LookupBotAlias, use LookupBotAliasOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupBotAliasResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupBotAlias, use LookupBotAliasOutput instead")
+	}
 	var rv LookupBotAliasResult
 	err := ctx.Invoke("aws:lex/getBotAlias:getBotAlias", args, &rv, opts...)
 	if err != nil {
@@ -80,17 +91,18 @@ type LookupBotAliasResult struct {
 }
 
 func LookupBotAliasOutput(ctx *pulumi.Context, args LookupBotAliasOutputArgs, opts ...pulumi.InvokeOption) LookupBotAliasResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupBotAliasResultOutput, error) {
 			args := v.(LookupBotAliasArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupBotAliasResult
-			secret, err := ctx.InvokePackageRaw("aws:lex/getBotAlias:getBotAlias", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:lex/getBotAlias:getBotAlias", args, &rv, "", opts...)
 			if err != nil {
 				return LookupBotAliasResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupBotAliasResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupBotAliasResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupBotAliasResultOutput), nil
 			}

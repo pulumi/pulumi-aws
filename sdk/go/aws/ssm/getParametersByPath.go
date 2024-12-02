@@ -5,6 +5,7 @@ package ssm
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -13,6 +14,16 @@ import (
 
 func GetParametersByPath(ctx *pulumi.Context, args *GetParametersByPathArgs, opts ...pulumi.InvokeOption) (*GetParametersByPathResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetParametersByPathResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetParametersByPathResult{}, errors.New("DependsOn is not supported for direct form invoke GetParametersByPath, use GetParametersByPathOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetParametersByPathResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetParametersByPath, use GetParametersByPathOutput instead")
+	}
 	var rv GetParametersByPathResult
 	err := ctx.Invoke("aws:ssm/getParametersByPath:getParametersByPath", args, &rv, opts...)
 	if err != nil {
@@ -49,17 +60,18 @@ type GetParametersByPathResult struct {
 }
 
 func GetParametersByPathOutput(ctx *pulumi.Context, args GetParametersByPathOutputArgs, opts ...pulumi.InvokeOption) GetParametersByPathResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetParametersByPathResultOutput, error) {
 			args := v.(GetParametersByPathArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetParametersByPathResult
-			secret, err := ctx.InvokePackageRaw("aws:ssm/getParametersByPath:getParametersByPath", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ssm/getParametersByPath:getParametersByPath", args, &rv, "", opts...)
 			if err != nil {
 				return GetParametersByPathResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetParametersByPathResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetParametersByPathResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetParametersByPathResultOutput), nil
 			}

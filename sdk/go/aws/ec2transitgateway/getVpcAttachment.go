@@ -5,6 +5,7 @@ package ec2transitgateway
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -75,6 +76,16 @@ import (
 // ```
 func LookupVpcAttachment(ctx *pulumi.Context, args *LookupVpcAttachmentArgs, opts ...pulumi.InvokeOption) (*LookupVpcAttachmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupVpcAttachmentResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupVpcAttachmentResult{}, errors.New("DependsOn is not supported for direct form invoke LookupVpcAttachment, use LookupVpcAttachmentOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupVpcAttachmentResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupVpcAttachment, use LookupVpcAttachmentOutput instead")
+	}
 	var rv LookupVpcAttachmentResult
 	err := ctx.Invoke("aws:ec2transitgateway/getVpcAttachment:getVpcAttachment", args, &rv, opts...)
 	if err != nil {
@@ -119,17 +130,18 @@ type LookupVpcAttachmentResult struct {
 }
 
 func LookupVpcAttachmentOutput(ctx *pulumi.Context, args LookupVpcAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupVpcAttachmentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVpcAttachmentResultOutput, error) {
 			args := v.(LookupVpcAttachmentArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupVpcAttachmentResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2transitgateway/getVpcAttachment:getVpcAttachment", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2transitgateway/getVpcAttachment:getVpcAttachment", args, &rv, "", opts...)
 			if err != nil {
 				return LookupVpcAttachmentResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupVpcAttachmentResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupVpcAttachmentResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupVpcAttachmentResultOutput), nil
 			}

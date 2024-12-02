@@ -5,6 +5,7 @@ package kendra
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func LookupExperience(ctx *pulumi.Context, args *LookupExperienceArgs, opts ...pulumi.InvokeOption) (*LookupExperienceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupExperienceResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupExperienceResult{}, errors.New("DependsOn is not supported for direct form invoke LookupExperience, use LookupExperienceOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupExperienceResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupExperience, use LookupExperienceOutput instead")
+	}
 	var rv LookupExperienceResult
 	err := ctx.Invoke("aws:kendra/getExperience:getExperience", args, &rv, opts...)
 	if err != nil {
@@ -86,17 +97,18 @@ type LookupExperienceResult struct {
 }
 
 func LookupExperienceOutput(ctx *pulumi.Context, args LookupExperienceOutputArgs, opts ...pulumi.InvokeOption) LookupExperienceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupExperienceResultOutput, error) {
 			args := v.(LookupExperienceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupExperienceResult
-			secret, err := ctx.InvokePackageRaw("aws:kendra/getExperience:getExperience", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:kendra/getExperience:getExperience", args, &rv, "", opts...)
 			if err != nil {
 				return LookupExperienceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupExperienceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupExperienceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupExperienceResultOutput), nil
 			}

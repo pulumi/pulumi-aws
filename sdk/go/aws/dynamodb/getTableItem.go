@@ -5,6 +5,7 @@ package dynamodb
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -47,6 +48,16 @@ import (
 // ```
 func LookupTableItem(ctx *pulumi.Context, args *LookupTableItemArgs, opts ...pulumi.InvokeOption) (*LookupTableItemResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupTableItemResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupTableItemResult{}, errors.New("DependsOn is not supported for direct form invoke LookupTableItem, use LookupTableItemOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupTableItemResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupTableItem, use LookupTableItemOutput instead")
+	}
 	var rv LookupTableItemResult
 	err := ctx.Invoke("aws:dynamodb/getTableItem:getTableItem", args, &rv, opts...)
 	if err != nil {
@@ -83,17 +94,18 @@ type LookupTableItemResult struct {
 }
 
 func LookupTableItemOutput(ctx *pulumi.Context, args LookupTableItemOutputArgs, opts ...pulumi.InvokeOption) LookupTableItemResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupTableItemResultOutput, error) {
 			args := v.(LookupTableItemArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupTableItemResult
-			secret, err := ctx.InvokePackageRaw("aws:dynamodb/getTableItem:getTableItem", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:dynamodb/getTableItem:getTableItem", args, &rv, "", opts...)
 			if err != nil {
 				return LookupTableItemResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupTableItemResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupTableItemResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupTableItemResultOutput), nil
 			}

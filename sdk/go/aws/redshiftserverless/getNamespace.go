@@ -5,6 +5,7 @@ package redshiftserverless
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupNamespace(ctx *pulumi.Context, args *LookupNamespaceArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupNamespaceResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupNamespaceResult{}, errors.New("DependsOn is not supported for direct form invoke LookupNamespace, use LookupNamespaceOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupNamespaceResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupNamespace, use LookupNamespaceOutput instead")
+	}
 	var rv LookupNamespaceResult
 	err := ctx.Invoke("aws:redshiftserverless/getNamespace:getNamespace", args, &rv, opts...)
 	if err != nil {
@@ -78,17 +89,18 @@ type LookupNamespaceResult struct {
 }
 
 func LookupNamespaceOutput(ctx *pulumi.Context, args LookupNamespaceOutputArgs, opts ...pulumi.InvokeOption) LookupNamespaceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNamespaceResultOutput, error) {
 			args := v.(LookupNamespaceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupNamespaceResult
-			secret, err := ctx.InvokePackageRaw("aws:redshiftserverless/getNamespace:getNamespace", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:redshiftserverless/getNamespace:getNamespace", args, &rv, "", opts...)
 			if err != nil {
 				return LookupNamespaceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupNamespaceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupNamespaceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupNamespaceResultOutput), nil
 			}

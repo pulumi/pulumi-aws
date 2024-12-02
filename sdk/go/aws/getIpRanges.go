@@ -5,6 +5,7 @@ package aws
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -66,6 +67,16 @@ import (
 // ```
 func GetIpRanges(ctx *pulumi.Context, args *GetIpRangesArgs, opts ...pulumi.InvokeOption) (*GetIpRangesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetIpRangesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetIpRangesResult{}, errors.New("DependsOn is not supported for direct form invoke GetIpRanges, use GetIpRangesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetIpRangesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetIpRanges, use GetIpRangesOutput instead")
+	}
 	var rv GetIpRangesResult
 	err := ctx.Invoke("aws:index/getIpRanges:getIpRanges", args, &rv, opts...)
 	if err != nil {
@@ -112,17 +123,18 @@ type GetIpRangesResult struct {
 }
 
 func GetIpRangesOutput(ctx *pulumi.Context, args GetIpRangesOutputArgs, opts ...pulumi.InvokeOption) GetIpRangesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetIpRangesResultOutput, error) {
 			args := v.(GetIpRangesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetIpRangesResult
-			secret, err := ctx.InvokePackageRaw("aws:index/getIpRanges:getIpRanges", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:index/getIpRanges:getIpRanges", args, &rv, "", opts...)
 			if err != nil {
 				return GetIpRangesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetIpRangesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetIpRangesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetIpRangesResultOutput), nil
 			}

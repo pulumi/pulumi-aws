@@ -221,7 +221,7 @@ def get_distribution(id: Optional[str] = None,
         web_acl_id=pulumi.get(__ret__, 'web_acl_id'))
 def get_distribution_output(id: Optional[pulumi.Input[str]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDistributionResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDistributionResult]:
     """
     Use this data source to retrieve information about a CloudFront distribution.
 
@@ -240,7 +240,7 @@ def get_distribution_output(id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['id'] = id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cloudfront/getDistribution:getDistribution', __args__, opts=opts, typ=GetDistributionResult)
     return __ret__.apply(lambda __response__: GetDistributionResult(
         aliases=pulumi.get(__response__, 'aliases'),

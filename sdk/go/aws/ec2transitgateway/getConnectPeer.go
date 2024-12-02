@@ -5,6 +5,7 @@ package ec2transitgateway
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -75,6 +76,16 @@ import (
 // ```
 func LookupConnectPeer(ctx *pulumi.Context, args *LookupConnectPeerArgs, opts ...pulumi.InvokeOption) (*LookupConnectPeerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupConnectPeerResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupConnectPeerResult{}, errors.New("DependsOn is not supported for direct form invoke LookupConnectPeer, use LookupConnectPeerOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupConnectPeerResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupConnectPeer, use LookupConnectPeerOutput instead")
+	}
 	var rv LookupConnectPeerResult
 	err := ctx.Invoke("aws:ec2transitgateway/getConnectPeer:getConnectPeer", args, &rv, opts...)
 	if err != nil {
@@ -120,17 +131,18 @@ type LookupConnectPeerResult struct {
 }
 
 func LookupConnectPeerOutput(ctx *pulumi.Context, args LookupConnectPeerOutputArgs, opts ...pulumi.InvokeOption) LookupConnectPeerResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupConnectPeerResultOutput, error) {
 			args := v.(LookupConnectPeerArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupConnectPeerResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2transitgateway/getConnectPeer:getConnectPeer", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2transitgateway/getConnectPeer:getConnectPeer", args, &rv, "", opts...)
 			if err != nil {
 				return LookupConnectPeerResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupConnectPeerResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupConnectPeerResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupConnectPeerResultOutput), nil
 			}

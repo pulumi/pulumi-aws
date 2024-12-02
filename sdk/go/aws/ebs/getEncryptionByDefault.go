@@ -5,6 +5,7 @@ package ebs
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -38,6 +39,16 @@ import (
 // ```
 func LookupEncryptionByDefault(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupEncryptionByDefaultResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupEncryptionByDefaultResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupEncryptionByDefaultResult{}, errors.New("DependsOn is not supported for direct form invoke LookupEncryptionByDefault, use LookupEncryptionByDefaultOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupEncryptionByDefaultResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupEncryptionByDefault, use LookupEncryptionByDefaultOutput instead")
+	}
 	var rv LookupEncryptionByDefaultResult
 	err := ctx.Invoke("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", nil, &rv, opts...)
 	if err != nil {

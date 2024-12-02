@@ -5,6 +5,7 @@ package auditmanager
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupFramework(ctx *pulumi.Context, args *LookupFrameworkArgs, opts ...pulumi.InvokeOption) (*LookupFrameworkResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupFrameworkResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupFrameworkResult{}, errors.New("DependsOn is not supported for direct form invoke LookupFramework, use LookupFrameworkOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupFrameworkResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupFramework, use LookupFrameworkOutput instead")
+	}
 	var rv LookupFrameworkResult
 	err := ctx.Invoke("aws:auditmanager/getFramework:getFramework", args, &rv, opts...)
 	if err != nil {
@@ -72,17 +83,18 @@ type LookupFrameworkResult struct {
 }
 
 func LookupFrameworkOutput(ctx *pulumi.Context, args LookupFrameworkOutputArgs, opts ...pulumi.InvokeOption) LookupFrameworkResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFrameworkResultOutput, error) {
 			args := v.(LookupFrameworkArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupFrameworkResult
-			secret, err := ctx.InvokePackageRaw("aws:auditmanager/getFramework:getFramework", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:auditmanager/getFramework:getFramework", args, &rv, "", opts...)
 			if err != nil {
 				return LookupFrameworkResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupFrameworkResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupFrameworkResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupFrameworkResultOutput), nil
 			}

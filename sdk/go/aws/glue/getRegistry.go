@@ -5,6 +5,7 @@ package glue
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupRegistry(ctx *pulumi.Context, args *LookupRegistryArgs, opts ...pulumi.InvokeOption) (*LookupRegistryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupRegistryResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupRegistryResult{}, errors.New("DependsOn is not supported for direct form invoke LookupRegistry, use LookupRegistryOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupRegistryResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupRegistry, use LookupRegistryOutput instead")
+	}
 	var rv LookupRegistryResult
 	err := ctx.Invoke("aws:glue/getRegistry:getRegistry", args, &rv, opts...)
 	if err != nil {
@@ -68,17 +79,18 @@ type LookupRegistryResult struct {
 }
 
 func LookupRegistryOutput(ctx *pulumi.Context, args LookupRegistryOutputArgs, opts ...pulumi.InvokeOption) LookupRegistryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRegistryResultOutput, error) {
 			args := v.(LookupRegistryArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupRegistryResult
-			secret, err := ctx.InvokePackageRaw("aws:glue/getRegistry:getRegistry", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:glue/getRegistry:getRegistry", args, &rv, "", opts...)
 			if err != nil {
 				return LookupRegistryResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupRegistryResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupRegistryResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupRegistryResultOutput), nil
 			}

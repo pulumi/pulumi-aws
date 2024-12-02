@@ -5,6 +5,7 @@ package ssmincidents
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -16,6 +17,16 @@ import (
 // ## Example Usage
 func LookupResponsePlan(ctx *pulumi.Context, args *LookupResponsePlanArgs, opts ...pulumi.InvokeOption) (*LookupResponsePlanResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupResponsePlanResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupResponsePlanResult{}, errors.New("DependsOn is not supported for direct form invoke LookupResponsePlan, use LookupResponsePlanOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupResponsePlanResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupResponsePlan, use LookupResponsePlanOutput instead")
+	}
 	var rv LookupResponsePlanResult
 	err := ctx.Invoke("aws:ssmincidents/getResponsePlan:getResponsePlan", args, &rv, opts...)
 	if err != nil {
@@ -55,17 +66,18 @@ type LookupResponsePlanResult struct {
 }
 
 func LookupResponsePlanOutput(ctx *pulumi.Context, args LookupResponsePlanOutputArgs, opts ...pulumi.InvokeOption) LookupResponsePlanResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupResponsePlanResultOutput, error) {
 			args := v.(LookupResponsePlanArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupResponsePlanResult
-			secret, err := ctx.InvokePackageRaw("aws:ssmincidents/getResponsePlan:getResponsePlan", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ssmincidents/getResponsePlan:getResponsePlan", args, &rv, "", opts...)
 			if err != nil {
 				return LookupResponsePlanResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupResponsePlanResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupResponsePlanResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupResponsePlanResultOutput), nil
 			}

@@ -5,6 +5,7 @@ package connect
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -70,6 +71,16 @@ import (
 // ```
 func LookupRoutingProfile(ctx *pulumi.Context, args *LookupRoutingProfileArgs, opts ...pulumi.InvokeOption) (*LookupRoutingProfileResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupRoutingProfileResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupRoutingProfileResult{}, errors.New("DependsOn is not supported for direct form invoke LookupRoutingProfile, use LookupRoutingProfileOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupRoutingProfileResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupRoutingProfile, use LookupRoutingProfileOutput instead")
+	}
 	var rv LookupRoutingProfileResult
 	err := ctx.Invoke("aws:connect/getRoutingProfile:getRoutingProfile", args, &rv, opts...)
 	if err != nil {
@@ -112,17 +123,18 @@ type LookupRoutingProfileResult struct {
 }
 
 func LookupRoutingProfileOutput(ctx *pulumi.Context, args LookupRoutingProfileOutputArgs, opts ...pulumi.InvokeOption) LookupRoutingProfileResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRoutingProfileResultOutput, error) {
 			args := v.(LookupRoutingProfileArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupRoutingProfileResult
-			secret, err := ctx.InvokePackageRaw("aws:connect/getRoutingProfile:getRoutingProfile", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:connect/getRoutingProfile:getRoutingProfile", args, &rv, "", opts...)
 			if err != nil {
 				return LookupRoutingProfileResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupRoutingProfileResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupRoutingProfileResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupRoutingProfileResultOutput), nil
 			}

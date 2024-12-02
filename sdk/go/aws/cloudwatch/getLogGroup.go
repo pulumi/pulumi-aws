@@ -5,6 +5,7 @@ package cloudwatch
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupLogGroup(ctx *pulumi.Context, args *LookupLogGroupArgs, opts ...pulumi.InvokeOption) (*LookupLogGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupLogGroupResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupLogGroupResult{}, errors.New("DependsOn is not supported for direct form invoke LookupLogGroup, use LookupLogGroupOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupLogGroupResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupLogGroup, use LookupLogGroupOutput instead")
+	}
 	var rv LookupLogGroupResult
 	err := ctx.Invoke("aws:cloudwatch/getLogGroup:getLogGroup", args, &rv, opts...)
 	if err != nil {
@@ -76,17 +87,18 @@ type LookupLogGroupResult struct {
 }
 
 func LookupLogGroupOutput(ctx *pulumi.Context, args LookupLogGroupOutputArgs, opts ...pulumi.InvokeOption) LookupLogGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLogGroupResultOutput, error) {
 			args := v.(LookupLogGroupArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupLogGroupResult
-			secret, err := ctx.InvokePackageRaw("aws:cloudwatch/getLogGroup:getLogGroup", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:cloudwatch/getLogGroup:getLogGroup", args, &rv, "", opts...)
 			if err != nil {
 				return LookupLogGroupResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupLogGroupResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupLogGroupResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupLogGroupResultOutput), nil
 			}

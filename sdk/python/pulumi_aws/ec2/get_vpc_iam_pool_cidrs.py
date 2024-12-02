@@ -152,7 +152,7 @@ def get_vpc_iam_pool_cidrs(filters: Optional[Sequence[Union['GetVpcIamPoolCidrsF
         ipam_pool_id=pulumi.get(__ret__, 'ipam_pool_id'))
 def get_vpc_iam_pool_cidrs_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcIamPoolCidrsFilterArgs', 'GetVpcIamPoolCidrsFilterArgsDict']]]]] = None,
                                   ipam_pool_id: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcIamPoolCidrsResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcIamPoolCidrsResult]:
     """
     `ec2_get_vpc_ipam_pool_cidrs` provides details about an IPAM pool.
 
@@ -209,7 +209,7 @@ def get_vpc_iam_pool_cidrs_output(filters: Optional[pulumi.Input[Optional[Sequen
     __args__ = dict()
     __args__['filters'] = filters
     __args__['ipamPoolId'] = ipam_pool_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getVpcIamPoolCidrs:getVpcIamPoolCidrs', __args__, opts=opts, typ=GetVpcIamPoolCidrsResult)
     return __ret__.apply(lambda __response__: GetVpcIamPoolCidrsResult(
         filters=pulumi.get(__response__, 'filters'),

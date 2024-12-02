@@ -5,6 +5,7 @@ package apigateway
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -40,6 +41,16 @@ import (
 // ```
 func LookupDomainName(ctx *pulumi.Context, args *LookupDomainNameArgs, opts ...pulumi.InvokeOption) (*LookupDomainNameResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupDomainNameResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupDomainNameResult{}, errors.New("DependsOn is not supported for direct form invoke LookupDomainName, use LookupDomainNameOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupDomainNameResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupDomainName, use LookupDomainNameOutput instead")
+	}
 	var rv LookupDomainNameResult
 	err := ctx.Invoke("aws:apigateway/getDomainName:getDomainName", args, &rv, opts...)
 	if err != nil {
@@ -90,17 +101,18 @@ type LookupDomainNameResult struct {
 }
 
 func LookupDomainNameOutput(ctx *pulumi.Context, args LookupDomainNameOutputArgs, opts ...pulumi.InvokeOption) LookupDomainNameResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDomainNameResultOutput, error) {
 			args := v.(LookupDomainNameArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupDomainNameResult
-			secret, err := ctx.InvokePackageRaw("aws:apigateway/getDomainName:getDomainName", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:apigateway/getDomainName:getDomainName", args, &rv, "", opts...)
 			if err != nil {
 				return LookupDomainNameResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupDomainNameResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupDomainNameResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupDomainNameResultOutput), nil
 			}

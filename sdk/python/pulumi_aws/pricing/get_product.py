@@ -161,7 +161,7 @@ def get_product(filters: Optional[Sequence[Union['GetProductFilterArgs', 'GetPro
         service_code=pulumi.get(__ret__, 'service_code'))
 def get_product_output(filters: Optional[pulumi.Input[Sequence[Union['GetProductFilterArgs', 'GetProductFilterArgsDict']]]] = None,
                        service_code: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProductResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProductResult]:
     """
     Use this data source to get the pricing information of all products in AWS.
     This data source is only available in a us-east-1 or ap-south-1 provider.
@@ -229,7 +229,7 @@ def get_product_output(filters: Optional[pulumi.Input[Sequence[Union['GetProduct
     __args__ = dict()
     __args__['filters'] = filters
     __args__['serviceCode'] = service_code
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:pricing/getProduct:getProduct', __args__, opts=opts, typ=GetProductResult)
     return __ret__.apply(lambda __response__: GetProductResult(
         filters=pulumi.get(__response__, 'filters'),

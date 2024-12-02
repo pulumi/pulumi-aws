@@ -5,6 +5,7 @@ package servicecatalog
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func GetPortfolioConstraints(ctx *pulumi.Context, args *GetPortfolioConstraintsArgs, opts ...pulumi.InvokeOption) (*GetPortfolioConstraintsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetPortfolioConstraintsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetPortfolioConstraintsResult{}, errors.New("DependsOn is not supported for direct form invoke GetPortfolioConstraints, use GetPortfolioConstraintsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetPortfolioConstraintsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetPortfolioConstraints, use GetPortfolioConstraintsOutput instead")
+	}
 	var rv GetPortfolioConstraintsResult
 	err := ctx.Invoke("aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints", args, &rv, opts...)
 	if err != nil {
@@ -76,17 +87,18 @@ type GetPortfolioConstraintsResult struct {
 }
 
 func GetPortfolioConstraintsOutput(ctx *pulumi.Context, args GetPortfolioConstraintsOutputArgs, opts ...pulumi.InvokeOption) GetPortfolioConstraintsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetPortfolioConstraintsResultOutput, error) {
 			args := v.(GetPortfolioConstraintsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetPortfolioConstraintsResult
-			secret, err := ctx.InvokePackageRaw("aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints", args, &rv, "", opts...)
 			if err != nil {
 				return GetPortfolioConstraintsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetPortfolioConstraintsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetPortfolioConstraintsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetPortfolioConstraintsResultOutput), nil
 			}

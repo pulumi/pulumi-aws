@@ -5,6 +5,7 @@ package transfer
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -14,6 +15,16 @@ import (
 // Data source for managing an AWS Transfer Family Connector.
 func LookupConnector(ctx *pulumi.Context, args *LookupConnectorArgs, opts ...pulumi.InvokeOption) (*LookupConnectorResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupConnectorResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupConnectorResult{}, errors.New("DependsOn is not supported for direct form invoke LookupConnector, use LookupConnectorOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupConnectorResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupConnector, use LookupConnectorOutput instead")
+	}
 	var rv LookupConnectorResult
 	err := ctx.Invoke("aws:transfer/getConnector:getConnector", args, &rv, opts...)
 	if err != nil {
@@ -52,17 +63,18 @@ type LookupConnectorResult struct {
 }
 
 func LookupConnectorOutput(ctx *pulumi.Context, args LookupConnectorOutputArgs, opts ...pulumi.InvokeOption) LookupConnectorResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupConnectorResultOutput, error) {
 			args := v.(LookupConnectorArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupConnectorResult
-			secret, err := ctx.InvokePackageRaw("aws:transfer/getConnector:getConnector", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:transfer/getConnector:getConnector", args, &rv, "", opts...)
 			if err != nil {
 				return LookupConnectorResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupConnectorResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupConnectorResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupConnectorResultOutput), nil
 			}

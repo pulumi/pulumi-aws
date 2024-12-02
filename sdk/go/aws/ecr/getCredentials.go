@@ -5,6 +5,7 @@ package ecr
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -13,6 +14,16 @@ import (
 
 func GetCredentials(ctx *pulumi.Context, args *GetCredentialsArgs, opts ...pulumi.InvokeOption) (*GetCredentialsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetCredentialsResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetCredentialsResult{}, errors.New("DependsOn is not supported for direct form invoke GetCredentials, use GetCredentialsOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetCredentialsResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetCredentials, use GetCredentialsOutput instead")
+	}
 	var rv GetCredentialsResult
 	err := ctx.Invoke("aws:ecr/getCredentials:getCredentials", args, &rv, opts...)
 	if err != nil {
@@ -37,17 +48,18 @@ type GetCredentialsResult struct {
 }
 
 func GetCredentialsOutput(ctx *pulumi.Context, args GetCredentialsOutputArgs, opts ...pulumi.InvokeOption) GetCredentialsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetCredentialsResultOutput, error) {
 			args := v.(GetCredentialsArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetCredentialsResult
-			secret, err := ctx.InvokePackageRaw("aws:ecr/getCredentials:getCredentials", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ecr/getCredentials:getCredentials", args, &rv, "", opts...)
 			if err != nil {
 				return GetCredentialsResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetCredentialsResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetCredentialsResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetCredentialsResultOutput), nil
 			}

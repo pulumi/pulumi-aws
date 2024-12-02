@@ -5,6 +5,7 @@ package ec2transitgateway
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -48,6 +49,16 @@ import (
 // ```
 func GetRouteTableRoutes(ctx *pulumi.Context, args *GetRouteTableRoutesArgs, opts ...pulumi.InvokeOption) (*GetRouteTableRoutesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetRouteTableRoutesResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetRouteTableRoutesResult{}, errors.New("DependsOn is not supported for direct form invoke GetRouteTableRoutes, use GetRouteTableRoutesOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetRouteTableRoutesResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetRouteTableRoutes, use GetRouteTableRoutesOutput instead")
+	}
 	var rv GetRouteTableRoutesResult
 	err := ctx.Invoke("aws:ec2transitgateway/getRouteTableRoutes:getRouteTableRoutes", args, &rv, opts...)
 	if err != nil {
@@ -78,17 +89,18 @@ type GetRouteTableRoutesResult struct {
 }
 
 func GetRouteTableRoutesOutput(ctx *pulumi.Context, args GetRouteTableRoutesOutputArgs, opts ...pulumi.InvokeOption) GetRouteTableRoutesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetRouteTableRoutesResultOutput, error) {
 			args := v.(GetRouteTableRoutesArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetRouteTableRoutesResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2transitgateway/getRouteTableRoutes:getRouteTableRoutes", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:ec2transitgateway/getRouteTableRoutes:getRouteTableRoutes", args, &rv, "", opts...)
 			if err != nil {
 				return GetRouteTableRoutesResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetRouteTableRoutesResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetRouteTableRoutesResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetRouteTableRoutesResultOutput), nil
 			}

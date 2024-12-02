@@ -287,7 +287,7 @@ export interface GetOrderableDbInstanceResult {
  * });
  * ```
  */
-export function getOrderableDbInstanceOutput(args: GetOrderableDbInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderableDbInstanceResult> {
+export function getOrderableDbInstanceOutput(args: GetOrderableDbInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrderableDbInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:rds/getOrderableDbInstance:getOrderableDbInstance", {
         "availabilityZoneGroup": args.availabilityZoneGroup,

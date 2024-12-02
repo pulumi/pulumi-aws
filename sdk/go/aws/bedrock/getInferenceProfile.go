@@ -5,6 +5,7 @@ package bedrock
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -46,6 +47,16 @@ import (
 // ```
 func GetInferenceProfile(ctx *pulumi.Context, args *GetInferenceProfileArgs, opts ...pulumi.InvokeOption) (*GetInferenceProfileResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetInferenceProfileResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetInferenceProfileResult{}, errors.New("DependsOn is not supported for direct form invoke GetInferenceProfile, use GetInferenceProfileOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetInferenceProfileResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetInferenceProfile, use GetInferenceProfileOutput instead")
+	}
 	var rv GetInferenceProfileResult
 	err := ctx.Invoke("aws:bedrock/getInferenceProfile:getInferenceProfile", args, &rv, opts...)
 	if err != nil {
@@ -84,17 +95,18 @@ type GetInferenceProfileResult struct {
 }
 
 func GetInferenceProfileOutput(ctx *pulumi.Context, args GetInferenceProfileOutputArgs, opts ...pulumi.InvokeOption) GetInferenceProfileResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetInferenceProfileResultOutput, error) {
 			args := v.(GetInferenceProfileArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetInferenceProfileResult
-			secret, err := ctx.InvokePackageRaw("aws:bedrock/getInferenceProfile:getInferenceProfile", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:bedrock/getInferenceProfile:getInferenceProfile", args, &rv, "", opts...)
 			if err != nil {
 				return GetInferenceProfileResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetInferenceProfileResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetInferenceProfileResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetInferenceProfileResultOutput), nil
 			}

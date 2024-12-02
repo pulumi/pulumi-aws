@@ -5,6 +5,7 @@ package codebuild
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -83,6 +84,16 @@ import (
 // ```
 func LookupFleet(ctx *pulumi.Context, args *LookupFleetArgs, opts ...pulumi.InvokeOption) (*LookupFleetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupFleetResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupFleetResult{}, errors.New("DependsOn is not supported for direct form invoke LookupFleet, use LookupFleetOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupFleetResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupFleet, use LookupFleetOutput instead")
+	}
 	var rv LookupFleetResult
 	err := ctx.Invoke("aws:codebuild/getFleet:getFleet", args, &rv, opts...)
 	if err != nil {
@@ -133,17 +144,18 @@ type LookupFleetResult struct {
 }
 
 func LookupFleetOutput(ctx *pulumi.Context, args LookupFleetOutputArgs, opts ...pulumi.InvokeOption) LookupFleetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFleetResultOutput, error) {
 			args := v.(LookupFleetArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupFleetResult
-			secret, err := ctx.InvokePackageRaw("aws:codebuild/getFleet:getFleet", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:codebuild/getFleet:getFleet", args, &rv, "", opts...)
 			if err != nil {
 				return LookupFleetResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupFleetResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupFleetResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupFleetResultOutput), nil
 			}

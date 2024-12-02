@@ -5,6 +5,7 @@ package servicediscovery
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -41,6 +42,16 @@ import (
 // ```
 func GetDnsNamespace(ctx *pulumi.Context, args *GetDnsNamespaceArgs, opts ...pulumi.InvokeOption) (*GetDnsNamespaceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &GetDnsNamespaceResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &GetDnsNamespaceResult{}, errors.New("DependsOn is not supported for direct form invoke GetDnsNamespace, use GetDnsNamespaceOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &GetDnsNamespaceResult{}, errors.New("DependsOnInputs is not supported for direct form invoke GetDnsNamespace, use GetDnsNamespaceOutput instead")
+	}
 	var rv GetDnsNamespaceResult
 	err := ctx.Invoke("aws:servicediscovery/getDnsNamespace:getDnsNamespace", args, &rv, opts...)
 	if err != nil {
@@ -76,17 +87,18 @@ type GetDnsNamespaceResult struct {
 }
 
 func GetDnsNamespaceOutput(ctx *pulumi.Context, args GetDnsNamespaceOutputArgs, opts ...pulumi.InvokeOption) GetDnsNamespaceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetDnsNamespaceResultOutput, error) {
 			args := v.(GetDnsNamespaceArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv GetDnsNamespaceResult
-			secret, err := ctx.InvokePackageRaw("aws:servicediscovery/getDnsNamespace:getDnsNamespace", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:servicediscovery/getDnsNamespace:getDnsNamespace", args, &rv, "", opts...)
 			if err != nil {
 				return GetDnsNamespaceResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(GetDnsNamespaceResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(GetDnsNamespaceResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(GetDnsNamespaceResultOutput), nil
 			}

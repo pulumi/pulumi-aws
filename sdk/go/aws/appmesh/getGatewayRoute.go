@@ -5,6 +5,7 @@ package appmesh
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -42,6 +43,16 @@ import (
 // ```
 func LookupGatewayRoute(ctx *pulumi.Context, args *LookupGatewayRouteArgs, opts ...pulumi.InvokeOption) (*LookupGatewayRouteResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupGatewayRouteResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupGatewayRouteResult{}, errors.New("DependsOn is not supported for direct form invoke LookupGatewayRoute, use LookupGatewayRouteOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupGatewayRouteResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupGatewayRoute, use LookupGatewayRouteOutput instead")
+	}
 	var rv LookupGatewayRouteResult
 	err := ctx.Invoke("aws:appmesh/getGatewayRoute:getGatewayRoute", args, &rv, opts...)
 	if err != nil {
@@ -87,17 +98,18 @@ type LookupGatewayRouteResult struct {
 }
 
 func LookupGatewayRouteOutput(ctx *pulumi.Context, args LookupGatewayRouteOutputArgs, opts ...pulumi.InvokeOption) LookupGatewayRouteResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupGatewayRouteResultOutput, error) {
 			args := v.(LookupGatewayRouteArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupGatewayRouteResult
-			secret, err := ctx.InvokePackageRaw("aws:appmesh/getGatewayRoute:getGatewayRoute", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:appmesh/getGatewayRoute:getGatewayRoute", args, &rv, "", opts...)
 			if err != nil {
 				return LookupGatewayRouteResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupGatewayRouteResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupGatewayRouteResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupGatewayRouteResultOutput), nil
 			}

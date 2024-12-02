@@ -5,6 +5,7 @@ package eks
 
 import (
 	"context"
+	"errors"
 	"reflect"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
@@ -43,6 +44,16 @@ import (
 // ```
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
+	invokeOpts, optsErr := pulumi.NewInvokeOptions(opts...)
+	if optsErr != nil {
+		return &LookupClusterResult{}, optsErr
+	}
+	if len(invokeOpts.DependsOn) > 0 {
+		return &LookupClusterResult{}, errors.New("DependsOn is not supported for direct form invoke LookupCluster, use LookupClusterOutput instead")
+	}
+	if len(invokeOpts.DependsOnInputs) > 0 {
+		return &LookupClusterResult{}, errors.New("DependsOnInputs is not supported for direct form invoke LookupCluster, use LookupClusterOutput instead")
+	}
 	var rv LookupClusterResult
 	err := ctx.Invoke("aws:eks/getCluster:getCluster", args, &rv, opts...)
 	if err != nil {
@@ -103,17 +114,18 @@ type LookupClusterResult struct {
 }
 
 func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupClusterResultOutput, error) {
 			args := v.(LookupClusterArgs)
 			opts = internal.PkgInvokeDefaultOpts(opts)
 			var rv LookupClusterResult
-			secret, err := ctx.InvokePackageRaw("aws:eks/getCluster:getCluster", args, &rv, "", opts...)
+			secret, deps, err := ctx.InvokePackageRawWithDeps("aws:eks/getCluster:getCluster", args, &rv, "", opts...)
 			if err != nil {
 				return LookupClusterResultOutput{}, err
 			}
 
 			output := pulumi.ToOutput(rv).(LookupClusterResultOutput)
+			output = pulumi.OutputWithDependencies(ctx.Context(), output, deps...).(LookupClusterResultOutput)
 			if secret {
 				return pulumi.ToSecret(output).(LookupClusterResultOutput), nil
 			}
