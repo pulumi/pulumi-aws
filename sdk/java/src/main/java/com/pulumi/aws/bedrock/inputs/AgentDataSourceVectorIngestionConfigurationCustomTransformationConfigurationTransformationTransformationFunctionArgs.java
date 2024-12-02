@@ -16,14 +16,14 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
     public static final AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs Empty = new AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs();
 
     /**
-     * The lambda configuration for custom transformation.
+     * The configuration of the lambda function.
      * 
      */
     @Import(name="transformationLambdaConfiguration")
     private @Nullable Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs> transformationLambdaConfiguration;
 
     /**
-     * @return The lambda configuration for custom transformation.
+     * @return The configuration of the lambda function.
      * 
      */
     public Optional<Output<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs>> transformationLambdaConfiguration() {
@@ -55,7 +55,7 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
         }
 
         /**
-         * @param transformationLambdaConfiguration The lambda configuration for custom transformation.
+         * @param transformationLambdaConfiguration The configuration of the lambda function.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
         }
 
         /**
-         * @param transformationLambdaConfiguration The lambda configuration for custom transformation.
+         * @param transformationLambdaConfiguration The configuration of the lambda function.
          * 
          * @return builder
          * 

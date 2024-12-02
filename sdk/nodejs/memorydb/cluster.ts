@@ -22,6 +22,8 @@ import * as utilities from "../utilities";
  *     aclName: "open-access",
  *     name: "my-cluster",
  *     nodeType: "db.t4g.small",
+ *     engine: "redis",
+ *     engineVersion: "7.1",
  *     numShards: 2,
  *     securityGroupIds: [exampleAwsSecurityGroup.id],
  *     snapshotRetentionLimit: 7,
@@ -87,11 +89,15 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Patch version number of the Redis engine used by the cluster.
+     * The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+     */
+    public readonly engine!: pulumi.Output<string>;
+    /**
+     * Patch version number of the engine used by the cluster.
      */
     public /*out*/ readonly enginePatchVersion!: pulumi.Output<string>;
     /**
-     * Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+     * Version number of the engine to be used for the cluster. Downgrades are not supported.
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
@@ -202,6 +208,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["clusterEndpoints"] = state ? state.clusterEndpoints : undefined;
             resourceInputs["dataTiering"] = state ? state.dataTiering : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["engine"] = state ? state.engine : undefined;
             resourceInputs["enginePatchVersion"] = state ? state.enginePatchVersion : undefined;
             resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
             resourceInputs["finalSnapshotName"] = state ? state.finalSnapshotName : undefined;
@@ -237,6 +244,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
             resourceInputs["dataTiering"] = args ? args.dataTiering : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["engine"] = args ? args.engine : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
             resourceInputs["finalSnapshotName"] = args ? args.finalSnapshotName : undefined;
             resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
@@ -294,11 +302,15 @@ export interface ClusterState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Patch version number of the Redis engine used by the cluster.
+     * The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+     */
+    engine?: pulumi.Input<string>;
+    /**
+     * Patch version number of the engine used by the cluster.
      */
     enginePatchVersion?: pulumi.Input<string>;
     /**
-     * Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+     * Version number of the engine to be used for the cluster. Downgrades are not supported.
      */
     engineVersion?: pulumi.Input<string>;
     /**
@@ -412,7 +424,11 @@ export interface ClusterArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+     * The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+     */
+    engine?: pulumi.Input<string>;
+    /**
+     * Version number of the engine to be used for the cluster. Downgrades are not supported.
      */
     engineVersion?: pulumi.Input<string>;
     /**

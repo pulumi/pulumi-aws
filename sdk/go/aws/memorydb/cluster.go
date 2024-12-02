@@ -31,10 +31,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := memorydb.NewCluster(ctx, "example", &memorydb.ClusterArgs{
-//				AclName:   pulumi.String("open-access"),
-//				Name:      pulumi.String("my-cluster"),
-//				NodeType:  pulumi.String("db.t4g.small"),
-//				NumShards: pulumi.Int(2),
+//				AclName:       pulumi.String("open-access"),
+//				Name:          pulumi.String("my-cluster"),
+//				NodeType:      pulumi.String("db.t4g.small"),
+//				Engine:        pulumi.String("redis"),
+//				EngineVersion: pulumi.String("7.1"),
+//				NumShards:     pulumi.Int(2),
 //				SecurityGroupIds: pulumi.StringArray{
 //					exampleAwsSecurityGroup.Id,
 //				},
@@ -71,9 +73,11 @@ type Cluster struct {
 	DataTiering pulumi.BoolPtrOutput `pulumi:"dataTiering"`
 	// Description for the cluster. Defaults to `"Managed by Pulumi"`.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Patch version number of the Redis engine used by the cluster.
+	// The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+	Engine pulumi.StringOutput `pulumi:"engine"`
+	// Patch version number of the engine used by the cluster.
 	EnginePatchVersion pulumi.StringOutput `pulumi:"enginePatchVersion"`
-	// Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+	// Version number of the engine to be used for the cluster. Downgrades are not supported.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
 	FinalSnapshotName pulumi.StringPtrOutput `pulumi:"finalSnapshotName"`
@@ -170,9 +174,11 @@ type clusterState struct {
 	DataTiering *bool `pulumi:"dataTiering"`
 	// Description for the cluster. Defaults to `"Managed by Pulumi"`.
 	Description *string `pulumi:"description"`
-	// Patch version number of the Redis engine used by the cluster.
+	// The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+	Engine *string `pulumi:"engine"`
+	// Patch version number of the engine used by the cluster.
 	EnginePatchVersion *string `pulumi:"enginePatchVersion"`
-	// Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+	// Version number of the engine to be used for the cluster. Downgrades are not supported.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
 	FinalSnapshotName *string `pulumi:"finalSnapshotName"`
@@ -234,9 +240,11 @@ type ClusterState struct {
 	DataTiering pulumi.BoolPtrInput
 	// Description for the cluster. Defaults to `"Managed by Pulumi"`.
 	Description pulumi.StringPtrInput
-	// Patch version number of the Redis engine used by the cluster.
+	// The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+	Engine pulumi.StringPtrInput
+	// Patch version number of the engine used by the cluster.
 	EnginePatchVersion pulumi.StringPtrInput
-	// Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+	// Version number of the engine to be used for the cluster. Downgrades are not supported.
 	EngineVersion pulumi.StringPtrInput
 	// Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
 	FinalSnapshotName pulumi.StringPtrInput
@@ -299,7 +307,9 @@ type clusterArgs struct {
 	DataTiering *bool `pulumi:"dataTiering"`
 	// Description for the cluster. Defaults to `"Managed by Pulumi"`.
 	Description *string `pulumi:"description"`
-	// Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+	// The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+	Engine *string `pulumi:"engine"`
+	// Version number of the engine to be used for the cluster. Downgrades are not supported.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
 	FinalSnapshotName *string `pulumi:"finalSnapshotName"`
@@ -353,7 +363,9 @@ type ClusterArgs struct {
 	DataTiering pulumi.BoolPtrInput
 	// Description for the cluster. Defaults to `"Managed by Pulumi"`.
 	Description pulumi.StringPtrInput
-	// Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+	// The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+	Engine pulumi.StringPtrInput
+	// Version number of the engine to be used for the cluster. Downgrades are not supported.
 	EngineVersion pulumi.StringPtrInput
 	// Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
 	FinalSnapshotName pulumi.StringPtrInput
@@ -513,12 +525,17 @@ func (o ClusterOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Patch version number of the Redis engine used by the cluster.
+// The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+func (o ClusterOutput) Engine() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Engine }).(pulumi.StringOutput)
+}
+
+// Patch version number of the engine used by the cluster.
 func (o ClusterOutput) EnginePatchVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.EnginePatchVersion }).(pulumi.StringOutput)
 }
 
-// Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+// Version number of the engine to be used for the cluster. Downgrades are not supported.
 func (o ClusterOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
 }

@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Currently only `POST_CHUNKING` is supported.
+        /// When the service applies the transformation. Currently only `POST_CHUNKING` is supported.
         /// </summary>
         [Input("stepToApply", required: true)]
         public Input<string> StepToApply { get; set; } = null!;
 
         /// <summary>
-        /// The configuration of transformation function.
+        /// The lambda function that processes documents.
         /// </summary>
         [Input("transformationFunction")]
         public Input<Inputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionGetArgs>? TransformationFunction { get; set; }

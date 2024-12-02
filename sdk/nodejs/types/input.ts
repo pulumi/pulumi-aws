@@ -2119,7 +2119,7 @@ export namespace alb {
         /**
          * Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
          * * For HTTP and HTTPS health checks, the default is `/`.
-         * * For gRPC health checks, the default is `/Amazon Web Services.ALB/healthcheck`.
+         * * For gRPC health checks, the default is `/AWS.ALB/healthcheck`.
          */
         path?: pulumi.Input<string>;
         /**
@@ -10538,6 +10538,9 @@ export namespace bedrock {
          * The intermediate storage for custom transformation.
          */
         intermediateStorage?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage>;
+        /**
+         * A custom processing step for documents moving through the data source ingestion pipeline.
+         */
         transformation?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation>;
     }
 
@@ -10557,18 +10560,18 @@ export namespace bedrock {
 
     export interface AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation {
         /**
-         * Currently only `POST_CHUNKING` is supported.
+         * When the service applies the transformation. Currently only `POST_CHUNKING` is supported.
          */
         stepToApply: pulumi.Input<string>;
         /**
-         * The configuration of transformation function.
+         * The lambda function that processes documents.
          */
         transformationFunction?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction>;
     }
 
     export interface AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction {
         /**
-         * The lambda configuration for custom transformation.
+         * The configuration of the lambda function.
          */
         transformationLambdaConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration>;
     }
@@ -10947,7 +10950,8 @@ export namespace bedrock {
 
     export interface GuardrailContentPolicyConfig {
         /**
-         * List of content filter configs in content policy. See Filters Config for more information.
+         * Set of content filter configs in content policy.
+         * See Filters Config for more information.
          */
         filtersConfigs?: pulumi.Input<pulumi.Input<inputs.bedrock.GuardrailContentPolicyConfigFiltersConfig>[]>;
     }
@@ -41284,7 +41288,7 @@ export namespace lb {
         /**
          * Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
          * * For HTTP and HTTPS health checks, the default is `/`.
-         * * For gRPC health checks, the default is `/Amazon Web Services.ALB/healthcheck`.
+         * * For gRPC health checks, the default is `/AWS.ALB/healthcheck`.
          */
         path?: pulumi.Input<string>;
         /**
@@ -57592,7 +57596,11 @@ export namespace memorydb {
          */
         description?: pulumi.Input<string>;
         /**
-         * Version number of the Redis engine used by the cluster.
+         * The engine that will run on cluster nodes.
+         */
+        engine?: pulumi.Input<string>;
+        /**
+         * Version number of the engine used by the cluster.
          */
         engineVersion?: pulumi.Input<string>;
         /**

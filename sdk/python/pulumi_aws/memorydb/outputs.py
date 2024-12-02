@@ -304,6 +304,7 @@ class SnapshotClusterConfiguration(dict):
 
     def __init__(__self__, *,
                  description: Optional[str] = None,
+                 engine: Optional[str] = None,
                  engine_version: Optional[str] = None,
                  maintenance_window: Optional[str] = None,
                  name: Optional[str] = None,
@@ -318,7 +319,8 @@ class SnapshotClusterConfiguration(dict):
                  vpc_id: Optional[str] = None):
         """
         :param str description: Description for the cluster.
-        :param str engine_version: Version number of the Redis engine used by the cluster.
+        :param str engine: The engine that will run on cluster nodes.
+        :param str engine_version: Version number of the engine used by the cluster.
         :param str maintenance_window: The weekly time range during which maintenance on the cluster is performed.
         :param str name: Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param str node_type: Compute and memory capacity of the nodes in the cluster.
@@ -333,6 +335,8 @@ class SnapshotClusterConfiguration(dict):
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if engine is not None:
+            pulumi.set(__self__, "engine", engine)
         if engine_version is not None:
             pulumi.set(__self__, "engine_version", engine_version)
         if maintenance_window is not None:
@@ -367,10 +371,18 @@ class SnapshotClusterConfiguration(dict):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter
+    def engine(self) -> Optional[str]:
+        """
+        The engine that will run on cluster nodes.
+        """
+        return pulumi.get(self, "engine")
+
+    @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[str]:
         """
-        Version number of the Redis engine used by the cluster.
+        Version number of the engine used by the cluster.
         """
         return pulumi.get(self, "engine_version")
 
@@ -711,6 +723,7 @@ class GetParameterGroupParameterResult(dict):
 class GetSnapshotClusterConfigurationResult(dict):
     def __init__(__self__, *,
                  description: str,
+                 engine: str,
                  engine_version: str,
                  maintenance_window: str,
                  name: str,
@@ -725,7 +738,8 @@ class GetSnapshotClusterConfigurationResult(dict):
                  vpc_id: str):
         """
         :param str description: Description for the cluster.
-        :param str engine_version: Version number of the Redis engine used by the cluster.
+        :param str engine: The engine that will run on cluster nodes.
+        :param str engine_version: Version number of the engine used by the cluster.
         :param str maintenance_window: The weekly time range during which maintenance on the cluster is performed.
         :param str name: Name of the snapshot.
         :param str node_type: Compute and memory capacity of the nodes in the cluster.
@@ -739,6 +753,7 @@ class GetSnapshotClusterConfigurationResult(dict):
         :param str vpc_id: The VPC in which the cluster exists.
         """
         pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "engine", engine)
         pulumi.set(__self__, "engine_version", engine_version)
         pulumi.set(__self__, "maintenance_window", maintenance_window)
         pulumi.set(__self__, "name", name)
@@ -761,10 +776,18 @@ class GetSnapshotClusterConfigurationResult(dict):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter
+    def engine(self) -> str:
+        """
+        The engine that will run on cluster nodes.
+        """
+        return pulumi.get(self, "engine")
+
+    @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> str:
         """
-        Version number of the Redis engine used by the cluster.
+        Version number of the engine used by the cluster.
         """
         return pulumi.get(self, "engine_version")
 

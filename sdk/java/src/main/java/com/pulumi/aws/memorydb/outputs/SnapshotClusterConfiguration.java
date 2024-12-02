@@ -18,7 +18,12 @@ public final class SnapshotClusterConfiguration {
      */
     private @Nullable String description;
     /**
-     * @return Version number of the Redis engine used by the cluster.
+     * @return The engine that will run on cluster nodes.
+     * 
+     */
+    private @Nullable String engine;
+    /**
+     * @return Version number of the engine used by the cluster.
      * 
      */
     private @Nullable String engineVersion;
@@ -87,7 +92,14 @@ public final class SnapshotClusterConfiguration {
         return Optional.ofNullable(this.description);
     }
     /**
-     * @return Version number of the Redis engine used by the cluster.
+     * @return The engine that will run on cluster nodes.
+     * 
+     */
+    public Optional<String> engine() {
+        return Optional.ofNullable(this.engine);
+    }
+    /**
+     * @return Version number of the engine used by the cluster.
      * 
      */
     public Optional<String> engineVersion() {
@@ -181,6 +193,7 @@ public final class SnapshotClusterConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String description;
+        private @Nullable String engine;
         private @Nullable String engineVersion;
         private @Nullable String maintenanceWindow;
         private @Nullable String name;
@@ -197,6 +210,7 @@ public final class SnapshotClusterConfiguration {
         public Builder(SnapshotClusterConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
+    	      this.engine = defaults.engine;
     	      this.engineVersion = defaults.engineVersion;
     	      this.maintenanceWindow = defaults.maintenanceWindow;
     	      this.name = defaults.name;
@@ -215,6 +229,12 @@ public final class SnapshotClusterConfiguration {
         public Builder description(@Nullable String description) {
 
             this.description = description;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder engine(@Nullable String engine) {
+
+            this.engine = engine;
             return this;
         }
         @CustomType.Setter
@@ -292,6 +312,7 @@ public final class SnapshotClusterConfiguration {
         public SnapshotClusterConfiguration build() {
             final var _resultValue = new SnapshotClusterConfiguration();
             _resultValue.description = description;
+            _resultValue.engine = engine;
             _resultValue.engineVersion = engineVersion;
             _resultValue.maintenanceWindow = maintenanceWindow;
             _resultValue.name = name;

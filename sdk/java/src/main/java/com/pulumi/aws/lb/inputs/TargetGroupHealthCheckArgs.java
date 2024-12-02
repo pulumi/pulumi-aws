@@ -92,7 +92,7 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
     /**
      * Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
      * * For HTTP and HTTPS health checks, the default is `/`.
-     * * For gRPC health checks, the default is `/Amazon Web Services.ALB/healthcheck`.
+     * * For gRPC health checks, the default is `/AWS.ALB/healthcheck`.
      * 
      */
     @Import(name="path")
@@ -101,7 +101,7 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
     /**
      * @return Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
      * * For HTTP and HTTPS health checks, the default is `/`.
-     * * For gRPC health checks, the default is `/Amazon Web Services.ALB/healthcheck`.
+     * * For gRPC health checks, the default is `/AWS.ALB/healthcheck`.
      * 
      */
     public Optional<Output<String>> path() {
@@ -311,7 +311,7 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
         /**
          * @param path Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
          * * For HTTP and HTTPS health checks, the default is `/`.
-         * * For gRPC health checks, the default is `/Amazon Web Services.ALB/healthcheck`.
+         * * For gRPC health checks, the default is `/AWS.ALB/healthcheck`.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
         /**
          * @param path Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
          * * For HTTP and HTTPS health checks, the default is `/`.
-         * * For gRPC health checks, the default is `/Amazon Web Services.ALB/healthcheck`.
+         * * For gRPC health checks, the default is `/AWS.ALB/healthcheck`.
          * 
          * @return builder
          * 

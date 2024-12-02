@@ -17,7 +17,12 @@ public final class GetSnapshotClusterConfiguration {
      */
     private String description;
     /**
-     * @return Version number of the Redis engine used by the cluster.
+     * @return The engine that will run on cluster nodes.
+     * 
+     */
+    private String engine;
+    /**
+     * @return Version number of the engine used by the cluster.
      * 
      */
     private String engineVersion;
@@ -86,7 +91,14 @@ public final class GetSnapshotClusterConfiguration {
         return this.description;
     }
     /**
-     * @return Version number of the Redis engine used by the cluster.
+     * @return The engine that will run on cluster nodes.
+     * 
+     */
+    public String engine() {
+        return this.engine;
+    }
+    /**
+     * @return Version number of the engine used by the cluster.
      * 
      */
     public String engineVersion() {
@@ -180,6 +192,7 @@ public final class GetSnapshotClusterConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private String description;
+        private String engine;
         private String engineVersion;
         private String maintenanceWindow;
         private String name;
@@ -196,6 +209,7 @@ public final class GetSnapshotClusterConfiguration {
         public Builder(GetSnapshotClusterConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
+    	      this.engine = defaults.engine;
     	      this.engineVersion = defaults.engineVersion;
     	      this.maintenanceWindow = defaults.maintenanceWindow;
     	      this.name = defaults.name;
@@ -216,6 +230,14 @@ public final class GetSnapshotClusterConfiguration {
               throw new MissingRequiredPropertyException("GetSnapshotClusterConfiguration", "description");
             }
             this.description = description;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder engine(String engine) {
+            if (engine == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotClusterConfiguration", "engine");
+            }
+            this.engine = engine;
             return this;
         }
         @CustomType.Setter
@@ -317,6 +339,7 @@ public final class GetSnapshotClusterConfiguration {
         public GetSnapshotClusterConfiguration build() {
             final var _resultValue = new GetSnapshotClusterConfiguration();
             _resultValue.description = description;
+            _resultValue.engine = engine;
             _resultValue.engineVersion = engineVersion;
             _resultValue.maintenanceWindow = maintenanceWindow;
             _resultValue.name = name;

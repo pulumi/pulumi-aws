@@ -81,14 +81,29 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+     * The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+     * 
+     */
+    @Import(name="engine")
+    private @Nullable Output<String> engine;
+
+    /**
+     * @return The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+     * 
+     */
+    public Optional<Output<String>> engine() {
+        return Optional.ofNullable(this.engine);
+    }
+
+    /**
+     * Version number of the engine to be used for the cluster. Downgrades are not supported.
      * 
      */
     @Import(name="engineVersion")
     private @Nullable Output<String> engineVersion;
 
     /**
-     * @return Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+     * @return Version number of the engine to be used for the cluster. Downgrades are not supported.
      * 
      */
     public Optional<Output<String>> engineVersion() {
@@ -391,6 +406,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.autoMinorVersionUpgrade = $.autoMinorVersionUpgrade;
         this.dataTiering = $.dataTiering;
         this.description = $.description;
+        this.engine = $.engine;
         this.engineVersion = $.engineVersion;
         this.finalSnapshotName = $.finalSnapshotName;
         this.kmsKeyArn = $.kmsKeyArn;
@@ -516,7 +532,28 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineVersion Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+         * @param engine The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder engine(@Nullable Output<String> engine) {
+            $.engine = engine;
+            return this;
+        }
+
+        /**
+         * @param engine The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder engine(String engine) {
+            return engine(Output.of(engine));
+        }
+
+        /**
+         * @param engineVersion Version number of the engine to be used for the cluster. Downgrades are not supported.
          * 
          * @return builder
          * 
@@ -527,7 +564,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineVersion Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+         * @param engineVersion Version number of the engine to be used for the cluster. Downgrades are not supported.
          * 
          * @return builder
          * 

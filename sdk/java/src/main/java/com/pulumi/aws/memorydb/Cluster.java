@@ -54,6 +54,8 @@ import javax.annotation.Nullable;
  *             .aclName("open-access")
  *             .name("my-cluster")
  *             .nodeType("db.t4g.small")
+ *             .engine("redis")
+ *             .engineVersion("7.1")
  *             .numShards(2)
  *             .securityGroupIds(exampleAwsSecurityGroup.id())
  *             .snapshotRetentionLimit(7)
@@ -154,28 +156,42 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Patch version number of the Redis engine used by the cluster.
+     * The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+     * 
+     */
+    @Export(name="engine", refs={String.class}, tree="[0]")
+    private Output<String> engine;
+
+    /**
+     * @return The engine that will run on your nodes. Supported values are `redis` and `valkey`.
+     * 
+     */
+    public Output<String> engine() {
+        return this.engine;
+    }
+    /**
+     * Patch version number of the engine used by the cluster.
      * 
      */
     @Export(name="enginePatchVersion", refs={String.class}, tree="[0]")
     private Output<String> enginePatchVersion;
 
     /**
-     * @return Patch version number of the Redis engine used by the cluster.
+     * @return Patch version number of the engine used by the cluster.
      * 
      */
     public Output<String> enginePatchVersion() {
         return this.enginePatchVersion;
     }
     /**
-     * Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+     * Version number of the engine to be used for the cluster. Downgrades are not supported.
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
     /**
-     * @return Version number of the Redis engine to be used for the cluster. Downgrades are not supported.
+     * @return Version number of the engine to be used for the cluster. Downgrades are not supported.
      * 
      */
     public Output<String> engineVersion() {

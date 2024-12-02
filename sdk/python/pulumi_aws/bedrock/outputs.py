@@ -1427,6 +1427,7 @@ class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurati
                  transformation: Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation'] = None):
         """
         :param 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs' intermediate_storage: The intermediate storage for custom transformation.
+        :param 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs' transformation: A custom processing step for documents moving through the data source ingestion pipeline.
         """
         if intermediate_storage is not None:
             pulumi.set(__self__, "intermediate_storage", intermediate_storage)
@@ -1444,6 +1445,9 @@ class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurati
     @property
     @pulumi.getter
     def transformation(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation']:
+        """
+        A custom processing step for documents moving through the data source ingestion pipeline.
+        """
         return pulumi.get(self, "transformation")
 
 
@@ -1526,8 +1530,8 @@ class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurati
                  step_to_apply: str,
                  transformation_function: Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction'] = None):
         """
-        :param str step_to_apply: Currently only `POST_CHUNKING` is supported.
-        :param 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs' transformation_function: The configuration of transformation function.
+        :param str step_to_apply: When the service applies the transformation. Currently only `POST_CHUNKING` is supported.
+        :param 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs' transformation_function: The lambda function that processes documents.
         """
         pulumi.set(__self__, "step_to_apply", step_to_apply)
         if transformation_function is not None:
@@ -1537,7 +1541,7 @@ class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurati
     @pulumi.getter(name="stepToApply")
     def step_to_apply(self) -> str:
         """
-        Currently only `POST_CHUNKING` is supported.
+        When the service applies the transformation. Currently only `POST_CHUNKING` is supported.
         """
         return pulumi.get(self, "step_to_apply")
 
@@ -1545,7 +1549,7 @@ class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurati
     @pulumi.getter(name="transformationFunction")
     def transformation_function(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction']:
         """
-        The configuration of transformation function.
+        The lambda function that processes documents.
         """
         return pulumi.get(self, "transformation_function")
 
@@ -1572,7 +1576,7 @@ class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurati
     def __init__(__self__, *,
                  transformation_lambda_configuration: Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration'] = None):
         """
-        :param 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs' transformation_lambda_configuration: The lambda configuration for custom transformation.
+        :param 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs' transformation_lambda_configuration: The configuration of the lambda function.
         """
         if transformation_lambda_configuration is not None:
             pulumi.set(__self__, "transformation_lambda_configuration", transformation_lambda_configuration)
@@ -1581,7 +1585,7 @@ class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurati
     @pulumi.getter(name="transformationLambdaConfiguration")
     def transformation_lambda_configuration(self) -> Optional['outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration']:
         """
-        The lambda configuration for custom transformation.
+        The configuration of the lambda function.
         """
         return pulumi.get(self, "transformation_lambda_configuration")
 
@@ -2812,7 +2816,8 @@ class GuardrailContentPolicyConfig(dict):
     def __init__(__self__, *,
                  filters_configs: Optional[Sequence['outputs.GuardrailContentPolicyConfigFiltersConfig']] = None):
         """
-        :param Sequence['GuardrailContentPolicyConfigFiltersConfigArgs'] filters_configs: List of content filter configs in content policy. See Filters Config for more information.
+        :param Sequence['GuardrailContentPolicyConfigFiltersConfigArgs'] filters_configs: Set of content filter configs in content policy.
+               See Filters Config for more information.
         """
         if filters_configs is not None:
             pulumi.set(__self__, "filters_configs", filters_configs)
@@ -2821,7 +2826,8 @@ class GuardrailContentPolicyConfig(dict):
     @pulumi.getter(name="filtersConfigs")
     def filters_configs(self) -> Optional[Sequence['outputs.GuardrailContentPolicyConfigFiltersConfig']]:
         """
-        List of content filter configs in content policy. See Filters Config for more information.
+        Set of content filter configs in content policy.
+        See Filters Config for more information.
         """
         return pulumi.get(self, "filters_configs")
 

@@ -18,7 +18,11 @@ namespace Pulumi.Aws.MemoryDb.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Version number of the Redis engine used by the cluster.
+        /// The engine that will run on cluster nodes.
+        /// </summary>
+        public readonly string? Engine;
+        /// <summary>
+        /// Version number of the engine used by the cluster.
         /// </summary>
         public readonly string? EngineVersion;
         /// <summary>
@@ -70,6 +74,8 @@ namespace Pulumi.Aws.MemoryDb.Outputs
         private SnapshotClusterConfiguration(
             string? description,
 
+            string? engine,
+
             string? engineVersion,
 
             string? maintenanceWindow,
@@ -95,6 +101,7 @@ namespace Pulumi.Aws.MemoryDb.Outputs
             string? vpcId)
         {
             Description = description;
+            Engine = engine;
             EngineVersion = engineVersion;
             MaintenanceWindow = maintenanceWindow;
             Name = name;

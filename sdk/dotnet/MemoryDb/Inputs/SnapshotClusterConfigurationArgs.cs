@@ -19,7 +19,13 @@ namespace Pulumi.Aws.MemoryDb.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Version number of the Redis engine used by the cluster.
+        /// The engine that will run on cluster nodes.
+        /// </summary>
+        [Input("engine")]
+        public Input<string>? Engine { get; set; }
+
+        /// <summary>
+        /// Version number of the engine used by the cluster.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }

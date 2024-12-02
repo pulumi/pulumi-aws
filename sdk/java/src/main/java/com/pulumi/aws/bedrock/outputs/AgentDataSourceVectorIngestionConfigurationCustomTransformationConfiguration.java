@@ -17,6 +17,10 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
      * 
      */
     private @Nullable AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage intermediateStorage;
+    /**
+     * @return A custom processing step for documents moving through the data source ingestion pipeline.
+     * 
+     */
     private @Nullable AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation transformation;
 
     private AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration() {}
@@ -27,6 +31,10 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
     public Optional<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage> intermediateStorage() {
         return Optional.ofNullable(this.intermediateStorage);
     }
+    /**
+     * @return A custom processing step for documents moving through the data source ingestion pipeline.
+     * 
+     */
     public Optional<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation> transformation() {
         return Optional.ofNullable(this.transformation);
     }

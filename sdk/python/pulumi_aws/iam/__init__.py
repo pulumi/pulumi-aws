@@ -34,6 +34,7 @@ from .group_policy_attachment import *
 from .group_policy_attachments_exclusive import *
 from .instance_profile import *
 from .open_id_connect_provider import *
+from .organizations_features import *
 from .policy import *
 from .policy_attachment import *
 from .role import *

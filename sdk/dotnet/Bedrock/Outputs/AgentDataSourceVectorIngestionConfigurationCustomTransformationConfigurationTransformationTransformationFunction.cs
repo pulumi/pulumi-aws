@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction
     {
         /// <summary>
-        /// The lambda configuration for custom transformation.
+        /// The configuration of the lambda function.
         /// </summary>
         public readonly Outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration? TransformationLambdaConfiguration;
 

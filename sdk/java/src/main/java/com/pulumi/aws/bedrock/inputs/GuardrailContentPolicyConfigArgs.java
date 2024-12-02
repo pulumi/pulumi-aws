@@ -17,14 +17,16 @@ public final class GuardrailContentPolicyConfigArgs extends com.pulumi.resources
     public static final GuardrailContentPolicyConfigArgs Empty = new GuardrailContentPolicyConfigArgs();
 
     /**
-     * List of content filter configs in content policy. See Filters Config for more information.
+     * Set of content filter configs in content policy.
+     * See Filters Config for more information.
      * 
      */
     @Import(name="filtersConfigs")
     private @Nullable Output<List<GuardrailContentPolicyConfigFiltersConfigArgs>> filtersConfigs;
 
     /**
-     * @return List of content filter configs in content policy. See Filters Config for more information.
+     * @return Set of content filter configs in content policy.
+     * See Filters Config for more information.
      * 
      */
     public Optional<Output<List<GuardrailContentPolicyConfigFiltersConfigArgs>>> filtersConfigs() {
@@ -56,7 +58,8 @@ public final class GuardrailContentPolicyConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param filtersConfigs List of content filter configs in content policy. See Filters Config for more information.
+         * @param filtersConfigs Set of content filter configs in content policy.
+         * See Filters Config for more information.
          * 
          * @return builder
          * 
@@ -67,7 +70,8 @@ public final class GuardrailContentPolicyConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param filtersConfigs List of content filter configs in content policy. See Filters Config for more information.
+         * @param filtersConfigs Set of content filter configs in content policy.
+         * See Filters Config for more information.
          * 
          * @return builder
          * 
@@ -77,7 +81,8 @@ public final class GuardrailContentPolicyConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param filtersConfigs List of content filter configs in content policy. See Filters Config for more information.
+         * @param filtersConfigs Set of content filter configs in content policy.
+         * See Filters Config for more information.
          * 
          * @return builder
          * 

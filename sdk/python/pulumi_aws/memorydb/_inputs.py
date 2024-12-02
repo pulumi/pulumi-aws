@@ -370,9 +370,13 @@ if not MYPY:
         """
         Description for the cluster.
         """
+        engine: NotRequired[pulumi.Input[str]]
+        """
+        The engine that will run on cluster nodes.
+        """
         engine_version: NotRequired[pulumi.Input[str]]
         """
-        Version number of the Redis engine used by the cluster.
+        Version number of the engine used by the cluster.
         """
         maintenance_window: NotRequired[pulumi.Input[str]]
         """
@@ -425,6 +429,7 @@ elif False:
 class SnapshotClusterConfigurationArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
+                 engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -439,7 +444,8 @@ class SnapshotClusterConfigurationArgs:
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] description: Description for the cluster.
-        :param pulumi.Input[str] engine_version: Version number of the Redis engine used by the cluster.
+        :param pulumi.Input[str] engine: The engine that will run on cluster nodes.
+        :param pulumi.Input[str] engine_version: Version number of the engine used by the cluster.
         :param pulumi.Input[str] maintenance_window: The weekly time range during which maintenance on the cluster is performed.
         :param pulumi.Input[str] name: Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] node_type: Compute and memory capacity of the nodes in the cluster.
@@ -454,6 +460,8 @@ class SnapshotClusterConfigurationArgs:
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if engine is not None:
+            pulumi.set(__self__, "engine", engine)
         if engine_version is not None:
             pulumi.set(__self__, "engine_version", engine_version)
         if maintenance_window is not None:
@@ -492,10 +500,22 @@ class SnapshotClusterConfigurationArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter
+    def engine(self) -> Optional[pulumi.Input[str]]:
+        """
+        The engine that will run on cluster nodes.
+        """
+        return pulumi.get(self, "engine")
+
+    @engine.setter
+    def engine(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engine", value)
+
+    @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Version number of the Redis engine used by the cluster.
+        Version number of the engine used by the cluster.
         """
         return pulumi.get(self, "engine_version")
 

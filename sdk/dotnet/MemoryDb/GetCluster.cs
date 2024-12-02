@@ -139,11 +139,15 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// Patch version number of the Redis engine used by the cluster.
+        /// Engine that will run on cluster nodes.
+        /// </summary>
+        public readonly string Engine;
+        /// <summary>
+        /// Patch version number of the engine used by the cluster.
         /// </summary>
         public readonly string EnginePatchVersion;
         /// <summary>
-        /// Version number of the Redis engine used by the cluster.
+        /// Version number of the engine used by the cluster.
         /// </summary>
         public readonly string EngineVersion;
         /// <summary>
@@ -233,6 +237,8 @@ namespace Pulumi.Aws.MemoryDb
 
             string description,
 
+            string engine,
+
             string enginePatchVersion,
 
             string engineVersion,
@@ -279,6 +285,7 @@ namespace Pulumi.Aws.MemoryDb
             ClusterEndpoints = clusterEndpoints;
             DataTiering = dataTiering;
             Description = description;
+            Engine = engine;
             EnginePatchVersion = enginePatchVersion;
             EngineVersion = engineVersion;
             FinalSnapshotName = finalSnapshotName;

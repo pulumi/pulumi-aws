@@ -16,7 +16,8 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.GuardrailContentPolicyConfigFiltersConfigGetArgs>? _filtersConfigs;
 
         /// <summary>
-        /// List of content filter configs in content policy. See Filters Config for more information.
+        /// Set of content filter configs in content policy.
+        /// See Filters Config for more information.
         /// </summary>
         public InputList<Inputs.GuardrailContentPolicyConfigFiltersConfigGetArgs> FiltersConfigs
         {
