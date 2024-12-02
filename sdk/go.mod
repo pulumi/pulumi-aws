@@ -8,6 +8,7 @@ require (
 )
 
 retract (
+	v6.62.0 // Retracted due to https://github.com/pulumi/pulumi-aws/issues/4863
 	v6.0.1 // Contains retractions only.
 	v6.0.0 // Retracted due to https://github.com/pulumi/pulumi-aws/issues/2682
 )
