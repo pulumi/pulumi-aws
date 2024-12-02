@@ -5,7 +5,7 @@ Subject: [PATCH] update apn info
 
 
 diff --git a/internal/conns/config.go b/internal/conns/config.go
-index 7f7a5afc0e..572660dc92 100644
+index 8ee7c6d627..06ba95b4bb 100644
 --- a/internal/conns/config.go
 +++ b/internal/conns/config.go
 @@ -23,7 +23,6 @@ import (
