@@ -729,9 +729,17 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.preferredMaintenanceWindow);
     }
 
+    /**
+     * ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
+     * 
+     */
     @Import(name="replicationSourceIdentifier")
     private @Nullable Output<String> replicationSourceIdentifier;
 
+    /**
+     * @return ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
+     * 
+     */
     public Optional<Output<String>> replicationSourceIdentifier() {
         return Optional.ofNullable(this.replicationSourceIdentifier);
     }
@@ -2035,11 +2043,23 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
             return preferredMaintenanceWindow(Output.of(preferredMaintenanceWindow));
         }
 
+        /**
+         * @param replicationSourceIdentifier ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder replicationSourceIdentifier(@Nullable Output<String> replicationSourceIdentifier) {
             $.replicationSourceIdentifier = replicationSourceIdentifier;
             return this;
         }
 
+        /**
+         * @param replicationSourceIdentifier ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder replicationSourceIdentifier(String replicationSourceIdentifier) {
             return replicationSourceIdentifier(Output.of(replicationSourceIdentifier));
         }

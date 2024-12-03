@@ -473,6 +473,9 @@ export class Cluster extends pulumi.CustomResource {
      * load-balanced across replicas
      */
     public /*out*/ readonly readerEndpoint!: pulumi.Output<string>;
+    /**
+     * ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
+     */
     public readonly replicationSourceIdentifier!: pulumi.Output<string | undefined>;
     /**
      * Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
@@ -909,6 +912,9 @@ export interface ClusterState {
      * load-balanced across replicas
      */
     readerEndpoint?: pulumi.Input<string>;
+    /**
+     * ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
+     */
     replicationSourceIdentifier?: pulumi.Input<string>;
     /**
      * Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
@@ -1153,6 +1159,9 @@ export interface ClusterArgs {
      * Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
      */
     preferredMaintenanceWindow?: pulumi.Input<string>;
+    /**
+     * ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
+     */
     replicationSourceIdentifier?: pulumi.Input<string>;
     /**
      * Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
