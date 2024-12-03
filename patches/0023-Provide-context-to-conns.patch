@@ -143,7 +143,7 @@ index 54b86a0426..d9f2424b7a 100644
  	_, err := conn.DeleteMatchmakingRuleSet(&gamelift.DeleteMatchmakingRuleSetInput{
  		Name: aws.String(d.Id()),
 diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
-index 69cdf81c1e..575767763b 100644
+index 0e1e17baa3..dc93531e67 100644
 --- a/internal/service/s3legacy/bucket_legacy.go
 +++ b/internal/service/s3legacy/bucket_legacy.go
 @@ -673,7 +673,7 @@ func ResourceBucketLegacy() *schema.Resource {

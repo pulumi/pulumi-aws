@@ -57,7 +57,7 @@ index 008ebc180f..c326774548 100644
  			DebugLogging:   aws.Bool(d.Get("debug_logging").(bool)),
  			NewDBProxyName: aws.String(nName.(string)),
 diff --git a/internal/service/rds/proxy_test.go b/internal/service/rds/proxy_test.go
-index c245b5f5ce..c39622b0aa 100644
+index 884f83084b..0856302c30 100644
 --- a/internal/service/rds/proxy_test.go
 +++ b/internal/service/rds/proxy_test.go
 @@ -40,12 +40,13 @@ func TestAccRDSProxy_basic(t *testing.T) {
@@ -69,7 +69,7 @@ index c245b5f5ce..c39622b0aa 100644
  					testAccCheckProxyExists(ctx, resourceName, &v),
  					resource.TestCheckResourceAttr(resourceName, names.AttrName, rName),
  					resource.TestCheckResourceAttr(resourceName, "engine_family", "MYSQL"),
- 					acctest.MatchResourceAttrRegionalARN(resourceName, names.AttrARN, "rds", regexache.MustCompile(`db-proxy:.+`)),
+ 					acctest.MatchResourceAttrRegionalARN(ctx, resourceName, names.AttrARN, "rds", regexache.MustCompile(`db-proxy:.+`)),
  					resource.TestCheckResourceAttr(resourceName, "auth.#", "1"),
 +
  					resource.TestCheckTypeSetElemNestedAttrs(resourceName, "auth.*", map[string]string{

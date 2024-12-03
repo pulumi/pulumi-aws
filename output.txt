@@ -1,0 +1,28 @@
+(cd provider && go build -p 2 -o /Users/flo/development/pulumi-aws/bin/pulumi-tfgen-aws -ldflags "-X github.com/pulumi/pulumi-aws/provider/v6/pkg/version.Version=6.0.0-alpha.0+dev -X github.com/hashicorp/terraform-provider-aws/version.ProviderVersion=6.0.0-alpha.0+dev " github.com/pulumi/pulumi-aws/provider/v6/cmd/pulumi-tfgen-aws)
+/Users/flo/development/pulumi-aws/bin/pulumi-tfgen-aws schema --out provider/cmd/pulumi-resource-aws
+Gathered 233 replacements
+
+Additional example conversion stats are available by setting COVERAGE_OUTPUT_DIR.
+
+Provider:     aws
+Success rate: 95.88% (17437/18186)
+
+Converted 96.21% of csharp examples (2916/3031)
+Converted 95.28% of go examples (2888/3031)
+Converted 95.91% of java examples (2907/3031)
+Converted 96.21% of python examples (2916/3031)
+Converted 96.21% of typescript examples (2916/3031)
+Converted 95.48% of yaml examples (2894/3031)
+
+General metrics:
+	1454 total resources containing 16395 total inputs.
+	596 total functions.
+
+Argument metrics:
+	15644 argument descriptions were parsed from the upstream docs
+	240 top-level input property descriptions came from an upstream attribute (as opposed to an argument). Nested arguments are not included in this count.
+	14 arguments contained an <elided> reference and had their descriptions dropped.
+	1 nested arguments contained an <elided> reference and had their descriptions dropped.
+	869 of 16395 resource inputs (5.30%) are missing descriptions in the schema
+
+Applied 315 replacements(cd provider && VERSION=6.0.0-alpha.0+dev go generate cmd/pulumi-resource-aws/main.go)

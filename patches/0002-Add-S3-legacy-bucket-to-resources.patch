@@ -39,7 +39,7 @@ index b048f661fe..b6521d3f55 100644
  	provider.ConfigureContextFunc = func(ctx context.Context, d *schema.ResourceData) (interface{}, diag.Diagnostics) {
 diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
 new file mode 100644
-index 0000000000..fd117b2971
+index 0000000000..cd2a293a73
 --- /dev/null
 +++ b/internal/service/s3legacy/bucket_legacy.go
 @@ -0,0 +1,3030 @@
@@ -80,10 +80,10 @@ index 0000000000..fd117b2971
 +
 +func ResourceBucketLegacy() *schema.Resource {
 +	return &schema.Resource{
-+		Create: resourceBucketLegacyCreate,
-+		Read:   resourceBucketLegacyRead,
-+		Update: resourceBucketLegacyUpdate,
-+		Delete: resourceBucketLegacyDelete,
++		CreateContext: resourceBucketLegacyCreate,
++		ReadContext:   resourceBucketLegacyRead,
++		UpdateContext: resourceBucketLegacyUpdate,
++		DeleteContext: resourceBucketLegacyDelete,
 +		Importer: &schema.ResourceImporter{
 +			State: schema.ImportStatePassthrough,
 +		},
@@ -715,7 +715,7 @@ index 0000000000..fd117b2971
 +	}
 +}
 +
-+func resourceBucketLegacyCreate(d *schema.ResourceData, meta interface{}) error {
++func resourceBucketLegacyCreate(ctx context.Context, d *schema.ResourceData, meta interface{}) error {
 +	conn := meta.(*conns.AWSClient).S3Conn()
 +
 +	// Get the bucket and acl
@@ -741,7 +741,7 @@ index 0000000000..fd117b2971
 +		log.Printf("[DEBUG] S3 bucket %s has canned ACL %s", bucket, acl)
 +	}
 +
-+	awsRegion := meta.(*conns.AWSClient).Region
++	awsRegion := meta.(*conns.AWSClient).Region(ctx)
 +	log.Printf("[DEBUG] S3 bucket create: %s, using region: %s", bucket, awsRegion)
 +
 +	// Special case us-east-1 region and do not set the LocationConstraint.
@@ -785,10 +785,10 @@ index 0000000000..fd117b2971
 +
 +	// Assign the bucket name as the resource ID
 +	d.SetId(bucket)
-+	return resourceBucketLegacyUpdate(d, meta)
++	return resourceBucketLegacyUpdate(ctx, d, meta)
 +}
 +
-+func resourceBucketLegacyUpdate(d *schema.ResourceData, meta interface{}) error {
++func resourceBucketLegacyUpdate(ctx context.Context, d *schema.ResourceData, meta interface{}) error {
 +	conn := meta.(*conns.AWSClient).S3Conn()
 +
 +	if d.HasChange("tags_all") {
@@ -893,10 +893,10 @@ index 0000000000..fd117b2971
 +		}
 +	}
 +
-+	return resourceBucketLegacyRead(d, meta)
++	return resourceBucketLegacyRead(ctx, d, meta)
 +}
 +
-+func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
++func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta interface{}) error {
 +	conn := meta.(*conns.AWSClient).S3Conn()
 +	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig
 +	ignoreTagsConfig := meta.(*conns.AWSClient).IgnoreTagsConfig
@@ -1353,7 +1353,7 @@ index 0000000000..fd117b2971
 +	conf, err := readS3ObjectLockConfigurationLegacy(conn, d.Id())
 +
 +	// Object lock not supported in all partitions (extra guard, also guards in read func)
-+	if err != nil && (meta.(*conns.AWSClient).Partition == endpoints.AwsPartitionID || meta.(*conns.AWSClient).Partition == endpoints.AwsUsGovPartitionID) {
++	if err != nil && (meta.(*conns.AWSClient).Partition(ctx) == endpoints.AwsPartitionID || meta.(*conns.AWSClient).Partition(ctx) == endpoints.AwsUsGovPartitionID) {
 +		return fmt.Errorf("error getting S3 Bucket Object Lock configuration: %s", err)
 +	}
 +
@@ -1448,7 +1448,7 @@ index 0000000000..fd117b2971
 +	}
 +
 +	arn := arn.ARN{
-+		Partition: meta.(*conns.AWSClient).Partition,
++		Partition: meta.(*conns.AWSClient).Partition(ctx),
 +		Service:   "s3",
 +		Resource:  d.Id(),
 +	}.String()
@@ -1457,7 +1457,7 @@ index 0000000000..fd117b2971
 +	return nil
 +}
 +
-+func resourceBucketLegacyDelete(d *schema.ResourceData, meta interface{}) error {
++func resourceBucketLegacyDelete(ctx context.Context, d *schema.ResourceData, meta interface{}) error {
 +	conn := meta.(*conns.AWSClient).S3Conn()
 +
 +	log.Printf("[DEBUG] S3 Delete Bucket: %s", d.Id())
@@ -1493,7 +1493,7 @@ index 0000000000..fd117b2971
 +			}
 +
 +			// this line recurses until all objects are deleted or an error is returned
-+			return resourceBucketLegacyDelete(d, meta)
++			return resourceBucketLegacyDelete(ctx, d, meta)
 +		}
 +	}
 +
