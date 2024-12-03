@@ -119,6 +119,8 @@ type VpcEndpointService struct {
 	State pulumi.StringOutput `pulumi:"state"`
 	// The supported IP address types. The possible values are `ipv4` and `ipv6`.
 	SupportedIpAddressTypes pulumi.StringArrayOutput `pulumi:"supportedIpAddressTypes"`
+	// The set of regions from which service consumers can access the service.
+	SupportedRegions pulumi.StringArrayOutput `pulumi:"supportedRegions"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -188,6 +190,8 @@ type vpcEndpointServiceState struct {
 	State *string `pulumi:"state"`
 	// The supported IP address types. The possible values are `ipv4` and `ipv6`.
 	SupportedIpAddressTypes []string `pulumi:"supportedIpAddressTypes"`
+	// The set of regions from which service consumers can access the service.
+	SupportedRegions []string `pulumi:"supportedRegions"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -225,6 +229,8 @@ type VpcEndpointServiceState struct {
 	State pulumi.StringPtrInput
 	// The supported IP address types. The possible values are `ipv4` and `ipv6`.
 	SupportedIpAddressTypes pulumi.StringArrayInput
+	// The set of regions from which service consumers can access the service.
+	SupportedRegions pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -250,6 +256,8 @@ type vpcEndpointServiceArgs struct {
 	PrivateDnsName *string `pulumi:"privateDnsName"`
 	// The supported IP address types. The possible values are `ipv4` and `ipv6`.
 	SupportedIpAddressTypes []string `pulumi:"supportedIpAddressTypes"`
+	// The set of regions from which service consumers can access the service.
+	SupportedRegions []string `pulumi:"supportedRegions"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -268,6 +276,8 @@ type VpcEndpointServiceArgs struct {
 	PrivateDnsName pulumi.StringPtrInput
 	// The supported IP address types. The possible values are `ipv4` and `ipv6`.
 	SupportedIpAddressTypes pulumi.StringArrayInput
+	// The set of regions from which service consumers can access the service.
+	SupportedRegions pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -429,6 +439,11 @@ func (o VpcEndpointServiceOutput) State() pulumi.StringOutput {
 // The supported IP address types. The possible values are `ipv4` and `ipv6`.
 func (o VpcEndpointServiceOutput) SupportedIpAddressTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringArrayOutput { return v.SupportedIpAddressTypes }).(pulumi.StringArrayOutput)
+}
+
+// The set of regions from which service consumers can access the service.
+func (o VpcEndpointServiceOutput) SupportedRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringArrayOutput { return v.SupportedRegions }).(pulumi.StringArrayOutput)
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

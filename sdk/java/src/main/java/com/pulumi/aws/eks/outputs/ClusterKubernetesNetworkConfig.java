@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.eks.outputs;
 
+import com.pulumi.aws.eks.outputs.ClusterKubernetesNetworkConfigElasticLoadBalancing;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
@@ -11,6 +12,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterKubernetesNetworkConfig {
+    /**
+     * @return Configuration block with elastic load balancing configuration for the cluster. Detailed below.
+     * 
+     */
+    private @Nullable ClusterKubernetesNetworkConfigElasticLoadBalancing elasticLoadBalancing;
     /**
      * @return The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
      * 
@@ -28,12 +34,19 @@ public final class ClusterKubernetesNetworkConfig {
      */
     private @Nullable String serviceIpv4Cidr;
     /**
-     * @return The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for ipFamily when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can&#39;t specify a custom IPv6 CIDR block when you create the cluster.
+     * @return The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for `ip_family` when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can&#39;t specify a custom IPv6 CIDR block when you create the cluster.
      * 
      */
     private @Nullable String serviceIpv6Cidr;
 
     private ClusterKubernetesNetworkConfig() {}
+    /**
+     * @return Configuration block with elastic load balancing configuration for the cluster. Detailed below.
+     * 
+     */
+    public Optional<ClusterKubernetesNetworkConfigElasticLoadBalancing> elasticLoadBalancing() {
+        return Optional.ofNullable(this.elasticLoadBalancing);
+    }
     /**
      * @return The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
      * 
@@ -55,7 +68,7 @@ public final class ClusterKubernetesNetworkConfig {
         return Optional.ofNullable(this.serviceIpv4Cidr);
     }
     /**
-     * @return The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for ipFamily when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can&#39;t specify a custom IPv6 CIDR block when you create the cluster.
+     * @return The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for `ip_family` when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can&#39;t specify a custom IPv6 CIDR block when you create the cluster.
      * 
      */
     public Optional<String> serviceIpv6Cidr() {
@@ -71,17 +84,25 @@ public final class ClusterKubernetesNetworkConfig {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable ClusterKubernetesNetworkConfigElasticLoadBalancing elasticLoadBalancing;
         private @Nullable String ipFamily;
         private @Nullable String serviceIpv4Cidr;
         private @Nullable String serviceIpv6Cidr;
         public Builder() {}
         public Builder(ClusterKubernetesNetworkConfig defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.elasticLoadBalancing = defaults.elasticLoadBalancing;
     	      this.ipFamily = defaults.ipFamily;
     	      this.serviceIpv4Cidr = defaults.serviceIpv4Cidr;
     	      this.serviceIpv6Cidr = defaults.serviceIpv6Cidr;
         }
 
+        @CustomType.Setter
+        public Builder elasticLoadBalancing(@Nullable ClusterKubernetesNetworkConfigElasticLoadBalancing elasticLoadBalancing) {
+
+            this.elasticLoadBalancing = elasticLoadBalancing;
+            return this;
+        }
         @CustomType.Setter
         public Builder ipFamily(@Nullable String ipFamily) {
 
@@ -102,6 +123,7 @@ public final class ClusterKubernetesNetworkConfig {
         }
         public ClusterKubernetesNetworkConfig build() {
             final var _resultValue = new ClusterKubernetesNetworkConfig();
+            _resultValue.elasticLoadBalancing = elasticLoadBalancing;
             _resultValue.ipFamily = ipFamily;
             _resultValue.serviceIpv4Cidr = serviceIpv4Cidr;
             _resultValue.serviceIpv6Cidr = serviceIpv6Cidr;

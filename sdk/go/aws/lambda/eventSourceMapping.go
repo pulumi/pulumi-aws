@@ -109,55 +109,6 @@ import (
 //
 // ```
 //
-// ### Self Managed Apache Kafka
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
-//				FunctionName: pulumi.Any(exampleAwsLambdaFunction.Arn),
-//				Topics: pulumi.StringArray{
-//					pulumi.String("Example"),
-//				},
-//				StartingPosition: pulumi.String("TRIM_HORIZON"),
-//				SelfManagedEventSource: &lambda.EventSourceMappingSelfManagedEventSourceArgs{
-//					Endpoints: pulumi.StringMap{
-//						"KAFKA_BOOTSTRAP_SERVERS": pulumi.String("kafka1.example.com:9092,kafka2.example.com:9092"),
-//					},
-//				},
-//				SourceAccessConfigurations: lambda.EventSourceMappingSourceAccessConfigurationArray{
-//					&lambda.EventSourceMappingSourceAccessConfigurationArgs{
-//						Type: pulumi.String("VPC_SUBNET"),
-//						Uri:  pulumi.String("subnet:subnet-example1"),
-//					},
-//					&lambda.EventSourceMappingSourceAccessConfigurationArgs{
-//						Type: pulumi.String("VPC_SUBNET"),
-//						Uri:  pulumi.String("subnet:subnet-example2"),
-//					},
-//					&lambda.EventSourceMappingSourceAccessConfigurationArgs{
-//						Type: pulumi.String("VPC_SECURITY_GROUP"),
-//						Uri:  pulumi.String("security_group:sg-example"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ### SQS
 //
 // ```go
@@ -364,8 +315,12 @@ type EventSourceMapping struct {
 	MaximumRecordAgeInSeconds pulumi.IntOutput `pulumi:"maximumRecordAgeInSeconds"`
 	// - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
 	MaximumRetryAttempts pulumi.IntOutput `pulumi:"maximumRetryAttempts"`
+	// - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
+	MetricsConfig EventSourceMappingMetricsConfigPtrOutput `pulumi:"metricsConfig"`
 	// - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
 	ParallelizationFactor pulumi.IntOutput `pulumi:"parallelizationFactor"`
+	// - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
+	ProvisionedPollerConfig EventSourceMappingProvisionedPollerConfigPtrOutput `pulumi:"provisionedPollerConfig"`
 	// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
 	Queues pulumi.StringPtrOutput `pulumi:"queues"`
 	// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
@@ -467,8 +422,12 @@ type eventSourceMappingState struct {
 	MaximumRecordAgeInSeconds *int `pulumi:"maximumRecordAgeInSeconds"`
 	// - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
 	MaximumRetryAttempts *int `pulumi:"maximumRetryAttempts"`
+	// - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
+	MetricsConfig *EventSourceMappingMetricsConfig `pulumi:"metricsConfig"`
 	// - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
 	ParallelizationFactor *int `pulumi:"parallelizationFactor"`
+	// - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
+	ProvisionedPollerConfig *EventSourceMappingProvisionedPollerConfig `pulumi:"provisionedPollerConfig"`
 	// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
 	Queues *string `pulumi:"queues"`
 	// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
@@ -538,8 +497,12 @@ type EventSourceMappingState struct {
 	MaximumRecordAgeInSeconds pulumi.IntPtrInput
 	// - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
 	MaximumRetryAttempts pulumi.IntPtrInput
+	// - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
+	MetricsConfig EventSourceMappingMetricsConfigPtrInput
 	// - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
 	ParallelizationFactor pulumi.IntPtrInput
+	// - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
+	ProvisionedPollerConfig EventSourceMappingProvisionedPollerConfigPtrInput
 	// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
 	Queues pulumi.StringPtrInput
 	// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
@@ -605,8 +568,12 @@ type eventSourceMappingArgs struct {
 	MaximumRecordAgeInSeconds *int `pulumi:"maximumRecordAgeInSeconds"`
 	// - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
 	MaximumRetryAttempts *int `pulumi:"maximumRetryAttempts"`
+	// - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
+	MetricsConfig *EventSourceMappingMetricsConfig `pulumi:"metricsConfig"`
 	// - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
 	ParallelizationFactor *int `pulumi:"parallelizationFactor"`
+	// - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
+	ProvisionedPollerConfig *EventSourceMappingProvisionedPollerConfig `pulumi:"provisionedPollerConfig"`
 	// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
 	Queues *string `pulumi:"queues"`
 	// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
@@ -659,8 +626,12 @@ type EventSourceMappingArgs struct {
 	MaximumRecordAgeInSeconds pulumi.IntPtrInput
 	// - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
 	MaximumRetryAttempts pulumi.IntPtrInput
+	// - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
+	MetricsConfig EventSourceMappingMetricsConfigPtrInput
 	// - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
 	ParallelizationFactor pulumi.IntPtrInput
+	// - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
+	ProvisionedPollerConfig EventSourceMappingProvisionedPollerConfigPtrInput
 	// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
 	Queues pulumi.StringPtrInput
 	// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
@@ -864,9 +835,21 @@ func (o EventSourceMappingOutput) MaximumRetryAttempts() pulumi.IntOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.IntOutput { return v.MaximumRetryAttempts }).(pulumi.IntOutput)
 }
 
+// - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
+func (o EventSourceMappingOutput) MetricsConfig() EventSourceMappingMetricsConfigPtrOutput {
+	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingMetricsConfigPtrOutput { return v.MetricsConfig }).(EventSourceMappingMetricsConfigPtrOutput)
+}
+
 // - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
 func (o EventSourceMappingOutput) ParallelizationFactor() pulumi.IntOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.IntOutput { return v.ParallelizationFactor }).(pulumi.IntOutput)
+}
+
+// - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
+func (o EventSourceMappingOutput) ProvisionedPollerConfig() EventSourceMappingProvisionedPollerConfigPtrOutput {
+	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingProvisionedPollerConfigPtrOutput {
+		return v.ProvisionedPollerConfig
+	}).(EventSourceMappingProvisionedPollerConfigPtrOutput)
 }
 
 // The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.

@@ -33,7 +33,6 @@ namespace Pulumi.Aws.Eks
         ///     {
         ///         ["endpoint"] = example.Apply(getClusterResult =&gt; getClusterResult.Endpoint),
         ///         ["kubeconfig-certificate-authority-data"] = example.Apply(getClusterResult =&gt; getClusterResult.CertificateAuthorities[0]?.Data),
-        ///         ["identity-oidc-issuer"] = example.Apply(getClusterResult =&gt; getClusterResult.Identities[0]?.Oidcs[0]?.Issuer),
         ///     };
         /// });
         /// ```
@@ -63,7 +62,6 @@ namespace Pulumi.Aws.Eks
         ///     {
         ///         ["endpoint"] = example.Apply(getClusterResult =&gt; getClusterResult.Endpoint),
         ///         ["kubeconfig-certificate-authority-data"] = example.Apply(getClusterResult =&gt; getClusterResult.CertificateAuthorities[0]?.Data),
-        ///         ["identity-oidc-issuer"] = example.Apply(getClusterResult =&gt; getClusterResult.Identities[0]?.Oidcs[0]?.Issuer),
         ///     };
         /// });
         /// ```
@@ -146,6 +144,10 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         public readonly string ClusterId;
         /// <summary>
+        /// Nested attribute containing compute capability configuration for EKS Auto Mode enabled cluster.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetClusterComputeConfigResult> ComputeConfigs;
+        /// <summary>
         /// Unix epoch time stamp in seconds for when the cluster was created.
         /// </summary>
         public readonly string CreatedAt;
@@ -179,6 +181,10 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         public readonly string PlatformVersion;
         /// <summary>
+        /// Contains remote network configuration for EKS Hybrid Nodes.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetClusterRemoteNetworkConfigResult> RemoteNetworkConfigs;
+        /// <summary>
         /// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
         /// </summary>
         public readonly string RoleArn;
@@ -187,11 +193,15 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         public readonly string Status;
         /// <summary>
+        /// Contains storage configuration for EKS Auto Mode enabled cluster.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetClusterStorageConfigResult> StorageConfigs;
+        /// <summary>
         /// Key-value map of resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// (Optional) Configuration block for the support policy to use for the cluster.
+        /// Configuration block for the support policy to use for the cluster.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterUpgradePolicyResult> UpgradePolicies;
         /// <summary>
@@ -217,6 +227,8 @@ namespace Pulumi.Aws.Eks
 
             string clusterId,
 
+            ImmutableArray<Outputs.GetClusterComputeConfigResult> computeConfigs,
+
             string createdAt,
 
             ImmutableArray<string> enabledClusterLogTypes,
@@ -235,9 +247,13 @@ namespace Pulumi.Aws.Eks
 
             string platformVersion,
 
+            ImmutableArray<Outputs.GetClusterRemoteNetworkConfigResult> remoteNetworkConfigs,
+
             string roleArn,
 
             string status,
+
+            ImmutableArray<Outputs.GetClusterStorageConfigResult> storageConfigs,
 
             ImmutableDictionary<string, string> tags,
 
@@ -253,6 +269,7 @@ namespace Pulumi.Aws.Eks
             Arn = arn;
             CertificateAuthorities = certificateAuthorities;
             ClusterId = clusterId;
+            ComputeConfigs = computeConfigs;
             CreatedAt = createdAt;
             EnabledClusterLogTypes = enabledClusterLogTypes;
             Endpoint = endpoint;
@@ -262,8 +279,10 @@ namespace Pulumi.Aws.Eks
             Name = name;
             OutpostConfigs = outpostConfigs;
             PlatformVersion = platformVersion;
+            RemoteNetworkConfigs = remoteNetworkConfigs;
             RoleArn = roleArn;
             Status = status;
+            StorageConfigs = storageConfigs;
             Tags = tags;
             UpgradePolicies = upgradePolicies;
             Version = version;

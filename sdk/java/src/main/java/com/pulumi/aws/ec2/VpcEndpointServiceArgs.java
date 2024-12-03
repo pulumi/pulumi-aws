@@ -110,6 +110,21 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The set of regions from which service consumers can access the service.
+     * 
+     */
+    @Import(name="supportedRegions")
+    private @Nullable Output<List<String>> supportedRegions;
+
+    /**
+     * @return The set of regions from which service consumers can access the service.
+     * 
+     */
+    public Optional<Output<List<String>>> supportedRegions() {
+        return Optional.ofNullable(this.supportedRegions);
+    }
+
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -133,6 +148,7 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
         this.networkLoadBalancerArns = $.networkLoadBalancerArns;
         this.privateDnsName = $.privateDnsName;
         this.supportedIpAddressTypes = $.supportedIpAddressTypes;
+        this.supportedRegions = $.supportedRegions;
         this.tags = $.tags;
     }
 
@@ -318,6 +334,37 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
          */
         public Builder supportedIpAddressTypes(String... supportedIpAddressTypes) {
             return supportedIpAddressTypes(List.of(supportedIpAddressTypes));
+        }
+
+        /**
+         * @param supportedRegions The set of regions from which service consumers can access the service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder supportedRegions(@Nullable Output<List<String>> supportedRegions) {
+            $.supportedRegions = supportedRegions;
+            return this;
+        }
+
+        /**
+         * @param supportedRegions The set of regions from which service consumers can access the service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder supportedRegions(List<String> supportedRegions) {
+            return supportedRegions(Output.of(supportedRegions));
+        }
+
+        /**
+         * @param supportedRegions The set of regions from which service consumers can access the service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder supportedRegions(String... supportedRegions) {
+            return supportedRegions(List.of(supportedRegions));
         }
 
         /**

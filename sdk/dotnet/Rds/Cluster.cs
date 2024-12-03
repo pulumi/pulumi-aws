@@ -629,9 +629,6 @@ namespace Pulumi.Aws.Rds
         [Output("readerEndpoint")]
         public Output<string> ReaderEndpoint { get; private set; } = null!;
 
-        /// <summary>
-        /// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
-        /// </summary>
         [Output("replicationSourceIdentifier")]
         public Output<string?> ReplicationSourceIdentifier { get; private set; } = null!;
 
@@ -1070,9 +1067,6 @@ namespace Pulumi.Aws.Rds
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }
 
-        /// <summary>
-        /// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
-        /// </summary>
         [Input("replicationSourceIdentifier")]
         public Input<string>? ReplicationSourceIdentifier { get; set; }
 
@@ -1530,9 +1524,6 @@ namespace Pulumi.Aws.Rds
         [Input("readerEndpoint")]
         public Input<string>? ReaderEndpoint { get; set; }
 
-        /// <summary>
-        /// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
-        /// </summary>
         [Input("replicationSourceIdentifier")]
         public Input<string>? ReplicationSourceIdentifier { get; set; }
 

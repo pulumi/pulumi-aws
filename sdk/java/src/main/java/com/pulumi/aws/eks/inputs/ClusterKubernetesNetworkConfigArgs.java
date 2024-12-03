@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.eks.inputs;
 
+import com.pulumi.aws.eks.inputs.ClusterKubernetesNetworkConfigElasticLoadBalancingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class ClusterKubernetesNetworkConfigArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ClusterKubernetesNetworkConfigArgs Empty = new ClusterKubernetesNetworkConfigArgs();
+
+    /**
+     * Configuration block with elastic load balancing configuration for the cluster. Detailed below.
+     * 
+     */
+    @Import(name="elasticLoadBalancing")
+    private @Nullable Output<ClusterKubernetesNetworkConfigElasticLoadBalancingArgs> elasticLoadBalancing;
+
+    /**
+     * @return Configuration block with elastic load balancing configuration for the cluster. Detailed below.
+     * 
+     */
+    public Optional<Output<ClusterKubernetesNetworkConfigElasticLoadBalancingArgs>> elasticLoadBalancing() {
+        return Optional.ofNullable(this.elasticLoadBalancing);
+    }
 
     /**
      * The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
@@ -58,14 +74,14 @@ public final class ClusterKubernetesNetworkConfigArgs extends com.pulumi.resourc
     }
 
     /**
-     * The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for ipFamily when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can&#39;t specify a custom IPv6 CIDR block when you create the cluster.
+     * The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for `ip_family` when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can&#39;t specify a custom IPv6 CIDR block when you create the cluster.
      * 
      */
     @Import(name="serviceIpv6Cidr")
     private @Nullable Output<String> serviceIpv6Cidr;
 
     /**
-     * @return The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for ipFamily when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can&#39;t specify a custom IPv6 CIDR block when you create the cluster.
+     * @return The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for `ip_family` when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can&#39;t specify a custom IPv6 CIDR block when you create the cluster.
      * 
      */
     public Optional<Output<String>> serviceIpv6Cidr() {
@@ -75,6 +91,7 @@ public final class ClusterKubernetesNetworkConfigArgs extends com.pulumi.resourc
     private ClusterKubernetesNetworkConfigArgs() {}
 
     private ClusterKubernetesNetworkConfigArgs(ClusterKubernetesNetworkConfigArgs $) {
+        this.elasticLoadBalancing = $.elasticLoadBalancing;
         this.ipFamily = $.ipFamily;
         this.serviceIpv4Cidr = $.serviceIpv4Cidr;
         this.serviceIpv6Cidr = $.serviceIpv6Cidr;
@@ -96,6 +113,27 @@ public final class ClusterKubernetesNetworkConfigArgs extends com.pulumi.resourc
 
         public Builder(ClusterKubernetesNetworkConfigArgs defaults) {
             $ = new ClusterKubernetesNetworkConfigArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param elasticLoadBalancing Configuration block with elastic load balancing configuration for the cluster. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder elasticLoadBalancing(@Nullable Output<ClusterKubernetesNetworkConfigElasticLoadBalancingArgs> elasticLoadBalancing) {
+            $.elasticLoadBalancing = elasticLoadBalancing;
+            return this;
+        }
+
+        /**
+         * @param elasticLoadBalancing Configuration block with elastic load balancing configuration for the cluster. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder elasticLoadBalancing(ClusterKubernetesNetworkConfigElasticLoadBalancingArgs elasticLoadBalancing) {
+            return elasticLoadBalancing(Output.of(elasticLoadBalancing));
         }
 
         /**
@@ -153,7 +191,7 @@ public final class ClusterKubernetesNetworkConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param serviceIpv6Cidr The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for ipFamily when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can&#39;t specify a custom IPv6 CIDR block when you create the cluster.
+         * @param serviceIpv6Cidr The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for `ip_family` when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can&#39;t specify a custom IPv6 CIDR block when you create the cluster.
          * 
          * @return builder
          * 
@@ -164,7 +202,7 @@ public final class ClusterKubernetesNetworkConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param serviceIpv6Cidr The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for ipFamily when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can&#39;t specify a custom IPv6 CIDR block when you create the cluster.
+         * @param serviceIpv6Cidr The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for `ip_family` when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can&#39;t specify a custom IPv6 CIDR block when you create the cluster.
          * 
          * @return builder
          * 

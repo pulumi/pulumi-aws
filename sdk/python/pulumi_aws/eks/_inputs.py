@@ -23,6 +23,8 @@ __all__ = [
     'ClusterAccessConfigArgsDict',
     'ClusterCertificateAuthorityArgs',
     'ClusterCertificateAuthorityArgsDict',
+    'ClusterComputeConfigArgs',
+    'ClusterComputeConfigArgsDict',
     'ClusterEncryptionConfigArgs',
     'ClusterEncryptionConfigArgsDict',
     'ClusterEncryptionConfigProviderArgs',
@@ -33,10 +35,22 @@ __all__ = [
     'ClusterIdentityOidcArgsDict',
     'ClusterKubernetesNetworkConfigArgs',
     'ClusterKubernetesNetworkConfigArgsDict',
+    'ClusterKubernetesNetworkConfigElasticLoadBalancingArgs',
+    'ClusterKubernetesNetworkConfigElasticLoadBalancingArgsDict',
     'ClusterOutpostConfigArgs',
     'ClusterOutpostConfigArgsDict',
     'ClusterOutpostConfigControlPlanePlacementArgs',
     'ClusterOutpostConfigControlPlanePlacementArgsDict',
+    'ClusterRemoteNetworkConfigArgs',
+    'ClusterRemoteNetworkConfigArgsDict',
+    'ClusterRemoteNetworkConfigRemoteNodeNetworksArgs',
+    'ClusterRemoteNetworkConfigRemoteNodeNetworksArgsDict',
+    'ClusterRemoteNetworkConfigRemotePodNetworksArgs',
+    'ClusterRemoteNetworkConfigRemotePodNetworksArgsDict',
+    'ClusterStorageConfigArgs',
+    'ClusterStorageConfigArgsDict',
+    'ClusterStorageConfigBlockStorageArgs',
+    'ClusterStorageConfigBlockStorageArgsDict',
     'ClusterUpgradePolicyArgs',
     'ClusterUpgradePolicyArgsDict',
     'ClusterVpcConfigArgs',
@@ -251,6 +265,78 @@ class ClusterCertificateAuthorityArgs:
 
 
 if not MYPY:
+    class ClusterComputeConfigArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Request to enable or disable the compute capability on your EKS Auto Mode cluster. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your Amazon Web Services account.
+        """
+        node_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Configuration for node pools that defines the compute resources for your EKS Auto Mode cluster. Valid options are `general-purpose` and `system`.
+        """
+        node_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster. This value cannot be changed after the compute capability of EKS Auto Mode is enabled..
+        """
+elif False:
+    ClusterComputeConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterComputeConfigArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 node_pools: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 node_role_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Request to enable or disable the compute capability on your EKS Auto Mode cluster. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your Amazon Web Services account.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] node_pools: Configuration for node pools that defines the compute resources for your EKS Auto Mode cluster. Valid options are `general-purpose` and `system`.
+        :param pulumi.Input[str] node_role_arn: The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster. This value cannot be changed after the compute capability of EKS Auto Mode is enabled..
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if node_pools is not None:
+            pulumi.set(__self__, "node_pools", node_pools)
+        if node_role_arn is not None:
+            pulumi.set(__self__, "node_role_arn", node_role_arn)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Request to enable or disable the compute capability on your EKS Auto Mode cluster. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your Amazon Web Services account.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="nodePools")
+    def node_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Configuration for node pools that defines the compute resources for your EKS Auto Mode cluster. Valid options are `general-purpose` and `system`.
+        """
+        return pulumi.get(self, "node_pools")
+
+    @node_pools.setter
+    def node_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "node_pools", value)
+
+    @property
+    @pulumi.getter(name="nodeRoleArn")
+    def node_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster. This value cannot be changed after the compute capability of EKS Auto Mode is enabled..
+        """
+        return pulumi.get(self, "node_role_arn")
+
+    @node_role_arn.setter
+    def node_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node_role_arn", value)
+
+
+if not MYPY:
     class ClusterEncryptionConfigArgsDict(TypedDict):
         provider: pulumi.Input['ClusterEncryptionConfigProviderArgsDict']
         """
@@ -397,6 +483,10 @@ class ClusterIdentityOidcArgs:
 
 if not MYPY:
     class ClusterKubernetesNetworkConfigArgsDict(TypedDict):
+        elastic_load_balancing: NotRequired[pulumi.Input['ClusterKubernetesNetworkConfigElasticLoadBalancingArgsDict']]
+        """
+        Configuration block with elastic load balancing configuration for the cluster. Detailed below.
+        """
         ip_family: NotRequired[pulumi.Input[str]]
         """
         The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
@@ -413,7 +503,7 @@ if not MYPY:
         """
         service_ipv6_cidr: NotRequired[pulumi.Input[str]]
         """
-        The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for ipFamily when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
+        The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for `ip_family` when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
         """
 elif False:
     ClusterKubernetesNetworkConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -421,10 +511,12 @@ elif False:
 @pulumi.input_type
 class ClusterKubernetesNetworkConfigArgs:
     def __init__(__self__, *,
+                 elastic_load_balancing: Optional[pulumi.Input['ClusterKubernetesNetworkConfigElasticLoadBalancingArgs']] = None,
                  ip_family: Optional[pulumi.Input[str]] = None,
                  service_ipv4_cidr: Optional[pulumi.Input[str]] = None,
                  service_ipv6_cidr: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input['ClusterKubernetesNetworkConfigElasticLoadBalancingArgs'] elastic_load_balancing: Configuration block with elastic load balancing configuration for the cluster. Detailed below.
         :param pulumi.Input[str] ip_family: The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
         :param pulumi.Input[str] service_ipv4_cidr: The CIDR block to assign Kubernetes pod and service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
                
@@ -433,14 +525,28 @@ class ClusterKubernetesNetworkConfigArgs:
                * Doesn't overlap with any CIDR block assigned to the VPC that you selected for VPC.
                
                * Between /24 and /12.
-        :param pulumi.Input[str] service_ipv6_cidr: The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for ipFamily when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
+        :param pulumi.Input[str] service_ipv6_cidr: The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for `ip_family` when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
         """
+        if elastic_load_balancing is not None:
+            pulumi.set(__self__, "elastic_load_balancing", elastic_load_balancing)
         if ip_family is not None:
             pulumi.set(__self__, "ip_family", ip_family)
         if service_ipv4_cidr is not None:
             pulumi.set(__self__, "service_ipv4_cidr", service_ipv4_cidr)
         if service_ipv6_cidr is not None:
             pulumi.set(__self__, "service_ipv6_cidr", service_ipv6_cidr)
+
+    @property
+    @pulumi.getter(name="elasticLoadBalancing")
+    def elastic_load_balancing(self) -> Optional[pulumi.Input['ClusterKubernetesNetworkConfigElasticLoadBalancingArgs']]:
+        """
+        Configuration block with elastic load balancing configuration for the cluster. Detailed below.
+        """
+        return pulumi.get(self, "elastic_load_balancing")
+
+    @elastic_load_balancing.setter
+    def elastic_load_balancing(self, value: Optional[pulumi.Input['ClusterKubernetesNetworkConfigElasticLoadBalancingArgs']]):
+        pulumi.set(self, "elastic_load_balancing", value)
 
     @property
     @pulumi.getter(name="ipFamily")
@@ -476,13 +582,45 @@ class ClusterKubernetesNetworkConfigArgs:
     @pulumi.getter(name="serviceIpv6Cidr")
     def service_ipv6_cidr(self) -> Optional[pulumi.Input[str]]:
         """
-        The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for ipFamily when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
+        The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for `ip_family` when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
         """
         return pulumi.get(self, "service_ipv6_cidr")
 
     @service_ipv6_cidr.setter
     def service_ipv6_cidr(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_ipv6_cidr", value)
+
+
+if not MYPY:
+    class ClusterKubernetesNetworkConfigElasticLoadBalancingArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates if the load balancing capability is enabled on your EKS Auto Mode cluster. If the load balancing capability is enabled, EKS Auto Mode will create and delete load balancers in your Amazon Web Services account.
+        """
+elif False:
+    ClusterKubernetesNetworkConfigElasticLoadBalancingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterKubernetesNetworkConfigElasticLoadBalancingArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Indicates if the load balancing capability is enabled on your EKS Auto Mode cluster. If the load balancing capability is enabled, EKS Auto Mode will create and delete load balancers in your Amazon Web Services account.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates if the load balancing capability is enabled on your EKS Auto Mode cluster. If the load balancing capability is enabled, EKS Auto Mode will create and delete load balancers in your Amazon Web Services account.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 if not MYPY:
@@ -611,6 +749,167 @@ class ClusterOutpostConfigControlPlanePlacementArgs:
     @group_name.setter
     def group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "group_name", value)
+
+
+if not MYPY:
+    class ClusterRemoteNetworkConfigArgsDict(TypedDict):
+        remote_node_networks: pulumi.Input['ClusterRemoteNetworkConfigRemoteNodeNetworksArgsDict']
+        """
+        Configuration block with remote node network configuration for EKS Hybrid Nodes. Detailed below.
+        """
+        remote_pod_networks: NotRequired[pulumi.Input['ClusterRemoteNetworkConfigRemotePodNetworksArgsDict']]
+        """
+        Configuration block with remote pod network configuration for EKS Hybrid Nodes. Detailed below.
+        """
+elif False:
+    ClusterRemoteNetworkConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterRemoteNetworkConfigArgs:
+    def __init__(__self__, *,
+                 remote_node_networks: pulumi.Input['ClusterRemoteNetworkConfigRemoteNodeNetworksArgs'],
+                 remote_pod_networks: Optional[pulumi.Input['ClusterRemoteNetworkConfigRemotePodNetworksArgs']] = None):
+        """
+        :param pulumi.Input['ClusterRemoteNetworkConfigRemoteNodeNetworksArgs'] remote_node_networks: Configuration block with remote node network configuration for EKS Hybrid Nodes. Detailed below.
+        :param pulumi.Input['ClusterRemoteNetworkConfigRemotePodNetworksArgs'] remote_pod_networks: Configuration block with remote pod network configuration for EKS Hybrid Nodes. Detailed below.
+        """
+        pulumi.set(__self__, "remote_node_networks", remote_node_networks)
+        if remote_pod_networks is not None:
+            pulumi.set(__self__, "remote_pod_networks", remote_pod_networks)
+
+    @property
+    @pulumi.getter(name="remoteNodeNetworks")
+    def remote_node_networks(self) -> pulumi.Input['ClusterRemoteNetworkConfigRemoteNodeNetworksArgs']:
+        """
+        Configuration block with remote node network configuration for EKS Hybrid Nodes. Detailed below.
+        """
+        return pulumi.get(self, "remote_node_networks")
+
+    @remote_node_networks.setter
+    def remote_node_networks(self, value: pulumi.Input['ClusterRemoteNetworkConfigRemoteNodeNetworksArgs']):
+        pulumi.set(self, "remote_node_networks", value)
+
+    @property
+    @pulumi.getter(name="remotePodNetworks")
+    def remote_pod_networks(self) -> Optional[pulumi.Input['ClusterRemoteNetworkConfigRemotePodNetworksArgs']]:
+        """
+        Configuration block with remote pod network configuration for EKS Hybrid Nodes. Detailed below.
+        """
+        return pulumi.get(self, "remote_pod_networks")
+
+    @remote_pod_networks.setter
+    def remote_pod_networks(self, value: Optional[pulumi.Input['ClusterRemoteNetworkConfigRemotePodNetworksArgs']]):
+        pulumi.set(self, "remote_pod_networks", value)
+
+
+if not MYPY:
+    class ClusterRemoteNetworkConfigRemoteNodeNetworksArgsDict(TypedDict):
+        cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of network CIDRs that can contain hybrid nodes.
+        """
+elif False:
+    ClusterRemoteNetworkConfigRemoteNodeNetworksArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterRemoteNetworkConfigRemoteNodeNetworksArgs:
+    def __init__(__self__, *,
+                 cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cidrs: List of network CIDRs that can contain hybrid nodes.
+        """
+        if cidrs is not None:
+            pulumi.set(__self__, "cidrs", cidrs)
+
+    @property
+    @pulumi.getter
+    def cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of network CIDRs that can contain hybrid nodes.
+        """
+        return pulumi.get(self, "cidrs")
+
+    @cidrs.setter
+    def cidrs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "cidrs", value)
+
+
+if not MYPY:
+    class ClusterRemoteNetworkConfigRemotePodNetworksArgsDict(TypedDict):
+        cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.
+        """
+elif False:
+    ClusterRemoteNetworkConfigRemotePodNetworksArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterRemoteNetworkConfigRemotePodNetworksArgs:
+    def __init__(__self__, *,
+                 cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cidrs: List of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.
+        """
+        if cidrs is not None:
+            pulumi.set(__self__, "cidrs", cidrs)
+
+    @property
+    @pulumi.getter
+    def cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.
+        """
+        return pulumi.get(self, "cidrs")
+
+    @cidrs.setter
+    def cidrs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "cidrs", value)
+
+
+if not MYPY:
+    class ClusterStorageConfigArgsDict(TypedDict):
+        block_storage: NotRequired[pulumi.Input['ClusterStorageConfigBlockStorageArgsDict']]
+elif False:
+    ClusterStorageConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterStorageConfigArgs:
+    def __init__(__self__, *,
+                 block_storage: Optional[pulumi.Input['ClusterStorageConfigBlockStorageArgs']] = None):
+        if block_storage is not None:
+            pulumi.set(__self__, "block_storage", block_storage)
+
+    @property
+    @pulumi.getter(name="blockStorage")
+    def block_storage(self) -> Optional[pulumi.Input['ClusterStorageConfigBlockStorageArgs']]:
+        return pulumi.get(self, "block_storage")
+
+    @block_storage.setter
+    def block_storage(self, value: Optional[pulumi.Input['ClusterStorageConfigBlockStorageArgs']]):
+        pulumi.set(self, "block_storage", value)
+
+
+if not MYPY:
+    class ClusterStorageConfigBlockStorageArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+elif False:
+    ClusterStorageConfigBlockStorageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterStorageConfigBlockStorageArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 if not MYPY:

@@ -3,13 +3,20 @@
 
 package com.pulumi.aws.eks.outputs;
 
+import com.pulumi.aws.eks.outputs.GetClusterKubernetesNetworkConfigElasticLoadBalancing;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetClusterKubernetesNetworkConfig {
+    /**
+     * @return Contains Elastic Load Balancing configuration for EKS Auto Mode enabled cluster.
+     * 
+     */
+    private List<GetClusterKubernetesNetworkConfigElasticLoadBalancing> elasticLoadBalancings;
     /**
      * @return `ipv4` or `ipv6`.
      * 
@@ -27,6 +34,13 @@ public final class GetClusterKubernetesNetworkConfig {
     private String serviceIpv6Cidr;
 
     private GetClusterKubernetesNetworkConfig() {}
+    /**
+     * @return Contains Elastic Load Balancing configuration for EKS Auto Mode enabled cluster.
+     * 
+     */
+    public List<GetClusterKubernetesNetworkConfigElasticLoadBalancing> elasticLoadBalancings() {
+        return this.elasticLoadBalancings;
+    }
     /**
      * @return `ipv4` or `ipv6`.
      * 
@@ -58,17 +72,30 @@ public final class GetClusterKubernetesNetworkConfig {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<GetClusterKubernetesNetworkConfigElasticLoadBalancing> elasticLoadBalancings;
         private String ipFamily;
         private String serviceIpv4Cidr;
         private String serviceIpv6Cidr;
         public Builder() {}
         public Builder(GetClusterKubernetesNetworkConfig defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.elasticLoadBalancings = defaults.elasticLoadBalancings;
     	      this.ipFamily = defaults.ipFamily;
     	      this.serviceIpv4Cidr = defaults.serviceIpv4Cidr;
     	      this.serviceIpv6Cidr = defaults.serviceIpv6Cidr;
         }
 
+        @CustomType.Setter
+        public Builder elasticLoadBalancings(List<GetClusterKubernetesNetworkConfigElasticLoadBalancing> elasticLoadBalancings) {
+            if (elasticLoadBalancings == null) {
+              throw new MissingRequiredPropertyException("GetClusterKubernetesNetworkConfig", "elasticLoadBalancings");
+            }
+            this.elasticLoadBalancings = elasticLoadBalancings;
+            return this;
+        }
+        public Builder elasticLoadBalancings(GetClusterKubernetesNetworkConfigElasticLoadBalancing... elasticLoadBalancings) {
+            return elasticLoadBalancings(List.of(elasticLoadBalancings));
+        }
         @CustomType.Setter
         public Builder ipFamily(String ipFamily) {
             if (ipFamily == null) {
@@ -95,6 +122,7 @@ public final class GetClusterKubernetesNetworkConfig {
         }
         public GetClusterKubernetesNetworkConfig build() {
             final var _resultValue = new GetClusterKubernetesNetworkConfig();
+            _resultValue.elasticLoadBalancings = elasticLoadBalancings;
             _resultValue.ipFamily = ipFamily;
             _resultValue.serviceIpv4Cidr = serviceIpv4Cidr;
             _resultValue.serviceIpv6Cidr = serviceIpv6Cidr;

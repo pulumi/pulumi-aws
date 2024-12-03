@@ -820,6 +820,8 @@
         "ec2/trafficMirrorTarget.ts",
         "ec2/volumeAttachment.ts",
         "ec2/vpc.ts",
+        "ec2/vpcBlockPublicAccessExclusion.ts",
+        "ec2/vpcBlockPublicAccessOptions.ts",
         "ec2/vpcDhcpOptions.ts",
         "ec2/vpcDhcpOptionsAssociation.ts",
         "ec2/vpcEndpoint.ts",

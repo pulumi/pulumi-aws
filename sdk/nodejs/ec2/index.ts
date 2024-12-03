@@ -665,6 +665,16 @@ export type Vpc = import("./vpc").Vpc;
 export const Vpc: typeof import("./vpc").Vpc = null as any;
 utilities.lazyLoad(exports, ["Vpc"], () => require("./vpc"));
 
+export { VpcBlockPublicAccessExclusionArgs, VpcBlockPublicAccessExclusionState } from "./vpcBlockPublicAccessExclusion";
+export type VpcBlockPublicAccessExclusion = import("./vpcBlockPublicAccessExclusion").VpcBlockPublicAccessExclusion;
+export const VpcBlockPublicAccessExclusion: typeof import("./vpcBlockPublicAccessExclusion").VpcBlockPublicAccessExclusion = null as any;
+utilities.lazyLoad(exports, ["VpcBlockPublicAccessExclusion"], () => require("./vpcBlockPublicAccessExclusion"));
+
+export { VpcBlockPublicAccessOptionsArgs, VpcBlockPublicAccessOptionsState } from "./vpcBlockPublicAccessOptions";
+export type VpcBlockPublicAccessOptions = import("./vpcBlockPublicAccessOptions").VpcBlockPublicAccessOptions;
+export const VpcBlockPublicAccessOptions: typeof import("./vpcBlockPublicAccessOptions").VpcBlockPublicAccessOptions = null as any;
+utilities.lazyLoad(exports, ["VpcBlockPublicAccessOptions"], () => require("./vpcBlockPublicAccessOptions"));
+
 export { VpcDhcpOptionsArgs, VpcDhcpOptionsState } from "./vpcDhcpOptions";
 export type VpcDhcpOptions = import("./vpcDhcpOptions").VpcDhcpOptions;
 export const VpcDhcpOptions: typeof import("./vpcDhcpOptions").VpcDhcpOptions = null as any;
@@ -952,6 +962,10 @@ const _module = {
                 return new VolumeAttachment(name, <any>undefined, { urn })
             case "aws:ec2/vpc:Vpc":
                 return new Vpc(name, <any>undefined, { urn })
+            case "aws:ec2/vpcBlockPublicAccessExclusion:VpcBlockPublicAccessExclusion":
+                return new VpcBlockPublicAccessExclusion(name, <any>undefined, { urn })
+            case "aws:ec2/vpcBlockPublicAccessOptions:VpcBlockPublicAccessOptions":
+                return new VpcBlockPublicAccessOptions(name, <any>undefined, { urn })
             case "aws:ec2/vpcDhcpOptions:VpcDhcpOptions":
                 return new VpcDhcpOptions(name, <any>undefined, { urn })
             case "aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation":
@@ -1082,6 +1096,8 @@ pulumi.runtime.registerResourceModule("aws", "ec2/trafficMirrorSession", _module
 pulumi.runtime.registerResourceModule("aws", "ec2/trafficMirrorTarget", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/volumeAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpc", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/vpcBlockPublicAccessExclusion", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/vpcBlockPublicAccessOptions", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcDhcpOptions", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcDhcpOptionsAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpoint", _module)

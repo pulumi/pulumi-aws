@@ -35,7 +35,6 @@ import (
 //			}
 //			ctx.Export("endpoint", example.Endpoint)
 //			ctx.Export("kubeconfig-certificate-authority-data", example.CertificateAuthorities[0].Data)
-//			ctx.Export("identity-oidc-issuer", example.Identities[0].Oidcs[0].Issuer)
 //			return nil
 //		})
 //	}
@@ -69,6 +68,8 @@ type LookupClusterResult struct {
 	CertificateAuthorities []GetClusterCertificateAuthority `pulumi:"certificateAuthorities"`
 	// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
 	ClusterId string `pulumi:"clusterId"`
+	// Nested attribute containing compute capability configuration for EKS Auto Mode enabled cluster.
+	ComputeConfigs []GetClusterComputeConfig `pulumi:"computeConfigs"`
 	// Unix epoch time stamp in seconds for when the cluster was created.
 	CreatedAt string `pulumi:"createdAt"`
 	// The enabled control plane logs.
@@ -86,13 +87,17 @@ type LookupClusterResult struct {
 	OutpostConfigs []GetClusterOutpostConfig `pulumi:"outpostConfigs"`
 	// Platform version for the cluster.
 	PlatformVersion string `pulumi:"platformVersion"`
+	// Contains remote network configuration for EKS Hybrid Nodes.
+	RemoteNetworkConfigs []GetClusterRemoteNetworkConfig `pulumi:"remoteNetworkConfigs"`
 	// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
 	RoleArn string `pulumi:"roleArn"`
 	// Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
 	Status string `pulumi:"status"`
+	// Contains storage configuration for EKS Auto Mode enabled cluster.
+	StorageConfigs []GetClusterStorageConfig `pulumi:"storageConfigs"`
 	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// (Optional) Configuration block for the support policy to use for the cluster.
+	// Configuration block for the support policy to use for the cluster.
 	UpgradePolicies []GetClusterUpgradePolicy `pulumi:"upgradePolicies"`
 	// Kubernetes server version for the cluster.
 	Version string `pulumi:"version"`
@@ -168,6 +173,11 @@ func (o LookupClusterResultOutput) ClusterId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterId }).(pulumi.StringOutput)
 }
 
+// Nested attribute containing compute capability configuration for EKS Auto Mode enabled cluster.
+func (o LookupClusterResultOutput) ComputeConfigs() GetClusterComputeConfigArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []GetClusterComputeConfig { return v.ComputeConfigs }).(GetClusterComputeConfigArrayOutput)
+}
+
 // Unix epoch time stamp in seconds for when the cluster was created.
 func (o LookupClusterResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.CreatedAt }).(pulumi.StringOutput)
@@ -212,6 +222,11 @@ func (o LookupClusterResultOutput) PlatformVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.PlatformVersion }).(pulumi.StringOutput)
 }
 
+// Contains remote network configuration for EKS Hybrid Nodes.
+func (o LookupClusterResultOutput) RemoteNetworkConfigs() GetClusterRemoteNetworkConfigArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []GetClusterRemoteNetworkConfig { return v.RemoteNetworkConfigs }).(GetClusterRemoteNetworkConfigArrayOutput)
+}
+
 // ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
 func (o LookupClusterResultOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.RoleArn }).(pulumi.StringOutput)
@@ -222,12 +237,17 @@ func (o LookupClusterResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
+// Contains storage configuration for EKS Auto Mode enabled cluster.
+func (o LookupClusterResultOutput) StorageConfigs() GetClusterStorageConfigArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []GetClusterStorageConfig { return v.StorageConfigs }).(GetClusterStorageConfigArrayOutput)
+}
+
 // Key-value map of resource tags.
 func (o LookupClusterResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// (Optional) Configuration block for the support policy to use for the cluster.
+// Configuration block for the support policy to use for the cluster.
 func (o LookupClusterResultOutput) UpgradePolicies() GetClusterUpgradePolicyArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []GetClusterUpgradePolicy { return v.UpgradePolicies }).(GetClusterUpgradePolicyArrayOutput)
 }

@@ -134,7 +134,6 @@ class ClusterArgs:
         :param pulumi.Input[int] port: Port on which the DB accepts connections.
         :param pulumi.Input[str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
         :param pulumi.Input[str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
-        :param pulumi.Input[str] replication_source_identifier: ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
         :param pulumi.Input['ClusterRestoreToPointInTimeArgs'] restore_to_point_in_time: Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
         :param pulumi.Input['ClusterScalingConfigurationArgs'] scaling_configuration: Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
         :param pulumi.Input['ClusterServerlessv2ScalingConfigurationArgs'] serverlessv2_scaling_configuration: Nested attribute with scaling properties for ServerlessV2. Only valid when `engine_mode` is set to `provisioned`. More details below.
@@ -823,9 +822,6 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="replicationSourceIdentifier")
     def replication_source_identifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
-        """
         return pulumi.get(self, "replication_source_identifier")
 
     @replication_source_identifier.setter
@@ -1095,7 +1091,6 @@ class _ClusterState:
         :param pulumi.Input[str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
         :param pulumi.Input[str] reader_endpoint: Read-only endpoint for the Aurora cluster, automatically
                load-balanced across replicas
-        :param pulumi.Input[str] replication_source_identifier: ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
         :param pulumi.Input['ClusterRestoreToPointInTimeArgs'] restore_to_point_in_time: Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
         :param pulumi.Input['ClusterScalingConfigurationArgs'] scaling_configuration: Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
         :param pulumi.Input['ClusterServerlessv2ScalingConfigurationArgs'] serverlessv2_scaling_configuration: Nested attribute with scaling properties for ServerlessV2. Only valid when `engine_mode` is set to `provisioned`. More details below.
@@ -1904,9 +1899,6 @@ class _ClusterState:
     @property
     @pulumi.getter(name="replicationSourceIdentifier")
     def replication_source_identifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
-        """
         return pulumi.get(self, "replication_source_identifier")
 
     @replication_source_identifier.setter
@@ -2377,7 +2369,6 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[int] port: Port on which the DB accepts connections.
         :param pulumi.Input[str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
         :param pulumi.Input[str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
-        :param pulumi.Input[str] replication_source_identifier: ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
         :param pulumi.Input[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict']] restore_to_point_in_time: Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
         :param pulumi.Input[Union['ClusterScalingConfigurationArgs', 'ClusterScalingConfigurationArgsDict']] scaling_configuration: Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
         :param pulumi.Input[Union['ClusterServerlessv2ScalingConfigurationArgs', 'ClusterServerlessv2ScalingConfigurationArgsDict']] serverlessv2_scaling_configuration: Nested attribute with scaling properties for ServerlessV2. Only valid when `engine_mode` is set to `provisioned`. More details below.
@@ -2896,7 +2887,6 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
         :param pulumi.Input[str] reader_endpoint: Read-only endpoint for the Aurora cluster, automatically
                load-balanced across replicas
-        :param pulumi.Input[str] replication_source_identifier: ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
         :param pulumi.Input[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict']] restore_to_point_in_time: Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
         :param pulumi.Input[Union['ClusterScalingConfigurationArgs', 'ClusterScalingConfigurationArgsDict']] scaling_configuration: Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
         :param pulumi.Input[Union['ClusterServerlessv2ScalingConfigurationArgs', 'ClusterServerlessv2ScalingConfigurationArgsDict']] serverlessv2_scaling_configuration: Nested attribute with scaling properties for ServerlessV2. Only valid when `engine_mode` is set to `provisioned`. More details below.
@@ -3424,9 +3414,6 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="replicationSourceIdentifier")
     def replication_source_identifier(self) -> pulumi.Output[Optional[str]]:
-        """
-        ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
-        """
         return pulumi.get(self, "replication_source_identifier")
 
     @property

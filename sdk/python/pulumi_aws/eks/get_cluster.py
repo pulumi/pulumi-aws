@@ -27,7 +27,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, access_configs=None, arn=None, certificate_authorities=None, cluster_id=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, id=None, identities=None, kubernetes_network_configs=None, name=None, outpost_configs=None, platform_version=None, role_arn=None, status=None, tags=None, upgrade_policies=None, version=None, vpc_config=None, zonal_shift_configs=None):
+    def __init__(__self__, access_configs=None, arn=None, certificate_authorities=None, cluster_id=None, compute_configs=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, id=None, identities=None, kubernetes_network_configs=None, name=None, outpost_configs=None, platform_version=None, remote_network_configs=None, role_arn=None, status=None, storage_configs=None, tags=None, upgrade_policies=None, version=None, vpc_config=None, zonal_shift_configs=None):
         if access_configs and not isinstance(access_configs, list):
             raise TypeError("Expected argument 'access_configs' to be a list")
         pulumi.set(__self__, "access_configs", access_configs)
@@ -40,6 +40,9 @@ class GetClusterResult:
         if cluster_id and not isinstance(cluster_id, str):
             raise TypeError("Expected argument 'cluster_id' to be a str")
         pulumi.set(__self__, "cluster_id", cluster_id)
+        if compute_configs and not isinstance(compute_configs, list):
+            raise TypeError("Expected argument 'compute_configs' to be a list")
+        pulumi.set(__self__, "compute_configs", compute_configs)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -67,12 +70,18 @@ class GetClusterResult:
         if platform_version and not isinstance(platform_version, str):
             raise TypeError("Expected argument 'platform_version' to be a str")
         pulumi.set(__self__, "platform_version", platform_version)
+        if remote_network_configs and not isinstance(remote_network_configs, list):
+            raise TypeError("Expected argument 'remote_network_configs' to be a list")
+        pulumi.set(__self__, "remote_network_configs", remote_network_configs)
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if storage_configs and not isinstance(storage_configs, list):
+            raise TypeError("Expected argument 'storage_configs' to be a list")
+        pulumi.set(__self__, "storage_configs", storage_configs)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -120,6 +129,14 @@ class GetClusterResult:
         The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
         """
         return pulumi.get(self, "cluster_id")
+
+    @property
+    @pulumi.getter(name="computeConfigs")
+    def compute_configs(self) -> Sequence['outputs.GetClusterComputeConfigResult']:
+        """
+        Nested attribute containing compute capability configuration for EKS Auto Mode enabled cluster.
+        """
+        return pulumi.get(self, "compute_configs")
 
     @property
     @pulumi.getter(name="createdAt")
@@ -191,6 +208,14 @@ class GetClusterResult:
         return pulumi.get(self, "platform_version")
 
     @property
+    @pulumi.getter(name="remoteNetworkConfigs")
+    def remote_network_configs(self) -> Sequence['outputs.GetClusterRemoteNetworkConfigResult']:
+        """
+        Contains remote network configuration for EKS Hybrid Nodes.
+        """
+        return pulumi.get(self, "remote_network_configs")
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         """
@@ -207,6 +232,14 @@ class GetClusterResult:
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter(name="storageConfigs")
+    def storage_configs(self) -> Sequence['outputs.GetClusterStorageConfigResult']:
+        """
+        Contains storage configuration for EKS Auto Mode enabled cluster.
+        """
+        return pulumi.get(self, "storage_configs")
+
+    @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
@@ -218,7 +251,7 @@ class GetClusterResult:
     @pulumi.getter(name="upgradePolicies")
     def upgrade_policies(self) -> Sequence['outputs.GetClusterUpgradePolicyResult']:
         """
-        (Optional) Configuration block for the support policy to use for the cluster.
+        Configuration block for the support policy to use for the cluster.
         """
         return pulumi.get(self, "upgrade_policies")
 
@@ -257,6 +290,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             arn=self.arn,
             certificate_authorities=self.certificate_authorities,
             cluster_id=self.cluster_id,
+            compute_configs=self.compute_configs,
             created_at=self.created_at,
             enabled_cluster_log_types=self.enabled_cluster_log_types,
             endpoint=self.endpoint,
@@ -266,8 +300,10 @@ class AwaitableGetClusterResult(GetClusterResult):
             name=self.name,
             outpost_configs=self.outpost_configs,
             platform_version=self.platform_version,
+            remote_network_configs=self.remote_network_configs,
             role_arn=self.role_arn,
             status=self.status,
+            storage_configs=self.storage_configs,
             tags=self.tags,
             upgrade_policies=self.upgrade_policies,
             version=self.version,
@@ -290,7 +326,6 @@ def get_cluster(name: Optional[str] = None,
     example = aws.eks.get_cluster(name="example")
     pulumi.export("endpoint", example.endpoint)
     pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authorities[0].data)
-    pulumi.export("identity-oidc-issuer", example.identities[0].oidcs[0].issuer)
     ```
 
 
@@ -308,6 +343,7 @@ def get_cluster(name: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         certificate_authorities=pulumi.get(__ret__, 'certificate_authorities'),
         cluster_id=pulumi.get(__ret__, 'cluster_id'),
+        compute_configs=pulumi.get(__ret__, 'compute_configs'),
         created_at=pulumi.get(__ret__, 'created_at'),
         enabled_cluster_log_types=pulumi.get(__ret__, 'enabled_cluster_log_types'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
@@ -317,8 +353,10 @@ def get_cluster(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         outpost_configs=pulumi.get(__ret__, 'outpost_configs'),
         platform_version=pulumi.get(__ret__, 'platform_version'),
+        remote_network_configs=pulumi.get(__ret__, 'remote_network_configs'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         status=pulumi.get(__ret__, 'status'),
+        storage_configs=pulumi.get(__ret__, 'storage_configs'),
         tags=pulumi.get(__ret__, 'tags'),
         upgrade_policies=pulumi.get(__ret__, 'upgrade_policies'),
         version=pulumi.get(__ret__, 'version'),
@@ -339,7 +377,6 @@ def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
     example = aws.eks.get_cluster(name="example")
     pulumi.export("endpoint", example.endpoint)
     pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authorities[0].data)
-    pulumi.export("identity-oidc-issuer", example.identities[0].oidcs[0].issuer)
     ```
 
 
@@ -356,6 +393,7 @@ def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
         arn=pulumi.get(__response__, 'arn'),
         certificate_authorities=pulumi.get(__response__, 'certificate_authorities'),
         cluster_id=pulumi.get(__response__, 'cluster_id'),
+        compute_configs=pulumi.get(__response__, 'compute_configs'),
         created_at=pulumi.get(__response__, 'created_at'),
         enabled_cluster_log_types=pulumi.get(__response__, 'enabled_cluster_log_types'),
         endpoint=pulumi.get(__response__, 'endpoint'),
@@ -365,8 +403,10 @@ def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
         name=pulumi.get(__response__, 'name'),
         outpost_configs=pulumi.get(__response__, 'outpost_configs'),
         platform_version=pulumi.get(__response__, 'platform_version'),
+        remote_network_configs=pulumi.get(__response__, 'remote_network_configs'),
         role_arn=pulumi.get(__response__, 'role_arn'),
         status=pulumi.get(__response__, 'status'),
+        storage_configs=pulumi.get(__response__, 'storage_configs'),
         tags=pulumi.get(__response__, 'tags'),
         upgrade_policies=pulumi.get(__response__, 'upgrade_policies'),
         version=pulumi.get(__response__, 'version'),

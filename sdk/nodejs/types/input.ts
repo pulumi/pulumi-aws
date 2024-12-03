@@ -25839,6 +25839,36 @@ export namespace ec2 {
         toPort?: pulumi.Input<number>;
     }
 
+    export interface VpcBlockPublicAccessExclusionTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string>;
+    }
+
+    export interface VpcBlockPublicAccessOptionsTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string>;
+    }
+
     export interface VpcEndpointDnsEntry {
         /**
          * The DNS name.
@@ -27920,6 +27950,21 @@ export namespace eks {
         data?: pulumi.Input<string>;
     }
 
+    export interface ClusterComputeConfig {
+        /**
+         * Request to enable or disable the compute capability on your EKS Auto Mode cluster. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your Amazon Web Services account.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * Configuration for node pools that defines the compute resources for your EKS Auto Mode cluster. Valid options are `general-purpose` and `system`.
+         */
+        nodePools?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster. This value cannot be changed after the compute capability of EKS Auto Mode is enabled..
+         */
+        nodeRoleArn?: pulumi.Input<string>;
+    }
+
     export interface ClusterEncryptionConfig {
         /**
          * Configuration block with provider for encryption. Detailed below.
@@ -27954,6 +27999,10 @@ export namespace eks {
 
     export interface ClusterKubernetesNetworkConfig {
         /**
+         * Configuration block with elastic load balancing configuration for the cluster. Detailed below.
+         */
+        elasticLoadBalancing?: pulumi.Input<inputs.eks.ClusterKubernetesNetworkConfigElasticLoadBalancing>;
+        /**
          * The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
          */
         ipFamily?: pulumi.Input<string>;
@@ -27968,9 +28017,16 @@ export namespace eks {
          */
         serviceIpv4Cidr?: pulumi.Input<string>;
         /**
-         * The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for ipFamily when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
+         * The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for `ipFamily` when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
          */
         serviceIpv6Cidr?: pulumi.Input<string>;
+    }
+
+    export interface ClusterKubernetesNetworkConfigElasticLoadBalancing {
+        /**
+         * Indicates if the load balancing capability is enabled on your EKS Auto Mode cluster. If the load balancing capability is enabled, EKS Auto Mode will create and delete load balancers in your Amazon Web Services account.
+         */
+        enabled?: pulumi.Input<boolean>;
     }
 
     export interface ClusterOutpostConfig {
@@ -28002,6 +28058,39 @@ export namespace eks {
          * The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
          */
         groupName: pulumi.Input<string>;
+    }
+
+    export interface ClusterRemoteNetworkConfig {
+        /**
+         * Configuration block with remote node network configuration for EKS Hybrid Nodes. Detailed below.
+         */
+        remoteNodeNetworks: pulumi.Input<inputs.eks.ClusterRemoteNetworkConfigRemoteNodeNetworks>;
+        /**
+         * Configuration block with remote pod network configuration for EKS Hybrid Nodes. Detailed below.
+         */
+        remotePodNetworks?: pulumi.Input<inputs.eks.ClusterRemoteNetworkConfigRemotePodNetworks>;
+    }
+
+    export interface ClusterRemoteNetworkConfigRemoteNodeNetworks {
+        /**
+         * List of network CIDRs that can contain hybrid nodes.
+         */
+        cidrs?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ClusterRemoteNetworkConfigRemotePodNetworks {
+        /**
+         * List of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.
+         */
+        cidrs?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ClusterStorageConfig {
+        blockStorage?: pulumi.Input<inputs.eks.ClusterStorageConfigBlockStorage>;
+    }
+
+    export interface ClusterStorageConfigBlockStorage {
+        enabled?: pulumi.Input<boolean>;
     }
 
     export interface ClusterUpgradePolicy {
@@ -39970,6 +40059,24 @@ export namespace lambda {
          * A filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
          */
         pattern?: pulumi.Input<string>;
+    }
+
+    export interface EventSourceMappingMetricsConfig {
+        /**
+         * A list containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
+         */
+        metrics: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface EventSourceMappingProvisionedPollerConfig {
+        /**
+         * The maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
+         */
+        maximumPollers?: pulumi.Input<number>;
+        /**
+         * The minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
+         */
+        minimumPollers?: pulumi.Input<number>;
     }
 
     export interface EventSourceMappingScalingConfig {

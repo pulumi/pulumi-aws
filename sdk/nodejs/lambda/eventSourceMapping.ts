@@ -58,38 +58,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Self Managed Apache Kafka
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.lambda.EventSourceMapping("example", {
- *     functionName: exampleAwsLambdaFunction.arn,
- *     topics: ["Example"],
- *     startingPosition: "TRIM_HORIZON",
- *     selfManagedEventSource: {
- *         endpoints: {
- *             KAFKA_BOOTSTRAP_SERVERS: "kafka1.example.com:9092,kafka2.example.com:9092",
- *         },
- *     },
- *     sourceAccessConfigurations: [
- *         {
- *             type: "VPC_SUBNET",
- *             uri: "subnet:subnet-example1",
- *         },
- *         {
- *             type: "VPC_SUBNET",
- *             uri: "subnet:subnet-example2",
- *         },
- *         {
- *             type: "VPC_SECURITY_GROUP",
- *             uri: "security_group:sg-example",
- *         },
- *     ],
- * });
- * ```
- *
  * ### SQS
  *
  * ```typescript
@@ -284,9 +252,17 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     public readonly maximumRetryAttempts!: pulumi.Output<number>;
     /**
+     * - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
+     */
+    public readonly metricsConfig!: pulumi.Output<outputs.lambda.EventSourceMappingMetricsConfig | undefined>;
+    /**
      * - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
      */
     public readonly parallelizationFactor!: pulumi.Output<number>;
+    /**
+     * - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
+     */
+    public readonly provisionedPollerConfig!: pulumi.Output<outputs.lambda.EventSourceMappingProvisionedPollerConfig | undefined>;
     /**
      * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
      */
@@ -377,7 +353,9 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["maximumBatchingWindowInSeconds"] = state ? state.maximumBatchingWindowInSeconds : undefined;
             resourceInputs["maximumRecordAgeInSeconds"] = state ? state.maximumRecordAgeInSeconds : undefined;
             resourceInputs["maximumRetryAttempts"] = state ? state.maximumRetryAttempts : undefined;
+            resourceInputs["metricsConfig"] = state ? state.metricsConfig : undefined;
             resourceInputs["parallelizationFactor"] = state ? state.parallelizationFactor : undefined;
+            resourceInputs["provisionedPollerConfig"] = state ? state.provisionedPollerConfig : undefined;
             resourceInputs["queues"] = state ? state.queues : undefined;
             resourceInputs["scalingConfig"] = state ? state.scalingConfig : undefined;
             resourceInputs["selfManagedEventSource"] = state ? state.selfManagedEventSource : undefined;
@@ -411,7 +389,9 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["maximumBatchingWindowInSeconds"] = args ? args.maximumBatchingWindowInSeconds : undefined;
             resourceInputs["maximumRecordAgeInSeconds"] = args ? args.maximumRecordAgeInSeconds : undefined;
             resourceInputs["maximumRetryAttempts"] = args ? args.maximumRetryAttempts : undefined;
+            resourceInputs["metricsConfig"] = args ? args.metricsConfig : undefined;
             resourceInputs["parallelizationFactor"] = args ? args.parallelizationFactor : undefined;
+            resourceInputs["provisionedPollerConfig"] = args ? args.provisionedPollerConfig : undefined;
             resourceInputs["queues"] = args ? args.queues : undefined;
             resourceInputs["scalingConfig"] = args ? args.scalingConfig : undefined;
             resourceInputs["selfManagedEventSource"] = args ? args.selfManagedEventSource : undefined;
@@ -513,9 +493,17 @@ export interface EventSourceMappingState {
      */
     maximumRetryAttempts?: pulumi.Input<number>;
     /**
+     * - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
+     */
+    metricsConfig?: pulumi.Input<inputs.lambda.EventSourceMappingMetricsConfig>;
+    /**
      * - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
      */
     parallelizationFactor?: pulumi.Input<number>;
+    /**
+     * - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
+     */
+    provisionedPollerConfig?: pulumi.Input<inputs.lambda.EventSourceMappingProvisionedPollerConfig>;
     /**
      * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
      */
@@ -637,9 +625,17 @@ export interface EventSourceMappingArgs {
      */
     maximumRetryAttempts?: pulumi.Input<number>;
     /**
+     * - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
+     */
+    metricsConfig?: pulumi.Input<inputs.lambda.EventSourceMappingMetricsConfig>;
+    /**
      * - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
      */
     parallelizationFactor?: pulumi.Input<number>;
+    /**
+     * - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
+     */
+    provisionedPollerConfig?: pulumi.Input<inputs.lambda.EventSourceMappingProvisionedPollerConfig>;
     /**
      * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
      */

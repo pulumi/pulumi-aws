@@ -851,17 +851,9 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.readerEndpoint);
     }
 
-    /**
-     * ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
-     * 
-     */
     @Import(name="replicationSourceIdentifier")
     private @Nullable Output<String> replicationSourceIdentifier;
 
-    /**
-     * @return ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
-     * 
-     */
     public Optional<Output<String>> replicationSourceIdentifier() {
         return Optional.ofNullable(this.replicationSourceIdentifier);
     }
@@ -2377,23 +2369,11 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
             return readerEndpoint(Output.of(readerEndpoint));
         }
 
-        /**
-         * @param replicationSourceIdentifier ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationSourceIdentifier(@Nullable Output<String> replicationSourceIdentifier) {
             $.replicationSourceIdentifier = replicationSourceIdentifier;
             return this;
         }
 
-        /**
-         * @param replicationSourceIdentifier ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationSourceIdentifier(String replicationSourceIdentifier) {
             return replicationSourceIdentifier(Output.of(replicationSourceIdentifier));
         }

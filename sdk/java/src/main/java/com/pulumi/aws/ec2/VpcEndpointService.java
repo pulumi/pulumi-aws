@@ -310,6 +310,20 @@ public class VpcEndpointService extends com.pulumi.resources.CustomResource {
         return this.supportedIpAddressTypes;
     }
     /**
+     * The set of regions from which service consumers can access the service.
+     * 
+     */
+    @Export(name="supportedRegions", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> supportedRegions;
+
+    /**
+     * @return The set of regions from which service consumers can access the service.
+     * 
+     */
+    public Output<List<String>> supportedRegions() {
+        return this.supportedRegions;
+    }
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
