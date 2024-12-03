@@ -66,3 +66,68 @@ func TestHasOptionalOrRequiredNamePropertyOptimized(t *testing.T) {
 		}
 	}
 }
+func TestExtractTags(t *testing.T) {
+	tests := []struct {
+		name     string
+		vars     resource.PropertyMap
+		prop     resource.PropertyKey
+		expected map[string]string
+	}{
+		{
+			name: "valid tags",
+			vars: resource.PropertyMap{
+				"tags": resource.NewObjectProperty(resource.PropertyMap{
+					"Name": resource.NewStringProperty("example"),
+					"Env":  resource.NewStringProperty("production"),
+				}),
+			},
+			prop: "tags",
+			expected: map[string]string{
+				"Name": "example",
+				"Env":  "production",
+			},
+		},
+		{
+			name: "no tags",
+			vars: resource.PropertyMap{
+				"tags": resource.NewObjectProperty(resource.PropertyMap{}),
+			},
+			prop:     "tags",
+			expected: map[string]string{},
+		},
+		{
+			name: "non-string tags",
+			vars: resource.PropertyMap{
+				"tags": resource.NewObjectProperty(resource.PropertyMap{
+					"Name":  resource.NewStringProperty("example"),
+					"Count": resource.NewNumberProperty(1),
+				}),
+			},
+			prop: "tags",
+			expected: map[string]string{
+				"Name": "example",
+			},
+		},
+		{
+			name:     "missing tags property",
+			vars:     resource.PropertyMap{},
+			prop:     "tags",
+			expected: nil,
+		},
+		{
+			name: "tags property is not an object",
+			vars: resource.PropertyMap{
+				"tags": resource.NewStringProperty("not-an-object"),
+			},
+			prop:     "tags",
+			expected: nil,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			actual := extractTags(tt.vars, tt.prop)
+			assert.Equal(t, tt.expected, actual)
+		})
+	}
+}

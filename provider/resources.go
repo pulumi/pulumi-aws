@@ -579,6 +579,26 @@ func arrayValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []str
 	return vals
 }
 
+func extractTags(vars resource.PropertyMap, prop resource.PropertyKey) map[string]string {
+	val, ok := vars[prop]
+
+	if !ok || !val.IsObject() {
+		return nil
+	}
+
+	tagProp := val.ObjectValue()
+	tags := make(map[string]string, len(tagProp))
+
+	for k, v := range tagProp {
+		if !v.IsString() {
+			continue
+		}
+		tags[string(k)] = v.StringValue()
+	}
+
+	return tags
+}
+
 // returns a pointer so we can distinguish between a zero value and a missing value
 func durationFromConfig(vars resource.PropertyMap, prop resource.PropertyKey) (*time.Duration, error) {
 	val, ok := vars[prop]
@@ -630,6 +650,7 @@ func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error
 			SessionName:       stringValue(details.ObjectValue(), "sessionName", []string{}),
 			SourceIdentity:    stringValue(details.ObjectValue(), "sourceIdentity", []string{}),
 			TransitiveTagKeys: arrayValue(details.ObjectValue(), "transitiveTagKeys", []string{}),
+			Tags:              extractTags(details.ObjectValue(), "tags"),
 		}
 		duration, err := durationFromConfig(details.ObjectValue(), "durationSeconds")
 		if err != nil {
