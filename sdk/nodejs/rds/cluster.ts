@@ -474,7 +474,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly readerEndpoint!: pulumi.Output<string>;
     /**
-     * ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignoreChanges` argument to prevent this provider from showing differences for this argument instead of configuring this value.
+     * ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
      */
     public readonly replicationSourceIdentifier!: pulumi.Output<string | undefined>;
     /**
@@ -913,7 +913,7 @@ export interface ClusterState {
      */
     readerEndpoint?: pulumi.Input<string>;
     /**
-     * ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignoreChanges` argument to prevent this provider from showing differences for this argument instead of configuring this value.
+     * ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
      */
     replicationSourceIdentifier?: pulumi.Input<string>;
     /**
@@ -1160,7 +1160,7 @@ export interface ClusterArgs {
      */
     preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
-     * ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignoreChanges` argument to prevent this provider from showing differences for this argument instead of configuring this value.
+     * ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
      */
     replicationSourceIdentifier?: pulumi.Input<string>;
     /**

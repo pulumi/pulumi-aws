@@ -300,7 +300,7 @@ index 28d15ecf5e..8c1189199f 100644
  
  	return nil
 diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
-index 56eed6e0f0..69cdf81c1e 100644
+index b1dc400249..0e1e17baa3 100644
 --- a/internal/service/s3legacy/bucket_legacy.go
 +++ b/internal/service/s3legacy/bucket_legacy.go
 @@ -20,6 +20,7 @@ import (
@@ -315,10 +315,10 @@ index 56eed6e0f0..69cdf81c1e 100644
  
  func ResourceBucketLegacy() *schema.Resource {
  	return &schema.Resource{
--		Create: resourceBucketLegacyCreate,
--		Read:   resourceBucketLegacyRead,
--		Update: resourceBucketLegacyUpdate,
--		Delete: resourceBucketLegacyDelete,
+-		CreateContext: resourceBucketLegacyCreate,
+-		ReadContext:   resourceBucketLegacyRead,
+-		UpdateContext: resourceBucketLegacyUpdate,
+-		DeleteContext: resourceBucketLegacyDelete,
 +		CreateWithoutTimeout: resourceBucketLegacyCreate,
 +		ReadWithoutTimeout:   resourceBucketLegacyRead,
 +		UpdateWithoutTimeout: resourceBucketLegacyUpdate,
@@ -330,12 +330,12 @@ index 56eed6e0f0..69cdf81c1e 100644
  	}
  }
  
--func resourceBucketLegacyCreate(d *schema.ResourceData, meta interface{}) error {
+-func resourceBucketLegacyCreate(ctx context.Context, d *schema.ResourceData, meta interface{}) error {
 +func resourceBucketLegacyCreate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
  	conn := meta.(*conns.AWSClient).S3Conn()
  
  	// Get the bucket and acl
-@@ -709,7 +710,7 @@ func resourceBucketLegacyCreate(d *schema.ResourceData, meta interface{}) error
+@@ -709,7 +710,7 @@ func resourceBucketLegacyCreate(ctx context.Context, d *schema.ResourceData, met
  	}
  
  	if err := ValidBucketNameLegacy(bucket, awsRegion); err != nil {
@@ -344,7 +344,7 @@ index 56eed6e0f0..69cdf81c1e 100644
  	}
  
  	// S3 Object Lock can only be enabled on bucket creation.
-@@ -736,15 +737,15 @@ func resourceBucketLegacyCreate(d *schema.ResourceData, meta interface{}) error
+@@ -736,7 +737,7 @@ func resourceBucketLegacyCreate(ctx context.Context, d *schema.ResourceData, met
  		_, err = conn.CreateBucket(req)
  	}
  	if err != nil {
@@ -353,17 +353,16 @@ index 56eed6e0f0..69cdf81c1e 100644
  	}
  
  	// Assign the bucket name as the resource ID
- 	d.SetId(bucket)
--	return resourceBucketLegacyUpdate(d, meta)
-+	return resourceBucketLegacyUpdate(ctx, d, meta)
+@@ -744,7 +745,7 @@ func resourceBucketLegacyCreate(ctx context.Context, d *schema.ResourceData, met
+ 	return resourceBucketLegacyUpdate(ctx, d, meta)
  }
  
--func resourceBucketLegacyUpdate(d *schema.ResourceData, meta interface{}) error {
+-func resourceBucketLegacyUpdate(ctx context.Context, d *schema.ResourceData, meta interface{}) error {
 +func resourceBucketLegacyUpdate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
  	conn := meta.(*conns.AWSClient).S3Conn()
  
  	if d.HasChange("tags_all") {
-@@ -756,25 +757,25 @@ func resourceBucketLegacyUpdate(d *schema.ResourceData, meta interface{}) error
+@@ -756,25 +757,25 @@ func resourceBucketLegacyUpdate(ctx context.Context, d *schema.ResourceData, met
  			return nil, terr
  		})
  		if err != nil {
@@ -393,7 +392,7 @@ index 56eed6e0f0..69cdf81c1e 100644
  		}
  	}
  
-@@ -785,74 +786,74 @@ func resourceBucketLegacyUpdate(d *schema.ResourceData, meta interface{}) error
+@@ -785,74 +786,74 @@ func resourceBucketLegacyUpdate(ctx context.Context, d *schema.ResourceData, met
  			if versioning := expandVersioningWhenIsNewResourceLegacy(v); versioning != nil {
  				err := resourceBucketLegacyVersioningUpdate(conn, d.Id(), versioning)
  				if err != nil {
@@ -473,16 +472,15 @@ index 56eed6e0f0..69cdf81c1e 100644
  		}
  	}
  
--	return resourceBucketLegacyRead(d, meta)
-+	return resourceBucketLegacyRead(ctx, d, meta)
+ 	return resourceBucketLegacyRead(ctx, d, meta)
  }
  
--func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+-func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta interface{}) error {
 +func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
  	conn := meta.(*conns.AWSClient).S3Conn()
  	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig
  	ignoreTagsConfig := meta.(*conns.AWSClient).IgnoreTagsConfig
-@@ -896,7 +897,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+@@ -896,7 +897,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  	}
  
  	if err != nil {
@@ -491,7 +489,7 @@ index 56eed6e0f0..69cdf81c1e 100644
  	}
  
  	// In the import case, we won't have this
-@@ -917,24 +918,24 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+@@ -917,24 +918,24 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  		log.Printf("[DEBUG] S3 bucket: %s, read policy: %v", d.Id(), pol)
  		if err != nil {
  			if err := d.Set("policy", ""); err != nil {
@@ -520,7 +518,7 @@ index 56eed6e0f0..69cdf81c1e 100644
  				}
  
  				d.Set("policy", policyToSet)
-@@ -945,7 +946,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+@@ -945,7 +946,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  	//Read the Grant ACL. Reset if `acl` (canned ACL) is set.
  	if acl, ok := d.GetOk("acl"); ok && acl.(string) != "private" {
  		if err := d.Set("grant", nil); err != nil {
@@ -529,7 +527,7 @@ index 56eed6e0f0..69cdf81c1e 100644
  		}
  	} else {
  		apResponse, err := retryOnAWSCode("NoSuchBucket", func() (interface{}, error) {
-@@ -954,12 +955,12 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+@@ -954,12 +955,12 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  			})
  		})
  		if err != nil {
@@ -544,7 +542,7 @@ index 56eed6e0f0..69cdf81c1e 100644
  		}
  	}
  
-@@ -970,7 +971,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+@@ -970,7 +971,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  		})
  	})
  	if err != nil && !tfawserr.ErrMessageContains(err, "NoSuchCORSConfiguration", "") {
@@ -553,7 +551,7 @@ index 56eed6e0f0..69cdf81c1e 100644
  	}
  
  	corsRules := make([]map[string]interface{}, 0)
-@@ -992,7 +993,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+@@ -992,7 +993,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  		}
  	}
  	if err := d.Set("cors_rule", corsRules); err != nil {
@@ -562,7 +560,7 @@ index 56eed6e0f0..69cdf81c1e 100644
  	}
  
  	// Read the website configuration
-@@ -1002,7 +1003,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+@@ -1002,7 +1003,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  		})
  	})
  	if err != nil && !tfawserr.ErrMessageContains(err, "NotImplemented", "") && !tfawserr.ErrMessageContains(err, "NoSuchWebsiteConfiguration", "") {
@@ -571,7 +569,7 @@ index 56eed6e0f0..69cdf81c1e 100644
  	}
  
  	websites := make([]map[string]interface{}, 0, 1)
-@@ -1046,7 +1047,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+@@ -1046,7 +1047,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  		if v := ws.RoutingRules; v != nil {
  			rr, err := normalizeRoutingRulesLegacy(v)
  			if err != nil {
@@ -580,7 +578,7 @@ index 56eed6e0f0..69cdf81c1e 100644
  			}
  			w["routing_rules"] = rr
  		}
-@@ -1058,7 +1059,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+@@ -1058,7 +1059,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  		}
  	}
  	if err := d.Set("website", websites); err != nil {
@@ -589,7 +587,7 @@ index 56eed6e0f0..69cdf81c1e 100644
  	}
  
  	// Read the versioning configuration
-@@ -1070,12 +1071,12 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+@@ -1070,12 +1071,12 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  	})
  
  	if err != nil {
@@ -604,7 +602,7 @@ index 56eed6e0f0..69cdf81c1e 100644
  		}
  	}
  
-@@ -1089,7 +1090,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+@@ -1089,7 +1090,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  
  	// Amazon S3 Transfer Acceleration might not be supported in the region
  	if err != nil && !tfawserr.ErrMessageContains(err, "MethodNotAllowed", "") && !tfawserr.ErrMessageContains(err, "UnsupportedArgument", "") {
@@ -613,7 +611,7 @@ index 56eed6e0f0..69cdf81c1e 100644
  	}
  	if accelerate, ok := accelerateResponse.(*s3.GetBucketAccelerateConfigurationOutput); ok {
  		d.Set("acceleration_status", accelerate.Status)
-@@ -1104,7 +1105,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+@@ -1104,7 +1105,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  	})
  
  	if err != nil {
@@ -622,7 +620,7 @@ index 56eed6e0f0..69cdf81c1e 100644
  	}
  
  	if payer, ok := payerResponse.(*s3.GetBucketRequestPaymentOutput); ok {
-@@ -1119,7 +1120,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+@@ -1119,7 +1120,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  	})
  
  	if err != nil {
@@ -631,7 +629,7 @@ index 56eed6e0f0..69cdf81c1e 100644
  	}
  
  	lcl := make([]map[string]interface{}, 0, 1)
-@@ -1135,7 +1136,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+@@ -1135,7 +1136,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  		lcl = append(lcl, lc)
  	}
  	if err := d.Set("logging", lcl); err != nil {
@@ -640,7 +638,7 @@ index 56eed6e0f0..69cdf81c1e 100644
  	}
  
  	// Read the lifecycle configuration
-@@ -1146,7 +1147,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+@@ -1146,7 +1147,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  		})
  	})
  	if err != nil && !tfawserr.ErrMessageContains(err, "NoSuchLifecycleConfiguration", "") {
@@ -649,7 +647,7 @@ index 56eed6e0f0..69cdf81c1e 100644
  	}
  
  	lifecycleRules := make([]map[string]interface{}, 0)
-@@ -1264,7 +1265,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+@@ -1264,7 +1265,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  		}
  	}
  	if err := d.Set("lifecycle_rule", lifecycleRules); err != nil {
@@ -658,7 +656,7 @@ index 56eed6e0f0..69cdf81c1e 100644
  	}
  
  	// Read the bucket replication configuration
-@@ -1275,7 +1276,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+@@ -1275,7 +1276,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  		})
  	})
  	if err != nil && !tfawserr.ErrMessageContains(err, "ReplicationConfigurationNotFoundError", "") {
@@ -667,7 +665,7 @@ index 56eed6e0f0..69cdf81c1e 100644
  	}
  
  	replicationConfiguration := make([]map[string]interface{}, 0)
-@@ -1283,7 +1284,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+@@ -1283,7 +1284,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  		replicationConfiguration = flattenBucketReplicationConfigurationLegacy(replication.ReplicationConfiguration)
  	}
  	if err := d.Set("replication_configuration", replicationConfiguration); err != nil {
@@ -676,7 +674,7 @@ index 56eed6e0f0..69cdf81c1e 100644
  	}
  
  	// Read the bucket server side encryption configuration
-@@ -1294,7 +1295,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+@@ -1294,7 +1295,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  		})
  	})
  	if err != nil && !tfawserr.ErrMessageContains(err, "ServerSideEncryptionConfigurationNotFoundError", "encryption configuration was not found") {
@@ -685,7 +683,7 @@ index 56eed6e0f0..69cdf81c1e 100644
  	}
  
  	serverSideEncryptionConfiguration := make([]map[string]interface{}, 0)
-@@ -1302,7 +1303,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+@@ -1302,7 +1303,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  		serverSideEncryptionConfiguration = flattenServerSideEncryptionConfigurationLegacy(encryption.ServerSideEncryptionConfiguration)
  	}
  	if err := d.Set("server_side_encryption_configuration", serverSideEncryptionConfiguration); err != nil {
@@ -694,16 +692,16 @@ index 56eed6e0f0..69cdf81c1e 100644
  	}
  
  	// Object Lock configuration.
-@@ -1310,7 +1311,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+@@ -1310,7 +1311,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  
  	// Object lock not supported in all partitions (extra guard, also guards in read func)
- 	if err != nil && (meta.(*conns.AWSClient).Partition == endpoints.AwsPartitionID || meta.(*conns.AWSClient).Partition == endpoints.AwsUsGovPartitionID) {
+ 	if err != nil && (meta.(*conns.AWSClient).Partition(ctx) == endpoints.AwsPartitionID || meta.(*conns.AWSClient).Partition(ctx) == endpoints.AwsUsGovPartitionID) {
 -		return fmt.Errorf("error getting S3 Bucket Object Lock configuration: %s", err)
 +		return diag.Errorf("error getting S3 Bucket Object Lock configuration: %s", err)
  	}
  
  	if err != nil {
-@@ -1319,7 +1320,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+@@ -1319,7 +1320,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  
  	if err == nil {
  		if err := d.Set("object_lock_configuration", conf); err != nil {
@@ -712,7 +710,7 @@ index 56eed6e0f0..69cdf81c1e 100644
  		}
  	}
  
-@@ -1340,18 +1341,18 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+@@ -1340,18 +1341,18 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  		})
  	})
  	if err != nil {
@@ -734,7 +732,7 @@ index 56eed6e0f0..69cdf81c1e 100644
  	}
  	d.Set("bucket_regional_domain_name", regionalEndpoint)
  
-@@ -1366,14 +1367,14 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+@@ -1366,14 +1367,14 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  	// Add website_endpoint as an attribute
  	websiteEndpoint, err := websiteLegacyEndpoint(meta.(*conns.AWSClient), d)
  	if err != nil {
@@ -752,7 +750,7 @@ index 56eed6e0f0..69cdf81c1e 100644
  		}
  	}
  
-@@ -1383,24 +1384,24 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+@@ -1383,24 +1384,24 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  	})
  
  	if err != nil {
@@ -781,16 +779,16 @@ index 56eed6e0f0..69cdf81c1e 100644
  	}
  
  	arn := arn.ARN{
-@@ -1413,7 +1414,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+@@ -1413,7 +1414,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  	return nil
  }
  
--func resourceBucketLegacyDelete(d *schema.ResourceData, meta interface{}) error {
+-func resourceBucketLegacyDelete(ctx context.Context, d *schema.ResourceData, meta interface{}) error {
 +func resourceBucketLegacyDelete(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
  	conn := meta.(*conns.AWSClient).S3Conn()
  
  	log.Printf("[DEBUG] S3 Delete Bucket: %s", d.Id())
-@@ -1445,28 +1446,28 @@ func resourceBucketLegacyDelete(d *schema.ResourceData, meta interface{}) error
+@@ -1445,7 +1446,7 @@ func resourceBucketLegacyDelete(ctx context.Context, d *schema.ResourceData, met
  			err = DeleteAllObjectVersions(conn, d.Id(), "", objectLockEnabled, false)
  
  			if err != nil {
@@ -799,9 +797,7 @@ index 56eed6e0f0..69cdf81c1e 100644
  			}
  
  			// this line recurses until all objects are deleted or an error is returned
--			return resourceBucketLegacyDelete(d, meta)
-+			return resourceBucketLegacyDelete(ctx, d, meta)
- 		}
+@@ -1454,19 +1455,19 @@ func resourceBucketLegacyDelete(ctx context.Context, d *schema.ResourceData, met
  	}
  
  	if err != nil {

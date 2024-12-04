@@ -26,6 +26,8 @@ __all__ = [
     'EventSourceMappingDocumentDbEventSourceConfig',
     'EventSourceMappingFilterCriteria',
     'EventSourceMappingFilterCriteriaFilter',
+    'EventSourceMappingMetricsConfig',
+    'EventSourceMappingProvisionedPollerConfig',
     'EventSourceMappingScalingConfig',
     'EventSourceMappingSelfManagedEventSource',
     'EventSourceMappingSelfManagedKafkaEventSourceConfig',
@@ -367,6 +369,74 @@ class EventSourceMappingFilterCriteriaFilter(dict):
         A filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
         """
         return pulumi.get(self, "pattern")
+
+
+@pulumi.output_type
+class EventSourceMappingMetricsConfig(dict):
+    def __init__(__self__, *,
+                 metrics: Sequence[str]):
+        """
+        :param Sequence[str] metrics: A list containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
+        """
+        pulumi.set(__self__, "metrics", metrics)
+
+    @property
+    @pulumi.getter
+    def metrics(self) -> Sequence[str]:
+        """
+        A list containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
+        """
+        return pulumi.get(self, "metrics")
+
+
+@pulumi.output_type
+class EventSourceMappingProvisionedPollerConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumPollers":
+            suggest = "maximum_pollers"
+        elif key == "minimumPollers":
+            suggest = "minimum_pollers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventSourceMappingProvisionedPollerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventSourceMappingProvisionedPollerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventSourceMappingProvisionedPollerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 maximum_pollers: Optional[int] = None,
+                 minimum_pollers: Optional[int] = None):
+        """
+        :param int maximum_pollers: The maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
+        :param int minimum_pollers: The minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
+        """
+        if maximum_pollers is not None:
+            pulumi.set(__self__, "maximum_pollers", maximum_pollers)
+        if minimum_pollers is not None:
+            pulumi.set(__self__, "minimum_pollers", minimum_pollers)
+
+    @property
+    @pulumi.getter(name="maximumPollers")
+    def maximum_pollers(self) -> Optional[int]:
+        """
+        The maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
+        """
+        return pulumi.get(self, "maximum_pollers")
+
+    @property
+    @pulumi.getter(name="minimumPollers")
+    def minimum_pollers(self) -> Optional[int]:
+        """
+        The minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
+        """
+        return pulumi.get(self, "minimum_pollers")
 
 
 @pulumi.output_type

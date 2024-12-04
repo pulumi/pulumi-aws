@@ -7,6 +7,8 @@ import com.pulumi.aws.lambda.inputs.EventSourceMappingAmazonManagedKafkaEventSou
 import com.pulumi.aws.lambda.inputs.EventSourceMappingDestinationConfigArgs;
 import com.pulumi.aws.lambda.inputs.EventSourceMappingDocumentDbEventSourceConfigArgs;
 import com.pulumi.aws.lambda.inputs.EventSourceMappingFilterCriteriaArgs;
+import com.pulumi.aws.lambda.inputs.EventSourceMappingMetricsConfigArgs;
+import com.pulumi.aws.lambda.inputs.EventSourceMappingProvisionedPollerConfigArgs;
 import com.pulumi.aws.lambda.inputs.EventSourceMappingScalingConfigArgs;
 import com.pulumi.aws.lambda.inputs.EventSourceMappingSelfManagedEventSourceArgs;
 import com.pulumi.aws.lambda.inputs.EventSourceMappingSelfManagedKafkaEventSourceConfigArgs;
@@ -239,6 +241,21 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
+     * 
+     */
+    @Import(name="metricsConfig")
+    private @Nullable Output<EventSourceMappingMetricsConfigArgs> metricsConfig;
+
+    /**
+     * @return - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
+     * 
+     */
+    public Optional<Output<EventSourceMappingMetricsConfigArgs>> metricsConfig() {
+        return Optional.ofNullable(this.metricsConfig);
+    }
+
+    /**
      * - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
      * 
      */
@@ -251,6 +268,21 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
      */
     public Optional<Output<Integer>> parallelizationFactor() {
         return Optional.ofNullable(this.parallelizationFactor);
+    }
+
+    /**
+     * - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
+     * 
+     */
+    @Import(name="provisionedPollerConfig")
+    private @Nullable Output<EventSourceMappingProvisionedPollerConfigArgs> provisionedPollerConfig;
+
+    /**
+     * @return - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
+     * 
+     */
+    public Optional<Output<EventSourceMappingProvisionedPollerConfigArgs>> provisionedPollerConfig() {
+        return Optional.ofNullable(this.provisionedPollerConfig);
     }
 
     /**
@@ -420,7 +452,9 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
         this.maximumBatchingWindowInSeconds = $.maximumBatchingWindowInSeconds;
         this.maximumRecordAgeInSeconds = $.maximumRecordAgeInSeconds;
         this.maximumRetryAttempts = $.maximumRetryAttempts;
+        this.metricsConfig = $.metricsConfig;
         this.parallelizationFactor = $.parallelizationFactor;
+        this.provisionedPollerConfig = $.provisionedPollerConfig;
         this.queues = $.queues;
         this.scalingConfig = $.scalingConfig;
         this.selfManagedEventSource = $.selfManagedEventSource;
@@ -756,6 +790,27 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
+         * @param metricsConfig - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metricsConfig(@Nullable Output<EventSourceMappingMetricsConfigArgs> metricsConfig) {
+            $.metricsConfig = metricsConfig;
+            return this;
+        }
+
+        /**
+         * @param metricsConfig - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metricsConfig(EventSourceMappingMetricsConfigArgs metricsConfig) {
+            return metricsConfig(Output.of(metricsConfig));
+        }
+
+        /**
          * @param parallelizationFactor - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
          * 
          * @return builder
@@ -774,6 +829,27 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
          */
         public Builder parallelizationFactor(Integer parallelizationFactor) {
             return parallelizationFactor(Output.of(parallelizationFactor));
+        }
+
+        /**
+         * @param provisionedPollerConfig - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder provisionedPollerConfig(@Nullable Output<EventSourceMappingProvisionedPollerConfigArgs> provisionedPollerConfig) {
+            $.provisionedPollerConfig = provisionedPollerConfig;
+            return this;
+        }
+
+        /**
+         * @param provisionedPollerConfig - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder provisionedPollerConfig(EventSourceMappingProvisionedPollerConfigArgs provisionedPollerConfig) {
+            return provisionedPollerConfig(Output.of(provisionedPollerConfig));
         }
 
         /**

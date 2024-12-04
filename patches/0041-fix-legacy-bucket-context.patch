@@ -5,7 +5,7 @@ Subject: [PATCH] fix legacy bucket context
 
 
 diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
-index b5b4c0477f..b0003ae2b3 100644
+index 76ce85df25..2fed6dc3e3 100644
 --- a/internal/service/s3legacy/bucket_legacy.go
 +++ b/internal/service/s3legacy/bucket_legacy.go
 @@ -903,7 +903,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta

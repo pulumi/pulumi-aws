@@ -8,10 +8,13 @@ import com.pulumi.aws.eks.ClusterArgs;
 import com.pulumi.aws.eks.inputs.ClusterState;
 import com.pulumi.aws.eks.outputs.ClusterAccessConfig;
 import com.pulumi.aws.eks.outputs.ClusterCertificateAuthority;
+import com.pulumi.aws.eks.outputs.ClusterComputeConfig;
 import com.pulumi.aws.eks.outputs.ClusterEncryptionConfig;
 import com.pulumi.aws.eks.outputs.ClusterIdentity;
 import com.pulumi.aws.eks.outputs.ClusterKubernetesNetworkConfig;
 import com.pulumi.aws.eks.outputs.ClusterOutpostConfig;
+import com.pulumi.aws.eks.outputs.ClusterRemoteNetworkConfig;
+import com.pulumi.aws.eks.outputs.ClusterStorageConfig;
 import com.pulumi.aws.eks.outputs.ClusterUpgradePolicy;
 import com.pulumi.aws.eks.outputs.ClusterVpcConfig;
 import com.pulumi.aws.eks.outputs.ClusterZonalShiftConfig;
@@ -31,7 +34,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### Basic Usage
+ * ### EKS Cluster
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -41,126 +44,15 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.eks.Cluster;
- * import com.pulumi.aws.eks.ClusterArgs;
- * import com.pulumi.aws.eks.inputs.ClusterVpcConfigArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Cluster("example", ClusterArgs.builder()
- *             .name("example")
- *             .roleArn(exampleAwsIamRole.arn())
- *             .vpcConfig(ClusterVpcConfigArgs.builder()
- *                 .subnetIds(                
- *                     example1.id(),
- *                     example2.id())
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     example_AmazonEKSClusterPolicy,
- *                     example_AmazonEKSVPCResourceController)
- *                 .build());
- * 
- *         ctx.export("endpoint", example.endpoint());
- *         ctx.export("kubeconfig-certificate-authority-data", example.certificateAuthority().applyValue(certificateAuthority -> certificateAuthority.data()));
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
- * ### Example IAM Role for EKS Cluster
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.iam.RolePolicyAttachment;
  * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("eks.amazonaws.com")
- *                     .build())
- *                 .actions("sts:AssumeRole")
- *                 .build())
- *             .build());
- * 
- *         var example = new Role("example", RoleArgs.builder()
- *             .name("eks-cluster-example")
- *             .assumeRolePolicy(assumeRole.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var example_AmazonEKSClusterPolicy = new RolePolicyAttachment("example-AmazonEKSClusterPolicy", RolePolicyAttachmentArgs.builder()
- *             .policyArn("arn:aws:iam::aws:policy/AmazonEKSClusterPolicy")
- *             .role(example.name())
- *             .build());
- * 
- *         // Optionally, enable Security Groups for Pods
- *         // Reference: https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html
- *         var example_AmazonEKSVPCResourceController = new RolePolicyAttachment("example-AmazonEKSVPCResourceController", RolePolicyAttachmentArgs.builder()
- *             .policyArn("arn:aws:iam::aws:policy/AmazonEKSVPCResourceController")
- *             .role(example.name())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
- * ### Enabling Control Plane Logging
- * 
- * [EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) can be enabled via the `enabled_cluster_log_types` argument. To manage the CloudWatch Log Group retention period, the `aws.cloudwatch.LogGroup` resource can be used.
- * 
- * &gt; The below configuration uses [`dependsOn`](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson) to prevent ordering issues with EKS automatically creating the log group first and a variable for naming consistency. Other ordering and naming methodologies may be more appropriate for your environment.
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.LogGroup;
- * import com.pulumi.aws.cloudwatch.LogGroupArgs;
  * import com.pulumi.aws.eks.Cluster;
  * import com.pulumi.aws.eks.ClusterArgs;
+ * import com.pulumi.aws.eks.inputs.ClusterAccessConfigArgs;
+ * import com.pulumi.aws.eks.inputs.ClusterVpcConfigArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -175,20 +67,44 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var config = ctx.config();
- *         final var clusterName = config.get("clusterName").orElse("example");
- *         var exampleLogGroup = new LogGroup("exampleLogGroup", LogGroupArgs.builder()
- *             .name(String.format("/aws/eks/%s/cluster", clusterName))
- *             .retentionInDays(7)
+ *         var cluster = new Role("cluster", RoleArgs.builder()
+ *             .name("eks-cluster-example")
+ *             .assumeRolePolicy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", jsonArray(
+ *                             "sts:AssumeRole", 
+ *                             "sts:TagSession"
+ *                         )),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("Service", "eks.amazonaws.com")
+ *                         ))
+ *                     )))
+ *                 )))
+ *             .build());
+ * 
+ *         var clusterAmazonEKSClusterPolicy = new RolePolicyAttachment("clusterAmazonEKSClusterPolicy", RolePolicyAttachmentArgs.builder()
+ *             .policyArn("arn:aws:iam::aws:policy/AmazonEKSClusterPolicy")
+ *             .role(cluster.name())
  *             .build());
  * 
  *         var example = new Cluster("example", ClusterArgs.builder()
- *             .enabledClusterLogTypes(            
- *                 "api",
- *                 "audit")
- *             .name(clusterName)
+ *             .name("example")
+ *             .accessConfig(ClusterAccessConfigArgs.builder()
+ *                 .authenticationMode("API")
+ *                 .build())
+ *             .roleArn(exampleAwsIamRole.arn())
+ *             .version("1.31")
+ *             .vpcConfig(ClusterVpcConfigArgs.builder()
+ *                 .subnetIds(                
+ *                     az1.id(),
+ *                     az2.id(),
+ *                     az3.id())
+ *                 .build())
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleLogGroup)
+ *                 .dependsOn(clusterAmazonEKSClusterPolicy)
  *                 .build());
  * 
  *     }
@@ -197,9 +113,9 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Enabling IAM Roles for Service Accounts
+ * ### EKS Cluster with EKS Auto Mode
  * 
- * For more information about this feature, see the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html).
+ * &gt; **NOTE:** When using EKS Auto Mode `compute_config.enabled`, `kubernetes_network_config.elastic_load_balancing.enabled`, and `storage_config.block_storage.enabled` must *ALL be set to `true`. Likewise for disabling EKS Auto Mode, all three arguments must be set to `false`.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -209,15 +125,21 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.eks.Cluster;
- * import com.pulumi.tls.TlsFunctions;
- * import com.pulumi.tls.inputs.GetCertificateArgs;
- * import com.pulumi.aws.iam.OpenIdConnectProvider;
- * import com.pulumi.aws.iam.OpenIdConnectProviderArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.RolePolicyAttachment;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
+ * import com.pulumi.aws.eks.Cluster;
+ * import com.pulumi.aws.eks.ClusterArgs;
+ * import com.pulumi.aws.eks.inputs.ClusterAccessConfigArgs;
+ * import com.pulumi.aws.eks.inputs.ClusterComputeConfigArgs;
+ * import com.pulumi.aws.eks.inputs.ClusterKubernetesNetworkConfigArgs;
+ * import com.pulumi.aws.eks.inputs.ClusterKubernetesNetworkConfigElasticLoadBalancingArgs;
+ * import com.pulumi.aws.eks.inputs.ClusterStorageConfigArgs;
+ * import com.pulumi.aws.eks.inputs.ClusterStorageConfigBlockStorageArgs;
+ * import com.pulumi.aws.eks.inputs.ClusterVpcConfigArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -231,37 +153,111 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleCluster = new Cluster("exampleCluster");
- * 
- *         final var example = TlsFunctions.getCertificate(GetCertificateArgs.builder()
- *             .url(exampleCluster.identities().applyValue(identities -> identities[0].oidcs()[0].issuer()))
+ *         var node = new Role("node", RoleArgs.builder()
+ *             .name("eks-auto-node-example")
+ *             .assumeRolePolicy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", jsonArray("sts:AssumeRole")),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("Service", "ec2.amazonaws.com")
+ *                         ))
+ *                     )))
+ *                 )))
  *             .build());
  * 
- *         var exampleOpenIdConnectProvider = new OpenIdConnectProvider("exampleOpenIdConnectProvider", OpenIdConnectProviderArgs.builder()
- *             .clientIdLists("sts.amazonaws.com")
- *             .thumbprintLists(example.applyValue(getCertificateResult -> getCertificateResult).applyValue(example -> example.applyValue(getCertificateResult -> getCertificateResult.certificates()[0].sha1Fingerprint())))
- *             .url(example.applyValue(getCertificateResult -> getCertificateResult).applyValue(example -> example.applyValue(getCertificateResult -> getCertificateResult.url())))
+ *         var cluster = new Role("cluster", RoleArgs.builder()
+ *             .name("eks-cluster-example")
+ *             .assumeRolePolicy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", jsonArray(
+ *                             "sts:AssumeRole", 
+ *                             "sts:TagSession"
+ *                         )),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("Service", "eks.amazonaws.com")
+ *                         ))
+ *                     )))
+ *                 )))
  *             .build());
  * 
- *         final var exampleAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions("sts:AssumeRoleWithWebIdentity")
- *                 .effect("Allow")
- *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                     .test("StringEquals")
- *                     .variable(StdFunctions.replace().applyValue(invoke -> String.format("%s:sub", invoke.result())))
- *                     .values("system:serviceaccount:kube-system:aws-node")
- *                     .build())
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .identifiers(exampleOpenIdConnectProvider.arn())
- *                     .type("Federated")
+ *         var clusterAmazonEKSClusterPolicy = new RolePolicyAttachment("clusterAmazonEKSClusterPolicy", RolePolicyAttachmentArgs.builder()
+ *             .policyArn("arn:aws:iam::aws:policy/AmazonEKSClusterPolicy")
+ *             .role(cluster.name())
+ *             .build());
+ * 
+ *         var clusterAmazonEKSComputePolicy = new RolePolicyAttachment("clusterAmazonEKSComputePolicy", RolePolicyAttachmentArgs.builder()
+ *             .policyArn("arn:aws:iam::aws:policy/AmazonEKSComputePolicy")
+ *             .role(cluster.name())
+ *             .build());
+ * 
+ *         var clusterAmazonEKSBlockStoragePolicy = new RolePolicyAttachment("clusterAmazonEKSBlockStoragePolicy", RolePolicyAttachmentArgs.builder()
+ *             .policyArn("arn:aws:iam::aws:policy/AmazonEKSBlockStoragePolicy")
+ *             .role(cluster.name())
+ *             .build());
+ * 
+ *         var clusterAmazonEKSLoadBalancingPolicy = new RolePolicyAttachment("clusterAmazonEKSLoadBalancingPolicy", RolePolicyAttachmentArgs.builder()
+ *             .policyArn("arn:aws:iam::aws:policy/AmazonEKSLoadBalancingPolicy")
+ *             .role(cluster.name())
+ *             .build());
+ * 
+ *         var clusterAmazonEKSNetworkingPolicy = new RolePolicyAttachment("clusterAmazonEKSNetworkingPolicy", RolePolicyAttachmentArgs.builder()
+ *             .policyArn("arn:aws:iam::aws:policy/AmazonEKSNetworkingPolicy")
+ *             .role(cluster.name())
+ *             .build());
+ * 
+ *         var example = new Cluster("example", ClusterArgs.builder()
+ *             .name("example")
+ *             .accessConfig(ClusterAccessConfigArgs.builder()
+ *                 .authenticationMode("API")
+ *                 .build())
+ *             .roleArn(cluster.arn())
+ *             .version("1.31")
+ *             .computeConfig(ClusterComputeConfigArgs.builder()
+ *                 .enabled(true)
+ *                 .nodePools("general-purpose")
+ *                 .nodeRoleArn(node.arn())
+ *                 .build())
+ *             .kubernetesNetworkConfig(ClusterKubernetesNetworkConfigArgs.builder()
+ *                 .elasticLoadBalancing(ClusterKubernetesNetworkConfigElasticLoadBalancingArgs.builder()
+ *                     .enabled(true)
  *                     .build())
  *                 .build())
+ *             .storageConfig(ClusterStorageConfigArgs.builder()
+ *                 .blockStorage(ClusterStorageConfigBlockStorageArgs.builder()
+ *                     .enabled(true)
+ *                     .build())
+ *                 .build())
+ *             .vpcConfig(ClusterVpcConfigArgs.builder()
+ *                 .endpointPrivateAccess(true)
+ *                 .endpointPublicAccess(true)
+ *                 .subnetIds(                
+ *                     az1.id(),
+ *                     az2.id(),
+ *                     az3.id())
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     clusterAmazonEKSClusterPolicy,
+ *                     clusterAmazonEKSComputePolicy,
+ *                     clusterAmazonEKSBlockStoragePolicy,
+ *                     clusterAmazonEKSLoadBalancingPolicy,
+ *                     clusterAmazonEKSNetworkingPolicy)
+ *                 .build());
+ * 
+ *         var nodeAmazonEKSWorkerNodeMinimalPolicy = new RolePolicyAttachment("nodeAmazonEKSWorkerNodeMinimalPolicy", RolePolicyAttachmentArgs.builder()
+ *             .policyArn("arn:aws:iam::aws:policy/AmazonEKSWorkerNodeMinimalPolicy")
+ *             .role(node.name())
  *             .build());
  * 
- *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
- *             .assumeRolePolicy(exampleAssumeRolePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(exampleAssumeRolePolicy -> exampleAssumeRolePolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
- *             .name("example")
+ *         var nodeAmazonEC2ContainerRegistryPullOnly = new RolePolicyAttachment("nodeAmazonEC2ContainerRegistryPullOnly", RolePolicyAttachmentArgs.builder()
+ *             .policyArn("arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPullOnly")
+ *             .role(node.name())
  *             .build());
  * 
  *     }
@@ -270,7 +266,12 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### EKS Cluster on AWS Outpost
+ * ### EKS Cluster with EKS Hybrid Nodes
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Local EKS Cluster on AWS Outpost
  * 
  * [Creating a local Amazon EKS cluster on an AWS Outpost](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html)
  * 
@@ -282,12 +283,19 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.aws.outposts.OutpostsFunctions;
+ * import com.pulumi.aws.outposts.inputs.GetOutpostArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.RolePolicyAttachment;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
  * import com.pulumi.aws.eks.Cluster;
  * import com.pulumi.aws.eks.ClusterArgs;
+ * import com.pulumi.aws.eks.inputs.ClusterAccessConfigArgs;
  * import com.pulumi.aws.eks.inputs.ClusterVpcConfigArgs;
  * import com.pulumi.aws.eks.inputs.ClusterOutpostConfigArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -301,84 +309,64 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Role("example", RoleArgs.builder()
- *             .assumeRolePolicy(exampleAssumeRolePolicy.json())
+ *         final var example = OutpostsFunctions.getOutpost(GetOutpostArgs.builder()
  *             .name("example")
  *             .build());
  * 
- *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
- *             .name("example-cluster")
- *             .roleArn(example.arn())
- *             .vpcConfig(ClusterVpcConfigArgs.builder()
- *                 .endpointPrivateAccess(true)
- *                 .endpointPublicAccess(false)
- *                 .build())
- *             .outpostConfig(ClusterOutpostConfigArgs.builder()
- *                 .controlPlaneInstanceType("m5d.large")
- *                 .outpostArns(exampleAwsOutpostsOutpost.arn())
- *                 .build())
+ *         var cluster = new Role("cluster", RoleArgs.builder()
+ *             .name("eks-cluster-example")
+ *             .assumeRolePolicy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", jsonArray(
+ *                             "sts:AssumeRole", 
+ *                             "sts:TagSession"
+ *                         )),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("Service", jsonArray(
+ *                                 "eks.amazonaws.com", 
+ *                                 "ec2.amazonaws.com"
+ *                             ))
+ *                         ))
+ *                     )))
+ *                 )))
  *             .build());
  * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
+ *         var clusterAmazonEKSLocalOutpostClusterPolicy = new RolePolicyAttachment("clusterAmazonEKSLocalOutpostClusterPolicy", RolePolicyAttachmentArgs.builder()
+ *             .policyArn("arn:aws:iam::aws:policy/AmazonEKSLocalOutpostClusterPolicy")
+ *             .role(cluster.name())
+ *             .build());
  * 
- * ### EKS Cluster with Access Config
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.eks.Cluster;
- * import com.pulumi.aws.eks.ClusterArgs;
- * import com.pulumi.aws.eks.inputs.ClusterVpcConfigArgs;
- * import com.pulumi.aws.eks.inputs.ClusterAccessConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Role("example", RoleArgs.builder()
- *             .assumeRolePolicy(exampleAssumeRolePolicy.json())
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
  *             .name("example")
- *             .build());
- * 
- *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
- *             .name("example-cluster")
- *             .roleArn(example.arn())
- *             .vpcConfig(ClusterVpcConfigArgs.builder()
- *                 .endpointPrivateAccess(true)
- *                 .endpointPublicAccess(false)
- *                 .build())
  *             .accessConfig(ClusterAccessConfigArgs.builder()
  *                 .authenticationMode("CONFIG_MAP")
- *                 .bootstrapClusterCreatorAdminPermissions(true)
  *                 .build())
- *             .build());
+ *             .roleArn(exampleAwsIamRole.arn())
+ *             .version("1.31")
+ *             .vpcConfig(ClusterVpcConfigArgs.builder()
+ *                 .endpointPrivateAccess(true)
+ *                 .endpointPublicAccess(false)
+ *                 .subnetIds(                
+ *                     az1.id(),
+ *                     az2.id(),
+ *                     az3.id())
+ *                 .build())
+ *             .outpostConfig(ClusterOutpostConfigArgs.builder()
+ *                 .controlPlaneInstanceType("m5.large")
+ *                 .outpostArns(example.applyValue(getOutpostResult -> getOutpostResult.arn()))
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(clusterAmazonEKSLocalOutpostClusterPolicy)
+ *                 .build());
  * 
  *     }
  * }
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
- * 
- * After adding inline IAM Policies (e.g., `aws.iam.RolePolicy` resource) or attaching IAM Policies (e.g., `aws.iam.Policy` resource and `aws.iam.RolePolicyAttachment` resource) with the desired permissions to the IAM Role, annotate the Kubernetes service account (e.g., `kubernetes_service_account` resource) and recreate any pods.
  * 
  * ## Import
  * 
@@ -466,6 +454,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> clusterId() {
         return this.clusterId;
+    }
+    /**
+     * Configuration block with compute configuration for EKS Auto Mode. Detailed below.
+     * 
+     */
+    @Export(name="computeConfig", refs={ClusterComputeConfig.class}, tree="[0]")
+    private Output</* @Nullable */ ClusterComputeConfig> computeConfig;
+
+    /**
+     * @return Configuration block with compute configuration for EKS Auto Mode. Detailed below.
+     * 
+     */
+    public Output<Optional<ClusterComputeConfig>> computeConfig() {
+        return Codegen.optional(this.computeConfig);
     }
     /**
      * Unix epoch timestamp in seconds for when the cluster was created.
@@ -600,6 +602,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.platformVersion;
     }
     /**
+     * Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
+     * 
+     */
+    @Export(name="remoteNetworkConfig", refs={ClusterRemoteNetworkConfig.class}, tree="[0]")
+    private Output</* @Nullable */ ClusterRemoteNetworkConfig> remoteNetworkConfig;
+
+    /**
+     * @return Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
+     * 
+     */
+    public Output<Optional<ClusterRemoteNetworkConfig>> remoteNetworkConfig() {
+        return Codegen.optional(this.remoteNetworkConfig);
+    }
+    /**
      * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
      * 
      */
@@ -626,6 +642,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> status() {
         return this.status;
+    }
+    /**
+     * Configuration block with storage configuration for EKS Auto Mode. Detailed below.
+     * 
+     */
+    @Export(name="storageConfig", refs={ClusterStorageConfig.class}, tree="[0]")
+    private Output</* @Nullable */ ClusterStorageConfig> storageConfig;
+
+    /**
+     * @return Configuration block with storage configuration for EKS Auto Mode. Detailed below.
+     * 
+     */
+    public Output<Optional<ClusterStorageConfig>> storageConfig() {
+        return Codegen.optional(this.storageConfig);
     }
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

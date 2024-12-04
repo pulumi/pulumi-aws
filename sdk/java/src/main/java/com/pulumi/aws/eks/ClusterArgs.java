@@ -4,9 +4,12 @@
 package com.pulumi.aws.eks;
 
 import com.pulumi.aws.eks.inputs.ClusterAccessConfigArgs;
+import com.pulumi.aws.eks.inputs.ClusterComputeConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterEncryptionConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterKubernetesNetworkConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterOutpostConfigArgs;
+import com.pulumi.aws.eks.inputs.ClusterRemoteNetworkConfigArgs;
+import com.pulumi.aws.eks.inputs.ClusterStorageConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterUpgradePolicyArgs;
 import com.pulumi.aws.eks.inputs.ClusterVpcConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterZonalShiftConfigArgs;
@@ -54,6 +57,21 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> bootstrapSelfManagedAddons() {
         return Optional.ofNullable(this.bootstrapSelfManagedAddons);
+    }
+
+    /**
+     * Configuration block with compute configuration for EKS Auto Mode. Detailed below.
+     * 
+     */
+    @Import(name="computeConfig")
+    private @Nullable Output<ClusterComputeConfigArgs> computeConfig;
+
+    /**
+     * @return Configuration block with compute configuration for EKS Auto Mode. Detailed below.
+     * 
+     */
+    public Optional<Output<ClusterComputeConfigArgs>> computeConfig() {
+        return Optional.ofNullable(this.computeConfig);
     }
 
     @Import(name="defaultAddonsToRemoves")
@@ -139,6 +157,21 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
+     * 
+     */
+    @Import(name="remoteNetworkConfig")
+    private @Nullable Output<ClusterRemoteNetworkConfigArgs> remoteNetworkConfig;
+
+    /**
+     * @return Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
+     * 
+     */
+    public Optional<Output<ClusterRemoteNetworkConfigArgs>> remoteNetworkConfig() {
+        return Optional.ofNullable(this.remoteNetworkConfig);
+    }
+
+    /**
      * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
      * 
      */
@@ -151,6 +184,21 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<String> roleArn() {
         return this.roleArn;
+    }
+
+    /**
+     * Configuration block with storage configuration for EKS Auto Mode. Detailed below.
+     * 
+     */
+    @Import(name="storageConfig")
+    private @Nullable Output<ClusterStorageConfigArgs> storageConfig;
+
+    /**
+     * @return Configuration block with storage configuration for EKS Auto Mode. Detailed below.
+     * 
+     */
+    public Optional<Output<ClusterStorageConfigArgs>> storageConfig() {
+        return Optional.ofNullable(this.storageConfig);
     }
 
     /**
@@ -237,13 +285,16 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     private ClusterArgs(ClusterArgs $) {
         this.accessConfig = $.accessConfig;
         this.bootstrapSelfManagedAddons = $.bootstrapSelfManagedAddons;
+        this.computeConfig = $.computeConfig;
         this.defaultAddonsToRemoves = $.defaultAddonsToRemoves;
         this.enabledClusterLogTypes = $.enabledClusterLogTypes;
         this.encryptionConfig = $.encryptionConfig;
         this.kubernetesNetworkConfig = $.kubernetesNetworkConfig;
         this.name = $.name;
         this.outpostConfig = $.outpostConfig;
+        this.remoteNetworkConfig = $.remoteNetworkConfig;
         this.roleArn = $.roleArn;
+        this.storageConfig = $.storageConfig;
         this.tags = $.tags;
         this.upgradePolicy = $.upgradePolicy;
         this.version = $.version;
@@ -309,6 +360,27 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder bootstrapSelfManagedAddons(Boolean bootstrapSelfManagedAddons) {
             return bootstrapSelfManagedAddons(Output.of(bootstrapSelfManagedAddons));
+        }
+
+        /**
+         * @param computeConfig Configuration block with compute configuration for EKS Auto Mode. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder computeConfig(@Nullable Output<ClusterComputeConfigArgs> computeConfig) {
+            $.computeConfig = computeConfig;
+            return this;
+        }
+
+        /**
+         * @param computeConfig Configuration block with compute configuration for EKS Auto Mode. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder computeConfig(ClusterComputeConfigArgs computeConfig) {
+            return computeConfig(Output.of(computeConfig));
         }
 
         public Builder defaultAddonsToRemoves(@Nullable Output<List<String>> defaultAddonsToRemoves) {
@@ -440,6 +512,27 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param remoteNetworkConfig Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder remoteNetworkConfig(@Nullable Output<ClusterRemoteNetworkConfigArgs> remoteNetworkConfig) {
+            $.remoteNetworkConfig = remoteNetworkConfig;
+            return this;
+        }
+
+        /**
+         * @param remoteNetworkConfig Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder remoteNetworkConfig(ClusterRemoteNetworkConfigArgs remoteNetworkConfig) {
+            return remoteNetworkConfig(Output.of(remoteNetworkConfig));
+        }
+
+        /**
          * @param roleArn ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
          * 
          * @return builder
@@ -458,6 +551,27 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
+        }
+
+        /**
+         * @param storageConfig Configuration block with storage configuration for EKS Auto Mode. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageConfig(@Nullable Output<ClusterStorageConfigArgs> storageConfig) {
+            $.storageConfig = storageConfig;
+            return this;
+        }
+
+        /**
+         * @param storageConfig Configuration block with storage configuration for EKS Auto Mode. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageConfig(ClusterStorageConfigArgs storageConfig) {
+            return storageConfig(Output.of(storageConfig));
         }
 
         /**

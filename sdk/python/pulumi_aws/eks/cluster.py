@@ -25,12 +25,15 @@ class ClusterArgs:
                  vpc_config: pulumi.Input['ClusterVpcConfigArgs'],
                  access_config: Optional[pulumi.Input['ClusterAccessConfigArgs']] = None,
                  bootstrap_self_managed_addons: Optional[pulumi.Input[bool]] = None,
+                 compute_config: Optional[pulumi.Input['ClusterComputeConfigArgs']] = None,
                  default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  encryption_config: Optional[pulumi.Input['ClusterEncryptionConfigArgs']] = None,
                  kubernetes_network_config: Optional[pulumi.Input['ClusterKubernetesNetworkConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  outpost_config: Optional[pulumi.Input['ClusterOutpostConfigArgs']] = None,
+                 remote_network_config: Optional[pulumi.Input['ClusterRemoteNetworkConfigArgs']] = None,
+                 storage_config: Optional[pulumi.Input['ClusterStorageConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upgrade_policy: Optional[pulumi.Input['ClusterUpgradePolicyArgs']] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -43,11 +46,14 @@ class ClusterArgs:
                The following arguments are optional:
         :param pulumi.Input['ClusterAccessConfigArgs'] access_config: Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
         :param pulumi.Input[bool] bootstrap_self_managed_addons: Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+        :param pulumi.Input['ClusterComputeConfigArgs'] compute_config: Configuration block with compute configuration for EKS Auto Mode. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         :param pulumi.Input['ClusterEncryptionConfigArgs'] encryption_config: Configuration block with encryption configuration for the cluster. Detailed below.
         :param pulumi.Input['ClusterKubernetesNetworkConfigArgs'] kubernetes_network_config: Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[str] name: Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]*$`).
         :param pulumi.Input['ClusterOutpostConfigArgs'] outpost_config: Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
+        :param pulumi.Input['ClusterRemoteNetworkConfigArgs'] remote_network_config: Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
+        :param pulumi.Input['ClusterStorageConfigArgs'] storage_config: Configuration block with storage configuration for EKS Auto Mode. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['ClusterUpgradePolicyArgs'] upgrade_policy: Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
         :param pulumi.Input[str] version: Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
@@ -59,6 +65,8 @@ class ClusterArgs:
             pulumi.set(__self__, "access_config", access_config)
         if bootstrap_self_managed_addons is not None:
             pulumi.set(__self__, "bootstrap_self_managed_addons", bootstrap_self_managed_addons)
+        if compute_config is not None:
+            pulumi.set(__self__, "compute_config", compute_config)
         if default_addons_to_removes is not None:
             pulumi.set(__self__, "default_addons_to_removes", default_addons_to_removes)
         if enabled_cluster_log_types is not None:
@@ -71,6 +79,10 @@ class ClusterArgs:
             pulumi.set(__self__, "name", name)
         if outpost_config is not None:
             pulumi.set(__self__, "outpost_config", outpost_config)
+        if remote_network_config is not None:
+            pulumi.set(__self__, "remote_network_config", remote_network_config)
+        if storage_config is not None:
+            pulumi.set(__self__, "storage_config", storage_config)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if upgrade_policy is not None:
@@ -129,6 +141,18 @@ class ClusterArgs:
     @bootstrap_self_managed_addons.setter
     def bootstrap_self_managed_addons(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "bootstrap_self_managed_addons", value)
+
+    @property
+    @pulumi.getter(name="computeConfig")
+    def compute_config(self) -> Optional[pulumi.Input['ClusterComputeConfigArgs']]:
+        """
+        Configuration block with compute configuration for EKS Auto Mode. Detailed below.
+        """
+        return pulumi.get(self, "compute_config")
+
+    @compute_config.setter
+    def compute_config(self, value: Optional[pulumi.Input['ClusterComputeConfigArgs']]):
+        pulumi.set(self, "compute_config", value)
 
     @property
     @pulumi.getter(name="defaultAddonsToRemoves")
@@ -200,6 +224,30 @@ class ClusterArgs:
         pulumi.set(self, "outpost_config", value)
 
     @property
+    @pulumi.getter(name="remoteNetworkConfig")
+    def remote_network_config(self) -> Optional[pulumi.Input['ClusterRemoteNetworkConfigArgs']]:
+        """
+        Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
+        """
+        return pulumi.get(self, "remote_network_config")
+
+    @remote_network_config.setter
+    def remote_network_config(self, value: Optional[pulumi.Input['ClusterRemoteNetworkConfigArgs']]):
+        pulumi.set(self, "remote_network_config", value)
+
+    @property
+    @pulumi.getter(name="storageConfig")
+    def storage_config(self) -> Optional[pulumi.Input['ClusterStorageConfigArgs']]:
+        """
+        Configuration block with storage configuration for EKS Auto Mode. Detailed below.
+        """
+        return pulumi.get(self, "storage_config")
+
+    @storage_config.setter
+    def storage_config(self, value: Optional[pulumi.Input['ClusterStorageConfigArgs']]):
+        pulumi.set(self, "storage_config", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -257,6 +305,7 @@ class _ClusterState:
                  certificate_authorities: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCertificateAuthorityArgs']]]] = None,
                  certificate_authority: Optional[pulumi.Input['ClusterCertificateAuthorityArgs']] = None,
                  cluster_id: Optional[pulumi.Input[str]] = None,
+                 compute_config: Optional[pulumi.Input['ClusterComputeConfigArgs']] = None,
                  created_at: Optional[pulumi.Input[str]] = None,
                  default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -267,8 +316,10 @@ class _ClusterState:
                  name: Optional[pulumi.Input[str]] = None,
                  outpost_config: Optional[pulumi.Input['ClusterOutpostConfigArgs']] = None,
                  platform_version: Optional[pulumi.Input[str]] = None,
+                 remote_network_config: Optional[pulumi.Input['ClusterRemoteNetworkConfigArgs']] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
+                 storage_config: Optional[pulumi.Input['ClusterStorageConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upgrade_policy: Optional[pulumi.Input['ClusterUpgradePolicyArgs']] = None,
@@ -282,6 +333,7 @@ class _ClusterState:
         :param pulumi.Input[bool] bootstrap_self_managed_addons: Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
         :param pulumi.Input['ClusterCertificateAuthorityArgs'] certificate_authority: Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         :param pulumi.Input[str] cluster_id: The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
+        :param pulumi.Input['ClusterComputeConfigArgs'] compute_config: Configuration block with compute configuration for EKS Auto Mode. Detailed below.
         :param pulumi.Input[str] created_at: Unix epoch timestamp in seconds for when the cluster was created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         :param pulumi.Input['ClusterEncryptionConfigArgs'] encryption_config: Configuration block with encryption configuration for the cluster. Detailed below.
@@ -291,8 +343,10 @@ class _ClusterState:
         :param pulumi.Input[str] name: Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]*$`).
         :param pulumi.Input['ClusterOutpostConfigArgs'] outpost_config: Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
         :param pulumi.Input[str] platform_version: Platform version for the cluster.
+        :param pulumi.Input['ClusterRemoteNetworkConfigArgs'] remote_network_config: Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
         :param pulumi.Input[str] role_arn: ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `iam.RolePolicy` resource or `iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
         :param pulumi.Input[str] status: Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
+        :param pulumi.Input['ClusterStorageConfigArgs'] storage_config: Configuration block with storage configuration for EKS Auto Mode. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['ClusterUpgradePolicyArgs'] upgrade_policy: Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
@@ -314,6 +368,8 @@ class _ClusterState:
             pulumi.set(__self__, "certificate_authority", certificate_authority)
         if cluster_id is not None:
             pulumi.set(__self__, "cluster_id", cluster_id)
+        if compute_config is not None:
+            pulumi.set(__self__, "compute_config", compute_config)
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
         if default_addons_to_removes is not None:
@@ -334,10 +390,14 @@ class _ClusterState:
             pulumi.set(__self__, "outpost_config", outpost_config)
         if platform_version is not None:
             pulumi.set(__self__, "platform_version", platform_version)
+        if remote_network_config is not None:
+            pulumi.set(__self__, "remote_network_config", remote_network_config)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if storage_config is not None:
+            pulumi.set(__self__, "storage_config", storage_config)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -422,6 +482,18 @@ class _ClusterState:
     @cluster_id.setter
     def cluster_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cluster_id", value)
+
+    @property
+    @pulumi.getter(name="computeConfig")
+    def compute_config(self) -> Optional[pulumi.Input['ClusterComputeConfigArgs']]:
+        """
+        Configuration block with compute configuration for EKS Auto Mode. Detailed below.
+        """
+        return pulumi.get(self, "compute_config")
+
+    @compute_config.setter
+    def compute_config(self, value: Optional[pulumi.Input['ClusterComputeConfigArgs']]):
+        pulumi.set(self, "compute_config", value)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -541,6 +613,18 @@ class _ClusterState:
         pulumi.set(self, "platform_version", value)
 
     @property
+    @pulumi.getter(name="remoteNetworkConfig")
+    def remote_network_config(self) -> Optional[pulumi.Input['ClusterRemoteNetworkConfigArgs']]:
+        """
+        Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
+        """
+        return pulumi.get(self, "remote_network_config")
+
+    @remote_network_config.setter
+    def remote_network_config(self, value: Optional[pulumi.Input['ClusterRemoteNetworkConfigArgs']]):
+        pulumi.set(self, "remote_network_config", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -563,6 +647,18 @@ class _ClusterState:
     @status.setter
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="storageConfig")
+    def storage_config(self) -> Optional[pulumi.Input['ClusterStorageConfigArgs']]:
+        """
+        Configuration block with storage configuration for EKS Auto Mode. Detailed below.
+        """
+        return pulumi.get(self, "storage_config")
+
+    @storage_config.setter
+    def storage_config(self, value: Optional[pulumi.Input['ClusterStorageConfigArgs']]):
+        pulumi.set(self, "storage_config", value)
 
     @property
     @pulumi.getter
@@ -647,13 +743,16 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_config: Optional[pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']]] = None,
                  bootstrap_self_managed_addons: Optional[pulumi.Input[bool]] = None,
+                 compute_config: Optional[pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']]] = None,
                  default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  encryption_config: Optional[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]] = None,
                  kubernetes_network_config: Optional[pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  outpost_config: Optional[pulumi.Input[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict']]] = None,
+                 remote_network_config: Optional[pulumi.Input[Union['ClusterRemoteNetworkConfigArgs', 'ClusterRemoteNetworkConfigArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
+                 storage_config: Optional[pulumi.Input[Union['ClusterStorageConfigArgs', 'ClusterStorageConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upgrade_policy: Optional[pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -665,165 +764,198 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Basic Usage
+        ### EKS Cluster
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
+        cluster = aws.iam.Role("cluster",
+            name="eks-cluster-example",
+            assume_role_policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": [
+                        "sts:AssumeRole",
+                        "sts:TagSession",
+                    ],
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "eks.amazonaws.com",
+                    },
+                }],
+            }))
+        cluster_amazon_eks_cluster_policy = aws.iam.RolePolicyAttachment("cluster_AmazonEKSClusterPolicy",
+            policy_arn="arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
+            role=cluster.name)
         example = aws.eks.Cluster("example",
             name="example",
+            access_config={
+                "authentication_mode": "API",
+            },
             role_arn=example_aws_iam_role["arn"],
+            version="1.31",
             vpc_config={
                 "subnet_ids": [
-                    example1["id"],
-                    example2["id"],
+                    az1["id"],
+                    az2["id"],
+                    az3["id"],
+                ],
+            },
+            opts = pulumi.ResourceOptions(depends_on=[cluster_amazon_eks_cluster_policy]))
+        ```
+
+        ### EKS Cluster with EKS Auto Mode
+
+        > **NOTE:** When using EKS Auto Mode `compute_config.enabled`, `kubernetes_network_config.elastic_load_balancing.enabled`, and `storage_config.block_storage.enabled` must *ALL be set to `true`. Likewise for disabling EKS Auto Mode, all three arguments must be set to `false`.
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        node = aws.iam.Role("node",
+            name="eks-auto-node-example",
+            assume_role_policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": ["sts:AssumeRole"],
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "ec2.amazonaws.com",
+                    },
+                }],
+            }))
+        cluster = aws.iam.Role("cluster",
+            name="eks-cluster-example",
+            assume_role_policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": [
+                        "sts:AssumeRole",
+                        "sts:TagSession",
+                    ],
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "eks.amazonaws.com",
+                    },
+                }],
+            }))
+        cluster_amazon_eks_cluster_policy = aws.iam.RolePolicyAttachment("cluster_AmazonEKSClusterPolicy",
+            policy_arn="arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
+            role=cluster.name)
+        cluster_amazon_eks_compute_policy = aws.iam.RolePolicyAttachment("cluster_AmazonEKSComputePolicy",
+            policy_arn="arn:aws:iam::aws:policy/AmazonEKSComputePolicy",
+            role=cluster.name)
+        cluster_amazon_eks_block_storage_policy = aws.iam.RolePolicyAttachment("cluster_AmazonEKSBlockStoragePolicy",
+            policy_arn="arn:aws:iam::aws:policy/AmazonEKSBlockStoragePolicy",
+            role=cluster.name)
+        cluster_amazon_eks_load_balancing_policy = aws.iam.RolePolicyAttachment("cluster_AmazonEKSLoadBalancingPolicy",
+            policy_arn="arn:aws:iam::aws:policy/AmazonEKSLoadBalancingPolicy",
+            role=cluster.name)
+        cluster_amazon_eks_networking_policy = aws.iam.RolePolicyAttachment("cluster_AmazonEKSNetworkingPolicy",
+            policy_arn="arn:aws:iam::aws:policy/AmazonEKSNetworkingPolicy",
+            role=cluster.name)
+        example = aws.eks.Cluster("example",
+            name="example",
+            access_config={
+                "authentication_mode": "API",
+            },
+            role_arn=cluster.arn,
+            version="1.31",
+            compute_config={
+                "enabled": True,
+                "node_pools": ["general-purpose"],
+                "node_role_arn": node.arn,
+            },
+            kubernetes_network_config={
+                "elastic_load_balancing": {
+                    "enabled": True,
+                },
+            },
+            storage_config={
+                "block_storage": {
+                    "enabled": True,
+                },
+            },
+            vpc_config={
+                "endpoint_private_access": True,
+                "endpoint_public_access": True,
+                "subnet_ids": [
+                    az1["id"],
+                    az2["id"],
+                    az3["id"],
                 ],
             },
             opts = pulumi.ResourceOptions(depends_on=[
-                    example__amazon_eks_cluster_policy,
-                    example__amazon_eksvpc_resource_controller,
+                    cluster_amazon_eks_cluster_policy,
+                    cluster_amazon_eks_compute_policy,
+                    cluster_amazon_eks_block_storage_policy,
+                    cluster_amazon_eks_load_balancing_policy,
+                    cluster_amazon_eks_networking_policy,
                 ]))
-        pulumi.export("endpoint", example.endpoint)
-        pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authority.data)
+        node_amazon_eks_worker_node_minimal_policy = aws.iam.RolePolicyAttachment("node_AmazonEKSWorkerNodeMinimalPolicy",
+            policy_arn="arn:aws:iam::aws:policy/AmazonEKSWorkerNodeMinimalPolicy",
+            role=node.name)
+        node_amazon_ec2_container_registry_pull_only = aws.iam.RolePolicyAttachment("node_AmazonEC2ContainerRegistryPullOnly",
+            policy_arn="arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPullOnly",
+            role=node.name)
         ```
 
-        ### Example IAM Role for EKS Cluster
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["eks.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        example = aws.iam.Role("example",
-            name="eks-cluster-example",
-            assume_role_policy=assume_role.json)
-        example__amazon_eks_cluster_policy = aws.iam.RolePolicyAttachment("example-AmazonEKSClusterPolicy",
-            policy_arn="arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
-            role=example.name)
-        # Optionally, enable Security Groups for Pods
-        # Reference: https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html
-        example__amazon_eksvpc_resource_controller = aws.iam.RolePolicyAttachment("example-AmazonEKSVPCResourceController",
-            policy_arn="arn:aws:iam::aws:policy/AmazonEKSVPCResourceController",
-            role=example.name)
-        ```
-
-        ### Enabling Control Plane Logging
-
-        [EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) can be enabled via the `enabled_cluster_log_types` argument. To manage the CloudWatch Log Group retention period, the `cloudwatch.LogGroup` resource can be used.
-
-        > The below configuration uses [`dependsOn`](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson) to prevent ordering issues with EKS automatically creating the log group first and a variable for naming consistency. Other ordering and naming methodologies may be more appropriate for your environment.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        config = pulumi.Config()
-        cluster_name = config.get("clusterName")
-        if cluster_name is None:
-            cluster_name = "example"
-        example_log_group = aws.cloudwatch.LogGroup("example",
-            name=f"/aws/eks/{cluster_name}/cluster",
-            retention_in_days=7)
-        example = aws.eks.Cluster("example",
-            enabled_cluster_log_types=[
-                "api",
-                "audit",
-            ],
-            name=cluster_name,
-            opts = pulumi.ResourceOptions(depends_on=[example_log_group]))
-        ```
-
-        ### Enabling IAM Roles for Service Accounts
-
-        For more information about this feature, see the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html).
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-        import pulumi_tls as tls
-
-        example_cluster = aws.eks.Cluster("example")
-        example = example_cluster.identities.apply(lambda identities: tls.get_certificate_output(url=identities[0].oidcs[0].issuer))
-        example_open_id_connect_provider = aws.iam.OpenIdConnectProvider("example",
-            client_id_lists=["sts.amazonaws.com"],
-            thumbprint_lists=[example.certificates[0].sha1_fingerprint],
-            url=example.url)
-        example_assume_role_policy = aws.iam.get_policy_document_output(statements=[{
-            "actions": ["sts:AssumeRoleWithWebIdentity"],
-            "effect": "Allow",
-            "conditions": [{
-                "test": "StringEquals",
-                "variable": std.replace_output(text=example_open_id_connect_provider.url,
-                    search="https://",
-                    replace="").apply(lambda invoke: f"{invoke.result}:sub"),
-                "values": ["system:serviceaccount:kube-system:aws-node"],
-            }],
-            "principals": [{
-                "identifiers": [example_open_id_connect_provider.arn],
-                "type": "Federated",
-            }],
-        }])
-        example_role = aws.iam.Role("example",
-            assume_role_policy=example_assume_role_policy.json,
-            name="example")
-        ```
-
-        ### EKS Cluster on AWS Outpost
+        ### Local EKS Cluster on AWS Outpost
 
         [Creating a local Amazon EKS cluster on an AWS Outpost](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html)
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
-        example = aws.iam.Role("example",
-            assume_role_policy=example_assume_role_policy["json"],
-            name="example")
+        example = aws.outposts.get_outpost(name="example")
+        cluster = aws.iam.Role("cluster",
+            name="eks-cluster-example",
+            assume_role_policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": [
+                        "sts:AssumeRole",
+                        "sts:TagSession",
+                    ],
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": [
+                            "eks.amazonaws.com",
+                            "ec2.amazonaws.com",
+                        ],
+                    },
+                }],
+            }))
+        cluster_amazon_eks_local_outpost_cluster_policy = aws.iam.RolePolicyAttachment("cluster_AmazonEKSLocalOutpostClusterPolicy",
+            policy_arn="arn:aws:iam::aws:policy/AmazonEKSLocalOutpostClusterPolicy",
+            role=cluster.name)
         example_cluster = aws.eks.Cluster("example",
-            name="example-cluster",
-            role_arn=example.arn,
-            vpc_config={
-                "endpoint_private_access": True,
-                "endpoint_public_access": False,
-            },
-            outpost_config={
-                "control_plane_instance_type": "m5d.large",
-                "outpost_arns": [example_aws_outposts_outpost["arn"]],
-            })
-        ```
-
-        ### EKS Cluster with Access Config
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iam.Role("example",
-            assume_role_policy=example_assume_role_policy["json"],
-            name="example")
-        example_cluster = aws.eks.Cluster("example",
-            name="example-cluster",
-            role_arn=example.arn,
-            vpc_config={
-                "endpoint_private_access": True,
-                "endpoint_public_access": False,
-            },
+            name="example",
             access_config={
                 "authentication_mode": "CONFIG_MAP",
-                "bootstrap_cluster_creator_admin_permissions": True,
-            })
+            },
+            role_arn=example_aws_iam_role["arn"],
+            version="1.31",
+            vpc_config={
+                "endpoint_private_access": True,
+                "endpoint_public_access": False,
+                "subnet_ids": [
+                    az1["id"],
+                    az2["id"],
+                    az3["id"],
+                ],
+            },
+            outpost_config={
+                "control_plane_instance_type": "m5.large",
+                "outpost_arns": [example.arn],
+            },
+            opts = pulumi.ResourceOptions(depends_on=[cluster_amazon_eks_local_outpost_cluster_policy]))
         ```
-
-        After adding inline IAM Policies (e.g., `iam.RolePolicy` resource) or attaching IAM Policies (e.g., `iam.Policy` resource and `iam.RolePolicyAttachment` resource) with the desired permissions to the IAM Role, annotate the Kubernetes service account (e.g., `kubernetes_service_account` resource) and recreate any pods.
 
         ## Import
 
@@ -837,12 +969,15 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']] access_config: Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
         :param pulumi.Input[bool] bootstrap_self_managed_addons: Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+        :param pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']] compute_config: Configuration block with compute configuration for EKS Auto Mode. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         :param pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']] encryption_config: Configuration block with encryption configuration for the cluster. Detailed below.
         :param pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']] kubernetes_network_config: Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[str] name: Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]*$`).
         :param pulumi.Input[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict']] outpost_config: Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
+        :param pulumi.Input[Union['ClusterRemoteNetworkConfigArgs', 'ClusterRemoteNetworkConfigArgsDict']] remote_network_config: Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
         :param pulumi.Input[str] role_arn: ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `iam.RolePolicy` resource or `iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
+        :param pulumi.Input[Union['ClusterStorageConfigArgs', 'ClusterStorageConfigArgsDict']] storage_config: Configuration block with storage configuration for EKS Auto Mode. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']] upgrade_policy: Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
         :param pulumi.Input[str] version: Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
@@ -862,165 +997,198 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Basic Usage
+        ### EKS Cluster
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
+        cluster = aws.iam.Role("cluster",
+            name="eks-cluster-example",
+            assume_role_policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": [
+                        "sts:AssumeRole",
+                        "sts:TagSession",
+                    ],
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "eks.amazonaws.com",
+                    },
+                }],
+            }))
+        cluster_amazon_eks_cluster_policy = aws.iam.RolePolicyAttachment("cluster_AmazonEKSClusterPolicy",
+            policy_arn="arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
+            role=cluster.name)
         example = aws.eks.Cluster("example",
             name="example",
+            access_config={
+                "authentication_mode": "API",
+            },
             role_arn=example_aws_iam_role["arn"],
+            version="1.31",
             vpc_config={
                 "subnet_ids": [
-                    example1["id"],
-                    example2["id"],
+                    az1["id"],
+                    az2["id"],
+                    az3["id"],
+                ],
+            },
+            opts = pulumi.ResourceOptions(depends_on=[cluster_amazon_eks_cluster_policy]))
+        ```
+
+        ### EKS Cluster with EKS Auto Mode
+
+        > **NOTE:** When using EKS Auto Mode `compute_config.enabled`, `kubernetes_network_config.elastic_load_balancing.enabled`, and `storage_config.block_storage.enabled` must *ALL be set to `true`. Likewise for disabling EKS Auto Mode, all three arguments must be set to `false`.
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        node = aws.iam.Role("node",
+            name="eks-auto-node-example",
+            assume_role_policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": ["sts:AssumeRole"],
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "ec2.amazonaws.com",
+                    },
+                }],
+            }))
+        cluster = aws.iam.Role("cluster",
+            name="eks-cluster-example",
+            assume_role_policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": [
+                        "sts:AssumeRole",
+                        "sts:TagSession",
+                    ],
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "eks.amazonaws.com",
+                    },
+                }],
+            }))
+        cluster_amazon_eks_cluster_policy = aws.iam.RolePolicyAttachment("cluster_AmazonEKSClusterPolicy",
+            policy_arn="arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
+            role=cluster.name)
+        cluster_amazon_eks_compute_policy = aws.iam.RolePolicyAttachment("cluster_AmazonEKSComputePolicy",
+            policy_arn="arn:aws:iam::aws:policy/AmazonEKSComputePolicy",
+            role=cluster.name)
+        cluster_amazon_eks_block_storage_policy = aws.iam.RolePolicyAttachment("cluster_AmazonEKSBlockStoragePolicy",
+            policy_arn="arn:aws:iam::aws:policy/AmazonEKSBlockStoragePolicy",
+            role=cluster.name)
+        cluster_amazon_eks_load_balancing_policy = aws.iam.RolePolicyAttachment("cluster_AmazonEKSLoadBalancingPolicy",
+            policy_arn="arn:aws:iam::aws:policy/AmazonEKSLoadBalancingPolicy",
+            role=cluster.name)
+        cluster_amazon_eks_networking_policy = aws.iam.RolePolicyAttachment("cluster_AmazonEKSNetworkingPolicy",
+            policy_arn="arn:aws:iam::aws:policy/AmazonEKSNetworkingPolicy",
+            role=cluster.name)
+        example = aws.eks.Cluster("example",
+            name="example",
+            access_config={
+                "authentication_mode": "API",
+            },
+            role_arn=cluster.arn,
+            version="1.31",
+            compute_config={
+                "enabled": True,
+                "node_pools": ["general-purpose"],
+                "node_role_arn": node.arn,
+            },
+            kubernetes_network_config={
+                "elastic_load_balancing": {
+                    "enabled": True,
+                },
+            },
+            storage_config={
+                "block_storage": {
+                    "enabled": True,
+                },
+            },
+            vpc_config={
+                "endpoint_private_access": True,
+                "endpoint_public_access": True,
+                "subnet_ids": [
+                    az1["id"],
+                    az2["id"],
+                    az3["id"],
                 ],
             },
             opts = pulumi.ResourceOptions(depends_on=[
-                    example__amazon_eks_cluster_policy,
-                    example__amazon_eksvpc_resource_controller,
+                    cluster_amazon_eks_cluster_policy,
+                    cluster_amazon_eks_compute_policy,
+                    cluster_amazon_eks_block_storage_policy,
+                    cluster_amazon_eks_load_balancing_policy,
+                    cluster_amazon_eks_networking_policy,
                 ]))
-        pulumi.export("endpoint", example.endpoint)
-        pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authority.data)
+        node_amazon_eks_worker_node_minimal_policy = aws.iam.RolePolicyAttachment("node_AmazonEKSWorkerNodeMinimalPolicy",
+            policy_arn="arn:aws:iam::aws:policy/AmazonEKSWorkerNodeMinimalPolicy",
+            role=node.name)
+        node_amazon_ec2_container_registry_pull_only = aws.iam.RolePolicyAttachment("node_AmazonEC2ContainerRegistryPullOnly",
+            policy_arn="arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPullOnly",
+            role=node.name)
         ```
 
-        ### Example IAM Role for EKS Cluster
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["eks.amazonaws.com"],
-            }],
-            "actions": ["sts:AssumeRole"],
-        }])
-        example = aws.iam.Role("example",
-            name="eks-cluster-example",
-            assume_role_policy=assume_role.json)
-        example__amazon_eks_cluster_policy = aws.iam.RolePolicyAttachment("example-AmazonEKSClusterPolicy",
-            policy_arn="arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
-            role=example.name)
-        # Optionally, enable Security Groups for Pods
-        # Reference: https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html
-        example__amazon_eksvpc_resource_controller = aws.iam.RolePolicyAttachment("example-AmazonEKSVPCResourceController",
-            policy_arn="arn:aws:iam::aws:policy/AmazonEKSVPCResourceController",
-            role=example.name)
-        ```
-
-        ### Enabling Control Plane Logging
-
-        [EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) can be enabled via the `enabled_cluster_log_types` argument. To manage the CloudWatch Log Group retention period, the `cloudwatch.LogGroup` resource can be used.
-
-        > The below configuration uses [`dependsOn`](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson) to prevent ordering issues with EKS automatically creating the log group first and a variable for naming consistency. Other ordering and naming methodologies may be more appropriate for your environment.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        config = pulumi.Config()
-        cluster_name = config.get("clusterName")
-        if cluster_name is None:
-            cluster_name = "example"
-        example_log_group = aws.cloudwatch.LogGroup("example",
-            name=f"/aws/eks/{cluster_name}/cluster",
-            retention_in_days=7)
-        example = aws.eks.Cluster("example",
-            enabled_cluster_log_types=[
-                "api",
-                "audit",
-            ],
-            name=cluster_name,
-            opts = pulumi.ResourceOptions(depends_on=[example_log_group]))
-        ```
-
-        ### Enabling IAM Roles for Service Accounts
-
-        For more information about this feature, see the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html).
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-        import pulumi_tls as tls
-
-        example_cluster = aws.eks.Cluster("example")
-        example = example_cluster.identities.apply(lambda identities: tls.get_certificate_output(url=identities[0].oidcs[0].issuer))
-        example_open_id_connect_provider = aws.iam.OpenIdConnectProvider("example",
-            client_id_lists=["sts.amazonaws.com"],
-            thumbprint_lists=[example.certificates[0].sha1_fingerprint],
-            url=example.url)
-        example_assume_role_policy = aws.iam.get_policy_document_output(statements=[{
-            "actions": ["sts:AssumeRoleWithWebIdentity"],
-            "effect": "Allow",
-            "conditions": [{
-                "test": "StringEquals",
-                "variable": std.replace_output(text=example_open_id_connect_provider.url,
-                    search="https://",
-                    replace="").apply(lambda invoke: f"{invoke.result}:sub"),
-                "values": ["system:serviceaccount:kube-system:aws-node"],
-            }],
-            "principals": [{
-                "identifiers": [example_open_id_connect_provider.arn],
-                "type": "Federated",
-            }],
-        }])
-        example_role = aws.iam.Role("example",
-            assume_role_policy=example_assume_role_policy.json,
-            name="example")
-        ```
-
-        ### EKS Cluster on AWS Outpost
+        ### Local EKS Cluster on AWS Outpost
 
         [Creating a local Amazon EKS cluster on an AWS Outpost](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html)
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
-        example = aws.iam.Role("example",
-            assume_role_policy=example_assume_role_policy["json"],
-            name="example")
+        example = aws.outposts.get_outpost(name="example")
+        cluster = aws.iam.Role("cluster",
+            name="eks-cluster-example",
+            assume_role_policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Action": [
+                        "sts:AssumeRole",
+                        "sts:TagSession",
+                    ],
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": [
+                            "eks.amazonaws.com",
+                            "ec2.amazonaws.com",
+                        ],
+                    },
+                }],
+            }))
+        cluster_amazon_eks_local_outpost_cluster_policy = aws.iam.RolePolicyAttachment("cluster_AmazonEKSLocalOutpostClusterPolicy",
+            policy_arn="arn:aws:iam::aws:policy/AmazonEKSLocalOutpostClusterPolicy",
+            role=cluster.name)
         example_cluster = aws.eks.Cluster("example",
-            name="example-cluster",
-            role_arn=example.arn,
-            vpc_config={
-                "endpoint_private_access": True,
-                "endpoint_public_access": False,
-            },
-            outpost_config={
-                "control_plane_instance_type": "m5d.large",
-                "outpost_arns": [example_aws_outposts_outpost["arn"]],
-            })
-        ```
-
-        ### EKS Cluster with Access Config
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iam.Role("example",
-            assume_role_policy=example_assume_role_policy["json"],
-            name="example")
-        example_cluster = aws.eks.Cluster("example",
-            name="example-cluster",
-            role_arn=example.arn,
-            vpc_config={
-                "endpoint_private_access": True,
-                "endpoint_public_access": False,
-            },
+            name="example",
             access_config={
                 "authentication_mode": "CONFIG_MAP",
-                "bootstrap_cluster_creator_admin_permissions": True,
-            })
+            },
+            role_arn=example_aws_iam_role["arn"],
+            version="1.31",
+            vpc_config={
+                "endpoint_private_access": True,
+                "endpoint_public_access": False,
+                "subnet_ids": [
+                    az1["id"],
+                    az2["id"],
+                    az3["id"],
+                ],
+            },
+            outpost_config={
+                "control_plane_instance_type": "m5.large",
+                "outpost_arns": [example.arn],
+            },
+            opts = pulumi.ResourceOptions(depends_on=[cluster_amazon_eks_local_outpost_cluster_policy]))
         ```
-
-        After adding inline IAM Policies (e.g., `iam.RolePolicy` resource) or attaching IAM Policies (e.g., `iam.Policy` resource and `iam.RolePolicyAttachment` resource) with the desired permissions to the IAM Role, annotate the Kubernetes service account (e.g., `kubernetes_service_account` resource) and recreate any pods.
 
         ## Import
 
@@ -1047,13 +1215,16 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_config: Optional[pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']]] = None,
                  bootstrap_self_managed_addons: Optional[pulumi.Input[bool]] = None,
+                 compute_config: Optional[pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']]] = None,
                  default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  encryption_config: Optional[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]] = None,
                  kubernetes_network_config: Optional[pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  outpost_config: Optional[pulumi.Input[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict']]] = None,
+                 remote_network_config: Optional[pulumi.Input[Union['ClusterRemoteNetworkConfigArgs', 'ClusterRemoteNetworkConfigArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
+                 storage_config: Optional[pulumi.Input[Union['ClusterStorageConfigArgs', 'ClusterStorageConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upgrade_policy: Optional[pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -1070,15 +1241,18 @@ class Cluster(pulumi.CustomResource):
 
             __props__.__dict__["access_config"] = access_config
             __props__.__dict__["bootstrap_self_managed_addons"] = bootstrap_self_managed_addons
+            __props__.__dict__["compute_config"] = compute_config
             __props__.__dict__["default_addons_to_removes"] = default_addons_to_removes
             __props__.__dict__["enabled_cluster_log_types"] = enabled_cluster_log_types
             __props__.__dict__["encryption_config"] = encryption_config
             __props__.__dict__["kubernetes_network_config"] = kubernetes_network_config
             __props__.__dict__["name"] = name
             __props__.__dict__["outpost_config"] = outpost_config
+            __props__.__dict__["remote_network_config"] = remote_network_config
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
+            __props__.__dict__["storage_config"] = storage_config
             __props__.__dict__["tags"] = tags
             __props__.__dict__["upgrade_policy"] = upgrade_policy
             __props__.__dict__["version"] = version
@@ -1112,6 +1286,7 @@ class Cluster(pulumi.CustomResource):
             certificate_authorities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterCertificateAuthorityArgs', 'ClusterCertificateAuthorityArgsDict']]]]] = None,
             certificate_authority: Optional[pulumi.Input[Union['ClusterCertificateAuthorityArgs', 'ClusterCertificateAuthorityArgsDict']]] = None,
             cluster_id: Optional[pulumi.Input[str]] = None,
+            compute_config: Optional[pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']]] = None,
             created_at: Optional[pulumi.Input[str]] = None,
             default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1122,8 +1297,10 @@ class Cluster(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             outpost_config: Optional[pulumi.Input[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict']]] = None,
             platform_version: Optional[pulumi.Input[str]] = None,
+            remote_network_config: Optional[pulumi.Input[Union['ClusterRemoteNetworkConfigArgs', 'ClusterRemoteNetworkConfigArgsDict']]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
+            storage_config: Optional[pulumi.Input[Union['ClusterStorageConfigArgs', 'ClusterStorageConfigArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             upgrade_policy: Optional[pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']]] = None,
@@ -1142,6 +1319,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] bootstrap_self_managed_addons: Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
         :param pulumi.Input[Union['ClusterCertificateAuthorityArgs', 'ClusterCertificateAuthorityArgsDict']] certificate_authority: Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         :param pulumi.Input[str] cluster_id: The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
+        :param pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']] compute_config: Configuration block with compute configuration for EKS Auto Mode. Detailed below.
         :param pulumi.Input[str] created_at: Unix epoch timestamp in seconds for when the cluster was created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         :param pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']] encryption_config: Configuration block with encryption configuration for the cluster. Detailed below.
@@ -1151,8 +1329,10 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]*$`).
         :param pulumi.Input[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict']] outpost_config: Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
         :param pulumi.Input[str] platform_version: Platform version for the cluster.
+        :param pulumi.Input[Union['ClusterRemoteNetworkConfigArgs', 'ClusterRemoteNetworkConfigArgsDict']] remote_network_config: Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
         :param pulumi.Input[str] role_arn: ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `iam.RolePolicy` resource or `iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
         :param pulumi.Input[str] status: Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
+        :param pulumi.Input[Union['ClusterStorageConfigArgs', 'ClusterStorageConfigArgsDict']] storage_config: Configuration block with storage configuration for EKS Auto Mode. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']] upgrade_policy: Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
@@ -1172,6 +1352,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["certificate_authorities"] = certificate_authorities
         __props__.__dict__["certificate_authority"] = certificate_authority
         __props__.__dict__["cluster_id"] = cluster_id
+        __props__.__dict__["compute_config"] = compute_config
         __props__.__dict__["created_at"] = created_at
         __props__.__dict__["default_addons_to_removes"] = default_addons_to_removes
         __props__.__dict__["enabled_cluster_log_types"] = enabled_cluster_log_types
@@ -1182,8 +1363,10 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["outpost_config"] = outpost_config
         __props__.__dict__["platform_version"] = platform_version
+        __props__.__dict__["remote_network_config"] = remote_network_config
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["status"] = status
+        __props__.__dict__["storage_config"] = storage_config
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["upgrade_policy"] = upgrade_policy
@@ -1236,6 +1419,14 @@ class Cluster(pulumi.CustomResource):
         The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
         """
         return pulumi.get(self, "cluster_id")
+
+    @property
+    @pulumi.getter(name="computeConfig")
+    def compute_config(self) -> pulumi.Output[Optional['outputs.ClusterComputeConfig']]:
+        """
+        Configuration block with compute configuration for EKS Auto Mode. Detailed below.
+        """
+        return pulumi.get(self, "compute_config")
 
     @property
     @pulumi.getter(name="createdAt")
@@ -1315,6 +1506,14 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "platform_version")
 
     @property
+    @pulumi.getter(name="remoteNetworkConfig")
+    def remote_network_config(self) -> pulumi.Output[Optional['outputs.ClusterRemoteNetworkConfig']]:
+        """
+        Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
+        """
+        return pulumi.get(self, "remote_network_config")
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         """
@@ -1329,6 +1528,14 @@ class Cluster(pulumi.CustomResource):
         Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="storageConfig")
+    def storage_config(self) -> pulumi.Output[Optional['outputs.ClusterStorageConfig']]:
+        """
+        Configuration block with storage configuration for EKS Auto Mode. Detailed below.
+        """
+        return pulumi.get(self, "storage_config")
 
     @property
     @pulumi.getter

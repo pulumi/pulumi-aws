@@ -35,7 +35,9 @@ class EventSourceMappingArgs:
                  maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_record_age_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
+                 metrics_config: Optional[pulumi.Input['EventSourceMappingMetricsConfigArgs']] = None,
                  parallelization_factor: Optional[pulumi.Input[int]] = None,
+                 provisioned_poller_config: Optional[pulumi.Input['EventSourceMappingProvisionedPollerConfigArgs']] = None,
                  queues: Optional[pulumi.Input[str]] = None,
                  scaling_config: Optional[pulumi.Input['EventSourceMappingScalingConfigArgs']] = None,
                  self_managed_event_source: Optional[pulumi.Input['EventSourceMappingSelfManagedEventSourceArgs']] = None,
@@ -62,7 +64,9 @@ class EventSourceMappingArgs:
         :param pulumi.Input[int] maximum_batching_window_in_seconds: The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
         :param pulumi.Input[int] maximum_record_age_in_seconds: - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
         :param pulumi.Input[int] maximum_retry_attempts: - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
+        :param pulumi.Input['EventSourceMappingMetricsConfigArgs'] metrics_config: - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
         :param pulumi.Input[int] parallelization_factor: - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
+        :param pulumi.Input['EventSourceMappingProvisionedPollerConfigArgs'] provisioned_poller_config: - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
         :param pulumi.Input[str] queues: The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
         :param pulumi.Input['EventSourceMappingScalingConfigArgs'] scaling_config: Scaling configuration of the event source. Only available for SQS queues. Detailed below.
         :param pulumi.Input['EventSourceMappingSelfManagedEventSourceArgs'] self_managed_event_source: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
@@ -101,8 +105,12 @@ class EventSourceMappingArgs:
             pulumi.set(__self__, "maximum_record_age_in_seconds", maximum_record_age_in_seconds)
         if maximum_retry_attempts is not None:
             pulumi.set(__self__, "maximum_retry_attempts", maximum_retry_attempts)
+        if metrics_config is not None:
+            pulumi.set(__self__, "metrics_config", metrics_config)
         if parallelization_factor is not None:
             pulumi.set(__self__, "parallelization_factor", parallelization_factor)
+        if provisioned_poller_config is not None:
+            pulumi.set(__self__, "provisioned_poller_config", provisioned_poller_config)
         if queues is not None:
             pulumi.set(__self__, "queues", queues)
         if scaling_config is not None:
@@ -293,6 +301,18 @@ class EventSourceMappingArgs:
         pulumi.set(self, "maximum_retry_attempts", value)
 
     @property
+    @pulumi.getter(name="metricsConfig")
+    def metrics_config(self) -> Optional[pulumi.Input['EventSourceMappingMetricsConfigArgs']]:
+        """
+        - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
+        """
+        return pulumi.get(self, "metrics_config")
+
+    @metrics_config.setter
+    def metrics_config(self, value: Optional[pulumi.Input['EventSourceMappingMetricsConfigArgs']]):
+        pulumi.set(self, "metrics_config", value)
+
+    @property
     @pulumi.getter(name="parallelizationFactor")
     def parallelization_factor(self) -> Optional[pulumi.Input[int]]:
         """
@@ -303,6 +323,18 @@ class EventSourceMappingArgs:
     @parallelization_factor.setter
     def parallelization_factor(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "parallelization_factor", value)
+
+    @property
+    @pulumi.getter(name="provisionedPollerConfig")
+    def provisioned_poller_config(self) -> Optional[pulumi.Input['EventSourceMappingProvisionedPollerConfigArgs']]:
+        """
+        - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
+        """
+        return pulumi.get(self, "provisioned_poller_config")
+
+    @provisioned_poller_config.setter
+    def provisioned_poller_config(self, value: Optional[pulumi.Input['EventSourceMappingProvisionedPollerConfigArgs']]):
+        pulumi.set(self, "provisioned_poller_config", value)
 
     @property
     @pulumi.getter
@@ -446,7 +478,9 @@ class _EventSourceMappingState:
                  maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_record_age_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
+                 metrics_config: Optional[pulumi.Input['EventSourceMappingMetricsConfigArgs']] = None,
                  parallelization_factor: Optional[pulumi.Input[int]] = None,
+                 provisioned_poller_config: Optional[pulumi.Input['EventSourceMappingProvisionedPollerConfigArgs']] = None,
                  queues: Optional[pulumi.Input[str]] = None,
                  scaling_config: Optional[pulumi.Input['EventSourceMappingScalingConfigArgs']] = None,
                  self_managed_event_source: Optional[pulumi.Input['EventSourceMappingSelfManagedEventSourceArgs']] = None,
@@ -481,7 +515,9 @@ class _EventSourceMappingState:
         :param pulumi.Input[int] maximum_batching_window_in_seconds: The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
         :param pulumi.Input[int] maximum_record_age_in_seconds: - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
         :param pulumi.Input[int] maximum_retry_attempts: - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
+        :param pulumi.Input['EventSourceMappingMetricsConfigArgs'] metrics_config: - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
         :param pulumi.Input[int] parallelization_factor: - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
+        :param pulumi.Input['EventSourceMappingProvisionedPollerConfigArgs'] provisioned_poller_config: - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
         :param pulumi.Input[str] queues: The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
         :param pulumi.Input['EventSourceMappingScalingConfigArgs'] scaling_config: Scaling configuration of the event source. Only available for SQS queues. Detailed below.
         :param pulumi.Input['EventSourceMappingSelfManagedEventSourceArgs'] self_managed_event_source: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
@@ -533,8 +569,12 @@ class _EventSourceMappingState:
             pulumi.set(__self__, "maximum_record_age_in_seconds", maximum_record_age_in_seconds)
         if maximum_retry_attempts is not None:
             pulumi.set(__self__, "maximum_retry_attempts", maximum_retry_attempts)
+        if metrics_config is not None:
+            pulumi.set(__self__, "metrics_config", metrics_config)
         if parallelization_factor is not None:
             pulumi.set(__self__, "parallelization_factor", parallelization_factor)
+        if provisioned_poller_config is not None:
+            pulumi.set(__self__, "provisioned_poller_config", provisioned_poller_config)
         if queues is not None:
             pulumi.set(__self__, "queues", queues)
         if scaling_config is not None:
@@ -784,6 +824,18 @@ class _EventSourceMappingState:
         pulumi.set(self, "maximum_retry_attempts", value)
 
     @property
+    @pulumi.getter(name="metricsConfig")
+    def metrics_config(self) -> Optional[pulumi.Input['EventSourceMappingMetricsConfigArgs']]:
+        """
+        - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
+        """
+        return pulumi.get(self, "metrics_config")
+
+    @metrics_config.setter
+    def metrics_config(self, value: Optional[pulumi.Input['EventSourceMappingMetricsConfigArgs']]):
+        pulumi.set(self, "metrics_config", value)
+
+    @property
     @pulumi.getter(name="parallelizationFactor")
     def parallelization_factor(self) -> Optional[pulumi.Input[int]]:
         """
@@ -794,6 +846,18 @@ class _EventSourceMappingState:
     @parallelization_factor.setter
     def parallelization_factor(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "parallelization_factor", value)
+
+    @property
+    @pulumi.getter(name="provisionedPollerConfig")
+    def provisioned_poller_config(self) -> Optional[pulumi.Input['EventSourceMappingProvisionedPollerConfigArgs']]:
+        """
+        - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
+        """
+        return pulumi.get(self, "provisioned_poller_config")
+
+    @provisioned_poller_config.setter
+    def provisioned_poller_config(self, value: Optional[pulumi.Input['EventSourceMappingProvisionedPollerConfigArgs']]):
+        pulumi.set(self, "provisioned_poller_config", value)
 
     @property
     @pulumi.getter
@@ -984,7 +1048,9 @@ class EventSourceMapping(pulumi.CustomResource):
                  maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_record_age_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
+                 metrics_config: Optional[pulumi.Input[Union['EventSourceMappingMetricsConfigArgs', 'EventSourceMappingMetricsConfigArgsDict']]] = None,
                  parallelization_factor: Optional[pulumi.Input[int]] = None,
+                 provisioned_poller_config: Optional[pulumi.Input[Union['EventSourceMappingProvisionedPollerConfigArgs', 'EventSourceMappingProvisionedPollerConfigArgsDict']]] = None,
                  queues: Optional[pulumi.Input[str]] = None,
                  scaling_config: Optional[pulumi.Input[Union['EventSourceMappingScalingConfigArgs', 'EventSourceMappingScalingConfigArgsDict']]] = None,
                  self_managed_event_source: Optional[pulumi.Input[Union['EventSourceMappingSelfManagedEventSourceArgs', 'EventSourceMappingSelfManagedEventSourceArgsDict']]] = None,
@@ -1042,37 +1108,6 @@ class EventSourceMapping(pulumi.CustomResource):
             function_name=example_aws_lambda_function["arn"],
             topics=["Example"],
             starting_position="TRIM_HORIZON")
-        ```
-
-        ### Self Managed Apache Kafka
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lambda_.EventSourceMapping("example",
-            function_name=example_aws_lambda_function["arn"],
-            topics=["Example"],
-            starting_position="TRIM_HORIZON",
-            self_managed_event_source={
-                "endpoints": {
-                    "KAFKA_BOOTSTRAP_SERVERS": "kafka1.example.com:9092,kafka2.example.com:9092",
-                },
-            },
-            source_access_configurations=[
-                {
-                    "type": "VPC_SUBNET",
-                    "uri": "subnet:subnet-example1",
-                },
-                {
-                    "type": "VPC_SUBNET",
-                    "uri": "subnet:subnet-example2",
-                },
-                {
-                    "type": "VPC_SECURITY_GROUP",
-                    "uri": "security_group:sg-example",
-                },
-            ])
         ```
 
         ### SQS
@@ -1181,7 +1216,9 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.Input[int] maximum_batching_window_in_seconds: The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
         :param pulumi.Input[int] maximum_record_age_in_seconds: - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
         :param pulumi.Input[int] maximum_retry_attempts: - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
+        :param pulumi.Input[Union['EventSourceMappingMetricsConfigArgs', 'EventSourceMappingMetricsConfigArgsDict']] metrics_config: - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
         :param pulumi.Input[int] parallelization_factor: - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
+        :param pulumi.Input[Union['EventSourceMappingProvisionedPollerConfigArgs', 'EventSourceMappingProvisionedPollerConfigArgsDict']] provisioned_poller_config: - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
         :param pulumi.Input[str] queues: The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
         :param pulumi.Input[Union['EventSourceMappingScalingConfigArgs', 'EventSourceMappingScalingConfigArgsDict']] scaling_config: Scaling configuration of the event source. Only available for SQS queues. Detailed below.
         :param pulumi.Input[Union['EventSourceMappingSelfManagedEventSourceArgs', 'EventSourceMappingSelfManagedEventSourceArgsDict']] self_managed_event_source: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
@@ -1245,37 +1282,6 @@ class EventSourceMapping(pulumi.CustomResource):
             function_name=example_aws_lambda_function["arn"],
             topics=["Example"],
             starting_position="TRIM_HORIZON")
-        ```
-
-        ### Self Managed Apache Kafka
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lambda_.EventSourceMapping("example",
-            function_name=example_aws_lambda_function["arn"],
-            topics=["Example"],
-            starting_position="TRIM_HORIZON",
-            self_managed_event_source={
-                "endpoints": {
-                    "KAFKA_BOOTSTRAP_SERVERS": "kafka1.example.com:9092,kafka2.example.com:9092",
-                },
-            },
-            source_access_configurations=[
-                {
-                    "type": "VPC_SUBNET",
-                    "uri": "subnet:subnet-example1",
-                },
-                {
-                    "type": "VPC_SUBNET",
-                    "uri": "subnet:subnet-example2",
-                },
-                {
-                    "type": "VPC_SECURITY_GROUP",
-                    "uri": "security_group:sg-example",
-                },
-            ])
         ```
 
         ### SQS
@@ -1397,7 +1403,9 @@ class EventSourceMapping(pulumi.CustomResource):
                  maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_record_age_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
+                 metrics_config: Optional[pulumi.Input[Union['EventSourceMappingMetricsConfigArgs', 'EventSourceMappingMetricsConfigArgsDict']]] = None,
                  parallelization_factor: Optional[pulumi.Input[int]] = None,
+                 provisioned_poller_config: Optional[pulumi.Input[Union['EventSourceMappingProvisionedPollerConfigArgs', 'EventSourceMappingProvisionedPollerConfigArgsDict']]] = None,
                  queues: Optional[pulumi.Input[str]] = None,
                  scaling_config: Optional[pulumi.Input[Union['EventSourceMappingScalingConfigArgs', 'EventSourceMappingScalingConfigArgsDict']]] = None,
                  self_managed_event_source: Optional[pulumi.Input[Union['EventSourceMappingSelfManagedEventSourceArgs', 'EventSourceMappingSelfManagedEventSourceArgsDict']]] = None,
@@ -1433,7 +1441,9 @@ class EventSourceMapping(pulumi.CustomResource):
             __props__.__dict__["maximum_batching_window_in_seconds"] = maximum_batching_window_in_seconds
             __props__.__dict__["maximum_record_age_in_seconds"] = maximum_record_age_in_seconds
             __props__.__dict__["maximum_retry_attempts"] = maximum_retry_attempts
+            __props__.__dict__["metrics_config"] = metrics_config
             __props__.__dict__["parallelization_factor"] = parallelization_factor
+            __props__.__dict__["provisioned_poller_config"] = provisioned_poller_config
             __props__.__dict__["queues"] = queues
             __props__.__dict__["scaling_config"] = scaling_config
             __props__.__dict__["self_managed_event_source"] = self_managed_event_source
@@ -1480,7 +1490,9 @@ class EventSourceMapping(pulumi.CustomResource):
             maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
             maximum_record_age_in_seconds: Optional[pulumi.Input[int]] = None,
             maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
+            metrics_config: Optional[pulumi.Input[Union['EventSourceMappingMetricsConfigArgs', 'EventSourceMappingMetricsConfigArgsDict']]] = None,
             parallelization_factor: Optional[pulumi.Input[int]] = None,
+            provisioned_poller_config: Optional[pulumi.Input[Union['EventSourceMappingProvisionedPollerConfigArgs', 'EventSourceMappingProvisionedPollerConfigArgsDict']]] = None,
             queues: Optional[pulumi.Input[str]] = None,
             scaling_config: Optional[pulumi.Input[Union['EventSourceMappingScalingConfigArgs', 'EventSourceMappingScalingConfigArgsDict']]] = None,
             self_managed_event_source: Optional[pulumi.Input[Union['EventSourceMappingSelfManagedEventSourceArgs', 'EventSourceMappingSelfManagedEventSourceArgsDict']]] = None,
@@ -1520,7 +1532,9 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.Input[int] maximum_batching_window_in_seconds: The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
         :param pulumi.Input[int] maximum_record_age_in_seconds: - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
         :param pulumi.Input[int] maximum_retry_attempts: - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
+        :param pulumi.Input[Union['EventSourceMappingMetricsConfigArgs', 'EventSourceMappingMetricsConfigArgsDict']] metrics_config: - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
         :param pulumi.Input[int] parallelization_factor: - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
+        :param pulumi.Input[Union['EventSourceMappingProvisionedPollerConfigArgs', 'EventSourceMappingProvisionedPollerConfigArgsDict']] provisioned_poller_config: - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
         :param pulumi.Input[str] queues: The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
         :param pulumi.Input[Union['EventSourceMappingScalingConfigArgs', 'EventSourceMappingScalingConfigArgsDict']] scaling_config: Scaling configuration of the event source. Only available for SQS queues. Detailed below.
         :param pulumi.Input[Union['EventSourceMappingSelfManagedEventSourceArgs', 'EventSourceMappingSelfManagedEventSourceArgsDict']] self_managed_event_source: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
@@ -1558,7 +1572,9 @@ class EventSourceMapping(pulumi.CustomResource):
         __props__.__dict__["maximum_batching_window_in_seconds"] = maximum_batching_window_in_seconds
         __props__.__dict__["maximum_record_age_in_seconds"] = maximum_record_age_in_seconds
         __props__.__dict__["maximum_retry_attempts"] = maximum_retry_attempts
+        __props__.__dict__["metrics_config"] = metrics_config
         __props__.__dict__["parallelization_factor"] = parallelization_factor
+        __props__.__dict__["provisioned_poller_config"] = provisioned_poller_config
         __props__.__dict__["queues"] = queues
         __props__.__dict__["scaling_config"] = scaling_config
         __props__.__dict__["self_managed_event_source"] = self_managed_event_source
@@ -1720,12 +1736,28 @@ class EventSourceMapping(pulumi.CustomResource):
         return pulumi.get(self, "maximum_retry_attempts")
 
     @property
+    @pulumi.getter(name="metricsConfig")
+    def metrics_config(self) -> pulumi.Output[Optional['outputs.EventSourceMappingMetricsConfig']]:
+        """
+        - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
+        """
+        return pulumi.get(self, "metrics_config")
+
+    @property
     @pulumi.getter(name="parallelizationFactor")
     def parallelization_factor(self) -> pulumi.Output[int]:
         """
         - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
         """
         return pulumi.get(self, "parallelization_factor")
+
+    @property
+    @pulumi.getter(name="provisionedPollerConfig")
+    def provisioned_poller_config(self) -> pulumi.Output[Optional['outputs.EventSourceMappingProvisionedPollerConfig']]:
+        """
+        - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
+        """
+        return pulumi.get(self, "provisioned_poller_config")
 
     @property
     @pulumi.getter

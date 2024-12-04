@@ -478,7 +478,7 @@ type Cluster struct {
 	// Read-only endpoint for the Aurora cluster, automatically
 	// load-balanced across replicas
 	ReaderEndpoint pulumi.StringOutput `pulumi:"readerEndpoint"`
-	// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignoreChanges` argument to prevent this provider from showing differences for this argument instead of configuring this value.
+	// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
 	ReplicationSourceIdentifier pulumi.StringPtrOutput `pulumi:"replicationSourceIdentifier"`
 	// Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
 	RestoreToPointInTime ClusterRestoreToPointInTimePtrOutput `pulumi:"restoreToPointInTime"`
@@ -662,7 +662,7 @@ type clusterState struct {
 	// Read-only endpoint for the Aurora cluster, automatically
 	// load-balanced across replicas
 	ReaderEndpoint *string `pulumi:"readerEndpoint"`
-	// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignoreChanges` argument to prevent this provider from showing differences for this argument instead of configuring this value.
+	// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
 	ReplicationSourceIdentifier *string `pulumi:"replicationSourceIdentifier"`
 	// Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
 	RestoreToPointInTime *ClusterRestoreToPointInTime `pulumi:"restoreToPointInTime"`
@@ -807,7 +807,7 @@ type ClusterState struct {
 	// Read-only endpoint for the Aurora cluster, automatically
 	// load-balanced across replicas
 	ReaderEndpoint pulumi.StringPtrInput
-	// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignoreChanges` argument to prevent this provider from showing differences for this argument instead of configuring this value.
+	// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
 	ReplicationSourceIdentifier pulumi.StringPtrInput
 	// Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
 	RestoreToPointInTime ClusterRestoreToPointInTimePtrInput
@@ -939,7 +939,7 @@ type clusterArgs struct {
 	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
 	// Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
-	// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignoreChanges` argument to prevent this provider from showing differences for this argument instead of configuring this value.
+	// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
 	ReplicationSourceIdentifier *string `pulumi:"replicationSourceIdentifier"`
 	// Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
 	RestoreToPointInTime *ClusterRestoreToPointInTime `pulumi:"restoreToPointInTime"`
@@ -1064,7 +1064,7 @@ type ClusterArgs struct {
 	PreferredBackupWindow pulumi.StringPtrInput
 	// Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
 	PreferredMaintenanceWindow pulumi.StringPtrInput
-	// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignoreChanges` argument to prevent this provider from showing differences for this argument instead of configuring this value.
+	// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
 	ReplicationSourceIdentifier pulumi.StringPtrInput
 	// Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
 	RestoreToPointInTime ClusterRestoreToPointInTimePtrInput
@@ -1453,7 +1453,7 @@ func (o ClusterOutput) ReaderEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ReaderEndpoint }).(pulumi.StringOutput)
 }
 
-// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignoreChanges` argument to prevent this provider from showing differences for this argument instead of configuring this value.
+// ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
 func (o ClusterOutput) ReplicationSourceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ReplicationSourceIdentifier }).(pulumi.StringPtrOutput)
 }

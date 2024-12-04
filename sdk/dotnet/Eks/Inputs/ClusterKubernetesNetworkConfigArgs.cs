@@ -13,6 +13,12 @@ namespace Pulumi.Aws.Eks.Inputs
     public sealed class ClusterKubernetesNetworkConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Configuration block with elastic load balancing configuration for the cluster. Detailed below.
+        /// </summary>
+        [Input("elasticLoadBalancing")]
+        public Input<Inputs.ClusterKubernetesNetworkConfigElasticLoadBalancingArgs>? ElasticLoadBalancing { get; set; }
+
+        /// <summary>
         /// The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
         /// </summary>
         [Input("ipFamily")]
@@ -31,7 +37,7 @@ namespace Pulumi.Aws.Eks.Inputs
         public Input<string>? ServiceIpv4Cidr { get; set; }
 
         /// <summary>
-        /// The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for ipFamily when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
+        /// The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for `ip_family` when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
         /// </summary>
         [Input("serviceIpv6Cidr")]
         public Input<string>? ServiceIpv6Cidr { get; set; }

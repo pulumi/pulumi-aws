@@ -137,6 +137,8 @@ from .traffic_mirror_session import *
 from .traffic_mirror_target import *
 from .volume_attachment import *
 from .vpc import *
+from .vpc_block_public_access_exclusion import *
+from .vpc_block_public_access_options import *
 from .vpc_dhcp_options import *
 from .vpc_dhcp_options_association import *
 from .vpc_endpoint import *

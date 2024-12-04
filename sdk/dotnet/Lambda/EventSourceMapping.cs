@@ -85,54 +85,6 @@ namespace Pulumi.Aws.Lambda
     /// });
     /// ```
     /// 
-    /// ### Self Managed Apache Kafka
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
-    ///     {
-    ///         FunctionName = exampleAwsLambdaFunction.Arn,
-    ///         Topics = new[]
-    ///         {
-    ///             "Example",
-    ///         },
-    ///         StartingPosition = "TRIM_HORIZON",
-    ///         SelfManagedEventSource = new Aws.Lambda.Inputs.EventSourceMappingSelfManagedEventSourceArgs
-    ///         {
-    ///             Endpoints = 
-    ///             {
-    ///                 { "KAFKA_BOOTSTRAP_SERVERS", "kafka1.example.com:9092,kafka2.example.com:9092" },
-    ///             },
-    ///         },
-    ///         SourceAccessConfigurations = new[]
-    ///         {
-    ///             new Aws.Lambda.Inputs.EventSourceMappingSourceAccessConfigurationArgs
-    ///             {
-    ///                 Type = "VPC_SUBNET",
-    ///                 Uri = "subnet:subnet-example1",
-    ///             },
-    ///             new Aws.Lambda.Inputs.EventSourceMappingSourceAccessConfigurationArgs
-    ///             {
-    ///                 Type = "VPC_SUBNET",
-    ///                 Uri = "subnet:subnet-example2",
-    ///             },
-    ///             new Aws.Lambda.Inputs.EventSourceMappingSourceAccessConfigurationArgs
-    ///             {
-    ///                 Type = "VPC_SECURITY_GROUP",
-    ///                 Uri = "security_group:sg-example",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ### SQS
     /// 
     /// ```csharp
@@ -389,10 +341,22 @@ namespace Pulumi.Aws.Lambda
         public Output<int> MaximumRetryAttempts { get; private set; } = null!;
 
         /// <summary>
+        /// - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
+        /// </summary>
+        [Output("metricsConfig")]
+        public Output<Outputs.EventSourceMappingMetricsConfig?> MetricsConfig { get; private set; } = null!;
+
+        /// <summary>
         /// - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
         /// </summary>
         [Output("parallelizationFactor")]
         public Output<int> ParallelizationFactor { get; private set; } = null!;
+
+        /// <summary>
+        /// - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
+        /// </summary>
+        [Output("provisionedPollerConfig")]
+        public Output<Outputs.EventSourceMappingProvisionedPollerConfig?> ProvisionedPollerConfig { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
@@ -615,10 +579,22 @@ namespace Pulumi.Aws.Lambda
         public Input<int>? MaximumRetryAttempts { get; set; }
 
         /// <summary>
+        /// - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
+        /// </summary>
+        [Input("metricsConfig")]
+        public Input<Inputs.EventSourceMappingMetricsConfigArgs>? MetricsConfig { get; set; }
+
+        /// <summary>
         /// - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
         /// </summary>
         [Input("parallelizationFactor")]
         public Input<int>? ParallelizationFactor { get; set; }
+
+        /// <summary>
+        /// - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
+        /// </summary>
+        [Input("provisionedPollerConfig")]
+        public Input<Inputs.EventSourceMappingProvisionedPollerConfigArgs>? ProvisionedPollerConfig { get; set; }
 
         /// <summary>
         /// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
@@ -821,10 +797,22 @@ namespace Pulumi.Aws.Lambda
         public Input<int>? MaximumRetryAttempts { get; set; }
 
         /// <summary>
+        /// - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
+        /// </summary>
+        [Input("metricsConfig")]
+        public Input<Inputs.EventSourceMappingMetricsConfigGetArgs>? MetricsConfig { get; set; }
+
+        /// <summary>
         /// - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
         /// </summary>
         [Input("parallelizationFactor")]
         public Input<int>? ParallelizationFactor { get; set; }
+
+        /// <summary>
+        /// - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
+        /// </summary>
+        [Input("provisionedPollerConfig")]
+        public Input<Inputs.EventSourceMappingProvisionedPollerConfigGetArgs>? ProvisionedPollerConfig { get; set; }
 
         /// <summary>
         /// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.

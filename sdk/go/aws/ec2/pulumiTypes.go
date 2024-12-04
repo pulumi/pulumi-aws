@@ -31779,6 +31779,356 @@ func (o TrafficMirrorFilterRuleSourcePortRangePtrOutput) ToPort() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
+type VpcBlockPublicAccessExclusionTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// VpcBlockPublicAccessExclusionTimeoutsInput is an input type that accepts VpcBlockPublicAccessExclusionTimeoutsArgs and VpcBlockPublicAccessExclusionTimeoutsOutput values.
+// You can construct a concrete instance of `VpcBlockPublicAccessExclusionTimeoutsInput` via:
+//
+//	VpcBlockPublicAccessExclusionTimeoutsArgs{...}
+type VpcBlockPublicAccessExclusionTimeoutsInput interface {
+	pulumi.Input
+
+	ToVpcBlockPublicAccessExclusionTimeoutsOutput() VpcBlockPublicAccessExclusionTimeoutsOutput
+	ToVpcBlockPublicAccessExclusionTimeoutsOutputWithContext(context.Context) VpcBlockPublicAccessExclusionTimeoutsOutput
+}
+
+type VpcBlockPublicAccessExclusionTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (VpcBlockPublicAccessExclusionTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcBlockPublicAccessExclusionTimeouts)(nil)).Elem()
+}
+
+func (i VpcBlockPublicAccessExclusionTimeoutsArgs) ToVpcBlockPublicAccessExclusionTimeoutsOutput() VpcBlockPublicAccessExclusionTimeoutsOutput {
+	return i.ToVpcBlockPublicAccessExclusionTimeoutsOutputWithContext(context.Background())
+}
+
+func (i VpcBlockPublicAccessExclusionTimeoutsArgs) ToVpcBlockPublicAccessExclusionTimeoutsOutputWithContext(ctx context.Context) VpcBlockPublicAccessExclusionTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcBlockPublicAccessExclusionTimeoutsOutput)
+}
+
+func (i VpcBlockPublicAccessExclusionTimeoutsArgs) ToVpcBlockPublicAccessExclusionTimeoutsPtrOutput() VpcBlockPublicAccessExclusionTimeoutsPtrOutput {
+	return i.ToVpcBlockPublicAccessExclusionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i VpcBlockPublicAccessExclusionTimeoutsArgs) ToVpcBlockPublicAccessExclusionTimeoutsPtrOutputWithContext(ctx context.Context) VpcBlockPublicAccessExclusionTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcBlockPublicAccessExclusionTimeoutsOutput).ToVpcBlockPublicAccessExclusionTimeoutsPtrOutputWithContext(ctx)
+}
+
+// VpcBlockPublicAccessExclusionTimeoutsPtrInput is an input type that accepts VpcBlockPublicAccessExclusionTimeoutsArgs, VpcBlockPublicAccessExclusionTimeoutsPtr and VpcBlockPublicAccessExclusionTimeoutsPtrOutput values.
+// You can construct a concrete instance of `VpcBlockPublicAccessExclusionTimeoutsPtrInput` via:
+//
+//	        VpcBlockPublicAccessExclusionTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type VpcBlockPublicAccessExclusionTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToVpcBlockPublicAccessExclusionTimeoutsPtrOutput() VpcBlockPublicAccessExclusionTimeoutsPtrOutput
+	ToVpcBlockPublicAccessExclusionTimeoutsPtrOutputWithContext(context.Context) VpcBlockPublicAccessExclusionTimeoutsPtrOutput
+}
+
+type vpcBlockPublicAccessExclusionTimeoutsPtrType VpcBlockPublicAccessExclusionTimeoutsArgs
+
+func VpcBlockPublicAccessExclusionTimeoutsPtr(v *VpcBlockPublicAccessExclusionTimeoutsArgs) VpcBlockPublicAccessExclusionTimeoutsPtrInput {
+	return (*vpcBlockPublicAccessExclusionTimeoutsPtrType)(v)
+}
+
+func (*vpcBlockPublicAccessExclusionTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcBlockPublicAccessExclusionTimeouts)(nil)).Elem()
+}
+
+func (i *vpcBlockPublicAccessExclusionTimeoutsPtrType) ToVpcBlockPublicAccessExclusionTimeoutsPtrOutput() VpcBlockPublicAccessExclusionTimeoutsPtrOutput {
+	return i.ToVpcBlockPublicAccessExclusionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *vpcBlockPublicAccessExclusionTimeoutsPtrType) ToVpcBlockPublicAccessExclusionTimeoutsPtrOutputWithContext(ctx context.Context) VpcBlockPublicAccessExclusionTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcBlockPublicAccessExclusionTimeoutsPtrOutput)
+}
+
+type VpcBlockPublicAccessExclusionTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (VpcBlockPublicAccessExclusionTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcBlockPublicAccessExclusionTimeouts)(nil)).Elem()
+}
+
+func (o VpcBlockPublicAccessExclusionTimeoutsOutput) ToVpcBlockPublicAccessExclusionTimeoutsOutput() VpcBlockPublicAccessExclusionTimeoutsOutput {
+	return o
+}
+
+func (o VpcBlockPublicAccessExclusionTimeoutsOutput) ToVpcBlockPublicAccessExclusionTimeoutsOutputWithContext(ctx context.Context) VpcBlockPublicAccessExclusionTimeoutsOutput {
+	return o
+}
+
+func (o VpcBlockPublicAccessExclusionTimeoutsOutput) ToVpcBlockPublicAccessExclusionTimeoutsPtrOutput() VpcBlockPublicAccessExclusionTimeoutsPtrOutput {
+	return o.ToVpcBlockPublicAccessExclusionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o VpcBlockPublicAccessExclusionTimeoutsOutput) ToVpcBlockPublicAccessExclusionTimeoutsPtrOutputWithContext(ctx context.Context) VpcBlockPublicAccessExclusionTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcBlockPublicAccessExclusionTimeouts) *VpcBlockPublicAccessExclusionTimeouts {
+		return &v
+	}).(VpcBlockPublicAccessExclusionTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o VpcBlockPublicAccessExclusionTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcBlockPublicAccessExclusionTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o VpcBlockPublicAccessExclusionTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcBlockPublicAccessExclusionTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o VpcBlockPublicAccessExclusionTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcBlockPublicAccessExclusionTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type VpcBlockPublicAccessExclusionTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcBlockPublicAccessExclusionTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcBlockPublicAccessExclusionTimeouts)(nil)).Elem()
+}
+
+func (o VpcBlockPublicAccessExclusionTimeoutsPtrOutput) ToVpcBlockPublicAccessExclusionTimeoutsPtrOutput() VpcBlockPublicAccessExclusionTimeoutsPtrOutput {
+	return o
+}
+
+func (o VpcBlockPublicAccessExclusionTimeoutsPtrOutput) ToVpcBlockPublicAccessExclusionTimeoutsPtrOutputWithContext(ctx context.Context) VpcBlockPublicAccessExclusionTimeoutsPtrOutput {
+	return o
+}
+
+func (o VpcBlockPublicAccessExclusionTimeoutsPtrOutput) Elem() VpcBlockPublicAccessExclusionTimeoutsOutput {
+	return o.ApplyT(func(v *VpcBlockPublicAccessExclusionTimeouts) VpcBlockPublicAccessExclusionTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret VpcBlockPublicAccessExclusionTimeouts
+		return ret
+	}).(VpcBlockPublicAccessExclusionTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o VpcBlockPublicAccessExclusionTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcBlockPublicAccessExclusionTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o VpcBlockPublicAccessExclusionTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcBlockPublicAccessExclusionTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o VpcBlockPublicAccessExclusionTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcBlockPublicAccessExclusionTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpcBlockPublicAccessOptionsTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// VpcBlockPublicAccessOptionsTimeoutsInput is an input type that accepts VpcBlockPublicAccessOptionsTimeoutsArgs and VpcBlockPublicAccessOptionsTimeoutsOutput values.
+// You can construct a concrete instance of `VpcBlockPublicAccessOptionsTimeoutsInput` via:
+//
+//	VpcBlockPublicAccessOptionsTimeoutsArgs{...}
+type VpcBlockPublicAccessOptionsTimeoutsInput interface {
+	pulumi.Input
+
+	ToVpcBlockPublicAccessOptionsTimeoutsOutput() VpcBlockPublicAccessOptionsTimeoutsOutput
+	ToVpcBlockPublicAccessOptionsTimeoutsOutputWithContext(context.Context) VpcBlockPublicAccessOptionsTimeoutsOutput
+}
+
+type VpcBlockPublicAccessOptionsTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (VpcBlockPublicAccessOptionsTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcBlockPublicAccessOptionsTimeouts)(nil)).Elem()
+}
+
+func (i VpcBlockPublicAccessOptionsTimeoutsArgs) ToVpcBlockPublicAccessOptionsTimeoutsOutput() VpcBlockPublicAccessOptionsTimeoutsOutput {
+	return i.ToVpcBlockPublicAccessOptionsTimeoutsOutputWithContext(context.Background())
+}
+
+func (i VpcBlockPublicAccessOptionsTimeoutsArgs) ToVpcBlockPublicAccessOptionsTimeoutsOutputWithContext(ctx context.Context) VpcBlockPublicAccessOptionsTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcBlockPublicAccessOptionsTimeoutsOutput)
+}
+
+func (i VpcBlockPublicAccessOptionsTimeoutsArgs) ToVpcBlockPublicAccessOptionsTimeoutsPtrOutput() VpcBlockPublicAccessOptionsTimeoutsPtrOutput {
+	return i.ToVpcBlockPublicAccessOptionsTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i VpcBlockPublicAccessOptionsTimeoutsArgs) ToVpcBlockPublicAccessOptionsTimeoutsPtrOutputWithContext(ctx context.Context) VpcBlockPublicAccessOptionsTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcBlockPublicAccessOptionsTimeoutsOutput).ToVpcBlockPublicAccessOptionsTimeoutsPtrOutputWithContext(ctx)
+}
+
+// VpcBlockPublicAccessOptionsTimeoutsPtrInput is an input type that accepts VpcBlockPublicAccessOptionsTimeoutsArgs, VpcBlockPublicAccessOptionsTimeoutsPtr and VpcBlockPublicAccessOptionsTimeoutsPtrOutput values.
+// You can construct a concrete instance of `VpcBlockPublicAccessOptionsTimeoutsPtrInput` via:
+//
+//	        VpcBlockPublicAccessOptionsTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type VpcBlockPublicAccessOptionsTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToVpcBlockPublicAccessOptionsTimeoutsPtrOutput() VpcBlockPublicAccessOptionsTimeoutsPtrOutput
+	ToVpcBlockPublicAccessOptionsTimeoutsPtrOutputWithContext(context.Context) VpcBlockPublicAccessOptionsTimeoutsPtrOutput
+}
+
+type vpcBlockPublicAccessOptionsTimeoutsPtrType VpcBlockPublicAccessOptionsTimeoutsArgs
+
+func VpcBlockPublicAccessOptionsTimeoutsPtr(v *VpcBlockPublicAccessOptionsTimeoutsArgs) VpcBlockPublicAccessOptionsTimeoutsPtrInput {
+	return (*vpcBlockPublicAccessOptionsTimeoutsPtrType)(v)
+}
+
+func (*vpcBlockPublicAccessOptionsTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcBlockPublicAccessOptionsTimeouts)(nil)).Elem()
+}
+
+func (i *vpcBlockPublicAccessOptionsTimeoutsPtrType) ToVpcBlockPublicAccessOptionsTimeoutsPtrOutput() VpcBlockPublicAccessOptionsTimeoutsPtrOutput {
+	return i.ToVpcBlockPublicAccessOptionsTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *vpcBlockPublicAccessOptionsTimeoutsPtrType) ToVpcBlockPublicAccessOptionsTimeoutsPtrOutputWithContext(ctx context.Context) VpcBlockPublicAccessOptionsTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcBlockPublicAccessOptionsTimeoutsPtrOutput)
+}
+
+type VpcBlockPublicAccessOptionsTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (VpcBlockPublicAccessOptionsTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcBlockPublicAccessOptionsTimeouts)(nil)).Elem()
+}
+
+func (o VpcBlockPublicAccessOptionsTimeoutsOutput) ToVpcBlockPublicAccessOptionsTimeoutsOutput() VpcBlockPublicAccessOptionsTimeoutsOutput {
+	return o
+}
+
+func (o VpcBlockPublicAccessOptionsTimeoutsOutput) ToVpcBlockPublicAccessOptionsTimeoutsOutputWithContext(ctx context.Context) VpcBlockPublicAccessOptionsTimeoutsOutput {
+	return o
+}
+
+func (o VpcBlockPublicAccessOptionsTimeoutsOutput) ToVpcBlockPublicAccessOptionsTimeoutsPtrOutput() VpcBlockPublicAccessOptionsTimeoutsPtrOutput {
+	return o.ToVpcBlockPublicAccessOptionsTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o VpcBlockPublicAccessOptionsTimeoutsOutput) ToVpcBlockPublicAccessOptionsTimeoutsPtrOutputWithContext(ctx context.Context) VpcBlockPublicAccessOptionsTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcBlockPublicAccessOptionsTimeouts) *VpcBlockPublicAccessOptionsTimeouts {
+		return &v
+	}).(VpcBlockPublicAccessOptionsTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o VpcBlockPublicAccessOptionsTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcBlockPublicAccessOptionsTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o VpcBlockPublicAccessOptionsTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcBlockPublicAccessOptionsTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o VpcBlockPublicAccessOptionsTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcBlockPublicAccessOptionsTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type VpcBlockPublicAccessOptionsTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcBlockPublicAccessOptionsTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcBlockPublicAccessOptionsTimeouts)(nil)).Elem()
+}
+
+func (o VpcBlockPublicAccessOptionsTimeoutsPtrOutput) ToVpcBlockPublicAccessOptionsTimeoutsPtrOutput() VpcBlockPublicAccessOptionsTimeoutsPtrOutput {
+	return o
+}
+
+func (o VpcBlockPublicAccessOptionsTimeoutsPtrOutput) ToVpcBlockPublicAccessOptionsTimeoutsPtrOutputWithContext(ctx context.Context) VpcBlockPublicAccessOptionsTimeoutsPtrOutput {
+	return o
+}
+
+func (o VpcBlockPublicAccessOptionsTimeoutsPtrOutput) Elem() VpcBlockPublicAccessOptionsTimeoutsOutput {
+	return o.ApplyT(func(v *VpcBlockPublicAccessOptionsTimeouts) VpcBlockPublicAccessOptionsTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret VpcBlockPublicAccessOptionsTimeouts
+		return ret
+	}).(VpcBlockPublicAccessOptionsTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o VpcBlockPublicAccessOptionsTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcBlockPublicAccessOptionsTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o VpcBlockPublicAccessOptionsTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcBlockPublicAccessOptionsTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o VpcBlockPublicAccessOptionsTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcBlockPublicAccessOptionsTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type VpcEndpointDnsEntry struct {
 	// The DNS name.
 	DnsName *string `pulumi:"dnsName"`
@@ -58235,6 +58585,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterRuleDestinationPortRangePtrInput)(nil)).Elem(), TrafficMirrorFilterRuleDestinationPortRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterRuleSourcePortRangeInput)(nil)).Elem(), TrafficMirrorFilterRuleSourcePortRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterRuleSourcePortRangePtrInput)(nil)).Elem(), TrafficMirrorFilterRuleSourcePortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcBlockPublicAccessExclusionTimeoutsInput)(nil)).Elem(), VpcBlockPublicAccessExclusionTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcBlockPublicAccessExclusionTimeoutsPtrInput)(nil)).Elem(), VpcBlockPublicAccessExclusionTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcBlockPublicAccessOptionsTimeoutsInput)(nil)).Elem(), VpcBlockPublicAccessOptionsTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcBlockPublicAccessOptionsTimeoutsPtrInput)(nil)).Elem(), VpcBlockPublicAccessOptionsTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointDnsEntryInput)(nil)).Elem(), VpcEndpointDnsEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointDnsEntryArrayInput)(nil)).Elem(), VpcEndpointDnsEntryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointDnsOptionsInput)(nil)).Elem(), VpcEndpointDnsOptionsArgs{})
@@ -59088,6 +59442,10 @@ func init() {
 	pulumi.RegisterOutputType(TrafficMirrorFilterRuleDestinationPortRangePtrOutput{})
 	pulumi.RegisterOutputType(TrafficMirrorFilterRuleSourcePortRangeOutput{})
 	pulumi.RegisterOutputType(TrafficMirrorFilterRuleSourcePortRangePtrOutput{})
+	pulumi.RegisterOutputType(VpcBlockPublicAccessExclusionTimeoutsOutput{})
+	pulumi.RegisterOutputType(VpcBlockPublicAccessExclusionTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(VpcBlockPublicAccessOptionsTimeoutsOutput{})
+	pulumi.RegisterOutputType(VpcBlockPublicAccessOptionsTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(VpcEndpointDnsEntryOutput{})
 	pulumi.RegisterOutputType(VpcEndpointDnsEntryArrayOutput{})
 	pulumi.RegisterOutputType(VpcEndpointDnsOptionsOutput{})

@@ -127,7 +127,7 @@ index 737b09ac5a..f966d8ed3e 100644
  				Computed: true,
  				PlanModifiers: []planmodifier.String{
 diff --git a/internal/service/ec2/vpc_security_group_ingress_rule.go b/internal/service/ec2/vpc_security_group_ingress_rule.go
-index ffecce9792..04b1831152 100644
+index 7f4a4c5f04..972c372323 100644
 --- a/internal/service/ec2/vpc_security_group_ingress_rule.go
 +++ b/internal/service/ec2/vpc_security_group_ingress_rule.go
 @@ -228,7 +228,7 @@ func (r *securityGroupRuleResource) Schema(ctx context.Context, request resource
@@ -166,7 +166,7 @@ index e2dfcda3c8..e524fcad2d 100644
  				Optional: true,
  				Computed: true,
 diff --git a/internal/service/quicksight/namespace.go b/internal/service/quicksight/namespace.go
-index 4600c7d8bb..d54aa76a29 100644
+index 404f657e01..ceb29112cf 100644
 --- a/internal/service/quicksight/namespace.go
 +++ b/internal/service/quicksight/namespace.go
 @@ -98,7 +98,7 @@ func (r *namespaceResource) Schema(ctx context.Context, req resource.SchemaReque
@@ -179,7 +179,7 @@ index 4600c7d8bb..d54aa76a29 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/quicksight/vpc_connection.go b/internal/service/quicksight/vpc_connection.go
-index 5db0e656ab..e27aea658b 100644
+index 8607c6dc0d..eb2e74d1d6 100644
 --- a/internal/service/quicksight/vpc_connection.go
 +++ b/internal/service/quicksight/vpc_connection.go
 @@ -141,7 +141,7 @@ func (r *vpcConnectionResource) Schema(ctx context.Context, req resource.SchemaR

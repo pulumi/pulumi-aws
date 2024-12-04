@@ -5,9 +5,12 @@ package com.pulumi.aws.eks.outputs;
 
 import com.pulumi.aws.eks.outputs.GetClusterAccessConfig;
 import com.pulumi.aws.eks.outputs.GetClusterCertificateAuthority;
+import com.pulumi.aws.eks.outputs.GetClusterComputeConfig;
 import com.pulumi.aws.eks.outputs.GetClusterIdentity;
 import com.pulumi.aws.eks.outputs.GetClusterKubernetesNetworkConfig;
 import com.pulumi.aws.eks.outputs.GetClusterOutpostConfig;
+import com.pulumi.aws.eks.outputs.GetClusterRemoteNetworkConfig;
+import com.pulumi.aws.eks.outputs.GetClusterStorageConfig;
 import com.pulumi.aws.eks.outputs.GetClusterUpgradePolicy;
 import com.pulumi.aws.eks.outputs.GetClusterVpcConfig;
 import com.pulumi.aws.eks.outputs.GetClusterZonalShiftConfig;
@@ -40,6 +43,11 @@ public final class GetClusterResult {
      * 
      */
     private String clusterId;
+    /**
+     * @return Nested attribute containing compute capability configuration for EKS Auto Mode enabled cluster.
+     * 
+     */
+    private List<GetClusterComputeConfig> computeConfigs;
     /**
      * @return Unix epoch time stamp in seconds for when the cluster was created.
      * 
@@ -82,6 +90,11 @@ public final class GetClusterResult {
      */
     private String platformVersion;
     /**
+     * @return Contains remote network configuration for EKS Hybrid Nodes.
+     * 
+     */
+    private List<GetClusterRemoteNetworkConfig> remoteNetworkConfigs;
+    /**
      * @return ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
      * 
      */
@@ -92,12 +105,17 @@ public final class GetClusterResult {
      */
     private String status;
     /**
+     * @return Contains storage configuration for EKS Auto Mode enabled cluster.
+     * 
+     */
+    private List<GetClusterStorageConfig> storageConfigs;
+    /**
      * @return Key-value map of resource tags.
      * 
      */
     private Map<String,String> tags;
     /**
-     * @return (Optional) Configuration block for the support policy to use for the cluster.
+     * @return Configuration block for the support policy to use for the cluster.
      * 
      */
     private List<GetClusterUpgradePolicy> upgradePolicies;
@@ -145,6 +163,13 @@ public final class GetClusterResult {
      */
     public String clusterId() {
         return this.clusterId;
+    }
+    /**
+     * @return Nested attribute containing compute capability configuration for EKS Auto Mode enabled cluster.
+     * 
+     */
+    public List<GetClusterComputeConfig> computeConfigs() {
+        return this.computeConfigs;
     }
     /**
      * @return Unix epoch time stamp in seconds for when the cluster was created.
@@ -206,6 +231,13 @@ public final class GetClusterResult {
         return this.platformVersion;
     }
     /**
+     * @return Contains remote network configuration for EKS Hybrid Nodes.
+     * 
+     */
+    public List<GetClusterRemoteNetworkConfig> remoteNetworkConfigs() {
+        return this.remoteNetworkConfigs;
+    }
+    /**
      * @return ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
      * 
      */
@@ -220,6 +252,13 @@ public final class GetClusterResult {
         return this.status;
     }
     /**
+     * @return Contains storage configuration for EKS Auto Mode enabled cluster.
+     * 
+     */
+    public List<GetClusterStorageConfig> storageConfigs() {
+        return this.storageConfigs;
+    }
+    /**
      * @return Key-value map of resource tags.
      * 
      */
@@ -227,7 +266,7 @@ public final class GetClusterResult {
         return this.tags;
     }
     /**
-     * @return (Optional) Configuration block for the support policy to use for the cluster.
+     * @return Configuration block for the support policy to use for the cluster.
      * 
      */
     public List<GetClusterUpgradePolicy> upgradePolicies() {
@@ -268,6 +307,7 @@ public final class GetClusterResult {
         private String arn;
         private List<GetClusterCertificateAuthority> certificateAuthorities;
         private String clusterId;
+        private List<GetClusterComputeConfig> computeConfigs;
         private String createdAt;
         private List<String> enabledClusterLogTypes;
         private String endpoint;
@@ -277,8 +317,10 @@ public final class GetClusterResult {
         private String name;
         private List<GetClusterOutpostConfig> outpostConfigs;
         private String platformVersion;
+        private List<GetClusterRemoteNetworkConfig> remoteNetworkConfigs;
         private String roleArn;
         private String status;
+        private List<GetClusterStorageConfig> storageConfigs;
         private Map<String,String> tags;
         private List<GetClusterUpgradePolicy> upgradePolicies;
         private String version;
@@ -291,6 +333,7 @@ public final class GetClusterResult {
     	      this.arn = defaults.arn;
     	      this.certificateAuthorities = defaults.certificateAuthorities;
     	      this.clusterId = defaults.clusterId;
+    	      this.computeConfigs = defaults.computeConfigs;
     	      this.createdAt = defaults.createdAt;
     	      this.enabledClusterLogTypes = defaults.enabledClusterLogTypes;
     	      this.endpoint = defaults.endpoint;
@@ -300,8 +343,10 @@ public final class GetClusterResult {
     	      this.name = defaults.name;
     	      this.outpostConfigs = defaults.outpostConfigs;
     	      this.platformVersion = defaults.platformVersion;
+    	      this.remoteNetworkConfigs = defaults.remoteNetworkConfigs;
     	      this.roleArn = defaults.roleArn;
     	      this.status = defaults.status;
+    	      this.storageConfigs = defaults.storageConfigs;
     	      this.tags = defaults.tags;
     	      this.upgradePolicies = defaults.upgradePolicies;
     	      this.version = defaults.version;
@@ -346,6 +391,17 @@ public final class GetClusterResult {
             }
             this.clusterId = clusterId;
             return this;
+        }
+        @CustomType.Setter
+        public Builder computeConfigs(List<GetClusterComputeConfig> computeConfigs) {
+            if (computeConfigs == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "computeConfigs");
+            }
+            this.computeConfigs = computeConfigs;
+            return this;
+        }
+        public Builder computeConfigs(GetClusterComputeConfig... computeConfigs) {
+            return computeConfigs(List.of(computeConfigs));
         }
         @CustomType.Setter
         public Builder createdAt(String createdAt) {
@@ -432,6 +488,17 @@ public final class GetClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder remoteNetworkConfigs(List<GetClusterRemoteNetworkConfig> remoteNetworkConfigs) {
+            if (remoteNetworkConfigs == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "remoteNetworkConfigs");
+            }
+            this.remoteNetworkConfigs = remoteNetworkConfigs;
+            return this;
+        }
+        public Builder remoteNetworkConfigs(GetClusterRemoteNetworkConfig... remoteNetworkConfigs) {
+            return remoteNetworkConfigs(List.of(remoteNetworkConfigs));
+        }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             if (roleArn == null) {
               throw new MissingRequiredPropertyException("GetClusterResult", "roleArn");
@@ -446,6 +513,17 @@ public final class GetClusterResult {
             }
             this.status = status;
             return this;
+        }
+        @CustomType.Setter
+        public Builder storageConfigs(List<GetClusterStorageConfig> storageConfigs) {
+            if (storageConfigs == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "storageConfigs");
+            }
+            this.storageConfigs = storageConfigs;
+            return this;
+        }
+        public Builder storageConfigs(GetClusterStorageConfig... storageConfigs) {
+            return storageConfigs(List.of(storageConfigs));
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
@@ -499,6 +577,7 @@ public final class GetClusterResult {
             _resultValue.arn = arn;
             _resultValue.certificateAuthorities = certificateAuthorities;
             _resultValue.clusterId = clusterId;
+            _resultValue.computeConfigs = computeConfigs;
             _resultValue.createdAt = createdAt;
             _resultValue.enabledClusterLogTypes = enabledClusterLogTypes;
             _resultValue.endpoint = endpoint;
@@ -508,8 +587,10 @@ public final class GetClusterResult {
             _resultValue.name = name;
             _resultValue.outpostConfigs = outpostConfigs;
             _resultValue.platformVersion = platformVersion;
+            _resultValue.remoteNetworkConfigs = remoteNetworkConfigs;
             _resultValue.roleArn = roleArn;
             _resultValue.status = status;
+            _resultValue.storageConfigs = storageConfigs;
             _resultValue.tags = tags;
             _resultValue.upgradePolicies = upgradePolicies;
             _resultValue.version = version;

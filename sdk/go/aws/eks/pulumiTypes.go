@@ -613,6 +613,181 @@ func (o ClusterCertificateAuthorityArrayOutput) Index(i pulumi.IntInput) Cluster
 	}).(ClusterCertificateAuthorityOutput)
 }
 
+type ClusterComputeConfig struct {
+	// Request to enable or disable the compute capability on your EKS Auto Mode cluster. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your Amazon Web Services account.
+	Enabled *bool `pulumi:"enabled"`
+	// Configuration for node pools that defines the compute resources for your EKS Auto Mode cluster. Valid options are `general-purpose` and `system`.
+	NodePools []string `pulumi:"nodePools"`
+	// The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster. This value cannot be changed after the compute capability of EKS Auto Mode is enabled..
+	NodeRoleArn *string `pulumi:"nodeRoleArn"`
+}
+
+// ClusterComputeConfigInput is an input type that accepts ClusterComputeConfigArgs and ClusterComputeConfigOutput values.
+// You can construct a concrete instance of `ClusterComputeConfigInput` via:
+//
+//	ClusterComputeConfigArgs{...}
+type ClusterComputeConfigInput interface {
+	pulumi.Input
+
+	ToClusterComputeConfigOutput() ClusterComputeConfigOutput
+	ToClusterComputeConfigOutputWithContext(context.Context) ClusterComputeConfigOutput
+}
+
+type ClusterComputeConfigArgs struct {
+	// Request to enable or disable the compute capability on your EKS Auto Mode cluster. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your Amazon Web Services account.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Configuration for node pools that defines the compute resources for your EKS Auto Mode cluster. Valid options are `general-purpose` and `system`.
+	NodePools pulumi.StringArrayInput `pulumi:"nodePools"`
+	// The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster. This value cannot be changed after the compute capability of EKS Auto Mode is enabled..
+	NodeRoleArn pulumi.StringPtrInput `pulumi:"nodeRoleArn"`
+}
+
+func (ClusterComputeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterComputeConfig)(nil)).Elem()
+}
+
+func (i ClusterComputeConfigArgs) ToClusterComputeConfigOutput() ClusterComputeConfigOutput {
+	return i.ToClusterComputeConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterComputeConfigArgs) ToClusterComputeConfigOutputWithContext(ctx context.Context) ClusterComputeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterComputeConfigOutput)
+}
+
+func (i ClusterComputeConfigArgs) ToClusterComputeConfigPtrOutput() ClusterComputeConfigPtrOutput {
+	return i.ToClusterComputeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterComputeConfigArgs) ToClusterComputeConfigPtrOutputWithContext(ctx context.Context) ClusterComputeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterComputeConfigOutput).ToClusterComputeConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterComputeConfigPtrInput is an input type that accepts ClusterComputeConfigArgs, ClusterComputeConfigPtr and ClusterComputeConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterComputeConfigPtrInput` via:
+//
+//	        ClusterComputeConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterComputeConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterComputeConfigPtrOutput() ClusterComputeConfigPtrOutput
+	ToClusterComputeConfigPtrOutputWithContext(context.Context) ClusterComputeConfigPtrOutput
+}
+
+type clusterComputeConfigPtrType ClusterComputeConfigArgs
+
+func ClusterComputeConfigPtr(v *ClusterComputeConfigArgs) ClusterComputeConfigPtrInput {
+	return (*clusterComputeConfigPtrType)(v)
+}
+
+func (*clusterComputeConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterComputeConfig)(nil)).Elem()
+}
+
+func (i *clusterComputeConfigPtrType) ToClusterComputeConfigPtrOutput() ClusterComputeConfigPtrOutput {
+	return i.ToClusterComputeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterComputeConfigPtrType) ToClusterComputeConfigPtrOutputWithContext(ctx context.Context) ClusterComputeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterComputeConfigPtrOutput)
+}
+
+type ClusterComputeConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterComputeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterComputeConfig)(nil)).Elem()
+}
+
+func (o ClusterComputeConfigOutput) ToClusterComputeConfigOutput() ClusterComputeConfigOutput {
+	return o
+}
+
+func (o ClusterComputeConfigOutput) ToClusterComputeConfigOutputWithContext(ctx context.Context) ClusterComputeConfigOutput {
+	return o
+}
+
+func (o ClusterComputeConfigOutput) ToClusterComputeConfigPtrOutput() ClusterComputeConfigPtrOutput {
+	return o.ToClusterComputeConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterComputeConfigOutput) ToClusterComputeConfigPtrOutputWithContext(ctx context.Context) ClusterComputeConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterComputeConfig) *ClusterComputeConfig {
+		return &v
+	}).(ClusterComputeConfigPtrOutput)
+}
+
+// Request to enable or disable the compute capability on your EKS Auto Mode cluster. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your Amazon Web Services account.
+func (o ClusterComputeConfigOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterComputeConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Configuration for node pools that defines the compute resources for your EKS Auto Mode cluster. Valid options are `general-purpose` and `system`.
+func (o ClusterComputeConfigOutput) NodePools() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterComputeConfig) []string { return v.NodePools }).(pulumi.StringArrayOutput)
+}
+
+// The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster. This value cannot be changed after the compute capability of EKS Auto Mode is enabled..
+func (o ClusterComputeConfigOutput) NodeRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterComputeConfig) *string { return v.NodeRoleArn }).(pulumi.StringPtrOutput)
+}
+
+type ClusterComputeConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterComputeConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterComputeConfig)(nil)).Elem()
+}
+
+func (o ClusterComputeConfigPtrOutput) ToClusterComputeConfigPtrOutput() ClusterComputeConfigPtrOutput {
+	return o
+}
+
+func (o ClusterComputeConfigPtrOutput) ToClusterComputeConfigPtrOutputWithContext(ctx context.Context) ClusterComputeConfigPtrOutput {
+	return o
+}
+
+func (o ClusterComputeConfigPtrOutput) Elem() ClusterComputeConfigOutput {
+	return o.ApplyT(func(v *ClusterComputeConfig) ClusterComputeConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterComputeConfig
+		return ret
+	}).(ClusterComputeConfigOutput)
+}
+
+// Request to enable or disable the compute capability on your EKS Auto Mode cluster. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your Amazon Web Services account.
+func (o ClusterComputeConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterComputeConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Configuration for node pools that defines the compute resources for your EKS Auto Mode cluster. Valid options are `general-purpose` and `system`.
+func (o ClusterComputeConfigPtrOutput) NodePools() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterComputeConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.NodePools
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster. This value cannot be changed after the compute capability of EKS Auto Mode is enabled..
+func (o ClusterComputeConfigPtrOutput) NodeRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterComputeConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NodeRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type ClusterEncryptionConfig struct {
 	// Configuration block with provider for encryption. Detailed below.
 	Provider ClusterEncryptionConfigProvider `pulumi:"provider"`
@@ -1101,6 +1276,8 @@ func (o ClusterIdentityOidcArrayOutput) Index(i pulumi.IntInput) ClusterIdentity
 }
 
 type ClusterKubernetesNetworkConfig struct {
+	// Configuration block with elastic load balancing configuration for the cluster. Detailed below.
+	ElasticLoadBalancing *ClusterKubernetesNetworkConfigElasticLoadBalancing `pulumi:"elasticLoadBalancing"`
 	// The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
 	IpFamily *string `pulumi:"ipFamily"`
 	// The CIDR block to assign Kubernetes pod and service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
@@ -1111,7 +1288,7 @@ type ClusterKubernetesNetworkConfig struct {
 	//
 	// * Between /24 and /12.
 	ServiceIpv4Cidr *string `pulumi:"serviceIpv4Cidr"`
-	// The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for ipFamily when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
+	// The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for `ipFamily` when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
 	ServiceIpv6Cidr *string `pulumi:"serviceIpv6Cidr"`
 }
 
@@ -1127,6 +1304,8 @@ type ClusterKubernetesNetworkConfigInput interface {
 }
 
 type ClusterKubernetesNetworkConfigArgs struct {
+	// Configuration block with elastic load balancing configuration for the cluster. Detailed below.
+	ElasticLoadBalancing ClusterKubernetesNetworkConfigElasticLoadBalancingPtrInput `pulumi:"elasticLoadBalancing"`
 	// The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
 	IpFamily pulumi.StringPtrInput `pulumi:"ipFamily"`
 	// The CIDR block to assign Kubernetes pod and service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
@@ -1137,7 +1316,7 @@ type ClusterKubernetesNetworkConfigArgs struct {
 	//
 	// * Between /24 and /12.
 	ServiceIpv4Cidr pulumi.StringPtrInput `pulumi:"serviceIpv4Cidr"`
-	// The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for ipFamily when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
+	// The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for `ipFamily` when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
 	ServiceIpv6Cidr pulumi.StringPtrInput `pulumi:"serviceIpv6Cidr"`
 }
 
@@ -1218,6 +1397,13 @@ func (o ClusterKubernetesNetworkConfigOutput) ToClusterKubernetesNetworkConfigPt
 	}).(ClusterKubernetesNetworkConfigPtrOutput)
 }
 
+// Configuration block with elastic load balancing configuration for the cluster. Detailed below.
+func (o ClusterKubernetesNetworkConfigOutput) ElasticLoadBalancing() ClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutput {
+	return o.ApplyT(func(v ClusterKubernetesNetworkConfig) *ClusterKubernetesNetworkConfigElasticLoadBalancing {
+		return v.ElasticLoadBalancing
+	}).(ClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutput)
+}
+
 // The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
 func (o ClusterKubernetesNetworkConfigOutput) IpFamily() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterKubernetesNetworkConfig) *string { return v.IpFamily }).(pulumi.StringPtrOutput)
@@ -1234,7 +1420,7 @@ func (o ClusterKubernetesNetworkConfigOutput) ServiceIpv4Cidr() pulumi.StringPtr
 	return o.ApplyT(func(v ClusterKubernetesNetworkConfig) *string { return v.ServiceIpv4Cidr }).(pulumi.StringPtrOutput)
 }
 
-// The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for ipFamily when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
+// The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for `ipFamily` when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
 func (o ClusterKubernetesNetworkConfigOutput) ServiceIpv6Cidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterKubernetesNetworkConfig) *string { return v.ServiceIpv6Cidr }).(pulumi.StringPtrOutput)
 }
@@ -1263,6 +1449,16 @@ func (o ClusterKubernetesNetworkConfigPtrOutput) Elem() ClusterKubernetesNetwork
 	}).(ClusterKubernetesNetworkConfigOutput)
 }
 
+// Configuration block with elastic load balancing configuration for the cluster. Detailed below.
+func (o ClusterKubernetesNetworkConfigPtrOutput) ElasticLoadBalancing() ClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutput {
+	return o.ApplyT(func(v *ClusterKubernetesNetworkConfig) *ClusterKubernetesNetworkConfigElasticLoadBalancing {
+		if v == nil {
+			return nil
+		}
+		return v.ElasticLoadBalancing
+	}).(ClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutput)
+}
+
 // The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
 func (o ClusterKubernetesNetworkConfigPtrOutput) IpFamily() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterKubernetesNetworkConfig) *string {
@@ -1289,7 +1485,7 @@ func (o ClusterKubernetesNetworkConfigPtrOutput) ServiceIpv4Cidr() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for ipFamily when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
+// The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for `ipFamily` when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
 func (o ClusterKubernetesNetworkConfigPtrOutput) ServiceIpv6Cidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterKubernetesNetworkConfig) *string {
 		if v == nil {
@@ -1297,6 +1493,143 @@ func (o ClusterKubernetesNetworkConfigPtrOutput) ServiceIpv6Cidr() pulumi.String
 		}
 		return v.ServiceIpv6Cidr
 	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterKubernetesNetworkConfigElasticLoadBalancing struct {
+	// Indicates if the load balancing capability is enabled on your EKS Auto Mode cluster. If the load balancing capability is enabled, EKS Auto Mode will create and delete load balancers in your Amazon Web Services account.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// ClusterKubernetesNetworkConfigElasticLoadBalancingInput is an input type that accepts ClusterKubernetesNetworkConfigElasticLoadBalancingArgs and ClusterKubernetesNetworkConfigElasticLoadBalancingOutput values.
+// You can construct a concrete instance of `ClusterKubernetesNetworkConfigElasticLoadBalancingInput` via:
+//
+//	ClusterKubernetesNetworkConfigElasticLoadBalancingArgs{...}
+type ClusterKubernetesNetworkConfigElasticLoadBalancingInput interface {
+	pulumi.Input
+
+	ToClusterKubernetesNetworkConfigElasticLoadBalancingOutput() ClusterKubernetesNetworkConfigElasticLoadBalancingOutput
+	ToClusterKubernetesNetworkConfigElasticLoadBalancingOutputWithContext(context.Context) ClusterKubernetesNetworkConfigElasticLoadBalancingOutput
+}
+
+type ClusterKubernetesNetworkConfigElasticLoadBalancingArgs struct {
+	// Indicates if the load balancing capability is enabled on your EKS Auto Mode cluster. If the load balancing capability is enabled, EKS Auto Mode will create and delete load balancers in your Amazon Web Services account.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (ClusterKubernetesNetworkConfigElasticLoadBalancingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubernetesNetworkConfigElasticLoadBalancing)(nil)).Elem()
+}
+
+func (i ClusterKubernetesNetworkConfigElasticLoadBalancingArgs) ToClusterKubernetesNetworkConfigElasticLoadBalancingOutput() ClusterKubernetesNetworkConfigElasticLoadBalancingOutput {
+	return i.ToClusterKubernetesNetworkConfigElasticLoadBalancingOutputWithContext(context.Background())
+}
+
+func (i ClusterKubernetesNetworkConfigElasticLoadBalancingArgs) ToClusterKubernetesNetworkConfigElasticLoadBalancingOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigElasticLoadBalancingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubernetesNetworkConfigElasticLoadBalancingOutput)
+}
+
+func (i ClusterKubernetesNetworkConfigElasticLoadBalancingArgs) ToClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutput() ClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutput {
+	return i.ToClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterKubernetesNetworkConfigElasticLoadBalancingArgs) ToClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubernetesNetworkConfigElasticLoadBalancingOutput).ToClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutputWithContext(ctx)
+}
+
+// ClusterKubernetesNetworkConfigElasticLoadBalancingPtrInput is an input type that accepts ClusterKubernetesNetworkConfigElasticLoadBalancingArgs, ClusterKubernetesNetworkConfigElasticLoadBalancingPtr and ClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutput values.
+// You can construct a concrete instance of `ClusterKubernetesNetworkConfigElasticLoadBalancingPtrInput` via:
+//
+//	        ClusterKubernetesNetworkConfigElasticLoadBalancingArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterKubernetesNetworkConfigElasticLoadBalancingPtrInput interface {
+	pulumi.Input
+
+	ToClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutput() ClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutput
+	ToClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutputWithContext(context.Context) ClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutput
+}
+
+type clusterKubernetesNetworkConfigElasticLoadBalancingPtrType ClusterKubernetesNetworkConfigElasticLoadBalancingArgs
+
+func ClusterKubernetesNetworkConfigElasticLoadBalancingPtr(v *ClusterKubernetesNetworkConfigElasticLoadBalancingArgs) ClusterKubernetesNetworkConfigElasticLoadBalancingPtrInput {
+	return (*clusterKubernetesNetworkConfigElasticLoadBalancingPtrType)(v)
+}
+
+func (*clusterKubernetesNetworkConfigElasticLoadBalancingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubernetesNetworkConfigElasticLoadBalancing)(nil)).Elem()
+}
+
+func (i *clusterKubernetesNetworkConfigElasticLoadBalancingPtrType) ToClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutput() ClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutput {
+	return i.ToClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterKubernetesNetworkConfigElasticLoadBalancingPtrType) ToClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutput)
+}
+
+type ClusterKubernetesNetworkConfigElasticLoadBalancingOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubernetesNetworkConfigElasticLoadBalancingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubernetesNetworkConfigElasticLoadBalancing)(nil)).Elem()
+}
+
+func (o ClusterKubernetesNetworkConfigElasticLoadBalancingOutput) ToClusterKubernetesNetworkConfigElasticLoadBalancingOutput() ClusterKubernetesNetworkConfigElasticLoadBalancingOutput {
+	return o
+}
+
+func (o ClusterKubernetesNetworkConfigElasticLoadBalancingOutput) ToClusterKubernetesNetworkConfigElasticLoadBalancingOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigElasticLoadBalancingOutput {
+	return o
+}
+
+func (o ClusterKubernetesNetworkConfigElasticLoadBalancingOutput) ToClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutput() ClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutput {
+	return o.ToClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterKubernetesNetworkConfigElasticLoadBalancingOutput) ToClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterKubernetesNetworkConfigElasticLoadBalancing) *ClusterKubernetesNetworkConfigElasticLoadBalancing {
+		return &v
+	}).(ClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutput)
+}
+
+// Indicates if the load balancing capability is enabled on your EKS Auto Mode cluster. If the load balancing capability is enabled, EKS Auto Mode will create and delete load balancers in your Amazon Web Services account.
+func (o ClusterKubernetesNetworkConfigElasticLoadBalancingOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterKubernetesNetworkConfigElasticLoadBalancing) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type ClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubernetesNetworkConfigElasticLoadBalancing)(nil)).Elem()
+}
+
+func (o ClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutput) ToClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutput() ClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutput {
+	return o
+}
+
+func (o ClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutput) ToClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutput {
+	return o
+}
+
+func (o ClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutput) Elem() ClusterKubernetesNetworkConfigElasticLoadBalancingOutput {
+	return o.ApplyT(func(v *ClusterKubernetesNetworkConfigElasticLoadBalancing) ClusterKubernetesNetworkConfigElasticLoadBalancing {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterKubernetesNetworkConfigElasticLoadBalancing
+		return ret
+	}).(ClusterKubernetesNetworkConfigElasticLoadBalancingOutput)
+}
+
+// Indicates if the load balancing capability is enabled on your EKS Auto Mode cluster. If the load balancing capability is enabled, EKS Auto Mode will create and delete load balancers in your Amazon Web Services account.
+func (o ClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterKubernetesNetworkConfigElasticLoadBalancing) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type ClusterOutpostConfig struct {
@@ -1647,6 +1980,706 @@ func (o ClusterOutpostConfigControlPlanePlacementPtrOutput) GroupName() pulumi.S
 		}
 		return &v.GroupName
 	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterRemoteNetworkConfig struct {
+	// Configuration block with remote node network configuration for EKS Hybrid Nodes. Detailed below.
+	RemoteNodeNetworks ClusterRemoteNetworkConfigRemoteNodeNetworks `pulumi:"remoteNodeNetworks"`
+	// Configuration block with remote pod network configuration for EKS Hybrid Nodes. Detailed below.
+	RemotePodNetworks *ClusterRemoteNetworkConfigRemotePodNetworks `pulumi:"remotePodNetworks"`
+}
+
+// ClusterRemoteNetworkConfigInput is an input type that accepts ClusterRemoteNetworkConfigArgs and ClusterRemoteNetworkConfigOutput values.
+// You can construct a concrete instance of `ClusterRemoteNetworkConfigInput` via:
+//
+//	ClusterRemoteNetworkConfigArgs{...}
+type ClusterRemoteNetworkConfigInput interface {
+	pulumi.Input
+
+	ToClusterRemoteNetworkConfigOutput() ClusterRemoteNetworkConfigOutput
+	ToClusterRemoteNetworkConfigOutputWithContext(context.Context) ClusterRemoteNetworkConfigOutput
+}
+
+type ClusterRemoteNetworkConfigArgs struct {
+	// Configuration block with remote node network configuration for EKS Hybrid Nodes. Detailed below.
+	RemoteNodeNetworks ClusterRemoteNetworkConfigRemoteNodeNetworksInput `pulumi:"remoteNodeNetworks"`
+	// Configuration block with remote pod network configuration for EKS Hybrid Nodes. Detailed below.
+	RemotePodNetworks ClusterRemoteNetworkConfigRemotePodNetworksPtrInput `pulumi:"remotePodNetworks"`
+}
+
+func (ClusterRemoteNetworkConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterRemoteNetworkConfig)(nil)).Elem()
+}
+
+func (i ClusterRemoteNetworkConfigArgs) ToClusterRemoteNetworkConfigOutput() ClusterRemoteNetworkConfigOutput {
+	return i.ToClusterRemoteNetworkConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterRemoteNetworkConfigArgs) ToClusterRemoteNetworkConfigOutputWithContext(ctx context.Context) ClusterRemoteNetworkConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRemoteNetworkConfigOutput)
+}
+
+func (i ClusterRemoteNetworkConfigArgs) ToClusterRemoteNetworkConfigPtrOutput() ClusterRemoteNetworkConfigPtrOutput {
+	return i.ToClusterRemoteNetworkConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterRemoteNetworkConfigArgs) ToClusterRemoteNetworkConfigPtrOutputWithContext(ctx context.Context) ClusterRemoteNetworkConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRemoteNetworkConfigOutput).ToClusterRemoteNetworkConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterRemoteNetworkConfigPtrInput is an input type that accepts ClusterRemoteNetworkConfigArgs, ClusterRemoteNetworkConfigPtr and ClusterRemoteNetworkConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterRemoteNetworkConfigPtrInput` via:
+//
+//	        ClusterRemoteNetworkConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterRemoteNetworkConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterRemoteNetworkConfigPtrOutput() ClusterRemoteNetworkConfigPtrOutput
+	ToClusterRemoteNetworkConfigPtrOutputWithContext(context.Context) ClusterRemoteNetworkConfigPtrOutput
+}
+
+type clusterRemoteNetworkConfigPtrType ClusterRemoteNetworkConfigArgs
+
+func ClusterRemoteNetworkConfigPtr(v *ClusterRemoteNetworkConfigArgs) ClusterRemoteNetworkConfigPtrInput {
+	return (*clusterRemoteNetworkConfigPtrType)(v)
+}
+
+func (*clusterRemoteNetworkConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterRemoteNetworkConfig)(nil)).Elem()
+}
+
+func (i *clusterRemoteNetworkConfigPtrType) ToClusterRemoteNetworkConfigPtrOutput() ClusterRemoteNetworkConfigPtrOutput {
+	return i.ToClusterRemoteNetworkConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterRemoteNetworkConfigPtrType) ToClusterRemoteNetworkConfigPtrOutputWithContext(ctx context.Context) ClusterRemoteNetworkConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRemoteNetworkConfigPtrOutput)
+}
+
+type ClusterRemoteNetworkConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterRemoteNetworkConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterRemoteNetworkConfig)(nil)).Elem()
+}
+
+func (o ClusterRemoteNetworkConfigOutput) ToClusterRemoteNetworkConfigOutput() ClusterRemoteNetworkConfigOutput {
+	return o
+}
+
+func (o ClusterRemoteNetworkConfigOutput) ToClusterRemoteNetworkConfigOutputWithContext(ctx context.Context) ClusterRemoteNetworkConfigOutput {
+	return o
+}
+
+func (o ClusterRemoteNetworkConfigOutput) ToClusterRemoteNetworkConfigPtrOutput() ClusterRemoteNetworkConfigPtrOutput {
+	return o.ToClusterRemoteNetworkConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterRemoteNetworkConfigOutput) ToClusterRemoteNetworkConfigPtrOutputWithContext(ctx context.Context) ClusterRemoteNetworkConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterRemoteNetworkConfig) *ClusterRemoteNetworkConfig {
+		return &v
+	}).(ClusterRemoteNetworkConfigPtrOutput)
+}
+
+// Configuration block with remote node network configuration for EKS Hybrid Nodes. Detailed below.
+func (o ClusterRemoteNetworkConfigOutput) RemoteNodeNetworks() ClusterRemoteNetworkConfigRemoteNodeNetworksOutput {
+	return o.ApplyT(func(v ClusterRemoteNetworkConfig) ClusterRemoteNetworkConfigRemoteNodeNetworks {
+		return v.RemoteNodeNetworks
+	}).(ClusterRemoteNetworkConfigRemoteNodeNetworksOutput)
+}
+
+// Configuration block with remote pod network configuration for EKS Hybrid Nodes. Detailed below.
+func (o ClusterRemoteNetworkConfigOutput) RemotePodNetworks() ClusterRemoteNetworkConfigRemotePodNetworksPtrOutput {
+	return o.ApplyT(func(v ClusterRemoteNetworkConfig) *ClusterRemoteNetworkConfigRemotePodNetworks {
+		return v.RemotePodNetworks
+	}).(ClusterRemoteNetworkConfigRemotePodNetworksPtrOutput)
+}
+
+type ClusterRemoteNetworkConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterRemoteNetworkConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterRemoteNetworkConfig)(nil)).Elem()
+}
+
+func (o ClusterRemoteNetworkConfigPtrOutput) ToClusterRemoteNetworkConfigPtrOutput() ClusterRemoteNetworkConfigPtrOutput {
+	return o
+}
+
+func (o ClusterRemoteNetworkConfigPtrOutput) ToClusterRemoteNetworkConfigPtrOutputWithContext(ctx context.Context) ClusterRemoteNetworkConfigPtrOutput {
+	return o
+}
+
+func (o ClusterRemoteNetworkConfigPtrOutput) Elem() ClusterRemoteNetworkConfigOutput {
+	return o.ApplyT(func(v *ClusterRemoteNetworkConfig) ClusterRemoteNetworkConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterRemoteNetworkConfig
+		return ret
+	}).(ClusterRemoteNetworkConfigOutput)
+}
+
+// Configuration block with remote node network configuration for EKS Hybrid Nodes. Detailed below.
+func (o ClusterRemoteNetworkConfigPtrOutput) RemoteNodeNetworks() ClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutput {
+	return o.ApplyT(func(v *ClusterRemoteNetworkConfig) *ClusterRemoteNetworkConfigRemoteNodeNetworks {
+		if v == nil {
+			return nil
+		}
+		return &v.RemoteNodeNetworks
+	}).(ClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutput)
+}
+
+// Configuration block with remote pod network configuration for EKS Hybrid Nodes. Detailed below.
+func (o ClusterRemoteNetworkConfigPtrOutput) RemotePodNetworks() ClusterRemoteNetworkConfigRemotePodNetworksPtrOutput {
+	return o.ApplyT(func(v *ClusterRemoteNetworkConfig) *ClusterRemoteNetworkConfigRemotePodNetworks {
+		if v == nil {
+			return nil
+		}
+		return v.RemotePodNetworks
+	}).(ClusterRemoteNetworkConfigRemotePodNetworksPtrOutput)
+}
+
+type ClusterRemoteNetworkConfigRemoteNodeNetworks struct {
+	// List of network CIDRs that can contain hybrid nodes.
+	Cidrs []string `pulumi:"cidrs"`
+}
+
+// ClusterRemoteNetworkConfigRemoteNodeNetworksInput is an input type that accepts ClusterRemoteNetworkConfigRemoteNodeNetworksArgs and ClusterRemoteNetworkConfigRemoteNodeNetworksOutput values.
+// You can construct a concrete instance of `ClusterRemoteNetworkConfigRemoteNodeNetworksInput` via:
+//
+//	ClusterRemoteNetworkConfigRemoteNodeNetworksArgs{...}
+type ClusterRemoteNetworkConfigRemoteNodeNetworksInput interface {
+	pulumi.Input
+
+	ToClusterRemoteNetworkConfigRemoteNodeNetworksOutput() ClusterRemoteNetworkConfigRemoteNodeNetworksOutput
+	ToClusterRemoteNetworkConfigRemoteNodeNetworksOutputWithContext(context.Context) ClusterRemoteNetworkConfigRemoteNodeNetworksOutput
+}
+
+type ClusterRemoteNetworkConfigRemoteNodeNetworksArgs struct {
+	// List of network CIDRs that can contain hybrid nodes.
+	Cidrs pulumi.StringArrayInput `pulumi:"cidrs"`
+}
+
+func (ClusterRemoteNetworkConfigRemoteNodeNetworksArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterRemoteNetworkConfigRemoteNodeNetworks)(nil)).Elem()
+}
+
+func (i ClusterRemoteNetworkConfigRemoteNodeNetworksArgs) ToClusterRemoteNetworkConfigRemoteNodeNetworksOutput() ClusterRemoteNetworkConfigRemoteNodeNetworksOutput {
+	return i.ToClusterRemoteNetworkConfigRemoteNodeNetworksOutputWithContext(context.Background())
+}
+
+func (i ClusterRemoteNetworkConfigRemoteNodeNetworksArgs) ToClusterRemoteNetworkConfigRemoteNodeNetworksOutputWithContext(ctx context.Context) ClusterRemoteNetworkConfigRemoteNodeNetworksOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRemoteNetworkConfigRemoteNodeNetworksOutput)
+}
+
+func (i ClusterRemoteNetworkConfigRemoteNodeNetworksArgs) ToClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutput() ClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutput {
+	return i.ToClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterRemoteNetworkConfigRemoteNodeNetworksArgs) ToClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutputWithContext(ctx context.Context) ClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRemoteNetworkConfigRemoteNodeNetworksOutput).ToClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutputWithContext(ctx)
+}
+
+// ClusterRemoteNetworkConfigRemoteNodeNetworksPtrInput is an input type that accepts ClusterRemoteNetworkConfigRemoteNodeNetworksArgs, ClusterRemoteNetworkConfigRemoteNodeNetworksPtr and ClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutput values.
+// You can construct a concrete instance of `ClusterRemoteNetworkConfigRemoteNodeNetworksPtrInput` via:
+//
+//	        ClusterRemoteNetworkConfigRemoteNodeNetworksArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterRemoteNetworkConfigRemoteNodeNetworksPtrInput interface {
+	pulumi.Input
+
+	ToClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutput() ClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutput
+	ToClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutputWithContext(context.Context) ClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutput
+}
+
+type clusterRemoteNetworkConfigRemoteNodeNetworksPtrType ClusterRemoteNetworkConfigRemoteNodeNetworksArgs
+
+func ClusterRemoteNetworkConfigRemoteNodeNetworksPtr(v *ClusterRemoteNetworkConfigRemoteNodeNetworksArgs) ClusterRemoteNetworkConfigRemoteNodeNetworksPtrInput {
+	return (*clusterRemoteNetworkConfigRemoteNodeNetworksPtrType)(v)
+}
+
+func (*clusterRemoteNetworkConfigRemoteNodeNetworksPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterRemoteNetworkConfigRemoteNodeNetworks)(nil)).Elem()
+}
+
+func (i *clusterRemoteNetworkConfigRemoteNodeNetworksPtrType) ToClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutput() ClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutput {
+	return i.ToClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterRemoteNetworkConfigRemoteNodeNetworksPtrType) ToClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutputWithContext(ctx context.Context) ClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutput)
+}
+
+type ClusterRemoteNetworkConfigRemoteNodeNetworksOutput struct{ *pulumi.OutputState }
+
+func (ClusterRemoteNetworkConfigRemoteNodeNetworksOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterRemoteNetworkConfigRemoteNodeNetworks)(nil)).Elem()
+}
+
+func (o ClusterRemoteNetworkConfigRemoteNodeNetworksOutput) ToClusterRemoteNetworkConfigRemoteNodeNetworksOutput() ClusterRemoteNetworkConfigRemoteNodeNetworksOutput {
+	return o
+}
+
+func (o ClusterRemoteNetworkConfigRemoteNodeNetworksOutput) ToClusterRemoteNetworkConfigRemoteNodeNetworksOutputWithContext(ctx context.Context) ClusterRemoteNetworkConfigRemoteNodeNetworksOutput {
+	return o
+}
+
+func (o ClusterRemoteNetworkConfigRemoteNodeNetworksOutput) ToClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutput() ClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutput {
+	return o.ToClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterRemoteNetworkConfigRemoteNodeNetworksOutput) ToClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutputWithContext(ctx context.Context) ClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterRemoteNetworkConfigRemoteNodeNetworks) *ClusterRemoteNetworkConfigRemoteNodeNetworks {
+		return &v
+	}).(ClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutput)
+}
+
+// List of network CIDRs that can contain hybrid nodes.
+func (o ClusterRemoteNetworkConfigRemoteNodeNetworksOutput) Cidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterRemoteNetworkConfigRemoteNodeNetworks) []string { return v.Cidrs }).(pulumi.StringArrayOutput)
+}
+
+type ClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterRemoteNetworkConfigRemoteNodeNetworks)(nil)).Elem()
+}
+
+func (o ClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutput) ToClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutput() ClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutput {
+	return o
+}
+
+func (o ClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutput) ToClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutputWithContext(ctx context.Context) ClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutput {
+	return o
+}
+
+func (o ClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutput) Elem() ClusterRemoteNetworkConfigRemoteNodeNetworksOutput {
+	return o.ApplyT(func(v *ClusterRemoteNetworkConfigRemoteNodeNetworks) ClusterRemoteNetworkConfigRemoteNodeNetworks {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterRemoteNetworkConfigRemoteNodeNetworks
+		return ret
+	}).(ClusterRemoteNetworkConfigRemoteNodeNetworksOutput)
+}
+
+// List of network CIDRs that can contain hybrid nodes.
+func (o ClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutput) Cidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterRemoteNetworkConfigRemoteNodeNetworks) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Cidrs
+	}).(pulumi.StringArrayOutput)
+}
+
+type ClusterRemoteNetworkConfigRemotePodNetworks struct {
+	// List of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.
+	Cidrs []string `pulumi:"cidrs"`
+}
+
+// ClusterRemoteNetworkConfigRemotePodNetworksInput is an input type that accepts ClusterRemoteNetworkConfigRemotePodNetworksArgs and ClusterRemoteNetworkConfigRemotePodNetworksOutput values.
+// You can construct a concrete instance of `ClusterRemoteNetworkConfigRemotePodNetworksInput` via:
+//
+//	ClusterRemoteNetworkConfigRemotePodNetworksArgs{...}
+type ClusterRemoteNetworkConfigRemotePodNetworksInput interface {
+	pulumi.Input
+
+	ToClusterRemoteNetworkConfigRemotePodNetworksOutput() ClusterRemoteNetworkConfigRemotePodNetworksOutput
+	ToClusterRemoteNetworkConfigRemotePodNetworksOutputWithContext(context.Context) ClusterRemoteNetworkConfigRemotePodNetworksOutput
+}
+
+type ClusterRemoteNetworkConfigRemotePodNetworksArgs struct {
+	// List of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.
+	Cidrs pulumi.StringArrayInput `pulumi:"cidrs"`
+}
+
+func (ClusterRemoteNetworkConfigRemotePodNetworksArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterRemoteNetworkConfigRemotePodNetworks)(nil)).Elem()
+}
+
+func (i ClusterRemoteNetworkConfigRemotePodNetworksArgs) ToClusterRemoteNetworkConfigRemotePodNetworksOutput() ClusterRemoteNetworkConfigRemotePodNetworksOutput {
+	return i.ToClusterRemoteNetworkConfigRemotePodNetworksOutputWithContext(context.Background())
+}
+
+func (i ClusterRemoteNetworkConfigRemotePodNetworksArgs) ToClusterRemoteNetworkConfigRemotePodNetworksOutputWithContext(ctx context.Context) ClusterRemoteNetworkConfigRemotePodNetworksOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRemoteNetworkConfigRemotePodNetworksOutput)
+}
+
+func (i ClusterRemoteNetworkConfigRemotePodNetworksArgs) ToClusterRemoteNetworkConfigRemotePodNetworksPtrOutput() ClusterRemoteNetworkConfigRemotePodNetworksPtrOutput {
+	return i.ToClusterRemoteNetworkConfigRemotePodNetworksPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterRemoteNetworkConfigRemotePodNetworksArgs) ToClusterRemoteNetworkConfigRemotePodNetworksPtrOutputWithContext(ctx context.Context) ClusterRemoteNetworkConfigRemotePodNetworksPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRemoteNetworkConfigRemotePodNetworksOutput).ToClusterRemoteNetworkConfigRemotePodNetworksPtrOutputWithContext(ctx)
+}
+
+// ClusterRemoteNetworkConfigRemotePodNetworksPtrInput is an input type that accepts ClusterRemoteNetworkConfigRemotePodNetworksArgs, ClusterRemoteNetworkConfigRemotePodNetworksPtr and ClusterRemoteNetworkConfigRemotePodNetworksPtrOutput values.
+// You can construct a concrete instance of `ClusterRemoteNetworkConfigRemotePodNetworksPtrInput` via:
+//
+//	        ClusterRemoteNetworkConfigRemotePodNetworksArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterRemoteNetworkConfigRemotePodNetworksPtrInput interface {
+	pulumi.Input
+
+	ToClusterRemoteNetworkConfigRemotePodNetworksPtrOutput() ClusterRemoteNetworkConfigRemotePodNetworksPtrOutput
+	ToClusterRemoteNetworkConfigRemotePodNetworksPtrOutputWithContext(context.Context) ClusterRemoteNetworkConfigRemotePodNetworksPtrOutput
+}
+
+type clusterRemoteNetworkConfigRemotePodNetworksPtrType ClusterRemoteNetworkConfigRemotePodNetworksArgs
+
+func ClusterRemoteNetworkConfigRemotePodNetworksPtr(v *ClusterRemoteNetworkConfigRemotePodNetworksArgs) ClusterRemoteNetworkConfigRemotePodNetworksPtrInput {
+	return (*clusterRemoteNetworkConfigRemotePodNetworksPtrType)(v)
+}
+
+func (*clusterRemoteNetworkConfigRemotePodNetworksPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterRemoteNetworkConfigRemotePodNetworks)(nil)).Elem()
+}
+
+func (i *clusterRemoteNetworkConfigRemotePodNetworksPtrType) ToClusterRemoteNetworkConfigRemotePodNetworksPtrOutput() ClusterRemoteNetworkConfigRemotePodNetworksPtrOutput {
+	return i.ToClusterRemoteNetworkConfigRemotePodNetworksPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterRemoteNetworkConfigRemotePodNetworksPtrType) ToClusterRemoteNetworkConfigRemotePodNetworksPtrOutputWithContext(ctx context.Context) ClusterRemoteNetworkConfigRemotePodNetworksPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRemoteNetworkConfigRemotePodNetworksPtrOutput)
+}
+
+type ClusterRemoteNetworkConfigRemotePodNetworksOutput struct{ *pulumi.OutputState }
+
+func (ClusterRemoteNetworkConfigRemotePodNetworksOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterRemoteNetworkConfigRemotePodNetworks)(nil)).Elem()
+}
+
+func (o ClusterRemoteNetworkConfigRemotePodNetworksOutput) ToClusterRemoteNetworkConfigRemotePodNetworksOutput() ClusterRemoteNetworkConfigRemotePodNetworksOutput {
+	return o
+}
+
+func (o ClusterRemoteNetworkConfigRemotePodNetworksOutput) ToClusterRemoteNetworkConfigRemotePodNetworksOutputWithContext(ctx context.Context) ClusterRemoteNetworkConfigRemotePodNetworksOutput {
+	return o
+}
+
+func (o ClusterRemoteNetworkConfigRemotePodNetworksOutput) ToClusterRemoteNetworkConfigRemotePodNetworksPtrOutput() ClusterRemoteNetworkConfigRemotePodNetworksPtrOutput {
+	return o.ToClusterRemoteNetworkConfigRemotePodNetworksPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterRemoteNetworkConfigRemotePodNetworksOutput) ToClusterRemoteNetworkConfigRemotePodNetworksPtrOutputWithContext(ctx context.Context) ClusterRemoteNetworkConfigRemotePodNetworksPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterRemoteNetworkConfigRemotePodNetworks) *ClusterRemoteNetworkConfigRemotePodNetworks {
+		return &v
+	}).(ClusterRemoteNetworkConfigRemotePodNetworksPtrOutput)
+}
+
+// List of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.
+func (o ClusterRemoteNetworkConfigRemotePodNetworksOutput) Cidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterRemoteNetworkConfigRemotePodNetworks) []string { return v.Cidrs }).(pulumi.StringArrayOutput)
+}
+
+type ClusterRemoteNetworkConfigRemotePodNetworksPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterRemoteNetworkConfigRemotePodNetworksPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterRemoteNetworkConfigRemotePodNetworks)(nil)).Elem()
+}
+
+func (o ClusterRemoteNetworkConfigRemotePodNetworksPtrOutput) ToClusterRemoteNetworkConfigRemotePodNetworksPtrOutput() ClusterRemoteNetworkConfigRemotePodNetworksPtrOutput {
+	return o
+}
+
+func (o ClusterRemoteNetworkConfigRemotePodNetworksPtrOutput) ToClusterRemoteNetworkConfigRemotePodNetworksPtrOutputWithContext(ctx context.Context) ClusterRemoteNetworkConfigRemotePodNetworksPtrOutput {
+	return o
+}
+
+func (o ClusterRemoteNetworkConfigRemotePodNetworksPtrOutput) Elem() ClusterRemoteNetworkConfigRemotePodNetworksOutput {
+	return o.ApplyT(func(v *ClusterRemoteNetworkConfigRemotePodNetworks) ClusterRemoteNetworkConfigRemotePodNetworks {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterRemoteNetworkConfigRemotePodNetworks
+		return ret
+	}).(ClusterRemoteNetworkConfigRemotePodNetworksOutput)
+}
+
+// List of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.
+func (o ClusterRemoteNetworkConfigRemotePodNetworksPtrOutput) Cidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterRemoteNetworkConfigRemotePodNetworks) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Cidrs
+	}).(pulumi.StringArrayOutput)
+}
+
+type ClusterStorageConfig struct {
+	BlockStorage *ClusterStorageConfigBlockStorage `pulumi:"blockStorage"`
+}
+
+// ClusterStorageConfigInput is an input type that accepts ClusterStorageConfigArgs and ClusterStorageConfigOutput values.
+// You can construct a concrete instance of `ClusterStorageConfigInput` via:
+//
+//	ClusterStorageConfigArgs{...}
+type ClusterStorageConfigInput interface {
+	pulumi.Input
+
+	ToClusterStorageConfigOutput() ClusterStorageConfigOutput
+	ToClusterStorageConfigOutputWithContext(context.Context) ClusterStorageConfigOutput
+}
+
+type ClusterStorageConfigArgs struct {
+	BlockStorage ClusterStorageConfigBlockStoragePtrInput `pulumi:"blockStorage"`
+}
+
+func (ClusterStorageConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterStorageConfig)(nil)).Elem()
+}
+
+func (i ClusterStorageConfigArgs) ToClusterStorageConfigOutput() ClusterStorageConfigOutput {
+	return i.ToClusterStorageConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterStorageConfigArgs) ToClusterStorageConfigOutputWithContext(ctx context.Context) ClusterStorageConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterStorageConfigOutput)
+}
+
+func (i ClusterStorageConfigArgs) ToClusterStorageConfigPtrOutput() ClusterStorageConfigPtrOutput {
+	return i.ToClusterStorageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterStorageConfigArgs) ToClusterStorageConfigPtrOutputWithContext(ctx context.Context) ClusterStorageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterStorageConfigOutput).ToClusterStorageConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterStorageConfigPtrInput is an input type that accepts ClusterStorageConfigArgs, ClusterStorageConfigPtr and ClusterStorageConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterStorageConfigPtrInput` via:
+//
+//	        ClusterStorageConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterStorageConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterStorageConfigPtrOutput() ClusterStorageConfigPtrOutput
+	ToClusterStorageConfigPtrOutputWithContext(context.Context) ClusterStorageConfigPtrOutput
+}
+
+type clusterStorageConfigPtrType ClusterStorageConfigArgs
+
+func ClusterStorageConfigPtr(v *ClusterStorageConfigArgs) ClusterStorageConfigPtrInput {
+	return (*clusterStorageConfigPtrType)(v)
+}
+
+func (*clusterStorageConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterStorageConfig)(nil)).Elem()
+}
+
+func (i *clusterStorageConfigPtrType) ToClusterStorageConfigPtrOutput() ClusterStorageConfigPtrOutput {
+	return i.ToClusterStorageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterStorageConfigPtrType) ToClusterStorageConfigPtrOutputWithContext(ctx context.Context) ClusterStorageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterStorageConfigPtrOutput)
+}
+
+type ClusterStorageConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterStorageConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterStorageConfig)(nil)).Elem()
+}
+
+func (o ClusterStorageConfigOutput) ToClusterStorageConfigOutput() ClusterStorageConfigOutput {
+	return o
+}
+
+func (o ClusterStorageConfigOutput) ToClusterStorageConfigOutputWithContext(ctx context.Context) ClusterStorageConfigOutput {
+	return o
+}
+
+func (o ClusterStorageConfigOutput) ToClusterStorageConfigPtrOutput() ClusterStorageConfigPtrOutput {
+	return o.ToClusterStorageConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterStorageConfigOutput) ToClusterStorageConfigPtrOutputWithContext(ctx context.Context) ClusterStorageConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterStorageConfig) *ClusterStorageConfig {
+		return &v
+	}).(ClusterStorageConfigPtrOutput)
+}
+
+func (o ClusterStorageConfigOutput) BlockStorage() ClusterStorageConfigBlockStoragePtrOutput {
+	return o.ApplyT(func(v ClusterStorageConfig) *ClusterStorageConfigBlockStorage { return v.BlockStorage }).(ClusterStorageConfigBlockStoragePtrOutput)
+}
+
+type ClusterStorageConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterStorageConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterStorageConfig)(nil)).Elem()
+}
+
+func (o ClusterStorageConfigPtrOutput) ToClusterStorageConfigPtrOutput() ClusterStorageConfigPtrOutput {
+	return o
+}
+
+func (o ClusterStorageConfigPtrOutput) ToClusterStorageConfigPtrOutputWithContext(ctx context.Context) ClusterStorageConfigPtrOutput {
+	return o
+}
+
+func (o ClusterStorageConfigPtrOutput) Elem() ClusterStorageConfigOutput {
+	return o.ApplyT(func(v *ClusterStorageConfig) ClusterStorageConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterStorageConfig
+		return ret
+	}).(ClusterStorageConfigOutput)
+}
+
+func (o ClusterStorageConfigPtrOutput) BlockStorage() ClusterStorageConfigBlockStoragePtrOutput {
+	return o.ApplyT(func(v *ClusterStorageConfig) *ClusterStorageConfigBlockStorage {
+		if v == nil {
+			return nil
+		}
+		return v.BlockStorage
+	}).(ClusterStorageConfigBlockStoragePtrOutput)
+}
+
+type ClusterStorageConfigBlockStorage struct {
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// ClusterStorageConfigBlockStorageInput is an input type that accepts ClusterStorageConfigBlockStorageArgs and ClusterStorageConfigBlockStorageOutput values.
+// You can construct a concrete instance of `ClusterStorageConfigBlockStorageInput` via:
+//
+//	ClusterStorageConfigBlockStorageArgs{...}
+type ClusterStorageConfigBlockStorageInput interface {
+	pulumi.Input
+
+	ToClusterStorageConfigBlockStorageOutput() ClusterStorageConfigBlockStorageOutput
+	ToClusterStorageConfigBlockStorageOutputWithContext(context.Context) ClusterStorageConfigBlockStorageOutput
+}
+
+type ClusterStorageConfigBlockStorageArgs struct {
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (ClusterStorageConfigBlockStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterStorageConfigBlockStorage)(nil)).Elem()
+}
+
+func (i ClusterStorageConfigBlockStorageArgs) ToClusterStorageConfigBlockStorageOutput() ClusterStorageConfigBlockStorageOutput {
+	return i.ToClusterStorageConfigBlockStorageOutputWithContext(context.Background())
+}
+
+func (i ClusterStorageConfigBlockStorageArgs) ToClusterStorageConfigBlockStorageOutputWithContext(ctx context.Context) ClusterStorageConfigBlockStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterStorageConfigBlockStorageOutput)
+}
+
+func (i ClusterStorageConfigBlockStorageArgs) ToClusterStorageConfigBlockStoragePtrOutput() ClusterStorageConfigBlockStoragePtrOutput {
+	return i.ToClusterStorageConfigBlockStoragePtrOutputWithContext(context.Background())
+}
+
+func (i ClusterStorageConfigBlockStorageArgs) ToClusterStorageConfigBlockStoragePtrOutputWithContext(ctx context.Context) ClusterStorageConfigBlockStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterStorageConfigBlockStorageOutput).ToClusterStorageConfigBlockStoragePtrOutputWithContext(ctx)
+}
+
+// ClusterStorageConfigBlockStoragePtrInput is an input type that accepts ClusterStorageConfigBlockStorageArgs, ClusterStorageConfigBlockStoragePtr and ClusterStorageConfigBlockStoragePtrOutput values.
+// You can construct a concrete instance of `ClusterStorageConfigBlockStoragePtrInput` via:
+//
+//	        ClusterStorageConfigBlockStorageArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterStorageConfigBlockStoragePtrInput interface {
+	pulumi.Input
+
+	ToClusterStorageConfigBlockStoragePtrOutput() ClusterStorageConfigBlockStoragePtrOutput
+	ToClusterStorageConfigBlockStoragePtrOutputWithContext(context.Context) ClusterStorageConfigBlockStoragePtrOutput
+}
+
+type clusterStorageConfigBlockStoragePtrType ClusterStorageConfigBlockStorageArgs
+
+func ClusterStorageConfigBlockStoragePtr(v *ClusterStorageConfigBlockStorageArgs) ClusterStorageConfigBlockStoragePtrInput {
+	return (*clusterStorageConfigBlockStoragePtrType)(v)
+}
+
+func (*clusterStorageConfigBlockStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterStorageConfigBlockStorage)(nil)).Elem()
+}
+
+func (i *clusterStorageConfigBlockStoragePtrType) ToClusterStorageConfigBlockStoragePtrOutput() ClusterStorageConfigBlockStoragePtrOutput {
+	return i.ToClusterStorageConfigBlockStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *clusterStorageConfigBlockStoragePtrType) ToClusterStorageConfigBlockStoragePtrOutputWithContext(ctx context.Context) ClusterStorageConfigBlockStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterStorageConfigBlockStoragePtrOutput)
+}
+
+type ClusterStorageConfigBlockStorageOutput struct{ *pulumi.OutputState }
+
+func (ClusterStorageConfigBlockStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterStorageConfigBlockStorage)(nil)).Elem()
+}
+
+func (o ClusterStorageConfigBlockStorageOutput) ToClusterStorageConfigBlockStorageOutput() ClusterStorageConfigBlockStorageOutput {
+	return o
+}
+
+func (o ClusterStorageConfigBlockStorageOutput) ToClusterStorageConfigBlockStorageOutputWithContext(ctx context.Context) ClusterStorageConfigBlockStorageOutput {
+	return o
+}
+
+func (o ClusterStorageConfigBlockStorageOutput) ToClusterStorageConfigBlockStoragePtrOutput() ClusterStorageConfigBlockStoragePtrOutput {
+	return o.ToClusterStorageConfigBlockStoragePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterStorageConfigBlockStorageOutput) ToClusterStorageConfigBlockStoragePtrOutputWithContext(ctx context.Context) ClusterStorageConfigBlockStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterStorageConfigBlockStorage) *ClusterStorageConfigBlockStorage {
+		return &v
+	}).(ClusterStorageConfigBlockStoragePtrOutput)
+}
+
+func (o ClusterStorageConfigBlockStorageOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterStorageConfigBlockStorage) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type ClusterStorageConfigBlockStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterStorageConfigBlockStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterStorageConfigBlockStorage)(nil)).Elem()
+}
+
+func (o ClusterStorageConfigBlockStoragePtrOutput) ToClusterStorageConfigBlockStoragePtrOutput() ClusterStorageConfigBlockStoragePtrOutput {
+	return o
+}
+
+func (o ClusterStorageConfigBlockStoragePtrOutput) ToClusterStorageConfigBlockStoragePtrOutputWithContext(ctx context.Context) ClusterStorageConfigBlockStoragePtrOutput {
+	return o
+}
+
+func (o ClusterStorageConfigBlockStoragePtrOutput) Elem() ClusterStorageConfigBlockStorageOutput {
+	return o.ApplyT(func(v *ClusterStorageConfigBlockStorage) ClusterStorageConfigBlockStorage {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterStorageConfigBlockStorage
+		return ret
+	}).(ClusterStorageConfigBlockStorageOutput)
+}
+
+func (o ClusterStorageConfigBlockStoragePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterStorageConfigBlockStorage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type ClusterUpgradePolicy struct {
@@ -3845,6 +4878,121 @@ func (o GetClusterCertificateAuthorityArrayOutput) Index(i pulumi.IntInput) GetC
 	}).(GetClusterCertificateAuthorityOutput)
 }
 
+type GetClusterComputeConfig struct {
+	// Whether zonal shift is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// List of node pools for the EKS Auto Mode compute capability.
+	NodePools []string `pulumi:"nodePools"`
+	// The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster.
+	NodeRoleArn string `pulumi:"nodeRoleArn"`
+}
+
+// GetClusterComputeConfigInput is an input type that accepts GetClusterComputeConfigArgs and GetClusterComputeConfigOutput values.
+// You can construct a concrete instance of `GetClusterComputeConfigInput` via:
+//
+//	GetClusterComputeConfigArgs{...}
+type GetClusterComputeConfigInput interface {
+	pulumi.Input
+
+	ToGetClusterComputeConfigOutput() GetClusterComputeConfigOutput
+	ToGetClusterComputeConfigOutputWithContext(context.Context) GetClusterComputeConfigOutput
+}
+
+type GetClusterComputeConfigArgs struct {
+	// Whether zonal shift is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// List of node pools for the EKS Auto Mode compute capability.
+	NodePools pulumi.StringArrayInput `pulumi:"nodePools"`
+	// The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster.
+	NodeRoleArn pulumi.StringInput `pulumi:"nodeRoleArn"`
+}
+
+func (GetClusterComputeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterComputeConfig)(nil)).Elem()
+}
+
+func (i GetClusterComputeConfigArgs) ToGetClusterComputeConfigOutput() GetClusterComputeConfigOutput {
+	return i.ToGetClusterComputeConfigOutputWithContext(context.Background())
+}
+
+func (i GetClusterComputeConfigArgs) ToGetClusterComputeConfigOutputWithContext(ctx context.Context) GetClusterComputeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterComputeConfigOutput)
+}
+
+// GetClusterComputeConfigArrayInput is an input type that accepts GetClusterComputeConfigArray and GetClusterComputeConfigArrayOutput values.
+// You can construct a concrete instance of `GetClusterComputeConfigArrayInput` via:
+//
+//	GetClusterComputeConfigArray{ GetClusterComputeConfigArgs{...} }
+type GetClusterComputeConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterComputeConfigArrayOutput() GetClusterComputeConfigArrayOutput
+	ToGetClusterComputeConfigArrayOutputWithContext(context.Context) GetClusterComputeConfigArrayOutput
+}
+
+type GetClusterComputeConfigArray []GetClusterComputeConfigInput
+
+func (GetClusterComputeConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterComputeConfig)(nil)).Elem()
+}
+
+func (i GetClusterComputeConfigArray) ToGetClusterComputeConfigArrayOutput() GetClusterComputeConfigArrayOutput {
+	return i.ToGetClusterComputeConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterComputeConfigArray) ToGetClusterComputeConfigArrayOutputWithContext(ctx context.Context) GetClusterComputeConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterComputeConfigArrayOutput)
+}
+
+type GetClusterComputeConfigOutput struct{ *pulumi.OutputState }
+
+func (GetClusterComputeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterComputeConfig)(nil)).Elem()
+}
+
+func (o GetClusterComputeConfigOutput) ToGetClusterComputeConfigOutput() GetClusterComputeConfigOutput {
+	return o
+}
+
+func (o GetClusterComputeConfigOutput) ToGetClusterComputeConfigOutputWithContext(ctx context.Context) GetClusterComputeConfigOutput {
+	return o
+}
+
+// Whether zonal shift is enabled.
+func (o GetClusterComputeConfigOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetClusterComputeConfig) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// List of node pools for the EKS Auto Mode compute capability.
+func (o GetClusterComputeConfigOutput) NodePools() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetClusterComputeConfig) []string { return v.NodePools }).(pulumi.StringArrayOutput)
+}
+
+// The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster.
+func (o GetClusterComputeConfigOutput) NodeRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterComputeConfig) string { return v.NodeRoleArn }).(pulumi.StringOutput)
+}
+
+type GetClusterComputeConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterComputeConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterComputeConfig)(nil)).Elem()
+}
+
+func (o GetClusterComputeConfigArrayOutput) ToGetClusterComputeConfigArrayOutput() GetClusterComputeConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterComputeConfigArrayOutput) ToGetClusterComputeConfigArrayOutputWithContext(ctx context.Context) GetClusterComputeConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterComputeConfigArrayOutput) Index(i pulumi.IntInput) GetClusterComputeConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterComputeConfig {
+		return vs[0].([]GetClusterComputeConfig)[vs[1].(int)]
+	}).(GetClusterComputeConfigOutput)
+}
+
 type GetClusterIdentity struct {
 	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
 	Oidcs []GetClusterIdentityOidc `pulumi:"oidcs"`
@@ -4040,6 +5188,8 @@ func (o GetClusterIdentityOidcArrayOutput) Index(i pulumi.IntInput) GetClusterId
 }
 
 type GetClusterKubernetesNetworkConfig struct {
+	// Contains Elastic Load Balancing configuration for EKS Auto Mode enabled cluster.
+	ElasticLoadBalancings []GetClusterKubernetesNetworkConfigElasticLoadBalancing `pulumi:"elasticLoadBalancings"`
 	// `ipv4` or `ipv6`.
 	IpFamily string `pulumi:"ipFamily"`
 	// The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv4` was specified when the cluster was created.
@@ -4060,6 +5210,8 @@ type GetClusterKubernetesNetworkConfigInput interface {
 }
 
 type GetClusterKubernetesNetworkConfigArgs struct {
+	// Contains Elastic Load Balancing configuration for EKS Auto Mode enabled cluster.
+	ElasticLoadBalancings GetClusterKubernetesNetworkConfigElasticLoadBalancingArrayInput `pulumi:"elasticLoadBalancings"`
 	// `ipv4` or `ipv6`.
 	IpFamily pulumi.StringInput `pulumi:"ipFamily"`
 	// The CIDR block to assign Kubernetes pod and service IP addresses from if `ipv4` was specified when the cluster was created.
@@ -4119,6 +5271,13 @@ func (o GetClusterKubernetesNetworkConfigOutput) ToGetClusterKubernetesNetworkCo
 	return o
 }
 
+// Contains Elastic Load Balancing configuration for EKS Auto Mode enabled cluster.
+func (o GetClusterKubernetesNetworkConfigOutput) ElasticLoadBalancings() GetClusterKubernetesNetworkConfigElasticLoadBalancingArrayOutput {
+	return o.ApplyT(func(v GetClusterKubernetesNetworkConfig) []GetClusterKubernetesNetworkConfigElasticLoadBalancing {
+		return v.ElasticLoadBalancings
+	}).(GetClusterKubernetesNetworkConfigElasticLoadBalancingArrayOutput)
+}
+
 // `ipv4` or `ipv6`.
 func (o GetClusterKubernetesNetworkConfigOutput) IpFamily() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterKubernetesNetworkConfig) string { return v.IpFamily }).(pulumi.StringOutput)
@@ -4152,6 +5311,103 @@ func (o GetClusterKubernetesNetworkConfigArrayOutput) Index(i pulumi.IntInput) G
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterKubernetesNetworkConfig {
 		return vs[0].([]GetClusterKubernetesNetworkConfig)[vs[1].(int)]
 	}).(GetClusterKubernetesNetworkConfigOutput)
+}
+
+type GetClusterKubernetesNetworkConfigElasticLoadBalancing struct {
+	// Whether zonal shift is enabled.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// GetClusterKubernetesNetworkConfigElasticLoadBalancingInput is an input type that accepts GetClusterKubernetesNetworkConfigElasticLoadBalancingArgs and GetClusterKubernetesNetworkConfigElasticLoadBalancingOutput values.
+// You can construct a concrete instance of `GetClusterKubernetesNetworkConfigElasticLoadBalancingInput` via:
+//
+//	GetClusterKubernetesNetworkConfigElasticLoadBalancingArgs{...}
+type GetClusterKubernetesNetworkConfigElasticLoadBalancingInput interface {
+	pulumi.Input
+
+	ToGetClusterKubernetesNetworkConfigElasticLoadBalancingOutput() GetClusterKubernetesNetworkConfigElasticLoadBalancingOutput
+	ToGetClusterKubernetesNetworkConfigElasticLoadBalancingOutputWithContext(context.Context) GetClusterKubernetesNetworkConfigElasticLoadBalancingOutput
+}
+
+type GetClusterKubernetesNetworkConfigElasticLoadBalancingArgs struct {
+	// Whether zonal shift is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (GetClusterKubernetesNetworkConfigElasticLoadBalancingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterKubernetesNetworkConfigElasticLoadBalancing)(nil)).Elem()
+}
+
+func (i GetClusterKubernetesNetworkConfigElasticLoadBalancingArgs) ToGetClusterKubernetesNetworkConfigElasticLoadBalancingOutput() GetClusterKubernetesNetworkConfigElasticLoadBalancingOutput {
+	return i.ToGetClusterKubernetesNetworkConfigElasticLoadBalancingOutputWithContext(context.Background())
+}
+
+func (i GetClusterKubernetesNetworkConfigElasticLoadBalancingArgs) ToGetClusterKubernetesNetworkConfigElasticLoadBalancingOutputWithContext(ctx context.Context) GetClusterKubernetesNetworkConfigElasticLoadBalancingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterKubernetesNetworkConfigElasticLoadBalancingOutput)
+}
+
+// GetClusterKubernetesNetworkConfigElasticLoadBalancingArrayInput is an input type that accepts GetClusterKubernetesNetworkConfigElasticLoadBalancingArray and GetClusterKubernetesNetworkConfigElasticLoadBalancingArrayOutput values.
+// You can construct a concrete instance of `GetClusterKubernetesNetworkConfigElasticLoadBalancingArrayInput` via:
+//
+//	GetClusterKubernetesNetworkConfigElasticLoadBalancingArray{ GetClusterKubernetesNetworkConfigElasticLoadBalancingArgs{...} }
+type GetClusterKubernetesNetworkConfigElasticLoadBalancingArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterKubernetesNetworkConfigElasticLoadBalancingArrayOutput() GetClusterKubernetesNetworkConfigElasticLoadBalancingArrayOutput
+	ToGetClusterKubernetesNetworkConfigElasticLoadBalancingArrayOutputWithContext(context.Context) GetClusterKubernetesNetworkConfigElasticLoadBalancingArrayOutput
+}
+
+type GetClusterKubernetesNetworkConfigElasticLoadBalancingArray []GetClusterKubernetesNetworkConfigElasticLoadBalancingInput
+
+func (GetClusterKubernetesNetworkConfigElasticLoadBalancingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterKubernetesNetworkConfigElasticLoadBalancing)(nil)).Elem()
+}
+
+func (i GetClusterKubernetesNetworkConfigElasticLoadBalancingArray) ToGetClusterKubernetesNetworkConfigElasticLoadBalancingArrayOutput() GetClusterKubernetesNetworkConfigElasticLoadBalancingArrayOutput {
+	return i.ToGetClusterKubernetesNetworkConfigElasticLoadBalancingArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterKubernetesNetworkConfigElasticLoadBalancingArray) ToGetClusterKubernetesNetworkConfigElasticLoadBalancingArrayOutputWithContext(ctx context.Context) GetClusterKubernetesNetworkConfigElasticLoadBalancingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterKubernetesNetworkConfigElasticLoadBalancingArrayOutput)
+}
+
+type GetClusterKubernetesNetworkConfigElasticLoadBalancingOutput struct{ *pulumi.OutputState }
+
+func (GetClusterKubernetesNetworkConfigElasticLoadBalancingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterKubernetesNetworkConfigElasticLoadBalancing)(nil)).Elem()
+}
+
+func (o GetClusterKubernetesNetworkConfigElasticLoadBalancingOutput) ToGetClusterKubernetesNetworkConfigElasticLoadBalancingOutput() GetClusterKubernetesNetworkConfigElasticLoadBalancingOutput {
+	return o
+}
+
+func (o GetClusterKubernetesNetworkConfigElasticLoadBalancingOutput) ToGetClusterKubernetesNetworkConfigElasticLoadBalancingOutputWithContext(ctx context.Context) GetClusterKubernetesNetworkConfigElasticLoadBalancingOutput {
+	return o
+}
+
+// Whether zonal shift is enabled.
+func (o GetClusterKubernetesNetworkConfigElasticLoadBalancingOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetClusterKubernetesNetworkConfigElasticLoadBalancing) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type GetClusterKubernetesNetworkConfigElasticLoadBalancingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterKubernetesNetworkConfigElasticLoadBalancingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterKubernetesNetworkConfigElasticLoadBalancing)(nil)).Elem()
+}
+
+func (o GetClusterKubernetesNetworkConfigElasticLoadBalancingArrayOutput) ToGetClusterKubernetesNetworkConfigElasticLoadBalancingArrayOutput() GetClusterKubernetesNetworkConfigElasticLoadBalancingArrayOutput {
+	return o
+}
+
+func (o GetClusterKubernetesNetworkConfigElasticLoadBalancingArrayOutput) ToGetClusterKubernetesNetworkConfigElasticLoadBalancingArrayOutputWithContext(ctx context.Context) GetClusterKubernetesNetworkConfigElasticLoadBalancingArrayOutput {
+	return o
+}
+
+func (o GetClusterKubernetesNetworkConfigElasticLoadBalancingArrayOutput) Index(i pulumi.IntInput) GetClusterKubernetesNetworkConfigElasticLoadBalancingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterKubernetesNetworkConfigElasticLoadBalancing {
+		return vs[0].([]GetClusterKubernetesNetworkConfigElasticLoadBalancing)[vs[1].(int)]
+	}).(GetClusterKubernetesNetworkConfigElasticLoadBalancingOutput)
 }
 
 type GetClusterOutpostConfig struct {
@@ -4368,8 +5624,506 @@ func (o GetClusterOutpostConfigControlPlanePlacementArrayOutput) Index(i pulumi.
 	}).(GetClusterOutpostConfigControlPlanePlacementOutput)
 }
 
+type GetClusterRemoteNetworkConfig struct {
+	// The networks that can contain hybrid nodes.
+	RemoteNodeNetworks []GetClusterRemoteNetworkConfigRemoteNodeNetwork `pulumi:"remoteNodeNetworks"`
+	// The networks that can contain pods that run Kubernetes webhooks on hybrid nodes.
+	RemotePodNetworks []GetClusterRemoteNetworkConfigRemotePodNetwork `pulumi:"remotePodNetworks"`
+}
+
+// GetClusterRemoteNetworkConfigInput is an input type that accepts GetClusterRemoteNetworkConfigArgs and GetClusterRemoteNetworkConfigOutput values.
+// You can construct a concrete instance of `GetClusterRemoteNetworkConfigInput` via:
+//
+//	GetClusterRemoteNetworkConfigArgs{...}
+type GetClusterRemoteNetworkConfigInput interface {
+	pulumi.Input
+
+	ToGetClusterRemoteNetworkConfigOutput() GetClusterRemoteNetworkConfigOutput
+	ToGetClusterRemoteNetworkConfigOutputWithContext(context.Context) GetClusterRemoteNetworkConfigOutput
+}
+
+type GetClusterRemoteNetworkConfigArgs struct {
+	// The networks that can contain hybrid nodes.
+	RemoteNodeNetworks GetClusterRemoteNetworkConfigRemoteNodeNetworkArrayInput `pulumi:"remoteNodeNetworks"`
+	// The networks that can contain pods that run Kubernetes webhooks on hybrid nodes.
+	RemotePodNetworks GetClusterRemoteNetworkConfigRemotePodNetworkArrayInput `pulumi:"remotePodNetworks"`
+}
+
+func (GetClusterRemoteNetworkConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterRemoteNetworkConfig)(nil)).Elem()
+}
+
+func (i GetClusterRemoteNetworkConfigArgs) ToGetClusterRemoteNetworkConfigOutput() GetClusterRemoteNetworkConfigOutput {
+	return i.ToGetClusterRemoteNetworkConfigOutputWithContext(context.Background())
+}
+
+func (i GetClusterRemoteNetworkConfigArgs) ToGetClusterRemoteNetworkConfigOutputWithContext(ctx context.Context) GetClusterRemoteNetworkConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterRemoteNetworkConfigOutput)
+}
+
+// GetClusterRemoteNetworkConfigArrayInput is an input type that accepts GetClusterRemoteNetworkConfigArray and GetClusterRemoteNetworkConfigArrayOutput values.
+// You can construct a concrete instance of `GetClusterRemoteNetworkConfigArrayInput` via:
+//
+//	GetClusterRemoteNetworkConfigArray{ GetClusterRemoteNetworkConfigArgs{...} }
+type GetClusterRemoteNetworkConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterRemoteNetworkConfigArrayOutput() GetClusterRemoteNetworkConfigArrayOutput
+	ToGetClusterRemoteNetworkConfigArrayOutputWithContext(context.Context) GetClusterRemoteNetworkConfigArrayOutput
+}
+
+type GetClusterRemoteNetworkConfigArray []GetClusterRemoteNetworkConfigInput
+
+func (GetClusterRemoteNetworkConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterRemoteNetworkConfig)(nil)).Elem()
+}
+
+func (i GetClusterRemoteNetworkConfigArray) ToGetClusterRemoteNetworkConfigArrayOutput() GetClusterRemoteNetworkConfigArrayOutput {
+	return i.ToGetClusterRemoteNetworkConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterRemoteNetworkConfigArray) ToGetClusterRemoteNetworkConfigArrayOutputWithContext(ctx context.Context) GetClusterRemoteNetworkConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterRemoteNetworkConfigArrayOutput)
+}
+
+type GetClusterRemoteNetworkConfigOutput struct{ *pulumi.OutputState }
+
+func (GetClusterRemoteNetworkConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterRemoteNetworkConfig)(nil)).Elem()
+}
+
+func (o GetClusterRemoteNetworkConfigOutput) ToGetClusterRemoteNetworkConfigOutput() GetClusterRemoteNetworkConfigOutput {
+	return o
+}
+
+func (o GetClusterRemoteNetworkConfigOutput) ToGetClusterRemoteNetworkConfigOutputWithContext(ctx context.Context) GetClusterRemoteNetworkConfigOutput {
+	return o
+}
+
+// The networks that can contain hybrid nodes.
+func (o GetClusterRemoteNetworkConfigOutput) RemoteNodeNetworks() GetClusterRemoteNetworkConfigRemoteNodeNetworkArrayOutput {
+	return o.ApplyT(func(v GetClusterRemoteNetworkConfig) []GetClusterRemoteNetworkConfigRemoteNodeNetwork {
+		return v.RemoteNodeNetworks
+	}).(GetClusterRemoteNetworkConfigRemoteNodeNetworkArrayOutput)
+}
+
+// The networks that can contain pods that run Kubernetes webhooks on hybrid nodes.
+func (o GetClusterRemoteNetworkConfigOutput) RemotePodNetworks() GetClusterRemoteNetworkConfigRemotePodNetworkArrayOutput {
+	return o.ApplyT(func(v GetClusterRemoteNetworkConfig) []GetClusterRemoteNetworkConfigRemotePodNetwork {
+		return v.RemotePodNetworks
+	}).(GetClusterRemoteNetworkConfigRemotePodNetworkArrayOutput)
+}
+
+type GetClusterRemoteNetworkConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterRemoteNetworkConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterRemoteNetworkConfig)(nil)).Elem()
+}
+
+func (o GetClusterRemoteNetworkConfigArrayOutput) ToGetClusterRemoteNetworkConfigArrayOutput() GetClusterRemoteNetworkConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterRemoteNetworkConfigArrayOutput) ToGetClusterRemoteNetworkConfigArrayOutputWithContext(ctx context.Context) GetClusterRemoteNetworkConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterRemoteNetworkConfigArrayOutput) Index(i pulumi.IntInput) GetClusterRemoteNetworkConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterRemoteNetworkConfig {
+		return vs[0].([]GetClusterRemoteNetworkConfig)[vs[1].(int)]
+	}).(GetClusterRemoteNetworkConfigOutput)
+}
+
+type GetClusterRemoteNetworkConfigRemoteNodeNetwork struct {
+	// List of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.
+	Cidrs []string `pulumi:"cidrs"`
+}
+
+// GetClusterRemoteNetworkConfigRemoteNodeNetworkInput is an input type that accepts GetClusterRemoteNetworkConfigRemoteNodeNetworkArgs and GetClusterRemoteNetworkConfigRemoteNodeNetworkOutput values.
+// You can construct a concrete instance of `GetClusterRemoteNetworkConfigRemoteNodeNetworkInput` via:
+//
+//	GetClusterRemoteNetworkConfigRemoteNodeNetworkArgs{...}
+type GetClusterRemoteNetworkConfigRemoteNodeNetworkInput interface {
+	pulumi.Input
+
+	ToGetClusterRemoteNetworkConfigRemoteNodeNetworkOutput() GetClusterRemoteNetworkConfigRemoteNodeNetworkOutput
+	ToGetClusterRemoteNetworkConfigRemoteNodeNetworkOutputWithContext(context.Context) GetClusterRemoteNetworkConfigRemoteNodeNetworkOutput
+}
+
+type GetClusterRemoteNetworkConfigRemoteNodeNetworkArgs struct {
+	// List of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.
+	Cidrs pulumi.StringArrayInput `pulumi:"cidrs"`
+}
+
+func (GetClusterRemoteNetworkConfigRemoteNodeNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterRemoteNetworkConfigRemoteNodeNetwork)(nil)).Elem()
+}
+
+func (i GetClusterRemoteNetworkConfigRemoteNodeNetworkArgs) ToGetClusterRemoteNetworkConfigRemoteNodeNetworkOutput() GetClusterRemoteNetworkConfigRemoteNodeNetworkOutput {
+	return i.ToGetClusterRemoteNetworkConfigRemoteNodeNetworkOutputWithContext(context.Background())
+}
+
+func (i GetClusterRemoteNetworkConfigRemoteNodeNetworkArgs) ToGetClusterRemoteNetworkConfigRemoteNodeNetworkOutputWithContext(ctx context.Context) GetClusterRemoteNetworkConfigRemoteNodeNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterRemoteNetworkConfigRemoteNodeNetworkOutput)
+}
+
+// GetClusterRemoteNetworkConfigRemoteNodeNetworkArrayInput is an input type that accepts GetClusterRemoteNetworkConfigRemoteNodeNetworkArray and GetClusterRemoteNetworkConfigRemoteNodeNetworkArrayOutput values.
+// You can construct a concrete instance of `GetClusterRemoteNetworkConfigRemoteNodeNetworkArrayInput` via:
+//
+//	GetClusterRemoteNetworkConfigRemoteNodeNetworkArray{ GetClusterRemoteNetworkConfigRemoteNodeNetworkArgs{...} }
+type GetClusterRemoteNetworkConfigRemoteNodeNetworkArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterRemoteNetworkConfigRemoteNodeNetworkArrayOutput() GetClusterRemoteNetworkConfigRemoteNodeNetworkArrayOutput
+	ToGetClusterRemoteNetworkConfigRemoteNodeNetworkArrayOutputWithContext(context.Context) GetClusterRemoteNetworkConfigRemoteNodeNetworkArrayOutput
+}
+
+type GetClusterRemoteNetworkConfigRemoteNodeNetworkArray []GetClusterRemoteNetworkConfigRemoteNodeNetworkInput
+
+func (GetClusterRemoteNetworkConfigRemoteNodeNetworkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterRemoteNetworkConfigRemoteNodeNetwork)(nil)).Elem()
+}
+
+func (i GetClusterRemoteNetworkConfigRemoteNodeNetworkArray) ToGetClusterRemoteNetworkConfigRemoteNodeNetworkArrayOutput() GetClusterRemoteNetworkConfigRemoteNodeNetworkArrayOutput {
+	return i.ToGetClusterRemoteNetworkConfigRemoteNodeNetworkArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterRemoteNetworkConfigRemoteNodeNetworkArray) ToGetClusterRemoteNetworkConfigRemoteNodeNetworkArrayOutputWithContext(ctx context.Context) GetClusterRemoteNetworkConfigRemoteNodeNetworkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterRemoteNetworkConfigRemoteNodeNetworkArrayOutput)
+}
+
+type GetClusterRemoteNetworkConfigRemoteNodeNetworkOutput struct{ *pulumi.OutputState }
+
+func (GetClusterRemoteNetworkConfigRemoteNodeNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterRemoteNetworkConfigRemoteNodeNetwork)(nil)).Elem()
+}
+
+func (o GetClusterRemoteNetworkConfigRemoteNodeNetworkOutput) ToGetClusterRemoteNetworkConfigRemoteNodeNetworkOutput() GetClusterRemoteNetworkConfigRemoteNodeNetworkOutput {
+	return o
+}
+
+func (o GetClusterRemoteNetworkConfigRemoteNodeNetworkOutput) ToGetClusterRemoteNetworkConfigRemoteNodeNetworkOutputWithContext(ctx context.Context) GetClusterRemoteNetworkConfigRemoteNodeNetworkOutput {
+	return o
+}
+
+// List of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.
+func (o GetClusterRemoteNetworkConfigRemoteNodeNetworkOutput) Cidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetClusterRemoteNetworkConfigRemoteNodeNetwork) []string { return v.Cidrs }).(pulumi.StringArrayOutput)
+}
+
+type GetClusterRemoteNetworkConfigRemoteNodeNetworkArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterRemoteNetworkConfigRemoteNodeNetworkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterRemoteNetworkConfigRemoteNodeNetwork)(nil)).Elem()
+}
+
+func (o GetClusterRemoteNetworkConfigRemoteNodeNetworkArrayOutput) ToGetClusterRemoteNetworkConfigRemoteNodeNetworkArrayOutput() GetClusterRemoteNetworkConfigRemoteNodeNetworkArrayOutput {
+	return o
+}
+
+func (o GetClusterRemoteNetworkConfigRemoteNodeNetworkArrayOutput) ToGetClusterRemoteNetworkConfigRemoteNodeNetworkArrayOutputWithContext(ctx context.Context) GetClusterRemoteNetworkConfigRemoteNodeNetworkArrayOutput {
+	return o
+}
+
+func (o GetClusterRemoteNetworkConfigRemoteNodeNetworkArrayOutput) Index(i pulumi.IntInput) GetClusterRemoteNetworkConfigRemoteNodeNetworkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterRemoteNetworkConfigRemoteNodeNetwork {
+		return vs[0].([]GetClusterRemoteNetworkConfigRemoteNodeNetwork)[vs[1].(int)]
+	}).(GetClusterRemoteNetworkConfigRemoteNodeNetworkOutput)
+}
+
+type GetClusterRemoteNetworkConfigRemotePodNetwork struct {
+	// List of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.
+	Cidrs []string `pulumi:"cidrs"`
+}
+
+// GetClusterRemoteNetworkConfigRemotePodNetworkInput is an input type that accepts GetClusterRemoteNetworkConfigRemotePodNetworkArgs and GetClusterRemoteNetworkConfigRemotePodNetworkOutput values.
+// You can construct a concrete instance of `GetClusterRemoteNetworkConfigRemotePodNetworkInput` via:
+//
+//	GetClusterRemoteNetworkConfigRemotePodNetworkArgs{...}
+type GetClusterRemoteNetworkConfigRemotePodNetworkInput interface {
+	pulumi.Input
+
+	ToGetClusterRemoteNetworkConfigRemotePodNetworkOutput() GetClusterRemoteNetworkConfigRemotePodNetworkOutput
+	ToGetClusterRemoteNetworkConfigRemotePodNetworkOutputWithContext(context.Context) GetClusterRemoteNetworkConfigRemotePodNetworkOutput
+}
+
+type GetClusterRemoteNetworkConfigRemotePodNetworkArgs struct {
+	// List of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.
+	Cidrs pulumi.StringArrayInput `pulumi:"cidrs"`
+}
+
+func (GetClusterRemoteNetworkConfigRemotePodNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterRemoteNetworkConfigRemotePodNetwork)(nil)).Elem()
+}
+
+func (i GetClusterRemoteNetworkConfigRemotePodNetworkArgs) ToGetClusterRemoteNetworkConfigRemotePodNetworkOutput() GetClusterRemoteNetworkConfigRemotePodNetworkOutput {
+	return i.ToGetClusterRemoteNetworkConfigRemotePodNetworkOutputWithContext(context.Background())
+}
+
+func (i GetClusterRemoteNetworkConfigRemotePodNetworkArgs) ToGetClusterRemoteNetworkConfigRemotePodNetworkOutputWithContext(ctx context.Context) GetClusterRemoteNetworkConfigRemotePodNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterRemoteNetworkConfigRemotePodNetworkOutput)
+}
+
+// GetClusterRemoteNetworkConfigRemotePodNetworkArrayInput is an input type that accepts GetClusterRemoteNetworkConfigRemotePodNetworkArray and GetClusterRemoteNetworkConfigRemotePodNetworkArrayOutput values.
+// You can construct a concrete instance of `GetClusterRemoteNetworkConfigRemotePodNetworkArrayInput` via:
+//
+//	GetClusterRemoteNetworkConfigRemotePodNetworkArray{ GetClusterRemoteNetworkConfigRemotePodNetworkArgs{...} }
+type GetClusterRemoteNetworkConfigRemotePodNetworkArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterRemoteNetworkConfigRemotePodNetworkArrayOutput() GetClusterRemoteNetworkConfigRemotePodNetworkArrayOutput
+	ToGetClusterRemoteNetworkConfigRemotePodNetworkArrayOutputWithContext(context.Context) GetClusterRemoteNetworkConfigRemotePodNetworkArrayOutput
+}
+
+type GetClusterRemoteNetworkConfigRemotePodNetworkArray []GetClusterRemoteNetworkConfigRemotePodNetworkInput
+
+func (GetClusterRemoteNetworkConfigRemotePodNetworkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterRemoteNetworkConfigRemotePodNetwork)(nil)).Elem()
+}
+
+func (i GetClusterRemoteNetworkConfigRemotePodNetworkArray) ToGetClusterRemoteNetworkConfigRemotePodNetworkArrayOutput() GetClusterRemoteNetworkConfigRemotePodNetworkArrayOutput {
+	return i.ToGetClusterRemoteNetworkConfigRemotePodNetworkArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterRemoteNetworkConfigRemotePodNetworkArray) ToGetClusterRemoteNetworkConfigRemotePodNetworkArrayOutputWithContext(ctx context.Context) GetClusterRemoteNetworkConfigRemotePodNetworkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterRemoteNetworkConfigRemotePodNetworkArrayOutput)
+}
+
+type GetClusterRemoteNetworkConfigRemotePodNetworkOutput struct{ *pulumi.OutputState }
+
+func (GetClusterRemoteNetworkConfigRemotePodNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterRemoteNetworkConfigRemotePodNetwork)(nil)).Elem()
+}
+
+func (o GetClusterRemoteNetworkConfigRemotePodNetworkOutput) ToGetClusterRemoteNetworkConfigRemotePodNetworkOutput() GetClusterRemoteNetworkConfigRemotePodNetworkOutput {
+	return o
+}
+
+func (o GetClusterRemoteNetworkConfigRemotePodNetworkOutput) ToGetClusterRemoteNetworkConfigRemotePodNetworkOutputWithContext(ctx context.Context) GetClusterRemoteNetworkConfigRemotePodNetworkOutput {
+	return o
+}
+
+// List of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.
+func (o GetClusterRemoteNetworkConfigRemotePodNetworkOutput) Cidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetClusterRemoteNetworkConfigRemotePodNetwork) []string { return v.Cidrs }).(pulumi.StringArrayOutput)
+}
+
+type GetClusterRemoteNetworkConfigRemotePodNetworkArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterRemoteNetworkConfigRemotePodNetworkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterRemoteNetworkConfigRemotePodNetwork)(nil)).Elem()
+}
+
+func (o GetClusterRemoteNetworkConfigRemotePodNetworkArrayOutput) ToGetClusterRemoteNetworkConfigRemotePodNetworkArrayOutput() GetClusterRemoteNetworkConfigRemotePodNetworkArrayOutput {
+	return o
+}
+
+func (o GetClusterRemoteNetworkConfigRemotePodNetworkArrayOutput) ToGetClusterRemoteNetworkConfigRemotePodNetworkArrayOutputWithContext(ctx context.Context) GetClusterRemoteNetworkConfigRemotePodNetworkArrayOutput {
+	return o
+}
+
+func (o GetClusterRemoteNetworkConfigRemotePodNetworkArrayOutput) Index(i pulumi.IntInput) GetClusterRemoteNetworkConfigRemotePodNetworkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterRemoteNetworkConfigRemotePodNetwork {
+		return vs[0].([]GetClusterRemoteNetworkConfigRemotePodNetwork)[vs[1].(int)]
+	}).(GetClusterRemoteNetworkConfigRemotePodNetworkOutput)
+}
+
+type GetClusterStorageConfig struct {
+	// Contains block storage configuration for EKS Auto Mode enabled cluster.
+	BlockStorages []GetClusterStorageConfigBlockStorage `pulumi:"blockStorages"`
+}
+
+// GetClusterStorageConfigInput is an input type that accepts GetClusterStorageConfigArgs and GetClusterStorageConfigOutput values.
+// You can construct a concrete instance of `GetClusterStorageConfigInput` via:
+//
+//	GetClusterStorageConfigArgs{...}
+type GetClusterStorageConfigInput interface {
+	pulumi.Input
+
+	ToGetClusterStorageConfigOutput() GetClusterStorageConfigOutput
+	ToGetClusterStorageConfigOutputWithContext(context.Context) GetClusterStorageConfigOutput
+}
+
+type GetClusterStorageConfigArgs struct {
+	// Contains block storage configuration for EKS Auto Mode enabled cluster.
+	BlockStorages GetClusterStorageConfigBlockStorageArrayInput `pulumi:"blockStorages"`
+}
+
+func (GetClusterStorageConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterStorageConfig)(nil)).Elem()
+}
+
+func (i GetClusterStorageConfigArgs) ToGetClusterStorageConfigOutput() GetClusterStorageConfigOutput {
+	return i.ToGetClusterStorageConfigOutputWithContext(context.Background())
+}
+
+func (i GetClusterStorageConfigArgs) ToGetClusterStorageConfigOutputWithContext(ctx context.Context) GetClusterStorageConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterStorageConfigOutput)
+}
+
+// GetClusterStorageConfigArrayInput is an input type that accepts GetClusterStorageConfigArray and GetClusterStorageConfigArrayOutput values.
+// You can construct a concrete instance of `GetClusterStorageConfigArrayInput` via:
+//
+//	GetClusterStorageConfigArray{ GetClusterStorageConfigArgs{...} }
+type GetClusterStorageConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterStorageConfigArrayOutput() GetClusterStorageConfigArrayOutput
+	ToGetClusterStorageConfigArrayOutputWithContext(context.Context) GetClusterStorageConfigArrayOutput
+}
+
+type GetClusterStorageConfigArray []GetClusterStorageConfigInput
+
+func (GetClusterStorageConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterStorageConfig)(nil)).Elem()
+}
+
+func (i GetClusterStorageConfigArray) ToGetClusterStorageConfigArrayOutput() GetClusterStorageConfigArrayOutput {
+	return i.ToGetClusterStorageConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterStorageConfigArray) ToGetClusterStorageConfigArrayOutputWithContext(ctx context.Context) GetClusterStorageConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterStorageConfigArrayOutput)
+}
+
+type GetClusterStorageConfigOutput struct{ *pulumi.OutputState }
+
+func (GetClusterStorageConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterStorageConfig)(nil)).Elem()
+}
+
+func (o GetClusterStorageConfigOutput) ToGetClusterStorageConfigOutput() GetClusterStorageConfigOutput {
+	return o
+}
+
+func (o GetClusterStorageConfigOutput) ToGetClusterStorageConfigOutputWithContext(ctx context.Context) GetClusterStorageConfigOutput {
+	return o
+}
+
+// Contains block storage configuration for EKS Auto Mode enabled cluster.
+func (o GetClusterStorageConfigOutput) BlockStorages() GetClusterStorageConfigBlockStorageArrayOutput {
+	return o.ApplyT(func(v GetClusterStorageConfig) []GetClusterStorageConfigBlockStorage { return v.BlockStorages }).(GetClusterStorageConfigBlockStorageArrayOutput)
+}
+
+type GetClusterStorageConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterStorageConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterStorageConfig)(nil)).Elem()
+}
+
+func (o GetClusterStorageConfigArrayOutput) ToGetClusterStorageConfigArrayOutput() GetClusterStorageConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterStorageConfigArrayOutput) ToGetClusterStorageConfigArrayOutputWithContext(ctx context.Context) GetClusterStorageConfigArrayOutput {
+	return o
+}
+
+func (o GetClusterStorageConfigArrayOutput) Index(i pulumi.IntInput) GetClusterStorageConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterStorageConfig {
+		return vs[0].([]GetClusterStorageConfig)[vs[1].(int)]
+	}).(GetClusterStorageConfigOutput)
+}
+
+type GetClusterStorageConfigBlockStorage struct {
+	// Whether zonal shift is enabled.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// GetClusterStorageConfigBlockStorageInput is an input type that accepts GetClusterStorageConfigBlockStorageArgs and GetClusterStorageConfigBlockStorageOutput values.
+// You can construct a concrete instance of `GetClusterStorageConfigBlockStorageInput` via:
+//
+//	GetClusterStorageConfigBlockStorageArgs{...}
+type GetClusterStorageConfigBlockStorageInput interface {
+	pulumi.Input
+
+	ToGetClusterStorageConfigBlockStorageOutput() GetClusterStorageConfigBlockStorageOutput
+	ToGetClusterStorageConfigBlockStorageOutputWithContext(context.Context) GetClusterStorageConfigBlockStorageOutput
+}
+
+type GetClusterStorageConfigBlockStorageArgs struct {
+	// Whether zonal shift is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (GetClusterStorageConfigBlockStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterStorageConfigBlockStorage)(nil)).Elem()
+}
+
+func (i GetClusterStorageConfigBlockStorageArgs) ToGetClusterStorageConfigBlockStorageOutput() GetClusterStorageConfigBlockStorageOutput {
+	return i.ToGetClusterStorageConfigBlockStorageOutputWithContext(context.Background())
+}
+
+func (i GetClusterStorageConfigBlockStorageArgs) ToGetClusterStorageConfigBlockStorageOutputWithContext(ctx context.Context) GetClusterStorageConfigBlockStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterStorageConfigBlockStorageOutput)
+}
+
+// GetClusterStorageConfigBlockStorageArrayInput is an input type that accepts GetClusterStorageConfigBlockStorageArray and GetClusterStorageConfigBlockStorageArrayOutput values.
+// You can construct a concrete instance of `GetClusterStorageConfigBlockStorageArrayInput` via:
+//
+//	GetClusterStorageConfigBlockStorageArray{ GetClusterStorageConfigBlockStorageArgs{...} }
+type GetClusterStorageConfigBlockStorageArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterStorageConfigBlockStorageArrayOutput() GetClusterStorageConfigBlockStorageArrayOutput
+	ToGetClusterStorageConfigBlockStorageArrayOutputWithContext(context.Context) GetClusterStorageConfigBlockStorageArrayOutput
+}
+
+type GetClusterStorageConfigBlockStorageArray []GetClusterStorageConfigBlockStorageInput
+
+func (GetClusterStorageConfigBlockStorageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterStorageConfigBlockStorage)(nil)).Elem()
+}
+
+func (i GetClusterStorageConfigBlockStorageArray) ToGetClusterStorageConfigBlockStorageArrayOutput() GetClusterStorageConfigBlockStorageArrayOutput {
+	return i.ToGetClusterStorageConfigBlockStorageArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterStorageConfigBlockStorageArray) ToGetClusterStorageConfigBlockStorageArrayOutputWithContext(ctx context.Context) GetClusterStorageConfigBlockStorageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterStorageConfigBlockStorageArrayOutput)
+}
+
+type GetClusterStorageConfigBlockStorageOutput struct{ *pulumi.OutputState }
+
+func (GetClusterStorageConfigBlockStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterStorageConfigBlockStorage)(nil)).Elem()
+}
+
+func (o GetClusterStorageConfigBlockStorageOutput) ToGetClusterStorageConfigBlockStorageOutput() GetClusterStorageConfigBlockStorageOutput {
+	return o
+}
+
+func (o GetClusterStorageConfigBlockStorageOutput) ToGetClusterStorageConfigBlockStorageOutputWithContext(ctx context.Context) GetClusterStorageConfigBlockStorageOutput {
+	return o
+}
+
+// Whether zonal shift is enabled.
+func (o GetClusterStorageConfigBlockStorageOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetClusterStorageConfigBlockStorage) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type GetClusterStorageConfigBlockStorageArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterStorageConfigBlockStorageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterStorageConfigBlockStorage)(nil)).Elem()
+}
+
+func (o GetClusterStorageConfigBlockStorageArrayOutput) ToGetClusterStorageConfigBlockStorageArrayOutput() GetClusterStorageConfigBlockStorageArrayOutput {
+	return o
+}
+
+func (o GetClusterStorageConfigBlockStorageArrayOutput) ToGetClusterStorageConfigBlockStorageArrayOutputWithContext(ctx context.Context) GetClusterStorageConfigBlockStorageArrayOutput {
+	return o
+}
+
+func (o GetClusterStorageConfigBlockStorageArrayOutput) Index(i pulumi.IntInput) GetClusterStorageConfigBlockStorageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterStorageConfigBlockStorage {
+		return vs[0].([]GetClusterStorageConfigBlockStorage)[vs[1].(int)]
+	}).(GetClusterStorageConfigBlockStorageOutput)
+}
+
 type GetClusterUpgradePolicy struct {
-	// (Optional) Support type to use for the cluster.
+	// Support type to use for the cluster.
 	SupportType string `pulumi:"supportType"`
 }
 
@@ -4385,7 +6139,7 @@ type GetClusterUpgradePolicyInput interface {
 }
 
 type GetClusterUpgradePolicyArgs struct {
-	// (Optional) Support type to use for the cluster.
+	// Support type to use for the cluster.
 	SupportType pulumi.StringInput `pulumi:"supportType"`
 }
 
@@ -4440,7 +6194,7 @@ func (o GetClusterUpgradePolicyOutput) ToGetClusterUpgradePolicyOutputWithContex
 	return o
 }
 
-// (Optional) Support type to use for the cluster.
+// Support type to use for the cluster.
 func (o GetClusterUpgradePolicyOutput) SupportType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterUpgradePolicy) string { return v.SupportType }).(pulumi.StringOutput)
 }
@@ -5332,6 +7086,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCertificateAuthorityInput)(nil)).Elem(), ClusterCertificateAuthorityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCertificateAuthorityPtrInput)(nil)).Elem(), ClusterCertificateAuthorityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCertificateAuthorityArrayInput)(nil)).Elem(), ClusterCertificateAuthorityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterComputeConfigInput)(nil)).Elem(), ClusterComputeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterComputeConfigPtrInput)(nil)).Elem(), ClusterComputeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionConfigInput)(nil)).Elem(), ClusterEncryptionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionConfigPtrInput)(nil)).Elem(), ClusterEncryptionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionConfigProviderInput)(nil)).Elem(), ClusterEncryptionConfigProviderArgs{})
@@ -5342,10 +7098,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterIdentityOidcArrayInput)(nil)).Elem(), ClusterIdentityOidcArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesNetworkConfigInput)(nil)).Elem(), ClusterKubernetesNetworkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesNetworkConfigPtrInput)(nil)).Elem(), ClusterKubernetesNetworkConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesNetworkConfigElasticLoadBalancingInput)(nil)).Elem(), ClusterKubernetesNetworkConfigElasticLoadBalancingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesNetworkConfigElasticLoadBalancingPtrInput)(nil)).Elem(), ClusterKubernetesNetworkConfigElasticLoadBalancingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOutpostConfigInput)(nil)).Elem(), ClusterOutpostConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOutpostConfigPtrInput)(nil)).Elem(), ClusterOutpostConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOutpostConfigControlPlanePlacementInput)(nil)).Elem(), ClusterOutpostConfigControlPlanePlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOutpostConfigControlPlanePlacementPtrInput)(nil)).Elem(), ClusterOutpostConfigControlPlanePlacementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRemoteNetworkConfigInput)(nil)).Elem(), ClusterRemoteNetworkConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRemoteNetworkConfigPtrInput)(nil)).Elem(), ClusterRemoteNetworkConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRemoteNetworkConfigRemoteNodeNetworksInput)(nil)).Elem(), ClusterRemoteNetworkConfigRemoteNodeNetworksArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRemoteNetworkConfigRemoteNodeNetworksPtrInput)(nil)).Elem(), ClusterRemoteNetworkConfigRemoteNodeNetworksArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRemoteNetworkConfigRemotePodNetworksInput)(nil)).Elem(), ClusterRemoteNetworkConfigRemotePodNetworksArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRemoteNetworkConfigRemotePodNetworksPtrInput)(nil)).Elem(), ClusterRemoteNetworkConfigRemotePodNetworksArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStorageConfigInput)(nil)).Elem(), ClusterStorageConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStorageConfigPtrInput)(nil)).Elem(), ClusterStorageConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStorageConfigBlockStorageInput)(nil)).Elem(), ClusterStorageConfigBlockStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStorageConfigBlockStoragePtrInput)(nil)).Elem(), ClusterStorageConfigBlockStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterUpgradePolicyInput)(nil)).Elem(), ClusterUpgradePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterUpgradePolicyPtrInput)(nil)).Elem(), ClusterUpgradePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConfigInput)(nil)).Elem(), ClusterVpcConfigArgs{})
@@ -5376,16 +7144,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterAccessConfigArrayInput)(nil)).Elem(), GetClusterAccessConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterCertificateAuthorityInput)(nil)).Elem(), GetClusterCertificateAuthorityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterCertificateAuthorityArrayInput)(nil)).Elem(), GetClusterCertificateAuthorityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterComputeConfigInput)(nil)).Elem(), GetClusterComputeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterComputeConfigArrayInput)(nil)).Elem(), GetClusterComputeConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterIdentityInput)(nil)).Elem(), GetClusterIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterIdentityArrayInput)(nil)).Elem(), GetClusterIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterIdentityOidcInput)(nil)).Elem(), GetClusterIdentityOidcArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterIdentityOidcArrayInput)(nil)).Elem(), GetClusterIdentityOidcArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubernetesNetworkConfigInput)(nil)).Elem(), GetClusterKubernetesNetworkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubernetesNetworkConfigArrayInput)(nil)).Elem(), GetClusterKubernetesNetworkConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubernetesNetworkConfigElasticLoadBalancingInput)(nil)).Elem(), GetClusterKubernetesNetworkConfigElasticLoadBalancingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubernetesNetworkConfigElasticLoadBalancingArrayInput)(nil)).Elem(), GetClusterKubernetesNetworkConfigElasticLoadBalancingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterOutpostConfigInput)(nil)).Elem(), GetClusterOutpostConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterOutpostConfigArrayInput)(nil)).Elem(), GetClusterOutpostConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterOutpostConfigControlPlanePlacementInput)(nil)).Elem(), GetClusterOutpostConfigControlPlanePlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterOutpostConfigControlPlanePlacementArrayInput)(nil)).Elem(), GetClusterOutpostConfigControlPlanePlacementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterRemoteNetworkConfigInput)(nil)).Elem(), GetClusterRemoteNetworkConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterRemoteNetworkConfigArrayInput)(nil)).Elem(), GetClusterRemoteNetworkConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterRemoteNetworkConfigRemoteNodeNetworkInput)(nil)).Elem(), GetClusterRemoteNetworkConfigRemoteNodeNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterRemoteNetworkConfigRemoteNodeNetworkArrayInput)(nil)).Elem(), GetClusterRemoteNetworkConfigRemoteNodeNetworkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterRemoteNetworkConfigRemotePodNetworkInput)(nil)).Elem(), GetClusterRemoteNetworkConfigRemotePodNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterRemoteNetworkConfigRemotePodNetworkArrayInput)(nil)).Elem(), GetClusterRemoteNetworkConfigRemotePodNetworkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterStorageConfigInput)(nil)).Elem(), GetClusterStorageConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterStorageConfigArrayInput)(nil)).Elem(), GetClusterStorageConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterStorageConfigBlockStorageInput)(nil)).Elem(), GetClusterStorageConfigBlockStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterStorageConfigBlockStorageArrayInput)(nil)).Elem(), GetClusterStorageConfigBlockStorageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterUpgradePolicyInput)(nil)).Elem(), GetClusterUpgradePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterUpgradePolicyArrayInput)(nil)).Elem(), GetClusterUpgradePolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVpcConfigInput)(nil)).Elem(), GetClusterVpcConfigArgs{})
@@ -5412,6 +7194,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterCertificateAuthorityOutput{})
 	pulumi.RegisterOutputType(ClusterCertificateAuthorityPtrOutput{})
 	pulumi.RegisterOutputType(ClusterCertificateAuthorityArrayOutput{})
+	pulumi.RegisterOutputType(ClusterComputeConfigOutput{})
+	pulumi.RegisterOutputType(ClusterComputeConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionConfigOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionConfigProviderOutput{})
@@ -5422,10 +7206,22 @@ func init() {
 	pulumi.RegisterOutputType(ClusterIdentityOidcArrayOutput{})
 	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigOutput{})
 	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigElasticLoadBalancingOutput{})
+	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigElasticLoadBalancingPtrOutput{})
 	pulumi.RegisterOutputType(ClusterOutpostConfigOutput{})
 	pulumi.RegisterOutputType(ClusterOutpostConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterOutpostConfigControlPlanePlacementOutput{})
 	pulumi.RegisterOutputType(ClusterOutpostConfigControlPlanePlacementPtrOutput{})
+	pulumi.RegisterOutputType(ClusterRemoteNetworkConfigOutput{})
+	pulumi.RegisterOutputType(ClusterRemoteNetworkConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterRemoteNetworkConfigRemoteNodeNetworksOutput{})
+	pulumi.RegisterOutputType(ClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutput{})
+	pulumi.RegisterOutputType(ClusterRemoteNetworkConfigRemotePodNetworksOutput{})
+	pulumi.RegisterOutputType(ClusterRemoteNetworkConfigRemotePodNetworksPtrOutput{})
+	pulumi.RegisterOutputType(ClusterStorageConfigOutput{})
+	pulumi.RegisterOutputType(ClusterStorageConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterStorageConfigBlockStorageOutput{})
+	pulumi.RegisterOutputType(ClusterStorageConfigBlockStoragePtrOutput{})
 	pulumi.RegisterOutputType(ClusterUpgradePolicyOutput{})
 	pulumi.RegisterOutputType(ClusterUpgradePolicyPtrOutput{})
 	pulumi.RegisterOutputType(ClusterVpcConfigOutput{})
@@ -5456,16 +7252,30 @@ func init() {
 	pulumi.RegisterOutputType(GetClusterAccessConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterCertificateAuthorityOutput{})
 	pulumi.RegisterOutputType(GetClusterCertificateAuthorityArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterComputeConfigOutput{})
+	pulumi.RegisterOutputType(GetClusterComputeConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterIdentityOutput{})
 	pulumi.RegisterOutputType(GetClusterIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterIdentityOidcOutput{})
 	pulumi.RegisterOutputType(GetClusterIdentityOidcArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterKubernetesNetworkConfigOutput{})
 	pulumi.RegisterOutputType(GetClusterKubernetesNetworkConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterKubernetesNetworkConfigElasticLoadBalancingOutput{})
+	pulumi.RegisterOutputType(GetClusterKubernetesNetworkConfigElasticLoadBalancingArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterOutpostConfigOutput{})
 	pulumi.RegisterOutputType(GetClusterOutpostConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterOutpostConfigControlPlanePlacementOutput{})
 	pulumi.RegisterOutputType(GetClusterOutpostConfigControlPlanePlacementArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterRemoteNetworkConfigOutput{})
+	pulumi.RegisterOutputType(GetClusterRemoteNetworkConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterRemoteNetworkConfigRemoteNodeNetworkOutput{})
+	pulumi.RegisterOutputType(GetClusterRemoteNetworkConfigRemoteNodeNetworkArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterRemoteNetworkConfigRemotePodNetworkOutput{})
+	pulumi.RegisterOutputType(GetClusterRemoteNetworkConfigRemotePodNetworkArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterStorageConfigOutput{})
+	pulumi.RegisterOutputType(GetClusterStorageConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterStorageConfigBlockStorageOutput{})
+	pulumi.RegisterOutputType(GetClusterStorageConfigBlockStorageArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterUpgradePolicyOutput{})
 	pulumi.RegisterOutputType(GetClusterUpgradePolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterVpcConfigOutput{})

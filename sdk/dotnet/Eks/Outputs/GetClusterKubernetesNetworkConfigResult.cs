@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Eks.Outputs
     public sealed class GetClusterKubernetesNetworkConfigResult
     {
         /// <summary>
+        /// Contains Elastic Load Balancing configuration for EKS Auto Mode enabled cluster.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetClusterKubernetesNetworkConfigElasticLoadBalancingResult> ElasticLoadBalancings;
+        /// <summary>
         /// `ipv4` or `ipv6`.
         /// </summary>
         public readonly string IpFamily;
@@ -28,12 +32,15 @@ namespace Pulumi.Aws.Eks.Outputs
 
         [OutputConstructor]
         private GetClusterKubernetesNetworkConfigResult(
+            ImmutableArray<Outputs.GetClusterKubernetesNetworkConfigElasticLoadBalancingResult> elasticLoadBalancings,
+
             string ipFamily,
 
             string serviceIpv4Cidr,
 
             string serviceIpv6Cidr)
         {
+            ElasticLoadBalancings = elasticLoadBalancings;
             IpFamily = ipFamily;
             ServiceIpv4Cidr = serviceIpv4Cidr;
             ServiceIpv6Cidr = serviceIpv6Cidr;

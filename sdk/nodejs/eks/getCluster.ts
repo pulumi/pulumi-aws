@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  *     return {
  *         endpoint: example.endpoint,
  *         "kubeconfig-certificate-authority-data": example.certificateAuthorities?.[0]?.data,
- *         "identity-oidc-issuer": example.identities?.[0]?.oidcs?.[0]?.issuer,
  *     };
  * }
  * ```
@@ -71,6 +70,10 @@ export interface GetClusterResult {
      */
     readonly clusterId: string;
     /**
+     * Nested attribute containing compute capability configuration for EKS Auto Mode enabled cluster.
+     */
+    readonly computeConfigs: outputs.eks.GetClusterComputeConfig[];
+    /**
      * Unix epoch time stamp in seconds for when the cluster was created.
      */
     readonly createdAt: string;
@@ -104,6 +107,10 @@ export interface GetClusterResult {
      */
     readonly platformVersion: string;
     /**
+     * Contains remote network configuration for EKS Hybrid Nodes.
+     */
+    readonly remoteNetworkConfigs: outputs.eks.GetClusterRemoteNetworkConfig[];
+    /**
      * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
      */
     readonly roleArn: string;
@@ -112,11 +119,15 @@ export interface GetClusterResult {
      */
     readonly status: string;
     /**
+     * Contains storage configuration for EKS Auto Mode enabled cluster.
+     */
+    readonly storageConfigs: outputs.eks.GetClusterStorageConfig[];
+    /**
      * Key-value map of resource tags.
      */
     readonly tags: {[key: string]: string};
     /**
-     * (Optional) Configuration block for the support policy to use for the cluster.
+     * Configuration block for the support policy to use for the cluster.
      */
     readonly upgradePolicies: outputs.eks.GetClusterUpgradePolicy[];
     /**
@@ -148,7 +159,6 @@ export interface GetClusterResult {
  *     return {
  *         endpoint: example.endpoint,
  *         "kubeconfig-certificate-authority-data": example.certificateAuthorities?.[0]?.data,
- *         "identity-oidc-issuer": example.identities?.[0]?.oidcs?.[0]?.issuer,
  *     };
  * }
  * ```

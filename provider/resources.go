@@ -2105,6 +2105,8 @@ compatibility shim in favor of the new "name" field.`)
 
 			"aws_vpc_ipam_resource_discovery":             {Tok: awsResource(ec2Mod, "VpcIpamResourceDiscovery")},
 			"aws_vpc_ipam_resource_discovery_association": {Tok: awsResource(ec2Mod, "VpcIpamResourceDiscoveryAssociation")},
+			"aws_vpc_block_public_access_exclusion":       {Tok: awsResource(ec2Mod, "VpcBlockPublicAccessExclusion")},
+			"aws_vpc_block_public_access_options":         {Tok: awsResource(ec2Mod, "VpcBlockPublicAccessOptions")},
 
 			// EC2 Client VPN
 			"aws_ec2_client_vpn_endpoint":            {Tok: awsResource(ec2ClientVpnMod, "Endpoint")},

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Eks.Outputs
     public sealed class GetClusterUpgradePolicyResult
     {
         /// <summary>
-        /// (Optional) Support type to use for the cluster.
+        /// Support type to use for the cluster.
         /// </summary>
         public readonly string SupportType;
 

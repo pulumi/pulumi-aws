@@ -4684,6 +4684,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ec2/vpcBlockPublicAccessExclusion",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/vpcBlockPublicAccessExclusion:VpcBlockPublicAccessExclusion": "VpcBlockPublicAccessExclusion"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2/vpcBlockPublicAccessOptions",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/vpcBlockPublicAccessOptions:VpcBlockPublicAccessOptions": "VpcBlockPublicAccessOptions"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ec2/vpcDhcpOptions",
   "fqn": "pulumi_aws.ec2",
   "classes": {

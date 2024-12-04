@@ -116,7 +116,7 @@ index 0000000000..4278d1e70a
 +	return conn, nil
 +}
 diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
-index 007c2f2dc1..b5b4c0477f 100644
+index 1da08293c4..76ce85df25 100644
 --- a/internal/service/s3legacy/bucket_legacy.go
 +++ b/internal/service/s3legacy/bucket_legacy.go
 @@ -19,7 +19,6 @@ import (
@@ -136,16 +136,7 @@ index 007c2f2dc1..b5b4c0477f 100644
  	"github.com/hashicorp/terraform-provider-aws/internal/verify"
  )
  
-@@ -1309,7 +1308,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
- 	conf, err := readS3ObjectLockConfigurationLegacy(conn, d.Id())
- 
- 	// Object lock not supported in all partitions (extra guard, also guards in read func)
--	if err != nil && (meta.(*conns.AWSClient).Partition == endpoints.AwsPartitionID || meta.(*conns.AWSClient).Partition == endpoints.AwsUsGovPartitionID) {
-+	if err != nil && (meta.(*conns.AWSClient).Partition(ctx) == endpoints.AwsPartitionID || meta.(*conns.AWSClient).Partition(ctx) == endpoints.AwsUsGovPartitionID) {
- 		return diag.Errorf("error getting S3 Bucket Object Lock configuration: %s", err)
- 	}
- 
-@@ -1393,11 +1392,11 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
+@@ -1393,7 +1392,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  	}
  
  	if inContext, ok := tftags.FromContext(ctx); ok {
@@ -154,11 +145,6 @@ index 007c2f2dc1..b5b4c0477f 100644
  	}
  
  	arn := arn.ARN{
--		Partition: meta.(*conns.AWSClient).Partition,
-+		Partition: meta.(*conns.AWSClient).Partition(ctx),
- 		Service:   "s3",
- 		Resource:  d.Id(),
- 	}.String()
 diff --git a/internal/service/s3legacy/object.go b/internal/service/s3legacy/object.go
 index f44b435af6..58f6e95d83 100644
 --- a/internal/service/s3legacy/object.go

@@ -161,6 +161,12 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> SupportedIpAddressTypes { get; private set; } = null!;
 
         /// <summary>
+        /// The set of regions from which service consumers can access the service.
+        /// </summary>
+        [Output("supportedRegions")]
+        public Output<ImmutableArray<string>> SupportedRegions { get; private set; } = null!;
+
+        /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -276,6 +282,18 @@ namespace Pulumi.Aws.Ec2
         {
             get => _supportedIpAddressTypes ?? (_supportedIpAddressTypes = new InputList<string>());
             set => _supportedIpAddressTypes = value;
+        }
+
+        [Input("supportedRegions")]
+        private InputList<string>? _supportedRegions;
+
+        /// <summary>
+        /// The set of regions from which service consumers can access the service.
+        /// </summary>
+        public InputList<string> SupportedRegions
+        {
+            get => _supportedRegions ?? (_supportedRegions = new InputList<string>());
+            set => _supportedRegions = value;
         }
 
         [Input("tags")]
@@ -422,6 +440,18 @@ namespace Pulumi.Aws.Ec2
         {
             get => _supportedIpAddressTypes ?? (_supportedIpAddressTypes = new InputList<string>());
             set => _supportedIpAddressTypes = value;
+        }
+
+        [Input("supportedRegions")]
+        private InputList<string>? _supportedRegions;
+
+        /// <summary>
+        /// The set of regions from which service consumers can access the service.
+        /// </summary>
+        public InputList<string> SupportedRegions
+        {
+            get => _supportedRegions ?? (_supportedRegions = new InputList<string>());
+            set => _supportedRegions = value;
         }
 
         [Input("tags")]

@@ -656,7 +656,6 @@ public final class EksFunctions {
      * 
      *         ctx.export("endpoint", example.applyValue(getClusterResult -> getClusterResult.endpoint()));
      *         ctx.export("kubeconfig-certificate-authority-data", example.applyValue(getClusterResult -> getClusterResult.certificateAuthorities()[0].data()));
-     *         ctx.export("identity-oidc-issuer", example.applyValue(getClusterResult -> getClusterResult.identities()[0].oidcs()[0].issuer()));
      *     }
      * }
      * }
@@ -701,7 +700,6 @@ public final class EksFunctions {
      * 
      *         ctx.export("endpoint", example.applyValue(getClusterResult -> getClusterResult.endpoint()));
      *         ctx.export("kubeconfig-certificate-authority-data", example.applyValue(getClusterResult -> getClusterResult.certificateAuthorities()[0].data()));
-     *         ctx.export("identity-oidc-issuer", example.applyValue(getClusterResult -> getClusterResult.identities()[0].oidcs()[0].issuer()));
      *     }
      * }
      * }
@@ -746,7 +744,6 @@ public final class EksFunctions {
      * 
      *         ctx.export("endpoint", example.applyValue(getClusterResult -> getClusterResult.endpoint()));
      *         ctx.export("kubeconfig-certificate-authority-data", example.applyValue(getClusterResult -> getClusterResult.certificateAuthorities()[0].data()));
-     *         ctx.export("identity-oidc-issuer", example.applyValue(getClusterResult -> getClusterResult.identities()[0].oidcs()[0].issuer()));
      *     }
      * }
      * }
@@ -791,7 +788,6 @@ public final class EksFunctions {
      * 
      *         ctx.export("endpoint", example.applyValue(getClusterResult -> getClusterResult.endpoint()));
      *         ctx.export("kubeconfig-certificate-authority-data", example.applyValue(getClusterResult -> getClusterResult.certificateAuthorities()[0].data()));
-     *         ctx.export("identity-oidc-issuer", example.applyValue(getClusterResult -> getClusterResult.identities()[0].oidcs()[0].issuer()));
      *     }
      * }
      * }

@@ -10,6 +10,8 @@ import com.pulumi.aws.lambda.outputs.EventSourceMappingAmazonManagedKafkaEventSo
 import com.pulumi.aws.lambda.outputs.EventSourceMappingDestinationConfig;
 import com.pulumi.aws.lambda.outputs.EventSourceMappingDocumentDbEventSourceConfig;
 import com.pulumi.aws.lambda.outputs.EventSourceMappingFilterCriteria;
+import com.pulumi.aws.lambda.outputs.EventSourceMappingMetricsConfig;
+import com.pulumi.aws.lambda.outputs.EventSourceMappingProvisionedPollerConfig;
 import com.pulumi.aws.lambda.outputs.EventSourceMappingScalingConfig;
 import com.pulumi.aws.lambda.outputs.EventSourceMappingSelfManagedEventSource;
 import com.pulumi.aws.lambda.outputs.EventSourceMappingSelfManagedKafkaEventSourceConfig;
@@ -159,6 +161,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lambda.EventSourceMapping;
  * import com.pulumi.aws.lambda.EventSourceMappingArgs;
+ * import com.pulumi.aws.lambda.inputs.EventSourceMappingProvisionedPollerConfigArgs;
  * import com.pulumi.aws.lambda.inputs.EventSourceMappingSelfManagedEventSourceArgs;
  * import com.pulumi.aws.lambda.inputs.EventSourceMappingSourceAccessConfigurationArgs;
  * import java.util.List;
@@ -178,6 +181,10 @@ import javax.annotation.Nullable;
  *             .functionName(exampleAwsLambdaFunction.arn())
  *             .topics("Example")
  *             .startingPosition("TRIM_HORIZON")
+ *             .provisionedPollerConfig(EventSourceMappingProvisionedPollerConfigArgs.builder()
+ *                 .maximumPoller(80)
+ *                 .minimumPoller(10)
+ *                 .build())
  *             .selfManagedEventSource(EventSourceMappingSelfManagedEventSourceArgs.builder()
  *                 .endpoints(Map.of("KAFKA_BOOTSTRAP_SERVERS", "kafka1.example.com:9092,kafka2.example.com:9092"))
  *                 .build())
@@ -651,6 +658,20 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
         return this.maximumRetryAttempts;
     }
     /**
+     * - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
+     * 
+     */
+    @Export(name="metricsConfig", refs={EventSourceMappingMetricsConfig.class}, tree="[0]")
+    private Output</* @Nullable */ EventSourceMappingMetricsConfig> metricsConfig;
+
+    /**
+     * @return - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
+     * 
+     */
+    public Output<Optional<EventSourceMappingMetricsConfig>> metricsConfig() {
+        return Codegen.optional(this.metricsConfig);
+    }
+    /**
      * - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
      * 
      */
@@ -663,6 +684,20 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> parallelizationFactor() {
         return this.parallelizationFactor;
+    }
+    /**
+     * - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
+     * 
+     */
+    @Export(name="provisionedPollerConfig", refs={EventSourceMappingProvisionedPollerConfig.class}, tree="[0]")
+    private Output</* @Nullable */ EventSourceMappingProvisionedPollerConfig> provisionedPollerConfig;
+
+    /**
+     * @return - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
+     * 
+     */
+    public Output<Optional<EventSourceMappingProvisionedPollerConfig>> provisionedPollerConfig() {
+        return Codegen.optional(this.provisionedPollerConfig);
     }
     /**
      * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.

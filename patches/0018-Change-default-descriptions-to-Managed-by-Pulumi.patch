@@ -70,7 +70,7 @@ index 5466936547..526c40e604 100644
  			names.AttrName: {
  				Type:          schema.TypeString,
 diff --git a/internal/service/ec2/vpc_security_group.go b/internal/service/ec2/vpc_security_group.go
-index 90c2074895..aac8fcca0a 100644
+index 82b8dae6e7..a89db0b86d 100644
 --- a/internal/service/ec2/vpc_security_group.go
 +++ b/internal/service/ec2/vpc_security_group.go
 @@ -69,7 +69,7 @@ func resourceSecurityGroup() *schema.Resource {
@@ -252,7 +252,7 @@ index 646add5ad8..2731f4e425 100644
  			names.AttrName: {
  				Type:          schema.TypeString,
 diff --git a/internal/service/redshift/parameter_group.go b/internal/service/redshift/parameter_group.go
-index 54483a2277..7136f7ee2e 100644
+index 0552e455d6..d413e1baf8 100644
 --- a/internal/service/redshift/parameter_group.go
 +++ b/internal/service/redshift/parameter_group.go
 @@ -51,7 +51,7 @@ func resourceParameterGroup() *schema.Resource {
@@ -265,7 +265,7 @@ index 54483a2277..7136f7ee2e 100644
  			names.AttrFamily: {
  				Type:     schema.TypeString,
 diff --git a/internal/service/redshift/subnet_group.go b/internal/service/redshift/subnet_group.go
-index f1663cad7c..5b92c74913 100644
+index d95746d343..47390e9d5b 100644
 --- a/internal/service/redshift/subnet_group.go
 +++ b/internal/service/redshift/subnet_group.go
 @@ -46,7 +46,7 @@ func resourceSubnetGroup() *schema.Resource {
@@ -309,7 +309,7 @@ index c190462b1f..580e21ede5 100644
  		HostedZoneId: aws.String(zoneID),
  	}
 diff --git a/internal/service/route53/zone.go b/internal/service/route53/zone.go
-index b7e095ce90..daacde5227 100644
+index 400486c2e4..74417dc9cb 100644
 --- a/internal/service/route53/zone.go
 +++ b/internal/service/route53/zone.go
 @@ -52,7 +52,7 @@ func resourceZone() *schema.Resource {
@@ -322,7 +322,7 @@ index b7e095ce90..daacde5227 100644
  			},
  			"delegation_set_id": {
 diff --git a/internal/service/route53/zone_association.go b/internal/service/route53/zone_association.go
-index 9223463906..943ab16d4f 100644
+index 6bf4c1ef12..19c08a7250 100644
 --- a/internal/service/route53/zone_association.go
 +++ b/internal/service/route53/zone_association.go
 @@ -74,7 +74,7 @@ func resourceZoneAssociationCreate(ctx context.Context, d *schema.ResourceData,

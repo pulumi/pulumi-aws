@@ -14,307 +14,330 @@ namespace Pulumi.Aws.Eks
     /// 
     /// ## Example Usage
     /// 
-    /// ### Basic Usage
+    /// ### EKS Cluster
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     var cluster = new Aws.Iam.Role("cluster", new()
+    ///     {
+    ///         Name = "eks-cluster-example",
+    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Action"] = new[]
+    ///                     {
+    ///                         "sts:AssumeRole",
+    ///                         "sts:TagSession",
+    ///                     },
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["Service"] = "eks.amazonaws.com",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    ///     var clusterAmazonEKSClusterPolicy = new Aws.Iam.RolePolicyAttachment("cluster_AmazonEKSClusterPolicy", new()
+    ///     {
+    ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
+    ///         Role = cluster.Name,
+    ///     });
+    /// 
     ///     var example = new Aws.Eks.Cluster("example", new()
     ///     {
     ///         Name = "example",
+    ///         AccessConfig = new Aws.Eks.Inputs.ClusterAccessConfigArgs
+    ///         {
+    ///             AuthenticationMode = "API",
+    ///         },
     ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         Version = "1.31",
     ///         VpcConfig = new Aws.Eks.Inputs.ClusterVpcConfigArgs
     ///         {
     ///             SubnetIds = new[]
     ///             {
-    ///                 example1.Id,
-    ///                 example2.Id,
+    ///                 az1.Id,
+    ///                 az2.Id,
+    ///                 az3.Id,
     ///             },
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
     ///         {
-    ///             example_AmazonEKSClusterPolicy,
-    ///             example_AmazonEKSVPCResourceController,
+    ///             clusterAmazonEKSClusterPolicy,
     ///         },
     ///     });
     /// 
-    ///     return new Dictionary&lt;string, object?&gt;
-    ///     {
-    ///         ["endpoint"] = example.Endpoint,
-    ///         ["kubeconfig-certificate-authority-data"] = example.CertificateAuthority.Apply(certificateAuthority =&gt; certificateAuthority.Data),
-    ///     };
     /// });
     /// ```
     /// 
-    /// ### Example IAM Role for EKS Cluster
+    /// ### EKS Cluster with EKS Auto Mode
+    /// 
+    /// &gt; **NOTE:** When using EKS Auto Mode `compute_config.enabled`, `kubernetes_network_config.elastic_load_balancing.enabled`, and `storage_config.block_storage.enabled` must *ALL be set to `true`. Likewise for disabling EKS Auto Mode, all three arguments must be set to `false`.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var node = new Aws.Iam.Role("node", new()
     ///     {
-    ///         Statements = new[]
+    ///         Name = "eks-auto-node-example",
+    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
     ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     ["Action"] = new[]
     ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "eks.amazonaws.com",
-    ///                         },
+    ///                         "sts:AssumeRole",
+    ///                     },
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["Service"] = "ec2.amazonaws.com",
     ///                     },
     ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
     ///             },
-    ///         },
+    ///         }),
     ///     });
     /// 
-    ///     var example = new Aws.Iam.Role("example", new()
+    ///     var cluster = new Aws.Iam.Role("cluster", new()
     ///     {
     ///         Name = "eks-cluster-example",
-    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Action"] = new[]
+    ///                     {
+    ///                         "sts:AssumeRole",
+    ///                         "sts:TagSession",
+    ///                     },
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["Service"] = "eks.amazonaws.com",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
     ///     });
     /// 
-    ///     var example_AmazonEKSClusterPolicy = new Aws.Iam.RolePolicyAttachment("example-AmazonEKSClusterPolicy", new()
+    ///     var clusterAmazonEKSClusterPolicy = new Aws.Iam.RolePolicyAttachment("cluster_AmazonEKSClusterPolicy", new()
     ///     {
     ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
-    ///         Role = example.Name,
+    ///         Role = cluster.Name,
     ///     });
     /// 
-    ///     // Optionally, enable Security Groups for Pods
-    ///     // Reference: https://docs.aws.amazon.com/eks/latest/userguide/security-groups-for-pods.html
-    ///     var example_AmazonEKSVPCResourceController = new Aws.Iam.RolePolicyAttachment("example-AmazonEKSVPCResourceController", new()
+    ///     var clusterAmazonEKSComputePolicy = new Aws.Iam.RolePolicyAttachment("cluster_AmazonEKSComputePolicy", new()
     ///     {
-    ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController",
-    ///         Role = example.Name,
+    ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSComputePolicy",
+    ///         Role = cluster.Name,
     ///     });
     /// 
-    /// });
-    /// ```
-    /// 
-    /// ### Enabling Control Plane Logging
-    /// 
-    /// [EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) can be enabled via the `enabled_cluster_log_types` argument. To manage the CloudWatch Log Group retention period, the `aws.cloudwatch.LogGroup` resource can be used.
-    /// 
-    /// &gt; The below configuration uses [`dependsOn`](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson) to prevent ordering issues with EKS automatically creating the log group first and a variable for naming consistency. Other ordering and naming methodologies may be more appropriate for your environment.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var config = new Config();
-    ///     var clusterName = config.Get("clusterName") ?? "example";
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("example", new()
+    ///     var clusterAmazonEKSBlockStoragePolicy = new Aws.Iam.RolePolicyAttachment("cluster_AmazonEKSBlockStoragePolicy", new()
     ///     {
-    ///         Name = $"/aws/eks/{clusterName}/cluster",
-    ///         RetentionInDays = 7,
+    ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSBlockStoragePolicy",
+    ///         Role = cluster.Name,
+    ///     });
+    /// 
+    ///     var clusterAmazonEKSLoadBalancingPolicy = new Aws.Iam.RolePolicyAttachment("cluster_AmazonEKSLoadBalancingPolicy", new()
+    ///     {
+    ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSLoadBalancingPolicy",
+    ///         Role = cluster.Name,
+    ///     });
+    /// 
+    ///     var clusterAmazonEKSNetworkingPolicy = new Aws.Iam.RolePolicyAttachment("cluster_AmazonEKSNetworkingPolicy", new()
+    ///     {
+    ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSNetworkingPolicy",
+    ///         Role = cluster.Name,
     ///     });
     /// 
     ///     var example = new Aws.Eks.Cluster("example", new()
     ///     {
-    ///         EnabledClusterLogTypes = new[]
+    ///         Name = "example",
+    ///         AccessConfig = new Aws.Eks.Inputs.ClusterAccessConfigArgs
     ///         {
-    ///             "api",
-    ///             "audit",
+    ///             AuthenticationMode = "API",
     ///         },
-    ///         Name = clusterName,
+    ///         RoleArn = cluster.Arn,
+    ///         Version = "1.31",
+    ///         ComputeConfig = new Aws.Eks.Inputs.ClusterComputeConfigArgs
+    ///         {
+    ///             Enabled = true,
+    ///             NodePools = new[]
+    ///             {
+    ///                 "general-purpose",
+    ///             },
+    ///             NodeRoleArn = node.Arn,
+    ///         },
+    ///         KubernetesNetworkConfig = new Aws.Eks.Inputs.ClusterKubernetesNetworkConfigArgs
+    ///         {
+    ///             ElasticLoadBalancing = new Aws.Eks.Inputs.ClusterKubernetesNetworkConfigElasticLoadBalancingArgs
+    ///             {
+    ///                 Enabled = true,
+    ///             },
+    ///         },
+    ///         StorageConfig = new Aws.Eks.Inputs.ClusterStorageConfigArgs
+    ///         {
+    ///             BlockStorage = new Aws.Eks.Inputs.ClusterStorageConfigBlockStorageArgs
+    ///             {
+    ///                 Enabled = true,
+    ///             },
+    ///         },
+    ///         VpcConfig = new Aws.Eks.Inputs.ClusterVpcConfigArgs
+    ///         {
+    ///             EndpointPrivateAccess = true,
+    ///             EndpointPublicAccess = true,
+    ///             SubnetIds = new[]
+    ///             {
+    ///                 az1.Id,
+    ///                 az2.Id,
+    ///                 az3.Id,
+    ///             },
+    ///         },
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleLogGroup,
+    ///             clusterAmazonEKSClusterPolicy,
+    ///             clusterAmazonEKSComputePolicy,
+    ///             clusterAmazonEKSBlockStoragePolicy,
+    ///             clusterAmazonEKSLoadBalancingPolicy,
+    ///             clusterAmazonEKSNetworkingPolicy,
     ///         },
+    ///     });
+    /// 
+    ///     var nodeAmazonEKSWorkerNodeMinimalPolicy = new Aws.Iam.RolePolicyAttachment("node_AmazonEKSWorkerNodeMinimalPolicy", new()
+    ///     {
+    ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodeMinimalPolicy",
+    ///         Role = node.Name,
+    ///     });
+    /// 
+    ///     var nodeAmazonEC2ContainerRegistryPullOnly = new Aws.Iam.RolePolicyAttachment("node_AmazonEC2ContainerRegistryPullOnly", new()
+    ///     {
+    ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPullOnly",
+    ///         Role = node.Name,
     ///     });
     /// 
     /// });
     /// ```
     /// 
-    /// ### Enabling IAM Roles for Service Accounts
-    /// 
-    /// For more information about this feature, see the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html).
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// using Tls = Pulumi.Tls;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleCluster = new Aws.Eks.Cluster("example");
-    /// 
-    ///     var example = Tls.GetCertificate.Invoke(new()
-    ///     {
-    ///         Url = exampleCluster.Identities[0].Oidcs[0]?.Issuer,
-    ///     });
-    /// 
-    ///     var exampleOpenIdConnectProvider = new Aws.Iam.OpenIdConnectProvider("example", new()
-    ///     {
-    ///         ClientIdLists = new[]
-    ///         {
-    ///             "sts.amazonaws.com",
-    ///         },
-    ///         ThumbprintLists = new[]
-    ///         {
-    ///             example.Apply(getCertificateResult =&gt; getCertificateResult.Certificates[0]?.Sha1Fingerprint),
-    ///         },
-    ///         Url = example.Apply(getCertificateResult =&gt; getCertificateResult.Url),
-    ///     });
-    /// 
-    ///     var exampleAssumeRolePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRoleWithWebIdentity",
-    ///                 },
-    ///                 Effect = "Allow",
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "StringEquals",
-    ///                         Variable = $"{Std.Replace.Invoke(new()
-    ///                         {
-    ///                             Text = exampleOpenIdConnectProvider.Url,
-    ///                             Search = "https://",
-    ///                             Replace = "",
-    ///                         }).Result}:sub",
-    ///                         Values = new[]
-    ///                         {
-    ///                             "system:serviceaccount:kube-system:aws-node",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             exampleOpenIdConnectProvider.Arn,
-    ///                         },
-    ///                         Type = "Federated",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleRole = new Aws.Iam.Role("example", new()
-    ///     {
-    ///         AssumeRolePolicy = exampleAssumeRolePolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///         Name = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ### EKS Cluster on AWS Outpost
+    /// ### Local EKS Cluster on AWS Outpost
     /// 
     /// [Creating a local Amazon EKS cluster on an AWS Outpost](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Iam.Role("example", new()
+    ///     var example = Aws.Outposts.GetOutpost.Invoke(new()
     ///     {
-    ///         AssumeRolePolicy = exampleAssumeRolePolicy.Json,
     ///         Name = "example",
     ///     });
     /// 
-    ///     var exampleCluster = new Aws.Eks.Cluster("example", new()
+    ///     var cluster = new Aws.Iam.Role("cluster", new()
     ///     {
-    ///         Name = "example-cluster",
-    ///         RoleArn = example.Arn,
-    ///         VpcConfig = new Aws.Eks.Inputs.ClusterVpcConfigArgs
+    ///         Name = "eks-cluster-example",
+    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             EndpointPrivateAccess = true,
-    ///             EndpointPublicAccess = false,
-    ///         },
-    ///         OutpostConfig = new Aws.Eks.Inputs.ClusterOutpostConfigArgs
-    ///         {
-    ///             ControlPlaneInstanceType = "m5d.large",
-    ///             OutpostArns = new[]
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
     ///             {
-    ///                 exampleAwsOutpostsOutpost.Arn,
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Action"] = new[]
+    ///                     {
+    ///                         "sts:AssumeRole",
+    ///                         "sts:TagSession",
+    ///                     },
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["Service"] = new[]
+    ///                         {
+    ///                             "eks.amazonaws.com",
+    ///                             "ec2.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
     ///             },
-    ///         },
+    ///         }),
     ///     });
     /// 
-    /// });
-    /// ```
-    /// 
-    /// ### EKS Cluster with Access Config
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Iam.Role("example", new()
+    ///     var clusterAmazonEKSLocalOutpostClusterPolicy = new Aws.Iam.RolePolicyAttachment("cluster_AmazonEKSLocalOutpostClusterPolicy", new()
     ///     {
-    ///         AssumeRolePolicy = exampleAssumeRolePolicy.Json,
-    ///         Name = "example",
+    ///         PolicyArn = "arn:aws:iam::aws:policy/AmazonEKSLocalOutpostClusterPolicy",
+    ///         Role = cluster.Name,
     ///     });
     /// 
     ///     var exampleCluster = new Aws.Eks.Cluster("example", new()
     ///     {
-    ///         Name = "example-cluster",
-    ///         RoleArn = example.Arn,
-    ///         VpcConfig = new Aws.Eks.Inputs.ClusterVpcConfigArgs
-    ///         {
-    ///             EndpointPrivateAccess = true,
-    ///             EndpointPublicAccess = false,
-    ///         },
+    ///         Name = "example",
     ///         AccessConfig = new Aws.Eks.Inputs.ClusterAccessConfigArgs
     ///         {
     ///             AuthenticationMode = "CONFIG_MAP",
-    ///             BootstrapClusterCreatorAdminPermissions = true,
+    ///         },
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         Version = "1.31",
+    ///         VpcConfig = new Aws.Eks.Inputs.ClusterVpcConfigArgs
+    ///         {
+    ///             EndpointPrivateAccess = true,
+    ///             EndpointPublicAccess = false,
+    ///             SubnetIds = new[]
+    ///             {
+    ///                 az1.Id,
+    ///                 az2.Id,
+    ///                 az3.Id,
+    ///             },
+    ///         },
+    ///         OutpostConfig = new Aws.Eks.Inputs.ClusterOutpostConfigArgs
+    ///         {
+    ///             ControlPlaneInstanceType = "m5.large",
+    ///             OutpostArns = new[]
+    ///             {
+    ///                 example.Apply(getOutpostResult =&gt; getOutpostResult.Arn),
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             clusterAmazonEKSLocalOutpostClusterPolicy,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
-    /// 
-    /// After adding inline IAM Policies (e.g., `aws.iam.RolePolicy` resource) or attaching IAM Policies (e.g., `aws.iam.Policy` resource and `aws.iam.RolePolicyAttachment` resource) with the desired permissions to the IAM Role, annotate the Kubernetes service account (e.g., `kubernetes_service_account` resource) and recreate any pods.
     /// 
     /// ## Import
     /// 
@@ -359,6 +382,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Output("clusterId")]
         public Output<string> ClusterId { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block with compute configuration for EKS Auto Mode. Detailed below.
+        /// </summary>
+        [Output("computeConfig")]
+        public Output<Outputs.ClusterComputeConfig?> ComputeConfig { get; private set; } = null!;
 
         /// <summary>
         /// Unix epoch timestamp in seconds for when the cluster was created.
@@ -418,6 +447,12 @@ namespace Pulumi.Aws.Eks
         public Output<string> PlatformVersion { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
+        /// </summary>
+        [Output("remoteNetworkConfig")]
+        public Output<Outputs.ClusterRemoteNetworkConfig?> RemoteNetworkConfig { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
         /// </summary>
         [Output("roleArn")]
@@ -428,6 +463,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block with storage configuration for EKS Auto Mode. Detailed below.
+        /// </summary>
+        [Output("storageConfig")]
+        public Output<Outputs.ClusterStorageConfig?> StorageConfig { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -525,6 +566,12 @@ namespace Pulumi.Aws.Eks
         [Input("bootstrapSelfManagedAddons")]
         public Input<bool>? BootstrapSelfManagedAddons { get; set; }
 
+        /// <summary>
+        /// Configuration block with compute configuration for EKS Auto Mode. Detailed below.
+        /// </summary>
+        [Input("computeConfig")]
+        public Input<Inputs.ClusterComputeConfigArgs>? ComputeConfig { get; set; }
+
         [Input("defaultAddonsToRemoves")]
         private InputList<string>? _defaultAddonsToRemoves;
         public InputList<string> DefaultAddonsToRemoves
@@ -570,10 +617,22 @@ namespace Pulumi.Aws.Eks
         public Input<Inputs.ClusterOutpostConfigArgs>? OutpostConfig { get; set; }
 
         /// <summary>
+        /// Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
+        /// </summary>
+        [Input("remoteNetworkConfig")]
+        public Input<Inputs.ClusterRemoteNetworkConfigArgs>? RemoteNetworkConfig { get; set; }
+
+        /// <summary>
         /// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
+
+        /// <summary>
+        /// Configuration block with storage configuration for EKS Auto Mode. Detailed below.
+        /// </summary>
+        [Input("storageConfig")]
+        public Input<Inputs.ClusterStorageConfigArgs>? StorageConfig { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -660,6 +719,12 @@ namespace Pulumi.Aws.Eks
         public Input<string>? ClusterId { get; set; }
 
         /// <summary>
+        /// Configuration block with compute configuration for EKS Auto Mode. Detailed below.
+        /// </summary>
+        [Input("computeConfig")]
+        public Input<Inputs.ClusterComputeConfigGetArgs>? ComputeConfig { get; set; }
+
+        /// <summary>
         /// Unix epoch timestamp in seconds for when the cluster was created.
         /// </summary>
         [Input("createdAt")]
@@ -734,6 +799,12 @@ namespace Pulumi.Aws.Eks
         public Input<string>? PlatformVersion { get; set; }
 
         /// <summary>
+        /// Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
+        /// </summary>
+        [Input("remoteNetworkConfig")]
+        public Input<Inputs.ClusterRemoteNetworkConfigGetArgs>? RemoteNetworkConfig { get; set; }
+
+        /// <summary>
         /// ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
         /// </summary>
         [Input("roleArn")]
@@ -744,6 +815,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
+
+        /// <summary>
+        /// Configuration block with storage configuration for EKS Auto Mode. Detailed below.
+        /// </summary>
+        [Input("storageConfig")]
+        public Input<Inputs.ClusterStorageConfigGetArgs>? StorageConfig { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

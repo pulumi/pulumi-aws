@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Eks.Outputs
     public sealed class ClusterKubernetesNetworkConfig
     {
         /// <summary>
+        /// Configuration block with elastic load balancing configuration for the cluster. Detailed below.
+        /// </summary>
+        public readonly Outputs.ClusterKubernetesNetworkConfigElasticLoadBalancing? ElasticLoadBalancing;
+        /// <summary>
         /// The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
         /// </summary>
         public readonly string? IpFamily;
@@ -28,18 +32,21 @@ namespace Pulumi.Aws.Eks.Outputs
         /// </summary>
         public readonly string? ServiceIpv4Cidr;
         /// <summary>
-        /// The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for ipFamily when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
+        /// The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for `ip_family` when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
         /// </summary>
         public readonly string? ServiceIpv6Cidr;
 
         [OutputConstructor]
         private ClusterKubernetesNetworkConfig(
+            Outputs.ClusterKubernetesNetworkConfigElasticLoadBalancing? elasticLoadBalancing,
+
             string? ipFamily,
 
             string? serviceIpv4Cidr,
 
             string? serviceIpv6Cidr)
         {
+            ElasticLoadBalancing = elasticLoadBalancing;
             IpFamily = ipFamily;
             ServiceIpv4Cidr = serviceIpv4Cidr;
             ServiceIpv6Cidr = serviceIpv6Cidr;
