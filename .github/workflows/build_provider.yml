@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PROVIDER_VERSION: ${{ inputs.version }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     strategy:
       fail-fast: true
       matrix:
