@@ -138,11 +138,14 @@ apply_patches() {
   # Iterating over the patches folder in sorted order,
   # apply the patch using a 3-way merge strategy. This mirrors the default behavior of 'git merge'
   cd upstream
+  # Allow directory to be empty
+  shopt -s nullglob
   for patch in ../patches/*.patch; do
     if ! git apply --3way "${patch}" --allow-empty; then
       err_failed_to_apply "$(basename "${patch}")"
     fi
   done
+  shopt -u nullglob
 }
 
 clean_rebases() {
@@ -227,13 +230,16 @@ checkout() {
   # Create a new branch 'pulumi/patch-checkout' which will contain the commits for each patch
   git checkout -B pulumi/patch-checkout
 
+  # Allow directory to be empty
+  shopt -s nullglob
   for patch in ../patches/*.patch; do
     if ! git am --3way "${patch}"; then
       err_failed_to_apply "$(basename "${patch}")"
     fi
   done
+  shopt -u nullglob
 
-    cat <<EOF
+  cat <<EOF
 
 The patches have been checked out as commits in the './upstream' repository.
 The 'pulumi/patch-checkout' branch is pointing to the last patch.
