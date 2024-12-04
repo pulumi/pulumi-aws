@@ -15,7 +15,6 @@ type Runtime string
 
 const (
 	RuntimeDotnet6      = Runtime("dotnet6")
-	RuntimeDotnet7      = Runtime("dotnet7")
 	RuntimeDotnet8      = Runtime("dotnet8")
 	RuntimeJava11       = Runtime("java11")
 	RuntimeJava17       = Runtime("java17")
@@ -23,16 +22,20 @@ const (
 	RuntimeJava8AL2     = Runtime("java8.al2")
 	RuntimeNodeJS18dX   = Runtime("nodejs18.x")
 	RuntimeNodeJS20dX   = Runtime("nodejs20.x")
+	RuntimeNodeJS22dX   = Runtime("nodejs22.x")
 	RuntimeCustomAL2    = Runtime("provided.al2")
 	RuntimeCustomAL2023 = Runtime("provided.al2023")
 	RuntimePython3d10   = Runtime("python3.10")
 	RuntimePython3d11   = Runtime("python3.11")
 	RuntimePython3d12   = Runtime("python3.12")
-	RuntimePython3d8    = Runtime("python3.8")
+	RuntimePython3d13   = Runtime("python3.13")
 	RuntimePython3d9    = Runtime("python3.9")
 	RuntimeRuby3d2      = Runtime("ruby3.2")
+	RuntimeRuby3d3      = Runtime("ruby3.3")
 	// Deprecated: This runtime is now deprecated
 	RuntimeDotnet5d0 = Runtime("dotnet5.0")
+	// Deprecated: This runtime is now deprecated
+	RuntimeDotnet7 = Runtime("dotnet7")
 	// Deprecated: This runtime is now deprecated
 	RuntimeDotnetCore2d1 = Runtime("dotnetcore2.1")
 	// Deprecated: This runtime is now deprecated
@@ -57,6 +60,8 @@ const (
 	RuntimePython3d6 = Runtime("python3.6")
 	// Deprecated: This runtime is now deprecated
 	RuntimePython3d7 = Runtime("python3.7")
+	// Deprecated: This runtime is now deprecated
+	RuntimePython3d8 = Runtime("python3.8")
 	// Deprecated: This runtime is now deprecated
 	RuntimeRuby2d5 = Runtime("ruby2.5")
 	// Deprecated: This runtime is now deprecated
@@ -186,7 +191,6 @@ func (o RuntimePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 // A concrete instance of `RuntimeInput` can be one of the following:
 //
 //	RuntimeDotnet6
-//	RuntimeDotnet7
 //	RuntimeDotnet8
 //	RuntimeJava11
 //	RuntimeJava17
@@ -194,14 +198,16 @@ func (o RuntimePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 //	RuntimeJava8AL2
 //	RuntimeNodeJS18dX
 //	RuntimeNodeJS20dX
+//	RuntimeNodeJS22dX
 //	RuntimeCustomAL2
 //	RuntimeCustomAL2023
 //	RuntimePython3d10
 //	RuntimePython3d11
 //	RuntimePython3d12
-//	RuntimePython3d8
+//	RuntimePython3d13
 //	RuntimePython3d9
 //	RuntimeRuby3d2
+//	RuntimeRuby3d3
 type RuntimeInput interface {
 	pulumi.Input
 

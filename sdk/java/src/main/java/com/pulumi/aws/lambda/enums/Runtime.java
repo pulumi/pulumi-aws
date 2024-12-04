@@ -15,7 +15,6 @@ import java.util.StringJoiner;
     @EnumType
     public enum Runtime {
         Dotnet6("dotnet6"),
-        Dotnet7("dotnet7"),
         Dotnet8("dotnet8"),
         Java11("java11"),
         Java17("java17"),
@@ -23,20 +22,28 @@ import java.util.StringJoiner;
         Java8AL2("java8.al2"),
         NodeJS18dX("nodejs18.x"),
         NodeJS20dX("nodejs20.x"),
+        NodeJS22dX("nodejs22.x"),
         CustomAL2("provided.al2"),
         CustomAL2023("provided.al2023"),
         Python3d10("python3.10"),
         Python3d11("python3.11"),
         Python3d12("python3.12"),
-        Python3d8("python3.8"),
+        Python3d13("python3.13"),
         Python3d9("python3.9"),
         Ruby3d2("ruby3.2"),
+        Ruby3d3("ruby3.3"),
         /**
          * @deprecated
          * This runtime is now deprecated
          */
         @Deprecated /* This runtime is now deprecated */
         Dotnet5d0("dotnet5.0"),
+        /**
+         * @deprecated
+         * This runtime is now deprecated
+         */
+        @Deprecated /* This runtime is now deprecated */
+        Dotnet7("dotnet7"),
         /**
          * @deprecated
          * This runtime is now deprecated
@@ -109,6 +116,12 @@ import java.util.StringJoiner;
          */
         @Deprecated /* This runtime is now deprecated */
         Python3d7("python3.7"),
+        /**
+         * @deprecated
+         * This runtime is now deprecated
+         */
+        @Deprecated /* This runtime is now deprecated */
+        Python3d8("python3.8"),
         /**
          * @deprecated
          * This runtime is now deprecated
