@@ -244,7 +244,7 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 			{Value: "ruby3.3", Name: "Ruby3d3"},
 
 			deprecateRuntime("dotnet5.0", "Dotnet5d0"),
-			deprecatedRuntime("dotnet7", "Dotnet7"),
+			deprecateRuntime("dotnet7", "Dotnet7"),
 			deprecateRuntime("dotnetcore2.1", "DotnetCore2d1"),
 			deprecateRuntime("dotnetcore3.1", "DotnetCore3d1"),
 			deprecateRuntime("go1.x", "Go1dx"),
