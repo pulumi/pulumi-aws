@@ -255,7 +255,7 @@ index 89ecad9db0..5811f1f884 100644
  	for _, awsProperty := range awsProperties {
  		property := map[string]string{
 diff --git a/internal/service/gamelift/matchmaking_configuration_test.go b/internal/service/gamelift/matchmaking_configuration_test.go
-index 6453fa75a0..480b62b36b 100644
+index 6453fa75a0..a5394fb536 100644
 --- a/internal/service/gamelift/matchmaking_configuration_test.go
 +++ b/internal/service/gamelift/matchmaking_configuration_test.go
 @@ -6,8 +6,8 @@ import (
@@ -297,7 +297,15 @@ index 6453fa75a0..480b62b36b 100644
  		ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
  		CheckDestroy:             testAccCheckGameServerGroupDestroy(ctx),
  		Steps: []resource.TestStep{
-@@ -51,7 +52,7 @@ func TestAccMatchmakingConfiguration_basic(t *testing.T) {
+@@ -44,14 +45,14 @@ func TestAccMatchmakingConfiguration_basic(t *testing.T) {
+ 				Config: testAccGameServerMatchmakingConfiguration_basic(rName, queueName, ruleSetName, additionalParameters, 10),
+ 				Check: resource.ComposeTestCheckFunc(
+ 					testAccCheckMatchmakingConfigurationExists(ctx, resourceName, &conf),
+-					acctest.MatchResourceAttrRegionalARN(resourceName, "arn", "gamelift", regexp.MustCompile(`matchmakingconfiguration/.+`)),
++					acctest.MatchResourceAttrRegionalARN(ctx, resourceName, "arn", "gamelift", regexp.MustCompile(`matchmakingconfiguration/.+`)),
+ 					resource.TestCheckResourceAttr(resourceName, "name", rName),
+ 					resource.TestCheckResourceAttr(resourceName, "tags.%", "0"),
+ 					resource.TestCheckResourceAttr(resourceName, "custom_event_data", "pvp"),
  					resource.TestCheckResourceAttr(resourceName, "game_session_data", "game_session_data"),
  					resource.TestCheckResourceAttr(resourceName, "acceptance_required", "false"),
  					resource.TestCheckResourceAttr(resourceName, "request_timeout_seconds", "10"),
@@ -328,6 +336,15 @@ index 6453fa75a0..480b62b36b 100644
  		ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
  		CheckDestroy:             testAccCheckGameServerGroupDestroy(ctx),
  		Steps: []resource.TestStep{
+@@ -89,7 +90,7 @@ func TestAccMatchmakingConfiguration_tags(t *testing.T) {
+ 				Config: testAccGameServerMatchmakingConfiguration_tags(rName, queueName, ruleSetName, additionalParameters, 10),
+ 				Check: resource.ComposeTestCheckFunc(
+ 					testAccCheckMatchmakingConfigurationExists(ctx, resourceName, &conf),
+-					acctest.MatchResourceAttrRegionalARN(resourceName, "arn", "gamelift", regexp.MustCompile(`matchmakingconfiguration/.+`)),
++					acctest.MatchResourceAttrRegionalARN(ctx, resourceName, "arn", "gamelift", regexp.MustCompile(`matchmakingconfiguration/.+`)),
+ 					resource.TestCheckResourceAttr(resourceName, "name", rName),
+ 					resource.TestCheckResourceAttr(resourceName, "tags.%", "1"),
+ 					resource.TestCheckResourceAttr(resourceName, "tags.key1", "value1"),
 @@ -97,7 +98,7 @@ func TestAccMatchmakingConfiguration_tags(t *testing.T) {
  					resource.TestCheckResourceAttr(resourceName, "game_session_data", "game_session_data"),
  					resource.TestCheckResourceAttr(resourceName, "acceptance_required", "false"),
@@ -522,7 +539,7 @@ index d9f2424b7a..5b34ab8669 100644
  	}
  	if err != nil {
 diff --git a/internal/service/gamelift/matchmaking_rule_set_test.go b/internal/service/gamelift/matchmaking_rule_set_test.go
-index 4295987ae6..377b46816e 100644
+index 4295987ae6..7554a3029c 100644
 --- a/internal/service/gamelift/matchmaking_rule_set_test.go
 +++ b/internal/service/gamelift/matchmaking_rule_set_test.go
 @@ -6,20 +6,21 @@ import (
@@ -563,6 +580,15 @@ index 4295987ae6..377b46816e 100644
  		ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
  		CheckDestroy:             testAccCheckGameServerGroupDestroy(ctx),
  		Steps: []resource.TestStep{
+@@ -39,7 +40,7 @@ func TestAccMatchmakingRuleSet_basic(t *testing.T) {
+ 				Config: testAccMatchmakingRuleSetBasicConfig(ruleSetName, maxPlayers),
+ 				Check: resource.ComposeTestCheckFunc(
+ 					testAccCheckMatchmakingRuleSetExists(ctx, resourceName, &conf),
+-					acctest.MatchResourceAttrRegionalARN(resourceName, "arn", "gamelift", regexp.MustCompile(`matchmakingruleset/.+`)),
++					acctest.MatchResourceAttrRegionalARN(ctx, resourceName, "arn", "gamelift", regexp.MustCompile(`matchmakingruleset/.+`)),
+ 					resource.TestCheckResourceAttr(resourceName, "name", ruleSetName),
+ 					resource.TestCheckResourceAttr(resourceName, "rule_set_body", testAccMatchmakingRuleSetBody(maxPlayers)+"\n"),
+ 					resource.TestCheckResourceAttr(resourceName, "tags.%", "0"),
 @@ -57,7 +58,7 @@ func TestAccMatchmakingRuleSet_basic(t *testing.T) {
  func TestAccMatchmakingRuleSet_disappears(t *testing.T) {
  	ctx := acctest.Context(t)
