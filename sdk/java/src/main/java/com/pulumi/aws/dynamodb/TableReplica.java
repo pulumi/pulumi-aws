@@ -107,6 +107,20 @@ public class TableReplica extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
+     * Whether deletion protection is enabled (true) or disabled (false) on the table replica.
+     * 
+     */
+    @Export(name="deletionProtectionEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> deletionProtectionEnabled;
+
+    /**
+     * @return Whether deletion protection is enabled (true) or disabled (false) on the table replica.
+     * 
+     */
+    public Output<Boolean> deletionProtectionEnabled() {
+        return this.deletionProtectionEnabled;
+    }
+    /**
      * ARN of the _main_ or global table which this resource will replicate.
      * 
      * Optional arguments:
@@ -139,14 +153,14 @@ public class TableReplica extends com.pulumi.resources.CustomResource {
         return this.kmsKeyArn;
     }
     /**
-     * Whether to enable Point In Time Recovery for the replica. Default is `false`.
+     * Whether to enable Point In Time Recovery for the table replica. Default is `false`.
      * 
      */
     @Export(name="pointInTimeRecovery", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> pointInTimeRecovery;
 
     /**
-     * @return Whether to enable Point In Time Recovery for the replica. Default is `false`.
+     * @return Whether to enable Point In Time Recovery for the table replica. Default is `false`.
      * 
      */
     public Output<Optional<Boolean>> pointInTimeRecovery() {

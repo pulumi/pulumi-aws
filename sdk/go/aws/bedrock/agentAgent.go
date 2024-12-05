@@ -154,11 +154,12 @@ type AgentAgent struct {
 	// Foundation model used for orchestration by the agent.
 	//
 	// The following arguments are optional:
-	FoundationModel         pulumi.StringOutput                         `pulumi:"foundationModel"`
+	FoundationModel pulumi.StringOutput `pulumi:"foundationModel"`
+	// Details about the guardrail associated with the agent. See `guardrailConfiguration` Block for details.
 	GuardrailConfigurations AgentAgentGuardrailConfigurationArrayOutput `pulumi:"guardrailConfigurations"`
 	// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
 	IdleSessionTtlInSeconds pulumi.IntOutput `pulumi:"idleSessionTtlInSeconds"`
-	// Instructions that tell the agent what it should do and how it should interact with users.
+	// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
 	Instruction pulumi.StringOutput `pulumi:"instruction"`
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent pulumi.BoolOutput `pulumi:"prepareAgent"`
@@ -231,11 +232,12 @@ type agentAgentState struct {
 	// Foundation model used for orchestration by the agent.
 	//
 	// The following arguments are optional:
-	FoundationModel         *string                            `pulumi:"foundationModel"`
+	FoundationModel *string `pulumi:"foundationModel"`
+	// Details about the guardrail associated with the agent. See `guardrailConfiguration` Block for details.
 	GuardrailConfigurations []AgentAgentGuardrailConfiguration `pulumi:"guardrailConfigurations"`
 	// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
 	IdleSessionTtlInSeconds *int `pulumi:"idleSessionTtlInSeconds"`
-	// Instructions that tell the agent what it should do and how it should interact with users.
+	// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
 	Instruction *string `pulumi:"instruction"`
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent *bool `pulumi:"prepareAgent"`
@@ -270,11 +272,12 @@ type AgentAgentState struct {
 	// Foundation model used for orchestration by the agent.
 	//
 	// The following arguments are optional:
-	FoundationModel         pulumi.StringPtrInput
+	FoundationModel pulumi.StringPtrInput
+	// Details about the guardrail associated with the agent. See `guardrailConfiguration` Block for details.
 	GuardrailConfigurations AgentAgentGuardrailConfigurationArrayInput
 	// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
 	IdleSessionTtlInSeconds pulumi.IntPtrInput
-	// Instructions that tell the agent what it should do and how it should interact with users.
+	// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
 	Instruction pulumi.StringPtrInput
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent pulumi.BoolPtrInput
@@ -307,11 +310,12 @@ type agentAgentArgs struct {
 	// Foundation model used for orchestration by the agent.
 	//
 	// The following arguments are optional:
-	FoundationModel         string                             `pulumi:"foundationModel"`
+	FoundationModel string `pulumi:"foundationModel"`
+	// Details about the guardrail associated with the agent. See `guardrailConfiguration` Block for details.
 	GuardrailConfigurations []AgentAgentGuardrailConfiguration `pulumi:"guardrailConfigurations"`
 	// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
 	IdleSessionTtlInSeconds *int `pulumi:"idleSessionTtlInSeconds"`
-	// Instructions that tell the agent what it should do and how it should interact with users.
+	// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
 	Instruction *string `pulumi:"instruction"`
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent *bool `pulumi:"prepareAgent"`
@@ -337,11 +341,12 @@ type AgentAgentArgs struct {
 	// Foundation model used for orchestration by the agent.
 	//
 	// The following arguments are optional:
-	FoundationModel         pulumi.StringInput
+	FoundationModel pulumi.StringInput
+	// Details about the guardrail associated with the agent. See `guardrailConfiguration` Block for details.
 	GuardrailConfigurations AgentAgentGuardrailConfigurationArrayInput
 	// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
 	IdleSessionTtlInSeconds pulumi.IntPtrInput
-	// Instructions that tell the agent what it should do and how it should interact with users.
+	// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
 	Instruction pulumi.StringPtrInput
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent pulumi.BoolPtrInput
@@ -483,6 +488,7 @@ func (o AgentAgentOutput) FoundationModel() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringOutput { return v.FoundationModel }).(pulumi.StringOutput)
 }
 
+// Details about the guardrail associated with the agent. See `guardrailConfiguration` Block for details.
 func (o AgentAgentOutput) GuardrailConfigurations() AgentAgentGuardrailConfigurationArrayOutput {
 	return o.ApplyT(func(v *AgentAgent) AgentAgentGuardrailConfigurationArrayOutput { return v.GuardrailConfigurations }).(AgentAgentGuardrailConfigurationArrayOutput)
 }
@@ -492,7 +498,7 @@ func (o AgentAgentOutput) IdleSessionTtlInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.IntOutput { return v.IdleSessionTtlInSeconds }).(pulumi.IntOutput)
 }
 
-// Instructions that tell the agent what it should do and how it should interact with users.
+// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
 func (o AgentAgentOutput) Instruction() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringOutput { return v.Instruction }).(pulumi.StringOutput)
 }

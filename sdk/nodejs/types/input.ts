@@ -1123,6 +1123,10 @@ export interface ProviderEndpoint {
     /**
      * Use this to override the default service endpoint URL
      */
+    s3tables?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     sagemaker?: pulumi.Input<string>;
     /**
      * Use this to override the default service endpoint URL
@@ -14918,6 +14922,57 @@ export namespace codecommit {
          * The name of the trigger.
          */
         name: pulumi.Input<string>;
+    }
+}
+
+export namespace codeconnections {
+    export interface ConnectionTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string>;
+    }
+
+    export interface HostTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string>;
+    }
+
+    export interface HostVpcConfiguration {
+        /**
+         * ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
+         */
+        securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
+         */
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
+         */
+        tlsCertificate: pulumi.Input<string>;
+        /**
+         * The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
+         */
+        vpcId: pulumi.Input<string>;
     }
 }
 
@@ -64593,11 +64648,11 @@ export namespace rds {
 
     export interface ClusterServerlessv2ScalingConfiguration {
         /**
-         * Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0.5` up to `256` in steps of `0.5`.
+         * Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
          */
         maxCapacity: pulumi.Input<number>;
         /**
-         * Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0.5` up to `256` in steps of `0.5`.
+         * Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
          */
         minCapacity: pulumi.Input<number>;
     }
@@ -68167,11 +68222,11 @@ export namespace s3 {
 
     export interface DirectoryBucketLocation {
         /**
-         * [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids).
+         * [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
          */
         name: pulumi.Input<string>;
         /**
-         * Location type. Valid values: `AvailabilityZone`.
+         * Location type. Valid values: `AvailabilityZone`, `LocalZone`.
          */
         type?: pulumi.Input<string>;
     }
@@ -68264,6 +68319,100 @@ export namespace s3 {
          * URI of the grantee group. Used only when `type` is `Group`.
          */
         uri?: pulumi.Input<string>;
+    }
+
+    export interface TablesTableBucketMaintenanceConfiguration {
+        /**
+         * A single Iceberg unreferenced file removal settings block.
+         * See `icebergUnreferencedFileRemoval` below
+         */
+        icebergUnreferencedFileRemoval: pulumi.Input<inputs.s3.TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval>;
+    }
+
+    export interface TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval {
+        /**
+         * Settings for unreferenced file removal.
+         * See `iceberg_unreferenced_file_removal.settings` below
+         */
+        settings: pulumi.Input<inputs.s3.TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings>;
+        /**
+         * Whether the configuration is enabled.
+         * Valid values are `enabled` and `disabled`.
+         */
+        status: pulumi.Input<string>;
+    }
+
+    export interface TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings {
+        /**
+         * Data objects marked for deletion are deleted after this many days.
+         * Must be at least `1`.
+         */
+        nonCurrentDays: pulumi.Input<number>;
+        /**
+         * Unreferenced data objects are marked for deletion after this many days.
+         * Must be at least `1`.
+         */
+        unreferencedDays: pulumi.Input<number>;
+    }
+
+    export interface TablesTableMaintenanceConfiguration {
+        /**
+         * A single Iceberg compaction settings block.
+         * See `icebergCompaction` below
+         */
+        icebergCompaction: pulumi.Input<inputs.s3.TablesTableMaintenanceConfigurationIcebergCompaction>;
+        /**
+         * A single Iceberg snapshot management settings block.
+         * See `icebergSnapshotManagement` below
+         */
+        icebergSnapshotManagement: pulumi.Input<inputs.s3.TablesTableMaintenanceConfigurationIcebergSnapshotManagement>;
+    }
+
+    export interface TablesTableMaintenanceConfigurationIcebergCompaction {
+        /**
+         * Settings for compaction.
+         * See `iceberg_compaction.settings` below
+         */
+        settings: pulumi.Input<inputs.s3.TablesTableMaintenanceConfigurationIcebergCompactionSettings>;
+        /**
+         * Whether the configuration is enabled.
+         * Valid values are `enabled` and `disabled`.
+         */
+        status: pulumi.Input<string>;
+    }
+
+    export interface TablesTableMaintenanceConfigurationIcebergCompactionSettings {
+        /**
+         * Data objects smaller than this size may be combined with others to improve query performance.
+         * Must be between `64` and `512`.
+         */
+        targetFileSizeMb: pulumi.Input<number>;
+    }
+
+    export interface TablesTableMaintenanceConfigurationIcebergSnapshotManagement {
+        /**
+         * Settings for snapshot management.
+         * See `iceberg_snapshot_management.settings` below
+         */
+        settings: pulumi.Input<inputs.s3.TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettings>;
+        /**
+         * Whether the configuration is enabled.
+         * Valid values are `enabled` and `disabled`.
+         */
+        status: pulumi.Input<string>;
+    }
+
+    export interface TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettings {
+        /**
+         * Snapshots older than this will be marked for deletiion.
+         * Must be at least `1`.
+         */
+        maxSnapshotAgeHours: pulumi.Input<number>;
+        /**
+         * Minimum number of snapshots to keep.
+         * Must be at least `1`.
+         */
+        minSnapshotsToKeep: pulumi.Input<number>;
     }
 }
 

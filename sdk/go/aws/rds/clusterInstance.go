@@ -122,6 +122,8 @@ type ClusterInstance struct {
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// Database engine version
 	EngineVersionActual pulumi.StringOutput `pulumi:"engineVersionActual"`
+	// Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
+	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
 	// Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
@@ -234,6 +236,8 @@ type clusterInstanceState struct {
 	EngineVersion *string `pulumi:"engineVersion"`
 	// Database engine version
 	EngineVersionActual *string `pulumi:"engineVersionActual"`
+	// Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
+	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.
 	Identifier *string `pulumi:"identifier"`
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
@@ -308,6 +312,8 @@ type ClusterInstanceState struct {
 	EngineVersion pulumi.StringPtrInput
 	// Database engine version
 	EngineVersionActual pulumi.StringPtrInput
+	// Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
+	ForceDestroy pulumi.BoolPtrInput
 	// Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.
 	Identifier pulumi.StringPtrInput
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
@@ -378,6 +384,8 @@ type clusterInstanceArgs struct {
 	Engine string `pulumi:"engine"`
 	// Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `rds.Cluster` `engineVersion`. Trying to upgrade in `awsClusterInstance` will not update the `engineVersion`.
 	EngineVersion *string `pulumi:"engineVersion"`
+	// Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
+	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.
 	Identifier *string `pulumi:"identifier"`
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
@@ -431,6 +439,8 @@ type ClusterInstanceArgs struct {
 	Engine pulumi.StringInput
 	// Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `rds.Cluster` `engineVersion`. Trying to upgrade in `awsClusterInstance` will not update the `engineVersion`.
 	EngineVersion pulumi.StringPtrInput
+	// Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
+	ForceDestroy pulumi.BoolPtrInput
 	// Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.
 	Identifier pulumi.StringPtrInput
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
@@ -620,6 +630,11 @@ func (o ClusterInstanceOutput) EngineVersion() pulumi.StringOutput {
 // Database engine version
 func (o ClusterInstanceOutput) EngineVersionActual() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.EngineVersionActual }).(pulumi.StringOutput)
+}
+
+// Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
+func (o ClusterInstanceOutput) ForceDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolPtrOutput { return v.ForceDestroy }).(pulumi.BoolPtrOutput)
 }
 
 // Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.

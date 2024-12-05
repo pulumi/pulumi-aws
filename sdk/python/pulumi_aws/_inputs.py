@@ -1372,6 +1372,10 @@ if not MYPY:
         """
         Use this to override the default service endpoint URL
         """
+        s3tables: NotRequired[pulumi.Input[str]]
+        """
+        Use this to override the default service endpoint URL
+        """
         sagemaker: NotRequired[pulumi.Input[str]]
         """
         Use this to override the default service endpoint URL
@@ -1821,6 +1825,7 @@ class ProviderEndpointArgs:
                  s3api: Optional[pulumi.Input[str]] = None,
                  s3control: Optional[pulumi.Input[str]] = None,
                  s3outposts: Optional[pulumi.Input[str]] = None,
+                 s3tables: Optional[pulumi.Input[str]] = None,
                  sagemaker: Optional[pulumi.Input[str]] = None,
                  scheduler: Optional[pulumi.Input[str]] = None,
                  schemas: Optional[pulumi.Input[str]] = None,
@@ -2115,6 +2120,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[str] s3api: Use this to override the default service endpoint URL
         :param pulumi.Input[str] s3control: Use this to override the default service endpoint URL
         :param pulumi.Input[str] s3outposts: Use this to override the default service endpoint URL
+        :param pulumi.Input[str] s3tables: Use this to override the default service endpoint URL
         :param pulumi.Input[str] sagemaker: Use this to override the default service endpoint URL
         :param pulumi.Input[str] scheduler: Use this to override the default service endpoint URL
         :param pulumi.Input[str] schemas: Use this to override the default service endpoint URL
@@ -2652,6 +2658,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "s3control", s3control)
         if s3outposts is not None:
             pulumi.set(__self__, "s3outposts", s3outposts)
+        if s3tables is not None:
+            pulumi.set(__self__, "s3tables", s3tables)
         if sagemaker is not None:
             pulumi.set(__self__, "sagemaker", sagemaker)
         if scheduler is not None:
@@ -5668,6 +5676,18 @@ class ProviderEndpointArgs:
     @s3outposts.setter
     def s3outposts(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "s3outposts", value)
+
+    @property
+    @pulumi.getter
+    def s3tables(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "s3tables")
+
+    @s3tables.setter
+    def s3tables(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3tables", value)
 
     @property
     @pulumi.getter

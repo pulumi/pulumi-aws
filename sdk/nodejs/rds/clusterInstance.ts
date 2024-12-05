@@ -154,6 +154,10 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly engineVersionActual!: pulumi.Output<string>;
     /**
+     * Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
+     */
+    public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
+    /**
      * Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.
      */
     public readonly identifier!: pulumi.Output<string>;
@@ -260,6 +264,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             resourceInputs["engine"] = state ? state.engine : undefined;
             resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
             resourceInputs["engineVersionActual"] = state ? state.engineVersionActual : undefined;
+            resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
             resourceInputs["identifier"] = state ? state.identifier : undefined;
             resourceInputs["identifierPrefix"] = state ? state.identifierPrefix : undefined;
             resourceInputs["instanceClass"] = state ? state.instanceClass : undefined;
@@ -301,6 +306,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             resourceInputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
             resourceInputs["engine"] = args ? args.engine : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
+            resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
             resourceInputs["identifier"] = args ? args.identifier : undefined;
             resourceInputs["identifierPrefix"] = args ? args.identifierPrefix : undefined;
             resourceInputs["instanceClass"] = args ? args.instanceClass : undefined;
@@ -395,6 +401,10 @@ export interface ClusterInstanceState {
      * Database engine version
      */
     engineVersionActual?: pulumi.Input<string>;
+    /**
+     * Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
+     */
+    forceDestroy?: pulumi.Input<boolean>;
     /**
      * Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.
      */
@@ -524,6 +534,10 @@ export interface ClusterInstanceArgs {
      * Database engine version. Please note that to upgrade the `engineVersion` of the instance, it must be done on the `aws.rds.Cluster` `engineVersion`. Trying to upgrade in `awsClusterInstance` will not update the `engineVersion`.
      */
     engineVersion?: pulumi.Input<string>;
+    /**
+     * Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
+     */
+    forceDestroy?: pulumi.Input<boolean>;
     /**
      * Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.
      */

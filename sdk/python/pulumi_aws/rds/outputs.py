@@ -489,8 +489,8 @@ class ClusterServerlessv2ScalingConfiguration(dict):
                  max_capacity: float,
                  min_capacity: float):
         """
-        :param float max_capacity: Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0.5` up to `256` in steps of `0.5`.
-        :param float min_capacity: Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0.5` up to `256` in steps of `0.5`.
+        :param float max_capacity: Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
+        :param float min_capacity: Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
         """
         pulumi.set(__self__, "max_capacity", max_capacity)
         pulumi.set(__self__, "min_capacity", min_capacity)
@@ -499,7 +499,7 @@ class ClusterServerlessv2ScalingConfiguration(dict):
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> float:
         """
-        Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0.5` up to `256` in steps of `0.5`.
+        Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
         """
         return pulumi.get(self, "max_capacity")
 
@@ -507,7 +507,7 @@ class ClusterServerlessv2ScalingConfiguration(dict):
     @pulumi.getter(name="minCapacity")
     def min_capacity(self) -> float:
         """
-        Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0.5` up to `256` in steps of `0.5`.
+        Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
         """
         return pulumi.get(self, "min_capacity")
 

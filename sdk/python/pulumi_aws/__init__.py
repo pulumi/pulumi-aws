@@ -120,6 +120,8 @@ if typing.TYPE_CHECKING:
     codecatalyst = __codecatalyst
     import pulumi_aws.codecommit as __codecommit
     codecommit = __codecommit
+    import pulumi_aws.codeconnections as __codeconnections
+    codeconnections = __codeconnections
     import pulumi_aws.codedeploy as __codedeploy
     codedeploy = __codedeploy
     import pulumi_aws.codeguruprofiler as __codeguruprofiler
@@ -503,6 +505,7 @@ else:
     codebuild = _utilities.lazy_import('pulumi_aws.codebuild')
     codecatalyst = _utilities.lazy_import('pulumi_aws.codecatalyst')
     codecommit = _utilities.lazy_import('pulumi_aws.codecommit')
+    codeconnections = _utilities.lazy_import('pulumi_aws.codeconnections')
     codedeploy = _utilities.lazy_import('pulumi_aws.codedeploy')
     codeguruprofiler = _utilities.lazy_import('pulumi_aws.codeguruprofiler')
     codegurureviewer = _utilities.lazy_import('pulumi_aws.codegurureviewer')
@@ -2840,6 +2843,22 @@ _utilities.register(
   "fqn": "pulumi_aws.codecommit",
   "classes": {
    "aws:codecommit/trigger:Trigger": "Trigger"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "codeconnections/connection",
+  "fqn": "pulumi_aws.codeconnections",
+  "classes": {
+   "aws:codeconnections/connection:Connection": "Connection"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "codeconnections/host",
+  "fqn": "pulumi_aws.codeconnections",
+  "classes": {
+   "aws:codeconnections/host:Host": "Host"
   }
  },
  {
@@ -10104,6 +10123,46 @@ _utilities.register(
   "fqn": "pulumi_aws.s3",
   "classes": {
    "aws:s3/objectCopy:ObjectCopy": "ObjectCopy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3/tablesNamespace",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/tablesNamespace:TablesNamespace": "TablesNamespace"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3/tablesTable",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/tablesTable:TablesTable": "TablesTable"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3/tablesTableBucket",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/tablesTableBucket:TablesTableBucket": "TablesTableBucket"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3/tablesTableBucketPolicy",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/tablesTableBucketPolicy:TablesTableBucketPolicy": "TablesTableBucketPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3/tablesTablePolicy",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/tablesTablePolicy:TablesTablePolicy": "TablesTablePolicy"
   }
  },
  {

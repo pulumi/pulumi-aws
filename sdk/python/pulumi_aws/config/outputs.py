@@ -485,6 +485,7 @@ class Endpoints(dict):
                  s3api: Optional[str] = None,
                  s3control: Optional[str] = None,
                  s3outposts: Optional[str] = None,
+                 s3tables: Optional[str] = None,
                  sagemaker: Optional[str] = None,
                  scheduler: Optional[str] = None,
                  schemas: Optional[str] = None,
@@ -779,6 +780,7 @@ class Endpoints(dict):
         :param str s3api: Use this to override the default service endpoint URL
         :param str s3control: Use this to override the default service endpoint URL
         :param str s3outposts: Use this to override the default service endpoint URL
+        :param str s3tables: Use this to override the default service endpoint URL
         :param str sagemaker: Use this to override the default service endpoint URL
         :param str scheduler: Use this to override the default service endpoint URL
         :param str schemas: Use this to override the default service endpoint URL
@@ -1316,6 +1318,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "s3control", s3control)
         if s3outposts is not None:
             pulumi.set(__self__, "s3outposts", s3outposts)
+        if s3tables is not None:
+            pulumi.set(__self__, "s3tables", s3tables)
         if sagemaker is not None:
             pulumi.set(__self__, "sagemaker", sagemaker)
         if scheduler is not None:
@@ -3360,6 +3364,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "s3outposts")
+
+    @property
+    @pulumi.getter
+    def s3tables(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "s3tables")
 
     @property
     @pulumi.getter

@@ -245,9 +245,17 @@ public class AgentAgent extends com.pulumi.resources.CustomResource {
     public Output<String> foundationModel() {
         return this.foundationModel;
     }
+    /**
+     * Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
+     * 
+     */
     @Export(name="guardrailConfigurations", refs={List.class,AgentAgentGuardrailConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AgentAgentGuardrailConfiguration>> guardrailConfigurations;
 
+    /**
+     * @return Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
+     * 
+     */
     public Output<Optional<List<AgentAgentGuardrailConfiguration>>> guardrailConfigurations() {
         return Codegen.optional(this.guardrailConfigurations);
     }
@@ -266,14 +274,14 @@ public class AgentAgent extends com.pulumi.resources.CustomResource {
         return this.idleSessionTtlInSeconds;
     }
     /**
-     * Instructions that tell the agent what it should do and how it should interact with users.
+     * Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
      * 
      */
     @Export(name="instruction", refs={String.class}, tree="[0]")
     private Output<String> instruction;
 
     /**
-     * @return Instructions that tell the agent what it should do and how it should interact with users.
+     * @return Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
      * 
      */
     public Output<String> instruction() {

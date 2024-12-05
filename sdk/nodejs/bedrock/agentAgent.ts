@@ -134,13 +134,16 @@ export class AgentAgent extends pulumi.CustomResource {
      * The following arguments are optional:
      */
     public readonly foundationModel!: pulumi.Output<string>;
+    /**
+     * Details about the guardrail associated with the agent. See `guardrailConfiguration` Block for details.
+     */
     public readonly guardrailConfigurations!: pulumi.Output<outputs.bedrock.AgentAgentGuardrailConfiguration[] | undefined>;
     /**
      * Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
      */
     public readonly idleSessionTtlInSeconds!: pulumi.Output<number>;
     /**
-     * Instructions that tell the agent what it should do and how it should interact with users.
+     * Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
      */
     public readonly instruction!: pulumi.Output<string>;
     /**
@@ -269,13 +272,16 @@ export interface AgentAgentState {
      * The following arguments are optional:
      */
     foundationModel?: pulumi.Input<string>;
+    /**
+     * Details about the guardrail associated with the agent. See `guardrailConfiguration` Block for details.
+     */
     guardrailConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentGuardrailConfiguration>[]>;
     /**
      * Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
      */
     idleSessionTtlInSeconds?: pulumi.Input<number>;
     /**
-     * Instructions that tell the agent what it should do and how it should interact with users.
+     * Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
      */
     instruction?: pulumi.Input<string>;
     /**
@@ -329,13 +335,16 @@ export interface AgentAgentArgs {
      * The following arguments are optional:
      */
     foundationModel: pulumi.Input<string>;
+    /**
+     * Details about the guardrail associated with the agent. See `guardrailConfiguration` Block for details.
+     */
     guardrailConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentGuardrailConfiguration>[]>;
     /**
      * Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
      */
     idleSessionTtlInSeconds?: pulumi.Input<number>;
     /**
-     * Instructions that tell the agent what it should do and how it should interact with users.
+     * Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
      */
     instruction?: pulumi.Input<string>;
     /**

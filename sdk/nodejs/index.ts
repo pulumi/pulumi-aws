@@ -127,6 +127,7 @@ import * as codeartifact from "./codeartifact";
 import * as codebuild from "./codebuild";
 import * as codecatalyst from "./codecatalyst";
 import * as codecommit from "./codecommit";
+import * as codeconnections from "./codeconnections";
 import * as codedeploy from "./codedeploy";
 import * as codeguruprofiler from "./codeguruprofiler";
 import * as codegurureviewer from "./codegurureviewer";
@@ -345,6 +346,7 @@ export {
     codebuild,
     codecatalyst,
     codecommit,
+    codeconnections,
     codedeploy,
     codeguruprofiler,
     codegurureviewer,

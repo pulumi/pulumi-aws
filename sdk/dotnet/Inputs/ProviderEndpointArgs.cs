@@ -1473,6 +1473,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("s3tables")]
+        public Input<string>? S3tables { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("sagemaker")]
         public Input<string>? Sagemaker { get; set; }
 

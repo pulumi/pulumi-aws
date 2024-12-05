@@ -229,6 +229,7 @@ const (
 	s3Mod                       = "S3"                       // Simple Storage (S3)
 	s3ControlMod                = "S3Control"                // S3 Control
 	s3OutpostsMod               = "S3Outposts"               // S3 Outposts
+	s3TablesMod                 = "S3Tables"                 // S3 Tables
 	ssmMod                      = "Ssm"                      // System Manager
 	ssmContactsMod              = "SsmContacts"              // Systems Manager Incident Manager Contacts
 	ssmIncidentsMod             = "SsmIncidents"             // Systems Manager Incident Manager
@@ -448,6 +449,7 @@ var moduleMap = map[string]string{
 	"s3":                              s3Mod,
 	"s3control":                       s3ControlMod,
 	"s3outposts":                      s3OutpostsMod,
+	"s3_tables":                       s3TablesMod,
 	"sagemaker":                       sagemakerMod,
 	"scheduler":                       schedulerMod,
 	"schemas":                         schemasMod,

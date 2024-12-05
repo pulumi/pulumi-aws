@@ -14,11 +14,11 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class DirectoryBucketLocation
     {
         /// <summary>
-        /// [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids).
+        /// [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Location type. Valid values: `AvailabilityZone`.
+        /// Location type. Valid values: `AvailabilityZone`, `LocalZone`.
         /// </summary>
         public readonly string? Type;
 

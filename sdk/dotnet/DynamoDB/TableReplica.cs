@@ -78,6 +78,12 @@ namespace Pulumi.Aws.DynamoDB
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Whether deletion protection is enabled (true) or disabled (false) on the table replica.
+        /// </summary>
+        [Output("deletionProtectionEnabled")]
+        public Output<bool> DeletionProtectionEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of the _main_ or global table which this resource will replicate.
         /// 
         /// Optional arguments:
@@ -92,7 +98,7 @@ namespace Pulumi.Aws.DynamoDB
         public Output<string> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable Point In Time Recovery for the replica. Default is `false`.
+        /// Whether to enable Point In Time Recovery for the table replica. Default is `false`.
         /// </summary>
         [Output("pointInTimeRecovery")]
         public Output<bool?> PointInTimeRecovery { get; private set; } = null!;
@@ -162,6 +168,12 @@ namespace Pulumi.Aws.DynamoDB
     public sealed class TableReplicaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether deletion protection is enabled (true) or disabled (false) on the table replica.
+        /// </summary>
+        [Input("deletionProtectionEnabled")]
+        public Input<bool>? DeletionProtectionEnabled { get; set; }
+
+        /// <summary>
         /// ARN of the _main_ or global table which this resource will replicate.
         /// 
         /// Optional arguments:
@@ -176,7 +188,7 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Whether to enable Point In Time Recovery for the replica. Default is `false`.
+        /// Whether to enable Point In Time Recovery for the table replica. Default is `false`.
         /// </summary>
         [Input("pointInTimeRecovery")]
         public Input<bool>? PointInTimeRecovery { get; set; }
@@ -214,6 +226,12 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? Arn { get; set; }
 
         /// <summary>
+        /// Whether deletion protection is enabled (true) or disabled (false) on the table replica.
+        /// </summary>
+        [Input("deletionProtectionEnabled")]
+        public Input<bool>? DeletionProtectionEnabled { get; set; }
+
+        /// <summary>
         /// ARN of the _main_ or global table which this resource will replicate.
         /// 
         /// Optional arguments:
@@ -228,7 +246,7 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Whether to enable Point In Time Recovery for the replica. Default is `false`.
+        /// Whether to enable Point In Time Recovery for the table replica. Default is `false`.
         /// </summary>
         [Input("pointInTimeRecovery")]
         public Input<bool>? PointInTimeRecovery { get; set; }

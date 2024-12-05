@@ -82,6 +82,10 @@ export class TableReplica extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Whether deletion protection is enabled (true) or disabled (false) on the table replica.
+     */
+    public readonly deletionProtectionEnabled!: pulumi.Output<boolean>;
+    /**
      * ARN of the _main_ or global table which this resource will replicate.
      *
      * Optional arguments:
@@ -92,7 +96,7 @@ export class TableReplica extends pulumi.CustomResource {
      */
     public readonly kmsKeyArn!: pulumi.Output<string>;
     /**
-     * Whether to enable Point In Time Recovery for the replica. Default is `false`.
+     * Whether to enable Point In Time Recovery for the table replica. Default is `false`.
      */
     public readonly pointInTimeRecovery!: pulumi.Output<boolean | undefined>;
     /**
@@ -124,6 +128,7 @@ export class TableReplica extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as TableReplicaState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["deletionProtectionEnabled"] = state ? state.deletionProtectionEnabled : undefined;
             resourceInputs["globalTableArn"] = state ? state.globalTableArn : undefined;
             resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
             resourceInputs["pointInTimeRecovery"] = state ? state.pointInTimeRecovery : undefined;
@@ -135,6 +140,7 @@ export class TableReplica extends pulumi.CustomResource {
             if ((!args || args.globalTableArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'globalTableArn'");
             }
+            resourceInputs["deletionProtectionEnabled"] = args ? args.deletionProtectionEnabled : undefined;
             resourceInputs["globalTableArn"] = args ? args.globalTableArn : undefined;
             resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             resourceInputs["pointInTimeRecovery"] = args ? args.pointInTimeRecovery : undefined;
@@ -157,6 +163,10 @@ export interface TableReplicaState {
      */
     arn?: pulumi.Input<string>;
     /**
+     * Whether deletion protection is enabled (true) or disabled (false) on the table replica.
+     */
+    deletionProtectionEnabled?: pulumi.Input<boolean>;
+    /**
      * ARN of the _main_ or global table which this resource will replicate.
      *
      * Optional arguments:
@@ -167,7 +177,7 @@ export interface TableReplicaState {
      */
     kmsKeyArn?: pulumi.Input<string>;
     /**
-     * Whether to enable Point In Time Recovery for the replica. Default is `false`.
+     * Whether to enable Point In Time Recovery for the table replica. Default is `false`.
      */
     pointInTimeRecovery?: pulumi.Input<boolean>;
     /**
@@ -191,6 +201,10 @@ export interface TableReplicaState {
  */
 export interface TableReplicaArgs {
     /**
+     * Whether deletion protection is enabled (true) or disabled (false) on the table replica.
+     */
+    deletionProtectionEnabled?: pulumi.Input<boolean>;
+    /**
      * ARN of the _main_ or global table which this resource will replicate.
      *
      * Optional arguments:
@@ -201,7 +215,7 @@ export interface TableReplicaArgs {
      */
     kmsKeyArn?: pulumi.Input<string>;
     /**
-     * Whether to enable Point In Time Recovery for the replica. Default is `false`.
+     * Whether to enable Point In Time Recovery for the table replica. Default is `false`.
      */
     pointInTimeRecovery?: pulumi.Input<boolean>;
     /**

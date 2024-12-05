@@ -15823,9 +15823,9 @@ func (o BucketWebsiteConfigurationV2RoutingRuleRedirectOutput) ReplaceKeyWith() 
 }
 
 type DirectoryBucketLocation struct {
-	// [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids).
+	// [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
 	Name string `pulumi:"name"`
-	// Location type. Valid values: `AvailabilityZone`.
+	// Location type. Valid values: `AvailabilityZone`, `LocalZone`.
 	Type *string `pulumi:"type"`
 }
 
@@ -15841,9 +15841,9 @@ type DirectoryBucketLocationInput interface {
 }
 
 type DirectoryBucketLocationArgs struct {
-	// [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids).
+	// [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Location type. Valid values: `AvailabilityZone`.
+	// Location type. Valid values: `AvailabilityZone`, `LocalZone`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -15924,12 +15924,12 @@ func (o DirectoryBucketLocationOutput) ToDirectoryBucketLocationPtrOutputWithCon
 	}).(DirectoryBucketLocationPtrOutput)
 }
 
-// [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids).
+// [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
 func (o DirectoryBucketLocationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DirectoryBucketLocation) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Location type. Valid values: `AvailabilityZone`.
+// Location type. Valid values: `AvailabilityZone`, `LocalZone`.
 func (o DirectoryBucketLocationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DirectoryBucketLocation) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -15958,7 +15958,7 @@ func (o DirectoryBucketLocationPtrOutput) Elem() DirectoryBucketLocationOutput {
 	}).(DirectoryBucketLocationOutput)
 }
 
-// [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids).
+// [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
 func (o DirectoryBucketLocationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DirectoryBucketLocation) *string {
 		if v == nil {
@@ -15968,7 +15968,7 @@ func (o DirectoryBucketLocationPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Location type. Valid values: `AvailabilityZone`.
+// Location type. Valid values: `AvailabilityZone`, `LocalZone`.
 func (o DirectoryBucketLocationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DirectoryBucketLocation) *string {
 		if v == nil {
@@ -17156,6 +17156,1296 @@ func (o ObjectCopyGrantArrayOutput) Index(i pulumi.IntInput) ObjectCopyGrantOutp
 	}).(ObjectCopyGrantOutput)
 }
 
+type TablesTableBucketMaintenanceConfiguration struct {
+	// A single Iceberg unreferenced file removal settings block.
+	// See `icebergUnreferencedFileRemoval` below
+	IcebergUnreferencedFileRemoval TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval `pulumi:"icebergUnreferencedFileRemoval"`
+}
+
+// TablesTableBucketMaintenanceConfigurationInput is an input type that accepts TablesTableBucketMaintenanceConfigurationArgs and TablesTableBucketMaintenanceConfigurationOutput values.
+// You can construct a concrete instance of `TablesTableBucketMaintenanceConfigurationInput` via:
+//
+//	TablesTableBucketMaintenanceConfigurationArgs{...}
+type TablesTableBucketMaintenanceConfigurationInput interface {
+	pulumi.Input
+
+	ToTablesTableBucketMaintenanceConfigurationOutput() TablesTableBucketMaintenanceConfigurationOutput
+	ToTablesTableBucketMaintenanceConfigurationOutputWithContext(context.Context) TablesTableBucketMaintenanceConfigurationOutput
+}
+
+type TablesTableBucketMaintenanceConfigurationArgs struct {
+	// A single Iceberg unreferenced file removal settings block.
+	// See `icebergUnreferencedFileRemoval` below
+	IcebergUnreferencedFileRemoval TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalInput `pulumi:"icebergUnreferencedFileRemoval"`
+}
+
+func (TablesTableBucketMaintenanceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TablesTableBucketMaintenanceConfiguration)(nil)).Elem()
+}
+
+func (i TablesTableBucketMaintenanceConfigurationArgs) ToTablesTableBucketMaintenanceConfigurationOutput() TablesTableBucketMaintenanceConfigurationOutput {
+	return i.ToTablesTableBucketMaintenanceConfigurationOutputWithContext(context.Background())
+}
+
+func (i TablesTableBucketMaintenanceConfigurationArgs) ToTablesTableBucketMaintenanceConfigurationOutputWithContext(ctx context.Context) TablesTableBucketMaintenanceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablesTableBucketMaintenanceConfigurationOutput)
+}
+
+func (i TablesTableBucketMaintenanceConfigurationArgs) ToTablesTableBucketMaintenanceConfigurationPtrOutput() TablesTableBucketMaintenanceConfigurationPtrOutput {
+	return i.ToTablesTableBucketMaintenanceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TablesTableBucketMaintenanceConfigurationArgs) ToTablesTableBucketMaintenanceConfigurationPtrOutputWithContext(ctx context.Context) TablesTableBucketMaintenanceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablesTableBucketMaintenanceConfigurationOutput).ToTablesTableBucketMaintenanceConfigurationPtrOutputWithContext(ctx)
+}
+
+// TablesTableBucketMaintenanceConfigurationPtrInput is an input type that accepts TablesTableBucketMaintenanceConfigurationArgs, TablesTableBucketMaintenanceConfigurationPtr and TablesTableBucketMaintenanceConfigurationPtrOutput values.
+// You can construct a concrete instance of `TablesTableBucketMaintenanceConfigurationPtrInput` via:
+//
+//	        TablesTableBucketMaintenanceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TablesTableBucketMaintenanceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTablesTableBucketMaintenanceConfigurationPtrOutput() TablesTableBucketMaintenanceConfigurationPtrOutput
+	ToTablesTableBucketMaintenanceConfigurationPtrOutputWithContext(context.Context) TablesTableBucketMaintenanceConfigurationPtrOutput
+}
+
+type tablesTableBucketMaintenanceConfigurationPtrType TablesTableBucketMaintenanceConfigurationArgs
+
+func TablesTableBucketMaintenanceConfigurationPtr(v *TablesTableBucketMaintenanceConfigurationArgs) TablesTableBucketMaintenanceConfigurationPtrInput {
+	return (*tablesTableBucketMaintenanceConfigurationPtrType)(v)
+}
+
+func (*tablesTableBucketMaintenanceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TablesTableBucketMaintenanceConfiguration)(nil)).Elem()
+}
+
+func (i *tablesTableBucketMaintenanceConfigurationPtrType) ToTablesTableBucketMaintenanceConfigurationPtrOutput() TablesTableBucketMaintenanceConfigurationPtrOutput {
+	return i.ToTablesTableBucketMaintenanceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *tablesTableBucketMaintenanceConfigurationPtrType) ToTablesTableBucketMaintenanceConfigurationPtrOutputWithContext(ctx context.Context) TablesTableBucketMaintenanceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablesTableBucketMaintenanceConfigurationPtrOutput)
+}
+
+type TablesTableBucketMaintenanceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TablesTableBucketMaintenanceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TablesTableBucketMaintenanceConfiguration)(nil)).Elem()
+}
+
+func (o TablesTableBucketMaintenanceConfigurationOutput) ToTablesTableBucketMaintenanceConfigurationOutput() TablesTableBucketMaintenanceConfigurationOutput {
+	return o
+}
+
+func (o TablesTableBucketMaintenanceConfigurationOutput) ToTablesTableBucketMaintenanceConfigurationOutputWithContext(ctx context.Context) TablesTableBucketMaintenanceConfigurationOutput {
+	return o
+}
+
+func (o TablesTableBucketMaintenanceConfigurationOutput) ToTablesTableBucketMaintenanceConfigurationPtrOutput() TablesTableBucketMaintenanceConfigurationPtrOutput {
+	return o.ToTablesTableBucketMaintenanceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TablesTableBucketMaintenanceConfigurationOutput) ToTablesTableBucketMaintenanceConfigurationPtrOutputWithContext(ctx context.Context) TablesTableBucketMaintenanceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TablesTableBucketMaintenanceConfiguration) *TablesTableBucketMaintenanceConfiguration {
+		return &v
+	}).(TablesTableBucketMaintenanceConfigurationPtrOutput)
+}
+
+// A single Iceberg unreferenced file removal settings block.
+// See `icebergUnreferencedFileRemoval` below
+func (o TablesTableBucketMaintenanceConfigurationOutput) IcebergUnreferencedFileRemoval() TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput {
+	return o.ApplyT(func(v TablesTableBucketMaintenanceConfiguration) TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval {
+		return v.IcebergUnreferencedFileRemoval
+	}).(TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput)
+}
+
+type TablesTableBucketMaintenanceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TablesTableBucketMaintenanceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TablesTableBucketMaintenanceConfiguration)(nil)).Elem()
+}
+
+func (o TablesTableBucketMaintenanceConfigurationPtrOutput) ToTablesTableBucketMaintenanceConfigurationPtrOutput() TablesTableBucketMaintenanceConfigurationPtrOutput {
+	return o
+}
+
+func (o TablesTableBucketMaintenanceConfigurationPtrOutput) ToTablesTableBucketMaintenanceConfigurationPtrOutputWithContext(ctx context.Context) TablesTableBucketMaintenanceConfigurationPtrOutput {
+	return o
+}
+
+func (o TablesTableBucketMaintenanceConfigurationPtrOutput) Elem() TablesTableBucketMaintenanceConfigurationOutput {
+	return o.ApplyT(func(v *TablesTableBucketMaintenanceConfiguration) TablesTableBucketMaintenanceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TablesTableBucketMaintenanceConfiguration
+		return ret
+	}).(TablesTableBucketMaintenanceConfigurationOutput)
+}
+
+// A single Iceberg unreferenced file removal settings block.
+// See `icebergUnreferencedFileRemoval` below
+func (o TablesTableBucketMaintenanceConfigurationPtrOutput) IcebergUnreferencedFileRemoval() TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput {
+	return o.ApplyT(func(v *TablesTableBucketMaintenanceConfiguration) *TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval {
+		if v == nil {
+			return nil
+		}
+		return &v.IcebergUnreferencedFileRemoval
+	}).(TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput)
+}
+
+type TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval struct {
+	// Settings for unreferenced file removal.
+	// See `iceberg_unreferenced_file_removal.settings` below
+	Settings TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings `pulumi:"settings"`
+	// Whether the configuration is enabled.
+	// Valid values are `enabled` and `disabled`.
+	Status string `pulumi:"status"`
+}
+
+// TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalInput is an input type that accepts TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs and TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput values.
+// You can construct a concrete instance of `TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalInput` via:
+//
+//	TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs{...}
+type TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalInput interface {
+	pulumi.Input
+
+	ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput() TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput
+	ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutputWithContext(context.Context) TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput
+}
+
+type TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs struct {
+	// Settings for unreferenced file removal.
+	// See `iceberg_unreferenced_file_removal.settings` below
+	Settings TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsInput `pulumi:"settings"`
+	// Whether the configuration is enabled.
+	// Valid values are `enabled` and `disabled`.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval)(nil)).Elem()
+}
+
+func (i TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs) ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput() TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput {
+	return i.ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutputWithContext(context.Background())
+}
+
+func (i TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs) ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutputWithContext(ctx context.Context) TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput)
+}
+
+func (i TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs) ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput() TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput {
+	return i.ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutputWithContext(context.Background())
+}
+
+func (i TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs) ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutputWithContext(ctx context.Context) TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput).ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutputWithContext(ctx)
+}
+
+// TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrInput is an input type that accepts TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs, TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtr and TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput values.
+// You can construct a concrete instance of `TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrInput` via:
+//
+//	        TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs{...}
+//
+//	or:
+//
+//	        nil
+type TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrInput interface {
+	pulumi.Input
+
+	ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput() TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput
+	ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutputWithContext(context.Context) TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput
+}
+
+type tablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrType TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs
+
+func TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtr(v *TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs) TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrInput {
+	return (*tablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrType)(v)
+}
+
+func (*tablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval)(nil)).Elem()
+}
+
+func (i *tablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrType) ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput() TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput {
+	return i.ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutputWithContext(context.Background())
+}
+
+func (i *tablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrType) ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutputWithContext(ctx context.Context) TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput)
+}
+
+type TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput struct{ *pulumi.OutputState }
+
+func (TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval)(nil)).Elem()
+}
+
+func (o TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput) ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput() TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput {
+	return o
+}
+
+func (o TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput) ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutputWithContext(ctx context.Context) TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput {
+	return o
+}
+
+func (o TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput) ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput() TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput {
+	return o.ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutputWithContext(context.Background())
+}
+
+func (o TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput) ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutputWithContext(ctx context.Context) TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval) *TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval {
+		return &v
+	}).(TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput)
+}
+
+// Settings for unreferenced file removal.
+// See `iceberg_unreferenced_file_removal.settings` below
+func (o TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput) Settings() TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput {
+	return o.ApplyT(func(v TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval) TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings {
+		return v.Settings
+	}).(TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput)
+}
+
+// Whether the configuration is enabled.
+// Valid values are `enabled` and `disabled`.
+func (o TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval) string {
+		return v.Status
+	}).(pulumi.StringOutput)
+}
+
+type TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput struct{ *pulumi.OutputState }
+
+func (TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval)(nil)).Elem()
+}
+
+func (o TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput) ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput() TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput {
+	return o
+}
+
+func (o TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput) ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutputWithContext(ctx context.Context) TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput {
+	return o
+}
+
+func (o TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput) Elem() TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput {
+	return o.ApplyT(func(v *TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval) TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval {
+		if v != nil {
+			return *v
+		}
+		var ret TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval
+		return ret
+	}).(TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput)
+}
+
+// Settings for unreferenced file removal.
+// See `iceberg_unreferenced_file_removal.settings` below
+func (o TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput) Settings() TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput {
+	return o.ApplyT(func(v *TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval) *TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings {
+		if v == nil {
+			return nil
+		}
+		return &v.Settings
+	}).(TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput)
+}
+
+// Whether the configuration is enabled.
+// Valid values are `enabled` and `disabled`.
+func (o TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings struct {
+	// Data objects marked for deletion are deleted after this many days.
+	// Must be at least `1`.
+	NonCurrentDays float64 `pulumi:"nonCurrentDays"`
+	// Unreferenced data objects are marked for deletion after this many days.
+	// Must be at least `1`.
+	UnreferencedDays float64 `pulumi:"unreferencedDays"`
+}
+
+// TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsInput is an input type that accepts TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs and TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput values.
+// You can construct a concrete instance of `TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsInput` via:
+//
+//	TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs{...}
+type TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsInput interface {
+	pulumi.Input
+
+	ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput() TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput
+	ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutputWithContext(context.Context) TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput
+}
+
+type TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs struct {
+	// Data objects marked for deletion are deleted after this many days.
+	// Must be at least `1`.
+	NonCurrentDays pulumi.Float64Input `pulumi:"nonCurrentDays"`
+	// Unreferenced data objects are marked for deletion after this many days.
+	// Must be at least `1`.
+	UnreferencedDays pulumi.Float64Input `pulumi:"unreferencedDays"`
+}
+
+func (TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings)(nil)).Elem()
+}
+
+func (i TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs) ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput() TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput {
+	return i.ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutputWithContext(context.Background())
+}
+
+func (i TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs) ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutputWithContext(ctx context.Context) TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput)
+}
+
+func (i TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs) ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput() TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput {
+	return i.ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs) ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutputWithContext(ctx context.Context) TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput).ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutputWithContext(ctx)
+}
+
+// TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrInput is an input type that accepts TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs, TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtr and TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput values.
+// You can construct a concrete instance of `TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrInput` via:
+//
+//	        TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrInput interface {
+	pulumi.Input
+
+	ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput() TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput
+	ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutputWithContext(context.Context) TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput
+}
+
+type tablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrType TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs
+
+func TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtr(v *TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs) TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrInput {
+	return (*tablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrType)(v)
+}
+
+func (*tablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings)(nil)).Elem()
+}
+
+func (i *tablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrType) ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput() TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput {
+	return i.ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *tablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrType) ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutputWithContext(ctx context.Context) TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput)
+}
+
+type TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput struct{ *pulumi.OutputState }
+
+func (TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings)(nil)).Elem()
+}
+
+func (o TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput) ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput() TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput {
+	return o
+}
+
+func (o TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput) ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutputWithContext(ctx context.Context) TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput {
+	return o
+}
+
+func (o TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput) ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput() TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput {
+	return o.ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput) ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutputWithContext(ctx context.Context) TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings) *TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings {
+		return &v
+	}).(TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput)
+}
+
+// Data objects marked for deletion are deleted after this many days.
+// Must be at least `1`.
+func (o TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput) NonCurrentDays() pulumi.Float64Output {
+	return o.ApplyT(func(v TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings) float64 {
+		return v.NonCurrentDays
+	}).(pulumi.Float64Output)
+}
+
+// Unreferenced data objects are marked for deletion after this many days.
+// Must be at least `1`.
+func (o TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput) UnreferencedDays() pulumi.Float64Output {
+	return o.ApplyT(func(v TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings) float64 {
+		return v.UnreferencedDays
+	}).(pulumi.Float64Output)
+}
+
+type TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings)(nil)).Elem()
+}
+
+func (o TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput) ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput() TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput {
+	return o
+}
+
+func (o TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput) ToTablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutputWithContext(ctx context.Context) TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput {
+	return o
+}
+
+func (o TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput) Elem() TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput {
+	return o.ApplyT(func(v *TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings) TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings {
+		if v != nil {
+			return *v
+		}
+		var ret TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings
+		return ret
+	}).(TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput)
+}
+
+// Data objects marked for deletion are deleted after this many days.
+// Must be at least `1`.
+func (o TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput) NonCurrentDays() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.NonCurrentDays
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Unreferenced data objects are marked for deletion after this many days.
+// Must be at least `1`.
+func (o TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput) UnreferencedDays() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.UnreferencedDays
+	}).(pulumi.Float64PtrOutput)
+}
+
+type TablesTableMaintenanceConfiguration struct {
+	// A single Iceberg compaction settings block.
+	// See `icebergCompaction` below
+	IcebergCompaction TablesTableMaintenanceConfigurationIcebergCompaction `pulumi:"icebergCompaction"`
+	// A single Iceberg snapshot management settings block.
+	// See `icebergSnapshotManagement` below
+	IcebergSnapshotManagement TablesTableMaintenanceConfigurationIcebergSnapshotManagement `pulumi:"icebergSnapshotManagement"`
+}
+
+// TablesTableMaintenanceConfigurationInput is an input type that accepts TablesTableMaintenanceConfigurationArgs and TablesTableMaintenanceConfigurationOutput values.
+// You can construct a concrete instance of `TablesTableMaintenanceConfigurationInput` via:
+//
+//	TablesTableMaintenanceConfigurationArgs{...}
+type TablesTableMaintenanceConfigurationInput interface {
+	pulumi.Input
+
+	ToTablesTableMaintenanceConfigurationOutput() TablesTableMaintenanceConfigurationOutput
+	ToTablesTableMaintenanceConfigurationOutputWithContext(context.Context) TablesTableMaintenanceConfigurationOutput
+}
+
+type TablesTableMaintenanceConfigurationArgs struct {
+	// A single Iceberg compaction settings block.
+	// See `icebergCompaction` below
+	IcebergCompaction TablesTableMaintenanceConfigurationIcebergCompactionInput `pulumi:"icebergCompaction"`
+	// A single Iceberg snapshot management settings block.
+	// See `icebergSnapshotManagement` below
+	IcebergSnapshotManagement TablesTableMaintenanceConfigurationIcebergSnapshotManagementInput `pulumi:"icebergSnapshotManagement"`
+}
+
+func (TablesTableMaintenanceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TablesTableMaintenanceConfiguration)(nil)).Elem()
+}
+
+func (i TablesTableMaintenanceConfigurationArgs) ToTablesTableMaintenanceConfigurationOutput() TablesTableMaintenanceConfigurationOutput {
+	return i.ToTablesTableMaintenanceConfigurationOutputWithContext(context.Background())
+}
+
+func (i TablesTableMaintenanceConfigurationArgs) ToTablesTableMaintenanceConfigurationOutputWithContext(ctx context.Context) TablesTableMaintenanceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablesTableMaintenanceConfigurationOutput)
+}
+
+func (i TablesTableMaintenanceConfigurationArgs) ToTablesTableMaintenanceConfigurationPtrOutput() TablesTableMaintenanceConfigurationPtrOutput {
+	return i.ToTablesTableMaintenanceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TablesTableMaintenanceConfigurationArgs) ToTablesTableMaintenanceConfigurationPtrOutputWithContext(ctx context.Context) TablesTableMaintenanceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablesTableMaintenanceConfigurationOutput).ToTablesTableMaintenanceConfigurationPtrOutputWithContext(ctx)
+}
+
+// TablesTableMaintenanceConfigurationPtrInput is an input type that accepts TablesTableMaintenanceConfigurationArgs, TablesTableMaintenanceConfigurationPtr and TablesTableMaintenanceConfigurationPtrOutput values.
+// You can construct a concrete instance of `TablesTableMaintenanceConfigurationPtrInput` via:
+//
+//	        TablesTableMaintenanceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TablesTableMaintenanceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTablesTableMaintenanceConfigurationPtrOutput() TablesTableMaintenanceConfigurationPtrOutput
+	ToTablesTableMaintenanceConfigurationPtrOutputWithContext(context.Context) TablesTableMaintenanceConfigurationPtrOutput
+}
+
+type tablesTableMaintenanceConfigurationPtrType TablesTableMaintenanceConfigurationArgs
+
+func TablesTableMaintenanceConfigurationPtr(v *TablesTableMaintenanceConfigurationArgs) TablesTableMaintenanceConfigurationPtrInput {
+	return (*tablesTableMaintenanceConfigurationPtrType)(v)
+}
+
+func (*tablesTableMaintenanceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TablesTableMaintenanceConfiguration)(nil)).Elem()
+}
+
+func (i *tablesTableMaintenanceConfigurationPtrType) ToTablesTableMaintenanceConfigurationPtrOutput() TablesTableMaintenanceConfigurationPtrOutput {
+	return i.ToTablesTableMaintenanceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *tablesTableMaintenanceConfigurationPtrType) ToTablesTableMaintenanceConfigurationPtrOutputWithContext(ctx context.Context) TablesTableMaintenanceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablesTableMaintenanceConfigurationPtrOutput)
+}
+
+type TablesTableMaintenanceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TablesTableMaintenanceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TablesTableMaintenanceConfiguration)(nil)).Elem()
+}
+
+func (o TablesTableMaintenanceConfigurationOutput) ToTablesTableMaintenanceConfigurationOutput() TablesTableMaintenanceConfigurationOutput {
+	return o
+}
+
+func (o TablesTableMaintenanceConfigurationOutput) ToTablesTableMaintenanceConfigurationOutputWithContext(ctx context.Context) TablesTableMaintenanceConfigurationOutput {
+	return o
+}
+
+func (o TablesTableMaintenanceConfigurationOutput) ToTablesTableMaintenanceConfigurationPtrOutput() TablesTableMaintenanceConfigurationPtrOutput {
+	return o.ToTablesTableMaintenanceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TablesTableMaintenanceConfigurationOutput) ToTablesTableMaintenanceConfigurationPtrOutputWithContext(ctx context.Context) TablesTableMaintenanceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TablesTableMaintenanceConfiguration) *TablesTableMaintenanceConfiguration {
+		return &v
+	}).(TablesTableMaintenanceConfigurationPtrOutput)
+}
+
+// A single Iceberg compaction settings block.
+// See `icebergCompaction` below
+func (o TablesTableMaintenanceConfigurationOutput) IcebergCompaction() TablesTableMaintenanceConfigurationIcebergCompactionOutput {
+	return o.ApplyT(func(v TablesTableMaintenanceConfiguration) TablesTableMaintenanceConfigurationIcebergCompaction {
+		return v.IcebergCompaction
+	}).(TablesTableMaintenanceConfigurationIcebergCompactionOutput)
+}
+
+// A single Iceberg snapshot management settings block.
+// See `icebergSnapshotManagement` below
+func (o TablesTableMaintenanceConfigurationOutput) IcebergSnapshotManagement() TablesTableMaintenanceConfigurationIcebergSnapshotManagementOutput {
+	return o.ApplyT(func(v TablesTableMaintenanceConfiguration) TablesTableMaintenanceConfigurationIcebergSnapshotManagement {
+		return v.IcebergSnapshotManagement
+	}).(TablesTableMaintenanceConfigurationIcebergSnapshotManagementOutput)
+}
+
+type TablesTableMaintenanceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TablesTableMaintenanceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TablesTableMaintenanceConfiguration)(nil)).Elem()
+}
+
+func (o TablesTableMaintenanceConfigurationPtrOutput) ToTablesTableMaintenanceConfigurationPtrOutput() TablesTableMaintenanceConfigurationPtrOutput {
+	return o
+}
+
+func (o TablesTableMaintenanceConfigurationPtrOutput) ToTablesTableMaintenanceConfigurationPtrOutputWithContext(ctx context.Context) TablesTableMaintenanceConfigurationPtrOutput {
+	return o
+}
+
+func (o TablesTableMaintenanceConfigurationPtrOutput) Elem() TablesTableMaintenanceConfigurationOutput {
+	return o.ApplyT(func(v *TablesTableMaintenanceConfiguration) TablesTableMaintenanceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TablesTableMaintenanceConfiguration
+		return ret
+	}).(TablesTableMaintenanceConfigurationOutput)
+}
+
+// A single Iceberg compaction settings block.
+// See `icebergCompaction` below
+func (o TablesTableMaintenanceConfigurationPtrOutput) IcebergCompaction() TablesTableMaintenanceConfigurationIcebergCompactionPtrOutput {
+	return o.ApplyT(func(v *TablesTableMaintenanceConfiguration) *TablesTableMaintenanceConfigurationIcebergCompaction {
+		if v == nil {
+			return nil
+		}
+		return &v.IcebergCompaction
+	}).(TablesTableMaintenanceConfigurationIcebergCompactionPtrOutput)
+}
+
+// A single Iceberg snapshot management settings block.
+// See `icebergSnapshotManagement` below
+func (o TablesTableMaintenanceConfigurationPtrOutput) IcebergSnapshotManagement() TablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput {
+	return o.ApplyT(func(v *TablesTableMaintenanceConfiguration) *TablesTableMaintenanceConfigurationIcebergSnapshotManagement {
+		if v == nil {
+			return nil
+		}
+		return &v.IcebergSnapshotManagement
+	}).(TablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput)
+}
+
+type TablesTableMaintenanceConfigurationIcebergCompaction struct {
+	// Settings for compaction.
+	// See `iceberg_compaction.settings` below
+	Settings TablesTableMaintenanceConfigurationIcebergCompactionSettings `pulumi:"settings"`
+	// Whether the configuration is enabled.
+	// Valid values are `enabled` and `disabled`.
+	Status string `pulumi:"status"`
+}
+
+// TablesTableMaintenanceConfigurationIcebergCompactionInput is an input type that accepts TablesTableMaintenanceConfigurationIcebergCompactionArgs and TablesTableMaintenanceConfigurationIcebergCompactionOutput values.
+// You can construct a concrete instance of `TablesTableMaintenanceConfigurationIcebergCompactionInput` via:
+//
+//	TablesTableMaintenanceConfigurationIcebergCompactionArgs{...}
+type TablesTableMaintenanceConfigurationIcebergCompactionInput interface {
+	pulumi.Input
+
+	ToTablesTableMaintenanceConfigurationIcebergCompactionOutput() TablesTableMaintenanceConfigurationIcebergCompactionOutput
+	ToTablesTableMaintenanceConfigurationIcebergCompactionOutputWithContext(context.Context) TablesTableMaintenanceConfigurationIcebergCompactionOutput
+}
+
+type TablesTableMaintenanceConfigurationIcebergCompactionArgs struct {
+	// Settings for compaction.
+	// See `iceberg_compaction.settings` below
+	Settings TablesTableMaintenanceConfigurationIcebergCompactionSettingsInput `pulumi:"settings"`
+	// Whether the configuration is enabled.
+	// Valid values are `enabled` and `disabled`.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (TablesTableMaintenanceConfigurationIcebergCompactionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TablesTableMaintenanceConfigurationIcebergCompaction)(nil)).Elem()
+}
+
+func (i TablesTableMaintenanceConfigurationIcebergCompactionArgs) ToTablesTableMaintenanceConfigurationIcebergCompactionOutput() TablesTableMaintenanceConfigurationIcebergCompactionOutput {
+	return i.ToTablesTableMaintenanceConfigurationIcebergCompactionOutputWithContext(context.Background())
+}
+
+func (i TablesTableMaintenanceConfigurationIcebergCompactionArgs) ToTablesTableMaintenanceConfigurationIcebergCompactionOutputWithContext(ctx context.Context) TablesTableMaintenanceConfigurationIcebergCompactionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablesTableMaintenanceConfigurationIcebergCompactionOutput)
+}
+
+func (i TablesTableMaintenanceConfigurationIcebergCompactionArgs) ToTablesTableMaintenanceConfigurationIcebergCompactionPtrOutput() TablesTableMaintenanceConfigurationIcebergCompactionPtrOutput {
+	return i.ToTablesTableMaintenanceConfigurationIcebergCompactionPtrOutputWithContext(context.Background())
+}
+
+func (i TablesTableMaintenanceConfigurationIcebergCompactionArgs) ToTablesTableMaintenanceConfigurationIcebergCompactionPtrOutputWithContext(ctx context.Context) TablesTableMaintenanceConfigurationIcebergCompactionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablesTableMaintenanceConfigurationIcebergCompactionOutput).ToTablesTableMaintenanceConfigurationIcebergCompactionPtrOutputWithContext(ctx)
+}
+
+// TablesTableMaintenanceConfigurationIcebergCompactionPtrInput is an input type that accepts TablesTableMaintenanceConfigurationIcebergCompactionArgs, TablesTableMaintenanceConfigurationIcebergCompactionPtr and TablesTableMaintenanceConfigurationIcebergCompactionPtrOutput values.
+// You can construct a concrete instance of `TablesTableMaintenanceConfigurationIcebergCompactionPtrInput` via:
+//
+//	        TablesTableMaintenanceConfigurationIcebergCompactionArgs{...}
+//
+//	or:
+//
+//	        nil
+type TablesTableMaintenanceConfigurationIcebergCompactionPtrInput interface {
+	pulumi.Input
+
+	ToTablesTableMaintenanceConfigurationIcebergCompactionPtrOutput() TablesTableMaintenanceConfigurationIcebergCompactionPtrOutput
+	ToTablesTableMaintenanceConfigurationIcebergCompactionPtrOutputWithContext(context.Context) TablesTableMaintenanceConfigurationIcebergCompactionPtrOutput
+}
+
+type tablesTableMaintenanceConfigurationIcebergCompactionPtrType TablesTableMaintenanceConfigurationIcebergCompactionArgs
+
+func TablesTableMaintenanceConfigurationIcebergCompactionPtr(v *TablesTableMaintenanceConfigurationIcebergCompactionArgs) TablesTableMaintenanceConfigurationIcebergCompactionPtrInput {
+	return (*tablesTableMaintenanceConfigurationIcebergCompactionPtrType)(v)
+}
+
+func (*tablesTableMaintenanceConfigurationIcebergCompactionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TablesTableMaintenanceConfigurationIcebergCompaction)(nil)).Elem()
+}
+
+func (i *tablesTableMaintenanceConfigurationIcebergCompactionPtrType) ToTablesTableMaintenanceConfigurationIcebergCompactionPtrOutput() TablesTableMaintenanceConfigurationIcebergCompactionPtrOutput {
+	return i.ToTablesTableMaintenanceConfigurationIcebergCompactionPtrOutputWithContext(context.Background())
+}
+
+func (i *tablesTableMaintenanceConfigurationIcebergCompactionPtrType) ToTablesTableMaintenanceConfigurationIcebergCompactionPtrOutputWithContext(ctx context.Context) TablesTableMaintenanceConfigurationIcebergCompactionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablesTableMaintenanceConfigurationIcebergCompactionPtrOutput)
+}
+
+type TablesTableMaintenanceConfigurationIcebergCompactionOutput struct{ *pulumi.OutputState }
+
+func (TablesTableMaintenanceConfigurationIcebergCompactionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TablesTableMaintenanceConfigurationIcebergCompaction)(nil)).Elem()
+}
+
+func (o TablesTableMaintenanceConfigurationIcebergCompactionOutput) ToTablesTableMaintenanceConfigurationIcebergCompactionOutput() TablesTableMaintenanceConfigurationIcebergCompactionOutput {
+	return o
+}
+
+func (o TablesTableMaintenanceConfigurationIcebergCompactionOutput) ToTablesTableMaintenanceConfigurationIcebergCompactionOutputWithContext(ctx context.Context) TablesTableMaintenanceConfigurationIcebergCompactionOutput {
+	return o
+}
+
+func (o TablesTableMaintenanceConfigurationIcebergCompactionOutput) ToTablesTableMaintenanceConfigurationIcebergCompactionPtrOutput() TablesTableMaintenanceConfigurationIcebergCompactionPtrOutput {
+	return o.ToTablesTableMaintenanceConfigurationIcebergCompactionPtrOutputWithContext(context.Background())
+}
+
+func (o TablesTableMaintenanceConfigurationIcebergCompactionOutput) ToTablesTableMaintenanceConfigurationIcebergCompactionPtrOutputWithContext(ctx context.Context) TablesTableMaintenanceConfigurationIcebergCompactionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TablesTableMaintenanceConfigurationIcebergCompaction) *TablesTableMaintenanceConfigurationIcebergCompaction {
+		return &v
+	}).(TablesTableMaintenanceConfigurationIcebergCompactionPtrOutput)
+}
+
+// Settings for compaction.
+// See `iceberg_compaction.settings` below
+func (o TablesTableMaintenanceConfigurationIcebergCompactionOutput) Settings() TablesTableMaintenanceConfigurationIcebergCompactionSettingsOutput {
+	return o.ApplyT(func(v TablesTableMaintenanceConfigurationIcebergCompaction) TablesTableMaintenanceConfigurationIcebergCompactionSettings {
+		return v.Settings
+	}).(TablesTableMaintenanceConfigurationIcebergCompactionSettingsOutput)
+}
+
+// Whether the configuration is enabled.
+// Valid values are `enabled` and `disabled`.
+func (o TablesTableMaintenanceConfigurationIcebergCompactionOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v TablesTableMaintenanceConfigurationIcebergCompaction) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type TablesTableMaintenanceConfigurationIcebergCompactionPtrOutput struct{ *pulumi.OutputState }
+
+func (TablesTableMaintenanceConfigurationIcebergCompactionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TablesTableMaintenanceConfigurationIcebergCompaction)(nil)).Elem()
+}
+
+func (o TablesTableMaintenanceConfigurationIcebergCompactionPtrOutput) ToTablesTableMaintenanceConfigurationIcebergCompactionPtrOutput() TablesTableMaintenanceConfigurationIcebergCompactionPtrOutput {
+	return o
+}
+
+func (o TablesTableMaintenanceConfigurationIcebergCompactionPtrOutput) ToTablesTableMaintenanceConfigurationIcebergCompactionPtrOutputWithContext(ctx context.Context) TablesTableMaintenanceConfigurationIcebergCompactionPtrOutput {
+	return o
+}
+
+func (o TablesTableMaintenanceConfigurationIcebergCompactionPtrOutput) Elem() TablesTableMaintenanceConfigurationIcebergCompactionOutput {
+	return o.ApplyT(func(v *TablesTableMaintenanceConfigurationIcebergCompaction) TablesTableMaintenanceConfigurationIcebergCompaction {
+		if v != nil {
+			return *v
+		}
+		var ret TablesTableMaintenanceConfigurationIcebergCompaction
+		return ret
+	}).(TablesTableMaintenanceConfigurationIcebergCompactionOutput)
+}
+
+// Settings for compaction.
+// See `iceberg_compaction.settings` below
+func (o TablesTableMaintenanceConfigurationIcebergCompactionPtrOutput) Settings() TablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput {
+	return o.ApplyT(func(v *TablesTableMaintenanceConfigurationIcebergCompaction) *TablesTableMaintenanceConfigurationIcebergCompactionSettings {
+		if v == nil {
+			return nil
+		}
+		return &v.Settings
+	}).(TablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput)
+}
+
+// Whether the configuration is enabled.
+// Valid values are `enabled` and `disabled`.
+func (o TablesTableMaintenanceConfigurationIcebergCompactionPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TablesTableMaintenanceConfigurationIcebergCompaction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type TablesTableMaintenanceConfigurationIcebergCompactionSettings struct {
+	// Data objects smaller than this size may be combined with others to improve query performance.
+	// Must be between `64` and `512`.
+	TargetFileSizeMb float64 `pulumi:"targetFileSizeMb"`
+}
+
+// TablesTableMaintenanceConfigurationIcebergCompactionSettingsInput is an input type that accepts TablesTableMaintenanceConfigurationIcebergCompactionSettingsArgs and TablesTableMaintenanceConfigurationIcebergCompactionSettingsOutput values.
+// You can construct a concrete instance of `TablesTableMaintenanceConfigurationIcebergCompactionSettingsInput` via:
+//
+//	TablesTableMaintenanceConfigurationIcebergCompactionSettingsArgs{...}
+type TablesTableMaintenanceConfigurationIcebergCompactionSettingsInput interface {
+	pulumi.Input
+
+	ToTablesTableMaintenanceConfigurationIcebergCompactionSettingsOutput() TablesTableMaintenanceConfigurationIcebergCompactionSettingsOutput
+	ToTablesTableMaintenanceConfigurationIcebergCompactionSettingsOutputWithContext(context.Context) TablesTableMaintenanceConfigurationIcebergCompactionSettingsOutput
+}
+
+type TablesTableMaintenanceConfigurationIcebergCompactionSettingsArgs struct {
+	// Data objects smaller than this size may be combined with others to improve query performance.
+	// Must be between `64` and `512`.
+	TargetFileSizeMb pulumi.Float64Input `pulumi:"targetFileSizeMb"`
+}
+
+func (TablesTableMaintenanceConfigurationIcebergCompactionSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TablesTableMaintenanceConfigurationIcebergCompactionSettings)(nil)).Elem()
+}
+
+func (i TablesTableMaintenanceConfigurationIcebergCompactionSettingsArgs) ToTablesTableMaintenanceConfigurationIcebergCompactionSettingsOutput() TablesTableMaintenanceConfigurationIcebergCompactionSettingsOutput {
+	return i.ToTablesTableMaintenanceConfigurationIcebergCompactionSettingsOutputWithContext(context.Background())
+}
+
+func (i TablesTableMaintenanceConfigurationIcebergCompactionSettingsArgs) ToTablesTableMaintenanceConfigurationIcebergCompactionSettingsOutputWithContext(ctx context.Context) TablesTableMaintenanceConfigurationIcebergCompactionSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablesTableMaintenanceConfigurationIcebergCompactionSettingsOutput)
+}
+
+func (i TablesTableMaintenanceConfigurationIcebergCompactionSettingsArgs) ToTablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput() TablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput {
+	return i.ToTablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i TablesTableMaintenanceConfigurationIcebergCompactionSettingsArgs) ToTablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutputWithContext(ctx context.Context) TablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablesTableMaintenanceConfigurationIcebergCompactionSettingsOutput).ToTablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutputWithContext(ctx)
+}
+
+// TablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrInput is an input type that accepts TablesTableMaintenanceConfigurationIcebergCompactionSettingsArgs, TablesTableMaintenanceConfigurationIcebergCompactionSettingsPtr and TablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput values.
+// You can construct a concrete instance of `TablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrInput` via:
+//
+//	        TablesTableMaintenanceConfigurationIcebergCompactionSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrInput interface {
+	pulumi.Input
+
+	ToTablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput() TablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput
+	ToTablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutputWithContext(context.Context) TablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput
+}
+
+type tablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrType TablesTableMaintenanceConfigurationIcebergCompactionSettingsArgs
+
+func TablesTableMaintenanceConfigurationIcebergCompactionSettingsPtr(v *TablesTableMaintenanceConfigurationIcebergCompactionSettingsArgs) TablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrInput {
+	return (*tablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrType)(v)
+}
+
+func (*tablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TablesTableMaintenanceConfigurationIcebergCompactionSettings)(nil)).Elem()
+}
+
+func (i *tablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrType) ToTablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput() TablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput {
+	return i.ToTablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *tablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrType) ToTablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutputWithContext(ctx context.Context) TablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput)
+}
+
+type TablesTableMaintenanceConfigurationIcebergCompactionSettingsOutput struct{ *pulumi.OutputState }
+
+func (TablesTableMaintenanceConfigurationIcebergCompactionSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TablesTableMaintenanceConfigurationIcebergCompactionSettings)(nil)).Elem()
+}
+
+func (o TablesTableMaintenanceConfigurationIcebergCompactionSettingsOutput) ToTablesTableMaintenanceConfigurationIcebergCompactionSettingsOutput() TablesTableMaintenanceConfigurationIcebergCompactionSettingsOutput {
+	return o
+}
+
+func (o TablesTableMaintenanceConfigurationIcebergCompactionSettingsOutput) ToTablesTableMaintenanceConfigurationIcebergCompactionSettingsOutputWithContext(ctx context.Context) TablesTableMaintenanceConfigurationIcebergCompactionSettingsOutput {
+	return o
+}
+
+func (o TablesTableMaintenanceConfigurationIcebergCompactionSettingsOutput) ToTablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput() TablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput {
+	return o.ToTablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o TablesTableMaintenanceConfigurationIcebergCompactionSettingsOutput) ToTablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutputWithContext(ctx context.Context) TablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TablesTableMaintenanceConfigurationIcebergCompactionSettings) *TablesTableMaintenanceConfigurationIcebergCompactionSettings {
+		return &v
+	}).(TablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput)
+}
+
+// Data objects smaller than this size may be combined with others to improve query performance.
+// Must be between `64` and `512`.
+func (o TablesTableMaintenanceConfigurationIcebergCompactionSettingsOutput) TargetFileSizeMb() pulumi.Float64Output {
+	return o.ApplyT(func(v TablesTableMaintenanceConfigurationIcebergCompactionSettings) float64 {
+		return v.TargetFileSizeMb
+	}).(pulumi.Float64Output)
+}
+
+type TablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (TablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TablesTableMaintenanceConfigurationIcebergCompactionSettings)(nil)).Elem()
+}
+
+func (o TablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput) ToTablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput() TablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput {
+	return o
+}
+
+func (o TablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput) ToTablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutputWithContext(ctx context.Context) TablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput {
+	return o
+}
+
+func (o TablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput) Elem() TablesTableMaintenanceConfigurationIcebergCompactionSettingsOutput {
+	return o.ApplyT(func(v *TablesTableMaintenanceConfigurationIcebergCompactionSettings) TablesTableMaintenanceConfigurationIcebergCompactionSettings {
+		if v != nil {
+			return *v
+		}
+		var ret TablesTableMaintenanceConfigurationIcebergCompactionSettings
+		return ret
+	}).(TablesTableMaintenanceConfigurationIcebergCompactionSettingsOutput)
+}
+
+// Data objects smaller than this size may be combined with others to improve query performance.
+// Must be between `64` and `512`.
+func (o TablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput) TargetFileSizeMb() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TablesTableMaintenanceConfigurationIcebergCompactionSettings) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetFileSizeMb
+	}).(pulumi.Float64PtrOutput)
+}
+
+type TablesTableMaintenanceConfigurationIcebergSnapshotManagement struct {
+	// Settings for snapshot management.
+	// See `iceberg_snapshot_management.settings` below
+	Settings TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettings `pulumi:"settings"`
+	// Whether the configuration is enabled.
+	// Valid values are `enabled` and `disabled`.
+	Status string `pulumi:"status"`
+}
+
+// TablesTableMaintenanceConfigurationIcebergSnapshotManagementInput is an input type that accepts TablesTableMaintenanceConfigurationIcebergSnapshotManagementArgs and TablesTableMaintenanceConfigurationIcebergSnapshotManagementOutput values.
+// You can construct a concrete instance of `TablesTableMaintenanceConfigurationIcebergSnapshotManagementInput` via:
+//
+//	TablesTableMaintenanceConfigurationIcebergSnapshotManagementArgs{...}
+type TablesTableMaintenanceConfigurationIcebergSnapshotManagementInput interface {
+	pulumi.Input
+
+	ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementOutput() TablesTableMaintenanceConfigurationIcebergSnapshotManagementOutput
+	ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementOutputWithContext(context.Context) TablesTableMaintenanceConfigurationIcebergSnapshotManagementOutput
+}
+
+type TablesTableMaintenanceConfigurationIcebergSnapshotManagementArgs struct {
+	// Settings for snapshot management.
+	// See `iceberg_snapshot_management.settings` below
+	Settings TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsInput `pulumi:"settings"`
+	// Whether the configuration is enabled.
+	// Valid values are `enabled` and `disabled`.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (TablesTableMaintenanceConfigurationIcebergSnapshotManagementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TablesTableMaintenanceConfigurationIcebergSnapshotManagement)(nil)).Elem()
+}
+
+func (i TablesTableMaintenanceConfigurationIcebergSnapshotManagementArgs) ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementOutput() TablesTableMaintenanceConfigurationIcebergSnapshotManagementOutput {
+	return i.ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementOutputWithContext(context.Background())
+}
+
+func (i TablesTableMaintenanceConfigurationIcebergSnapshotManagementArgs) ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementOutputWithContext(ctx context.Context) TablesTableMaintenanceConfigurationIcebergSnapshotManagementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablesTableMaintenanceConfigurationIcebergSnapshotManagementOutput)
+}
+
+func (i TablesTableMaintenanceConfigurationIcebergSnapshotManagementArgs) ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput() TablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput {
+	return i.ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutputWithContext(context.Background())
+}
+
+func (i TablesTableMaintenanceConfigurationIcebergSnapshotManagementArgs) ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutputWithContext(ctx context.Context) TablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablesTableMaintenanceConfigurationIcebergSnapshotManagementOutput).ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutputWithContext(ctx)
+}
+
+// TablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrInput is an input type that accepts TablesTableMaintenanceConfigurationIcebergSnapshotManagementArgs, TablesTableMaintenanceConfigurationIcebergSnapshotManagementPtr and TablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput values.
+// You can construct a concrete instance of `TablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrInput` via:
+//
+//	        TablesTableMaintenanceConfigurationIcebergSnapshotManagementArgs{...}
+//
+//	or:
+//
+//	        nil
+type TablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrInput interface {
+	pulumi.Input
+
+	ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput() TablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput
+	ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutputWithContext(context.Context) TablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput
+}
+
+type tablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrType TablesTableMaintenanceConfigurationIcebergSnapshotManagementArgs
+
+func TablesTableMaintenanceConfigurationIcebergSnapshotManagementPtr(v *TablesTableMaintenanceConfigurationIcebergSnapshotManagementArgs) TablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrInput {
+	return (*tablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrType)(v)
+}
+
+func (*tablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TablesTableMaintenanceConfigurationIcebergSnapshotManagement)(nil)).Elem()
+}
+
+func (i *tablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrType) ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput() TablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput {
+	return i.ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutputWithContext(context.Background())
+}
+
+func (i *tablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrType) ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutputWithContext(ctx context.Context) TablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput)
+}
+
+type TablesTableMaintenanceConfigurationIcebergSnapshotManagementOutput struct{ *pulumi.OutputState }
+
+func (TablesTableMaintenanceConfigurationIcebergSnapshotManagementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TablesTableMaintenanceConfigurationIcebergSnapshotManagement)(nil)).Elem()
+}
+
+func (o TablesTableMaintenanceConfigurationIcebergSnapshotManagementOutput) ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementOutput() TablesTableMaintenanceConfigurationIcebergSnapshotManagementOutput {
+	return o
+}
+
+func (o TablesTableMaintenanceConfigurationIcebergSnapshotManagementOutput) ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementOutputWithContext(ctx context.Context) TablesTableMaintenanceConfigurationIcebergSnapshotManagementOutput {
+	return o
+}
+
+func (o TablesTableMaintenanceConfigurationIcebergSnapshotManagementOutput) ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput() TablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput {
+	return o.ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutputWithContext(context.Background())
+}
+
+func (o TablesTableMaintenanceConfigurationIcebergSnapshotManagementOutput) ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutputWithContext(ctx context.Context) TablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TablesTableMaintenanceConfigurationIcebergSnapshotManagement) *TablesTableMaintenanceConfigurationIcebergSnapshotManagement {
+		return &v
+	}).(TablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput)
+}
+
+// Settings for snapshot management.
+// See `iceberg_snapshot_management.settings` below
+func (o TablesTableMaintenanceConfigurationIcebergSnapshotManagementOutput) Settings() TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput {
+	return o.ApplyT(func(v TablesTableMaintenanceConfigurationIcebergSnapshotManagement) TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettings {
+		return v.Settings
+	}).(TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput)
+}
+
+// Whether the configuration is enabled.
+// Valid values are `enabled` and `disabled`.
+func (o TablesTableMaintenanceConfigurationIcebergSnapshotManagementOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v TablesTableMaintenanceConfigurationIcebergSnapshotManagement) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type TablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput struct{ *pulumi.OutputState }
+
+func (TablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TablesTableMaintenanceConfigurationIcebergSnapshotManagement)(nil)).Elem()
+}
+
+func (o TablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput) ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput() TablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput {
+	return o
+}
+
+func (o TablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput) ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutputWithContext(ctx context.Context) TablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput {
+	return o
+}
+
+func (o TablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput) Elem() TablesTableMaintenanceConfigurationIcebergSnapshotManagementOutput {
+	return o.ApplyT(func(v *TablesTableMaintenanceConfigurationIcebergSnapshotManagement) TablesTableMaintenanceConfigurationIcebergSnapshotManagement {
+		if v != nil {
+			return *v
+		}
+		var ret TablesTableMaintenanceConfigurationIcebergSnapshotManagement
+		return ret
+	}).(TablesTableMaintenanceConfigurationIcebergSnapshotManagementOutput)
+}
+
+// Settings for snapshot management.
+// See `iceberg_snapshot_management.settings` below
+func (o TablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput) Settings() TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput {
+	return o.ApplyT(func(v *TablesTableMaintenanceConfigurationIcebergSnapshotManagement) *TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettings {
+		if v == nil {
+			return nil
+		}
+		return &v.Settings
+	}).(TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput)
+}
+
+// Whether the configuration is enabled.
+// Valid values are `enabled` and `disabled`.
+func (o TablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TablesTableMaintenanceConfigurationIcebergSnapshotManagement) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettings struct {
+	// Snapshots older than this will be marked for deletiion.
+	// Must be at least `1`.
+	MaxSnapshotAgeHours float64 `pulumi:"maxSnapshotAgeHours"`
+	// Minimum number of snapshots to keep.
+	// Must be at least `1`.
+	MinSnapshotsToKeep float64 `pulumi:"minSnapshotsToKeep"`
+}
+
+// TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsInput is an input type that accepts TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs and TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput values.
+// You can construct a concrete instance of `TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsInput` via:
+//
+//	TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs{...}
+type TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsInput interface {
+	pulumi.Input
+
+	ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput() TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput
+	ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutputWithContext(context.Context) TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput
+}
+
+type TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs struct {
+	// Snapshots older than this will be marked for deletiion.
+	// Must be at least `1`.
+	MaxSnapshotAgeHours pulumi.Float64Input `pulumi:"maxSnapshotAgeHours"`
+	// Minimum number of snapshots to keep.
+	// Must be at least `1`.
+	MinSnapshotsToKeep pulumi.Float64Input `pulumi:"minSnapshotsToKeep"`
+}
+
+func (TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettings)(nil)).Elem()
+}
+
+func (i TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs) ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput() TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput {
+	return i.ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutputWithContext(context.Background())
+}
+
+func (i TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs) ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutputWithContext(ctx context.Context) TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput)
+}
+
+func (i TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs) ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput() TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput {
+	return i.ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs) ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutputWithContext(ctx context.Context) TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput).ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutputWithContext(ctx)
+}
+
+// TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrInput is an input type that accepts TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs, TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtr and TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput values.
+// You can construct a concrete instance of `TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrInput` via:
+//
+//	        TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrInput interface {
+	pulumi.Input
+
+	ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput() TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput
+	ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutputWithContext(context.Context) TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput
+}
+
+type tablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrType TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs
+
+func TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtr(v *TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs) TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrInput {
+	return (*tablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrType)(v)
+}
+
+func (*tablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettings)(nil)).Elem()
+}
+
+func (i *tablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrType) ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput() TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput {
+	return i.ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *tablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrType) ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutputWithContext(ctx context.Context) TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput)
+}
+
+type TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput struct{ *pulumi.OutputState }
+
+func (TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettings)(nil)).Elem()
+}
+
+func (o TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput) ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput() TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput {
+	return o
+}
+
+func (o TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput) ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutputWithContext(ctx context.Context) TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput {
+	return o
+}
+
+func (o TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput) ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput() TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput {
+	return o.ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput) ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutputWithContext(ctx context.Context) TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettings) *TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettings {
+		return &v
+	}).(TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput)
+}
+
+// Snapshots older than this will be marked for deletiion.
+// Must be at least `1`.
+func (o TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput) MaxSnapshotAgeHours() pulumi.Float64Output {
+	return o.ApplyT(func(v TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettings) float64 {
+		return v.MaxSnapshotAgeHours
+	}).(pulumi.Float64Output)
+}
+
+// Minimum number of snapshots to keep.
+// Must be at least `1`.
+func (o TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput) MinSnapshotsToKeep() pulumi.Float64Output {
+	return o.ApplyT(func(v TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettings) float64 {
+		return v.MinSnapshotsToKeep
+	}).(pulumi.Float64Output)
+}
+
+type TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettings)(nil)).Elem()
+}
+
+func (o TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput) ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput() TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput {
+	return o
+}
+
+func (o TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput) ToTablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutputWithContext(ctx context.Context) TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput {
+	return o
+}
+
+func (o TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput) Elem() TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput {
+	return o.ApplyT(func(v *TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettings) TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettings {
+		if v != nil {
+			return *v
+		}
+		var ret TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettings
+		return ret
+	}).(TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput)
+}
+
+// Snapshots older than this will be marked for deletiion.
+// Must be at least `1`.
+func (o TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput) MaxSnapshotAgeHours() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettings) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxSnapshotAgeHours
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Minimum number of snapshots to keep.
+// Must be at least `1`.
+func (o TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput) MinSnapshotsToKeep() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettings) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.MinSnapshotsToKeep
+	}).(pulumi.Float64PtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointPublicAccessBlockConfigurationInput)(nil)).Elem(), AccessPointPublicAccessBlockConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointPublicAccessBlockConfigurationPtrInput)(nil)).Elem(), AccessPointPublicAccessBlockConfigurationArgs{})
@@ -17395,6 +18685,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InventorySchedulePtrInput)(nil)).Elem(), InventoryScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectCopyGrantInput)(nil)).Elem(), ObjectCopyGrantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectCopyGrantArrayInput)(nil)).Elem(), ObjectCopyGrantArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TablesTableBucketMaintenanceConfigurationInput)(nil)).Elem(), TablesTableBucketMaintenanceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TablesTableBucketMaintenanceConfigurationPtrInput)(nil)).Elem(), TablesTableBucketMaintenanceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalInput)(nil)).Elem(), TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrInput)(nil)).Elem(), TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsInput)(nil)).Elem(), TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrInput)(nil)).Elem(), TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TablesTableMaintenanceConfigurationInput)(nil)).Elem(), TablesTableMaintenanceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TablesTableMaintenanceConfigurationPtrInput)(nil)).Elem(), TablesTableMaintenanceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TablesTableMaintenanceConfigurationIcebergCompactionInput)(nil)).Elem(), TablesTableMaintenanceConfigurationIcebergCompactionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TablesTableMaintenanceConfigurationIcebergCompactionPtrInput)(nil)).Elem(), TablesTableMaintenanceConfigurationIcebergCompactionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TablesTableMaintenanceConfigurationIcebergCompactionSettingsInput)(nil)).Elem(), TablesTableMaintenanceConfigurationIcebergCompactionSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrInput)(nil)).Elem(), TablesTableMaintenanceConfigurationIcebergCompactionSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TablesTableMaintenanceConfigurationIcebergSnapshotManagementInput)(nil)).Elem(), TablesTableMaintenanceConfigurationIcebergSnapshotManagementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrInput)(nil)).Elem(), TablesTableMaintenanceConfigurationIcebergSnapshotManagementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsInput)(nil)).Elem(), TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrInput)(nil)).Elem(), TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs{})
 	pulumi.RegisterOutputType(AccessPointPublicAccessBlockConfigurationOutput{})
 	pulumi.RegisterOutputType(AccessPointPublicAccessBlockConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AccessPointVpcConfigurationOutput{})
@@ -17633,4 +18939,20 @@ func init() {
 	pulumi.RegisterOutputType(InventorySchedulePtrOutput{})
 	pulumi.RegisterOutputType(ObjectCopyGrantOutput{})
 	pulumi.RegisterOutputType(ObjectCopyGrantArrayOutput{})
+	pulumi.RegisterOutputType(TablesTableBucketMaintenanceConfigurationOutput{})
+	pulumi.RegisterOutputType(TablesTableBucketMaintenanceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput{})
+	pulumi.RegisterOutputType(TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput{})
+	pulumi.RegisterOutputType(TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput{})
+	pulumi.RegisterOutputType(TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput{})
+	pulumi.RegisterOutputType(TablesTableMaintenanceConfigurationOutput{})
+	pulumi.RegisterOutputType(TablesTableMaintenanceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TablesTableMaintenanceConfigurationIcebergCompactionOutput{})
+	pulumi.RegisterOutputType(TablesTableMaintenanceConfigurationIcebergCompactionPtrOutput{})
+	pulumi.RegisterOutputType(TablesTableMaintenanceConfigurationIcebergCompactionSettingsOutput{})
+	pulumi.RegisterOutputType(TablesTableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput{})
+	pulumi.RegisterOutputType(TablesTableMaintenanceConfigurationIcebergSnapshotManagementOutput{})
+	pulumi.RegisterOutputType(TablesTableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput{})
+	pulumi.RegisterOutputType(TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput{})
+	pulumi.RegisterOutputType(TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput{})
 }

@@ -3664,6 +3664,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="s3tables")
+    private @Nullable Output<String> s3tables;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> s3tables() {
+        return Optional.ofNullable(this.s3tables);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="sagemaker")
     private @Nullable Output<String> sagemaker;
 
@@ -4656,6 +4671,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.s3api = $.s3api;
         this.s3control = $.s3control;
         this.s3outposts = $.s3outposts;
+        this.s3tables = $.s3tables;
         this.sagemaker = $.sagemaker;
         this.scheduler = $.scheduler;
         this.schemas = $.schemas;
@@ -9827,6 +9843,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder s3outposts(String s3outposts) {
             return s3outposts(Output.of(s3outposts));
+        }
+
+        /**
+         * @param s3tables Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder s3tables(@Nullable Output<String> s3tables) {
+            $.s3tables = s3tables;
+            return this;
+        }
+
+        /**
+         * @param s3tables Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder s3tables(String s3tables) {
+            return s3tables(Output.of(s3tables));
         }
 
         /**

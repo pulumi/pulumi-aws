@@ -35,7 +35,7 @@ namespace Pulumi.Aws.SecurityHub
     ///         },
     ///     });
     /// 
-    ///     var cisAwsFoundationsBenchmarkDisableIam1 = new Aws.Index.StandardsControlAssociation("cis_aws_foundations_benchmark_disable_iam_1", new()
+    ///     var cisAwsFoundationsBenchmarkDisableIam1 = new Aws.SecurityHub.StandardsControlAssociation("cis_aws_foundations_benchmark_disable_iam_1", new()
     ///     {
     ///         StandardsArn = cisAwsFoundationsBenchmark.StandardsArn,
     ///         SecurityControlId = "IAM.1",

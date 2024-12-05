@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const cisAwsFoundationsBenchmark = new aws.securityhub.StandardsSubscription("cis_aws_foundations_benchmark", {standardsArn: "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"}, {
  *     dependsOn: [example],
  * });
- * const cisAwsFoundationsBenchmarkDisableIam1 = new aws.index.StandardsControlAssociation("cis_aws_foundations_benchmark_disable_iam_1", {
+ * const cisAwsFoundationsBenchmarkDisableIam1 = new aws.securityhub.StandardsControlAssociation("cis_aws_foundations_benchmark_disable_iam_1", {
  *     standardsArn: cisAwsFoundationsBenchmark.standardsArn,
  *     securityControlId: "IAM.1",
  *     associationStatus: "DISABLED",
