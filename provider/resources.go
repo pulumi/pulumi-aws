@@ -96,6 +96,7 @@ const (
 	codebuildMod                = "CodeBuild"                // Code Build
 	codecatalystMod             = "CodeCatalyst"             // Code Catalyst
 	codecommitMod               = "CodeCommit"               // Code Commit
+	codeconnectionsMod          = "CodeConnections"          // Code Connections
 	codedeployMod               = "CodeDeploy"               // Code Deploy
 	codeguruReviewerMod         = "CodeGuruReviewer"         // CodeGuru Reviewer
 	codepipelineMod             = "CodePipeline"             // Code Pipeline
@@ -319,6 +320,7 @@ var moduleMap = map[string]string{
 	"codebuild":                       codebuildMod,
 	"codecatalyst":                    codecatalystMod,
 	"codecommit":                      codecommitMod,
+	"codeconnections":                 codeconnectionsMod,
 	"codedeploy":                      codedeployMod,
 	"codeguruprofiler":                "CodeGuruProfiler",
 	"codegurureviewer":                codeguruReviewerMod,
@@ -5948,5 +5950,34 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		ctx context.Context, state resource.PropertyMap,
 	) (resource.ID, error) {
 		return attrWithSeparator(state, "identifier"), nil
+	}
+	prov.Resources["aws_s3tables_table_bucket"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attrWithSeparator(state, "arn"), nil
+	}
+
+	prov.Resources["aws_s3tables_table_policy"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attrWithSeparator(state, ";", "tableBucketArn", "namespace", "name"), nil
+	}
+
+	prov.Resources["aws_s3tables_table"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attrWithSeparator(state, ";", "tableBucketArn", "namespace", "name"), nil
+	}
+
+	prov.Resources["aws_s3tables_namespace"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attrWithSeparator(state, ";", "tableBucketArn", "namespace"), nil
+	}
+
+	prov.Resources["aws_s3tables_table_bucket_policy"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attrWithSeparator(state, "tableBucketArn"), nil
 	}
 }

@@ -18,10 +18,10 @@ index b6d8c71ef7..f78c4502b0 100644
  		Blocks: map[string]schema.Block{
  			names.AttrDestination: schema.ListNestedBlock{
 diff --git a/internal/service/bedrock/custom_model.go b/internal/service/bedrock/custom_model.go
-index daba31c85d..8ce47d7720 100644
+index 7d1bbff332..0b7cdf8f23 100644
 --- a/internal/service/bedrock/custom_model.go
 +++ b/internal/service/bedrock/custom_model.go
-@@ -136,7 +136,7 @@ func (r *customModelResource) Schema(ctx context.Context, request resource.Schem
+@@ -139,7 +139,7 @@ func (r *customModelResource) Schema(ctx context.Context, request resource.Schem
  				},
  			},
  			names.AttrTags:       tftags.TagsAttribute(),
