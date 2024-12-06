@@ -68320,100 +68320,6 @@ export namespace s3 {
          */
         uri?: pulumi.Input<string>;
     }
-
-    export interface TablesTableBucketMaintenanceConfiguration {
-        /**
-         * A single Iceberg unreferenced file removal settings block.
-         * See `icebergUnreferencedFileRemoval` below
-         */
-        icebergUnreferencedFileRemoval: pulumi.Input<inputs.s3.TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval>;
-    }
-
-    export interface TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval {
-        /**
-         * Settings for unreferenced file removal.
-         * See `iceberg_unreferenced_file_removal.settings` below
-         */
-        settings: pulumi.Input<inputs.s3.TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings>;
-        /**
-         * Whether the configuration is enabled.
-         * Valid values are `enabled` and `disabled`.
-         */
-        status: pulumi.Input<string>;
-    }
-
-    export interface TablesTableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings {
-        /**
-         * Data objects marked for deletion are deleted after this many days.
-         * Must be at least `1`.
-         */
-        nonCurrentDays: pulumi.Input<number>;
-        /**
-         * Unreferenced data objects are marked for deletion after this many days.
-         * Must be at least `1`.
-         */
-        unreferencedDays: pulumi.Input<number>;
-    }
-
-    export interface TablesTableMaintenanceConfiguration {
-        /**
-         * A single Iceberg compaction settings block.
-         * See `icebergCompaction` below
-         */
-        icebergCompaction: pulumi.Input<inputs.s3.TablesTableMaintenanceConfigurationIcebergCompaction>;
-        /**
-         * A single Iceberg snapshot management settings block.
-         * See `icebergSnapshotManagement` below
-         */
-        icebergSnapshotManagement: pulumi.Input<inputs.s3.TablesTableMaintenanceConfigurationIcebergSnapshotManagement>;
-    }
-
-    export interface TablesTableMaintenanceConfigurationIcebergCompaction {
-        /**
-         * Settings for compaction.
-         * See `iceberg_compaction.settings` below
-         */
-        settings: pulumi.Input<inputs.s3.TablesTableMaintenanceConfigurationIcebergCompactionSettings>;
-        /**
-         * Whether the configuration is enabled.
-         * Valid values are `enabled` and `disabled`.
-         */
-        status: pulumi.Input<string>;
-    }
-
-    export interface TablesTableMaintenanceConfigurationIcebergCompactionSettings {
-        /**
-         * Data objects smaller than this size may be combined with others to improve query performance.
-         * Must be between `64` and `512`.
-         */
-        targetFileSizeMb: pulumi.Input<number>;
-    }
-
-    export interface TablesTableMaintenanceConfigurationIcebergSnapshotManagement {
-        /**
-         * Settings for snapshot management.
-         * See `iceberg_snapshot_management.settings` below
-         */
-        settings: pulumi.Input<inputs.s3.TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettings>;
-        /**
-         * Whether the configuration is enabled.
-         * Valid values are `enabled` and `disabled`.
-         */
-        status: pulumi.Input<string>;
-    }
-
-    export interface TablesTableMaintenanceConfigurationIcebergSnapshotManagementSettings {
-        /**
-         * Snapshots older than this will be marked for deletiion.
-         * Must be at least `1`.
-         */
-        maxSnapshotAgeHours: pulumi.Input<number>;
-        /**
-         * Minimum number of snapshots to keep.
-         * Must be at least `1`.
-         */
-        minSnapshotsToKeep: pulumi.Input<number>;
-    }
 }
 
 export namespace s3control {
@@ -68835,6 +68741,102 @@ export namespace s3outposts {
          * Identifier of the Elastic Network Interface (ENI).
          */
         networkInterfaceId?: pulumi.Input<string>;
+    }
+}
+
+export namespace s3tables {
+    export interface TableBucketMaintenanceConfiguration {
+        /**
+         * A single Iceberg unreferenced file removal settings block.
+         * See `icebergUnreferencedFileRemoval` below
+         */
+        icebergUnreferencedFileRemoval: pulumi.Input<inputs.s3tables.TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval>;
+    }
+
+    export interface TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval {
+        /**
+         * Settings for unreferenced file removal.
+         * See `iceberg_unreferenced_file_removal.settings` below
+         */
+        settings: pulumi.Input<inputs.s3tables.TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings>;
+        /**
+         * Whether the configuration is enabled.
+         * Valid values are `enabled` and `disabled`.
+         */
+        status: pulumi.Input<string>;
+    }
+
+    export interface TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings {
+        /**
+         * Data objects marked for deletion are deleted after this many days.
+         * Must be at least `1`.
+         */
+        nonCurrentDays: pulumi.Input<number>;
+        /**
+         * Unreferenced data objects are marked for deletion after this many days.
+         * Must be at least `1`.
+         */
+        unreferencedDays: pulumi.Input<number>;
+    }
+
+    export interface TableMaintenanceConfiguration {
+        /**
+         * A single Iceberg compaction settings block.
+         * See `icebergCompaction` below
+         */
+        icebergCompaction: pulumi.Input<inputs.s3tables.TableMaintenanceConfigurationIcebergCompaction>;
+        /**
+         * A single Iceberg snapshot management settings block.
+         * See `icebergSnapshotManagement` below
+         */
+        icebergSnapshotManagement: pulumi.Input<inputs.s3tables.TableMaintenanceConfigurationIcebergSnapshotManagement>;
+    }
+
+    export interface TableMaintenanceConfigurationIcebergCompaction {
+        /**
+         * Settings for compaction.
+         * See `iceberg_compaction.settings` below
+         */
+        settings: pulumi.Input<inputs.s3tables.TableMaintenanceConfigurationIcebergCompactionSettings>;
+        /**
+         * Whether the configuration is enabled.
+         * Valid values are `enabled` and `disabled`.
+         */
+        status: pulumi.Input<string>;
+    }
+
+    export interface TableMaintenanceConfigurationIcebergCompactionSettings {
+        /**
+         * Data objects smaller than this size may be combined with others to improve query performance.
+         * Must be between `64` and `512`.
+         */
+        targetFileSizeMb: pulumi.Input<number>;
+    }
+
+    export interface TableMaintenanceConfigurationIcebergSnapshotManagement {
+        /**
+         * Settings for snapshot management.
+         * See `iceberg_snapshot_management.settings` below
+         */
+        settings: pulumi.Input<inputs.s3tables.TableMaintenanceConfigurationIcebergSnapshotManagementSettings>;
+        /**
+         * Whether the configuration is enabled.
+         * Valid values are `enabled` and `disabled`.
+         */
+        status: pulumi.Input<string>;
+    }
+
+    export interface TableMaintenanceConfigurationIcebergSnapshotManagementSettings {
+        /**
+         * Snapshots older than this will be marked for deletiion.
+         * Must be at least `1`.
+         */
+        maxSnapshotAgeHours: pulumi.Input<number>;
+        /**
+         * Minimum number of snapshots to keep.
+         * Must be at least `1`.
+         */
+        minSnapshotsToKeep: pulumi.Input<number>;
     }
 }
 

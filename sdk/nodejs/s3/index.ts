@@ -188,31 +188,6 @@ utilities.lazyLoad(exports, ["ObjectCopy"], () => require("./objectCopy"));
 
 export * from "./routingRules";
 export * from "./s3Mixins";
-export { TablesNamespaceArgs, TablesNamespaceState } from "./tablesNamespace";
-export type TablesNamespace = import("./tablesNamespace").TablesNamespace;
-export const TablesNamespace: typeof import("./tablesNamespace").TablesNamespace = null as any;
-utilities.lazyLoad(exports, ["TablesNamespace"], () => require("./tablesNamespace"));
-
-export { TablesTableArgs, TablesTableState } from "./tablesTable";
-export type TablesTable = import("./tablesTable").TablesTable;
-export const TablesTable: typeof import("./tablesTable").TablesTable = null as any;
-utilities.lazyLoad(exports, ["TablesTable"], () => require("./tablesTable"));
-
-export { TablesTableBucketArgs, TablesTableBucketState } from "./tablesTableBucket";
-export type TablesTableBucket = import("./tablesTableBucket").TablesTableBucket;
-export const TablesTableBucket: typeof import("./tablesTableBucket").TablesTableBucket = null as any;
-utilities.lazyLoad(exports, ["TablesTableBucket"], () => require("./tablesTableBucket"));
-
-export { TablesTableBucketPolicyArgs, TablesTableBucketPolicyState } from "./tablesTableBucketPolicy";
-export type TablesTableBucketPolicy = import("./tablesTableBucketPolicy").TablesTableBucketPolicy;
-export const TablesTableBucketPolicy: typeof import("./tablesTableBucketPolicy").TablesTableBucketPolicy = null as any;
-utilities.lazyLoad(exports, ["TablesTableBucketPolicy"], () => require("./tablesTableBucketPolicy"));
-
-export { TablesTablePolicyArgs, TablesTablePolicyState } from "./tablesTablePolicy";
-export type TablesTablePolicy = import("./tablesTablePolicy").TablesTablePolicy;
-export const TablesTablePolicy: typeof import("./tablesTablePolicy").TablesTablePolicy = null as any;
-utilities.lazyLoad(exports, ["TablesTablePolicy"], () => require("./tablesTablePolicy"));
-
 
 // Export enums:
 export * from "../types/enums/s3";
@@ -275,16 +250,6 @@ const _module = {
                 return new Inventory(name, <any>undefined, { urn })
             case "aws:s3/objectCopy:ObjectCopy":
                 return new ObjectCopy(name, <any>undefined, { urn })
-            case "aws:s3/tablesNamespace:TablesNamespace":
-                return new TablesNamespace(name, <any>undefined, { urn })
-            case "aws:s3/tablesTable:TablesTable":
-                return new TablesTable(name, <any>undefined, { urn })
-            case "aws:s3/tablesTableBucket:TablesTableBucket":
-                return new TablesTableBucket(name, <any>undefined, { urn })
-            case "aws:s3/tablesTableBucketPolicy:TablesTableBucketPolicy":
-                return new TablesTableBucketPolicy(name, <any>undefined, { urn })
-            case "aws:s3/tablesTablePolicy:TablesTablePolicy":
-                return new TablesTablePolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -317,8 +282,3 @@ pulumi.runtime.registerResourceModule("aws", "s3/bucketWebsiteConfigurationV2", 
 pulumi.runtime.registerResourceModule("aws", "s3/directoryBucket", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/inventory", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/objectCopy", _module)
-pulumi.runtime.registerResourceModule("aws", "s3/tablesNamespace", _module)
-pulumi.runtime.registerResourceModule("aws", "s3/tablesTable", _module)
-pulumi.runtime.registerResourceModule("aws", "s3/tablesTableBucket", _module)
-pulumi.runtime.registerResourceModule("aws", "s3/tablesTableBucketPolicy", _module)
-pulumi.runtime.registerResourceModule("aws", "s3/tablesTablePolicy", _module)

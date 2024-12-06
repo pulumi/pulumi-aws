@@ -75,16 +75,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Inventory{}
 	case "aws:s3/objectCopy:ObjectCopy":
 		r = &ObjectCopy{}
-	case "aws:s3/tablesNamespace:TablesNamespace":
-		r = &TablesNamespace{}
-	case "aws:s3/tablesTable:TablesTable":
-		r = &TablesTable{}
-	case "aws:s3/tablesTableBucket:TablesTableBucket":
-		r = &TablesTableBucket{}
-	case "aws:s3/tablesTableBucketPolicy:TablesTableBucketPolicy":
-		r = &TablesTableBucketPolicy{}
-	case "aws:s3/tablesTablePolicy:TablesTablePolicy":
-		r = &TablesTablePolicy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -231,31 +221,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"s3/objectCopy",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"aws",
-		"s3/tablesNamespace",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"aws",
-		"s3/tablesTable",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"aws",
-		"s3/tablesTableBucket",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"aws",
-		"s3/tablesTableBucketPolicy",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"aws",
-		"s3/tablesTablePolicy",
 		&module{version},
 	)
 }

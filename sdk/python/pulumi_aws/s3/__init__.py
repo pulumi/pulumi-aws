@@ -42,10 +42,5 @@ from .get_object import *
 from .get_objects import *
 from .inventory import *
 from .object_copy import *
-from .tables_namespace import *
-from .tables_table import *
-from .tables_table_bucket import *
-from .tables_table_bucket_policy import *
-from .tables_table_policy import *
 from ._inputs import *
 from . import outputs

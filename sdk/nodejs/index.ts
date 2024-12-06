@@ -256,6 +256,7 @@ import * as rum from "./rum";
 import * as s3 from "./s3";
 import * as s3control from "./s3control";
 import * as s3outposts from "./s3outposts";
+import * as s3tables from "./s3tables";
 import * as sagemaker from "./sagemaker";
 import * as scheduler from "./scheduler";
 import * as schemas from "./schemas";
@@ -475,6 +476,7 @@ export {
     s3,
     s3control,
     s3outposts,
+    s3tables,
     sagemaker,
     scheduler,
     schemas,

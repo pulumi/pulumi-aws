@@ -378,6 +378,8 @@ if typing.TYPE_CHECKING:
     s3control = __s3control
     import pulumi_aws.s3outposts as __s3outposts
     s3outposts = __s3outposts
+    import pulumi_aws.s3tables as __s3tables
+    s3tables = __s3tables
     import pulumi_aws.sagemaker as __sagemaker
     sagemaker = __sagemaker
     import pulumi_aws.scheduler as __scheduler
@@ -634,6 +636,7 @@ else:
     s3 = _utilities.lazy_import('pulumi_aws.s3')
     s3control = _utilities.lazy_import('pulumi_aws.s3control')
     s3outposts = _utilities.lazy_import('pulumi_aws.s3outposts')
+    s3tables = _utilities.lazy_import('pulumi_aws.s3tables')
     sagemaker = _utilities.lazy_import('pulumi_aws.sagemaker')
     scheduler = _utilities.lazy_import('pulumi_aws.scheduler')
     schemas = _utilities.lazy_import('pulumi_aws.schemas')
@@ -10127,46 +10130,6 @@ _utilities.register(
  },
  {
   "pkg": "aws",
-  "mod": "s3/tablesNamespace",
-  "fqn": "pulumi_aws.s3",
-  "classes": {
-   "aws:s3/tablesNamespace:TablesNamespace": "TablesNamespace"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "s3/tablesTable",
-  "fqn": "pulumi_aws.s3",
-  "classes": {
-   "aws:s3/tablesTable:TablesTable": "TablesTable"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "s3/tablesTableBucket",
-  "fqn": "pulumi_aws.s3",
-  "classes": {
-   "aws:s3/tablesTableBucket:TablesTableBucket": "TablesTableBucket"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "s3/tablesTableBucketPolicy",
-  "fqn": "pulumi_aws.s3",
-  "classes": {
-   "aws:s3/tablesTableBucketPolicy:TablesTableBucketPolicy": "TablesTableBucketPolicy"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "s3/tablesTablePolicy",
-  "fqn": "pulumi_aws.s3",
-  "classes": {
-   "aws:s3/tablesTablePolicy:TablesTablePolicy": "TablesTablePolicy"
-  }
- },
- {
-  "pkg": "aws",
   "mod": "s3control/accessGrant",
   "fqn": "pulumi_aws.s3control",
   "classes": {
@@ -10275,6 +10238,46 @@ _utilities.register(
   "fqn": "pulumi_aws.s3outposts",
   "classes": {
    "aws:s3outposts/endpoint:Endpoint": "Endpoint"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3tables/namespace",
+  "fqn": "pulumi_aws.s3tables",
+  "classes": {
+   "aws:s3tables/namespace:Namespace": "Namespace"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3tables/table",
+  "fqn": "pulumi_aws.s3tables",
+  "classes": {
+   "aws:s3tables/table:Table": "Table"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3tables/tableBucket",
+  "fqn": "pulumi_aws.s3tables",
+  "classes": {
+   "aws:s3tables/tableBucket:TableBucket": "TableBucket"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3tables/tableBucketPolicy",
+  "fqn": "pulumi_aws.s3tables",
+  "classes": {
+   "aws:s3tables/tableBucketPolicy:TableBucketPolicy": "TableBucketPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3tables/tablePolicy",
+  "fqn": "pulumi_aws.s3tables",
+  "classes": {
+   "aws:s3tables/tablePolicy:TablePolicy": "TablePolicy"
   }
  },
  {
