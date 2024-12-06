@@ -449,7 +449,7 @@ var moduleMap = map[string]string{
 	"s3":                              s3Mod,
 	"s3control":                       s3ControlMod,
 	"s3outposts":                      s3OutpostsMod,
-	"s3_tables":                       s3TablesMod,
+	"s3tables":                        s3TablesMod,
 	"sagemaker":                       sagemakerMod,
 	"scheduler":                       schedulerMod,
 	"schemas":                         schemasMod,
@@ -3869,6 +3869,17 @@ compatibility shim in favor of the new "name" field.`)
 			},
 			// S3 Outposts
 			"aws_s3outposts_endpoint": {Tok: awsResource(s3OutpostsMod, "Endpoint")},
+			// S3 Tables
+			"aws_s3tables_namespace": {
+				Tok: awsResource(s3TablesMod, "Namespace"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"namespace": {
+						// Avoid conflict with "Namespace" class name that breaks compilation.
+						CSharpName: "NameSpace",
+					},
+				},
+			},
+
 			// Systems Manager (SSM)
 			"aws_ssm_activation":                {Tok: awsResource(ssmMod, "Activation")},
 			"aws_ssm_association":               {Tok: awsResource(ssmMod, "Association")},
