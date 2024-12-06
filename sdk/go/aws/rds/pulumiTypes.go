@@ -920,9 +920,9 @@ func (o ClusterScalingConfigurationPtrOutput) TimeoutAction() pulumi.StringPtrOu
 }
 
 type ClusterServerlessv2ScalingConfiguration struct {
-	// Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0.5` up to `256` in steps of `0.5`.
+	// Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
 	MaxCapacity float64 `pulumi:"maxCapacity"`
-	// Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0.5` up to `256` in steps of `0.5`.
+	// Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
 	MinCapacity float64 `pulumi:"minCapacity"`
 }
 
@@ -938,9 +938,9 @@ type ClusterServerlessv2ScalingConfigurationInput interface {
 }
 
 type ClusterServerlessv2ScalingConfigurationArgs struct {
-	// Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0.5` up to `256` in steps of `0.5`.
+	// Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
 	MaxCapacity pulumi.Float64Input `pulumi:"maxCapacity"`
-	// Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0.5` up to `256` in steps of `0.5`.
+	// Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
 	MinCapacity pulumi.Float64Input `pulumi:"minCapacity"`
 }
 
@@ -1021,12 +1021,12 @@ func (o ClusterServerlessv2ScalingConfigurationOutput) ToClusterServerlessv2Scal
 	}).(ClusterServerlessv2ScalingConfigurationPtrOutput)
 }
 
-// Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0.5` up to `256` in steps of `0.5`.
+// Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
 func (o ClusterServerlessv2ScalingConfigurationOutput) MaxCapacity() pulumi.Float64Output {
 	return o.ApplyT(func(v ClusterServerlessv2ScalingConfiguration) float64 { return v.MaxCapacity }).(pulumi.Float64Output)
 }
 
-// Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0.5` up to `256` in steps of `0.5`.
+// Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
 func (o ClusterServerlessv2ScalingConfigurationOutput) MinCapacity() pulumi.Float64Output {
 	return o.ApplyT(func(v ClusterServerlessv2ScalingConfiguration) float64 { return v.MinCapacity }).(pulumi.Float64Output)
 }
@@ -1055,7 +1055,7 @@ func (o ClusterServerlessv2ScalingConfigurationPtrOutput) Elem() ClusterServerle
 	}).(ClusterServerlessv2ScalingConfigurationOutput)
 }
 
-// Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0.5` up to `256` in steps of `0.5`.
+// Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
 func (o ClusterServerlessv2ScalingConfigurationPtrOutput) MaxCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ClusterServerlessv2ScalingConfiguration) *float64 {
 		if v == nil {
@@ -1065,7 +1065,7 @@ func (o ClusterServerlessv2ScalingConfigurationPtrOutput) MaxCapacity() pulumi.F
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0.5` up to `256` in steps of `0.5`.
+// Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
 func (o ClusterServerlessv2ScalingConfigurationPtrOutput) MinCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ClusterServerlessv2ScalingConfiguration) *float64 {
 		if v == nil {

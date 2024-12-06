@@ -581,11 +581,11 @@ if not MYPY:
     class ClusterServerlessv2ScalingConfigurationArgsDict(TypedDict):
         max_capacity: pulumi.Input[float]
         """
-        Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0.5` up to `256` in steps of `0.5`.
+        Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
         """
         min_capacity: pulumi.Input[float]
         """
-        Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0.5` up to `256` in steps of `0.5`.
+        Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
         """
 elif False:
     ClusterServerlessv2ScalingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -596,8 +596,8 @@ class ClusterServerlessv2ScalingConfigurationArgs:
                  max_capacity: pulumi.Input[float],
                  min_capacity: pulumi.Input[float]):
         """
-        :param pulumi.Input[float] max_capacity: Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0.5` up to `256` in steps of `0.5`.
-        :param pulumi.Input[float] min_capacity: Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0.5` up to `256` in steps of `0.5`.
+        :param pulumi.Input[float] max_capacity: Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
+        :param pulumi.Input[float] min_capacity: Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
         """
         pulumi.set(__self__, "max_capacity", max_capacity)
         pulumi.set(__self__, "min_capacity", min_capacity)
@@ -606,7 +606,7 @@ class ClusterServerlessv2ScalingConfigurationArgs:
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> pulumi.Input[float]:
         """
-        Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0.5` up to `256` in steps of `0.5`.
+        Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
         """
         return pulumi.get(self, "max_capacity")
 
@@ -618,7 +618,7 @@ class ClusterServerlessv2ScalingConfigurationArgs:
     @pulumi.getter(name="minCapacity")
     def min_capacity(self) -> pulumi.Input[float]:
         """
-        Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0.5` up to `256` in steps of `0.5`.
+        Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
         """
         return pulumi.get(self, "min_capacity")
 

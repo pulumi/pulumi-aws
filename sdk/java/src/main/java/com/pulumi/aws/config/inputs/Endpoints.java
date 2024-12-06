@@ -1230,6 +1230,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String s3tables;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String sagemaker;
     /**
      * @return Use this to override the default service endpoint URL
@@ -3183,6 +3188,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> s3tables() {
+        return Optional.ofNullable(this.s3tables);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> sagemaker() {
         return Optional.ofNullable(this.sagemaker);
     }
@@ -3782,6 +3794,7 @@ public final class Endpoints {
         private @Nullable String s3api;
         private @Nullable String s3control;
         private @Nullable String s3outposts;
+        private @Nullable String s3tables;
         private @Nullable String sagemaker;
         private @Nullable String scheduler;
         private @Nullable String schemas;
@@ -4078,6 +4091,7 @@ public final class Endpoints {
     	      this.s3api = defaults.s3api;
     	      this.s3control = defaults.s3control;
     	      this.s3outposts = defaults.s3outposts;
+    	      this.s3tables = defaults.s3tables;
     	      this.sagemaker = defaults.sagemaker;
     	      this.scheduler = defaults.scheduler;
     	      this.schemas = defaults.schemas;
@@ -5589,6 +5603,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder s3tables(@Nullable String s3tables) {
+
+            this.s3tables = s3tables;
+            return this;
+        }
+        @CustomType.Setter
         public Builder sagemaker(@Nullable String sagemaker) {
 
             this.sagemaker = sagemaker;
@@ -6133,6 +6153,7 @@ public final class Endpoints {
             _resultValue.s3api = s3api;
             _resultValue.s3control = s3control;
             _resultValue.s3outposts = s3outposts;
+            _resultValue.s3tables = s3tables;
             _resultValue.sagemaker = sagemaker;
             _resultValue.scheduler = scheduler;
             _resultValue.schemas = schemas;

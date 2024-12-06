@@ -303,44 +303,6 @@ class ParameterGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides an RDS DB parameter group resource. Documentation of the available parameters for various RDS engines can be found at:
-
-        * [Aurora MySQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Reference.html)
-        * [Aurora PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraPostgreSQL.Reference.html)
-        * [MariaDB Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MariaDB.Parameters.html)
-        * [Oracle Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ModifyInstance.Oracle.html#USER_ModifyInstance.Oracle.sqlnet)
-        * [PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.html#Appendix.PostgreSQL.CommonDBATasks.Parameters)
-
-        > **Hands-on:** For an example of the `rds.ParameterGroup` in use, follow the Manage AWS RDS Instances tutorial on HashiCorp Learn.
-
-        > **NOTE**: to make diffs less confusing, the AWS provider will ignore changes for a `parameter` whose `value` remains
-        unchanged but whose `apply_method` is changing (e.g., from `immediate` to `pending-reboot`, or `pending-reboot` to
-        `immediate`). This matches the cloud: if only the apply method of a parameter is changing, the AWS API will not register
-        this change. To change the `apply_method` of a parameter, its value must also change.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.rds.ParameterGroup("default",
-            name="rds-pg",
-            family="mysql5.6",
-            parameters=[
-                {
-                    "name": "character_set_server",
-                    "value": "utf8",
-                },
-                {
-                    "name": "character_set_client",
-                    "value": "utf8",
-                },
-            ])
-        ```
-
         ## Import
 
         Using `pulumi import`, import DB Parameter groups using the `name`. For example:
@@ -365,44 +327,6 @@ class ParameterGroup(pulumi.CustomResource):
                  args: ParameterGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an RDS DB parameter group resource. Documentation of the available parameters for various RDS engines can be found at:
-
-        * [Aurora MySQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Reference.html)
-        * [Aurora PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraPostgreSQL.Reference.html)
-        * [MariaDB Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MariaDB.Parameters.html)
-        * [Oracle Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ModifyInstance.Oracle.html#USER_ModifyInstance.Oracle.sqlnet)
-        * [PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.html#Appendix.PostgreSQL.CommonDBATasks.Parameters)
-
-        > **Hands-on:** For an example of the `rds.ParameterGroup` in use, follow the Manage AWS RDS Instances tutorial on HashiCorp Learn.
-
-        > **NOTE**: to make diffs less confusing, the AWS provider will ignore changes for a `parameter` whose `value` remains
-        unchanged but whose `apply_method` is changing (e.g., from `immediate` to `pending-reboot`, or `pending-reboot` to
-        `immediate`). This matches the cloud: if only the apply method of a parameter is changing, the AWS API will not register
-        this change. To change the `apply_method` of a parameter, its value must also change.
-
-        ## Example Usage
-
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.rds.ParameterGroup("default",
-            name="rds-pg",
-            family="mysql5.6",
-            parameters=[
-                {
-                    "name": "character_set_server",
-                    "value": "utf8",
-                },
-                {
-                    "name": "character_set_client",
-                    "value": "utf8",
-                },
-            ])
-        ```
-
         ## Import
 
         Using `pulumi import`, import DB Parameter groups using the `name`. For example:

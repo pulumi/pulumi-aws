@@ -21,7 +21,6 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securityhub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -41,11 +40,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = aws.NewStandardsControlAssociation(ctx, "cis_aws_foundations_benchmark_disable_iam_1", &aws.StandardsControlAssociationArgs{
+//			_, err = securityhub.NewStandardsControlAssociation(ctx, "cis_aws_foundations_benchmark_disable_iam_1", &securityhub.StandardsControlAssociationArgs{
 //				StandardsArn:      cisAwsFoundationsBenchmark.StandardsArn,
-//				SecurityControlId: "IAM.1",
-//				AssociationStatus: "DISABLED",
-//				UpdatedReason:     "Not needed",
+//				SecurityControlId: pulumi.String("IAM.1"),
+//				AssociationStatus: pulumi.String("DISABLED"),
+//				UpdatedReason:     pulumi.String("Not needed"),
 //			})
 //			if err != nil {
 //				return err

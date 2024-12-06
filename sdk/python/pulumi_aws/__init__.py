@@ -120,6 +120,8 @@ if typing.TYPE_CHECKING:
     codecatalyst = __codecatalyst
     import pulumi_aws.codecommit as __codecommit
     codecommit = __codecommit
+    import pulumi_aws.codeconnections as __codeconnections
+    codeconnections = __codeconnections
     import pulumi_aws.codedeploy as __codedeploy
     codedeploy = __codedeploy
     import pulumi_aws.codeguruprofiler as __codeguruprofiler
@@ -376,6 +378,8 @@ if typing.TYPE_CHECKING:
     s3control = __s3control
     import pulumi_aws.s3outposts as __s3outposts
     s3outposts = __s3outposts
+    import pulumi_aws.s3tables as __s3tables
+    s3tables = __s3tables
     import pulumi_aws.sagemaker as __sagemaker
     sagemaker = __sagemaker
     import pulumi_aws.scheduler as __scheduler
@@ -503,6 +507,7 @@ else:
     codebuild = _utilities.lazy_import('pulumi_aws.codebuild')
     codecatalyst = _utilities.lazy_import('pulumi_aws.codecatalyst')
     codecommit = _utilities.lazy_import('pulumi_aws.codecommit')
+    codeconnections = _utilities.lazy_import('pulumi_aws.codeconnections')
     codedeploy = _utilities.lazy_import('pulumi_aws.codedeploy')
     codeguruprofiler = _utilities.lazy_import('pulumi_aws.codeguruprofiler')
     codegurureviewer = _utilities.lazy_import('pulumi_aws.codegurureviewer')
@@ -631,6 +636,7 @@ else:
     s3 = _utilities.lazy_import('pulumi_aws.s3')
     s3control = _utilities.lazy_import('pulumi_aws.s3control')
     s3outposts = _utilities.lazy_import('pulumi_aws.s3outposts')
+    s3tables = _utilities.lazy_import('pulumi_aws.s3tables')
     sagemaker = _utilities.lazy_import('pulumi_aws.sagemaker')
     scheduler = _utilities.lazy_import('pulumi_aws.scheduler')
     schemas = _utilities.lazy_import('pulumi_aws.schemas')
@@ -2840,6 +2846,22 @@ _utilities.register(
   "fqn": "pulumi_aws.codecommit",
   "classes": {
    "aws:codecommit/trigger:Trigger": "Trigger"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "codeconnections/connection",
+  "fqn": "pulumi_aws.codeconnections",
+  "classes": {
+   "aws:codeconnections/connection:Connection": "Connection"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "codeconnections/host",
+  "fqn": "pulumi_aws.codeconnections",
+  "classes": {
+   "aws:codeconnections/host:Host": "Host"
   }
  },
  {
@@ -10216,6 +10238,46 @@ _utilities.register(
   "fqn": "pulumi_aws.s3outposts",
   "classes": {
    "aws:s3outposts/endpoint:Endpoint": "Endpoint"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3tables/namespace",
+  "fqn": "pulumi_aws.s3tables",
+  "classes": {
+   "aws:s3tables/namespace:Namespace": "Namespace"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3tables/table",
+  "fqn": "pulumi_aws.s3tables",
+  "classes": {
+   "aws:s3tables/table:Table": "Table"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3tables/tableBucket",
+  "fqn": "pulumi_aws.s3tables",
+  "classes": {
+   "aws:s3tables/tableBucket:TableBucket": "TableBucket"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3tables/tableBucketPolicy",
+  "fqn": "pulumi_aws.s3tables",
+  "classes": {
+   "aws:s3tables/tableBucketPolicy:TableBucketPolicy": "TableBucketPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3tables/tablePolicy",
+  "fqn": "pulumi_aws.s3tables",
+  "classes": {
+   "aws:s3tables/tablePolicy:TablePolicy": "TablePolicy"
   }
  },
  {

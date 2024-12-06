@@ -15823,9 +15823,9 @@ func (o BucketWebsiteConfigurationV2RoutingRuleRedirectOutput) ReplaceKeyWith() 
 }
 
 type DirectoryBucketLocation struct {
-	// [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids).
+	// [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
 	Name string `pulumi:"name"`
-	// Location type. Valid values: `AvailabilityZone`.
+	// Location type. Valid values: `AvailabilityZone`, `LocalZone`.
 	Type *string `pulumi:"type"`
 }
 
@@ -15841,9 +15841,9 @@ type DirectoryBucketLocationInput interface {
 }
 
 type DirectoryBucketLocationArgs struct {
-	// [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids).
+	// [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Location type. Valid values: `AvailabilityZone`.
+	// Location type. Valid values: `AvailabilityZone`, `LocalZone`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -15924,12 +15924,12 @@ func (o DirectoryBucketLocationOutput) ToDirectoryBucketLocationPtrOutputWithCon
 	}).(DirectoryBucketLocationPtrOutput)
 }
 
-// [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids).
+// [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
 func (o DirectoryBucketLocationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DirectoryBucketLocation) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Location type. Valid values: `AvailabilityZone`.
+// Location type. Valid values: `AvailabilityZone`, `LocalZone`.
 func (o DirectoryBucketLocationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DirectoryBucketLocation) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -15958,7 +15958,7 @@ func (o DirectoryBucketLocationPtrOutput) Elem() DirectoryBucketLocationOutput {
 	}).(DirectoryBucketLocationOutput)
 }
 
-// [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids).
+// [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
 func (o DirectoryBucketLocationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DirectoryBucketLocation) *string {
 		if v == nil {
@@ -15968,7 +15968,7 @@ func (o DirectoryBucketLocationPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Location type. Valid values: `AvailabilityZone`.
+// Location type. Valid values: `AvailabilityZone`, `LocalZone`.
 func (o DirectoryBucketLocationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DirectoryBucketLocation) *string {
 		if v == nil {

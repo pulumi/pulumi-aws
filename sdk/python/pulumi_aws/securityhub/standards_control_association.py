@@ -187,11 +187,11 @@ class StandardsControlAssociation(pulumi.CustomResource):
         example = aws.securityhub.Account("example")
         cis_aws_foundations_benchmark = aws.securityhub.StandardsSubscription("cis_aws_foundations_benchmark", standards_arn="arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
         opts = pulumi.ResourceOptions(depends_on=[example]))
-        cis_aws_foundations_benchmark_disable_iam1 = aws.index.StandardsControlAssociation("cis_aws_foundations_benchmark_disable_iam_1",
+        cis_aws_foundations_benchmark_disable_iam1 = aws.securityhub.StandardsControlAssociation("cis_aws_foundations_benchmark_disable_iam_1",
             standards_arn=cis_aws_foundations_benchmark.standards_arn,
-            security_control_id=IAM.1,
-            association_status=DISABLED,
-            updated_reason=Not needed)
+            security_control_id="IAM.1",
+            association_status="DISABLED",
+            updated_reason="Not needed")
         ```
 
         :param str resource_name: The name of the resource.
@@ -221,11 +221,11 @@ class StandardsControlAssociation(pulumi.CustomResource):
         example = aws.securityhub.Account("example")
         cis_aws_foundations_benchmark = aws.securityhub.StandardsSubscription("cis_aws_foundations_benchmark", standards_arn="arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
         opts = pulumi.ResourceOptions(depends_on=[example]))
-        cis_aws_foundations_benchmark_disable_iam1 = aws.index.StandardsControlAssociation("cis_aws_foundations_benchmark_disable_iam_1",
+        cis_aws_foundations_benchmark_disable_iam1 = aws.securityhub.StandardsControlAssociation("cis_aws_foundations_benchmark_disable_iam_1",
             standards_arn=cis_aws_foundations_benchmark.standards_arn,
-            security_control_id=IAM.1,
-            association_status=DISABLED,
-            updated_reason=Not needed)
+            security_control_id="IAM.1",
+            association_status="DISABLED",
+            updated_reason="Not needed")
         ```
 
         :param str resource_name: The name of the resource.

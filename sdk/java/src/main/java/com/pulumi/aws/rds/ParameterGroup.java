@@ -19,69 +19,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides an RDS DB parameter group resource. Documentation of the available parameters for various RDS engines can be found at:
- * 
- * * [Aurora MySQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Reference.html)
- * * [Aurora PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraPostgreSQL.Reference.html)
- * * [MariaDB Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MariaDB.Parameters.html)
- * * [Oracle Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ModifyInstance.Oracle.html#USER_ModifyInstance.Oracle.sqlnet)
- * * [PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.html#Appendix.PostgreSQL.CommonDBATasks.Parameters)
- * 
- * &gt; **Hands-on:** For an example of the `aws.rds.ParameterGroup` in use, follow the Manage AWS RDS Instances tutorial on HashiCorp Learn.
- * 
- * &gt; **NOTE**: to make diffs less confusing, the AWS provider will ignore changes for a `parameter` whose `value` remains
- * unchanged but whose `apply_method` is changing (e.g., from `immediate` to `pending-reboot`, or `pending-reboot` to
- * `immediate`). This matches the cloud: if only the apply method of a parameter is changing, the AWS API will not register
- * this change. To change the `apply_method` of a parameter, its value must also change.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.rds.ParameterGroup;
- * import com.pulumi.aws.rds.ParameterGroupArgs;
- * import com.pulumi.aws.rds.inputs.ParameterGroupParameterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var default_ = new ParameterGroup("default", ParameterGroupArgs.builder()
- *             .name("rds-pg")
- *             .family("mysql5.6")
- *             .parameters(            
- *                 ParameterGroupParameterArgs.builder()
- *                     .name("character_set_server")
- *                     .value("utf8")
- *                     .build(),
- *                 ParameterGroupParameterArgs.builder()
- *                     .name("character_set_client")
- *                     .value("utf8")
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Using `pulumi import`, import DB Parameter groups using the `name`. For example:

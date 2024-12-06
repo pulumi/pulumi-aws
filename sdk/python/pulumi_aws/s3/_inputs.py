@@ -7679,11 +7679,11 @@ if not MYPY:
     class DirectoryBucketLocationArgsDict(TypedDict):
         name: pulumi.Input[str]
         """
-        [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids).
+        [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
         """
         type: NotRequired[pulumi.Input[str]]
         """
-        Location type. Valid values: `AvailabilityZone`.
+        Location type. Valid values: `AvailabilityZone`, `LocalZone`.
         """
 elif False:
     DirectoryBucketLocationArgsDict: TypeAlias = Mapping[str, Any]
@@ -7694,8 +7694,8 @@ class DirectoryBucketLocationArgs:
                  name: pulumi.Input[str],
                  type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids).
-        :param pulumi.Input[str] type: Location type. Valid values: `AvailabilityZone`.
+        :param pulumi.Input[str] name: [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
+        :param pulumi.Input[str] type: Location type. Valid values: `AvailabilityZone`, `LocalZone`.
         """
         pulumi.set(__self__, "name", name)
         if type is not None:
@@ -7705,7 +7705,7 @@ class DirectoryBucketLocationArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids).
+        [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
         """
         return pulumi.get(self, "name")
 
@@ -7717,7 +7717,7 @@ class DirectoryBucketLocationArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Location type. Valid values: `AvailabilityZone`.
+        Location type. Valid values: `AvailabilityZone`, `LocalZone`.
         """
         return pulumi.get(self, "type")
 

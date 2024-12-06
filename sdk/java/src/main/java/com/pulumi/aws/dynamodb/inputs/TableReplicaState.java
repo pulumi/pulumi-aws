@@ -33,6 +33,21 @@ public final class TableReplicaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether deletion protection is enabled (true) or disabled (false) on the table replica.
+     * 
+     */
+    @Import(name="deletionProtectionEnabled")
+    private @Nullable Output<Boolean> deletionProtectionEnabled;
+
+    /**
+     * @return Whether deletion protection is enabled (true) or disabled (false) on the table replica.
+     * 
+     */
+    public Optional<Output<Boolean>> deletionProtectionEnabled() {
+        return Optional.ofNullable(this.deletionProtectionEnabled);
+    }
+
+    /**
      * ARN of the _main_ or global table which this resource will replicate.
      * 
      * Optional arguments:
@@ -67,14 +82,14 @@ public final class TableReplicaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether to enable Point In Time Recovery for the replica. Default is `false`.
+     * Whether to enable Point In Time Recovery for the table replica. Default is `false`.
      * 
      */
     @Import(name="pointInTimeRecovery")
     private @Nullable Output<Boolean> pointInTimeRecovery;
 
     /**
-     * @return Whether to enable Point In Time Recovery for the replica. Default is `false`.
+     * @return Whether to enable Point In Time Recovery for the table replica. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> pointInTimeRecovery() {
@@ -138,6 +153,7 @@ public final class TableReplicaState extends com.pulumi.resources.ResourceArgs {
 
     private TableReplicaState(TableReplicaState $) {
         this.arn = $.arn;
+        this.deletionProtectionEnabled = $.deletionProtectionEnabled;
         this.globalTableArn = $.globalTableArn;
         this.kmsKeyArn = $.kmsKeyArn;
         this.pointInTimeRecovery = $.pointInTimeRecovery;
@@ -183,6 +199,27 @@ public final class TableReplicaState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param deletionProtectionEnabled Whether deletion protection is enabled (true) or disabled (false) on the table replica.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deletionProtectionEnabled(@Nullable Output<Boolean> deletionProtectionEnabled) {
+            $.deletionProtectionEnabled = deletionProtectionEnabled;
+            return this;
+        }
+
+        /**
+         * @param deletionProtectionEnabled Whether deletion protection is enabled (true) or disabled (false) on the table replica.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deletionProtectionEnabled(Boolean deletionProtectionEnabled) {
+            return deletionProtectionEnabled(Output.of(deletionProtectionEnabled));
         }
 
         /**
@@ -232,7 +269,7 @@ public final class TableReplicaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pointInTimeRecovery Whether to enable Point In Time Recovery for the replica. Default is `false`.
+         * @param pointInTimeRecovery Whether to enable Point In Time Recovery for the table replica. Default is `false`.
          * 
          * @return builder
          * 
@@ -243,7 +280,7 @@ public final class TableReplicaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pointInTimeRecovery Whether to enable Point In Time Recovery for the replica. Default is `false`.
+         * @param pointInTimeRecovery Whether to enable Point In Time Recovery for the table replica. Default is `false`.
          * 
          * @return builder
          * 

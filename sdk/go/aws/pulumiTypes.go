@@ -1170,6 +1170,8 @@ type ProviderEndpoint struct {
 	// Use this to override the default service endpoint URL
 	S3outposts *string `pulumi:"s3outposts"`
 	// Use this to override the default service endpoint URL
+	S3tables *string `pulumi:"s3tables"`
+	// Use this to override the default service endpoint URL
 	Sagemaker *string `pulumi:"sagemaker"`
 	// Use this to override the default service endpoint URL
 	Scheduler *string `pulumi:"scheduler"`
@@ -1769,6 +1771,8 @@ type ProviderEndpointArgs struct {
 	S3control pulumi.StringPtrInput `pulumi:"s3control"`
 	// Use this to override the default service endpoint URL
 	S3outposts pulumi.StringPtrInput `pulumi:"s3outposts"`
+	// Use this to override the default service endpoint URL
+	S3tables pulumi.StringPtrInput `pulumi:"s3tables"`
 	// Use this to override the default service endpoint URL
 	Sagemaker pulumi.StringPtrInput `pulumi:"sagemaker"`
 	// Use this to override the default service endpoint URL
@@ -3135,6 +3139,11 @@ func (o ProviderEndpointOutput) S3control() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) S3outposts() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.S3outposts }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o ProviderEndpointOutput) S3tables() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.S3tables }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

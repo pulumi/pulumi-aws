@@ -102,9 +102,17 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         return this.foundationModel;
     }
 
+    /**
+     * Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
+     * 
+     */
     @Import(name="guardrailConfigurations")
     private @Nullable Output<List<AgentAgentGuardrailConfigurationArgs>> guardrailConfigurations;
 
+    /**
+     * @return Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
+     * 
+     */
     public Optional<Output<List<AgentAgentGuardrailConfigurationArgs>>> guardrailConfigurations() {
         return Optional.ofNullable(this.guardrailConfigurations);
     }
@@ -125,14 +133,14 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Instructions that tell the agent what it should do and how it should interact with users.
+     * Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
      * 
      */
     @Import(name="instruction")
     private @Nullable Output<String> instruction;
 
     /**
-     * @return Instructions that tell the agent what it should do and how it should interact with users.
+     * @return Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
      * 
      */
     public Optional<Output<String>> instruction() {
@@ -351,15 +359,33 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
             return foundationModel(Output.of(foundationModel));
         }
 
+        /**
+         * @param guardrailConfigurations Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder guardrailConfigurations(@Nullable Output<List<AgentAgentGuardrailConfigurationArgs>> guardrailConfigurations) {
             $.guardrailConfigurations = guardrailConfigurations;
             return this;
         }
 
+        /**
+         * @param guardrailConfigurations Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder guardrailConfigurations(List<AgentAgentGuardrailConfigurationArgs> guardrailConfigurations) {
             return guardrailConfigurations(Output.of(guardrailConfigurations));
         }
 
+        /**
+         * @param guardrailConfigurations Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder guardrailConfigurations(AgentAgentGuardrailConfigurationArgs... guardrailConfigurations) {
             return guardrailConfigurations(List.of(guardrailConfigurations));
         }
@@ -386,7 +412,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instruction Instructions that tell the agent what it should do and how it should interact with users.
+         * @param instruction Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
          * 
          * @return builder
          * 
@@ -397,7 +423,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instruction Instructions that tell the agent what it should do and how it should interact with users.
+         * @param instruction Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
          * 
          * @return builder
          * 

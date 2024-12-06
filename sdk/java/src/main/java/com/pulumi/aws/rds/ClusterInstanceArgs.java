@@ -189,6 +189,21 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
+     * 
+     */
+    @Import(name="forceDestroy")
+    private @Nullable Output<Boolean> forceDestroy;
+
+    /**
+     * @return Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
+     * 
+     */
+    public Optional<Output<Boolean>> forceDestroy() {
+        return Optional.ofNullable(this.forceDestroy);
+    }
+
+    /**
      * Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.
      * 
      */
@@ -397,6 +412,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         this.dbSubnetGroupName = $.dbSubnetGroupName;
         this.engine = $.engine;
         this.engineVersion = $.engineVersion;
+        this.forceDestroy = $.forceDestroy;
         this.identifier = $.identifier;
         this.identifierPrefix = $.identifierPrefix;
         this.instanceClass = $.instanceClass;
@@ -661,6 +677,27 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder engineVersion(String engineVersion) {
             return engineVersion(Output.of(engineVersion));
+        }
+
+        /**
+         * @param forceDestroy Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceDestroy(@Nullable Output<Boolean> forceDestroy) {
+            $.forceDestroy = forceDestroy;
+            return this;
+        }
+
+        /**
+         * @param forceDestroy Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceDestroy(Boolean forceDestroy) {
+            return forceDestroy(Output.of(forceDestroy));
         }
 
         /**

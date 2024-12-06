@@ -10,55 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Rds
 {
     /// <summary>
-    /// Provides an RDS DB parameter group resource. Documentation of the available parameters for various RDS engines can be found at:
-    /// 
-    /// * [Aurora MySQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Reference.html)
-    /// * [Aurora PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraPostgreSQL.Reference.html)
-    /// * [MariaDB Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MariaDB.Parameters.html)
-    /// * [Oracle Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ModifyInstance.Oracle.html#USER_ModifyInstance.Oracle.sqlnet)
-    /// * [PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.html#Appendix.PostgreSQL.CommonDBATasks.Parameters)
-    /// 
-    /// &gt; **Hands-on:** For an example of the `aws.rds.ParameterGroup` in use, follow the Manage AWS RDS Instances tutorial on HashiCorp Learn.
-    /// 
-    /// &gt; **NOTE**: to make diffs less confusing, the AWS provider will ignore changes for a `parameter` whose `value` remains
-    /// unchanged but whose `apply_method` is changing (e.g., from `immediate` to `pending-reboot`, or `pending-reboot` to
-    /// `immediate`). This matches the cloud: if only the apply method of a parameter is changing, the AWS API will not register
-    /// this change. To change the `apply_method` of a parameter, its value must also change.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var @default = new Aws.Rds.ParameterGroup("default", new()
-    ///     {
-    ///         Name = "rds-pg",
-    ///         Family = "mysql5.6",
-    ///         Parameters = new[]
-    ///         {
-    ///             new Aws.Rds.Inputs.ParameterGroupParameterArgs
-    ///             {
-    ///                 Name = "character_set_server",
-    ///                 Value = "utf8",
-    ///             },
-    ///             new Aws.Rds.Inputs.ParameterGroupParameterArgs
-    ///             {
-    ///                 Name = "character_set_client",
-    ///                 Value = "utf8",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DB Parameter groups using the `name`. For example:

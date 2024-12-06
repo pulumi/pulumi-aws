@@ -96,6 +96,7 @@ const (
 	codebuildMod                = "CodeBuild"                // Code Build
 	codecatalystMod             = "CodeCatalyst"             // Code Catalyst
 	codecommitMod               = "CodeCommit"               // Code Commit
+	codeconnectionsMod          = "CodeConnections"          // Code Connections
 	codedeployMod               = "CodeDeploy"               // Code Deploy
 	codeguruReviewerMod         = "CodeGuruReviewer"         // CodeGuru Reviewer
 	codepipelineMod             = "CodePipeline"             // Code Pipeline
@@ -228,6 +229,7 @@ const (
 	s3Mod                       = "S3"                       // Simple Storage (S3)
 	s3ControlMod                = "S3Control"                // S3 Control
 	s3OutpostsMod               = "S3Outposts"               // S3 Outposts
+	s3TablesMod                 = "S3Tables"                 // S3 Tables
 	ssmMod                      = "Ssm"                      // System Manager
 	ssmContactsMod              = "SsmContacts"              // Systems Manager Incident Manager Contacts
 	ssmIncidentsMod             = "SsmIncidents"             // Systems Manager Incident Manager
@@ -319,6 +321,7 @@ var moduleMap = map[string]string{
 	"codebuild":                       codebuildMod,
 	"codecatalyst":                    codecatalystMod,
 	"codecommit":                      codecommitMod,
+	"codeconnections":                 codeconnectionsMod,
 	"codedeploy":                      codedeployMod,
 	"codeguruprofiler":                "CodeGuruProfiler",
 	"codegurureviewer":                codeguruReviewerMod,
@@ -446,6 +449,7 @@ var moduleMap = map[string]string{
 	"s3":                              s3Mod,
 	"s3control":                       s3ControlMod,
 	"s3outposts":                      s3OutpostsMod,
+	"s3tables":                        s3TablesMod,
 	"sagemaker":                       sagemakerMod,
 	"scheduler":                       schedulerMod,
 	"schemas":                         schemasMod,
@@ -3865,6 +3869,17 @@ compatibility shim in favor of the new "name" field.`)
 			},
 			// S3 Outposts
 			"aws_s3outposts_endpoint": {Tok: awsResource(s3OutpostsMod, "Endpoint")},
+			// S3 Tables
+			"aws_s3tables_namespace": {
+				Tok: awsResource(s3TablesMod, "Namespace"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"namespace": {
+						// Avoid conflict with "Namespace" class name that breaks compilation.
+						CSharpName: "NameSpace",
+					},
+				},
+			},
+
 			// Systems Manager (SSM)
 			"aws_ssm_activation":                {Tok: awsResource(ssmMod, "Activation")},
 			"aws_ssm_association":               {Tok: awsResource(ssmMod, "Association")},
@@ -5948,5 +5963,34 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		ctx context.Context, state resource.PropertyMap,
 	) (resource.ID, error) {
 		return attrWithSeparator(state, "identifier"), nil
+	}
+	prov.Resources["aws_s3tables_table_bucket"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attrWithSeparator(state, "arn"), nil
+	}
+
+	prov.Resources["aws_s3tables_table_policy"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attrWithSeparator(state, ";", "tableBucketArn", "namespace", "name"), nil
+	}
+
+	prov.Resources["aws_s3tables_table"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attrWithSeparator(state, ";", "tableBucketArn", "namespace", "name"), nil
+	}
+
+	prov.Resources["aws_s3tables_namespace"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attrWithSeparator(state, ";", "tableBucketArn", "namespace"), nil
+	}
+
+	prov.Resources["aws_s3tables_table_bucket_policy"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attrWithSeparator(state, "tableBucketArn"), nil
 	}
 }

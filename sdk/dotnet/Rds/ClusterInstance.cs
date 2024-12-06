@@ -170,6 +170,12 @@ namespace Pulumi.Aws.Rds
         public Output<string> EngineVersionActual { get; private set; } = null!;
 
         /// <summary>
+        /// Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
+        /// </summary>
+        [Output("forceDestroy")]
+        public Output<bool?> ForceDestroy { get; private set; } = null!;
+
+        /// <summary>
         /// Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.
         /// </summary>
         [Output("identifier")]
@@ -397,6 +403,12 @@ namespace Pulumi.Aws.Rds
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
+        /// Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
+        /// </summary>
+        [Input("forceDestroy")]
+        public Input<bool>? ForceDestroy { get; set; }
+
+        /// <summary>
         /// Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.
         /// </summary>
         [Input("identifier")]
@@ -578,6 +590,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("engineVersionActual")]
         public Input<string>? EngineVersionActual { get; set; }
+
+        /// <summary>
+        /// Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
+        /// </summary>
+        [Input("forceDestroy")]
+        public Input<bool>? ForceDestroy { get; set; }
 
         /// <summary>
         /// Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.

@@ -80,13 +80,15 @@ type TableReplica struct {
 
 	// ARN of the table replica.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Whether deletion protection is enabled (true) or disabled (false) on the table replica.
+	DeletionProtectionEnabled pulumi.BoolOutput `pulumi:"deletionProtectionEnabled"`
 	// ARN of the _main_ or global table which this resource will replicate.
 	//
 	// Optional arguments:
 	GlobalTableArn pulumi.StringOutput `pulumi:"globalTableArn"`
 	// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
 	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
-	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
+	// Whether to enable Point In Time Recovery for the table replica. Default is `false`.
 	PointInTimeRecovery pulumi.BoolPtrOutput `pulumi:"pointInTimeRecovery"`
 	// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
 	TableClassOverride pulumi.StringPtrOutput `pulumi:"tableClassOverride"`
@@ -133,13 +135,15 @@ func GetTableReplica(ctx *pulumi.Context,
 type tableReplicaState struct {
 	// ARN of the table replica.
 	Arn *string `pulumi:"arn"`
+	// Whether deletion protection is enabled (true) or disabled (false) on the table replica.
+	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
 	// ARN of the _main_ or global table which this resource will replicate.
 	//
 	// Optional arguments:
 	GlobalTableArn *string `pulumi:"globalTableArn"`
 	// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
+	// Whether to enable Point In Time Recovery for the table replica. Default is `false`.
 	PointInTimeRecovery *bool `pulumi:"pointInTimeRecovery"`
 	// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
 	TableClassOverride *string `pulumi:"tableClassOverride"`
@@ -154,13 +158,15 @@ type tableReplicaState struct {
 type TableReplicaState struct {
 	// ARN of the table replica.
 	Arn pulumi.StringPtrInput
+	// Whether deletion protection is enabled (true) or disabled (false) on the table replica.
+	DeletionProtectionEnabled pulumi.BoolPtrInput
 	// ARN of the _main_ or global table which this resource will replicate.
 	//
 	// Optional arguments:
 	GlobalTableArn pulumi.StringPtrInput
 	// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
 	KmsKeyArn pulumi.StringPtrInput
-	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
+	// Whether to enable Point In Time Recovery for the table replica. Default is `false`.
 	PointInTimeRecovery pulumi.BoolPtrInput
 	// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
 	TableClassOverride pulumi.StringPtrInput
@@ -177,13 +183,15 @@ func (TableReplicaState) ElementType() reflect.Type {
 }
 
 type tableReplicaArgs struct {
+	// Whether deletion protection is enabled (true) or disabled (false) on the table replica.
+	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
 	// ARN of the _main_ or global table which this resource will replicate.
 	//
 	// Optional arguments:
 	GlobalTableArn string `pulumi:"globalTableArn"`
 	// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
+	// Whether to enable Point In Time Recovery for the table replica. Default is `false`.
 	PointInTimeRecovery *bool `pulumi:"pointInTimeRecovery"`
 	// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
 	TableClassOverride *string `pulumi:"tableClassOverride"`
@@ -193,13 +201,15 @@ type tableReplicaArgs struct {
 
 // The set of arguments for constructing a TableReplica resource.
 type TableReplicaArgs struct {
+	// Whether deletion protection is enabled (true) or disabled (false) on the table replica.
+	DeletionProtectionEnabled pulumi.BoolPtrInput
 	// ARN of the _main_ or global table which this resource will replicate.
 	//
 	// Optional arguments:
 	GlobalTableArn pulumi.StringInput
 	// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
 	KmsKeyArn pulumi.StringPtrInput
-	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
+	// Whether to enable Point In Time Recovery for the table replica. Default is `false`.
 	PointInTimeRecovery pulumi.BoolPtrInput
 	// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
 	TableClassOverride pulumi.StringPtrInput
@@ -299,6 +309,11 @@ func (o TableReplicaOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableReplica) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Whether deletion protection is enabled (true) or disabled (false) on the table replica.
+func (o TableReplicaOutput) DeletionProtectionEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *TableReplica) pulumi.BoolOutput { return v.DeletionProtectionEnabled }).(pulumi.BoolOutput)
+}
+
 // ARN of the _main_ or global table which this resource will replicate.
 //
 // Optional arguments:
@@ -311,7 +326,7 @@ func (o TableReplicaOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableReplica) pulumi.StringOutput { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
 
-// Whether to enable Point In Time Recovery for the replica. Default is `false`.
+// Whether to enable Point In Time Recovery for the table replica. Default is `false`.
 func (o TableReplicaOutput) PointInTimeRecovery() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TableReplica) pulumi.BoolPtrOutput { return v.PointInTimeRecovery }).(pulumi.BoolPtrOutput)
 }

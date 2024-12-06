@@ -315,6 +315,20 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return this.engineVersionActual;
     }
     /**
+     * Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
+     * 
+     */
+    @Export(name="forceDestroy", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> forceDestroy;
+
+    /**
+     * @return Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
+     * 
+     */
+    public Output<Optional<Boolean>> forceDestroy() {
+        return Codegen.optional(this.forceDestroy);
+    }
+    /**
      * Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.
      * 
      */

@@ -178,6 +178,9 @@ namespace Pulumi.Aws.Bedrock
         [Output("foundationModel")]
         public Output<string> FoundationModel { get; private set; } = null!;
 
+        /// <summary>
+        /// Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
+        /// </summary>
         [Output("guardrailConfigurations")]
         public Output<ImmutableArray<Outputs.AgentAgentGuardrailConfiguration>> GuardrailConfigurations { get; private set; } = null!;
 
@@ -188,7 +191,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<int> IdleSessionTtlInSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// Instructions that tell the agent what it should do and how it should interact with users.
+        /// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
         /// </summary>
         [Output("instruction")]
         public Output<string> Instruction { get; private set; } = null!;
@@ -306,6 +309,10 @@ namespace Pulumi.Aws.Bedrock
 
         [Input("guardrailConfigurations")]
         private InputList<Inputs.AgentAgentGuardrailConfigurationArgs>? _guardrailConfigurations;
+
+        /// <summary>
+        /// Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
+        /// </summary>
         public InputList<Inputs.AgentAgentGuardrailConfigurationArgs> GuardrailConfigurations
         {
             get => _guardrailConfigurations ?? (_guardrailConfigurations = new InputList<Inputs.AgentAgentGuardrailConfigurationArgs>());
@@ -319,7 +326,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<int>? IdleSessionTtlInSeconds { get; set; }
 
         /// <summary>
-        /// Instructions that tell the agent what it should do and how it should interact with users.
+        /// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
         /// </summary>
         [Input("instruction")]
         public Input<string>? Instruction { get; set; }
@@ -423,6 +430,10 @@ namespace Pulumi.Aws.Bedrock
 
         [Input("guardrailConfigurations")]
         private InputList<Inputs.AgentAgentGuardrailConfigurationGetArgs>? _guardrailConfigurations;
+
+        /// <summary>
+        /// Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
+        /// </summary>
         public InputList<Inputs.AgentAgentGuardrailConfigurationGetArgs> GuardrailConfigurations
         {
             get => _guardrailConfigurations ?? (_guardrailConfigurations = new InputList<Inputs.AgentAgentGuardrailConfigurationGetArgs>());
@@ -436,7 +447,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<int>? IdleSessionTtlInSeconds { get; set; }
 
         /// <summary>
-        /// Instructions that tell the agent what it should do and how it should interact with users.
+        /// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
         /// </summary>
         [Input("instruction")]
         public Input<string>? Instruction { get; set; }

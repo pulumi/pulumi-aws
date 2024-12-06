@@ -43,8 +43,9 @@ class AgentAgentArgs:
                The following arguments are optional:
         :param pulumi.Input[str] customer_encryption_key_arn: ARN of the AWS KMS key that encrypts the agent.
         :param pulumi.Input[str] description: Description of the agent.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentGuardrailConfigurationArgs']]] guardrail_configurations: Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
         :param pulumi.Input[int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
-        :param pulumi.Input[str] instruction: Instructions that tell the agent what it should do and how it should interact with users.
+        :param pulumi.Input[str] instruction: Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
         :param pulumi.Input[bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
         :param pulumi.Input[bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the agent.
@@ -139,6 +140,9 @@ class AgentAgentArgs:
     @property
     @pulumi.getter(name="guardrailConfigurations")
     def guardrail_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentGuardrailConfigurationArgs']]]]:
+        """
+        Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
+        """
         return pulumi.get(self, "guardrail_configurations")
 
     @guardrail_configurations.setter
@@ -161,7 +165,7 @@ class AgentAgentArgs:
     @pulumi.getter
     def instruction(self) -> Optional[pulumi.Input[str]]:
         """
-        Instructions that tell the agent what it should do and how it should interact with users.
+        Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
         """
         return pulumi.get(self, "instruction")
 
@@ -259,8 +263,9 @@ class _AgentAgentState:
         :param pulumi.Input[str] foundation_model: Foundation model used for orchestration by the agent.
                
                The following arguments are optional:
+        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentGuardrailConfigurationArgs']]] guardrail_configurations: Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
         :param pulumi.Input[int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
-        :param pulumi.Input[str] instruction: Instructions that tell the agent what it should do and how it should interact with users.
+        :param pulumi.Input[str] instruction: Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
         :param pulumi.Input[bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
         :param pulumi.Input[bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the agent.
@@ -406,6 +411,9 @@ class _AgentAgentState:
     @property
     @pulumi.getter(name="guardrailConfigurations")
     def guardrail_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentGuardrailConfigurationArgs']]]]:
+        """
+        Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
+        """
         return pulumi.get(self, "guardrail_configurations")
 
     @guardrail_configurations.setter
@@ -428,7 +436,7 @@ class _AgentAgentState:
     @pulumi.getter
     def instruction(self) -> Optional[pulumi.Input[str]]:
         """
-        Instructions that tell the agent what it should do and how it should interact with users.
+        Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
         """
         return pulumi.get(self, "instruction")
 
@@ -593,8 +601,9 @@ class AgentAgent(pulumi.CustomResource):
         :param pulumi.Input[str] foundation_model: Foundation model used for orchestration by the agent.
                
                The following arguments are optional:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentGuardrailConfigurationArgs', 'AgentAgentGuardrailConfigurationArgsDict']]]] guardrail_configurations: Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
         :param pulumi.Input[int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
-        :param pulumi.Input[str] instruction: Instructions that tell the agent what it should do and how it should interact with users.
+        :param pulumi.Input[str] instruction: Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
         :param pulumi.Input[bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
         :param pulumi.Input[bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the agent.
@@ -768,8 +777,9 @@ class AgentAgent(pulumi.CustomResource):
         :param pulumi.Input[str] foundation_model: Foundation model used for orchestration by the agent.
                
                The following arguments are optional:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentGuardrailConfigurationArgs', 'AgentAgentGuardrailConfigurationArgsDict']]]] guardrail_configurations: Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
         :param pulumi.Input[int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
-        :param pulumi.Input[str] instruction: Instructions that tell the agent what it should do and how it should interact with users.
+        :param pulumi.Input[str] instruction: Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
         :param pulumi.Input[bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
         :param pulumi.Input[bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the agent.
@@ -868,6 +878,9 @@ class AgentAgent(pulumi.CustomResource):
     @property
     @pulumi.getter(name="guardrailConfigurations")
     def guardrail_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.AgentAgentGuardrailConfiguration']]]:
+        """
+        Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
+        """
         return pulumi.get(self, "guardrail_configurations")
 
     @property
@@ -882,7 +895,7 @@ class AgentAgent(pulumi.CustomResource):
     @pulumi.getter
     def instruction(self) -> pulumi.Output[str]:
         """
-        Instructions that tell the agent what it should do and how it should interact with users.
+        Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
         """
         return pulumi.get(self, "instruction")
 

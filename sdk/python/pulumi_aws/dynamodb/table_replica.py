@@ -20,6 +20,7 @@ __all__ = ['TableReplicaInitArgs', 'TableReplica']
 class TableReplicaInitArgs:
     def __init__(__self__, *,
                  global_table_arn: pulumi.Input[str],
+                 deletion_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  point_in_time_recovery: Optional[pulumi.Input[bool]] = None,
                  table_class_override: Optional[pulumi.Input[str]] = None,
@@ -29,12 +30,15 @@ class TableReplicaInitArgs:
         :param pulumi.Input[str] global_table_arn: ARN of the _main_ or global table which this resource will replicate.
                
                Optional arguments:
+        :param pulumi.Input[bool] deletion_protection_enabled: Whether deletion protection is enabled (true) or disabled (false) on the table replica.
         :param pulumi.Input[str] kms_key_arn: ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
-        :param pulumi.Input[bool] point_in_time_recovery: Whether to enable Point In Time Recovery for the replica. Default is `false`.
+        :param pulumi.Input[bool] point_in_time_recovery: Whether to enable Point In Time Recovery for the table replica. Default is `false`.
         :param pulumi.Input[str] table_class_override: Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "global_table_arn", global_table_arn)
+        if deletion_protection_enabled is not None:
+            pulumi.set(__self__, "deletion_protection_enabled", deletion_protection_enabled)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if point_in_time_recovery is not None:
@@ -59,6 +63,18 @@ class TableReplicaInitArgs:
         pulumi.set(self, "global_table_arn", value)
 
     @property
+    @pulumi.getter(name="deletionProtectionEnabled")
+    def deletion_protection_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether deletion protection is enabled (true) or disabled (false) on the table replica.
+        """
+        return pulumi.get(self, "deletion_protection_enabled")
+
+    @deletion_protection_enabled.setter
+    def deletion_protection_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "deletion_protection_enabled", value)
+
+    @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -74,7 +90,7 @@ class TableReplicaInitArgs:
     @pulumi.getter(name="pointInTimeRecovery")
     def point_in_time_recovery(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to enable Point In Time Recovery for the replica. Default is `false`.
+        Whether to enable Point In Time Recovery for the table replica. Default is `false`.
         """
         return pulumi.get(self, "point_in_time_recovery")
 
@@ -111,6 +127,7 @@ class TableReplicaInitArgs:
 class _TableReplicaState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
+                 deletion_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  global_table_arn: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  point_in_time_recovery: Optional[pulumi.Input[bool]] = None,
@@ -120,17 +137,20 @@ class _TableReplicaState:
         """
         Input properties used for looking up and filtering TableReplica resources.
         :param pulumi.Input[str] arn: ARN of the table replica.
+        :param pulumi.Input[bool] deletion_protection_enabled: Whether deletion protection is enabled (true) or disabled (false) on the table replica.
         :param pulumi.Input[str] global_table_arn: ARN of the _main_ or global table which this resource will replicate.
                
                Optional arguments:
         :param pulumi.Input[str] kms_key_arn: ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
-        :param pulumi.Input[bool] point_in_time_recovery: Whether to enable Point In Time Recovery for the replica. Default is `false`.
+        :param pulumi.Input[bool] point_in_time_recovery: Whether to enable Point In Time Recovery for the table replica. Default is `false`.
         :param pulumi.Input[str] table_class_override: Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if deletion_protection_enabled is not None:
+            pulumi.set(__self__, "deletion_protection_enabled", deletion_protection_enabled)
         if global_table_arn is not None:
             pulumi.set(__self__, "global_table_arn", global_table_arn)
         if kms_key_arn is not None:
@@ -158,6 +178,18 @@ class _TableReplicaState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="deletionProtectionEnabled")
+    def deletion_protection_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether deletion protection is enabled (true) or disabled (false) on the table replica.
+        """
+        return pulumi.get(self, "deletion_protection_enabled")
+
+    @deletion_protection_enabled.setter
+    def deletion_protection_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "deletion_protection_enabled", value)
 
     @property
     @pulumi.getter(name="globalTableArn")
@@ -189,7 +221,7 @@ class _TableReplicaState:
     @pulumi.getter(name="pointInTimeRecovery")
     def point_in_time_recovery(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to enable Point In Time Recovery for the replica. Default is `false`.
+        Whether to enable Point In Time Recovery for the table replica. Default is `false`.
         """
         return pulumi.get(self, "point_in_time_recovery")
 
@@ -240,6 +272,7 @@ class TableReplica(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 deletion_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  global_table_arn: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  point_in_time_recovery: Optional[pulumi.Input[bool]] = None,
@@ -291,11 +324,12 @@ class TableReplica(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] deletion_protection_enabled: Whether deletion protection is enabled (true) or disabled (false) on the table replica.
         :param pulumi.Input[str] global_table_arn: ARN of the _main_ or global table which this resource will replicate.
                
                Optional arguments:
         :param pulumi.Input[str] kms_key_arn: ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
-        :param pulumi.Input[bool] point_in_time_recovery: Whether to enable Point In Time Recovery for the replica. Default is `false`.
+        :param pulumi.Input[bool] point_in_time_recovery: Whether to enable Point In Time Recovery for the table replica. Default is `false`.
         :param pulumi.Input[str] table_class_override: Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -363,6 +397,7 @@ class TableReplica(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 deletion_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  global_table_arn: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  point_in_time_recovery: Optional[pulumi.Input[bool]] = None,
@@ -377,6 +412,7 @@ class TableReplica(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TableReplicaInitArgs.__new__(TableReplicaInitArgs)
 
+            __props__.__dict__["deletion_protection_enabled"] = deletion_protection_enabled
             if global_table_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'global_table_arn'")
             __props__.__dict__["global_table_arn"] = global_table_arn
@@ -397,6 +433,7 @@ class TableReplica(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            deletion_protection_enabled: Optional[pulumi.Input[bool]] = None,
             global_table_arn: Optional[pulumi.Input[str]] = None,
             kms_key_arn: Optional[pulumi.Input[str]] = None,
             point_in_time_recovery: Optional[pulumi.Input[bool]] = None,
@@ -411,11 +448,12 @@ class TableReplica(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the table replica.
+        :param pulumi.Input[bool] deletion_protection_enabled: Whether deletion protection is enabled (true) or disabled (false) on the table replica.
         :param pulumi.Input[str] global_table_arn: ARN of the _main_ or global table which this resource will replicate.
                
                Optional arguments:
         :param pulumi.Input[str] kms_key_arn: ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
-        :param pulumi.Input[bool] point_in_time_recovery: Whether to enable Point In Time Recovery for the replica. Default is `false`.
+        :param pulumi.Input[bool] point_in_time_recovery: Whether to enable Point In Time Recovery for the table replica. Default is `false`.
         :param pulumi.Input[str] table_class_override: Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -425,6 +463,7 @@ class TableReplica(pulumi.CustomResource):
         __props__ = _TableReplicaState.__new__(_TableReplicaState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["deletion_protection_enabled"] = deletion_protection_enabled
         __props__.__dict__["global_table_arn"] = global_table_arn
         __props__.__dict__["kms_key_arn"] = kms_key_arn
         __props__.__dict__["point_in_time_recovery"] = point_in_time_recovery
@@ -440,6 +479,14 @@ class TableReplica(pulumi.CustomResource):
         ARN of the table replica.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="deletionProtectionEnabled")
+    def deletion_protection_enabled(self) -> pulumi.Output[bool]:
+        """
+        Whether deletion protection is enabled (true) or disabled (false) on the table replica.
+        """
+        return pulumi.get(self, "deletion_protection_enabled")
 
     @property
     @pulumi.getter(name="globalTableArn")
@@ -463,7 +510,7 @@ class TableReplica(pulumi.CustomResource):
     @pulumi.getter(name="pointInTimeRecovery")
     def point_in_time_recovery(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether to enable Point In Time Recovery for the replica. Default is `false`.
+        Whether to enable Point In Time Recovery for the table replica. Default is `false`.
         """
         return pulumi.get(self, "point_in_time_recovery")
 
