@@ -81,7 +81,7 @@ export interface GetLocationResult {
  * });
  * ```
  */
-export function getLocationOutput(args: GetLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationResult> {
+export function getLocationOutput(args: GetLocationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:directconnect/getLocation:getLocation", {
         "locationCode": args.locationCode,

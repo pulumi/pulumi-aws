@@ -98,7 +98,7 @@ export interface GetInternetGatewayResult {
  * });
  * ```
  */
-export function getInternetGatewayOutput(args?: GetInternetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInternetGatewayResult> {
+export function getInternetGatewayOutput(args?: GetInternetGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInternetGatewayResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getInternetGateway:getInternetGateway", {

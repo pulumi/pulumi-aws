@@ -65,7 +65,7 @@ export interface GetRegistrationCodeResult {
  * });
  * ```
  */
-export function getRegistrationCodeOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationCodeResult> {
+export function getRegistrationCodeOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistrationCodeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:iot/getRegistrationCode:getRegistrationCode", {
     }, opts);

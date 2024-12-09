@@ -84,7 +84,7 @@ export interface GetSinkResult {
  * });
  * ```
  */
-export function getSinkOutput(args: GetSinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSinkResult> {
+export function getSinkOutput(args: GetSinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:oam/getSink:getSink", {
         "sinkIdentifier": args.sinkIdentifier,

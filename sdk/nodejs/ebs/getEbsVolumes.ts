@@ -104,7 +104,7 @@ export interface GetEbsVolumesResult {
  * export const availabilityZoneToVolumeId = exampleGetVolume.apply(exampleGetVolume => Object.values(exampleGetVolume).reduce((__obj, s) => ({ ...__obj, [s.id]: s.availabilityZone })));
  * ```
  */
-export function getEbsVolumesOutput(args?: GetEbsVolumesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEbsVolumesResult> {
+export function getEbsVolumesOutput(args?: GetEbsVolumesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEbsVolumesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ebs/getEbsVolumes:getEbsVolumes", {

@@ -697,7 +697,7 @@ def get_instance_type(instance_type: Optional[str] = None,
         valid_cores=pulumi.get(__ret__, 'valid_cores'),
         valid_threads_per_cores=pulumi.get(__ret__, 'valid_threads_per_cores'))
 def get_instance_type_output(instance_type: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceTypeResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceTypeResult]:
     """
     Get characteristics for a single EC2 Instance Type.
 
@@ -715,7 +715,7 @@ def get_instance_type_output(instance_type: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['instanceType'] = instance_type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getInstanceType:getInstanceType', __args__, opts=opts, typ=GetInstanceTypeResult)
     return __ret__.apply(lambda __response__: GetInstanceTypeResult(
         auto_recovery_supported=pulumi.get(__response__, 'auto_recovery_supported'),

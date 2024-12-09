@@ -98,7 +98,7 @@ export interface GetEngineVersionResult {
  * });
  * ```
  */
-export function getEngineVersionOutput(args?: GetEngineVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEngineVersionResult> {
+export function getEngineVersionOutput(args?: GetEngineVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEngineVersionResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:docdb/getEngineVersion:getEngineVersion", {

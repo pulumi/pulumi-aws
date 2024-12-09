@@ -92,7 +92,7 @@ export interface GetPortfolioResult {
  * });
  * ```
  */
-export function getPortfolioOutput(args: GetPortfolioOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPortfolioResult> {
+export function getPortfolioOutput(args: GetPortfolioOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPortfolioResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:servicecatalog/getPortfolio:getPortfolio", {
         "acceptLanguage": args.acceptLanguage,

@@ -99,7 +99,7 @@ def get_firehose_delivery_stream(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
 def get_firehose_delivery_stream_output(name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirehoseDeliveryStreamResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirehoseDeliveryStreamResult]:
     """
     Use this data source to get information about a Kinesis Firehose Delivery Stream for use in other resources.
 
@@ -119,7 +119,7 @@ def get_firehose_delivery_stream_output(name: Optional[pulumi.Input[str]] = None
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:kinesis/getFirehoseDeliveryStream:getFirehoseDeliveryStream', __args__, opts=opts, typ=GetFirehoseDeliveryStreamResult)
     return __ret__.apply(lambda __response__: GetFirehoseDeliveryStreamResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -114,7 +114,7 @@ export interface GetSecurityGroupRuleResult {
  * });
  * ```
  */
-export function getSecurityGroupRuleOutput(args?: GetSecurityGroupRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityGroupRuleResult> {
+export function getSecurityGroupRuleOutput(args?: GetSecurityGroupRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityGroupRuleResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:vpc/getSecurityGroupRule:getSecurityGroupRule", {

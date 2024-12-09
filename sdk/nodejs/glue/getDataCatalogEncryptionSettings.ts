@@ -44,7 +44,7 @@ export interface GetDataCatalogEncryptionSettingsResult {
 /**
  * This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
  */
-export function getDataCatalogEncryptionSettingsOutput(args: GetDataCatalogEncryptionSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCatalogEncryptionSettingsResult> {
+export function getDataCatalogEncryptionSettingsOutput(args: GetDataCatalogEncryptionSettingsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataCatalogEncryptionSettingsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:glue/getDataCatalogEncryptionSettings:getDataCatalogEncryptionSettings", {
         "catalogId": args.catalogId,

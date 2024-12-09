@@ -83,7 +83,7 @@ export interface GetOriginAccessControlResult {
  * });
  * ```
  */
-export function getOriginAccessControlOutput(args: GetOriginAccessControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginAccessControlResult> {
+export function getOriginAccessControlOutput(args: GetOriginAccessControlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOriginAccessControlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cloudfront/getOriginAccessControl:getOriginAccessControl", {
         "id": args.id,

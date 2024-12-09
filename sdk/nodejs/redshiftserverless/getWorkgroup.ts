@@ -95,7 +95,7 @@ export interface GetWorkgroupResult {
  * });
  * ```
  */
-export function getWorkgroupOutput(args: GetWorkgroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkgroupResult> {
+export function getWorkgroupOutput(args: GetWorkgroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkgroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:redshiftserverless/getWorkgroup:getWorkgroup", {
         "workgroupName": args.workgroupName,
