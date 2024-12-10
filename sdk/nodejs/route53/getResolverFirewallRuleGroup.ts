@@ -79,7 +79,7 @@ export interface GetResolverFirewallRuleGroupResult {
  * });
  * ```
  */
-export function getResolverFirewallRuleGroupOutput(args: GetResolverFirewallRuleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverFirewallRuleGroupResult> {
+export function getResolverFirewallRuleGroupOutput(args: GetResolverFirewallRuleGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResolverFirewallRuleGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:route53/getResolverFirewallRuleGroup:getResolverFirewallRuleGroup", {
         "firewallRuleGroupId": args.firewallRuleGroupId,

@@ -96,7 +96,7 @@ export interface GetMultiRegionAccessPointResult {
  * });
  * ```
  */
-export function getMultiRegionAccessPointOutput(args: GetMultiRegionAccessPointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMultiRegionAccessPointResult> {
+export function getMultiRegionAccessPointOutput(args: GetMultiRegionAccessPointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMultiRegionAccessPointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:s3control/getMultiRegionAccessPoint:getMultiRegionAccessPoint", {
         "accountId": args.accountId,

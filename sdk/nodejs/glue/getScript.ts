@@ -440,7 +440,7 @@ export interface GetScriptResult {
  * export const scalaCode = example.then(example => example.scalaCode);
  * ```
  */
-export function getScriptOutput(args: GetScriptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScriptResult> {
+export function getScriptOutput(args: GetScriptOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScriptResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:glue/getScript:getScript", {
         "dagEdges": args.dagEdges,

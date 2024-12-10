@@ -116,7 +116,7 @@ export interface GetMountTargetResult {
  * });
  * ```
  */
-export function getMountTargetOutput(args?: GetMountTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMountTargetResult> {
+export function getMountTargetOutput(args?: GetMountTargetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMountTargetResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:efs/getMountTarget:getMountTarget", {

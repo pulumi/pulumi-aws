@@ -90,7 +90,7 @@ export interface GetOrderableClusterResult {
  * });
  * ```
  */
-export function getOrderableClusterOutput(args?: GetOrderableClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderableClusterResult> {
+export function getOrderableClusterOutput(args?: GetOrderableClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrderableClusterResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:redshift/getOrderableCluster:getOrderableCluster", {

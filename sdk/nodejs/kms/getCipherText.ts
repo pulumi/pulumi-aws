@@ -99,7 +99,7 @@ export interface GetCipherTextResult {
  * });
  * ```
  */
-export function getCipherTextOutput(args: GetCipherTextOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCipherTextResult> {
+export function getCipherTextOutput(args: GetCipherTextOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCipherTextResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:kms/getCipherText:getCipherText", {
         "context": args.context,

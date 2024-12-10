@@ -274,7 +274,7 @@ export interface GetBucketObjectResult {
  * });
  * ```
  */
-export function getBucketObjectOutput(args: GetBucketObjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBucketObjectResult> {
+export function getBucketObjectOutput(args: GetBucketObjectOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBucketObjectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:s3/getBucketObject:getBucketObject", {
         "bucket": args.bucket,

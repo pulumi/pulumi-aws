@@ -83,7 +83,7 @@ export interface GetPartitionResult {
  * }));
  * ```
  */
-export function getPartitionOutput(args?: GetPartitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartitionResult> {
+export function getPartitionOutput(args?: GetPartitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPartitionResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:index/getPartition:getPartition", {

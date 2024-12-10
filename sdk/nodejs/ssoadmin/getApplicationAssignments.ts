@@ -75,7 +75,7 @@ export interface GetApplicationAssignmentsResult {
  * });
  * ```
  */
-export function getApplicationAssignmentsOutput(args: GetApplicationAssignmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationAssignmentsResult> {
+export function getApplicationAssignmentsOutput(args: GetApplicationAssignmentsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationAssignmentsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssoadmin/getApplicationAssignments:getApplicationAssignments", {
         "applicationArn": args.applicationArn,

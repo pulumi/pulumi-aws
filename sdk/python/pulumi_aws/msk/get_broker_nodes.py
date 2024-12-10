@@ -95,7 +95,7 @@ def get_broker_nodes(cluster_arn: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         node_info_lists=pulumi.get(__ret__, 'node_info_lists'))
 def get_broker_nodes_output(cluster_arn: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBrokerNodesResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBrokerNodesResult]:
     """
     Get information on an Amazon MSK Broker Nodes.
 
@@ -113,7 +113,7 @@ def get_broker_nodes_output(cluster_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['clusterArn'] = cluster_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:msk/getBrokerNodes:getBrokerNodes', __args__, opts=opts, typ=GetBrokerNodesResult)
     return __ret__.apply(lambda __response__: GetBrokerNodesResult(
         cluster_arn=pulumi.get(__response__, 'cluster_arn'),

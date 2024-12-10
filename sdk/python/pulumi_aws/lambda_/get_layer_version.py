@@ -288,7 +288,7 @@ def get_layer_version_output(compatible_architecture: Optional[pulumi.Input[Opti
                              compatible_runtime: Optional[pulumi.Input[Optional[str]]] = None,
                              layer_name: Optional[pulumi.Input[str]] = None,
                              version: Optional[pulumi.Input[Optional[int]]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLayerVersionResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLayerVersionResult]:
     """
     Provides information about a Lambda Layer Version.
 
@@ -314,7 +314,7 @@ def get_layer_version_output(compatible_architecture: Optional[pulumi.Input[Opti
     __args__['compatibleRuntime'] = compatible_runtime
     __args__['layerName'] = layer_name
     __args__['version'] = version
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:lambda/getLayerVersion:getLayerVersion', __args__, opts=opts, typ=GetLayerVersionResult)
     return __ret__.apply(lambda __response__: GetLayerVersionResult(
         arn=pulumi.get(__response__, 'arn'),

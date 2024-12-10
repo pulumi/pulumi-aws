@@ -260,7 +260,7 @@ def get_faq(faq_id: Optional[str] = None,
 def get_faq_output(faq_id: Optional[pulumi.Input[str]] = None,
                    index_id: Optional[pulumi.Input[str]] = None,
                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFaqResult]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFaqResult]:
     """
     Provides details about a specific Amazon Kendra Faq.
 
@@ -283,7 +283,7 @@ def get_faq_output(faq_id: Optional[pulumi.Input[str]] = None,
     __args__['faqId'] = faq_id
     __args__['indexId'] = index_id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:kendra/getFaq:getFaq', __args__, opts=opts, typ=GetFaqResult)
     return __ret__.apply(lambda __response__: GetFaqResult(
         arn=pulumi.get(__response__, 'arn'),

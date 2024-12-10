@@ -55,7 +55,7 @@ export interface GetSpotDatafeedSubscriptionResult {
  * const default = aws.ec2.getSpotDatafeedSubscription({});
  * ```
  */
-export function getSpotDatafeedSubscriptionOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSpotDatafeedSubscriptionResult> {
+export function getSpotDatafeedSubscriptionOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSpotDatafeedSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getSpotDatafeedSubscription:getSpotDatafeedSubscription", {
     }, opts);

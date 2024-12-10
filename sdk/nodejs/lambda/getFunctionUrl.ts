@@ -104,7 +104,7 @@ export interface GetFunctionUrlResult {
  * });
  * ```
  */
-export function getFunctionUrlOutput(args: GetFunctionUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionUrlResult> {
+export function getFunctionUrlOutput(args: GetFunctionUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFunctionUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:lambda/getFunctionUrl:getFunctionUrl", {
         "functionName": args.functionName,

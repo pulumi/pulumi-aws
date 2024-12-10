@@ -245,7 +245,7 @@ export interface GetEngineVersionResult {
  * });
  * ```
  */
-export function getEngineVersionOutput(args: GetEngineVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEngineVersionResult> {
+export function getEngineVersionOutput(args: GetEngineVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEngineVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:rds/getEngineVersion:getEngineVersion", {
         "defaultOnly": args.defaultOnly,

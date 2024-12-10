@@ -220,7 +220,7 @@ def get_key_pair_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['
                         key_name: Optional[pulumi.Input[Optional[str]]] = None,
                         key_pair_id: Optional[pulumi.Input[Optional[str]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyPairResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyPairResult]:
     """
     Use this data source to get information about a specific EC2 Key Pair.
 
@@ -256,7 +256,7 @@ def get_key_pair_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['
     __args__['keyName'] = key_name
     __args__['keyPairId'] = key_pair_id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getKeyPair:getKeyPair', __args__, opts=opts, typ=GetKeyPairResult)
     return __ret__.apply(lambda __response__: GetKeyPairResult(
         arn=pulumi.get(__response__, 'arn'),

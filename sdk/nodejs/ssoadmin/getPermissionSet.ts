@@ -99,7 +99,7 @@ export interface GetPermissionSetResult {
  * export const arn = exampleGetPermissionSet.then(exampleGetPermissionSet => exampleGetPermissionSet.arn);
  * ```
  */
-export function getPermissionSetOutput(args: GetPermissionSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionSetResult> {
+export function getPermissionSetOutput(args: GetPermissionSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPermissionSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssoadmin/getPermissionSet:getPermissionSet", {
         "arn": args.arn,
