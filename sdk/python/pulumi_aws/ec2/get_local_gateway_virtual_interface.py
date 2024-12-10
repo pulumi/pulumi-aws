@@ -189,7 +189,7 @@ def get_local_gateway_virtual_interface(filters: Optional[Sequence[Union['GetLoc
 def get_local_gateway_virtual_interface_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetLocalGatewayVirtualInterfaceFilterArgs', 'GetLocalGatewayVirtualInterfaceFilterArgsDict']]]]] = None,
                                                id: Optional[pulumi.Input[Optional[str]]] = None,
                                                tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalGatewayVirtualInterfaceResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalGatewayVirtualInterfaceResult]:
     """
     Provides details about an EC2 Local Gateway Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
 
@@ -211,7 +211,7 @@ def get_local_gateway_virtual_interface_output(filters: Optional[pulumi.Input[Op
     __args__['filters'] = filters
     __args__['id'] = id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getLocalGatewayVirtualInterface:getLocalGatewayVirtualInterface', __args__, opts=opts, typ=GetLocalGatewayVirtualInterfaceResult)
     return __ret__.apply(lambda __response__: GetLocalGatewayVirtualInterfaceResult(
         filters=pulumi.get(__response__, 'filters'),

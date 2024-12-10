@@ -84,7 +84,7 @@ export interface GetServicePrincipalResult {
  * });
  * ```
  */
-export function getServicePrincipalOutput(args: GetServicePrincipalOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServicePrincipalResult> {
+export function getServicePrincipalOutput(args: GetServicePrincipalOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServicePrincipalResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:index/getServicePrincipal:getServicePrincipal", {
         "region": args.region,

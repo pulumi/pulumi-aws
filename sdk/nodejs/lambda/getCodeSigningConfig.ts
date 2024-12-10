@@ -86,7 +86,7 @@ export interface GetCodeSigningConfigResult {
  * });
  * ```
  */
-export function getCodeSigningConfigOutput(args: GetCodeSigningConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeSigningConfigResult> {
+export function getCodeSigningConfigOutput(args: GetCodeSigningConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCodeSigningConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:lambda/getCodeSigningConfig:getCodeSigningConfig", {
         "arn": args.arn,

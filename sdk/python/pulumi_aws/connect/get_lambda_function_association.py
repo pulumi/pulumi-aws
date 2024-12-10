@@ -99,7 +99,7 @@ def get_lambda_function_association(function_arn: Optional[str] = None,
         instance_id=pulumi.get(__ret__, 'instance_id'))
 def get_lambda_function_association_output(function_arn: Optional[pulumi.Input[str]] = None,
                                            instance_id: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLambdaFunctionAssociationResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLambdaFunctionAssociationResult]:
     """
     Provides details about a specific Connect Lambda Function Association.
 
@@ -120,7 +120,7 @@ def get_lambda_function_association_output(function_arn: Optional[pulumi.Input[s
     __args__ = dict()
     __args__['functionArn'] = function_arn
     __args__['instanceId'] = instance_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:connect/getLambdaFunctionAssociation:getLambdaFunctionAssociation', __args__, opts=opts, typ=GetLambdaFunctionAssociationResult)
     return __ret__.apply(lambda __response__: GetLambdaFunctionAssociationResult(
         function_arn=pulumi.get(__response__, 'function_arn'),

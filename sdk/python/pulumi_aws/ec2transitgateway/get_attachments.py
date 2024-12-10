@@ -124,7 +124,7 @@ def get_attachments(filters: Optional[Sequence[Union['GetAttachmentsFilterArgs',
         tags=pulumi.get(__ret__, 'tags'))
 def get_attachments_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetAttachmentsFilterArgs', 'GetAttachmentsFilterArgsDict']]]]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttachmentsResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAttachmentsResult]:
     """
     Get information on EC2 Transit Gateway Attachments.
 
@@ -155,7 +155,7 @@ def get_attachments_output(filters: Optional[pulumi.Input[Optional[Sequence[Unio
     __args__ = dict()
     __args__['filters'] = filters
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2transitgateway/getAttachments:getAttachments', __args__, opts=opts, typ=GetAttachmentsResult)
     return __ret__.apply(lambda __response__: GetAttachmentsResult(
         filters=pulumi.get(__response__, 'filters'),

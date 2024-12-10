@@ -83,7 +83,7 @@ export interface GetCustomKeyStoreResult {
  * });
  * ```
  */
-export function getCustomKeyStoreOutput(args?: GetCustomKeyStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomKeyStoreResult> {
+export function getCustomKeyStoreOutput(args?: GetCustomKeyStoreOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomKeyStoreResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:kms/getCustomKeyStore:getCustomKeyStore", {
