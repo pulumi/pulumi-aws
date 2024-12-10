@@ -99,7 +99,7 @@ def get_organizational_unit_descendant_organizational_units(parent_id: Optional[
         id=pulumi.get(__ret__, 'id'),
         parent_id=pulumi.get(__ret__, 'parent_id'))
 def get_organizational_unit_descendant_organizational_units_output(parent_id: Optional[pulumi.Input[str]] = None,
-                                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationalUnitDescendantOrganizationalUnitsResult]:
+                                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationalUnitDescendantOrganizationalUnitsResult]:
     """
     Get all direct child organizational units under a parent organizational unit. This provides all children.
 
@@ -118,7 +118,7 @@ def get_organizational_unit_descendant_organizational_units_output(parent_id: Op
     """
     __args__ = dict()
     __args__['parentId'] = parent_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:organizations/getOrganizationalUnitDescendantOrganizationalUnits:getOrganizationalUnitDescendantOrganizationalUnits', __args__, opts=opts, typ=GetOrganizationalUnitDescendantOrganizationalUnitsResult)
     return __ret__.apply(lambda __response__: GetOrganizationalUnitDescendantOrganizationalUnitsResult(
         childrens=pulumi.get(__response__, 'childrens'),

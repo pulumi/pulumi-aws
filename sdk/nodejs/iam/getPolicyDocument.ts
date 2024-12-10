@@ -727,7 +727,7 @@ export interface GetPolicyDocumentResult {
  *
  * `data.aws_iam_policy_document.combined.json` will evaluate to:
  */
-export function getPolicyDocumentOutput(args?: GetPolicyDocumentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyDocumentResult> {
+export function getPolicyDocumentOutput(args?: GetPolicyDocumentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyDocumentResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:iam/getPolicyDocument:getPolicyDocument", {

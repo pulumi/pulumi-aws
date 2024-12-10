@@ -143,7 +143,7 @@ export interface GetManagedPrefixListResult {
  * });
  * ```
  */
-export function getManagedPrefixListOutput(args?: GetManagedPrefixListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedPrefixListResult> {
+export function getManagedPrefixListOutput(args?: GetManagedPrefixListOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedPrefixListResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getManagedPrefixList:getManagedPrefixList", {

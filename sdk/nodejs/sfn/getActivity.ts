@@ -70,7 +70,7 @@ export interface GetActivityResult {
  * });
  * ```
  */
-export function getActivityOutput(args?: GetActivityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActivityResult> {
+export function getActivityOutput(args?: GetActivityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActivityResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:sfn/getActivity:getActivity", {

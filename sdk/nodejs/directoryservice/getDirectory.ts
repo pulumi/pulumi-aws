@@ -118,7 +118,7 @@ export interface GetDirectoryResult {
  * });
  * ```
  */
-export function getDirectoryOutput(args: GetDirectoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDirectoryResult> {
+export function getDirectoryOutput(args: GetDirectoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDirectoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:directoryservice/getDirectory:getDirectory", {
         "directoryId": args.directoryId,

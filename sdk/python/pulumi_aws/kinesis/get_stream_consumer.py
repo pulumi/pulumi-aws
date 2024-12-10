@@ -141,7 +141,7 @@ def get_stream_consumer(arn: Optional[str] = None,
 def get_stream_consumer_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                                name: Optional[pulumi.Input[Optional[str]]] = None,
                                stream_arn: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamConsumerResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamConsumerResult]:
     """
     Provides details about a Kinesis Stream Consumer.
 
@@ -166,7 +166,7 @@ def get_stream_consumer_output(arn: Optional[pulumi.Input[Optional[str]]] = None
     __args__['arn'] = arn
     __args__['name'] = name
     __args__['streamArn'] = stream_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:kinesis/getStreamConsumer:getStreamConsumer', __args__, opts=opts, typ=GetStreamConsumerResult)
     return __ret__.apply(lambda __response__: GetStreamConsumerResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -77,7 +77,7 @@ export interface GetInfrastructureConfigurationsResult {
  * });
  * ```
  */
-export function getInfrastructureConfigurationsOutput(args?: GetInfrastructureConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInfrastructureConfigurationsResult> {
+export function getInfrastructureConfigurationsOutput(args?: GetInfrastructureConfigurationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInfrastructureConfigurationsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:imagebuilder/getInfrastructureConfigurations:getInfrastructureConfigurations", {

@@ -150,7 +150,7 @@ def get_open_id_connect_provider(arn: Optional[str] = None,
 def get_open_id_connect_provider_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                         url: Optional[pulumi.Input[Optional[str]]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOpenIdConnectProviderResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOpenIdConnectProviderResult]:
     """
     This data source can be used to fetch information about a specific
     IAM OpenID Connect provider. By using this data source, you can retrieve the
@@ -181,7 +181,7 @@ def get_open_id_connect_provider_output(arn: Optional[pulumi.Input[Optional[str]
     __args__['arn'] = arn
     __args__['tags'] = tags
     __args__['url'] = url
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:iam/getOpenIdConnectProvider:getOpenIdConnectProvider', __args__, opts=opts, typ=GetOpenIdConnectProviderResult)
     return __ret__.apply(lambda __response__: GetOpenIdConnectProviderResult(
         arn=pulumi.get(__response__, 'arn'),

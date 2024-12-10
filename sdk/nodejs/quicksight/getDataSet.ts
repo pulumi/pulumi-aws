@@ -98,7 +98,7 @@ export interface GetDataSetResult {
  * });
  * ```
  */
-export function getDataSetOutput(args: GetDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSetResult> {
+export function getDataSetOutput(args: GetDataSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:quicksight/getDataSet:getDataSet", {
         "awsAccountId": args.awsAccountId,

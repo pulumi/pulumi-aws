@@ -59,7 +59,7 @@ export interface GetRateBasedRuleResult {
  * });
  * ```
  */
-export function getRateBasedRuleOutput(args: GetRateBasedRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRateBasedRuleResult> {
+export function getRateBasedRuleOutput(args: GetRateBasedRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRateBasedRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:waf/getRateBasedRule:getRateBasedRule", {
         "name": args.name,

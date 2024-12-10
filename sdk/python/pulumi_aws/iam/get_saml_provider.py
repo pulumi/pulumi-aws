@@ -155,7 +155,7 @@ def get_saml_provider(arn: Optional[str] = None,
         valid_until=pulumi.get(__ret__, 'valid_until'))
 def get_saml_provider_output(arn: Optional[pulumi.Input[str]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSamlProviderResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSamlProviderResult]:
     """
     This data source can be used to fetch information about a specific
     IAM SAML provider. This will allow you to easily retrieve the metadata
@@ -177,7 +177,7 @@ def get_saml_provider_output(arn: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['arn'] = arn
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:iam/getSamlProvider:getSamlProvider', __args__, opts=opts, typ=GetSamlProviderResult)
     return __ret__.apply(lambda __response__: GetSamlProviderResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -123,7 +123,7 @@ export interface GetResponseHeadersPolicyResult {
  * });
  * ```
  */
-export function getResponseHeadersPolicyOutput(args?: GetResponseHeadersPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResponseHeadersPolicyResult> {
+export function getResponseHeadersPolicyOutput(args?: GetResponseHeadersPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResponseHeadersPolicyResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cloudfront/getResponseHeadersPolicy:getResponseHeadersPolicy", {

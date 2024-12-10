@@ -134,7 +134,7 @@ export interface GetReplicationGroupResult {
  * });
  * ```
  */
-export function getReplicationGroupOutput(args: GetReplicationGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationGroupResult> {
+export function getReplicationGroupOutput(args: GetReplicationGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:elasticache/getReplicationGroup:getReplicationGroup", {
         "replicationGroupId": args.replicationGroupId,

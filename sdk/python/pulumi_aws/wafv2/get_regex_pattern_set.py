@@ -139,7 +139,7 @@ def get_regex_pattern_set(name: Optional[str] = None,
         scope=pulumi.get(__ret__, 'scope'))
 def get_regex_pattern_set_output(name: Optional[pulumi.Input[str]] = None,
                                  scope: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegexPatternSetResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegexPatternSetResult]:
     """
     Retrieves the summary of a WAFv2 Regex Pattern Set.
 
@@ -160,7 +160,7 @@ def get_regex_pattern_set_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:wafv2/getRegexPatternSet:getRegexPatternSet', __args__, opts=opts, typ=GetRegexPatternSetResult)
     return __ret__.apply(lambda __response__: GetRegexPatternSetResult(
         arn=pulumi.get(__response__, 'arn'),
