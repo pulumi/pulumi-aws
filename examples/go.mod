@@ -8,7 +8,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/iam v1.38.2
 	github.com/pulumi/providertest v0.1.3
 	github.com/pulumi/pulumi-aws/provider/v6 v6.0.0-00010101000000-000000000000
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.97.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.97.1-0.20241210133859-dc9754666f03
 	github.com/pulumi/pulumi/pkg/v3 v3.142.0
 	github.com/stretchr/testify v1.9.0
 )
