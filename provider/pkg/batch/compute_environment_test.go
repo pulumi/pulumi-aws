@@ -4,14 +4,12 @@ import (
 	"context"
 	"testing"
 
-	"github.com/pulumi/pulumi-terraform-bridge/v3/unstable/logging"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/require"
 )
 
 func TestComputeEnvironmentTransformFromState(t *testing.T) {
 	ctx := context.Background()
-	ctx = logging.InitLogging(ctx, logging.LogOptions{})
 	pm := resource.PropertyMap{
 		"computeResources": resource.NewObjectProperty(resource.PropertyMap{
 			"ec2Configuration": resource.NewObjectProperty(resource.PropertyMap{
