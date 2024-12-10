@@ -137,7 +137,7 @@ def get_ledger(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_ledger_output(name: Optional[pulumi.Input[str]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLedgerResult]:
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLedgerResult]:
     """
     Use this data source to fetch information about a Quantum Ledger Database.
 
@@ -156,7 +156,7 @@ def get_ledger_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:qldb/getLedger:getLedger', __args__, opts=opts, typ=GetLedgerResult)
     return __ret__.apply(lambda __response__: GetLedgerResult(
         arn=pulumi.get(__response__, 'arn'),

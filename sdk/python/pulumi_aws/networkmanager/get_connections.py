@@ -128,7 +128,7 @@ def get_connections(device_id: Optional[str] = None,
 def get_connections_output(device_id: Optional[pulumi.Input[Optional[str]]] = None,
                            global_network_id: Optional[pulumi.Input[str]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionsResult]:
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionsResult]:
     """
     Retrieve information about connections.
 
@@ -153,7 +153,7 @@ def get_connections_output(device_id: Optional[pulumi.Input[Optional[str]]] = No
     __args__['deviceId'] = device_id
     __args__['globalNetworkId'] = global_network_id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:networkmanager/getConnections:getConnections', __args__, opts=opts, typ=GetConnectionsResult)
     return __ret__.apply(lambda __response__: GetConnectionsResult(
         device_id=pulumi.get(__response__, 'device_id'),

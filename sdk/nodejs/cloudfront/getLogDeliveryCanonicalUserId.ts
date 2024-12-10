@@ -108,7 +108,7 @@ export interface GetLogDeliveryCanonicalUserIdResult {
  * });
  * ```
  */
-export function getLogDeliveryCanonicalUserIdOutput(args?: GetLogDeliveryCanonicalUserIdOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogDeliveryCanonicalUserIdResult> {
+export function getLogDeliveryCanonicalUserIdOutput(args?: GetLogDeliveryCanonicalUserIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogDeliveryCanonicalUserIdResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", {

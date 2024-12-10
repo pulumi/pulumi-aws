@@ -110,7 +110,7 @@ export interface GetExperienceResult {
  * });
  * ```
  */
-export function getExperienceOutput(args: GetExperienceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExperienceResult> {
+export function getExperienceOutput(args: GetExperienceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExperienceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:kendra/getExperience:getExperience", {
         "experienceId": args.experienceId,

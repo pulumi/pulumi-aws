@@ -68,7 +68,7 @@ export interface GetResourceTagsResult {
  * });
  * ```
  */
-export function getResourceTagsOutput(args: GetResourceTagsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceTagsResult> {
+export function getResourceTagsOutput(args: GetResourceTagsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceTagsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:organizations/getResourceTags:getResourceTags", {
         "resourceId": args.resourceId,

@@ -149,7 +149,7 @@ def get_authorization_token(registry_id: Optional[str] = None,
         registry_id=pulumi.get(__ret__, 'registry_id'),
         user_name=pulumi.get(__ret__, 'user_name'))
 def get_authorization_token_output(registry_id: Optional[pulumi.Input[Optional[str]]] = None,
-                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizationTokenResult]:
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizationTokenResult]:
     """
     The ECR Authorization Token data source allows the authorization token, proxy endpoint, token expiration date, user name and password to be retrieved for an ECR repository.
 
@@ -167,7 +167,7 @@ def get_authorization_token_output(registry_id: Optional[pulumi.Input[Optional[s
     """
     __args__ = dict()
     __args__['registryId'] = registry_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ecr/getAuthorizationToken:getAuthorizationToken', __args__, opts=opts, typ=GetAuthorizationTokenResult)
     return __ret__.apply(lambda __response__: GetAuthorizationTokenResult(
         authorization_token=pulumi.get(__response__, 'authorization_token'),

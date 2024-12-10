@@ -95,7 +95,7 @@ export interface GetPlaceIndexResult {
  * });
  * ```
  */
-export function getPlaceIndexOutput(args: GetPlaceIndexOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPlaceIndexResult> {
+export function getPlaceIndexOutput(args: GetPlaceIndexOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlaceIndexResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:location/getPlaceIndex:getPlaceIndex", {
         "indexName": args.indexName,

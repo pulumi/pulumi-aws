@@ -157,7 +157,7 @@ export interface GetVpcDhcpOptionsResult {
  * });
  * ```
  */
-export function getVpcDhcpOptionsOutput(args?: GetVpcDhcpOptionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcDhcpOptionsResult> {
+export function getVpcDhcpOptionsOutput(args?: GetVpcDhcpOptionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcDhcpOptionsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", {

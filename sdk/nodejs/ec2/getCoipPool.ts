@@ -76,7 +76,7 @@ export interface GetCoipPoolResult {
  * an input variable and needs to, for example, determine the CIDR block of that
  * COIP Pool.
  */
-export function getCoipPoolOutput(args?: GetCoipPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCoipPoolResult> {
+export function getCoipPoolOutput(args?: GetCoipPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCoipPoolResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getCoipPool:getCoipPool", {

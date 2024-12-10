@@ -113,7 +113,7 @@ export interface GetGatewayRouteResult {
  * });
  * ```
  */
-export function getGatewayRouteOutput(args: GetGatewayRouteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGatewayRouteResult> {
+export function getGatewayRouteOutput(args: GetGatewayRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayRouteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:appmesh/getGatewayRoute:getGatewayRoute", {
         "meshName": args.meshName,

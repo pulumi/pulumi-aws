@@ -108,7 +108,7 @@ export interface GetLocalGatewayRouteTableResult {
  * });
  * ```
  */
-export function getLocalGatewayRouteTableOutput(args?: GetLocalGatewayRouteTableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalGatewayRouteTableResult> {
+export function getLocalGatewayRouteTableOutput(args?: GetLocalGatewayRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewayRouteTableResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getLocalGatewayRouteTable:getLocalGatewayRouteTable", {

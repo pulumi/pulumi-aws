@@ -145,7 +145,7 @@ export interface GetListenerRuleResult {
  * });
  * ```
  */
-export function getListenerRuleOutput(args?: GetListenerRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetListenerRuleResult> {
+export function getListenerRuleOutput(args?: GetListenerRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetListenerRuleResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:lb/getListenerRule:getListenerRule", {

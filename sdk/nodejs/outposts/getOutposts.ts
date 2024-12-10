@@ -86,7 +86,7 @@ export interface GetOutpostsResult {
  * });
  * ```
  */
-export function getOutpostsOutput(args?: GetOutpostsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOutpostsResult> {
+export function getOutpostsOutput(args?: GetOutpostsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutpostsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:outposts/getOutposts:getOutposts", {

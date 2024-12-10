@@ -88,7 +88,7 @@ export interface GetVpcConnectionResult {
  * });
  * ```
  */
-export function getVpcConnectionOutput(args: GetVpcConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcConnectionResult> {
+export function getVpcConnectionOutput(args: GetVpcConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:msk/getVpcConnection:getVpcConnection", {
         "arn": args.arn,

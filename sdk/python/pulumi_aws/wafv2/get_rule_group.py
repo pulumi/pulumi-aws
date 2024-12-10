@@ -125,7 +125,7 @@ def get_rule_group(name: Optional[str] = None,
         scope=pulumi.get(__ret__, 'scope'))
 def get_rule_group_output(name: Optional[pulumi.Input[str]] = None,
                           scope: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuleGroupResult]:
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuleGroupResult]:
     """
     Retrieves the summary of a WAFv2 Rule Group.
 
@@ -146,7 +146,7 @@ def get_rule_group_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['scope'] = scope
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:wafv2/getRuleGroup:getRuleGroup', __args__, opts=opts, typ=GetRuleGroupResult)
     return __ret__.apply(lambda __response__: GetRuleGroupResult(
         arn=pulumi.get(__response__, 'arn'),

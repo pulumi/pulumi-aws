@@ -204,7 +204,7 @@ def get_function(name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'))
 def get_function_output(name: Optional[pulumi.Input[str]] = None,
                         stage: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFunctionResult]:
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionResult]:
     """
     Provides information about a CloudFront Function.
 
@@ -226,7 +226,7 @@ def get_function_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['stage'] = stage
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cloudfront/getFunction:getFunction', __args__, opts=opts, typ=GetFunctionResult)
     return __ret__.apply(lambda __response__: GetFunctionResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -68,7 +68,7 @@ export interface GetAccessKeysResult {
  * });
  * ```
  */
-export function getAccessKeysOutput(args: GetAccessKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessKeysResult> {
+export function getAccessKeysOutput(args: GetAccessKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:iam/getAccessKeys:getAccessKeys", {
         "user": args.user,

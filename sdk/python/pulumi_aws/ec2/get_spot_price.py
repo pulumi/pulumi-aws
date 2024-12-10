@@ -145,7 +145,7 @@ def get_spot_price(availability_zone: Optional[str] = None,
 def get_spot_price_output(availability_zone: Optional[pulumi.Input[Optional[str]]] = None,
                           filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSpotPriceFilterArgs', 'GetSpotPriceFilterArgsDict']]]]] = None,
                           instance_type: Optional[pulumi.Input[Optional[str]]] = None,
-                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSpotPriceResult]:
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSpotPriceResult]:
     """
     Information about most recent Spot Price for a given EC2 instance.
 
@@ -172,7 +172,7 @@ def get_spot_price_output(availability_zone: Optional[pulumi.Input[Optional[str]
     __args__['availabilityZone'] = availability_zone
     __args__['filters'] = filters
     __args__['instanceType'] = instance_type
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getSpotPrice:getSpotPrice', __args__, opts=opts, typ=GetSpotPriceResult)
     return __ret__.apply(lambda __response__: GetSpotPriceResult(
         availability_zone=pulumi.get(__response__, 'availability_zone'),

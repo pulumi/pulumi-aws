@@ -108,7 +108,7 @@ def get_event_categories(source_type: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         source_type=pulumi.get(__ret__, 'source_type'))
 def get_event_categories_output(source_type: Optional[pulumi.Input[Optional[str]]] = None,
-                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventCategoriesResult]:
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventCategoriesResult]:
     """
     ## Example Usage
 
@@ -137,7 +137,7 @@ def get_event_categories_output(source_type: Optional[pulumi.Input[Optional[str]
     """
     __args__ = dict()
     __args__['sourceType'] = source_type
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:rds/getEventCategories:getEventCategories', __args__, opts=opts, typ=GetEventCategoriesResult)
     return __ret__.apply(lambda __response__: GetEventCategoriesResult(
         event_categories=pulumi.get(__response__, 'event_categories'),

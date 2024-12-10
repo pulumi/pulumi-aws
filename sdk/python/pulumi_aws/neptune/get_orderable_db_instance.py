@@ -354,7 +354,7 @@ def get_orderable_db_instance_output(engine: Optional[pulumi.Input[Optional[str]
                                      license_model: Optional[pulumi.Input[Optional[str]]] = None,
                                      preferred_instance_classes: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                      vpc: Optional[pulumi.Input[Optional[bool]]] = None,
-                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrderableDbInstanceResult]:
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrderableDbInstanceResult]:
     """
     Information about Neptune orderable DB instances.
 
@@ -387,7 +387,7 @@ def get_orderable_db_instance_output(engine: Optional[pulumi.Input[Optional[str]
     __args__['licenseModel'] = license_model
     __args__['preferredInstanceClasses'] = preferred_instance_classes
     __args__['vpc'] = vpc
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:neptune/getOrderableDbInstance:getOrderableDbInstance', __args__, opts=opts, typ=GetOrderableDbInstanceResult)
     return __ret__.apply(lambda __response__: GetOrderableDbInstanceResult(
         availability_zones=pulumi.get(__response__, 'availability_zones'),

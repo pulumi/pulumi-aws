@@ -133,7 +133,7 @@ def get_patch_baselines(default_baselines: Optional[bool] = None,
         id=pulumi.get(__ret__, 'id'))
 def get_patch_baselines_output(default_baselines: Optional[pulumi.Input[Optional[bool]]] = None,
                                filters: Optional[pulumi.Input[Optional[Sequence[Union['GetPatchBaselinesFilterArgs', 'GetPatchBaselinesFilterArgsDict']]]]] = None,
-                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPatchBaselinesResult]:
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPatchBaselinesResult]:
     """
     Data source for retrieving AWS SSM (Systems Manager) Patch Baselines.
 
@@ -173,7 +173,7 @@ def get_patch_baselines_output(default_baselines: Optional[pulumi.Input[Optional
     __args__ = dict()
     __args__['defaultBaselines'] = default_baselines
     __args__['filters'] = filters
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssm/getPatchBaselines:getPatchBaselines', __args__, opts=opts, typ=GetPatchBaselinesResult)
     return __ret__.apply(lambda __response__: GetPatchBaselinesResult(
         baseline_identities=pulumi.get(__response__, 'baseline_identities'),

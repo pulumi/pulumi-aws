@@ -115,7 +115,7 @@ def get_organizational_unit(name: Optional[str] = None,
         parent_id=pulumi.get(__ret__, 'parent_id'))
 def get_organizational_unit_output(name: Optional[pulumi.Input[str]] = None,
                                    parent_id: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationalUnitResult]:
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationalUnitResult]:
     """
     Data source for getting an AWS Organizations Organizational Unit.
 
@@ -139,7 +139,7 @@ def get_organizational_unit_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['parentId'] = parent_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:organizations/getOrganizationalUnit:getOrganizationalUnit', __args__, opts=opts, typ=GetOrganizationalUnitResult)
     return __ret__.apply(lambda __response__: GetOrganizationalUnitResult(
         arn=pulumi.get(__response__, 'arn'),

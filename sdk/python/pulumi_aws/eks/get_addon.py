@@ -207,7 +207,7 @@ def get_addon(addon_name: Optional[str] = None,
 def get_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
                      cluster_name: Optional[pulumi.Input[str]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAddonResult]:
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAddonResult]:
     """
     Retrieve information about an EKS add-on.
 
@@ -231,7 +231,7 @@ def get_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
     __args__['addonName'] = addon_name
     __args__['clusterName'] = cluster_name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:eks/getAddon:getAddon', __args__, opts=opts, typ=GetAddonResult)
     return __ret__.apply(lambda __response__: GetAddonResult(
         addon_name=pulumi.get(__response__, 'addon_name'),

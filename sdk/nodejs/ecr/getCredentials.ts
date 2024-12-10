@@ -31,7 +31,7 @@ export interface GetCredentialsResult {
     readonly proxyEndpoint: string;
     readonly registryId: string;
 }
-export function getCredentialsOutput(args: GetCredentialsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCredentialsResult> {
+export function getCredentialsOutput(args: GetCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ecr/getCredentials:getCredentials", {
         "registryId": args.registryId,

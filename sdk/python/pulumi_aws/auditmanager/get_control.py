@@ -201,7 +201,7 @@ def get_control(control_mapping_sources: Optional[Sequence[Union['GetControlCont
 def get_control_output(control_mapping_sources: Optional[pulumi.Input[Optional[Sequence[Union['GetControlControlMappingSourceArgs', 'GetControlControlMappingSourceArgsDict']]]]] = None,
                        name: Optional[pulumi.Input[str]] = None,
                        type: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetControlResult]:
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetControlResult]:
     """
     Data source for managing an AWS Audit Manager Control.
 
@@ -253,7 +253,7 @@ def get_control_output(control_mapping_sources: Optional[pulumi.Input[Optional[S
     __args__['controlMappingSources'] = control_mapping_sources
     __args__['name'] = name
     __args__['type'] = type
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:auditmanager/getControl:getControl', __args__, opts=opts, typ=GetControlResult)
     return __ret__.apply(lambda __response__: GetControlResult(
         action_plan_instructions=pulumi.get(__response__, 'action_plan_instructions'),

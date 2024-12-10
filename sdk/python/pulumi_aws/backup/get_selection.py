@@ -138,7 +138,7 @@ def get_selection(plan_id: Optional[str] = None,
         selection_id=pulumi.get(__ret__, 'selection_id'))
 def get_selection_output(plan_id: Optional[pulumi.Input[str]] = None,
                          selection_id: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSelectionResult]:
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSelectionResult]:
     """
     Use this data source to get information on an existing backup selection.
 
@@ -159,7 +159,7 @@ def get_selection_output(plan_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['planId'] = plan_id
     __args__['selectionId'] = selection_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:backup/getSelection:getSelection', __args__, opts=opts, typ=GetSelectionResult)
     return __ret__.apply(lambda __response__: GetSelectionResult(
         iam_role_arn=pulumi.get(__response__, 'iam_role_arn'),

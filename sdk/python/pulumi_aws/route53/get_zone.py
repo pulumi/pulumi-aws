@@ -267,7 +267,7 @@ def get_zone_output(name: Optional[pulumi.Input[Optional[str]]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                     vpc_id: Optional[pulumi.Input[Optional[str]]] = None,
                     zone_id: Optional[pulumi.Input[Optional[str]]] = None,
-                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetZoneResult]:
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetZoneResult]:
     """
     `route53.Zone` provides details about a specific Route 53 Hosted Zone.
 
@@ -304,7 +304,7 @@ def get_zone_output(name: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
     __args__['zoneId'] = zone_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:route53/getZone:getZone', __args__, opts=opts, typ=GetZoneResult)
     return __ret__.apply(lambda __response__: GetZoneResult(
         arn=pulumi.get(__response__, 'arn'),

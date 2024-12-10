@@ -128,7 +128,7 @@ export interface GetCloudFormationTypeResult {
  * });
  * ```
  */
-export function getCloudFormationTypeOutput(args?: GetCloudFormationTypeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudFormationTypeResult> {
+export function getCloudFormationTypeOutput(args?: GetCloudFormationTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudFormationTypeResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cloudformation/getCloudFormationType:getCloudFormationType", {

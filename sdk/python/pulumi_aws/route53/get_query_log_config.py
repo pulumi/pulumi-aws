@@ -190,7 +190,7 @@ def get_query_log_config_output(filters: Optional[pulumi.Input[Optional[Sequence
                                 name: Optional[pulumi.Input[Optional[str]]] = None,
                                 resolver_query_log_config_id: Optional[pulumi.Input[Optional[str]]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueryLogConfigResult]:
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueryLogConfigResult]:
     """
     `route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
 
@@ -236,7 +236,7 @@ def get_query_log_config_output(filters: Optional[pulumi.Input[Optional[Sequence
     __args__['name'] = name
     __args__['resolverQueryLogConfigId'] = resolver_query_log_config_id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:route53/getQueryLogConfig:getQueryLogConfig', __args__, opts=opts, typ=GetQueryLogConfigResult)
     return __ret__.apply(lambda __response__: GetQueryLogConfigResult(
         arn=pulumi.get(__response__, 'arn'),

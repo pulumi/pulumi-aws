@@ -101,7 +101,7 @@ export interface GetPeeringAttachmentsResult {
  * })));
  * ```
  */
-export function getPeeringAttachmentsOutput(args?: GetPeeringAttachmentsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPeeringAttachmentsResult> {
+export function getPeeringAttachmentsOutput(args?: GetPeeringAttachmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeeringAttachmentsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getPeeringAttachments:getPeeringAttachments", {

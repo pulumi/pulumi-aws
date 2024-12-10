@@ -279,7 +279,7 @@ def get_instance(instance_alias: Optional[str] = None,
 def get_instance_output(instance_alias: Optional[pulumi.Input[Optional[str]]] = None,
                         instance_id: Optional[pulumi.Input[Optional[str]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceResult]:
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceResult]:
     """
     Provides details about a specific Amazon Connect Instance.
 
@@ -312,7 +312,7 @@ def get_instance_output(instance_alias: Optional[pulumi.Input[Optional[str]]] = 
     __args__['instanceAlias'] = instance_alias
     __args__['instanceId'] = instance_id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:connect/getInstance:getInstance', __args__, opts=opts, typ=GetInstanceResult)
     return __ret__.apply(lambda __response__: GetInstanceResult(
         arn=pulumi.get(__response__, 'arn'),

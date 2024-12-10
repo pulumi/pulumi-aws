@@ -226,7 +226,7 @@ export interface GetPermissionsResult {
  * });
  * ```
  */
-export function getPermissionsOutput(args: GetPermissionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPermissionsResult> {
+export function getPermissionsOutput(args: GetPermissionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:lakeformation/getPermissions:getPermissions", {
         "catalogId": args.catalogId,

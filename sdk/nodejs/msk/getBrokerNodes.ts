@@ -63,7 +63,7 @@ export interface GetBrokerNodesResult {
  * });
  * ```
  */
-export function getBrokerNodesOutput(args: GetBrokerNodesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBrokerNodesResult> {
+export function getBrokerNodesOutput(args: GetBrokerNodesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBrokerNodesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:msk/getBrokerNodes:getBrokerNodes", {
         "clusterArn": args.clusterArn,

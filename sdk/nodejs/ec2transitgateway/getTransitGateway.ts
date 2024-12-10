@@ -165,7 +165,7 @@ export interface GetTransitGatewayResult {
  * });
  * ```
  */
-export function getTransitGatewayOutput(args?: GetTransitGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTransitGatewayResult> {
+export function getTransitGatewayOutput(args?: GetTransitGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getTransitGateway:getTransitGateway", {

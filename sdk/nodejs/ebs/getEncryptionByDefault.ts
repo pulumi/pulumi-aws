@@ -47,7 +47,7 @@ export interface GetEncryptionByDefaultResult {
  * const current = aws.ebs.getEncryptionByDefault({});
  * ```
  */
-export function getEncryptionByDefaultOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEncryptionByDefaultResult> {
+export function getEncryptionByDefaultOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetEncryptionByDefaultResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", {
     }, opts);

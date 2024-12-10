@@ -160,7 +160,7 @@ def get_contacts_rotation(arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         time_zone_id=pulumi.get(__ret__, 'time_zone_id'))
 def get_contacts_rotation_output(arn: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContactsRotationResult]:
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContactsRotationResult]:
     """
     ## Example Usage
 
@@ -178,7 +178,7 @@ def get_contacts_rotation_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssm/getContactsRotation:getContactsRotation', __args__, opts=opts, typ=GetContactsRotationResult)
     return __ret__.apply(lambda __response__: GetContactsRotationResult(
         arn=pulumi.get(__response__, 'arn'),

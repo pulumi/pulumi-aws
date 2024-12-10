@@ -73,7 +73,7 @@ export interface GetStandardsControlAssociationsResult {
  * });
  * ```
  */
-export function getStandardsControlAssociationsOutput(args: GetStandardsControlAssociationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStandardsControlAssociationsResult> {
+export function getStandardsControlAssociationsOutput(args: GetStandardsControlAssociationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStandardsControlAssociationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:securityhub/getStandardsControlAssociations:getStandardsControlAssociations", {
         "securityControlId": args.securityControlId,

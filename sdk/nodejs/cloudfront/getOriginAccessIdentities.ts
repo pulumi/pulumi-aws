@@ -104,7 +104,7 @@ export interface GetOriginAccessIdentitiesResult {
  * });
  * ```
  */
-export function getOriginAccessIdentitiesOutput(args?: GetOriginAccessIdentitiesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOriginAccessIdentitiesResult> {
+export function getOriginAccessIdentitiesOutput(args?: GetOriginAccessIdentitiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginAccessIdentitiesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cloudfront/getOriginAccessIdentities:getOriginAccessIdentities", {

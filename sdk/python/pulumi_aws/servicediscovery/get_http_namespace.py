@@ -138,7 +138,7 @@ def get_http_namespace(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_http_namespace_output(name: Optional[pulumi.Input[str]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHttpNamespaceResult]:
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHttpNamespaceResult]:
     """
     ## Example Usage
 
@@ -156,7 +156,7 @@ def get_http_namespace_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:servicediscovery/getHttpNamespace:getHttpNamespace', __args__, opts=opts, typ=GetHttpNamespaceResult)
     return __ret__.apply(lambda __response__: GetHttpNamespaceResult(
         arn=pulumi.get(__response__, 'arn'),

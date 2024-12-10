@@ -253,7 +253,7 @@ def get_job_definition_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                               name: Optional[pulumi.Input[Optional[str]]] = None,
                               revision: Optional[pulumi.Input[Optional[int]]] = None,
                               status: Optional[pulumi.Input[Optional[str]]] = None,
-                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobDefinitionResult]:
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobDefinitionResult]:
     """
     Data source for managing an AWS Batch Job Definition.
 
@@ -289,7 +289,7 @@ def get_job_definition_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['name'] = name
     __args__['revision'] = revision
     __args__['status'] = status
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:batch/getJobDefinition:getJobDefinition', __args__, opts=opts, typ=GetJobDefinitionResult)
     return __ret__.apply(lambda __response__: GetJobDefinitionResult(
         arn=pulumi.get(__response__, 'arn'),

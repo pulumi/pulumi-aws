@@ -154,7 +154,7 @@ def get_plan(plan_id: Optional[str] = None,
         version=pulumi.get(__ret__, 'version'))
 def get_plan_output(plan_id: Optional[pulumi.Input[str]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlanResult]:
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlanResult]:
     """
     Use this data source to get information on an existing backup plan.
 
@@ -174,7 +174,7 @@ def get_plan_output(plan_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['planId'] = plan_id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:backup/getPlan:getPlan', __args__, opts=opts, typ=GetPlanResult)
     return __ret__.apply(lambda __response__: GetPlanResult(
         arn=pulumi.get(__response__, 'arn'),

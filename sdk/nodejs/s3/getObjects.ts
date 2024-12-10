@@ -99,7 +99,7 @@ export interface GetObjectsResult {
  *
  * The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
  */
-export function getObjectsOutput(args: GetObjectsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetObjectsResult> {
+export function getObjectsOutput(args: GetObjectsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetObjectsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:s3/getObjects:getObjects", {
         "bucket": args.bucket,

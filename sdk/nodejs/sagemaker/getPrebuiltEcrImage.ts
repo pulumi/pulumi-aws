@@ -95,7 +95,7 @@ export interface GetPrebuiltEcrImageResult {
  * });
  * ```
  */
-export function getPrebuiltEcrImageOutput(args: GetPrebuiltEcrImageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrebuiltEcrImageResult> {
+export function getPrebuiltEcrImageOutput(args: GetPrebuiltEcrImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrebuiltEcrImageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:sagemaker/getPrebuiltEcrImage:getPrebuiltEcrImage", {
         "dnsSuffix": args.dnsSuffix,

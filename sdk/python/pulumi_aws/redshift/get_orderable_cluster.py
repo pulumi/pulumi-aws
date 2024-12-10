@@ -143,7 +143,7 @@ def get_orderable_cluster_output(cluster_type: Optional[pulumi.Input[Optional[st
                                  cluster_version: Optional[pulumi.Input[Optional[str]]] = None,
                                  node_type: Optional[pulumi.Input[Optional[str]]] = None,
                                  preferred_node_types: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrderableClusterResult]:
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrderableClusterResult]:
     """
     Information about Redshift Orderable Clusters and valid parameter combinations.
 
@@ -171,7 +171,7 @@ def get_orderable_cluster_output(cluster_type: Optional[pulumi.Input[Optional[st
     __args__['clusterVersion'] = cluster_version
     __args__['nodeType'] = node_type
     __args__['preferredNodeTypes'] = preferred_node_types
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:redshift/getOrderableCluster:getOrderableCluster', __args__, opts=opts, typ=GetOrderableClusterResult)
     return __ret__.apply(lambda __response__: GetOrderableClusterResult(
         availability_zones=pulumi.get(__response__, 'availability_zones'),

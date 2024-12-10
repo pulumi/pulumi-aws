@@ -211,7 +211,7 @@ def get_gateway_route_output(mesh_name: Optional[pulumi.Input[str]] = None,
                              name: Optional[pulumi.Input[str]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                              virtual_gateway_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayRouteResult]:
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayRouteResult]:
     """
     The App Mesh Gateway Route data source allows details of an App Mesh Gateway Route to be retrieved by its name, mesh_name, virtual_gateway_name, and optionally the mesh_owner.
 
@@ -239,7 +239,7 @@ def get_gateway_route_output(mesh_name: Optional[pulumi.Input[str]] = None,
     __args__['name'] = name
     __args__['tags'] = tags
     __args__['virtualGatewayName'] = virtual_gateway_name
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:appmesh/getGatewayRoute:getGatewayRoute', __args__, opts=opts, typ=GetGatewayRouteResult)
     return __ret__.apply(lambda __response__: GetGatewayRouteResult(
         arn=pulumi.get(__response__, 'arn'),

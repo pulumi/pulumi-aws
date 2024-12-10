@@ -119,7 +119,7 @@ def get_solution_stack(most_recent: Optional[bool] = None,
         name_regex=pulumi.get(__ret__, 'name_regex'))
 def get_solution_stack_output(most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
                               name_regex: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSolutionStackResult]:
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSolutionStackResult]:
     """
     Use this data source to get the name of a elastic beanstalk solution stack.
 
@@ -147,7 +147,7 @@ def get_solution_stack_output(most_recent: Optional[pulumi.Input[Optional[bool]]
     __args__ = dict()
     __args__['mostRecent'] = most_recent
     __args__['nameRegex'] = name_regex
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:elasticbeanstalk/getSolutionStack:getSolutionStack', __args__, opts=opts, typ=GetSolutionStackResult)
     return __ret__.apply(lambda __response__: GetSolutionStackResult(
         id=pulumi.get(__response__, 'id'),

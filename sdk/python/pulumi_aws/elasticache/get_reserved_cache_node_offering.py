@@ -162,7 +162,7 @@ def get_reserved_cache_node_offering_output(cache_node_type: Optional[pulumi.Inp
                                             duration: Optional[pulumi.Input[str]] = None,
                                             offering_type: Optional[pulumi.Input[str]] = None,
                                             product_description: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReservedCacheNodeOfferingResult]:
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReservedCacheNodeOfferingResult]:
     """
     Information about a single ElastiCache Reserved Cache Node Offering.
 
@@ -196,7 +196,7 @@ def get_reserved_cache_node_offering_output(cache_node_type: Optional[pulumi.Inp
     __args__['duration'] = duration
     __args__['offeringType'] = offering_type
     __args__['productDescription'] = product_description
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:elasticache/getReservedCacheNodeOffering:getReservedCacheNodeOffering', __args__, opts=opts, typ=GetReservedCacheNodeOfferingResult)
     return __ret__.apply(lambda __response__: GetReservedCacheNodeOfferingResult(
         cache_node_type=pulumi.get(__response__, 'cache_node_type'),

@@ -88,7 +88,7 @@ export interface GetTrustStoreResult {
  * });
  * ```
  */
-export function getTrustStoreOutput(args?: GetTrustStoreOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTrustStoreResult> {
+export function getTrustStoreOutput(args?: GetTrustStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrustStoreResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:lb/getTrustStore:getTrustStore", {

@@ -88,7 +88,7 @@ export interface GetAnalysisResult {
  * ```
  */
 /** @deprecated aws.quicksight/getanalysis.getAnalysis has been deprecated in favor of aws.quicksight/getquicksightanalysis.getQuicksightAnalysis */
-export function getAnalysisOutput(args: GetAnalysisOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAnalysisResult> {
+export function getAnalysisOutput(args: GetAnalysisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnalysisResult> {
     pulumi.log.warn("getAnalysis is deprecated: aws.quicksight/getanalysis.getAnalysis has been deprecated in favor of aws.quicksight/getquicksightanalysis.getQuicksightAnalysis")
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:quicksight/getAnalysis:getAnalysis", {

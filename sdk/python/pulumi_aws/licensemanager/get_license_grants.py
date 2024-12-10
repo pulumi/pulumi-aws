@@ -108,7 +108,7 @@ def get_license_grants(filters: Optional[Sequence[Union['GetLicenseGrantsFilterA
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'))
 def get_license_grants_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetLicenseGrantsFilterArgs', 'GetLicenseGrantsFilterArgsDict']]]]] = None,
-                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLicenseGrantsResult]:
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLicenseGrantsResult]:
     """
     This resource can be used to get a set of license grant ARNs matching a filter.
 
@@ -135,7 +135,7 @@ def get_license_grants_output(filters: Optional[pulumi.Input[Optional[Sequence[U
     """
     __args__ = dict()
     __args__['filters'] = filters
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:licensemanager/getLicenseGrants:getLicenseGrants', __args__, opts=opts, typ=GetLicenseGrantsResult)
     return __ret__.apply(lambda __response__: GetLicenseGrantsResult(
         arns=pulumi.get(__response__, 'arns'),

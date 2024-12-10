@@ -151,7 +151,7 @@ def get_alias(function_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'))
 def get_alias_output(function_name: Optional[pulumi.Input[str]] = None,
                      name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAliasResult]:
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAliasResult]:
     """
     Provides information about a Lambda Alias.
 
@@ -172,7 +172,7 @@ def get_alias_output(function_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['functionName'] = function_name
     __args__['name'] = name
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:lambda/getAlias:getAlias', __args__, opts=opts, typ=GetAliasResult)
     return __ret__.apply(lambda __response__: GetAliasResult(
         arn=pulumi.get(__response__, 'arn'),

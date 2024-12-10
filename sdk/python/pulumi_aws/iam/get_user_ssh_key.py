@@ -153,7 +153,7 @@ def get_user_ssh_key(encoding: Optional[str] = None,
 def get_user_ssh_key_output(encoding: Optional[pulumi.Input[str]] = None,
                             ssh_public_key_id: Optional[pulumi.Input[str]] = None,
                             username: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserSshKeyResult]:
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserSshKeyResult]:
     """
     Use this data source to get information about a SSH public key associated with the specified IAM user.
 
@@ -177,7 +177,7 @@ def get_user_ssh_key_output(encoding: Optional[pulumi.Input[str]] = None,
     __args__['encoding'] = encoding
     __args__['sshPublicKeyId'] = ssh_public_key_id
     __args__['username'] = username
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:iam/getUserSshKey:getUserSshKey', __args__, opts=opts, typ=GetUserSshKeyResult)
     return __ret__.apply(lambda __response__: GetUserSshKeyResult(
         encoding=pulumi.get(__response__, 'encoding'),

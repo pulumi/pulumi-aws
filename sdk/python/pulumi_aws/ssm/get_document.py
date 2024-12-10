@@ -165,7 +165,7 @@ def get_document(document_format: Optional[str] = None,
 def get_document_output(document_format: Optional[pulumi.Input[Optional[str]]] = None,
                         document_version: Optional[pulumi.Input[Optional[str]]] = None,
                         name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDocumentResult]:
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDocumentResult]:
     """
     Gets the contents of the specified Systems Manager document.
 
@@ -201,7 +201,7 @@ def get_document_output(document_format: Optional[pulumi.Input[Optional[str]]] =
     __args__['documentFormat'] = document_format
     __args__['documentVersion'] = document_version
     __args__['name'] = name
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssm/getDocument:getDocument', __args__, opts=opts, typ=GetDocumentResult)
     return __ret__.apply(lambda __response__: GetDocumentResult(
         arn=pulumi.get(__response__, 'arn'),

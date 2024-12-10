@@ -87,7 +87,7 @@ def get_hosted_zone(region: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
 def get_hosted_zone_output(region: Optional[pulumi.Input[Optional[str]]] = None,
-                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHostedZoneResult]:
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHostedZoneResult]:
     """
     Use this data source to get the ID of an [elastic beanstalk hosted zone](http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region).
 
@@ -105,7 +105,7 @@ def get_hosted_zone_output(region: Optional[pulumi.Input[Optional[str]]] = None,
     """
     __args__ = dict()
     __args__['region'] = region
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:elasticbeanstalk/getHostedZone:getHostedZone', __args__, opts=opts, typ=GetHostedZoneResult)
     return __ret__.apply(lambda __response__: GetHostedZoneResult(
         id=pulumi.get(__response__, 'id'),

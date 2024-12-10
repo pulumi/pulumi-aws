@@ -196,7 +196,7 @@ def get_public_key(grant_tokens: Optional[Sequence[str]] = None,
         signing_algorithms=pulumi.get(__ret__, 'signing_algorithms'))
 def get_public_key_output(grant_tokens: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                           key_id: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublicKeyResult]:
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicKeyResult]:
     """
     Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
 
@@ -223,7 +223,7 @@ def get_public_key_output(grant_tokens: Optional[pulumi.Input[Optional[Sequence[
     __args__ = dict()
     __args__['grantTokens'] = grant_tokens
     __args__['keyId'] = key_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:kms/getPublicKey:getPublicKey', __args__, opts=opts, typ=GetPublicKeyResult)
     return __ret__.apply(lambda __response__: GetPublicKeyResult(
         arn=pulumi.get(__response__, 'arn'),

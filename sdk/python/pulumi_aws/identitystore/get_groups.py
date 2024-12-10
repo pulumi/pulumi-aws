@@ -101,7 +101,7 @@ def get_groups(identity_store_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         identity_store_id=pulumi.get(__ret__, 'identity_store_id'))
 def get_groups_output(identity_store_id: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupsResult]:
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupsResult]:
     """
     Data source for managing an AWS SSO Identity Store Groups.
 
@@ -122,7 +122,7 @@ def get_groups_output(identity_store_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['identityStoreId'] = identity_store_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:identitystore/getGroups:getGroups', __args__, opts=opts, typ=GetGroupsResult)
     return __ret__.apply(lambda __response__: GetGroupsResult(
         groups=pulumi.get(__response__, 'groups'),

@@ -84,7 +84,7 @@ def get_ipset(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
 def get_ipset_output(name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpsetResult]:
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpsetResult]:
     """
     `waf.IpSet` Retrieves a WAF IP Set Resource Id.
 
@@ -102,7 +102,7 @@ def get_ipset_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:waf/getIpset:getIpset', __args__, opts=opts, typ=GetIpsetResult)
     return __ret__.apply(lambda __response__: GetIpsetResult(
         id=pulumi.get(__response__, 'id'),

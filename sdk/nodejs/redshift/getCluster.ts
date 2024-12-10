@@ -201,7 +201,7 @@ export interface GetClusterResult {
 /**
  * Provides details about a specific redshift cluster.
  */
-export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterResult> {
+export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:redshift/getCluster:getCluster", {
         "clusterIdentifier": args.clusterIdentifier,

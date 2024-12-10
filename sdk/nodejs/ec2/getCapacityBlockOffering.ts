@@ -111,7 +111,7 @@ export interface GetCapacityBlockOfferingResult {
  * });
  * ```
  */
-export function getCapacityBlockOfferingOutput(args: GetCapacityBlockOfferingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCapacityBlockOfferingResult> {
+export function getCapacityBlockOfferingOutput(args: GetCapacityBlockOfferingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityBlockOfferingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getCapacityBlockOffering:getCapacityBlockOffering", {
         "capacityDurationHours": args.capacityDurationHours,

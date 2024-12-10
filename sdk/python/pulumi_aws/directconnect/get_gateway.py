@@ -110,7 +110,7 @@ def get_gateway(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         owner_account_id=pulumi.get(__ret__, 'owner_account_id'))
 def get_gateway_output(name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayResult]:
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayResult]:
     """
     Retrieve information about a Direct Connect Gateway.
 
@@ -128,7 +128,7 @@ def get_gateway_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:directconnect/getGateway:getGateway', __args__, opts=opts, typ=GetGatewayResult)
     return __ret__.apply(lambda __response__: GetGatewayResult(
         amazon_side_asn=pulumi.get(__response__, 'amazon_side_asn'),

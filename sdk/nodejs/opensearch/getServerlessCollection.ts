@@ -111,7 +111,7 @@ export interface GetServerlessCollectionResult {
  * });
  * ```
  */
-export function getServerlessCollectionOutput(args?: GetServerlessCollectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerlessCollectionResult> {
+export function getServerlessCollectionOutput(args?: GetServerlessCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessCollectionResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:opensearch/getServerlessCollection:getServerlessCollection", {

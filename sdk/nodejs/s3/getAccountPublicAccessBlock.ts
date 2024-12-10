@@ -72,7 +72,7 @@ export interface GetAccountPublicAccessBlockResult {
  * const example = aws.s3.getAccountPublicAccessBlock({});
  * ```
  */
-export function getAccountPublicAccessBlockOutput(args?: GetAccountPublicAccessBlockOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountPublicAccessBlockResult> {
+export function getAccountPublicAccessBlockOutput(args?: GetAccountPublicAccessBlockOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountPublicAccessBlockResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:s3/getAccountPublicAccessBlock:getAccountPublicAccessBlock", {

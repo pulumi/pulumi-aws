@@ -505,7 +505,7 @@ def get_function(function_name: Optional[str] = None,
 def get_function_output(function_name: Optional[pulumi.Input[str]] = None,
                         qualifier: Optional[pulumi.Input[Optional[str]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFunctionResult]:
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionResult]:
     """
     Provides information about a Lambda Function.
 
@@ -528,7 +528,7 @@ def get_function_output(function_name: Optional[pulumi.Input[str]] = None,
     __args__['functionName'] = function_name
     __args__['qualifier'] = qualifier
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:lambda/getFunction:getFunction', __args__, opts=opts, typ=GetFunctionResult)
     return __ret__.apply(lambda __response__: GetFunctionResult(
         architectures=pulumi.get(__response__, 'architectures'),

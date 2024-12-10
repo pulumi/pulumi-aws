@@ -227,7 +227,7 @@ def get_availability_zones_output(all_availability_zones: Optional[pulumi.Input[
                                   exclude_zone_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                   filters: Optional[pulumi.Input[Optional[Sequence[Union['GetAvailabilityZonesFilterArgs', 'GetAvailabilityZonesFilterArgsDict']]]]] = None,
                                   state: Optional[pulumi.Input[Optional[str]]] = None,
-                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAvailabilityZonesResult]:
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAvailabilityZonesResult]:
     """
     The Availability Zones data source allows access to the list of AWS
     Availability Zones which can be accessed by an AWS account within the region
@@ -299,7 +299,7 @@ def get_availability_zones_output(all_availability_zones: Optional[pulumi.Input[
     __args__['excludeZoneIds'] = exclude_zone_ids
     __args__['filters'] = filters
     __args__['state'] = state
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:index/getAvailabilityZones:getAvailabilityZones', __args__, opts=opts, typ=GetAvailabilityZonesResult)
     return __ret__.apply(lambda __response__: GetAvailabilityZonesResult(
         all_availability_zones=pulumi.get(__response__, 'all_availability_zones'),

@@ -99,7 +99,7 @@ def get_organizational_unit_child_accounts(parent_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         parent_id=pulumi.get(__ret__, 'parent_id'))
 def get_organizational_unit_child_accounts_output(parent_id: Optional[pulumi.Input[str]] = None,
-                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationalUnitChildAccountsResult]:
+                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationalUnitChildAccountsResult]:
     """
     Get all direct child accounts under a parent organizational unit. This only provides immediate children, not all children.
 
@@ -118,7 +118,7 @@ def get_organizational_unit_child_accounts_output(parent_id: Optional[pulumi.Inp
     """
     __args__ = dict()
     __args__['parentId'] = parent_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:organizations/getOrganizationalUnitChildAccounts:getOrganizationalUnitChildAccounts', __args__, opts=opts, typ=GetOrganizationalUnitChildAccountsResult)
     return __ret__.apply(lambda __response__: GetOrganizationalUnitChildAccountsResult(
         accounts=pulumi.get(__response__, 'accounts'),

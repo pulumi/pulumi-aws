@@ -89,7 +89,7 @@ def get_registration_code(opts: Optional[pulumi.InvokeOptions] = None) -> Awaita
     return AwaitableGetRegistrationCodeResult(
         id=pulumi.get(__ret__, 'id'),
         registration_code=pulumi.get(__ret__, 'registration_code'))
-def get_registration_code_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistrationCodeResult]:
+def get_registration_code_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistrationCodeResult]:
     """
     Gets a registration code used to register a CA certificate with AWS IoT.
 
@@ -111,7 +111,7 @@ def get_registration_code_output(opts: Optional[Union[pulumi.InvokeOptions, pulu
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:iot/getRegistrationCode:getRegistrationCode', __args__, opts=opts, typ=GetRegistrationCodeResult)
     return __ret__.apply(lambda __response__: GetRegistrationCodeResult(
         id=pulumi.get(__response__, 'id'),

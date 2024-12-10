@@ -110,7 +110,7 @@ export interface GetVpnGatewayResult {
  * export const vpnGatewayId = selected.then(selected => selected.id);
  * ```
  */
-export function getVpnGatewayOutput(args?: GetVpnGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpnGatewayResult> {
+export function getVpnGatewayOutput(args?: GetVpnGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnGatewayResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getVpnGateway:getVpnGateway", {

@@ -129,7 +129,7 @@ def get_pipeline_definition(parameter_values: Optional[Sequence[Union['GetPipeli
         pipeline_objects=pulumi.get(__ret__, 'pipeline_objects'))
 def get_pipeline_definition_output(parameter_values: Optional[pulumi.Input[Optional[Sequence[Union['GetPipelineDefinitionParameterValueArgs', 'GetPipelineDefinitionParameterValueArgsDict']]]]] = None,
                                    pipeline_id: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPipelineDefinitionResult]:
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipelineDefinitionResult]:
     """
     Provides details about a specific DataPipeline Pipeline Definition.
 
@@ -149,7 +149,7 @@ def get_pipeline_definition_output(parameter_values: Optional[pulumi.Input[Optio
     __args__ = dict()
     __args__['parameterValues'] = parameter_values
     __args__['pipelineId'] = pipeline_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:datapipeline/getPipelineDefinition:getPipelineDefinition', __args__, opts=opts, typ=GetPipelineDefinitionResult)
     return __ret__.apply(lambda __response__: GetPipelineDefinitionResult(
         id=pulumi.get(__response__, 'id'),

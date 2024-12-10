@@ -62,7 +62,7 @@ export interface GetSecretsResult {
  *
  * That encrypted output can now be inserted into provider configurations without exposing the plaintext secret directly.
  */
-export function getSecretsOutput(args: GetSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecretsResult> {
+export function getSecretsOutput(args: GetSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:kms/getSecrets:getSecrets", {
         "secrets": args.secrets,

@@ -102,7 +102,7 @@ def get_standards_control_associations(security_control_id: Optional[str] = None
         security_control_id=pulumi.get(__ret__, 'security_control_id'),
         standards_control_associations=pulumi.get(__ret__, 'standards_control_associations'))
 def get_standards_control_associations_output(security_control_id: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStandardsControlAssociationsResult]:
+                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStandardsControlAssociationsResult]:
     """
     Data source for managing an AWS Security Hub Standards Control Associations.
 
@@ -123,7 +123,7 @@ def get_standards_control_associations_output(security_control_id: Optional[pulu
     """
     __args__ = dict()
     __args__['securityControlId'] = security_control_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:securityhub/getStandardsControlAssociations:getStandardsControlAssociations', __args__, opts=opts, typ=GetStandardsControlAssociationsResult)
     return __ret__.apply(lambda __response__: GetStandardsControlAssociationsResult(
         id=pulumi.get(__response__, 'id'),

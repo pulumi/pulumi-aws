@@ -81,7 +81,7 @@ def get_serial_console_access(opts: Optional[pulumi.InvokeOptions] = None) -> Aw
     return AwaitableGetSerialConsoleAccessResult(
         enabled=pulumi.get(__ret__, 'enabled'),
         id=pulumi.get(__ret__, 'id'))
-def get_serial_console_access_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSerialConsoleAccessResult]:
+def get_serial_console_access_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSerialConsoleAccessResult]:
     """
     Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
 
@@ -95,7 +95,7 @@ def get_serial_console_access_output(opts: Optional[Union[pulumi.InvokeOptions, 
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess', __args__, opts=opts, typ=GetSerialConsoleAccessResult)
     return __ret__.apply(lambda __response__: GetSerialConsoleAccessResult(
         enabled=pulumi.get(__response__, 'enabled'),

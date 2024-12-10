@@ -620,7 +620,7 @@ def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str
                    name_regex: Optional[pulumi.Input[Optional[str]]] = None,
                    owners: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAmiResult]:
+                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAmiResult]:
     """
     Use this data source to get the ID of a registered AMI for use in other
     resources.
@@ -683,7 +683,7 @@ def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str
     __args__['nameRegex'] = name_regex
     __args__['owners'] = owners
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getAmi:getAmi', __args__, opts=opts, typ=GetAmiResult)
     return __ret__.apply(lambda __response__: GetAmiResult(
         architecture=pulumi.get(__response__, 'architecture'),

@@ -300,7 +300,7 @@ def get_index(id: Optional[str] = None,
         user_token_configurations=pulumi.get(__ret__, 'user_token_configurations'))
 def get_index_output(id: Optional[pulumi.Input[str]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIndexResult]:
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIndexResult]:
     """
     Provides details about a specific Amazon Kendra Index.
 
@@ -320,7 +320,7 @@ def get_index_output(id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['id'] = id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:kendra/getIndex:getIndex', __args__, opts=opts, typ=GetIndexResult)
     return __ret__.apply(lambda __response__: GetIndexResult(
         arn=pulumi.get(__response__, 'arn'),

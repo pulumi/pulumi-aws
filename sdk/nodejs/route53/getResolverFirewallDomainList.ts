@@ -78,7 +78,7 @@ export interface GetResolverFirewallDomainListResult {
  * });
  * ```
  */
-export function getResolverFirewallDomainListOutput(args: GetResolverFirewallDomainListOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResolverFirewallDomainListResult> {
+export function getResolverFirewallDomainListOutput(args: GetResolverFirewallDomainListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverFirewallDomainListResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList", {
         "firewallDomainListId": args.firewallDomainListId,

@@ -128,7 +128,7 @@ def get_instance_storage_config(association_id: Optional[str] = None,
 def get_instance_storage_config_output(association_id: Optional[pulumi.Input[str]] = None,
                                        instance_id: Optional[pulumi.Input[str]] = None,
                                        resource_type: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceStorageConfigResult]:
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceStorageConfigResult]:
     """
     Provides details about a specific Amazon Connect Instance Storage Config.
 
@@ -152,7 +152,7 @@ def get_instance_storage_config_output(association_id: Optional[pulumi.Input[str
     __args__['associationId'] = association_id
     __args__['instanceId'] = instance_id
     __args__['resourceType'] = resource_type
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:connect/getInstanceStorageConfig:getInstanceStorageConfig', __args__, opts=opts, typ=GetInstanceStorageConfigResult)
     return __ret__.apply(lambda __response__: GetInstanceStorageConfigResult(
         association_id=pulumi.get(__response__, 'association_id'),

@@ -183,7 +183,7 @@ def get_application(application_arn: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'))
 def get_application_output(application_arn: Optional[pulumi.Input[str]] = None,
                            portal_options: Optional[pulumi.Input[Optional[Sequence[Union['GetApplicationPortalOptionArgs', 'GetApplicationPortalOptionArgsDict']]]]] = None,
-                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Data source for managing an AWS SSO Admin Application.
 
@@ -205,7 +205,7 @@ def get_application_output(application_arn: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['applicationArn'] = application_arn
     __args__['portalOptions'] = portal_options
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssoadmin/getApplication:getApplication', __args__, opts=opts, typ=GetApplicationResult)
     return __ret__.apply(lambda __response__: GetApplicationResult(
         application_account=pulumi.get(__response__, 'application_account'),

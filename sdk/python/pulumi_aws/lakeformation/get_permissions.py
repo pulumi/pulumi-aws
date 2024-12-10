@@ -287,7 +287,7 @@ def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[str]]] = N
                            principal: Optional[pulumi.Input[str]] = None,
                            table: Optional[pulumi.Input[Optional[Union['GetPermissionsTableArgs', 'GetPermissionsTableArgsDict']]]] = None,
                            table_with_columns: Optional[pulumi.Input[Optional[Union['GetPermissionsTableWithColumnsArgs', 'GetPermissionsTableWithColumnsArgsDict']]]] = None,
-                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPermissionsResult]:
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPermissionsResult]:
     """
     Get permissions for a principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, tables, LF-tags, and LF-tag policies. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
 
@@ -372,7 +372,7 @@ def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[str]]] = N
     __args__['principal'] = principal
     __args__['table'] = table
     __args__['tableWithColumns'] = table_with_columns
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:lakeformation/getPermissions:getPermissions', __args__, opts=opts, typ=GetPermissionsResult)
     return __ret__.apply(lambda __response__: GetPermissionsResult(
         catalog_id=pulumi.get(__response__, 'catalog_id'),

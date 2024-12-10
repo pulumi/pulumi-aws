@@ -76,7 +76,7 @@ export interface GetGlobalNetworkResult {
  * });
  * ```
  */
-export function getGlobalNetworkOutput(args: GetGlobalNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGlobalNetworkResult> {
+export function getGlobalNetworkOutput(args: GetGlobalNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:networkmanager/getGlobalNetwork:getGlobalNetwork", {
         "globalNetworkId": args.globalNetworkId,

@@ -105,7 +105,7 @@ export interface GetVirtualNodeResult {
  * });
  * ```
  */
-export function getVirtualNodeOutput(args: GetVirtualNodeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualNodeResult> {
+export function getVirtualNodeOutput(args: GetVirtualNodeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNodeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:appmesh/getVirtualNode:getVirtualNode", {
         "meshName": args.meshName,

@@ -127,7 +127,7 @@ def get_prompt(instance_id: Optional[str] = None,
         prompt_id=pulumi.get(__ret__, 'prompt_id'))
 def get_prompt_output(instance_id: Optional[pulumi.Input[str]] = None,
                       name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPromptResult]:
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPromptResult]:
     """
     Provides details about a specific Amazon Connect Prompt.
 
@@ -150,7 +150,7 @@ def get_prompt_output(instance_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['instanceId'] = instance_id
     __args__['name'] = name
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:connect/getPrompt:getPrompt', __args__, opts=opts, typ=GetPromptResult)
     return __ret__.apply(lambda __response__: GetPromptResult(
         arn=pulumi.get(__response__, 'arn'),

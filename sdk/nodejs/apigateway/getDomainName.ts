@@ -119,7 +119,7 @@ export interface GetDomainNameResult {
  * });
  * ```
  */
-export function getDomainNameOutput(args: GetDomainNameOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDomainNameResult> {
+export function getDomainNameOutput(args: GetDomainNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainNameResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:apigateway/getDomainName:getDomainName", {
         "domainName": args.domainName,

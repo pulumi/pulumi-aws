@@ -92,7 +92,7 @@ export interface GetVpcLinkResult {
  * });
  * ```
  */
-export function getVpcLinkOutput(args: GetVpcLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcLinkResult> {
+export function getVpcLinkOutput(args: GetVpcLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:apigateway/getVpcLink:getVpcLink", {
         "name": args.name,

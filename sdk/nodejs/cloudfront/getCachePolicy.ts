@@ -119,7 +119,7 @@ export interface GetCachePolicyResult {
  * });
  * ```
  */
-export function getCachePolicyOutput(args?: GetCachePolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCachePolicyResult> {
+export function getCachePolicyOutput(args?: GetCachePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCachePolicyResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cloudfront/getCachePolicy:getCachePolicy", {

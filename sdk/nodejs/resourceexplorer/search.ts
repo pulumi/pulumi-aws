@@ -84,7 +84,7 @@ export interface SearchResult {
  * });
  * ```
  */
-export function searchOutput(args: SearchOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<SearchResult> {
+export function searchOutput(args: SearchOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<SearchResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:resourceexplorer/search:Search", {
         "queryString": args.queryString,

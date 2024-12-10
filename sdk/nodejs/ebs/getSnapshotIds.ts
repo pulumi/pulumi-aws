@@ -103,7 +103,7 @@ export interface GetSnapshotIdsResult {
  * });
  * ```
  */
-export function getSnapshotIdsOutput(args?: GetSnapshotIdsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSnapshotIdsResult> {
+export function getSnapshotIdsOutput(args?: GetSnapshotIdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotIdsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ebs/getSnapshotIds:getSnapshotIds", {

@@ -123,7 +123,7 @@ def get_cluster_parameter_group(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'))
 def get_cluster_parameter_group_output(name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterParameterGroupResult]:
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterParameterGroupResult]:
     """
     Information about an RDS cluster parameter group.
 
@@ -141,7 +141,7 @@ def get_cluster_parameter_group_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:rds/getClusterParameterGroup:getClusterParameterGroup', __args__, opts=opts, typ=GetClusterParameterGroupResult)
     return __ret__.apply(lambda __response__: GetClusterParameterGroupResult(
         arn=pulumi.get(__response__, 'arn'),

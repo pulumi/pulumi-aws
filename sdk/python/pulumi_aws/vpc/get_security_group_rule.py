@@ -253,7 +253,7 @@ def get_security_group_rule(filters: Optional[Sequence[Union['GetSecurityGroupRu
         to_port=pulumi.get(__ret__, 'to_port'))
 def get_security_group_rule_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSecurityGroupRuleFilterArgs', 'GetSecurityGroupRuleFilterArgsDict']]]]] = None,
                                    security_group_rule_id: Optional[pulumi.Input[Optional[str]]] = None,
-                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityGroupRuleResult]:
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityGroupRuleResult]:
     """
     `vpc_get_security_group_rule` provides details about a specific security group rule.
 
@@ -273,7 +273,7 @@ def get_security_group_rule_output(filters: Optional[pulumi.Input[Optional[Seque
     __args__ = dict()
     __args__['filters'] = filters
     __args__['securityGroupRuleId'] = security_group_rule_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:vpc/getSecurityGroupRule:getSecurityGroupRule', __args__, opts=opts, typ=GetSecurityGroupRuleResult)
     return __ret__.apply(lambda __response__: GetSecurityGroupRuleResult(
         arn=pulumi.get(__response__, 'arn'),

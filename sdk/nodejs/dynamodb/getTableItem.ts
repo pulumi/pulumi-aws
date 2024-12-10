@@ -102,7 +102,7 @@ export interface GetTableItemResult {
  * });
  * ```
  */
-export function getTableItemOutput(args: GetTableItemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTableItemResult> {
+export function getTableItemOutput(args: GetTableItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:dynamodb/getTableItem:getTableItem", {
         "expressionAttributeNames": args.expressionAttributeNames,

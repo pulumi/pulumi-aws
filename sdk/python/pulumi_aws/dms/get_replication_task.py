@@ -247,7 +247,7 @@ def get_replication_task(replication_task_id: Optional[str] = None,
         target_endpoint_arn=pulumi.get(__ret__, 'target_endpoint_arn'))
 def get_replication_task_output(replication_task_id: Optional[pulumi.Input[str]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationTaskResult]:
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationTaskResult]:
     """
     Data source for managing an AWS DMS (Database Migration) Replication Task.
 
@@ -273,7 +273,7 @@ def get_replication_task_output(replication_task_id: Optional[pulumi.Input[str]]
     __args__ = dict()
     __args__['replicationTaskId'] = replication_task_id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:dms/getReplicationTask:getReplicationTask', __args__, opts=opts, typ=GetReplicationTaskResult)
     return __ret__.apply(lambda __response__: GetReplicationTaskResult(
         cdc_start_position=pulumi.get(__response__, 'cdc_start_position'),

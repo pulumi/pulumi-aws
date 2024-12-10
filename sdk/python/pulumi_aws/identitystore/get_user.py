@@ -323,7 +323,7 @@ def get_user_output(alternate_identifier: Optional[pulumi.Input[Optional[Union['
                     filter: Optional[pulumi.Input[Optional[Union['GetUserFilterArgs', 'GetUserFilterArgsDict']]]] = None,
                     identity_store_id: Optional[pulumi.Input[str]] = None,
                     user_id: Optional[pulumi.Input[Optional[str]]] = None,
-                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
     Use this data source to get an Identity Store User.
 
@@ -359,7 +359,7 @@ def get_user_output(alternate_identifier: Optional[pulumi.Input[Optional[Union['
     __args__['filter'] = filter
     __args__['identityStoreId'] = identity_store_id
     __args__['userId'] = user_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:identitystore/getUser:getUser', __args__, opts=opts, typ=GetUserResult)
     return __ret__.apply(lambda __response__: GetUserResult(
         addresses=pulumi.get(__response__, 'addresses'),

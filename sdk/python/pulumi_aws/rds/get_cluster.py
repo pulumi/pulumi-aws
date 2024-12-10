@@ -402,7 +402,7 @@ def get_cluster(cluster_identifier: Optional[str] = None,
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
 def get_cluster_output(cluster_identifier: Optional[pulumi.Input[str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
     Provides information about an RDS cluster.
 
@@ -422,7 +422,7 @@ def get_cluster_output(cluster_identifier: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['clusterIdentifier'] = cluster_identifier
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:rds/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult)
     return __ret__.apply(lambda __response__: GetClusterResult(
         arn=pulumi.get(__response__, 'arn'),

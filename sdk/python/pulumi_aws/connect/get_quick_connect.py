@@ -185,7 +185,7 @@ def get_quick_connect_output(instance_id: Optional[pulumi.Input[str]] = None,
                              name: Optional[pulumi.Input[Optional[str]]] = None,
                              quick_connect_id: Optional[pulumi.Input[Optional[str]]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQuickConnectResult]:
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQuickConnectResult]:
     """
     Provides details about a specific Amazon Connect Quick Connect.
 
@@ -222,7 +222,7 @@ def get_quick_connect_output(instance_id: Optional[pulumi.Input[str]] = None,
     __args__['name'] = name
     __args__['quickConnectId'] = quick_connect_id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:connect/getQuickConnect:getQuickConnect', __args__, opts=opts, typ=GetQuickConnectResult)
     return __ret__.apply(lambda __response__: GetQuickConnectResult(
         arn=pulumi.get(__response__, 'arn'),

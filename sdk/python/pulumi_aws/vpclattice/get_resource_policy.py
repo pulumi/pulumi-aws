@@ -99,7 +99,7 @@ def get_resource_policy(resource_arn: Optional[str] = None,
         policy=pulumi.get(__ret__, 'policy'),
         resource_arn=pulumi.get(__ret__, 'resource_arn'))
 def get_resource_policy_output(resource_arn: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourcePolicyResult]:
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourcePolicyResult]:
     """
     Data source for managing an AWS VPC Lattice Resource Policy.
 
@@ -119,7 +119,7 @@ def get_resource_policy_output(resource_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['resourceArn'] = resource_arn
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:vpclattice/getResourcePolicy:getResourcePolicy', __args__, opts=opts, typ=GetResourcePolicyResult)
     return __ret__.apply(lambda __response__: GetResourcePolicyResult(
         id=pulumi.get(__response__, 'id'),

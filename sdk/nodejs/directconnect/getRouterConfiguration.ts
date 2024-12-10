@@ -103,7 +103,7 @@ export interface GetRouterConfigurationResult {
  * });
  * ```
  */
-export function getRouterConfigurationOutput(args: GetRouterConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRouterConfigurationResult> {
+export function getRouterConfigurationOutput(args: GetRouterConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouterConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:directconnect/getRouterConfiguration:getRouterConfiguration", {
         "routerTypeIdentifier": args.routerTypeIdentifier,

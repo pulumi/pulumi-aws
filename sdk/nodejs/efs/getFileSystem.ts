@@ -144,7 +144,7 @@ export interface GetFileSystemResult {
  * });
  * ```
  */
-export function getFileSystemOutput(args?: GetFileSystemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFileSystemResult> {
+export function getFileSystemOutput(args?: GetFileSystemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileSystemResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:efs/getFileSystem:getFileSystem", {

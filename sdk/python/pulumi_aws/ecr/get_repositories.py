@@ -83,7 +83,7 @@ def get_repositories(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
     return AwaitableGetRepositoriesResult(
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'))
-def get_repositories_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoriesResult]:
+def get_repositories_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoriesResult]:
     """
     Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
 
@@ -99,7 +99,7 @@ def get_repositories_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.In
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ecr/getRepositories:getRepositories', __args__, opts=opts, typ=GetRepositoriesResult)
     return __ret__.apply(lambda __response__: GetRepositoriesResult(
         id=pulumi.get(__response__, 'id'),

@@ -140,7 +140,7 @@ export interface GetDevEnvironmentResult {
  * });
  * ```
  */
-export function getDevEnvironmentOutput(args: GetDevEnvironmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDevEnvironmentResult> {
+export function getDevEnvironmentOutput(args: GetDevEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:codecatalyst/getDevEnvironment:getDevEnvironment", {
         "alias": args.alias,

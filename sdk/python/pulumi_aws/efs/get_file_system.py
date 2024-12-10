@@ -300,7 +300,7 @@ def get_file_system(creation_token: Optional[str] = None,
 def get_file_system_output(creation_token: Optional[pulumi.Input[Optional[str]]] = None,
                            file_system_id: Optional[pulumi.Input[Optional[str]]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileSystemResult]:
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileSystemResult]:
     """
     Provides information about an Elastic File System (EFS) File System.
 
@@ -329,7 +329,7 @@ def get_file_system_output(creation_token: Optional[pulumi.Input[Optional[str]]]
     __args__['creationToken'] = creation_token
     __args__['fileSystemId'] = file_system_id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:efs/getFileSystem:getFileSystem', __args__, opts=opts, typ=GetFileSystemResult)
     return __ret__.apply(lambda __response__: GetFileSystemResult(
         arn=pulumi.get(__response__, 'arn'),

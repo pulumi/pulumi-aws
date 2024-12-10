@@ -103,7 +103,7 @@ export interface GetSigningProfileResult {
  * });
  * ```
  */
-export function getSigningProfileOutput(args: GetSigningProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSigningProfileResult> {
+export function getSigningProfileOutput(args: GetSigningProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSigningProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:signer/getSigningProfile:getSigningProfile", {
         "name": args.name,

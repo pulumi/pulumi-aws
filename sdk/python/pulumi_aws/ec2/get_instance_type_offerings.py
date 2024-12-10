@@ -152,7 +152,7 @@ def get_instance_type_offerings(filters: Optional[Sequence[Union['GetInstanceTyp
         locations=pulumi.get(__ret__, 'locations'))
 def get_instance_type_offerings_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetInstanceTypeOfferingsFilterArgs', 'GetInstanceTypeOfferingsFilterArgsDict']]]]] = None,
                                        location_type: Optional[pulumi.Input[Optional[str]]] = None,
-                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceTypeOfferingsResult]:
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceTypeOfferingsResult]:
     """
     Information about EC2 Instance Type Offerings.
 
@@ -185,7 +185,7 @@ def get_instance_type_offerings_output(filters: Optional[pulumi.Input[Optional[S
     __args__ = dict()
     __args__['filters'] = filters
     __args__['locationType'] = location_type
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getInstanceTypeOfferings:getInstanceTypeOfferings', __args__, opts=opts, typ=GetInstanceTypeOfferingsResult)
     return __ret__.apply(lambda __response__: GetInstanceTypeOfferingsResult(
         filters=pulumi.get(__response__, 'filters'),

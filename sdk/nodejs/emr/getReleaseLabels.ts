@@ -73,7 +73,7 @@ export interface GetReleaseLabelsResult {
  * });
  * ```
  */
-export function getReleaseLabelsOutput(args?: GetReleaseLabelsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReleaseLabelsResult> {
+export function getReleaseLabelsOutput(args?: GetReleaseLabelsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReleaseLabelsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:emr/getReleaseLabels:getReleaseLabels", {

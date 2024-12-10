@@ -142,7 +142,7 @@ export interface GetJobDefinitionResult {
  * });
  * ```
  */
-export function getJobDefinitionOutput(args?: GetJobDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJobDefinitionResult> {
+export function getJobDefinitionOutput(args?: GetJobDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobDefinitionResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:batch/getJobDefinition:getJobDefinition", {

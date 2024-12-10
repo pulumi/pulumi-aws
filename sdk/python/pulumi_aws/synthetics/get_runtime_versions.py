@@ -91,7 +91,7 @@ def get_runtime_versions(runtime_versions: Optional[Sequence[Union['GetRuntimeVe
         id=pulumi.get(__ret__, 'id'),
         runtime_versions=pulumi.get(__ret__, 'runtime_versions'))
 def get_runtime_versions_output(runtime_versions: Optional[pulumi.Input[Optional[Sequence[Union['GetRuntimeVersionsRuntimeVersionArgs', 'GetRuntimeVersionsRuntimeVersionArgsDict']]]]] = None,
-                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuntimeVersionsResult]:
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuntimeVersionsResult]:
     """
     Data source for managing an AWS CloudWatch Synthetics Runtime Versions.
 
@@ -111,7 +111,7 @@ def get_runtime_versions_output(runtime_versions: Optional[pulumi.Input[Optional
     """
     __args__ = dict()
     __args__['runtimeVersions'] = runtime_versions
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:synthetics/getRuntimeVersions:getRuntimeVersions', __args__, opts=opts, typ=GetRuntimeVersionsResult)
     return __ret__.apply(lambda __response__: GetRuntimeVersionsResult(
         id=pulumi.get(__response__, 'id'),

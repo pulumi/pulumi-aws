@@ -537,7 +537,7 @@ def get_orderable_db_instance_output(availability_zone_group: Optional[pulumi.In
                                      supports_storage_autoscaling: Optional[pulumi.Input[Optional[bool]]] = None,
                                      supports_storage_encryption: Optional[pulumi.Input[Optional[bool]]] = None,
                                      vpc: Optional[pulumi.Input[Optional[bool]]] = None,
-                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrderableDbInstanceResult]:
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrderableDbInstanceResult]:
     """
     Information about RDS orderable DB instances and valid parameter combinations.
 
@@ -627,7 +627,7 @@ def get_orderable_db_instance_output(availability_zone_group: Optional[pulumi.In
     __args__['supportsStorageAutoscaling'] = supports_storage_autoscaling
     __args__['supportsStorageEncryption'] = supports_storage_encryption
     __args__['vpc'] = vpc
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:rds/getOrderableDbInstance:getOrderableDbInstance', __args__, opts=opts, typ=GetOrderableDbInstanceResult)
     return __ret__.apply(lambda __response__: GetOrderableDbInstanceResult(
         availability_zone_group=pulumi.get(__response__, 'availability_zone_group'),

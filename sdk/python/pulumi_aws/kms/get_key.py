@@ -369,7 +369,7 @@ def get_key(grant_tokens: Optional[Sequence[str]] = None,
         xks_key_configurations=pulumi.get(__ret__, 'xks_key_configurations'))
 def get_key_output(grant_tokens: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                    key_id: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyResult]:
+                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyResult]:
     """
     Use this data source to get detailed information about
     the specified KMS Key with flexible key id input.
@@ -399,7 +399,7 @@ def get_key_output(grant_tokens: Optional[pulumi.Input[Optional[Sequence[str]]]]
     __args__ = dict()
     __args__['grantTokens'] = grant_tokens
     __args__['keyId'] = key_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:kms/getKey:getKey', __args__, opts=opts, typ=GetKeyResult)
     return __ret__.apply(lambda __response__: GetKeyResult(
         arn=pulumi.get(__response__, 'arn'),

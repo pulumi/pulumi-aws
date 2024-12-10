@@ -227,7 +227,7 @@ def get_objects_output(bucket: Optional[pulumi.Input[str]] = None,
                        prefix: Optional[pulumi.Input[Optional[str]]] = None,
                        request_payer: Optional[pulumi.Input[Optional[str]]] = None,
                        start_after: Optional[pulumi.Input[Optional[str]]] = None,
-                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetObjectsResult]:
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetObjectsResult]:
     """
     > **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect the provider's performance.
 
@@ -252,7 +252,7 @@ def get_objects_output(bucket: Optional[pulumi.Input[str]] = None,
     __args__['prefix'] = prefix
     __args__['requestPayer'] = request_payer
     __args__['startAfter'] = start_after
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:s3/getObjects:getObjects', __args__, opts=opts, typ=GetObjectsResult)
     return __ret__.apply(lambda __response__: GetObjectsResult(
         bucket=pulumi.get(__response__, 'bucket'),

@@ -196,7 +196,7 @@ def get_listener_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                         load_balancer_arn: Optional[pulumi.Input[Optional[str]]] = None,
                         port: Optional[pulumi.Input[Optional[int]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetListenerResult]:
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetListenerResult]:
     """
     > **Note:** `alb.Listener` is known as `lb.Listener`. The functionality is identical.
 
@@ -229,7 +229,7 @@ def get_listener_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['loadBalancerArn'] = load_balancer_arn
     __args__['port'] = port
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:alb/getListener:getListener', __args__, opts=opts, typ=GetListenerResult)
     return __ret__.apply(lambda __response__: GetListenerResult(
         alpn_policy=pulumi.get(__response__, 'alpn_policy'),

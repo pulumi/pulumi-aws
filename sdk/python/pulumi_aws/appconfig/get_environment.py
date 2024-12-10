@@ -185,7 +185,7 @@ def get_environment(application_id: Optional[str] = None,
 def get_environment_output(application_id: Optional[pulumi.Input[str]] = None,
                            environment_id: Optional[pulumi.Input[str]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentResult]:
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     Provides access to an AppConfig Environment.
 
@@ -210,7 +210,7 @@ def get_environment_output(application_id: Optional[pulumi.Input[str]] = None,
     __args__['applicationId'] = application_id
     __args__['environmentId'] = environment_id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:appconfig/getEnvironment:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult)
     return __ret__.apply(lambda __response__: GetEnvironmentResult(
         application_id=pulumi.get(__response__, 'application_id'),

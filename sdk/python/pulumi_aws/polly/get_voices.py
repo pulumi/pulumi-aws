@@ -145,7 +145,7 @@ def get_voices_output(engine: Optional[pulumi.Input[Optional[str]]] = None,
                       include_additional_language_codes: Optional[pulumi.Input[Optional[bool]]] = None,
                       language_code: Optional[pulumi.Input[Optional[str]]] = None,
                       voices: Optional[pulumi.Input[Optional[Sequence[Union['GetVoicesVoiceArgs', 'GetVoicesVoiceArgsDict']]]]] = None,
-                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVoicesResult]:
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVoicesResult]:
     """
     Data source for managing an AWS Polly Voices.
 
@@ -180,7 +180,7 @@ def get_voices_output(engine: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['includeAdditionalLanguageCodes'] = include_additional_language_codes
     __args__['languageCode'] = language_code
     __args__['voices'] = voices
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:polly/getVoices:getVoices', __args__, opts=opts, typ=GetVoicesResult)
     return __ret__.apply(lambda __response__: GetVoicesResult(
         engine=pulumi.get(__response__, 'engine'),

@@ -110,7 +110,7 @@ export interface GetAmiIdsResult {
  * });
  * ```
  */
-export function getAmiIdsOutput(args: GetAmiIdsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAmiIdsResult> {
+export function getAmiIdsOutput(args: GetAmiIdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAmiIdsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getAmiIds:getAmiIds", {
         "executableUsers": args.executableUsers,

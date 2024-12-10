@@ -88,7 +88,7 @@ export interface GetSamlProviderResult {
  * });
  * ```
  */
-export function getSamlProviderOutput(args: GetSamlProviderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSamlProviderResult> {
+export function getSamlProviderOutput(args: GetSamlProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSamlProviderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:iam/getSamlProvider:getSamlProvider", {
         "arn": args.arn,

@@ -194,7 +194,7 @@ export interface GetTaskExecutionResult {
  * });
  * ```
  */
-export function getTaskExecutionOutput(args: GetTaskExecutionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTaskExecutionResult> {
+export function getTaskExecutionOutput(args: GetTaskExecutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskExecutionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ecs/getTaskExecution:getTaskExecution", {
         "capacityProviderStrategies": args.capacityProviderStrategies,

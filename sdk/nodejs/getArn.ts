@@ -80,7 +80,7 @@ export interface GetArnResult {
  * });
  * ```
  */
-export function getArnOutput(args: GetArnOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetArnResult> {
+export function getArnOutput(args: GetArnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArnResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:index/getArn:getArn", {
         "arn": args.arn,

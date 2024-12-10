@@ -169,7 +169,7 @@ def get_portfolio(accept_language: Optional[str] = None,
 def get_portfolio_output(accept_language: Optional[pulumi.Input[Optional[str]]] = None,
                          id: Optional[pulumi.Input[str]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPortfolioResult]:
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPortfolioResult]:
     """
     Provides information for a Service Catalog Portfolio.
 
@@ -193,7 +193,7 @@ def get_portfolio_output(accept_language: Optional[pulumi.Input[Optional[str]]] 
     __args__['acceptLanguage'] = accept_language
     __args__['id'] = id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:servicecatalog/getPortfolio:getPortfolio', __args__, opts=opts, typ=GetPortfolioResult)
     return __ret__.apply(lambda __response__: GetPortfolioResult(
         accept_language=pulumi.get(__response__, 'accept_language'),

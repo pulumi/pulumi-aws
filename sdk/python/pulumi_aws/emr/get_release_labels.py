@@ -102,7 +102,7 @@ def get_release_labels(filters: Optional[Union['GetReleaseLabelsFiltersArgs', 'G
         id=pulumi.get(__ret__, 'id'),
         release_labels=pulumi.get(__ret__, 'release_labels'))
 def get_release_labels_output(filters: Optional[pulumi.Input[Optional[Union['GetReleaseLabelsFiltersArgs', 'GetReleaseLabelsFiltersArgsDict']]]] = None,
-                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReleaseLabelsResult]:
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReleaseLabelsResult]:
     """
     Retrieve information about EMR Release Labels.
 
@@ -123,7 +123,7 @@ def get_release_labels_output(filters: Optional[pulumi.Input[Optional[Union['Get
     """
     __args__ = dict()
     __args__['filters'] = filters
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:emr/getReleaseLabels:getReleaseLabels', __args__, opts=opts, typ=GetReleaseLabelsResult)
     return __ret__.apply(lambda __response__: GetReleaseLabelsResult(
         filters=pulumi.get(__response__, 'filters'),

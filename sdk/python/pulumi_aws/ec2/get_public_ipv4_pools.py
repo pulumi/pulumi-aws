@@ -131,7 +131,7 @@ def get_public_ipv4_pools(filters: Optional[Sequence[Union['GetPublicIpv4PoolsFi
         tags=pulumi.get(__ret__, 'tags'))
 def get_public_ipv4_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetPublicIpv4PoolsFilterArgs', 'GetPublicIpv4PoolsFilterArgsDict']]]]] = None,
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublicIpv4PoolsResult]:
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicIpv4PoolsResult]:
     """
     Data source for getting information about AWS EC2 Public IPv4 Pools.
 
@@ -169,7 +169,7 @@ def get_public_ipv4_pools_output(filters: Optional[pulumi.Input[Optional[Sequenc
     __args__ = dict()
     __args__['filters'] = filters
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getPublicIpv4Pools:getPublicIpv4Pools', __args__, opts=opts, typ=GetPublicIpv4PoolsResult)
     return __ret__.apply(lambda __response__: GetPublicIpv4PoolsResult(
         filters=pulumi.get(__response__, 'filters'),

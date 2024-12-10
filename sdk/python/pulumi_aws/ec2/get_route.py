@@ -277,7 +277,7 @@ def get_route_output(carrier_gateway_id: Optional[pulumi.Input[Optional[str]]] =
                      route_table_id: Optional[pulumi.Input[str]] = None,
                      transit_gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
                      vpc_peering_connection_id: Optional[pulumi.Input[Optional[str]]] = None,
-                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteResult]:
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteResult]:
     """
     `ec2.Route` provides details about a specific Route.
 
@@ -332,7 +332,7 @@ def get_route_output(carrier_gateway_id: Optional[pulumi.Input[Optional[str]]] =
     __args__['routeTableId'] = route_table_id
     __args__['transitGatewayId'] = transit_gateway_id
     __args__['vpcPeeringConnectionId'] = vpc_peering_connection_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getRoute:getRoute', __args__, opts=opts, typ=GetRouteResult)
     return __ret__.apply(lambda __response__: GetRouteResult(
         carrier_gateway_id=pulumi.get(__response__, 'carrier_gateway_id'),

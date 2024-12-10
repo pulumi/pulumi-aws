@@ -47,7 +47,7 @@ export interface GetDefaultScraperConfigurationResult {
  * const example = aws.amp.getDefaultScraperConfiguration({});
  * ```
  */
-export function getDefaultScraperConfigurationOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDefaultScraperConfigurationResult> {
+export function getDefaultScraperConfigurationOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultScraperConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:amp/getDefaultScraperConfiguration:getDefaultScraperConfiguration", {
     }, opts);

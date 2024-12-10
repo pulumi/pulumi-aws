@@ -280,7 +280,7 @@ def get_signing_job(job_id: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         status_reason=pulumi.get(__ret__, 'status_reason'))
 def get_signing_job_output(job_id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSigningJobResult]:
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSigningJobResult]:
     """
     Provides information about a Signer Signing Job.
 
@@ -298,7 +298,7 @@ def get_signing_job_output(job_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['jobId'] = job_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:signer/getSigningJob:getSigningJob', __args__, opts=opts, typ=GetSigningJobResult)
     return __ret__.apply(lambda __response__: GetSigningJobResult(
         completed_at=pulumi.get(__response__, 'completed_at'),

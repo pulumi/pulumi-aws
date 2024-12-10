@@ -192,7 +192,7 @@ def get_inference_profile(inference_profile_id: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_inference_profile_output(inference_profile_id: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInferenceProfileResult]:
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInferenceProfileResult]:
     """
     Data source for managing an AWS Bedrock Inference Profile.
 
@@ -213,7 +213,7 @@ def get_inference_profile_output(inference_profile_id: Optional[pulumi.Input[str
     """
     __args__ = dict()
     __args__['inferenceProfileId'] = inference_profile_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:bedrock/getInferenceProfile:getInferenceProfile', __args__, opts=opts, typ=GetInferenceProfileResult)
     return __ret__.apply(lambda __response__: GetInferenceProfileResult(
         created_at=pulumi.get(__response__, 'created_at'),

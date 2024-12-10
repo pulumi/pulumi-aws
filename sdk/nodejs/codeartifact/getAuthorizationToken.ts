@@ -79,7 +79,7 @@ export interface GetAuthorizationTokenResult {
  * });
  * ```
  */
-export function getAuthorizationTokenOutput(args: GetAuthorizationTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAuthorizationTokenResult> {
+export function getAuthorizationTokenOutput(args: GetAuthorizationTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:codeartifact/getAuthorizationToken:getAuthorizationToken", {
         "domain": args.domain,

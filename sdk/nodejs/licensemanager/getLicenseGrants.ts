@@ -82,7 +82,7 @@ export interface GetLicenseGrantsResult {
  * }));
  * ```
  */
-export function getLicenseGrantsOutput(args?: GetLicenseGrantsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLicenseGrantsResult> {
+export function getLicenseGrantsOutput(args?: GetLicenseGrantsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLicenseGrantsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:licensemanager/getLicenseGrants:getLicenseGrants", {

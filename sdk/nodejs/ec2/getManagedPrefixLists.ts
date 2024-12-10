@@ -91,7 +91,7 @@ export interface GetManagedPrefixListsResult {
  * })));
  * ```
  */
-export function getManagedPrefixListsOutput(args?: GetManagedPrefixListsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedPrefixListsResult> {
+export function getManagedPrefixListsOutput(args?: GetManagedPrefixListsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedPrefixListsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", {

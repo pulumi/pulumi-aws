@@ -147,7 +147,7 @@ export interface GetResourcesResult {
  * });
  * ```
  */
-export function getResourcesOutput(args?: GetResourcesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourcesResult> {
+export function getResourcesOutput(args?: GetResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourcesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:resourcegroupstaggingapi/getResources:getResources", {

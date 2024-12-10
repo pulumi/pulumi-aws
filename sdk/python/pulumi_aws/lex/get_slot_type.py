@@ -190,7 +190,7 @@ def get_slot_type(name: Optional[str] = None,
         version=pulumi.get(__ret__, 'version'))
 def get_slot_type_output(name: Optional[pulumi.Input[str]] = None,
                          version: Optional[pulumi.Input[Optional[str]]] = None,
-                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSlotTypeResult]:
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSlotTypeResult]:
     """
     Provides details about a specific Amazon Lex Slot Type.
 
@@ -211,7 +211,7 @@ def get_slot_type_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['version'] = version
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:lex/getSlotType:getSlotType', __args__, opts=opts, typ=GetSlotTypeResult)
     return __ret__.apply(lambda __response__: GetSlotTypeResult(
         checksum=pulumi.get(__response__, 'checksum'),

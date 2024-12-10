@@ -619,7 +619,7 @@ def get_instance(db_instance_identifier: Optional[str] = None,
         vpc_security_groups=pulumi.get(__ret__, 'vpc_security_groups'))
 def get_instance_output(db_instance_identifier: Optional[pulumi.Input[Optional[str]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceResult]:
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceResult]:
     """
     Use this data source to get information about an RDS instance
 
@@ -639,7 +639,7 @@ def get_instance_output(db_instance_identifier: Optional[pulumi.Input[Optional[s
     __args__ = dict()
     __args__['dbInstanceIdentifier'] = db_instance_identifier
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:rds/getInstance:getInstance', __args__, opts=opts, typ=GetInstanceResult)
     return __ret__.apply(lambda __response__: GetInstanceResult(
         address=pulumi.get(__response__, 'address'),

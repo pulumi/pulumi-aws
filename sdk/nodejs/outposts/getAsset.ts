@@ -59,7 +59,7 @@ export interface GetAssetResult {
 /**
  * Information about a specific hardware asset in an Outpost.
  */
-export function getAssetOutput(args: GetAssetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssetResult> {
+export function getAssetOutput(args: GetAssetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:outposts/getAsset:getAsset", {
         "arn": args.arn,

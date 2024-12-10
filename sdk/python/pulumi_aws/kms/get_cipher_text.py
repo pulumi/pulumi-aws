@@ -136,7 +136,7 @@ def get_cipher_text(context: Optional[Mapping[str, str]] = None,
 def get_cipher_text_output(context: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                            key_id: Optional[pulumi.Input[str]] = None,
                            plaintext: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCipherTextResult]:
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCipherTextResult]:
     """
     The KMS ciphertext data source allows you to encrypt plaintext into ciphertext
     by using an AWS KMS customer master key. The value returned by this data source
@@ -169,7 +169,7 @@ def get_cipher_text_output(context: Optional[pulumi.Input[Optional[Mapping[str, 
     __args__['context'] = context
     __args__['keyId'] = key_id
     __args__['plaintext'] = plaintext
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:kms/getCipherText:getCipherText', __args__, opts=opts, typ=GetCipherTextResult)
     return __ret__.apply(lambda __response__: GetCipherTextResult(
         ciphertext_blob=pulumi.get(__response__, 'ciphertext_blob'),

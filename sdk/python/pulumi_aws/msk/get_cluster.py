@@ -286,7 +286,7 @@ def get_cluster(cluster_name: Optional[str] = None,
         zookeeper_connect_string_tls=pulumi.get(__ret__, 'zookeeper_connect_string_tls'))
 def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
     Get information on an Amazon MSK Cluster.
 
@@ -308,7 +308,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:msk/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult)
     return __ret__.apply(lambda __response__: GetClusterResult(
         arn=pulumi.get(__response__, 'arn'),

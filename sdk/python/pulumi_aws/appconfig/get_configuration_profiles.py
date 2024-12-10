@@ -102,7 +102,7 @@ def get_configuration_profiles(application_id: Optional[str] = None,
         configuration_profile_ids=pulumi.get(__ret__, 'configuration_profile_ids'),
         id=pulumi.get(__ret__, 'id'))
 def get_configuration_profiles_output(application_id: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationProfilesResult]:
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationProfilesResult]:
     """
     Provides access to all Configuration Properties for an AppConfig Application. This will allow you to pass Configuration
     Profile IDs to another resource.
@@ -125,7 +125,7 @@ def get_configuration_profiles_output(application_id: Optional[pulumi.Input[str]
     """
     __args__ = dict()
     __args__['applicationId'] = application_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:appconfig/getConfigurationProfiles:getConfigurationProfiles', __args__, opts=opts, typ=GetConfigurationProfilesResult)
     return __ret__.apply(lambda __response__: GetConfigurationProfilesResult(
         application_id=pulumi.get(__response__, 'application_id'),

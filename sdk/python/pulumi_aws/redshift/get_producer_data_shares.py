@@ -124,7 +124,7 @@ def get_producer_data_shares(data_shares: Optional[Sequence[Union['GetProducerDa
 def get_producer_data_shares_output(data_shares: Optional[pulumi.Input[Optional[Sequence[Union['GetProducerDataSharesDataShareArgs', 'GetProducerDataSharesDataShareArgsDict']]]]] = None,
                                     producer_arn: Optional[pulumi.Input[str]] = None,
                                     status: Optional[pulumi.Input[Optional[str]]] = None,
-                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProducerDataSharesResult]:
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProducerDataSharesResult]:
     """
     Data source for managing AWS Redshift Producer Data Shares.
 
@@ -150,7 +150,7 @@ def get_producer_data_shares_output(data_shares: Optional[pulumi.Input[Optional[
     __args__['dataShares'] = data_shares
     __args__['producerArn'] = producer_arn
     __args__['status'] = status
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:redshift/getProducerDataShares:getProducerDataShares', __args__, opts=opts, typ=GetProducerDataSharesResult)
     return __ret__.apply(lambda __response__: GetProducerDataSharesResult(
         data_shares=pulumi.get(__response__, 'data_shares'),

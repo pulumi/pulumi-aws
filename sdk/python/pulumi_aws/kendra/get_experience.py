@@ -230,7 +230,7 @@ def get_experience(experience_id: Optional[str] = None,
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_experience_output(experience_id: Optional[pulumi.Input[str]] = None,
                           index_id: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExperienceResult]:
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExperienceResult]:
     """
     Provides details about a specific Amazon Kendra Experience.
 
@@ -251,7 +251,7 @@ def get_experience_output(experience_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['experienceId'] = experience_id
     __args__['indexId'] = index_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:kendra/getExperience:getExperience', __args__, opts=opts, typ=GetExperienceResult)
     return __ret__.apply(lambda __response__: GetExperienceResult(
         arn=pulumi.get(__response__, 'arn'),

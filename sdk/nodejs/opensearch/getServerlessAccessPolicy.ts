@@ -80,7 +80,7 @@ export interface GetServerlessAccessPolicyResult {
  * });
  * ```
  */
-export function getServerlessAccessPolicyOutput(args: GetServerlessAccessPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerlessAccessPolicyResult> {
+export function getServerlessAccessPolicyOutput(args: GetServerlessAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessAccessPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:opensearch/getServerlessAccessPolicy:getServerlessAccessPolicy", {
         "name": args.name,

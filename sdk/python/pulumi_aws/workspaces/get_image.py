@@ -146,7 +146,7 @@ def get_image(image_id: Optional[str] = None,
         required_tenancy=pulumi.get(__ret__, 'required_tenancy'),
         state=pulumi.get(__ret__, 'state'))
 def get_image_output(image_id: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageResult]:
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
     """
     Use this data source to get information about a Workspaces image.
 
@@ -164,7 +164,7 @@ def get_image_output(image_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['imageId'] = image_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:workspaces/getImage:getImage', __args__, opts=opts, typ=GetImageResult)
     return __ret__.apply(lambda __response__: GetImageResult(
         description=pulumi.get(__response__, 'description'),

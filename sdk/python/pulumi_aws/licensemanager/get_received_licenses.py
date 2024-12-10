@@ -107,7 +107,7 @@ def get_received_licenses(filters: Optional[Sequence[Union['GetReceivedLicensesF
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'))
 def get_received_licenses_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetReceivedLicensesFilterArgs', 'GetReceivedLicensesFilterArgsDict']]]]] = None,
-                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReceivedLicensesResult]:
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReceivedLicensesResult]:
     """
     This resource can be used to get a set of license ARNs matching a filter.
 
@@ -133,7 +133,7 @@ def get_received_licenses_output(filters: Optional[pulumi.Input[Optional[Sequenc
     """
     __args__ = dict()
     __args__['filters'] = filters
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:licensemanager/getReceivedLicenses:getReceivedLicenses', __args__, opts=opts, typ=GetReceivedLicensesResult)
     return __ret__.apply(lambda __response__: GetReceivedLicensesResult(
         arns=pulumi.get(__response__, 'arns'),

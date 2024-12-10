@@ -159,7 +159,7 @@ def get_network_acls(filters: Optional[Sequence[Union['GetNetworkAclsFilterArgs'
 def get_network_acls_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetNetworkAclsFilterArgs', 'GetNetworkAclsFilterArgsDict']]]]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                             vpc_id: Optional[pulumi.Input[Optional[str]]] = None,
-                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkAclsResult]:
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkAclsResult]:
     """
     ## Example Usage
 
@@ -213,7 +213,7 @@ def get_network_acls_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
     __args__['filters'] = filters
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getNetworkAcls:getNetworkAcls', __args__, opts=opts, typ=GetNetworkAclsResult)
     return __ret__.apply(lambda __response__: GetNetworkAclsResult(
         filters=pulumi.get(__response__, 'filters'),

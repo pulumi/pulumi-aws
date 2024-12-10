@@ -194,7 +194,7 @@ def get_security_profile_output(instance_id: Optional[pulumi.Input[str]] = None,
                                 name: Optional[pulumi.Input[Optional[str]]] = None,
                                 security_profile_id: Optional[pulumi.Input[Optional[str]]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityProfileResult]:
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityProfileResult]:
     """
     Provides details about a specific Amazon Connect Security Profile.
 
@@ -231,7 +231,7 @@ def get_security_profile_output(instance_id: Optional[pulumi.Input[str]] = None,
     __args__['name'] = name
     __args__['securityProfileId'] = security_profile_id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:connect/getSecurityProfile:getSecurityProfile', __args__, opts=opts, typ=GetSecurityProfileResult)
     return __ret__.apply(lambda __response__: GetSecurityProfileResult(
         arn=pulumi.get(__response__, 'arn'),

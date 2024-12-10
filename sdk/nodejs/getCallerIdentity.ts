@@ -75,7 +75,7 @@ export interface GetCallerIdentityResult {
  * export const callerUser = current.then(current => current.userId);
  * ```
  */
-export function getCallerIdentityOutput(args?: GetCallerIdentityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCallerIdentityResult> {
+export function getCallerIdentityOutput(args?: GetCallerIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCallerIdentityResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:index/getCallerIdentity:getCallerIdentity", {

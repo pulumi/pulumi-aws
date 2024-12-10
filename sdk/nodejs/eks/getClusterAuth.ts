@@ -79,7 +79,7 @@ export interface GetClusterAuthResult {
  * });
  * ```
  */
-export function getClusterAuthOutput(args: GetClusterAuthOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterAuthResult> {
+export function getClusterAuthOutput(args: GetClusterAuthOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterAuthResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:eks/getClusterAuth:getClusterAuth", {
         "name": args.name,

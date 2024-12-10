@@ -87,7 +87,7 @@ export interface GetTransitGatewayRouteTablesResult {
  * }
  * ```
  */
-export function getTransitGatewayRouteTablesOutput(args?: GetTransitGatewayRouteTablesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTransitGatewayRouteTablesResult> {
+export function getTransitGatewayRouteTablesOutput(args?: GetTransitGatewayRouteTablesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayRouteTablesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getTransitGatewayRouteTables:getTransitGatewayRouteTables", {

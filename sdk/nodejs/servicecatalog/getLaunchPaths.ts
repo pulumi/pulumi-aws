@@ -78,7 +78,7 @@ export interface GetLaunchPathsResult {
  * });
  * ```
  */
-export function getLaunchPathsOutput(args: GetLaunchPathsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLaunchPathsResult> {
+export function getLaunchPathsOutput(args: GetLaunchPathsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchPathsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:servicecatalog/getLaunchPaths:getLaunchPaths", {
         "acceptLanguage": args.acceptLanguage,

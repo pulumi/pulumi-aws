@@ -99,7 +99,7 @@ export interface GetClusterCredentialsResult {
  * });
  * ```
  */
-export function getClusterCredentialsOutput(args: GetClusterCredentialsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterCredentialsResult> {
+export function getClusterCredentialsOutput(args: GetClusterCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:redshift/getClusterCredentials:getClusterCredentials", {
         "autoCreate": args.autoCreate,

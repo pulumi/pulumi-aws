@@ -93,7 +93,7 @@ export interface GetSpotPriceResult {
  * });
  * ```
  */
-export function getSpotPriceOutput(args?: GetSpotPriceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSpotPriceResult> {
+export function getSpotPriceOutput(args?: GetSpotPriceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpotPriceResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getSpotPrice:getSpotPrice", {

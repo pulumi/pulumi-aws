@@ -51,7 +51,7 @@ export interface GetLinksResult {
  * const example = aws.oam.getLinks({});
  * ```
  */
-export function getLinksOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLinksResult> {
+export function getLinksOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetLinksResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:oam/getLinks:getLinks", {
     }, opts);

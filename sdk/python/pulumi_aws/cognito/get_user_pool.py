@@ -358,7 +358,7 @@ def get_user_pool(user_pool_id: Optional[str] = None,
         user_pool_tags=pulumi.get(__ret__, 'user_pool_tags'),
         username_attributes=pulumi.get(__ret__, 'username_attributes'))
 def get_user_pool_output(user_pool_id: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolResult]:
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolResult]:
     """
     Data source for managing an AWS Cognito User Pool.
 
@@ -378,7 +378,7 @@ def get_user_pool_output(user_pool_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['userPoolId'] = user_pool_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cognito/getUserPool:getUserPool', __args__, opts=opts, typ=GetUserPoolResult)
     return __ret__.apply(lambda __response__: GetUserPoolResult(
         account_recovery_settings=pulumi.get(__response__, 'account_recovery_settings'),

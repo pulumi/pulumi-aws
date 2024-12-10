@@ -149,7 +149,7 @@ def get_serverless_vpc_endpoint(vpc_endpoint_id: Optional[str] = None,
         vpc_endpoint_id=pulumi.get(__ret__, 'vpc_endpoint_id'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
 def get_serverless_vpc_endpoint_output(vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessVpcEndpointResult]:
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerlessVpcEndpointResult]:
     """
     Data source for managing an AWS OpenSearch Serverless VPC Endpoint.
 
@@ -167,7 +167,7 @@ def get_serverless_vpc_endpoint_output(vpc_endpoint_id: Optional[pulumi.Input[st
     """
     __args__ = dict()
     __args__['vpcEndpointId'] = vpc_endpoint_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:opensearch/getServerlessVpcEndpoint:getServerlessVpcEndpoint', __args__, opts=opts, typ=GetServerlessVpcEndpointResult)
     return __ret__.apply(lambda __response__: GetServerlessVpcEndpointResult(
         created_date=pulumi.get(__response__, 'created_date'),

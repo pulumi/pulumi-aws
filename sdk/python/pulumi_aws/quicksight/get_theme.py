@@ -250,7 +250,7 @@ def get_theme(aws_account_id: Optional[str] = None,
 def get_theme_output(aws_account_id: Optional[pulumi.Input[Optional[str]]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                      theme_id: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetThemeResult]:
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetThemeResult]:
     """
     Data source for managing an AWS QuickSight Theme.
 
@@ -276,7 +276,7 @@ def get_theme_output(aws_account_id: Optional[pulumi.Input[Optional[str]]] = Non
     __args__['awsAccountId'] = aws_account_id
     __args__['tags'] = tags
     __args__['themeId'] = theme_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:quicksight/getTheme:getTheme', __args__, opts=opts, typ=GetThemeResult)
     return __ret__.apply(lambda __response__: GetThemeResult(
         arn=pulumi.get(__response__, 'arn'),

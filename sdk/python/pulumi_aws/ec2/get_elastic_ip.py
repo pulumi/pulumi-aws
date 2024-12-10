@@ -350,7 +350,7 @@ def get_elastic_ip_output(filters: Optional[pulumi.Input[Optional[Sequence[Union
                           id: Optional[pulumi.Input[Optional[str]]] = None,
                           public_ip: Optional[pulumi.Input[Optional[str]]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetElasticIpResult]:
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetElasticIpResult]:
     """
     `ec2.Eip` provides details about a specific Elastic IP.
 
@@ -408,7 +408,7 @@ def get_elastic_ip_output(filters: Optional[pulumi.Input[Optional[Sequence[Union
     __args__['id'] = id
     __args__['publicIp'] = public_ip
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getElasticIp:getElasticIp', __args__, opts=opts, typ=GetElasticIpResult)
     return __ret__.apply(lambda __response__: GetElasticIpResult(
         arn=pulumi.get(__response__, 'arn'),

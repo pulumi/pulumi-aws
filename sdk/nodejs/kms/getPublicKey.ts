@@ -115,7 +115,7 @@ export interface GetPublicKeyResult {
  * });
  * ```
  */
-export function getPublicKeyOutput(args: GetPublicKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPublicKeyResult> {
+export function getPublicKeyOutput(args: GetPublicKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:kms/getPublicKey:getPublicKey", {
         "grantTokens": args.grantTokens,

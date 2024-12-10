@@ -205,7 +205,7 @@ def get_function_url(function_name: Optional[str] = None,
         url_id=pulumi.get(__ret__, 'url_id'))
 def get_function_url_output(function_name: Optional[pulumi.Input[str]] = None,
                             qualifier: Optional[pulumi.Input[Optional[str]]] = None,
-                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFunctionUrlResult]:
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionUrlResult]:
     """
     Provides information about a Lambda function URL.
 
@@ -227,7 +227,7 @@ def get_function_url_output(function_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['functionName'] = function_name
     __args__['qualifier'] = qualifier
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:lambda/getFunctionUrl:getFunctionUrl', __args__, opts=opts, typ=GetFunctionUrlResult)
     return __ret__.apply(lambda __response__: GetFunctionUrlResult(
         authorization_type=pulumi.get(__response__, 'authorization_type'),

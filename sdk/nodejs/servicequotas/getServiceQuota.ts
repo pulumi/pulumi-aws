@@ -116,7 +116,7 @@ export interface GetServiceQuotaResult {
  * });
  * ```
  */
-export function getServiceQuotaOutput(args: GetServiceQuotaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceQuotaResult> {
+export function getServiceQuotaOutput(args: GetServiceQuotaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceQuotaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:servicequotas/getServiceQuota:getServiceQuota", {
         "quotaCode": args.quotaCode,

@@ -96,7 +96,7 @@ export interface GetCostCategoryResult {
  * });
  * ```
  */
-export function getCostCategoryOutput(args: GetCostCategoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCostCategoryResult> {
+export function getCostCategoryOutput(args: GetCostCategoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCostCategoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:costexplorer/getCostCategory:getCostCategory", {
         "costCategoryArn": args.costCategoryArn,

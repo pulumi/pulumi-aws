@@ -140,7 +140,7 @@ export interface GetUserPoolResult {
  * });
  * ```
  */
-export function getUserPoolOutput(args: GetUserPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserPoolResult> {
+export function getUserPoolOutput(args: GetUserPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cognito/getUserPool:getUserPool", {
         "userPoolId": args.userPoolId,

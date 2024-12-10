@@ -191,7 +191,7 @@ def get_secret_version(secret_id: Optional[str] = None,
 def get_secret_version_output(secret_id: Optional[pulumi.Input[str]] = None,
                               version_id: Optional[pulumi.Input[Optional[str]]] = None,
                               version_stage: Optional[pulumi.Input[Optional[str]]] = None,
-                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretVersionResult]:
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretVersionResult]:
     """
     Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `secretsmanager.Secret` data source.
 
@@ -227,7 +227,7 @@ def get_secret_version_output(secret_id: Optional[pulumi.Input[str]] = None,
     __args__['secretId'] = secret_id
     __args__['versionId'] = version_id
     __args__['versionStage'] = version_stage
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:secretsmanager/getSecretVersion:getSecretVersion', __args__, opts=opts, typ=GetSecretVersionResult)
     return __ret__.apply(lambda __response__: GetSecretVersionResult(
         arn=pulumi.get(__response__, 'arn'),

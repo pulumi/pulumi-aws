@@ -99,7 +99,7 @@ def get_controls(target_identifier: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         target_identifier=pulumi.get(__ret__, 'target_identifier'))
 def get_controls_output(target_identifier: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetControlsResult]:
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetControlsResult]:
     """
     List of Control Tower controls applied to an OU.
 
@@ -119,7 +119,7 @@ def get_controls_output(target_identifier: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['targetIdentifier'] = target_identifier
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:controltower/getControls:getControls', __args__, opts=opts, typ=GetControlsResult)
     return __ret__.apply(lambda __response__: GetControlsResult(
         enabled_controls=pulumi.get(__response__, 'enabled_controls'),

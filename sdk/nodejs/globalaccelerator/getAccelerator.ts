@@ -86,7 +86,7 @@ export interface GetAcceleratorResult {
  * });
  * ```
  */
-export function getAcceleratorOutput(args?: GetAcceleratorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAcceleratorResult> {
+export function getAcceleratorOutput(args?: GetAcceleratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAcceleratorResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:globalaccelerator/getAccelerator:getAccelerator", {

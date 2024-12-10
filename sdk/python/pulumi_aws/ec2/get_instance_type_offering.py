@@ -137,7 +137,7 @@ def get_instance_type_offering(filters: Optional[Sequence[Union['GetInstanceType
 def get_instance_type_offering_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetInstanceTypeOfferingFilterArgs', 'GetInstanceTypeOfferingFilterArgsDict']]]]] = None,
                                       location_type: Optional[pulumi.Input[Optional[str]]] = None,
                                       preferred_instance_types: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceTypeOfferingResult]:
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceTypeOfferingResult]:
     """
     Information about single EC2 Instance Type Offering.
 
@@ -169,7 +169,7 @@ def get_instance_type_offering_output(filters: Optional[pulumi.Input[Optional[Se
     __args__['filters'] = filters
     __args__['locationType'] = location_type
     __args__['preferredInstanceTypes'] = preferred_instance_types
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getInstanceTypeOffering:getInstanceTypeOffering', __args__, opts=opts, typ=GetInstanceTypeOfferingResult)
     return __ret__.apply(lambda __response__: GetInstanceTypeOfferingResult(
         filters=pulumi.get(__response__, 'filters'),

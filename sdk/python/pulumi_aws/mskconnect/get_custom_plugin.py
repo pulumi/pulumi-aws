@@ -153,7 +153,7 @@ def get_custom_plugin(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_custom_plugin_output(name: Optional[pulumi.Input[str]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomPluginResult]:
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomPluginResult]:
     """
     Get information on an Amazon MSK Connect custom plugin.
 
@@ -173,7 +173,7 @@ def get_custom_plugin_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:mskconnect/getCustomPlugin:getCustomPlugin', __args__, opts=opts, typ=GetCustomPluginResult)
     return __ret__.apply(lambda __response__: GetCustomPluginResult(
         arn=pulumi.get(__response__, 'arn'),

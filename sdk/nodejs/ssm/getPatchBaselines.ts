@@ -113,7 +113,7 @@ export interface GetPatchBaselinesResult {
  * });
  * ```
  */
-export function getPatchBaselinesOutput(args?: GetPatchBaselinesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPatchBaselinesResult> {
+export function getPatchBaselinesOutput(args?: GetPatchBaselinesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPatchBaselinesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssm/getPatchBaselines:getPatchBaselines", {

@@ -101,7 +101,7 @@ export interface GetLocalGatewayResult {
  * });
  * ```
  */
-export function getLocalGatewayOutput(args?: GetLocalGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalGatewayResult> {
+export function getLocalGatewayOutput(args?: GetLocalGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewayResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getLocalGateway:getLocalGateway", {

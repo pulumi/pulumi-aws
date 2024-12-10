@@ -141,7 +141,7 @@ def get_instance_type_offerings(engine_type: Optional[str] = None,
 def get_instance_type_offerings_output(engine_type: Optional[pulumi.Input[Optional[str]]] = None,
                                        host_instance_type: Optional[pulumi.Input[Optional[str]]] = None,
                                        storage_type: Optional[pulumi.Input[Optional[str]]] = None,
-                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceTypeOfferingsResult]:
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceTypeOfferingsResult]:
     """
     Provides information about a MQ Broker Instance Offerings.
 
@@ -169,7 +169,7 @@ def get_instance_type_offerings_output(engine_type: Optional[pulumi.Input[Option
     __args__['engineType'] = engine_type
     __args__['hostInstanceType'] = host_instance_type
     __args__['storageType'] = storage_type
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings', __args__, opts=opts, typ=GetInstanceTypeOfferingsResult)
     return __ret__.apply(lambda __response__: GetInstanceTypeOfferingsResult(
         broker_instance_options=pulumi.get(__response__, 'broker_instance_options'),

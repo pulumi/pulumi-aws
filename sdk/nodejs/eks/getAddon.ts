@@ -105,7 +105,7 @@ export interface GetAddonResult {
  * export const eksAddonOutputs = exampleAwsEksAddon;
  * ```
  */
-export function getAddonOutput(args: GetAddonOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAddonResult> {
+export function getAddonOutput(args: GetAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddonResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:eks/getAddon:getAddon", {
         "addonName": args.addonName,

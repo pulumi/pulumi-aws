@@ -99,7 +99,7 @@ def get_access_keys(user: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         user=pulumi.get(__ret__, 'user'))
 def get_access_keys_output(user: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessKeysResult]:
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessKeysResult]:
     """
     This data source can be used to fetch information about IAM access keys of a
     specific IAM user.
@@ -118,7 +118,7 @@ def get_access_keys_output(user: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['user'] = user
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:iam/getAccessKeys:getAccessKeys', __args__, opts=opts, typ=GetAccessKeysResult)
     return __ret__.apply(lambda __response__: GetAccessKeysResult(
         access_keys=pulumi.get(__response__, 'access_keys'),

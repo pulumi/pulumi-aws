@@ -91,7 +91,7 @@ export interface GetServerlessSecurityConfigResult {
  * });
  * ```
  */
-export function getServerlessSecurityConfigOutput(args: GetServerlessSecurityConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerlessSecurityConfigResult> {
+export function getServerlessSecurityConfigOutput(args: GetServerlessSecurityConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessSecurityConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:opensearch/getServerlessSecurityConfig:getServerlessSecurityConfig", {
         "id": args.id,

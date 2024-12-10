@@ -149,7 +149,7 @@ def get_repository(repository_name: Optional[str] = None,
         repository_id=pulumi.get(__ret__, 'repository_id'),
         repository_name=pulumi.get(__ret__, 'repository_name'))
 def get_repository_output(repository_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryResult]:
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryResult]:
     """
     The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
 
@@ -167,7 +167,7 @@ def get_repository_output(repository_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['repositoryName'] = repository_name
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:codecommit/getRepository:getRepository', __args__, opts=opts, typ=GetRepositoryResult)
     return __ret__.apply(lambda __response__: GetRepositoryResult(
         arn=pulumi.get(__response__, 'arn'),

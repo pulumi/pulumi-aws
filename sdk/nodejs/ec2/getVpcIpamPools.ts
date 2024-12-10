@@ -93,7 +93,7 @@ export interface GetVpcIpamPoolsResult {
  * });
  * ```
  */
-export function getVpcIpamPoolsOutput(args?: GetVpcIpamPoolsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcIpamPoolsResult> {
+export function getVpcIpamPoolsOutput(args?: GetVpcIpamPoolsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcIpamPoolsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getVpcIpamPools:getVpcIpamPools", {

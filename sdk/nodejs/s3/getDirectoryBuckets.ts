@@ -48,7 +48,7 @@ export interface GetDirectoryBucketsResult {
  * const example = aws.s3.getDirectoryBuckets({});
  * ```
  */
-export function getDirectoryBucketsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDirectoryBucketsResult> {
+export function getDirectoryBucketsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetDirectoryBucketsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:s3/getDirectoryBuckets:getDirectoryBuckets", {
     }, opts);

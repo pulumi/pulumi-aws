@@ -172,7 +172,7 @@ def get_security_group_output(filters: Optional[pulumi.Input[Optional[Sequence[U
                               name: Optional[pulumi.Input[Optional[str]]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                               vpc_id: Optional[pulumi.Input[Optional[str]]] = None,
-                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityGroupResult]:
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityGroupResult]:
     """
     `ec2.SecurityGroup` provides details about a specific Security Group.
 
@@ -215,7 +215,7 @@ def get_security_group_output(filters: Optional[pulumi.Input[Optional[Sequence[U
     __args__['name'] = name
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getSecurityGroup:getSecurityGroup', __args__, opts=opts, typ=GetSecurityGroupResult)
     return __ret__.apply(lambda __response__: GetSecurityGroupResult(
         arn=pulumi.get(__response__, 'arn'),

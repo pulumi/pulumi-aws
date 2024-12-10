@@ -109,7 +109,7 @@ def get_finding_ids(detector_id: Optional[str] = None,
         has_findings=pulumi.get(__ret__, 'has_findings'),
         id=pulumi.get(__ret__, 'id'))
 def get_finding_ids_output(detector_id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFindingIdsResult]:
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFindingIdsResult]:
     """
     Data source for managing an AWS GuardDuty Finding Ids.
 
@@ -129,7 +129,7 @@ def get_finding_ids_output(detector_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['detectorId'] = detector_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:guardduty/getFindingIds:getFindingIds', __args__, opts=opts, typ=GetFindingIdsResult)
     return __ret__.apply(lambda __response__: GetFindingIdsResult(
         detector_id=pulumi.get(__response__, 'detector_id'),

@@ -191,7 +191,7 @@ def get_engine_version_output(engine: Optional[pulumi.Input[Optional[str]]] = No
                               parameter_group_family: Optional[pulumi.Input[Optional[str]]] = None,
                               preferred_versions: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                               version: Optional[pulumi.Input[Optional[str]]] = None,
-                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEngineVersionResult]:
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEngineVersionResult]:
     """
     Information about a DocumentDB engine version.
 
@@ -215,7 +215,7 @@ def get_engine_version_output(engine: Optional[pulumi.Input[Optional[str]]] = No
     __args__['parameterGroupFamily'] = parameter_group_family
     __args__['preferredVersions'] = preferred_versions
     __args__['version'] = version
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:docdb/getEngineVersion:getEngineVersion', __args__, opts=opts, typ=GetEngineVersionResult)
     return __ret__.apply(lambda __response__: GetEngineVersionResult(
         engine=pulumi.get(__response__, 'engine'),

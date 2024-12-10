@@ -128,7 +128,7 @@ def get_devices(global_network_id: Optional[str] = None,
 def get_devices_output(global_network_id: Optional[pulumi.Input[str]] = None,
                        site_id: Optional[pulumi.Input[Optional[str]]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDevicesResult]:
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDevicesResult]:
     """
     Retrieve information about devices.
 
@@ -153,7 +153,7 @@ def get_devices_output(global_network_id: Optional[pulumi.Input[str]] = None,
     __args__['globalNetworkId'] = global_network_id
     __args__['siteId'] = site_id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:networkmanager/getDevices:getDevices', __args__, opts=opts, typ=GetDevicesResult)
     return __ret__.apply(lambda __response__: GetDevicesResult(
         global_network_id=pulumi.get(__response__, 'global_network_id'),

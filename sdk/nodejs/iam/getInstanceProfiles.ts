@@ -75,7 +75,7 @@ export interface GetInstanceProfilesResult {
  * });
  * ```
  */
-export function getInstanceProfilesOutput(args: GetInstanceProfilesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInstanceProfilesResult> {
+export function getInstanceProfilesOutput(args: GetInstanceProfilesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceProfilesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:iam/getInstanceProfiles:getInstanceProfiles", {
         "roleName": args.roleName,

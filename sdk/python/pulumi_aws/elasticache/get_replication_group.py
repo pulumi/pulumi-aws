@@ -319,7 +319,7 @@ def get_replication_group(replication_group_id: Optional[str] = None,
         snapshot_retention_limit=pulumi.get(__ret__, 'snapshot_retention_limit'),
         snapshot_window=pulumi.get(__ret__, 'snapshot_window'))
 def get_replication_group_output(replication_group_id: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationGroupResult]:
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationGroupResult]:
     """
     Use this data source to get information about an ElastiCache Replication Group.
 
@@ -337,7 +337,7 @@ def get_replication_group_output(replication_group_id: Optional[pulumi.Input[str
     """
     __args__ = dict()
     __args__['replicationGroupId'] = replication_group_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:elasticache/getReplicationGroup:getReplicationGroup', __args__, opts=opts, typ=GetReplicationGroupResult)
     return __ret__.apply(lambda __response__: GetReplicationGroupResult(
         arn=pulumi.get(__response__, 'arn'),

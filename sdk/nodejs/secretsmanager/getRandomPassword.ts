@@ -108,7 +108,7 @@ export interface GetRandomPasswordResult {
  * });
  * ```
  */
-export function getRandomPasswordOutput(args?: GetRandomPasswordOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRandomPasswordResult> {
+export function getRandomPasswordOutput(args?: GetRandomPasswordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRandomPasswordResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:secretsmanager/getRandomPassword:getRandomPassword", {

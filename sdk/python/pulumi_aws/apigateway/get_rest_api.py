@@ -222,7 +222,7 @@ def get_rest_api(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_rest_api_output(name: Optional[pulumi.Input[str]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRestApiResult]:
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRestApiResult]:
     """
     Use this data source to get the id and root_resource_id of a REST API in
     API Gateway. To fetch the REST API you must provide a name to match against.
@@ -245,7 +245,7 @@ def get_rest_api_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:apigateway/getRestApi:getRestApi', __args__, opts=opts, typ=GetRestApiResult)
     return __ret__.apply(lambda __response__: GetRestApiResult(
         api_key_source=pulumi.get(__response__, 'api_key_source'),

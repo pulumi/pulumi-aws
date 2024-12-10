@@ -119,7 +119,7 @@ export interface GetMeshResult {
  * }));
  * ```
  */
-export function getMeshOutput(args: GetMeshOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMeshResult> {
+export function getMeshOutput(args: GetMeshOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMeshResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:appmesh/getMesh:getMesh", {
         "meshOwner": args.meshOwner,
