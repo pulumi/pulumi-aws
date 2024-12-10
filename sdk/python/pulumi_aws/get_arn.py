@@ -151,7 +151,7 @@ def get_arn(arn: Optional[str] = None,
         service=pulumi.get(__ret__, 'service'))
 def get_arn_output(arn: Optional[pulumi.Input[str]] = None,
                    id: Optional[pulumi.Input[Optional[str]]] = None,
-                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetArnResult]:
+                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetArnResult]:
     """
     Parses an ARN into its constituent parts.
 
@@ -170,7 +170,7 @@ def get_arn_output(arn: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['arn'] = arn
     __args__['id'] = id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:index/getArn:getArn', __args__, opts=opts, typ=GetArnResult)
     return __ret__.apply(lambda __response__: GetArnResult(
         account=pulumi.get(__response__, 'account'),

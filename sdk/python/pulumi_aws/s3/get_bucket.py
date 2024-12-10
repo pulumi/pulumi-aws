@@ -202,7 +202,7 @@ def get_bucket(bucket: Optional[str] = None,
         website_domain=pulumi.get(__ret__, 'website_domain'),
         website_endpoint=pulumi.get(__ret__, 'website_endpoint'))
 def get_bucket_output(bucket: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBucketResult]:
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBucketResult]:
     """
     Provides details about a specific S3 bucket.
 
@@ -247,7 +247,7 @@ def get_bucket_output(bucket: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['bucket'] = bucket
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:s3/getBucket:getBucket', __args__, opts=opts, typ=GetBucketResult)
     return __ret__.apply(lambda __response__: GetBucketResult(
         arn=pulumi.get(__response__, 'arn'),

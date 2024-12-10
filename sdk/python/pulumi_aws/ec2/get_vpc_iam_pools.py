@@ -115,7 +115,7 @@ def get_vpc_iam_pools(filters: Optional[Sequence[Union['GetVpcIamPoolsFilterArgs
         id=pulumi.get(__ret__, 'id'),
         ipam_pools=pulumi.get(__ret__, 'ipam_pools'))
 def get_vpc_iam_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcIamPoolsFilterArgs', 'GetVpcIamPoolsFilterArgsDict']]]]] = None,
-                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcIamPoolsResult]:
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcIamPoolsResult]:
     """
     `ec2_get_vpc_ipam_pools` provides details about IPAM pools.
 
@@ -147,7 +147,7 @@ def get_vpc_iam_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[Un
     pulumi.log.warn("""get_vpc_iam_pools is deprecated: aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools""")
     __args__ = dict()
     __args__['filters'] = filters
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getVpcIamPools:getVpcIamPools', __args__, opts=opts, typ=GetVpcIamPoolsResult)
     return __ret__.apply(lambda __response__: GetVpcIamPoolsResult(
         filters=pulumi.get(__response__, 'filters'),

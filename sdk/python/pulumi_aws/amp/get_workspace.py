@@ -181,7 +181,7 @@ def get_workspace(tags: Optional[Mapping[str, str]] = None,
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
 def get_workspace_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                          workspace_id: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceResult]:
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Provides an Amazon Managed Prometheus workspace data source.
 
@@ -203,7 +203,7 @@ def get_workspace_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]
     __args__ = dict()
     __args__['tags'] = tags
     __args__['workspaceId'] = workspace_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:amp/getWorkspace:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
     return __ret__.apply(lambda __response__: GetWorkspaceResult(
         alias=pulumi.get(__response__, 'alias'),

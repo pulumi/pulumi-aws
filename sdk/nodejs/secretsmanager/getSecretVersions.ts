@@ -50,7 +50,7 @@ export interface GetSecretVersionsResult {
      */
     readonly versions: outputs.secretsmanager.GetSecretVersionsVersion[];
 }
-export function getSecretVersionsOutput(args: GetSecretVersionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecretVersionsResult> {
+export function getSecretVersionsOutput(args: GetSecretVersionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretVersionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:secretsmanager/getSecretVersions:getSecretVersions", {
         "includeDeprecated": args.includeDeprecated,

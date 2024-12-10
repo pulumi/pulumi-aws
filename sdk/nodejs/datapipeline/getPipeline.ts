@@ -76,7 +76,7 @@ export interface GetPipelineResult {
  * });
  * ```
  */
-export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPipelineResult> {
+export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:datapipeline/getPipeline:getPipeline", {
         "pipelineId": args.pipelineId,

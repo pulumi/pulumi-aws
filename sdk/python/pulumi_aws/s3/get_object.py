@@ -529,7 +529,7 @@ def get_object_output(bucket: Optional[pulumi.Input[str]] = None,
                       range: Optional[pulumi.Input[Optional[str]]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                       version_id: Optional[pulumi.Input[Optional[str]]] = None,
-                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetObjectResult]:
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetObjectResult]:
     """
     The S3 object data source allows access to the metadata and
     _optionally_ (see below) content of an object stored inside S3 bucket.
@@ -601,7 +601,7 @@ def get_object_output(bucket: Optional[pulumi.Input[str]] = None,
     __args__['range'] = range
     __args__['tags'] = tags
     __args__['versionId'] = version_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:s3/getObject:getObject', __args__, opts=opts, typ=GetObjectResult)
     return __ret__.apply(lambda __response__: GetObjectResult(
         arn=pulumi.get(__response__, 'arn'),

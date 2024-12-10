@@ -175,7 +175,7 @@ def get_profiling_group(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_profiling_group_output(name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProfilingGroupResult]:
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfilingGroupResult]:
     """
     Data source for managing an AWS CodeGuru Profiler Profiling Group.
 
@@ -195,7 +195,7 @@ def get_profiling_group_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:codeguruprofiler/getProfilingGroup:getProfilingGroup', __args__, opts=opts, typ=GetProfilingGroupResult)
     return __ret__.apply(lambda __response__: GetProfilingGroupResult(
         agent_orchestration_configs=pulumi.get(__response__, 'agent_orchestration_configs'),

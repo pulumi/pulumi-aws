@@ -156,7 +156,7 @@ export interface GetDedicatedHostResult {
  * });
  * ```
  */
-export function getDedicatedHostOutput(args?: GetDedicatedHostOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDedicatedHostResult> {
+export function getDedicatedHostOutput(args?: GetDedicatedHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedHostResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getDedicatedHost:getDedicatedHost", {

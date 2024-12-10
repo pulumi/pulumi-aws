@@ -71,7 +71,7 @@ export interface GetControlsResult {
  * }));
  * ```
  */
-export function getControlsOutput(args: GetControlsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetControlsResult> {
+export function getControlsOutput(args: GetControlsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetControlsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:controltower/getControls:getControls", {
         "targetIdentifier": args.targetIdentifier,

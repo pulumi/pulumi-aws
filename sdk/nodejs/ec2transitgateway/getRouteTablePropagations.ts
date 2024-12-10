@@ -81,7 +81,7 @@ export interface GetRouteTablePropagationsResult {
  * });
  * ```
  */
-export function getRouteTablePropagationsOutput(args: GetRouteTablePropagationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRouteTablePropagationsResult> {
+export function getRouteTablePropagationsOutput(args: GetRouteTablePropagationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTablePropagationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getRouteTablePropagations:getRouteTablePropagations", {
         "filters": args.filters,

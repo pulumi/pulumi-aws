@@ -79,7 +79,7 @@ export interface GetHostedZoneIdResult {
  * });
  * ```
  */
-export function getHostedZoneIdOutput(args?: GetHostedZoneIdOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHostedZoneIdResult> {
+export function getHostedZoneIdOutput(args?: GetHostedZoneIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostedZoneIdResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:apprunner/getHostedZoneId:getHostedZoneId", {

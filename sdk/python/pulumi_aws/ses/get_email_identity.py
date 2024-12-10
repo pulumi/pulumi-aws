@@ -100,7 +100,7 @@ def get_email_identity(email: Optional[str] = None,
         email=pulumi.get(__ret__, 'email'),
         id=pulumi.get(__ret__, 'id'))
 def get_email_identity_output(email: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEmailIdentityResult]:
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEmailIdentityResult]:
     """
     Retrieve the active SES email identity
 
@@ -118,7 +118,7 @@ def get_email_identity_output(email: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['email'] = email
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ses/getEmailIdentity:getEmailIdentity', __args__, opts=opts, typ=GetEmailIdentityResult)
     return __ret__.apply(lambda __response__: GetEmailIdentityResult(
         arn=pulumi.get(__response__, 'arn'),

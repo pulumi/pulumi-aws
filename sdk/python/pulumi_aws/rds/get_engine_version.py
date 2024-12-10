@@ -496,7 +496,7 @@ def get_engine_version_output(default_only: Optional[pulumi.Input[Optional[bool]
                               preferred_upgrade_targets: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                               preferred_versions: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                               version: Optional[pulumi.Input[Optional[str]]] = None,
-                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEngineVersionResult]:
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEngineVersionResult]:
     """
     Information about an RDS engine version.
 
@@ -558,7 +558,7 @@ def get_engine_version_output(default_only: Optional[pulumi.Input[Optional[bool]
     __args__['preferredUpgradeTargets'] = preferred_upgrade_targets
     __args__['preferredVersions'] = preferred_versions
     __args__['version'] = version
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:rds/getEngineVersion:getEngineVersion', __args__, opts=opts, typ=GetEngineVersionResult)
     return __ret__.apply(lambda __response__: GetEngineVersionResult(
         default_character_set=pulumi.get(__response__, 'default_character_set'),

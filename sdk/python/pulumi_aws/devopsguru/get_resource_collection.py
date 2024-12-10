@@ -122,7 +122,7 @@ def get_resource_collection(cloudformations: Optional[Sequence[Union['GetResourc
 def get_resource_collection_output(cloudformations: Optional[pulumi.Input[Optional[Sequence[Union['GetResourceCollectionCloudformationArgs', 'GetResourceCollectionCloudformationArgsDict']]]]] = None,
                                    tags: Optional[pulumi.Input[Optional[Sequence[Union['GetResourceCollectionTagArgs', 'GetResourceCollectionTagArgsDict']]]]] = None,
                                    type: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceCollectionResult]:
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceCollectionResult]:
     """
     Data source for managing an AWS DevOps Guru Resource Collection.
 
@@ -146,7 +146,7 @@ def get_resource_collection_output(cloudformations: Optional[pulumi.Input[Option
     __args__['cloudformations'] = cloudformations
     __args__['tags'] = tags
     __args__['type'] = type
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:devopsguru/getResourceCollection:getResourceCollection', __args__, opts=opts, typ=GetResourceCollectionResult)
     return __ret__.apply(lambda __response__: GetResourceCollectionResult(
         cloudformations=pulumi.get(__response__, 'cloudformations'),

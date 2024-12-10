@@ -89,7 +89,7 @@ export interface GetDefaultTagsResult {
  * }))});
  * ```
  */
-export function getDefaultTagsOutput(args?: GetDefaultTagsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDefaultTagsResult> {
+export function getDefaultTagsOutput(args?: GetDefaultTagsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultTagsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:index/getDefaultTags:getDefaultTags", {

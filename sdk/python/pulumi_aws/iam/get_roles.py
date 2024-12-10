@@ -167,7 +167,7 @@ def get_roles(name_regex: Optional[str] = None,
         path_prefix=pulumi.get(__ret__, 'path_prefix'))
 def get_roles_output(name_regex: Optional[pulumi.Input[Optional[str]]] = None,
                      path_prefix: Optional[pulumi.Input[Optional[str]]] = None,
-                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRolesResult]:
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRolesResult]:
     """
     Use this data source to get the ARNs and Names of IAM Roles.
 
@@ -230,7 +230,7 @@ def get_roles_output(name_regex: Optional[pulumi.Input[Optional[str]]] = None,
     __args__ = dict()
     __args__['nameRegex'] = name_regex
     __args__['pathPrefix'] = path_prefix
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:iam/getRoles:getRoles', __args__, opts=opts, typ=GetRolesResult)
     return __ret__.apply(lambda __response__: GetRolesResult(
         arns=pulumi.get(__response__, 'arns'),

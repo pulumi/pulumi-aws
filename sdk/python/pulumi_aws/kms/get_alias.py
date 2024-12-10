@@ -128,7 +128,7 @@ def get_alias(name: Optional[str] = None,
         target_key_arn=pulumi.get(__ret__, 'target_key_arn'),
         target_key_id=pulumi.get(__ret__, 'target_key_id'))
 def get_alias_output(name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAliasResult]:
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAliasResult]:
     """
     Use this data source to get the ARN of a KMS key alias.
     By using this data source, you can reference key alias
@@ -148,7 +148,7 @@ def get_alias_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:kms/getAlias:getAlias', __args__, opts=opts, typ=GetAliasResult)
     return __ret__.apply(lambda __response__: GetAliasResult(
         arn=pulumi.get(__response__, 'arn'),

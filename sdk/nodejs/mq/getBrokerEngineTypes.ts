@@ -74,7 +74,7 @@ export interface GetBrokerEngineTypesResult {
  * });
  * ```
  */
-export function getBrokerEngineTypesOutput(args?: GetBrokerEngineTypesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBrokerEngineTypesResult> {
+export function getBrokerEngineTypesOutput(args?: GetBrokerEngineTypesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBrokerEngineTypesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:mq/getBrokerEngineTypes:getBrokerEngineTypes", {

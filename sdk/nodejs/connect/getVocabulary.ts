@@ -137,7 +137,7 @@ export interface GetVocabularyResult {
  * });
  * ```
  */
-export function getVocabularyOutput(args: GetVocabularyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVocabularyResult> {
+export function getVocabularyOutput(args: GetVocabularyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVocabularyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:connect/getVocabulary:getVocabulary", {
         "instanceId": args.instanceId,

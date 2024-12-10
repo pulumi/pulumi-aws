@@ -92,7 +92,7 @@ export interface GetTrackerResult {
  * });
  * ```
  */
-export function getTrackerOutput(args: GetTrackerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTrackerResult> {
+export function getTrackerOutput(args: GetTrackerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrackerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:location/getTracker:getTracker", {
         "tags": args.tags,

@@ -83,7 +83,7 @@ export interface GetUserGroupResult {
  * });
  * ```
  */
-export function getUserGroupOutput(args: GetUserGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserGroupResult> {
+export function getUserGroupOutput(args: GetUserGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cognito/getUserGroup:getUserGroup", {
         "name": args.name,

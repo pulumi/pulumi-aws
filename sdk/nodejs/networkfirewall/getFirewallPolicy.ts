@@ -148,7 +148,7 @@ export interface GetFirewallPolicyResult {
  *
  * > **Note:** If there are multiple firewall policies in an account with the same `name`, and `arn` is not specified, the default behavior will return the firewall policy with `name` that was created in the account.
  */
-export function getFirewallPolicyOutput(args?: GetFirewallPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFirewallPolicyResult> {
+export function getFirewallPolicyOutput(args?: GetFirewallPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallPolicyResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:networkfirewall/getFirewallPolicy:getFirewallPolicy", {

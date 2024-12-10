@@ -122,7 +122,7 @@ export interface GetSigningJobResult {
  * });
  * ```
  */
-export function getSigningJobOutput(args: GetSigningJobOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSigningJobResult> {
+export function getSigningJobOutput(args: GetSigningJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSigningJobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:signer/getSigningJob:getSigningJob", {
         "jobId": args.jobId,

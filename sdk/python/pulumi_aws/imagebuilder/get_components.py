@@ -130,7 +130,7 @@ def get_components(filters: Optional[Sequence[Union['GetComponentsFilterArgs', '
         owner=pulumi.get(__ret__, 'owner'))
 def get_components_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetComponentsFilterArgs', 'GetComponentsFilterArgsDict']]]]] = None,
                           owner: Optional[pulumi.Input[Optional[str]]] = None,
-                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComponentsResult]:
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentsResult]:
     """
     Use this data source to get the ARNs and names of Image Builder Components matching the specified criteria.
 
@@ -154,7 +154,7 @@ def get_components_output(filters: Optional[pulumi.Input[Optional[Sequence[Union
     __args__ = dict()
     __args__['filters'] = filters
     __args__['owner'] = owner
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:imagebuilder/getComponents:getComponents', __args__, opts=opts, typ=GetComponentsResult)
     return __ret__.apply(lambda __response__: GetComponentsResult(
         arns=pulumi.get(__response__, 'arns'),

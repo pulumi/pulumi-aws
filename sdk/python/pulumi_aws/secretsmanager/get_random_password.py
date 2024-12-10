@@ -196,7 +196,7 @@ def get_random_password_output(exclude_characters: Optional[pulumi.Input[Optiona
                                include_space: Optional[pulumi.Input[Optional[bool]]] = None,
                                password_length: Optional[pulumi.Input[Optional[int]]] = None,
                                require_each_included_type: Optional[pulumi.Input[Optional[bool]]] = None,
-                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRandomPasswordResult]:
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRandomPasswordResult]:
     """
     Generate a random password.
 
@@ -229,7 +229,7 @@ def get_random_password_output(exclude_characters: Optional[pulumi.Input[Optiona
     __args__['includeSpace'] = include_space
     __args__['passwordLength'] = password_length
     __args__['requireEachIncludedType'] = require_each_included_type
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:secretsmanager/getRandomPassword:getRandomPassword', __args__, opts=opts, typ=GetRandomPasswordResult)
     return __ret__.apply(lambda __response__: GetRandomPasswordResult(
         exclude_characters=pulumi.get(__response__, 'exclude_characters'),

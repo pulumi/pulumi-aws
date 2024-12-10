@@ -206,7 +206,7 @@ def get_virtual_service_output(mesh_name: Optional[pulumi.Input[str]] = None,
                                mesh_owner: Optional[pulumi.Input[Optional[str]]] = None,
                                name: Optional[pulumi.Input[str]] = None,
                                tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualServiceResult]:
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualServiceResult]:
     """
     The App Mesh Virtual Service data source allows details of an App Mesh Virtual Service to be retrieved by its name, mesh_name, and optionally the mesh_owner.
 
@@ -241,7 +241,7 @@ def get_virtual_service_output(mesh_name: Optional[pulumi.Input[str]] = None,
     __args__['meshOwner'] = mesh_owner
     __args__['name'] = name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:appmesh/getVirtualService:getVirtualService', __args__, opts=opts, typ=GetVirtualServiceResult)
     return __ret__.apply(lambda __response__: GetVirtualServiceResult(
         arn=pulumi.get(__response__, 'arn'),

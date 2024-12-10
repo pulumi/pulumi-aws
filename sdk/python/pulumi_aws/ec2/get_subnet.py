@@ -422,7 +422,7 @@ def get_subnet_output(availability_zone: Optional[pulumi.Input[Optional[str]]] =
                       state: Optional[pulumi.Input[Optional[str]]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                       vpc_id: Optional[pulumi.Input[Optional[str]]] = None,
-                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubnetResult]:
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetResult]:
     """
     `ec2.Subnet` provides details about a specific VPC subnet.
 
@@ -486,7 +486,7 @@ def get_subnet_output(availability_zone: Optional[pulumi.Input[Optional[str]]] =
     __args__['state'] = state
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getSubnet:getSubnet', __args__, opts=opts, typ=GetSubnetResult)
     return __ret__.apply(lambda __response__: GetSubnetResult(
         arn=pulumi.get(__response__, 'arn'),

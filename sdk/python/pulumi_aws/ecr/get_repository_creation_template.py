@@ -206,7 +206,7 @@ def get_repository_creation_template(prefix: Optional[str] = None,
         resource_tags=pulumi.get(__ret__, 'resource_tags'))
 def get_repository_creation_template_output(prefix: Optional[pulumi.Input[str]] = None,
                                             resource_tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryCreationTemplateResult]:
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryCreationTemplateResult]:
     """
     The ECR Repository Creation Template data source allows the template details to be retrieved for a Repository Creation Template.
 
@@ -226,7 +226,7 @@ def get_repository_creation_template_output(prefix: Optional[pulumi.Input[str]] 
     __args__ = dict()
     __args__['prefix'] = prefix
     __args__['resourceTags'] = resource_tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ecr/getRepositoryCreationTemplate:getRepositoryCreationTemplate', __args__, opts=opts, typ=GetRepositoryCreationTemplateResult)
     return __ret__.apply(lambda __response__: GetRepositoryCreationTemplateResult(
         applied_fors=pulumi.get(__response__, 'applied_fors'),

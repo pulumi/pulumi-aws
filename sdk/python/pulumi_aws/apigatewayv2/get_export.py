@@ -169,7 +169,7 @@ def get_export_output(api_id: Optional[pulumi.Input[str]] = None,
                       output_type: Optional[pulumi.Input[str]] = None,
                       specification: Optional[pulumi.Input[str]] = None,
                       stage_name: Optional[pulumi.Input[Optional[str]]] = None,
-                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExportResult]:
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExportResult]:
     """
     Exports a definition of an API in a particular output format and specification.
 
@@ -199,7 +199,7 @@ def get_export_output(api_id: Optional[pulumi.Input[str]] = None,
     __args__['outputType'] = output_type
     __args__['specification'] = specification
     __args__['stageName'] = stage_name
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:apigatewayv2/getExport:getExport', __args__, opts=opts, typ=GetExportResult)
     return __ret__.apply(lambda __response__: GetExportResult(
         api_id=pulumi.get(__response__, 'api_id'),

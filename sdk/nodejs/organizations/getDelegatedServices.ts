@@ -66,7 +66,7 @@ export interface GetDelegatedServicesResult {
  * });
  * ```
  */
-export function getDelegatedServicesOutput(args: GetDelegatedServicesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDelegatedServicesResult> {
+export function getDelegatedServicesOutput(args: GetDelegatedServicesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDelegatedServicesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:organizations/getDelegatedServices:getDelegatedServices", {
         "accountId": args.accountId,

@@ -85,7 +85,7 @@ export interface GetQuicksightAnalysisResult {
  * });
  * ```
  */
-export function getQuicksightAnalysisOutput(args: GetQuicksightAnalysisOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetQuicksightAnalysisResult> {
+export function getQuicksightAnalysisOutput(args: GetQuicksightAnalysisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQuicksightAnalysisResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:quicksight/getQuicksightAnalysis:getQuicksightAnalysis", {
         "analysisId": args.analysisId,

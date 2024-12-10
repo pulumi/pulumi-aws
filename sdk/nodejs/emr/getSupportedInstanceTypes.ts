@@ -114,7 +114,7 @@ export interface GetSupportedInstanceTypesResult {
  * });
  * ```
  */
-export function getSupportedInstanceTypesOutput(args: GetSupportedInstanceTypesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSupportedInstanceTypesResult> {
+export function getSupportedInstanceTypesOutput(args: GetSupportedInstanceTypesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSupportedInstanceTypesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:emr/getSupportedInstanceTypes:getSupportedInstanceTypes", {
         "releaseLabel": args.releaseLabel,

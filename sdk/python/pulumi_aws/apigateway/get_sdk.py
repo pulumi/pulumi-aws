@@ -171,7 +171,7 @@ def get_sdk_output(parameters: Optional[pulumi.Input[Optional[Mapping[str, str]]
                    rest_api_id: Optional[pulumi.Input[str]] = None,
                    sdk_type: Optional[pulumi.Input[str]] = None,
                    stage_name: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSdkResult]:
+                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSdkResult]:
     """
     ## Example Usage
 
@@ -201,7 +201,7 @@ def get_sdk_output(parameters: Optional[pulumi.Input[Optional[Mapping[str, str]]
     __args__['restApiId'] = rest_api_id
     __args__['sdkType'] = sdk_type
     __args__['stageName'] = stage_name
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:apigateway/getSdk:getSdk', __args__, opts=opts, typ=GetSdkResult)
     return __ret__.apply(lambda __response__: GetSdkResult(
         body=pulumi.get(__response__, 'body'),

@@ -88,7 +88,7 @@ export interface GetServerlessLifecyclePolicyResult {
  * });
  * ```
  */
-export function getServerlessLifecyclePolicyOutput(args: GetServerlessLifecyclePolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerlessLifecyclePolicyResult> {
+export function getServerlessLifecyclePolicyOutput(args: GetServerlessLifecyclePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessLifecyclePolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:opensearch/getServerlessLifecyclePolicy:getServerlessLifecyclePolicy", {
         "name": args.name,

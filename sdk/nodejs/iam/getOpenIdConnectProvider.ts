@@ -105,7 +105,7 @@ export interface GetOpenIdConnectProviderResult {
  * });
  * ```
  */
-export function getOpenIdConnectProviderOutput(args?: GetOpenIdConnectProviderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOpenIdConnectProviderResult> {
+export function getOpenIdConnectProviderOutput(args?: GetOpenIdConnectProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenIdConnectProviderResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:iam/getOpenIdConnectProvider:getOpenIdConnectProvider", {

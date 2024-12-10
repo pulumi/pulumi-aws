@@ -132,7 +132,7 @@ export interface GetIpRangesResult {
  * });
  * ```
  */
-export function getIpRangesOutput(args: GetIpRangesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIpRangesResult> {
+export function getIpRangesOutput(args: GetIpRangesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpRangesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:index/getIpRanges:getIpRanges", {
         "id": args.id,

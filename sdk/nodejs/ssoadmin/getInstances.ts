@@ -55,7 +55,7 @@ export interface GetInstancesResult {
  * export const identityStoreId = example.then(example => example.identityStoreIds?.[0]);
  * ```
  */
-export function getInstancesOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInstancesResult> {
+export function getInstancesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetInstancesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssoadmin/getInstances:getInstances", {
     }, opts);

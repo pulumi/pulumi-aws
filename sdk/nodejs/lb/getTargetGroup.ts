@@ -117,7 +117,7 @@ export interface GetTargetGroupResult {
  * });
  * ```
  */
-export function getTargetGroupOutput(args?: GetTargetGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTargetGroupResult> {
+export function getTargetGroupOutput(args?: GetTargetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTargetGroupResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:lb/getTargetGroup:getTargetGroup", {

@@ -138,7 +138,7 @@ def get_authorization_token(domain: Optional[str] = None,
 def get_authorization_token_output(domain: Optional[pulumi.Input[str]] = None,
                                    domain_owner: Optional[pulumi.Input[Optional[str]]] = None,
                                    duration_seconds: Optional[pulumi.Input[Optional[int]]] = None,
-                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizationTokenResult]:
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizationTokenResult]:
     """
     The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.
 
@@ -160,7 +160,7 @@ def get_authorization_token_output(domain: Optional[pulumi.Input[str]] = None,
     __args__['domain'] = domain
     __args__['domainOwner'] = domain_owner
     __args__['durationSeconds'] = duration_seconds
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:codeartifact/getAuthorizationToken:getAuthorizationToken', __args__, opts=opts, typ=GetAuthorizationTokenResult)
     return __ret__.apply(lambda __response__: GetAuthorizationTokenResult(
         authorization_token=pulumi.get(__response__, 'authorization_token'),

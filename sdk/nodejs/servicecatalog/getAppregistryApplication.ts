@@ -75,7 +75,7 @@ export interface GetAppregistryApplicationResult {
  * });
  * ```
  */
-export function getAppregistryApplicationOutput(args: GetAppregistryApplicationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAppregistryApplicationResult> {
+export function getAppregistryApplicationOutput(args: GetAppregistryApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppregistryApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:servicecatalog/getAppregistryApplication:getAppregistryApplication", {
         "id": args.id,

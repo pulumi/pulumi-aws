@@ -96,7 +96,7 @@ def get_spot_datafeed_subscription(opts: Optional[pulumi.InvokeOptions] = None) 
         bucket=pulumi.get(__ret__, 'bucket'),
         id=pulumi.get(__ret__, 'id'),
         prefix=pulumi.get(__ret__, 'prefix'))
-def get_spot_datafeed_subscription_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSpotDatafeedSubscriptionResult]:
+def get_spot_datafeed_subscription_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSpotDatafeedSubscriptionResult]:
     """
     > There is only a single spot data feed subscription per account.
 
@@ -112,7 +112,7 @@ def get_spot_datafeed_subscription_output(opts: Optional[Union[pulumi.InvokeOpti
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getSpotDatafeedSubscription:getSpotDatafeedSubscription', __args__, opts=opts, typ=GetSpotDatafeedSubscriptionResult)
     return __ret__.apply(lambda __response__: GetSpotDatafeedSubscriptionResult(
         bucket=pulumi.get(__response__, 'bucket'),

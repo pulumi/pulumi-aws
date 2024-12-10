@@ -76,7 +76,7 @@ export interface GetSchedulingPolicyResult {
  * });
  * ```
  */
-export function getSchedulingPolicyOutput(args: GetSchedulingPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSchedulingPolicyResult> {
+export function getSchedulingPolicyOutput(args: GetSchedulingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchedulingPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:batch/getSchedulingPolicy:getSchedulingPolicy", {
         "arn": args.arn,

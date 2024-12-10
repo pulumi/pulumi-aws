@@ -51,7 +51,7 @@ export interface GetFunctionsResult {
  * const all = aws.lambda.getFunctions({});
  * ```
  */
-export function getFunctionsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFunctionsResult> {
+export function getFunctionsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:lambda/getFunctions:getFunctions", {
     }, opts);

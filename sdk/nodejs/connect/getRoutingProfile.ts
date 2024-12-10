@@ -133,7 +133,7 @@ export interface GetRoutingProfileResult {
  * });
  * ```
  */
-export function getRoutingProfileOutput(args: GetRoutingProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoutingProfileResult> {
+export function getRoutingProfileOutput(args: GetRoutingProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoutingProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:connect/getRoutingProfile:getRoutingProfile", {
         "instanceId": args.instanceId,

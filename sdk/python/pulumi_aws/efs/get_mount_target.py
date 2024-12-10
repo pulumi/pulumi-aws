@@ -246,7 +246,7 @@ def get_mount_target(access_point_id: Optional[str] = None,
 def get_mount_target_output(access_point_id: Optional[pulumi.Input[Optional[str]]] = None,
                             file_system_id: Optional[pulumi.Input[Optional[str]]] = None,
                             mount_target_id: Optional[pulumi.Input[Optional[str]]] = None,
-                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMountTargetResult]:
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMountTargetResult]:
     """
     Provides information about an Elastic File System Mount Target (EFS).
 
@@ -272,7 +272,7 @@ def get_mount_target_output(access_point_id: Optional[pulumi.Input[Optional[str]
     __args__['accessPointId'] = access_point_id
     __args__['fileSystemId'] = file_system_id
     __args__['mountTargetId'] = mount_target_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:efs/getMountTarget:getMountTarget', __args__, opts=opts, typ=GetMountTargetResult)
     return __ret__.apply(lambda __response__: GetMountTargetResult(
         access_point_id=pulumi.get(__response__, 'access_point_id'),

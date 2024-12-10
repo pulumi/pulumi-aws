@@ -181,7 +181,7 @@ def get_resources_output(exclude_compliant_resources: Optional[pulumi.Input[Opti
                          resource_arn_lists: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                          resource_type_filters: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                          tag_filters: Optional[pulumi.Input[Optional[Sequence[Union['GetResourcesTagFilterArgs', 'GetResourcesTagFilterArgsDict']]]]] = None,
-                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourcesResult]:
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourcesResult]:
     """
     Provides details about resource tagging.
 
@@ -233,7 +233,7 @@ def get_resources_output(exclude_compliant_resources: Optional[pulumi.Input[Opti
     __args__['resourceArnLists'] = resource_arn_lists
     __args__['resourceTypeFilters'] = resource_type_filters
     __args__['tagFilters'] = tag_filters
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:resourcegroupstaggingapi/getResources:getResources', __args__, opts=opts, typ=GetResourcesResult)
     return __ret__.apply(lambda __response__: GetResourcesResult(
         exclude_compliant_resources=pulumi.get(__response__, 'exclude_compliant_resources'),

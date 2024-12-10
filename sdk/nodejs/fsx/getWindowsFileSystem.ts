@@ -158,7 +158,7 @@ export interface GetWindowsFileSystemResult {
  * });
  * ```
  */
-export function getWindowsFileSystemOutput(args: GetWindowsFileSystemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWindowsFileSystemResult> {
+export function getWindowsFileSystemOutput(args: GetWindowsFileSystemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWindowsFileSystemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:fsx/getWindowsFileSystem:getWindowsFileSystem", {
         "id": args.id,

@@ -122,7 +122,7 @@ export interface GetOpenZfsSnapshotResult {
  * });
  * ```
  */
-export function getOpenZfsSnapshotOutput(args?: GetOpenZfsSnapshotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOpenZfsSnapshotResult> {
+export function getOpenZfsSnapshotOutput(args?: GetOpenZfsSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenZfsSnapshotResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot", {

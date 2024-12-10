@@ -91,7 +91,7 @@ export interface GetDistributionConfigurationResult {
  * });
  * ```
  */
-export function getDistributionConfigurationOutput(args: GetDistributionConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDistributionConfigurationResult> {
+export function getDistributionConfigurationOutput(args: GetDistributionConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDistributionConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:imagebuilder/getDistributionConfiguration:getDistributionConfiguration", {
         "arn": args.arn,

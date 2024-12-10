@@ -125,7 +125,7 @@ def get_instance_profiles(role_name: Optional[str] = None,
         paths=pulumi.get(__ret__, 'paths'),
         role_name=pulumi.get(__ret__, 'role_name'))
 def get_instance_profiles_output(role_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceProfilesResult]:
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceProfilesResult]:
     """
     This data source can be used to fetch information about all
     IAM instance profiles under a role. By using this data source, you can reference IAM
@@ -145,7 +145,7 @@ def get_instance_profiles_output(role_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['roleName'] = role_name
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:iam/getInstanceProfiles:getInstanceProfiles', __args__, opts=opts, typ=GetInstanceProfilesResult)
     return __ret__.apply(lambda __response__: GetInstanceProfilesResult(
         arns=pulumi.get(__response__, 'arns'),

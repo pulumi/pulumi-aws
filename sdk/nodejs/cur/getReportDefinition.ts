@@ -116,7 +116,7 @@ export interface GetReportDefinitionResult {
  * });
  * ```
  */
-export function getReportDefinitionOutput(args: GetReportDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReportDefinitionResult> {
+export function getReportDefinitionOutput(args: GetReportDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cur/getReportDefinition:getReportDefinition", {
         "reportName": args.reportName,

@@ -281,7 +281,7 @@ def get_cloud_formation_type_output(arn: Optional[pulumi.Input[Optional[str]]] =
                                     type: Optional[pulumi.Input[Optional[str]]] = None,
                                     type_name: Optional[pulumi.Input[Optional[str]]] = None,
                                     version_id: Optional[pulumi.Input[Optional[str]]] = None,
-                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudFormationTypeResult]:
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudFormationTypeResult]:
     """
     Provides details about a CloudFormation Type.
 
@@ -306,7 +306,7 @@ def get_cloud_formation_type_output(arn: Optional[pulumi.Input[Optional[str]]] =
     __args__['type'] = type
     __args__['typeName'] = type_name
     __args__['versionId'] = version_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cloudformation/getCloudFormationType:getCloudFormationType', __args__, opts=opts, typ=GetCloudFormationTypeResult)
     return __ret__.apply(lambda __response__: GetCloudFormationTypeResult(
         arn=pulumi.get(__response__, 'arn'),

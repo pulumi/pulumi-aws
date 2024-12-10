@@ -79,7 +79,7 @@ export interface GetServerlessVpcEndpointResult {
  * });
  * ```
  */
-export function getServerlessVpcEndpointOutput(args: GetServerlessVpcEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerlessVpcEndpointResult> {
+export function getServerlessVpcEndpointOutput(args: GetServerlessVpcEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessVpcEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:opensearch/getServerlessVpcEndpoint:getServerlessVpcEndpoint", {
         "vpcEndpointId": args.vpcEndpointId,

@@ -157,7 +157,7 @@ def get_serverless_security_config(id: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_serverless_security_config_output(id: Optional[pulumi.Input[str]] = None,
                                           saml_options: Optional[pulumi.Input[Optional[Union['GetServerlessSecurityConfigSamlOptionsArgs', 'GetServerlessSecurityConfigSamlOptionsArgsDict']]]] = None,
-                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessSecurityConfigResult]:
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerlessSecurityConfigResult]:
     """
     Data source for managing an AWS OpenSearch Serverless Security Config.
 
@@ -179,7 +179,7 @@ def get_serverless_security_config_output(id: Optional[pulumi.Input[str]] = None
     __args__ = dict()
     __args__['id'] = id
     __args__['samlOptions'] = saml_options
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:opensearch/getServerlessSecurityConfig:getServerlessSecurityConfig', __args__, opts=opts, typ=GetServerlessSecurityConfigResult)
     return __ret__.apply(lambda __response__: GetServerlessSecurityConfigResult(
         config_version=pulumi.get(__response__, 'config_version'),

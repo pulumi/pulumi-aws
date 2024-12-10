@@ -163,7 +163,7 @@ def get_prefix_list(filters: Optional[Sequence[Union['GetPrefixListFilterArgs', 
 def get_prefix_list_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetPrefixListFilterArgs', 'GetPrefixListFilterArgsDict']]]]] = None,
                            name: Optional[pulumi.Input[Optional[str]]] = None,
                            prefix_list_id: Optional[pulumi.Input[Optional[str]]] = None,
-                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrefixListResult]:
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrefixListResult]:
     """
     `ec2_get_prefix_list` provides details about a specific AWS prefix list (PL)
     in the current region.
@@ -218,7 +218,7 @@ def get_prefix_list_output(filters: Optional[pulumi.Input[Optional[Sequence[Unio
     __args__['filters'] = filters
     __args__['name'] = name
     __args__['prefixListId'] = prefix_list_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getPrefixList:getPrefixList', __args__, opts=opts, typ=GetPrefixListResult)
     return __ret__.apply(lambda __response__: GetPrefixListResult(
         cidr_blocks=pulumi.get(__response__, 'cidr_blocks'),

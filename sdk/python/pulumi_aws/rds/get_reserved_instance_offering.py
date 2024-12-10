@@ -183,7 +183,7 @@ def get_reserved_instance_offering_output(db_instance_class: Optional[pulumi.Inp
                                           multi_az: Optional[pulumi.Input[bool]] = None,
                                           offering_type: Optional[pulumi.Input[str]] = None,
                                           product_description: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReservedInstanceOfferingResult]:
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReservedInstanceOfferingResult]:
     """
     Information about a single RDS Reserved Instance Offering.
 
@@ -213,7 +213,7 @@ def get_reserved_instance_offering_output(db_instance_class: Optional[pulumi.Inp
     __args__['multiAz'] = multi_az
     __args__['offeringType'] = offering_type
     __args__['productDescription'] = product_description
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:rds/getReservedInstanceOffering:getReservedInstanceOffering', __args__, opts=opts, typ=GetReservedInstanceOfferingResult)
     return __ret__.apply(lambda __response__: GetReservedInstanceOfferingResult(
         currency_code=pulumi.get(__response__, 'currency_code'),

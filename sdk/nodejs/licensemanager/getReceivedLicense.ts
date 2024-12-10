@@ -123,7 +123,7 @@ export interface GetReceivedLicenseResult {
  * });
  * ```
  */
-export function getReceivedLicenseOutput(args: GetReceivedLicenseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReceivedLicenseResult> {
+export function getReceivedLicenseOutput(args: GetReceivedLicenseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReceivedLicenseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:licensemanager/getReceivedLicense:getReceivedLicense", {
         "licenseArn": args.licenseArn,

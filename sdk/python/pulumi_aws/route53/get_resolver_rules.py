@@ -180,7 +180,7 @@ def get_resolver_rules_output(name_regex: Optional[pulumi.Input[Optional[str]]] 
                               resolver_endpoint_id: Optional[pulumi.Input[Optional[str]]] = None,
                               rule_type: Optional[pulumi.Input[Optional[str]]] = None,
                               share_status: Optional[pulumi.Input[Optional[str]]] = None,
-                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverRulesResult]:
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverRulesResult]:
     """
     `route53_get_resolver_rules` provides details about a set of Route53 Resolver rules.
 
@@ -233,7 +233,7 @@ def get_resolver_rules_output(name_regex: Optional[pulumi.Input[Optional[str]]] 
     __args__['resolverEndpointId'] = resolver_endpoint_id
     __args__['ruleType'] = rule_type
     __args__['shareStatus'] = share_status
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:route53/getResolverRules:getResolverRules', __args__, opts=opts, typ=GetResolverRulesResult)
     return __ret__.apply(lambda __response__: GetResolverRulesResult(
         id=pulumi.get(__response__, 'id'),

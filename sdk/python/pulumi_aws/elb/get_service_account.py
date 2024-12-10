@@ -130,7 +130,7 @@ def get_service_account(region: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
 def get_service_account_output(region: Optional[pulumi.Input[Optional[str]]] = None,
-                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceAccountResult]:
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceAccountResult]:
     """
     Use this data source to get the Account ID of the [AWS Elastic Load Balancing Service Account](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy)
     in a given region for the purpose of permitting in S3 bucket policy.
@@ -181,7 +181,7 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[str]]] = N
     """
     __args__ = dict()
     __args__['region'] = region
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:elb/getServiceAccount:getServiceAccount', __args__, opts=opts, typ=GetServiceAccountResult)
     return __ret__.apply(lambda __response__: GetServiceAccountResult(
         arn=pulumi.get(__response__, 'arn'),

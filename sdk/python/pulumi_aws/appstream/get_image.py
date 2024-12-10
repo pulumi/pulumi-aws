@@ -296,7 +296,7 @@ def get_image_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                      name: Optional[pulumi.Input[Optional[str]]] = None,
                      name_regex: Optional[pulumi.Input[Optional[str]]] = None,
                      type: Optional[pulumi.Input[Optional[str]]] = None,
-                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageResult]:
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
     """
     Data source for managing an AWS AppStream 2.0 Image.
 
@@ -313,7 +313,7 @@ def get_image_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['name'] = name
     __args__['nameRegex'] = name_regex
     __args__['type'] = type
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:appstream/getImage:getImage', __args__, opts=opts, typ=GetImageResult)
     return __ret__.apply(lambda __response__: GetImageResult(
         applications=pulumi.get(__response__, 'applications'),

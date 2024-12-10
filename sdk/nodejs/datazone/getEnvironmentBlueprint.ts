@@ -95,7 +95,7 @@ export interface GetEnvironmentBlueprintResult {
  * });
  * ```
  */
-export function getEnvironmentBlueprintOutput(args: GetEnvironmentBlueprintOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnvironmentBlueprintResult> {
+export function getEnvironmentBlueprintOutput(args: GetEnvironmentBlueprintOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentBlueprintResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:datazone/getEnvironmentBlueprint:getEnvironmentBlueprint", {
         "domainId": args.domainId,

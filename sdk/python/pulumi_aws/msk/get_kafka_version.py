@@ -116,7 +116,7 @@ def get_kafka_version(preferred_versions: Optional[Sequence[str]] = None,
         version=pulumi.get(__ret__, 'version'))
 def get_kafka_version_output(preferred_versions: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                              version: Optional[pulumi.Input[Optional[str]]] = None,
-                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKafkaVersionResult]:
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKafkaVersionResult]:
     """
     Get information on a Amazon MSK Kafka Version
 
@@ -141,7 +141,7 @@ def get_kafka_version_output(preferred_versions: Optional[pulumi.Input[Optional[
     __args__ = dict()
     __args__['preferredVersions'] = preferred_versions
     __args__['version'] = version
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:msk/getKafkaVersion:getKafkaVersion', __args__, opts=opts, typ=GetKafkaVersionResult)
     return __ret__.apply(lambda __response__: GetKafkaVersionResult(
         id=pulumi.get(__response__, 'id'),

@@ -90,7 +90,7 @@ export interface GetPortfolioConstraintsResult {
  * });
  * ```
  */
-export function getPortfolioConstraintsOutput(args: GetPortfolioConstraintsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPortfolioConstraintsResult> {
+export function getPortfolioConstraintsOutput(args: GetPortfolioConstraintsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPortfolioConstraintsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints", {
         "acceptLanguage": args.acceptLanguage,

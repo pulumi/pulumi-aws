@@ -107,7 +107,7 @@ export interface GetIdentityPoolResult {
  * });
  * ```
  */
-export function getIdentityPoolOutput(args: GetIdentityPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIdentityPoolResult> {
+export function getIdentityPoolOutput(args: GetIdentityPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cognito/getIdentityPool:getIdentityPool", {
         "identityPoolName": args.identityPoolName,

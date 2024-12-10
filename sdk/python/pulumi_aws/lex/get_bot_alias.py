@@ -183,7 +183,7 @@ def get_bot_alias(bot_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'))
 def get_bot_alias_output(bot_name: Optional[pulumi.Input[str]] = None,
                          name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBotAliasResult]:
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBotAliasResult]:
     """
     Provides details about a specific Amazon Lex Bot Alias.
 
@@ -204,7 +204,7 @@ def get_bot_alias_output(bot_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['botName'] = bot_name
     __args__['name'] = name
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:lex/getBotAlias:getBotAlias', __args__, opts=opts, typ=GetBotAliasResult)
     return __ret__.apply(lambda __response__: GetBotAliasResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -204,7 +204,7 @@ def get_container_definition(container_name: Optional[str] = None,
         task_definition=pulumi.get(__ret__, 'task_definition'))
 def get_container_definition_output(container_name: Optional[pulumi.Input[str]] = None,
                                     task_definition: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerDefinitionResult]:
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerDefinitionResult]:
     """
     The ECS container definition data source allows access to details of
     a specific container within an AWS ECS service.
@@ -226,7 +226,7 @@ def get_container_definition_output(container_name: Optional[pulumi.Input[str]] 
     __args__ = dict()
     __args__['containerName'] = container_name
     __args__['taskDefinition'] = task_definition
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ecs/getContainerDefinition:getContainerDefinition', __args__, opts=opts, typ=GetContainerDefinitionResult)
     return __ret__.apply(lambda __response__: GetContainerDefinitionResult(
         container_name=pulumi.get(__response__, 'container_name'),

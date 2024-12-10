@@ -204,7 +204,7 @@ def get_access_entry(cluster_name: Optional[str] = None,
 def get_access_entry_output(cluster_name: Optional[pulumi.Input[str]] = None,
                             principal_arn: Optional[pulumi.Input[str]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessEntryResult]:
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessEntryResult]:
     """
     Access Entry Configurations for an EKS Cluster.
 
@@ -227,7 +227,7 @@ def get_access_entry_output(cluster_name: Optional[pulumi.Input[str]] = None,
     __args__['clusterName'] = cluster_name
     __args__['principalArn'] = principal_arn
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:eks/getAccessEntry:getAccessEntry', __args__, opts=opts, typ=GetAccessEntryResult)
     return __ret__.apply(lambda __response__: GetAccessEntryResult(
         access_entry_arn=pulumi.get(__response__, 'access_entry_arn'),

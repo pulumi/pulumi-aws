@@ -459,7 +459,7 @@ def get_group(name: Optional[str] = None,
         warm_pool_size=pulumi.get(__ret__, 'warm_pool_size'),
         warm_pools=pulumi.get(__ret__, 'warm_pools'))
 def get_group_output(name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupResult]:
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
     """
     Use this data source to get information on an existing autoscaling group.
 
@@ -477,7 +477,7 @@ def get_group_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:autoscaling/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult)
     return __ret__.apply(lambda __response__: GetGroupResult(
         arn=pulumi.get(__response__, 'arn'),

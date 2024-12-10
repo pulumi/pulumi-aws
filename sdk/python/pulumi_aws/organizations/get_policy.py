@@ -155,7 +155,7 @@ def get_policy(policy_id: Optional[str] = None,
         policy_id=pulumi.get(__ret__, 'policy_id'),
         type=pulumi.get(__ret__, 'type'))
 def get_policy_output(policy_id: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyResult]:
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyResult]:
     """
     Data source for managing an AWS Organizations Policy.
 
@@ -166,7 +166,7 @@ def get_policy_output(policy_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['policyId'] = policy_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:organizations/getPolicy:getPolicy', __args__, opts=opts, typ=GetPolicyResult)
     return __ret__.apply(lambda __response__: GetPolicyResult(
         arn=pulumi.get(__response__, 'arn'),

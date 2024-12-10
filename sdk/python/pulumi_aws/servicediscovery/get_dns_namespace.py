@@ -155,7 +155,7 @@ def get_dns_namespace(name: Optional[str] = None,
 def get_dns_namespace_output(name: Optional[pulumi.Input[str]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                              type: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDnsNamespaceResult]:
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDnsNamespaceResult]:
     """
     Retrieves information about a Service Discovery private or public DNS namespace.
 
@@ -178,7 +178,7 @@ def get_dns_namespace_output(name: Optional[pulumi.Input[str]] = None,
     __args__['name'] = name
     __args__['tags'] = tags
     __args__['type'] = type
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:servicediscovery/getDnsNamespace:getDnsNamespace', __args__, opts=opts, typ=GetDnsNamespaceResult)
     return __ret__.apply(lambda __response__: GetDnsNamespaceResult(
         arn=pulumi.get(__response__, 'arn'),

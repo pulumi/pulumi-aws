@@ -209,7 +209,7 @@ def get_capacity_block_offering_output(capacity_duration_hours: Optional[pulumi.
                                        instance_count: Optional[pulumi.Input[int]] = None,
                                        instance_type: Optional[pulumi.Input[str]] = None,
                                        start_date_range: Optional[pulumi.Input[Optional[str]]] = None,
-                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityBlockOfferingResult]:
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapacityBlockOfferingResult]:
     """
     Information about a single EC2 Capacity Block Offering.
 
@@ -239,7 +239,7 @@ def get_capacity_block_offering_output(capacity_duration_hours: Optional[pulumi.
     __args__['instanceCount'] = instance_count
     __args__['instanceType'] = instance_type
     __args__['startDateRange'] = start_date_range
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getCapacityBlockOffering:getCapacityBlockOffering', __args__, opts=opts, typ=GetCapacityBlockOfferingResult)
     return __ret__.apply(lambda __response__: GetCapacityBlockOfferingResult(
         availability_zone=pulumi.get(__response__, 'availability_zone'),

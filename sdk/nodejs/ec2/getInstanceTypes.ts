@@ -107,7 +107,7 @@ export interface GetInstanceTypesResult {
  * });
  * ```
  */
-export function getInstanceTypesOutput(args?: GetInstanceTypesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInstanceTypesResult> {
+export function getInstanceTypesOutput(args?: GetInstanceTypesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceTypesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getInstanceTypes:getInstanceTypes", {

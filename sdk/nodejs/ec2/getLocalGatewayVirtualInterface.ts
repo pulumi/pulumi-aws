@@ -96,7 +96,7 @@ export interface GetLocalGatewayVirtualInterfaceResult {
  * }) }));
  * ```
  */
-export function getLocalGatewayVirtualInterfaceOutput(args?: GetLocalGatewayVirtualInterfaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalGatewayVirtualInterfaceResult> {
+export function getLocalGatewayVirtualInterfaceOutput(args?: GetLocalGatewayVirtualInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewayVirtualInterfaceResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getLocalGatewayVirtualInterface:getLocalGatewayVirtualInterface", {

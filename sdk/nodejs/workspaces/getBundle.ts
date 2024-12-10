@@ -128,7 +128,7 @@ export interface GetBundleResult {
  * });
  * ```
  */
-export function getBundleOutput(args?: GetBundleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBundleResult> {
+export function getBundleOutput(args?: GetBundleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBundleResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:workspaces/getBundle:getBundle", {

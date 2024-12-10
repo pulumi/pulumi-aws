@@ -71,7 +71,7 @@ export interface GetNodeGroupsResult {
  * }) })));
  * ```
  */
-export function getNodeGroupsOutput(args: GetNodeGroupsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNodeGroupsResult> {
+export function getNodeGroupsOutput(args: GetNodeGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNodeGroupsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:eks/getNodeGroups:getNodeGroups", {
         "clusterName": args.clusterName,

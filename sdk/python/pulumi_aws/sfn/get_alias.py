@@ -158,7 +158,7 @@ def get_alias(description: Optional[str] = None,
 def get_alias_output(description: Optional[pulumi.Input[Optional[str]]] = None,
                      name: Optional[pulumi.Input[str]] = None,
                      statemachine_arn: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAliasResult]:
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAliasResult]:
     """
     Data source for managing an AWS SFN (Step Functions) State Machine Alias.
 
@@ -183,7 +183,7 @@ def get_alias_output(description: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['description'] = description
     __args__['name'] = name
     __args__['statemachineArn'] = statemachine_arn
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:sfn/getAlias:getAlias', __args__, opts=opts, typ=GetAliasResult)
     return __ret__.apply(lambda __response__: GetAliasResult(
         arn=pulumi.get(__response__, 'arn'),

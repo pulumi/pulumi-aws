@@ -71,7 +71,7 @@ export interface GetPullThroughCacheRuleResult {
  * });
  * ```
  */
-export function getPullThroughCacheRuleOutput(args: GetPullThroughCacheRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPullThroughCacheRuleResult> {
+export function getPullThroughCacheRuleOutput(args: GetPullThroughCacheRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPullThroughCacheRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule", {
         "ecrRepositoryPrefix": args.ecrRepositoryPrefix,

@@ -186,7 +186,7 @@ def get_bundle(bundle_id: Optional[str] = None,
 def get_bundle_output(bundle_id: Optional[pulumi.Input[Optional[str]]] = None,
                       name: Optional[pulumi.Input[Optional[str]]] = None,
                       owner: Optional[pulumi.Input[Optional[str]]] = None,
-                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBundleResult]:
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBundleResult]:
     """
     Retrieve information about an AWS WorkSpaces bundle.
 
@@ -220,7 +220,7 @@ def get_bundle_output(bundle_id: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['bundleId'] = bundle_id
     __args__['name'] = name
     __args__['owner'] = owner
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:workspaces/getBundle:getBundle', __args__, opts=opts, typ=GetBundleResult)
     return __ret__.apply(lambda __response__: GetBundleResult(
         bundle_id=pulumi.get(__response__, 'bundle_id'),

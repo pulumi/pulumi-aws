@@ -98,7 +98,7 @@ export interface GetReservedCacheNodeOfferingResult {
  * });
  * ```
  */
-export function getReservedCacheNodeOfferingOutput(args: GetReservedCacheNodeOfferingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReservedCacheNodeOfferingResult> {
+export function getReservedCacheNodeOfferingOutput(args: GetReservedCacheNodeOfferingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReservedCacheNodeOfferingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:elasticache/getReservedCacheNodeOffering:getReservedCacheNodeOffering", {
         "cacheNodeType": args.cacheNodeType,

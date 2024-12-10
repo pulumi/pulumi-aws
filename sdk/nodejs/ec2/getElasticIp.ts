@@ -223,7 +223,7 @@ export interface GetElasticIpResult {
  * });
  * ```
  */
-export function getElasticIpOutput(args?: GetElasticIpOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetElasticIpResult> {
+export function getElasticIpOutput(args?: GetElasticIpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticIpResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getElasticIp:getElasticIp", {

@@ -127,7 +127,7 @@ export interface GetBillingServiceAccountResult {
  * });
  * ```
  */
-export function getBillingServiceAccountOutput(args?: GetBillingServiceAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBillingServiceAccountResult> {
+export function getBillingServiceAccountOutput(args?: GetBillingServiceAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBillingServiceAccountResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:index/getBillingServiceAccount:getBillingServiceAccount", {

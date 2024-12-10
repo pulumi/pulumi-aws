@@ -127,7 +127,7 @@ def get_vpc_peering_connections(filters: Optional[Sequence[Union['GetVpcPeeringC
         tags=pulumi.get(__ret__, 'tags'))
 def get_vpc_peering_connections_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcPeeringConnectionsFilterArgs', 'GetVpcPeeringConnectionsFilterArgsDict']]]]] = None,
                                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcPeeringConnectionsResult]:
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcPeeringConnectionsResult]:
     """
     Use this data source to get IDs of Amazon VPC peering connections
     To get more details on each connection, use the data resource ec2.VpcPeeringConnection
@@ -161,7 +161,7 @@ def get_vpc_peering_connections_output(filters: Optional[pulumi.Input[Optional[S
     __args__ = dict()
     __args__['filters'] = filters
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getVpcPeeringConnections:getVpcPeeringConnections', __args__, opts=opts, typ=GetVpcPeeringConnectionsResult)
     return __ret__.apply(lambda __response__: GetVpcPeeringConnectionsResult(
         filters=pulumi.get(__response__, 'filters'),

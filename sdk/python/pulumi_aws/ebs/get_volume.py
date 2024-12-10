@@ -287,7 +287,7 @@ def get_volume(filters: Optional[Sequence[Union['GetVolumeFilterArgs', 'GetVolum
 def get_volume_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVolumeFilterArgs', 'GetVolumeFilterArgsDict']]]]] = None,
                       most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeResult]:
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeResult]:
     """
     Use this data source to get information about an EBS volume for use in other
     resources.
@@ -323,7 +323,7 @@ def get_volume_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['Ge
     __args__['filters'] = filters
     __args__['mostRecent'] = most_recent
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ebs/getVolume:getVolume', __args__, opts=opts, typ=GetVolumeResult)
     return __ret__.apply(lambda __response__: GetVolumeResult(
         arn=pulumi.get(__response__, 'arn'),

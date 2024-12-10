@@ -166,7 +166,7 @@ export interface GetLogDataProtectionPolicyDocumentResult {
  * });
  * ```
  */
-export function getLogDataProtectionPolicyDocumentOutput(args: GetLogDataProtectionPolicyDocumentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogDataProtectionPolicyDocumentResult> {
+export function getLogDataProtectionPolicyDocumentOutput(args: GetLogDataProtectionPolicyDocumentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogDataProtectionPolicyDocumentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument", {
         "description": args.description,

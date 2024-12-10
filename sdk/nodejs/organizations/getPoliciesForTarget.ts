@@ -51,7 +51,7 @@ export interface GetPoliciesForTargetResult {
  *
  * ## Example Usage
  */
-export function getPoliciesForTargetOutput(args: GetPoliciesForTargetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPoliciesForTargetResult> {
+export function getPoliciesForTargetOutput(args: GetPoliciesForTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoliciesForTargetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:organizations/getPoliciesForTarget:getPoliciesForTarget", {
         "filter": args.filter,

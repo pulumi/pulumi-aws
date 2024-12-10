@@ -215,7 +215,7 @@ def get_managed_prefix_list_output(filters: Optional[pulumi.Input[Optional[Seque
                                    id: Optional[pulumi.Input[Optional[str]]] = None,
                                    name: Optional[pulumi.Input[Optional[str]]] = None,
                                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedPrefixListResult]:
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedPrefixListResult]:
     """
     `ec2.ManagedPrefixList` provides details about a specific AWS prefix list or
     customer-managed prefix list in the current region.
@@ -255,7 +255,7 @@ def get_managed_prefix_list_output(filters: Optional[pulumi.Input[Optional[Seque
     __args__['id'] = id
     __args__['name'] = name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getManagedPrefixList:getManagedPrefixList', __args__, opts=opts, typ=GetManagedPrefixListResult)
     return __ret__.apply(lambda __response__: GetManagedPrefixListResult(
         address_family=pulumi.get(__response__, 'address_family'),

@@ -59,7 +59,7 @@ export interface GetRateBasedModResult {
  * });
  * ```
  */
-export function getRateBasedModOutput(args: GetRateBasedModOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRateBasedModResult> {
+export function getRateBasedModOutput(args: GetRateBasedModOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRateBasedModResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:wafregional/getRateBasedMod:getRateBasedMod", {
         "name": args.name,

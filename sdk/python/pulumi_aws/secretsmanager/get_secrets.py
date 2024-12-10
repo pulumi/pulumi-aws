@@ -115,7 +115,7 @@ def get_secrets(filters: Optional[Sequence[Union['GetSecretsFilterArgs', 'GetSec
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'))
 def get_secrets_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSecretsFilterArgs', 'GetSecretsFilterArgsDict']]]]] = None,
-                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretsResult]:
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretsResult]:
     """
     Use this data source to get the ARNs and names of Secrets Manager secrets matching the specified criteria.
 
@@ -136,7 +136,7 @@ def get_secrets_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['G
     """
     __args__ = dict()
     __args__['filters'] = filters
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:secretsmanager/getSecrets:getSecrets', __args__, opts=opts, typ=GetSecretsResult)
     return __ret__.apply(lambda __response__: GetSecretsResult(
         arns=pulumi.get(__response__, 'arns'),

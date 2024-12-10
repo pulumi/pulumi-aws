@@ -294,7 +294,7 @@ def get_availability_zone_output(all_availability_zones: Optional[pulumi.Input[O
                                  name: Optional[pulumi.Input[Optional[str]]] = None,
                                  state: Optional[pulumi.Input[Optional[str]]] = None,
                                  zone_id: Optional[pulumi.Input[Optional[str]]] = None,
-                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAvailabilityZoneResult]:
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAvailabilityZoneResult]:
     """
     `get_availability_zone` provides details about a specific availability zone (AZ)
     in the current region.
@@ -366,7 +366,7 @@ def get_availability_zone_output(all_availability_zones: Optional[pulumi.Input[O
     __args__['name'] = name
     __args__['state'] = state
     __args__['zoneId'] = zone_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:index/getAvailabilityZone:getAvailabilityZone', __args__, opts=opts, typ=GetAvailabilityZoneResult)
     return __ret__.apply(lambda __response__: GetAvailabilityZoneResult(
         all_availability_zones=pulumi.get(__response__, 'all_availability_zones'),

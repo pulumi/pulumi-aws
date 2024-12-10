@@ -138,7 +138,7 @@ def get_event_source(name_prefix: Optional[str] = None,
         name_prefix=pulumi.get(__ret__, 'name_prefix'),
         state=pulumi.get(__ret__, 'state'))
 def get_event_source_output(name_prefix: Optional[pulumi.Input[Optional[str]]] = None,
-                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventSourceResult]:
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventSourceResult]:
     """
     Use this data source to get information about an EventBridge Partner Event Source. This data source will only return one partner event source. An error will be returned if multiple sources match the same name prefix.
 
@@ -158,7 +158,7 @@ def get_event_source_output(name_prefix: Optional[pulumi.Input[Optional[str]]] =
     """
     __args__ = dict()
     __args__['namePrefix'] = name_prefix
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cloudwatch/getEventSource:getEventSource', __args__, opts=opts, typ=GetEventSourceResult)
     return __ret__.apply(lambda __response__: GetEventSourceResult(
         arn=pulumi.get(__response__, 'arn'),

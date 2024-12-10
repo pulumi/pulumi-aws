@@ -130,7 +130,7 @@ def get_container_recipes(filters: Optional[Sequence[Union['GetContainerRecipesF
         owner=pulumi.get(__ret__, 'owner'))
 def get_container_recipes_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetContainerRecipesFilterArgs', 'GetContainerRecipesFilterArgsDict']]]]] = None,
                                  owner: Optional[pulumi.Input[Optional[str]]] = None,
-                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerRecipesResult]:
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerRecipesResult]:
     """
     Use this data source to get the ARNs and names of Image Builder Container Recipes matching the specified criteria.
 
@@ -154,7 +154,7 @@ def get_container_recipes_output(filters: Optional[pulumi.Input[Optional[Sequenc
     __args__ = dict()
     __args__['filters'] = filters
     __args__['owner'] = owner
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:imagebuilder/getContainerRecipes:getContainerRecipes', __args__, opts=opts, typ=GetContainerRecipesResult)
     return __ret__.apply(lambda __response__: GetContainerRecipesResult(
         arns=pulumi.get(__response__, 'arns'),

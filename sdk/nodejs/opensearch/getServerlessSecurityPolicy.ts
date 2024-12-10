@@ -87,7 +87,7 @@ export interface GetServerlessSecurityPolicyResult {
  * });
  * ```
  */
-export function getServerlessSecurityPolicyOutput(args: GetServerlessSecurityPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerlessSecurityPolicyResult> {
+export function getServerlessSecurityPolicyOutput(args: GetServerlessSecurityPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessSecurityPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:opensearch/getServerlessSecurityPolicy:getServerlessSecurityPolicy", {
         "name": args.name,

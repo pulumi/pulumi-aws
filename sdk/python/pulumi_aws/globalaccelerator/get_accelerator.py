@@ -189,7 +189,7 @@ def get_accelerator(arn: Optional[str] = None,
 def get_accelerator_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                            id: Optional[pulumi.Input[Optional[str]]] = None,
                            name: Optional[pulumi.Input[Optional[str]]] = None,
-                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAcceleratorResult]:
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAcceleratorResult]:
     """
     Provides information about a Global Accelerator accelerator.
 
@@ -220,7 +220,7 @@ def get_accelerator_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['arn'] = arn
     __args__['id'] = id
     __args__['name'] = name
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:globalaccelerator/getAccelerator:getAccelerator', __args__, opts=opts, typ=GetAcceleratorResult)
     return __ret__.apply(lambda __response__: GetAcceleratorResult(
         arn=pulumi.get(__response__, 'arn'),

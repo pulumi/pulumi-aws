@@ -125,7 +125,7 @@ def get_certificate(arn: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'))
 def get_certificate_output(arn: Optional[pulumi.Input[str]] = None,
                            certificate_authority_arn: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Get information on a Certificate issued by a AWS Certificate Manager Private Certificate Authority.
 
@@ -146,7 +146,7 @@ def get_certificate_output(arn: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['arn'] = arn
     __args__['certificateAuthorityArn'] = certificate_authority_arn
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:acmpca/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult)
     return __ret__.apply(lambda __response__: GetCertificateResult(
         arn=pulumi.get(__response__, 'arn'),

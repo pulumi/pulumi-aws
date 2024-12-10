@@ -47,7 +47,7 @@ export interface GetCustomModelsResult {
  * const test = aws.bedrock.getCustomModels({});
  * ```
  */
-export function getCustomModelsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomModelsResult> {
+export function getCustomModelsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomModelsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:bedrock/getCustomModels:getCustomModels", {
     }, opts);

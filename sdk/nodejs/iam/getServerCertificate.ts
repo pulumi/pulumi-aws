@@ -124,7 +124,7 @@ export interface GetServerCertificateResult {
  * });
  * ```
  */
-export function getServerCertificateOutput(args?: GetServerCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerCertificateResult> {
+export function getServerCertificateOutput(args?: GetServerCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerCertificateResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:iam/getServerCertificate:getServerCertificate", {

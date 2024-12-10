@@ -181,7 +181,7 @@ def get_permission_set_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                               instance_arn: Optional[pulumi.Input[str]] = None,
                               name: Optional[pulumi.Input[Optional[str]]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPermissionSetResult]:
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPermissionSetResult]:
     """
     Use this data source to get a Single Sign-On (SSO) Permission Set.
 
@@ -208,7 +208,7 @@ def get_permission_set_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['instanceArn'] = instance_arn
     __args__['name'] = name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssoadmin/getPermissionSet:getPermissionSet', __args__, opts=opts, typ=GetPermissionSetResult)
     return __ret__.apply(lambda __response__: GetPermissionSetResult(
         arn=pulumi.get(__response__, 'arn'),

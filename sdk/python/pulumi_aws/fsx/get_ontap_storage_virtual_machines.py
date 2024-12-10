@@ -104,7 +104,7 @@ def get_ontap_storage_virtual_machines(filters: Optional[Sequence[Union['GetOnta
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'))
 def get_ontap_storage_virtual_machines_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetOntapStorageVirtualMachinesFilterArgs', 'GetOntapStorageVirtualMachinesFilterArgsDict']]]]] = None,
-                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOntapStorageVirtualMachinesResult]:
+                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOntapStorageVirtualMachinesResult]:
     """
     This resource can be useful for getting back a set of FSx ONTAP Storage Virtual Machine (SVM) IDs.
 
@@ -127,7 +127,7 @@ def get_ontap_storage_virtual_machines_output(filters: Optional[pulumi.Input[Opt
     """
     __args__ = dict()
     __args__['filters'] = filters
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:fsx/getOntapStorageVirtualMachines:getOntapStorageVirtualMachines', __args__, opts=opts, typ=GetOntapStorageVirtualMachinesResult)
     return __ret__.apply(lambda __response__: GetOntapStorageVirtualMachinesResult(
         filters=pulumi.get(__response__, 'filters'),

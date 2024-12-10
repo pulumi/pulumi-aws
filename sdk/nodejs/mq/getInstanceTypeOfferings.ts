@@ -112,7 +112,7 @@ export interface GetInstanceTypeOfferingsResult {
  * });
  * ```
  */
-export function getInstanceTypeOfferingsOutput(args?: GetInstanceTypeOfferingsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInstanceTypeOfferingsResult> {
+export function getInstanceTypeOfferingsOutput(args?: GetInstanceTypeOfferingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceTypeOfferingsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings", {

@@ -70,7 +70,7 @@ export interface GetSiteResult {
  * });
  * ```
  */
-export function getSiteOutput(args?: GetSiteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSiteResult> {
+export function getSiteOutput(args?: GetSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:outposts/getSite:getSite", {

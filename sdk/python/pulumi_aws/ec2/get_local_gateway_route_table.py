@@ -166,7 +166,7 @@ def get_local_gateway_route_table_output(filters: Optional[pulumi.Input[Optional
                                          outpost_arn: Optional[pulumi.Input[Optional[str]]] = None,
                                          state: Optional[pulumi.Input[Optional[str]]] = None,
                                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalGatewayRouteTableResult]:
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalGatewayRouteTableResult]:
     """
     Provides details about an EC2 Local Gateway Route Table.
 
@@ -204,7 +204,7 @@ def get_local_gateway_route_table_output(filters: Optional[pulumi.Input[Optional
     __args__['outpostArn'] = outpost_arn
     __args__['state'] = state
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getLocalGatewayRouteTable:getLocalGatewayRouteTable', __args__, opts=opts, typ=GetLocalGatewayRouteTableResult)
     return __ret__.apply(lambda __response__: GetLocalGatewayRouteTableResult(
         filters=pulumi.get(__response__, 'filters'),

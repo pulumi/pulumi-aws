@@ -142,7 +142,7 @@ def get_resource_output(identifier: Optional[pulumi.Input[str]] = None,
                         role_arn: Optional[pulumi.Input[Optional[str]]] = None,
                         type_name: Optional[pulumi.Input[str]] = None,
                         type_version_id: Optional[pulumi.Input[Optional[str]]] = None,
-                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceResult]:
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceResult]:
     """
     Provides details for a Cloud Control API Resource. The reading of these resources is proxied through Cloud Control API handlers to the backend service.
 
@@ -169,7 +169,7 @@ def get_resource_output(identifier: Optional[pulumi.Input[str]] = None,
     __args__['roleArn'] = role_arn
     __args__['typeName'] = type_name
     __args__['typeVersionId'] = type_version_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cloudcontrol/getResource:getResource', __args__, opts=opts, typ=GetResourceResult)
     return __ret__.apply(lambda __response__: GetResourceResult(
         id=pulumi.get(__response__, 'id'),

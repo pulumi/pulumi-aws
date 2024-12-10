@@ -47,7 +47,7 @@ export interface GetSerialConsoleAccessResult {
  * const current = aws.ec2.getSerialConsoleAccess({});
  * ```
  */
-export function getSerialConsoleAccessOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSerialConsoleAccessResult> {
+export function getSerialConsoleAccessOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSerialConsoleAccessResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess", {
     }, opts);

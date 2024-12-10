@@ -140,7 +140,7 @@ def get_user_group(name: Optional[str] = None,
         user_pool_id=pulumi.get(__ret__, 'user_pool_id'))
 def get_user_group_output(name: Optional[pulumi.Input[str]] = None,
                           user_pool_id: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserGroupResult]:
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserGroupResult]:
     """
     Data source for managing an AWS Cognito IDP (Identity Provider) User Group.
 
@@ -163,7 +163,7 @@ def get_user_group_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['userPoolId'] = user_pool_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cognito/getUserGroup:getUserGroup', __args__, opts=opts, typ=GetUserGroupResult)
     return __ret__.apply(lambda __response__: GetUserGroupResult(
         description=pulumi.get(__response__, 'description'),

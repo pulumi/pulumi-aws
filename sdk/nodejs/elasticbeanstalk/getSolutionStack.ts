@@ -78,7 +78,7 @@ export interface GetSolutionStackResult {
  * });
  * ```
  */
-export function getSolutionStackOutput(args: GetSolutionStackOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSolutionStackResult> {
+export function getSolutionStackOutput(args: GetSolutionStackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSolutionStackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", {
         "mostRecent": args.mostRecent,

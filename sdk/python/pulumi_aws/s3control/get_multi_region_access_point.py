@@ -190,7 +190,7 @@ def get_multi_region_access_point(account_id: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'))
 def get_multi_region_access_point_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
                                          name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMultiRegionAccessPointResult]:
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMultiRegionAccessPointResult]:
     """
     Provides details on a specific S3 Multi-Region Access Point.
 
@@ -210,7 +210,7 @@ def get_multi_region_access_point_output(account_id: Optional[pulumi.Input[Optio
     __args__ = dict()
     __args__['accountId'] = account_id
     __args__['name'] = name
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:s3control/getMultiRegionAccessPoint:getMultiRegionAccessPoint', __args__, opts=opts, typ=GetMultiRegionAccessPointResult)
     return __ret__.apply(lambda __response__: GetMultiRegionAccessPointResult(
         account_id=pulumi.get(__response__, 'account_id'),

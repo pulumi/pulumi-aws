@@ -221,7 +221,7 @@ def get_certificate_output(domain: Optional[pulumi.Input[Optional[str]]] = None,
                            statuses: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                            types: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Use this data source to get the ARN of a certificate in AWS Certificate Manager (ACM).
     You can reference the certificate by domain or tags without having to hard code the ARNs as input.
@@ -261,7 +261,7 @@ def get_certificate_output(domain: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['statuses'] = statuses
     __args__['tags'] = tags
     __args__['types'] = types
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:acm/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult)
     return __ret__.apply(lambda __response__: GetCertificateResult(
         arn=pulumi.get(__response__, 'arn'),

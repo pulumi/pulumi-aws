@@ -154,7 +154,7 @@ def get_parameters_by_path(path: Optional[str] = None,
 def get_parameters_by_path_output(path: Optional[pulumi.Input[str]] = None,
                                   recursive: Optional[pulumi.Input[Optional[bool]]] = None,
                                   with_decryption: Optional[pulumi.Input[Optional[bool]]] = None,
-                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetParametersByPathResult]:
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetParametersByPathResult]:
     """
     Use this data source to access information about an existing resource.
 
@@ -166,7 +166,7 @@ def get_parameters_by_path_output(path: Optional[pulumi.Input[str]] = None,
     __args__['path'] = path
     __args__['recursive'] = recursive
     __args__['withDecryption'] = with_decryption
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssm/getParametersByPath:getParametersByPath', __args__, opts=opts, typ=GetParametersByPathResult)
     return __ret__.apply(lambda __response__: GetParametersByPathResult(
         arns=pulumi.get(__response__, 'arns'),

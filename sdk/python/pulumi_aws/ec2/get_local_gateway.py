@@ -153,7 +153,7 @@ def get_local_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Un
                              id: Optional[pulumi.Input[Optional[str]]] = None,
                              state: Optional[pulumi.Input[Optional[str]]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalGatewayResult]:
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalGatewayResult]:
     """
     Provides details about an EC2 Local Gateway.
 
@@ -186,7 +186,7 @@ def get_local_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Un
     __args__['id'] = id
     __args__['state'] = state
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getLocalGateway:getLocalGateway', __args__, opts=opts, typ=GetLocalGatewayResult)
     return __ret__.apply(lambda __response__: GetLocalGatewayResult(
         filters=pulumi.get(__response__, 'filters'),

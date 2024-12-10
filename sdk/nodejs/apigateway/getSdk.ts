@@ -101,7 +101,7 @@ export interface GetSdkResult {
  * });
  * ```
  */
-export function getSdkOutput(args: GetSdkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSdkResult> {
+export function getSdkOutput(args: GetSdkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSdkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:apigateway/getSdk:getSdk", {
         "parameters": args.parameters,

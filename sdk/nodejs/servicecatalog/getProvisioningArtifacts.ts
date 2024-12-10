@@ -78,7 +78,7 @@ export interface GetProvisioningArtifactsResult {
  * });
  * ```
  */
-export function getProvisioningArtifactsOutput(args: GetProvisioningArtifactsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProvisioningArtifactsResult> {
+export function getProvisioningArtifactsOutput(args: GetProvisioningArtifactsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProvisioningArtifactsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:servicecatalog/getProvisioningArtifacts:getProvisioningArtifacts", {
         "acceptLanguage": args.acceptLanguage,

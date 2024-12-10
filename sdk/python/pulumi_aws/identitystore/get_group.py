@@ -180,7 +180,7 @@ def get_group_output(alternate_identifier: Optional[pulumi.Input[Optional[Union[
                      filter: Optional[pulumi.Input[Optional[Union['GetGroupFilterArgs', 'GetGroupFilterArgsDict']]]] = None,
                      group_id: Optional[pulumi.Input[Optional[str]]] = None,
                      identity_store_id: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupResult]:
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
     """
     Use this data source to get an Identity Store Group.
 
@@ -216,7 +216,7 @@ def get_group_output(alternate_identifier: Optional[pulumi.Input[Optional[Union[
     __args__['filter'] = filter
     __args__['groupId'] = group_id
     __args__['identityStoreId'] = identity_store_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:identitystore/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult)
     return __ret__.apply(lambda __response__: GetGroupResult(
         alternate_identifier=pulumi.get(__response__, 'alternate_identifier'),

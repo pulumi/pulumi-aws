@@ -151,7 +151,7 @@ export interface GetMulticastDomainResult {
  * });
  * ```
  */
-export function getMulticastDomainOutput(args?: GetMulticastDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMulticastDomainResult> {
+export function getMulticastDomainOutput(args?: GetMulticastDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMulticastDomainResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getMulticastDomain:getMulticastDomain", {

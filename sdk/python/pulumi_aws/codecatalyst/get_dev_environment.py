@@ -273,7 +273,7 @@ def get_dev_environment_output(alias: Optional[pulumi.Input[Optional[str]]] = No
                                repositories: Optional[pulumi.Input[Optional[Sequence[Union['GetDevEnvironmentRepositoryArgs', 'GetDevEnvironmentRepositoryArgsDict']]]]] = None,
                                space_name: Optional[pulumi.Input[str]] = None,
                                tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDevEnvironmentResult]:
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDevEnvironmentResult]:
     """
     Data source for managing an AWS CodeCatalyst Dev Environment.
 
@@ -306,7 +306,7 @@ def get_dev_environment_output(alias: Optional[pulumi.Input[Optional[str]]] = No
     __args__['repositories'] = repositories
     __args__['spaceName'] = space_name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:codecatalyst/getDevEnvironment:getDevEnvironment', __args__, opts=opts, typ=GetDevEnvironmentResult)
     return __ret__.apply(lambda __response__: GetDevEnvironmentResult(
         alias=pulumi.get(__response__, 'alias'),

@@ -113,7 +113,7 @@ def get_domain_identity(domain: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         verification_token=pulumi.get(__ret__, 'verification_token'))
 def get_domain_identity_output(domain: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainIdentityResult]:
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainIdentityResult]:
     """
     Retrieve the SES domain identity
 
@@ -131,7 +131,7 @@ def get_domain_identity_output(domain: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['domain'] = domain
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ses/getDomainIdentity:getDomainIdentity', __args__, opts=opts, typ=GetDomainIdentityResult)
     return __ret__.apply(lambda __response__: GetDomainIdentityResult(
         arn=pulumi.get(__response__, 'arn'),

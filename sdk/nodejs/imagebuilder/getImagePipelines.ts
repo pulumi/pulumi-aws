@@ -77,7 +77,7 @@ export interface GetImagePipelinesResult {
  * });
  * ```
  */
-export function getImagePipelinesOutput(args?: GetImagePipelinesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetImagePipelinesResult> {
+export function getImagePipelinesOutput(args?: GetImagePipelinesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImagePipelinesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:imagebuilder/getImagePipelines:getImagePipelines", {

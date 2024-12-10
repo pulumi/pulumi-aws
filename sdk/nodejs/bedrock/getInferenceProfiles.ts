@@ -54,7 +54,7 @@ export interface GetInferenceProfilesResult {
  * const test = aws.bedrock.getInferenceProfiles({});
  * ```
  */
-export function getInferenceProfilesOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInferenceProfilesResult> {
+export function getInferenceProfilesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetInferenceProfilesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:bedrock/getInferenceProfiles:getInferenceProfiles", {
     }, opts);

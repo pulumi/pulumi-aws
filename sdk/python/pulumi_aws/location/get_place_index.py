@@ -180,7 +180,7 @@ def get_place_index(index_name: Optional[str] = None,
         update_time=pulumi.get(__ret__, 'update_time'))
 def get_place_index_output(index_name: Optional[pulumi.Input[str]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlaceIndexResult]:
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlaceIndexResult]:
     """
     Retrieve information about a Location Service Place Index.
 
@@ -200,7 +200,7 @@ def get_place_index_output(index_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['indexName'] = index_name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:location/getPlaceIndex:getPlaceIndex', __args__, opts=opts, typ=GetPlaceIndexResult)
     return __ret__.apply(lambda __response__: GetPlaceIndexResult(
         create_time=pulumi.get(__response__, 'create_time'),

@@ -110,7 +110,7 @@ export interface GetAddonVersionResult {
  * }
  * ```
  */
-export function getAddonVersionOutput(args: GetAddonVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAddonVersionResult> {
+export function getAddonVersionOutput(args: GetAddonVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddonVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:eks/getAddonVersion:getAddonVersion", {
         "addonName": args.addonName,

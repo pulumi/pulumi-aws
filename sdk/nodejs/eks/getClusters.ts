@@ -29,7 +29,7 @@ export interface GetClustersResult {
 /**
  * Retrieve EKS Clusters list
  */
-export function getClustersOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClustersResult> {
+export function getClustersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetClustersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:eks/getClusters:getClusters", {
     }, opts);

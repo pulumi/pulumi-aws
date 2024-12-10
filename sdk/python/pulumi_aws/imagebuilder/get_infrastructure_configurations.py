@@ -115,7 +115,7 @@ def get_infrastructure_configurations(filters: Optional[Sequence[Union['GetInfra
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'))
 def get_infrastructure_configurations_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetInfrastructureConfigurationsFilterArgs', 'GetInfrastructureConfigurationsFilterArgsDict']]]]] = None,
-                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInfrastructureConfigurationsResult]:
+                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInfrastructureConfigurationsResult]:
     """
     Use this data source to get the ARNs and names of Image Builder Infrastructure Configurations matching the specified criteria.
 
@@ -136,7 +136,7 @@ def get_infrastructure_configurations_output(filters: Optional[pulumi.Input[Opti
     """
     __args__ = dict()
     __args__['filters'] = filters
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:imagebuilder/getInfrastructureConfigurations:getInfrastructureConfigurations', __args__, opts=opts, typ=GetInfrastructureConfigurationsResult)
     return __ret__.apply(lambda __response__: GetInfrastructureConfigurationsResult(
         arns=pulumi.get(__response__, 'arns'),

@@ -292,7 +292,7 @@ def get_replication_instance(replication_instance_id: Optional[str] = None,
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
 def get_replication_instance_output(replication_instance_id: Optional[pulumi.Input[str]] = None,
                                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationInstanceResult]:
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationInstanceResult]:
     """
     Data source for managing an AWS DMS (Database Migration) Replication Instance.
 
@@ -311,7 +311,7 @@ def get_replication_instance_output(replication_instance_id: Optional[pulumi.Inp
     __args__ = dict()
     __args__['replicationInstanceId'] = replication_instance_id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:dms/getReplicationInstance:getReplicationInstance', __args__, opts=opts, typ=GetReplicationInstanceResult)
     return __ret__.apply(lambda __response__: GetReplicationInstanceResult(
         allocated_storage=pulumi.get(__response__, 'allocated_storage'),

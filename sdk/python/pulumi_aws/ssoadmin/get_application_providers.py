@@ -91,7 +91,7 @@ def get_application_providers(application_providers: Optional[Sequence[Union['Ge
         application_providers=pulumi.get(__ret__, 'application_providers'),
         id=pulumi.get(__ret__, 'id'))
 def get_application_providers_output(application_providers: Optional[pulumi.Input[Optional[Sequence[Union['GetApplicationProvidersApplicationProviderArgs', 'GetApplicationProvidersApplicationProviderArgsDict']]]]] = None,
-                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationProvidersResult]:
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationProvidersResult]:
     """
     Data source for managing AWS SSO Admin Application Providers.
 
@@ -111,7 +111,7 @@ def get_application_providers_output(application_providers: Optional[pulumi.Inpu
     """
     __args__ = dict()
     __args__['applicationProviders'] = application_providers
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssoadmin/getApplicationProviders:getApplicationProviders', __args__, opts=opts, typ=GetApplicationProvidersResult)
     return __ret__.apply(lambda __response__: GetApplicationProvidersResult(
         application_providers=pulumi.get(__response__, 'application_providers'),

@@ -296,7 +296,7 @@ def get_launch_configuration(name: Optional[str] = None,
         spot_price=pulumi.get(__ret__, 'spot_price'),
         user_data=pulumi.get(__ret__, 'user_data'))
 def get_launch_configuration_output(name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLaunchConfigurationResult]:
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLaunchConfigurationResult]:
     """
     Provides information about a Launch Configuration.
 
@@ -314,7 +314,7 @@ def get_launch_configuration_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getLaunchConfiguration:getLaunchConfiguration', __args__, opts=opts, typ=GetLaunchConfigurationResult)
     return __ret__.apply(lambda __response__: GetLaunchConfigurationResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -463,7 +463,7 @@ def get_bucket_object_output(bucket: Optional[pulumi.Input[str]] = None,
                              range: Optional[pulumi.Input[Optional[str]]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                              version_id: Optional[pulumi.Input[Optional[str]]] = None,
-                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBucketObjectResult]:
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBucketObjectResult]:
     """
     > **NOTE:** The `s3.BucketObject` data source is DEPRECATED and will be removed in a future version! Use `s3.BucketObjectv2` instead, where new features and fixes will be added.
 
@@ -535,7 +535,7 @@ def get_bucket_object_output(bucket: Optional[pulumi.Input[str]] = None,
     __args__['range'] = range
     __args__['tags'] = tags
     __args__['versionId'] = version_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:s3/getBucketObject:getBucketObject', __args__, opts=opts, typ=GetBucketObjectResult)
     return __ret__.apply(lambda __response__: GetBucketObjectResult(
         arn=pulumi.get(__response__, 'arn'),

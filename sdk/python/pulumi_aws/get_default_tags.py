@@ -99,7 +99,7 @@ def get_default_tags(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_default_tags_output(id: Optional[pulumi.Input[Optional[str]]] = None,
-                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDefaultTagsResult]:
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefaultTagsResult]:
     """
     Use this data source to get the default tags configured on the provider.
 
@@ -132,7 +132,7 @@ def get_default_tags_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:index/getDefaultTags:getDefaultTags', __args__, opts=opts, typ=GetDefaultTagsResult)
     return __ret__.apply(lambda __response__: GetDefaultTagsResult(
         id=pulumi.get(__response__, 'id'),

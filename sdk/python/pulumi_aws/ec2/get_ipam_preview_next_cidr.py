@@ -133,7 +133,7 @@ def get_ipam_preview_next_cidr(disallowed_cidrs: Optional[Sequence[str]] = None,
 def get_ipam_preview_next_cidr_output(disallowed_cidrs: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                       ipam_pool_id: Optional[pulumi.Input[str]] = None,
                                       netmask_length: Optional[pulumi.Input[Optional[int]]] = None,
-                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpamPreviewNextCidrResult]:
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpamPreviewNextCidrResult]:
     """
     Previews a CIDR from an IPAM address pool. Only works for private IPv4.
 
@@ -163,7 +163,7 @@ def get_ipam_preview_next_cidr_output(disallowed_cidrs: Optional[pulumi.Input[Op
     __args__['disallowedCidrs'] = disallowed_cidrs
     __args__['ipamPoolId'] = ipam_pool_id
     __args__['netmaskLength'] = netmask_length
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr', __args__, opts=opts, typ=GetIpamPreviewNextCidrResult)
     return __ret__.apply(lambda __response__: GetIpamPreviewNextCidrResult(
         cidr=pulumi.get(__response__, 'cidr'),

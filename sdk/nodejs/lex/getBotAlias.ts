@@ -97,7 +97,7 @@ export interface GetBotAliasResult {
  * });
  * ```
  */
-export function getBotAliasOutput(args: GetBotAliasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBotAliasResult> {
+export function getBotAliasOutput(args: GetBotAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotAliasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:lex/getBotAlias:getBotAlias", {
         "botName": args.botName,

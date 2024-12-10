@@ -470,7 +470,7 @@ def get_policy_document_output(override_json: Optional[pulumi.Input[Optional[str
                                source_policy_documents: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                statements: Optional[pulumi.Input[Optional[Sequence[Union['GetPolicyDocumentStatementArgs', 'GetPolicyDocumentStatementArgsDict']]]]] = None,
                                version: Optional[pulumi.Input[Optional[str]]] = None,
-                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyDocumentResult]:
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyDocumentResult]:
     """
     Generates an IAM policy document in JSON format for use with resources that expect policy documents such as `iam.Policy`.
 
@@ -772,7 +772,7 @@ def get_policy_document_output(override_json: Optional[pulumi.Input[Optional[str
     __args__['sourcePolicyDocuments'] = source_policy_documents
     __args__['statements'] = statements
     __args__['version'] = version
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:iam/getPolicyDocument:getPolicyDocument', __args__, opts=opts, typ=GetPolicyDocumentResult)
     return __ret__.apply(lambda __response__: GetPolicyDocumentResult(
         id=pulumi.get(__response__, 'id'),

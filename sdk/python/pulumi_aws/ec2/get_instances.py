@@ -188,7 +188,7 @@ def get_instances(filters: Optional[Sequence[Union['GetInstancesFilterArgs', 'Ge
 def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']]]]] = None,
                          instance_state_names: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                          instance_tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstancesResult]:
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstancesResult]:
     """
     Use this data source to get IDs or IPs of Amazon EC2 instances to be referenced elsewhere,
     e.g., to allow easier migration from another management solution
@@ -232,7 +232,7 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[Union[
     __args__['filters'] = filters
     __args__['instanceStateNames'] = instance_state_names
     __args__['instanceTags'] = instance_tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getInstances:getInstances', __args__, opts=opts, typ=GetInstancesResult)
     return __ret__.apply(lambda __response__: GetInstancesResult(
         filters=pulumi.get(__response__, 'filters'),

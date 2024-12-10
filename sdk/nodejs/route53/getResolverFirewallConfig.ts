@@ -71,7 +71,7 @@ export interface GetResolverFirewallConfigResult {
  * });
  * ```
  */
-export function getResolverFirewallConfigOutput(args: GetResolverFirewallConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResolverFirewallConfigResult> {
+export function getResolverFirewallConfigOutput(args: GetResolverFirewallConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverFirewallConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:route53/getResolverFirewallConfig:getResolverFirewallConfig", {
         "resourceId": args.resourceId,

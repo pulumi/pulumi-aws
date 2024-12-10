@@ -55,7 +55,7 @@ export interface GetSubnetsResult {
 /**
  * This resource can be useful for getting back a set of subnet IDs.
  */
-export function getSubnetsOutput(args?: GetSubnetsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubnetsResult> {
+export function getSubnetsOutput(args?: GetSubnetsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getSubnets:getSubnets", {

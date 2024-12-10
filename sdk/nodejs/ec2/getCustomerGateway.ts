@@ -130,7 +130,7 @@ export interface GetCustomerGatewayResult {
  * });
  * ```
  */
-export function getCustomerGatewayOutput(args?: GetCustomerGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomerGatewayResult> {
+export function getCustomerGatewayOutput(args?: GetCustomerGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomerGatewayResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getCustomerGateway:getCustomerGateway", {

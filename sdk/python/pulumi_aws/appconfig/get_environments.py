@@ -100,7 +100,7 @@ def get_environments(application_id: Optional[str] = None,
         environment_ids=pulumi.get(__ret__, 'environment_ids'),
         id=pulumi.get(__ret__, 'id'))
 def get_environments_output(application_id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentsResult]:
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentsResult]:
     """
     Provides access to all Environments for an AppConfig Application. This will allow you to pass Environment IDs to another
     resource.
@@ -121,7 +121,7 @@ def get_environments_output(application_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['applicationId'] = application_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:appconfig/getEnvironments:getEnvironments', __args__, opts=opts, typ=GetEnvironmentsResult)
     return __ret__.apply(lambda __response__: GetEnvironmentsResult(
         application_id=pulumi.get(__response__, 'application_id'),

@@ -215,7 +215,7 @@ def get_data_lake_settings(catalog_id: Optional[str] = None,
         read_only_admins=pulumi.get(__ret__, 'read_only_admins'),
         trusted_resource_owners=pulumi.get(__ret__, 'trusted_resource_owners'))
 def get_data_lake_settings_output(catalog_id: Optional[pulumi.Input[Optional[str]]] = None,
-                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataLakeSettingsResult]:
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataLakeSettingsResult]:
     """
     Get Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
 
@@ -233,7 +233,7 @@ def get_data_lake_settings_output(catalog_id: Optional[pulumi.Input[Optional[str
     """
     __args__ = dict()
     __args__['catalogId'] = catalog_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:lakeformation/getDataLakeSettings:getDataLakeSettings', __args__, opts=opts, typ=GetDataLakeSettingsResult)
     return __ret__.apply(lambda __response__: GetDataLakeSettingsResult(
         admins=pulumi.get(__response__, 'admins'),

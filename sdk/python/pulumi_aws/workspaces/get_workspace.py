@@ -228,7 +228,7 @@ def get_workspace_output(directory_id: Optional[pulumi.Input[Optional[str]]] = N
                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                          user_name: Optional[pulumi.Input[Optional[str]]] = None,
                          workspace_id: Optional[pulumi.Input[Optional[str]]] = None,
-                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceResult]:
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
 
@@ -264,7 +264,7 @@ def get_workspace_output(directory_id: Optional[pulumi.Input[Optional[str]]] = N
     __args__['tags'] = tags
     __args__['userName'] = user_name
     __args__['workspaceId'] = workspace_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:workspaces/getWorkspace:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
     return __ret__.apply(lambda __response__: GetWorkspaceResult(
         bundle_id=pulumi.get(__response__, 'bundle_id'),

@@ -106,7 +106,7 @@ export interface GetSlotTypeResult {
  * });
  * ```
  */
-export function getSlotTypeOutput(args: GetSlotTypeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSlotTypeResult> {
+export function getSlotTypeOutput(args: GetSlotTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSlotTypeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:lex/getSlotType:getSlotType", {
         "name": args.name,

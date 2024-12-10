@@ -63,7 +63,7 @@ export interface GetAuthorizationTokenResult {
  * const token = aws.ecrpublic.getAuthorizationToken({});
  * ```
  */
-export function getAuthorizationTokenOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAuthorizationTokenResult> {
+export function getAuthorizationTokenOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ecrpublic/getAuthorizationToken:getAuthorizationToken", {
     }, opts);

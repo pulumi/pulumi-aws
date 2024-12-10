@@ -140,7 +140,7 @@ def get_snapshot_ids(filters: Optional[Sequence[Union['GetSnapshotIdsFilterArgs'
 def get_snapshot_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSnapshotIdsFilterArgs', 'GetSnapshotIdsFilterArgsDict']]]]] = None,
                             owners: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                             restorable_by_user_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSnapshotIdsResult]:
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotIdsResult]:
     """
     Use this data source to get a list of EBS Snapshot IDs matching the specified
     criteria.
@@ -175,7 +175,7 @@ def get_snapshot_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
     __args__['filters'] = filters
     __args__['owners'] = owners
     __args__['restorableByUserIds'] = restorable_by_user_ids
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ebs/getSnapshotIds:getSnapshotIds', __args__, opts=opts, typ=GetSnapshotIdsResult)
     return __ret__.apply(lambda __response__: GetSnapshotIdsResult(
         filters=pulumi.get(__response__, 'filters'),

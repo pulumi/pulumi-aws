@@ -145,7 +145,7 @@ def get_environment_blueprint(domain_id: Optional[str] = None,
 def get_environment_blueprint_output(domain_id: Optional[pulumi.Input[str]] = None,
                                      managed: Optional[pulumi.Input[bool]] = None,
                                      name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentBlueprintResult]:
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentBlueprintResult]:
     """
     Data source for managing an AWS DataZone Environment Blueprint.
 
@@ -174,7 +174,7 @@ def get_environment_blueprint_output(domain_id: Optional[pulumi.Input[str]] = No
     __args__['domainId'] = domain_id
     __args__['managed'] = managed
     __args__['name'] = name
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:datazone/getEnvironmentBlueprint:getEnvironmentBlueprint', __args__, opts=opts, typ=GetEnvironmentBlueprintResult)
     return __ret__.apply(lambda __response__: GetEnvironmentBlueprintResult(
         blueprint_provider=pulumi.get(__response__, 'blueprint_provider'),

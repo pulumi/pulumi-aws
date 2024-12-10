@@ -126,7 +126,7 @@ def get_local_disk(disk_node: Optional[str] = None,
 def get_local_disk_output(disk_node: Optional[pulumi.Input[Optional[str]]] = None,
                           disk_path: Optional[pulumi.Input[Optional[str]]] = None,
                           gateway_arn: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalDiskResult]:
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalDiskResult]:
     """
     Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
 
@@ -149,7 +149,7 @@ def get_local_disk_output(disk_node: Optional[pulumi.Input[Optional[str]]] = Non
     __args__['diskNode'] = disk_node
     __args__['diskPath'] = disk_path
     __args__['gatewayArn'] = gateway_arn
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:storagegateway/getLocalDisk:getLocalDisk', __args__, opts=opts, typ=GetLocalDiskResult)
     return __ret__.apply(lambda __response__: GetLocalDiskResult(
         disk_id=pulumi.get(__response__, 'disk_id'),

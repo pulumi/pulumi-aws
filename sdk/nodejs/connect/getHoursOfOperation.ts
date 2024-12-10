@@ -138,7 +138,7 @@ export interface GetHoursOfOperationResult {
  * });
  * ```
  */
-export function getHoursOfOperationOutput(args: GetHoursOfOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHoursOfOperationResult> {
+export function getHoursOfOperationOutput(args: GetHoursOfOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHoursOfOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:connect/getHoursOfOperation:getHoursOfOperation", {
         "hoursOfOperationId": args.hoursOfOperationId,

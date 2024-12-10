@@ -122,7 +122,7 @@ def get_local_gateways(filters: Optional[Sequence[Union['GetLocalGatewaysFilterA
         tags=pulumi.get(__ret__, 'tags'))
 def get_local_gateways_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetLocalGatewaysFilterArgs', 'GetLocalGatewaysFilterArgsDict']]]]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalGatewaysResult]:
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalGatewaysResult]:
     """
     Provides information for multiple EC2 Local Gateways, such as their identifiers.
 
@@ -151,7 +151,7 @@ def get_local_gateways_output(filters: Optional[pulumi.Input[Optional[Sequence[U
     __args__ = dict()
     __args__['filters'] = filters
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getLocalGateways:getLocalGateways', __args__, opts=opts, typ=GetLocalGatewaysResult)
     return __ret__.apply(lambda __response__: GetLocalGatewaysResult(
         filters=pulumi.get(__response__, 'filters'),

@@ -99,7 +99,7 @@ def get_queues(queue_name_prefix: Optional[str] = None,
         queue_name_prefix=pulumi.get(__ret__, 'queue_name_prefix'),
         queue_urls=pulumi.get(__ret__, 'queue_urls'))
 def get_queues_output(queue_name_prefix: Optional[pulumi.Input[Optional[str]]] = None,
-                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueuesResult]:
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueuesResult]:
     """
     Data source for managing an AWS SQS (Simple Queue) Queues.
 
@@ -119,7 +119,7 @@ def get_queues_output(queue_name_prefix: Optional[pulumi.Input[Optional[str]]] =
     """
     __args__ = dict()
     __args__['queueNamePrefix'] = queue_name_prefix
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:sqs/getQueues:getQueues', __args__, opts=opts, typ=GetQueuesResult)
     return __ret__.apply(lambda __response__: GetQueuesResult(
         id=pulumi.get(__response__, 'id'),

@@ -227,7 +227,7 @@ export interface GetCoreNetworkPolicyDocumentResult {
  *
  * `data.aws_networkmanager_core_network_policy_document.test.json` will evaluate to:
  */
-export function getCoreNetworkPolicyDocumentOutput(args: GetCoreNetworkPolicyDocumentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCoreNetworkPolicyDocumentResult> {
+export function getCoreNetworkPolicyDocumentOutput(args: GetCoreNetworkPolicyDocumentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCoreNetworkPolicyDocumentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument", {
         "attachmentPolicies": args.attachmentPolicies,

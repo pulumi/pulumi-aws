@@ -105,7 +105,7 @@ def get_vpc_attachments(filters: Optional[Sequence[Union['GetVpcAttachmentsFilte
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'))
 def get_vpc_attachments_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcAttachmentsFilterArgs', 'GetVpcAttachmentsFilterArgsDict']]]]] = None,
-                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcAttachmentsResult]:
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcAttachmentsResult]:
     """
     Get information on EC2 Transit Gateway VPC Attachments.
 
@@ -129,7 +129,7 @@ def get_vpc_attachments_output(filters: Optional[pulumi.Input[Optional[Sequence[
     """
     __args__ = dict()
     __args__['filters'] = filters
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2transitgateway/getVpcAttachments:getVpcAttachments', __args__, opts=opts, typ=GetVpcAttachmentsResult)
     return __ret__.apply(lambda __response__: GetVpcAttachmentsResult(
         filters=pulumi.get(__response__, 'filters'),

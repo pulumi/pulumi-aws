@@ -143,7 +143,7 @@ def get_dedicated_ip_pool(pool_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_dedicated_ip_pool_output(pool_name: Optional[pulumi.Input[str]] = None,
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDedicatedIpPoolResult]:
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedIpPoolResult]:
     """
     Data source for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
 
@@ -165,7 +165,7 @@ def get_dedicated_ip_pool_output(pool_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['poolName'] = pool_name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:sesv2/getDedicatedIpPool:getDedicatedIpPool', __args__, opts=opts, typ=GetDedicatedIpPoolResult)
     return __ret__.apply(lambda __response__: GetDedicatedIpPoolResult(
         arn=pulumi.get(__response__, 'arn'),

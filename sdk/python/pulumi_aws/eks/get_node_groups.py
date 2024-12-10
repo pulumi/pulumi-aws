@@ -99,7 +99,7 @@ def get_node_groups(cluster_name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'))
 def get_node_groups_output(cluster_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNodeGroupsResult]:
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNodeGroupsResult]:
     """
     Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
 
@@ -119,7 +119,7 @@ def get_node_groups_output(cluster_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:eks/getNodeGroups:getNodeGroups', __args__, opts=opts, typ=GetNodeGroupsResult)
     return __ret__.apply(lambda __response__: GetNodeGroupsResult(
         cluster_name=pulumi.get(__response__, 'cluster_name'),

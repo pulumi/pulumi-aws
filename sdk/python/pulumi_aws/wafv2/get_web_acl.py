@@ -125,7 +125,7 @@ def get_web_acl(name: Optional[str] = None,
         scope=pulumi.get(__ret__, 'scope'))
 def get_web_acl_output(name: Optional[pulumi.Input[str]] = None,
                        scope: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAclResult]:
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAclResult]:
     """
     Retrieves the summary of a WAFv2 Web ACL.
 
@@ -146,7 +146,7 @@ def get_web_acl_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['scope'] = scope
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:wafv2/getWebAcl:getWebAcl', __args__, opts=opts, typ=GetWebAclResult)
     return __ret__.apply(lambda __response__: GetWebAclResult(
         arn=pulumi.get(__response__, 'arn'),

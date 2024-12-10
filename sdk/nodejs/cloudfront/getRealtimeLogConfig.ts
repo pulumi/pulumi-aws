@@ -78,7 +78,7 @@ export interface GetRealtimeLogConfigResult {
  * });
  * ```
  */
-export function getRealtimeLogConfigOutput(args: GetRealtimeLogConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRealtimeLogConfigResult> {
+export function getRealtimeLogConfigOutput(args: GetRealtimeLogConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRealtimeLogConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cloudfront/getRealtimeLogConfig:getRealtimeLogConfig", {
         "name": args.name,

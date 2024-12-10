@@ -345,7 +345,7 @@ def get_vpc_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
                             state: Optional[pulumi.Input[Optional[str]]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                             vpc_id: Optional[pulumi.Input[Optional[str]]] = None,
-                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcEndpointResult]:
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcEndpointResult]:
     """
     The VPC Endpoint data source provides details about
     a specific VPC endpoint.
@@ -383,7 +383,7 @@ def get_vpc_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
     __args__['state'] = state
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getVpcEndpoint:getVpcEndpoint', __args__, opts=opts, typ=GetVpcEndpointResult)
     return __ret__.apply(lambda __response__: GetVpcEndpointResult(
         arn=pulumi.get(__response__, 'arn'),

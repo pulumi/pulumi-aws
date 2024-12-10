@@ -106,7 +106,7 @@ export interface GetPublicIpv4PoolsResult {
  * });
  * ```
  */
-export function getPublicIpv4PoolsOutput(args?: GetPublicIpv4PoolsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPublicIpv4PoolsResult> {
+export function getPublicIpv4PoolsOutput(args?: GetPublicIpv4PoolsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIpv4PoolsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getPublicIpv4Pools:getPublicIpv4Pools", {

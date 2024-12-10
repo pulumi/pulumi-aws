@@ -99,7 +99,7 @@ export interface GetInstanceTypeOfferingResult {
  * });
  * ```
  */
-export function getInstanceTypeOfferingOutput(args?: GetInstanceTypeOfferingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInstanceTypeOfferingResult> {
+export function getInstanceTypeOfferingOutput(args?: GetInstanceTypeOfferingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceTypeOfferingResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getInstanceTypeOffering:getInstanceTypeOffering", {

@@ -89,7 +89,7 @@ export interface GetEipsResult {
  * export const publicIps = example.then(example => example.publicIps);
  * ```
  */
-export function getEipsOutput(args?: GetEipsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEipsResult> {
+export function getEipsOutput(args?: GetEipsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEipsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getEips:getEips", {

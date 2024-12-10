@@ -94,7 +94,7 @@ export interface GetLifecyclePolicyDocumentResult {
  * });
  * ```
  */
-export function getLifecyclePolicyDocumentOutput(args?: GetLifecyclePolicyDocumentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLifecyclePolicyDocumentResult> {
+export function getLifecyclePolicyDocumentOutput(args?: GetLifecyclePolicyDocumentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLifecyclePolicyDocumentResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ecr/getLifecyclePolicyDocument:getLifecyclePolicyDocument", {

@@ -85,7 +85,7 @@ export interface GetImageRecipesResult {
  * });
  * ```
  */
-export function getImageRecipesOutput(args?: GetImageRecipesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetImageRecipesResult> {
+export function getImageRecipesOutput(args?: GetImageRecipesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageRecipesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:imagebuilder/getImageRecipes:getImageRecipes", {

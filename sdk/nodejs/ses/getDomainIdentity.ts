@@ -70,7 +70,7 @@ export interface GetDomainIdentityResult {
  * });
  * ```
  */
-export function getDomainIdentityOutput(args: GetDomainIdentityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDomainIdentityResult> {
+export function getDomainIdentityOutput(args: GetDomainIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainIdentityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ses/getDomainIdentity:getDomainIdentity", {
         "domain": args.domain,

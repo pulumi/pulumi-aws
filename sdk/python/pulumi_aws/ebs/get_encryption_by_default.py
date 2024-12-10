@@ -81,7 +81,7 @@ def get_encryption_by_default(opts: Optional[pulumi.InvokeOptions] = None) -> Aw
     return AwaitableGetEncryptionByDefaultResult(
         enabled=pulumi.get(__ret__, 'enabled'),
         id=pulumi.get(__ret__, 'id'))
-def get_encryption_by_default_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEncryptionByDefaultResult]:
+def get_encryption_by_default_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEncryptionByDefaultResult]:
     """
     Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
 
@@ -95,7 +95,7 @@ def get_encryption_by_default_output(opts: Optional[Union[pulumi.InvokeOptions, 
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ebs/getEncryptionByDefault:getEncryptionByDefault', __args__, opts=opts, typ=GetEncryptionByDefaultResult)
     return __ret__.apply(lambda __response__: GetEncryptionByDefaultResult(
         enabled=pulumi.get(__response__, 'enabled'),

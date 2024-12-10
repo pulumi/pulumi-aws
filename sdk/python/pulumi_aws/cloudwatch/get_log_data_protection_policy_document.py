@@ -184,7 +184,7 @@ def get_log_data_protection_policy_document_output(description: Optional[pulumi.
                                                    name: Optional[pulumi.Input[str]] = None,
                                                    statements: Optional[pulumi.Input[Sequence[Union['GetLogDataProtectionPolicyDocumentStatementArgs', 'GetLogDataProtectionPolicyDocumentStatementArgsDict']]]] = None,
                                                    version: Optional[pulumi.Input[Optional[str]]] = None,
-                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogDataProtectionPolicyDocumentResult]:
+                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogDataProtectionPolicyDocumentResult]:
     """
     Generates a CloudWatch Log Group Data Protection Policy document in JSON format for use with the `cloudwatch.LogDataProtectionPolicy` resource.
 
@@ -251,7 +251,7 @@ def get_log_data_protection_policy_document_output(description: Optional[pulumi.
     __args__['name'] = name
     __args__['statements'] = statements
     __args__['version'] = version
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument', __args__, opts=opts, typ=GetLogDataProtectionPolicyDocumentResult)
     return __ret__.apply(lambda __response__: GetLogDataProtectionPolicyDocumentResult(
         description=pulumi.get(__response__, 'description'),

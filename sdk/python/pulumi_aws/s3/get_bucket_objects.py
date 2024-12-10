@@ -203,7 +203,7 @@ def get_bucket_objects_output(bucket: Optional[pulumi.Input[str]] = None,
                               max_keys: Optional[pulumi.Input[Optional[int]]] = None,
                               prefix: Optional[pulumi.Input[Optional[str]]] = None,
                               start_after: Optional[pulumi.Input[Optional[str]]] = None,
-                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBucketObjectsResult]:
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBucketObjectsResult]:
     """
     > **NOTE:** The `s3_get_bucket_objects` data source is DEPRECATED and will be removed in a future version! Use `s3_get_objects` instead, where new features and fixes will be added.
 
@@ -228,7 +228,7 @@ def get_bucket_objects_output(bucket: Optional[pulumi.Input[str]] = None,
     __args__['maxKeys'] = max_keys
     __args__['prefix'] = prefix
     __args__['startAfter'] = start_after
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:s3/getBucketObjects:getBucketObjects', __args__, opts=opts, typ=GetBucketObjectsResult)
     return __ret__.apply(lambda __response__: GetBucketObjectsResult(
         bucket=pulumi.get(__response__, 'bucket'),

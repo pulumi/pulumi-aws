@@ -123,7 +123,7 @@ export interface GetThemeResult {
  * });
  * ```
  */
-export function getThemeOutput(args: GetThemeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetThemeResult> {
+export function getThemeOutput(args: GetThemeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThemeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:quicksight/getTheme:getTheme", {
         "awsAccountId": args.awsAccountId,

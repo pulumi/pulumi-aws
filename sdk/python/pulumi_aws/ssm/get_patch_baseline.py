@@ -288,7 +288,7 @@ def get_patch_baseline_output(default_baseline: Optional[pulumi.Input[Optional[b
                               name_prefix: Optional[pulumi.Input[Optional[str]]] = None,
                               operating_system: Optional[pulumi.Input[Optional[str]]] = None,
                               owner: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPatchBaselineResult]:
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPatchBaselineResult]:
     """
     Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
 
@@ -330,7 +330,7 @@ def get_patch_baseline_output(default_baseline: Optional[pulumi.Input[Optional[b
     __args__['namePrefix'] = name_prefix
     __args__['operatingSystem'] = operating_system
     __args__['owner'] = owner
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssm/getPatchBaseline:getPatchBaseline', __args__, opts=opts, typ=GetPatchBaselineResult)
     return __ret__.apply(lambda __response__: GetPatchBaselineResult(
         approval_rules=pulumi.get(__response__, 'approval_rules'),

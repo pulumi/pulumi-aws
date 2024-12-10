@@ -289,7 +289,7 @@ export interface GetPrincipalPolicySimulationResult {
  *
  * When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it's important to use `dependsOn` to make sure that the needed policy has been fully created or updated before running the simulation.
  */
-export function getPrincipalPolicySimulationOutput(args: GetPrincipalPolicySimulationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrincipalPolicySimulationResult> {
+export function getPrincipalPolicySimulationOutput(args: GetPrincipalPolicySimulationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrincipalPolicySimulationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:iam/getPrincipalPolicySimulation:getPrincipalPolicySimulation", {
         "actionNames": args.actionNames,

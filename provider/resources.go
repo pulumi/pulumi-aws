@@ -1355,7 +1355,7 @@ compatibility shim in favor of the new "name" field.`)
 				},
 			},
 			// Batch
-			"aws_batch_compute_environment": batch.ComputeEnvironment(awsResource(batchMod, "ComputeEnvironment"), tfbridge.GetLogger),
+			"aws_batch_compute_environment": batch.ComputeEnvironment(awsResource(batchMod, "ComputeEnvironment")),
 			"aws_batch_job_definition":      {Tok: awsResource(batchMod, "JobDefinition")},
 			"aws_batch_job_queue":           {Tok: awsResource(batchMod, "JobQueue")},
 			"aws_batch_scheduling_policy":   {Tok: awsResource(batchMod, "SchedulingPolicy")},

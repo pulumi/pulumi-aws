@@ -148,7 +148,7 @@ export interface GetResolverRulesResult {
  * });
  * ```
  */
-export function getResolverRulesOutput(args?: GetResolverRulesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResolverRulesResult> {
+export function getResolverRulesOutput(args?: GetResolverRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverRulesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:route53/getResolverRules:getResolverRules", {

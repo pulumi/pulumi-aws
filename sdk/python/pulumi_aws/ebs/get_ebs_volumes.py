@@ -129,7 +129,7 @@ def get_ebs_volumes(filters: Optional[Sequence[Union['GetEbsVolumesFilterArgs', 
         tags=pulumi.get(__ret__, 'tags'))
 def get_ebs_volumes_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetEbsVolumesFilterArgs', 'GetEbsVolumesFilterArgsDict']]]]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEbsVolumesResult]:
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEbsVolumesResult]:
     """
     `ebs_get_ebs_volumes` provides identifying information for EBS volumes matching given criteria.
 
@@ -164,7 +164,7 @@ def get_ebs_volumes_output(filters: Optional[pulumi.Input[Optional[Sequence[Unio
     __args__ = dict()
     __args__['filters'] = filters
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ebs/getEbsVolumes:getEbsVolumes', __args__, opts=opts, typ=GetEbsVolumesResult)
     return __ret__.apply(lambda __response__: GetEbsVolumesResult(
         filters=pulumi.get(__response__, 'filters'),

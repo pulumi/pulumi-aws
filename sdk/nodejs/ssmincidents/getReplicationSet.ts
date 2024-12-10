@@ -92,7 +92,7 @@ export interface GetReplicationSetResult {
  * const example = aws.ssmincidents.getReplicationSet({});
  * ```
  */
-export function getReplicationSetOutput(args?: GetReplicationSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationSetResult> {
+export function getReplicationSetOutput(args?: GetReplicationSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationSetResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssmincidents/getReplicationSet:getReplicationSet", {

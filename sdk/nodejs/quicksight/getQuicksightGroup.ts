@@ -93,7 +93,7 @@ export interface GetQuicksightGroupResult {
  * });
  * ```
  */
-export function getQuicksightGroupOutput(args: GetQuicksightGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetQuicksightGroupResult> {
+export function getQuicksightGroupOutput(args: GetQuicksightGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQuicksightGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:quicksight/getQuicksightGroup:getQuicksightGroup", {
         "awsAccountId": args.awsAccountId,

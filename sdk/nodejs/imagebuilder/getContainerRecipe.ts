@@ -131,7 +131,7 @@ export interface GetContainerRecipeResult {
  * });
  * ```
  */
-export function getContainerRecipeOutput(args: GetContainerRecipeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContainerRecipeResult> {
+export function getContainerRecipeOutput(args: GetContainerRecipeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerRecipeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:imagebuilder/getContainerRecipe:getContainerRecipe", {
         "arn": args.arn,

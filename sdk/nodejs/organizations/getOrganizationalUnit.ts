@@ -77,7 +77,7 @@ export interface GetOrganizationalUnitResult {
  * }));
  * ```
  */
-export function getOrganizationalUnitOutput(args: GetOrganizationalUnitOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrganizationalUnitResult> {
+export function getOrganizationalUnitOutput(args: GetOrganizationalUnitOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationalUnitResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:organizations/getOrganizationalUnit:getOrganizationalUnit", {
         "name": args.name,

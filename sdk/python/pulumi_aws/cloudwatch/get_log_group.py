@@ -166,7 +166,7 @@ def get_log_group(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_log_group_output(name: Optional[pulumi.Input[str]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogGroupResult]:
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogGroupResult]:
     """
     Use this data source to get information about an AWS Cloudwatch Log Group
 
@@ -186,7 +186,7 @@ def get_log_group_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cloudwatch/getLogGroup:getLogGroup', __args__, opts=opts, typ=GetLogGroupResult)
     return __ret__.apply(lambda __response__: GetLogGroupResult(
         arn=pulumi.get(__response__, 'arn'),

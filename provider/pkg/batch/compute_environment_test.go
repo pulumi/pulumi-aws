@@ -4,14 +4,14 @@ import (
 	"context"
 	"testing"
 
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/log"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/unstable/logging"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/require"
 )
 
 func TestComputeEnvironmentTransformFromState(t *testing.T) {
 	ctx := context.Background()
+	ctx = logging.InitLogging(ctx, logging.LogOptions{})
 	pm := resource.PropertyMap{
 		"computeResources": resource.NewObjectProperty(resource.PropertyMap{
 			"ec2Configuration": resource.NewObjectProperty(resource.PropertyMap{
@@ -30,29 +30,7 @@ func TestComputeEnvironmentTransformFromState(t *testing.T) {
 			}),
 		}),
 	}
-	actual, err := ComputeEnvironment("", func(ctx context.Context) tfbridge.Logger {
-		return testLogger{t}
-	}).TransformFromState(ctx, pm)
+	actual, err := ComputeEnvironment("").TransformFromState(ctx, pm)
 	require.NoError(t, err)
 	require.Equal(t, expect, actual)
-}
-
-type testLogger struct {
-	t *testing.T
-}
-
-func (l testLogger) Debug(msg string) {
-	l.t.Log(msg)
-}
-func (l testLogger) Info(msg string) {
-	l.t.Log(msg)
-}
-func (l testLogger) Warn(msg string) {
-	l.t.Log(msg)
-}
-func (l testLogger) Error(msg string) {
-	l.t.Log(msg)
-}
-func (l testLogger) Status() log.Log {
-	return l
 }

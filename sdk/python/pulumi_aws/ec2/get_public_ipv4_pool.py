@@ -167,7 +167,7 @@ def get_public_ipv4_pool(pool_id: Optional[str] = None,
         total_available_address_count=pulumi.get(__ret__, 'total_available_address_count'))
 def get_public_ipv4_pool_output(pool_id: Optional[pulumi.Input[str]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublicIpv4PoolResult]:
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicIpv4PoolResult]:
     """
     Provides details about a specific AWS EC2 Public IPv4 Pool.
 
@@ -189,7 +189,7 @@ def get_public_ipv4_pool_output(pool_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['poolId'] = pool_id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getPublicIpv4Pool:getPublicIpv4Pool', __args__, opts=opts, typ=GetPublicIpv4PoolResult)
     return __ret__.apply(lambda __response__: GetPublicIpv4PoolResult(
         description=pulumi.get(__response__, 'description'),

@@ -192,7 +192,7 @@ def get_configuration_set(configuration_set_name: Optional[str] = None,
         vdm_options=pulumi.get(__ret__, 'vdm_options'))
 def get_configuration_set_output(configuration_set_name: Optional[pulumi.Input[str]] = None,
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationSetResult]:
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationSetResult]:
     """
     Data source for managing an AWS SESv2 (Simple Email V2) Configuration Set.
 
@@ -214,7 +214,7 @@ def get_configuration_set_output(configuration_set_name: Optional[pulumi.Input[s
     __args__ = dict()
     __args__['configurationSetName'] = configuration_set_name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:sesv2/getConfigurationSet:getConfigurationSet', __args__, opts=opts, typ=GetConfigurationSetResult)
     return __ret__.apply(lambda __response__: GetConfigurationSetResult(
         arn=pulumi.get(__response__, 'arn'),

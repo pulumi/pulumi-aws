@@ -116,7 +116,7 @@ def get_provisioning_artifacts(accept_language: Optional[str] = None,
         provisioning_artifact_details=pulumi.get(__ret__, 'provisioning_artifact_details'))
 def get_provisioning_artifacts_output(accept_language: Optional[pulumi.Input[Optional[str]]] = None,
                                       product_id: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProvisioningArtifactsResult]:
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProvisioningArtifactsResult]:
     """
     Lists the provisioning artifacts for the specified product.
 
@@ -140,7 +140,7 @@ def get_provisioning_artifacts_output(accept_language: Optional[pulumi.Input[Opt
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language
     __args__['productId'] = product_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:servicecatalog/getProvisioningArtifacts:getProvisioningArtifacts', __args__, opts=opts, typ=GetProvisioningArtifactsResult)
     return __ret__.apply(lambda __response__: GetProvisioningArtifactsResult(
         accept_language=pulumi.get(__response__, 'accept_language'),

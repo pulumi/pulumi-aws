@@ -214,7 +214,7 @@ def get_bootstrap_brokers(cluster_arn: Optional[str] = None,
         cluster_arn=pulumi.get(__ret__, 'cluster_arn'),
         id=pulumi.get(__ret__, 'id'))
 def get_bootstrap_brokers_output(cluster_arn: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBootstrapBrokersResult]:
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBootstrapBrokersResult]:
     """
     Get a list of brokers that a client application can use to bootstrap.
 
@@ -232,7 +232,7 @@ def get_bootstrap_brokers_output(cluster_arn: Optional[pulumi.Input[str]] = None
     """
     __args__ = dict()
     __args__['clusterArn'] = cluster_arn
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:msk/getBootstrapBrokers:getBootstrapBrokers', __args__, opts=opts, typ=GetBootstrapBrokersResult)
     return __ret__.apply(lambda __response__: GetBootstrapBrokersResult(
         bootstrap_brokers=pulumi.get(__response__, 'bootstrap_brokers'),

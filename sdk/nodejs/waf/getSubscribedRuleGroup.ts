@@ -96,7 +96,7 @@ export interface GetSubscribedRuleGroupResult {
  * ]});
  * ```
  */
-export function getSubscribedRuleGroupOutput(args?: GetSubscribedRuleGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubscribedRuleGroupResult> {
+export function getSubscribedRuleGroupOutput(args?: GetSubscribedRuleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscribedRuleGroupResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:waf/getSubscribedRuleGroup:getSubscribedRuleGroup", {

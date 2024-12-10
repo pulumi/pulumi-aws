@@ -120,7 +120,7 @@ export interface GetNetworkInsightsAnalysisResult {
  * });
  * ```
  */
-export function getNetworkInsightsAnalysisOutput(args?: GetNetworkInsightsAnalysisOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkInsightsAnalysisResult> {
+export function getNetworkInsightsAnalysisOutput(args?: GetNetworkInsightsAnalysisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInsightsAnalysisResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getNetworkInsightsAnalysis:getNetworkInsightsAnalysis", {

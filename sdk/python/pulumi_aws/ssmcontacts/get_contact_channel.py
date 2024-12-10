@@ -152,7 +152,7 @@ def get_contact_channel(arn: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
 def get_contact_channel_output(arn: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContactChannelResult]:
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContactChannelResult]:
     """
     Data source for managing an AWS SSM Contacts Contact Channel.
 
@@ -172,7 +172,7 @@ def get_contact_channel_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssmcontacts/getContactChannel:getContactChannel', __args__, opts=opts, typ=GetContactChannelResult)
     return __ret__.apply(lambda __response__: GetContactChannelResult(
         activation_status=pulumi.get(__response__, 'activation_status'),

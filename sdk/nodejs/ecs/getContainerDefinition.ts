@@ -101,7 +101,7 @@ export interface GetContainerDefinitionResult {
  * });
  * ```
  */
-export function getContainerDefinitionOutput(args: GetContainerDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContainerDefinitionResult> {
+export function getContainerDefinitionOutput(args: GetContainerDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ecs/getContainerDefinition:getContainerDefinition", {
         "containerName": args.containerName,

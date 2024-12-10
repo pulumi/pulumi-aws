@@ -200,7 +200,7 @@ def get_route_output(mesh_name: Optional[pulumi.Input[str]] = None,
                      name: Optional[pulumi.Input[str]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                      virtual_router_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteResult]:
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteResult]:
     """
     The App Mesh Route data source allows details of an App Mesh Route to be retrieved by its name, mesh_name, virtual_router_name, and optionally the mesh_owner.
 
@@ -217,7 +217,7 @@ def get_route_output(mesh_name: Optional[pulumi.Input[str]] = None,
     __args__['name'] = name
     __args__['tags'] = tags
     __args__['virtualRouterName'] = virtual_router_name
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:appmesh/getRoute:getRoute', __args__, opts=opts, typ=GetRouteResult)
     return __ret__.apply(lambda __response__: GetRouteResult(
         arn=pulumi.get(__response__, 'arn'),

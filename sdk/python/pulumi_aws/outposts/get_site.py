@@ -111,7 +111,7 @@ def get_site(id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'))
 def get_site_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                     name: Optional[pulumi.Input[Optional[str]]] = None,
-                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSiteResult]:
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSiteResult]:
     """
     Provides details about an Outposts Site.
 
@@ -131,7 +131,7 @@ def get_site_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     __args__ = dict()
     __args__['id'] = id
     __args__['name'] = name
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:outposts/getSite:getSite', __args__, opts=opts, typ=GetSiteResult)
     return __ret__.apply(lambda __response__: GetSiteResult(
         account_id=pulumi.get(__response__, 'account_id'),

@@ -75,7 +75,7 @@ export interface GetLbsResult {
  * });
  * ```
  */
-export function getLbsOutput(args?: GetLbsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLbsResult> {
+export function getLbsOutput(args?: GetLbsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLbsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:lb/getLbs:getLbs", {

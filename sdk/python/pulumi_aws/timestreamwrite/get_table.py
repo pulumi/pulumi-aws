@@ -199,7 +199,7 @@ def get_table(database_name: Optional[str] = None,
         table_status=pulumi.get(__ret__, 'table_status'))
 def get_table_output(database_name: Optional[pulumi.Input[str]] = None,
                      name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableResult]:
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTableResult]:
     """
     Data source for managing an AWS Timestream Write Table.
 
@@ -222,7 +222,7 @@ def get_table_output(database_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['databaseName'] = database_name
     __args__['name'] = name
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:timestreamwrite/getTable:getTable', __args__, opts=opts, typ=GetTableResult)
     return __ret__.apply(lambda __response__: GetTableResult(
         arn=pulumi.get(__response__, 'arn'),

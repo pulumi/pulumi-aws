@@ -213,7 +213,7 @@ def get_task_definition(task_definition: Optional[str] = None,
         task_definition=pulumi.get(__ret__, 'task_definition'),
         task_role_arn=pulumi.get(__ret__, 'task_role_arn'))
 def get_task_definition_output(task_definition: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTaskDefinitionResult]:
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTaskDefinitionResult]:
     """
     The ECS task definition data source allows access to details of
     a specific AWS ECS task definition.
@@ -256,7 +256,7 @@ def get_task_definition_output(task_definition: Optional[pulumi.Input[str]] = No
     """
     __args__ = dict()
     __args__['taskDefinition'] = task_definition
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ecs/getTaskDefinition:getTaskDefinition', __args__, opts=opts, typ=GetTaskDefinitionResult)
     return __ret__.apply(lambda __response__: GetTaskDefinitionResult(
         arn=pulumi.get(__response__, 'arn'),

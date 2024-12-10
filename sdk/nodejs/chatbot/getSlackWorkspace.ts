@@ -67,7 +67,7 @@ export interface GetSlackWorkspaceResult {
  * });
  * ```
  */
-export function getSlackWorkspaceOutput(args: GetSlackWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSlackWorkspaceResult> {
+export function getSlackWorkspaceOutput(args: GetSlackWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSlackWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:chatbot/getSlackWorkspace:getSlackWorkspace", {
         "slackTeamName": args.slackTeamName,

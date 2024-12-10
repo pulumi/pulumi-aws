@@ -85,7 +85,7 @@ export interface GetRepositoryEndpointResult {
  * });
  * ```
  */
-export function getRepositoryEndpointOutput(args: GetRepositoryEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRepositoryEndpointResult> {
+export function getRepositoryEndpointOutput(args: GetRepositoryEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:codeartifact/getRepositoryEndpoint:getRepositoryEndpoint", {
         "domain": args.domain,

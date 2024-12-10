@@ -240,7 +240,7 @@ def get_serverless_collection(id: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_serverless_collection_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                                      name: Optional[pulumi.Input[Optional[str]]] = None,
-                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessCollectionResult]:
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerlessCollectionResult]:
     """
     Data source for managing an AWS OpenSearch Serverless Collection.
 
@@ -262,7 +262,7 @@ def get_serverless_collection_output(id: Optional[pulumi.Input[Optional[str]]] =
     __args__ = dict()
     __args__['id'] = id
     __args__['name'] = name
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:opensearch/getServerlessCollection:getServerlessCollection', __args__, opts=opts, typ=GetServerlessCollectionResult)
     return __ret__.apply(lambda __response__: GetServerlessCollectionResult(
         arn=pulumi.get(__response__, 'arn'),

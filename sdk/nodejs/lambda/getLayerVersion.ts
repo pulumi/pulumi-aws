@@ -134,7 +134,7 @@ export interface GetLayerVersionResult {
  * });
  * ```
  */
-export function getLayerVersionOutput(args: GetLayerVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLayerVersionResult> {
+export function getLayerVersionOutput(args: GetLayerVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLayerVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:lambda/getLayerVersion:getLayerVersion", {
         "compatibleArchitecture": args.compatibleArchitecture,

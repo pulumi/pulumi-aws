@@ -158,7 +158,7 @@ export interface GetOntapFileSystemResult {
  * });
  * ```
  */
-export function getOntapFileSystemOutput(args: GetOntapFileSystemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOntapFileSystemResult> {
+export function getOntapFileSystemOutput(args: GetOntapFileSystemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOntapFileSystemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:fsx/getOntapFileSystem:getOntapFileSystem", {
         "id": args.id,

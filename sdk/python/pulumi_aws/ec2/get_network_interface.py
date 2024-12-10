@@ -322,7 +322,7 @@ def get_network_interface(filters: Optional[Sequence[Union['GetNetworkInterfaceF
 def get_network_interface_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetNetworkInterfaceFilterArgs', 'GetNetworkInterfaceFilterArgsDict']]]]] = None,
                                  id: Optional[pulumi.Input[Optional[str]]] = None,
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkInterfaceResult]:
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInterfaceResult]:
     """
     Use this data source to get information about a Network Interface.
 
@@ -344,7 +344,7 @@ def get_network_interface_output(filters: Optional[pulumi.Input[Optional[Sequenc
     __args__['filters'] = filters
     __args__['id'] = id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getNetworkInterface:getNetworkInterface', __args__, opts=opts, typ=GetNetworkInterfaceResult)
     return __ret__.apply(lambda __response__: GetNetworkInterfaceResult(
         arn=pulumi.get(__response__, 'arn'),

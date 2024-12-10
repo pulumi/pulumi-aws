@@ -190,7 +190,7 @@ def get_resolver_firewall_rule_group(firewall_rule_group_id: Optional[str] = Non
         status=pulumi.get(__ret__, 'status'),
         status_message=pulumi.get(__ret__, 'status_message'))
 def get_resolver_firewall_rule_group_output(firewall_rule_group_id: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverFirewallRuleGroupResult]:
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverFirewallRuleGroupResult]:
     """
     `route53.ResolverFirewallRuleGroup` Retrieves the specified firewall rule group.
 
@@ -214,7 +214,7 @@ def get_resolver_firewall_rule_group_output(firewall_rule_group_id: Optional[pul
     """
     __args__ = dict()
     __args__['firewallRuleGroupId'] = firewall_rule_group_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:route53/getResolverFirewallRuleGroup:getResolverFirewallRuleGroup', __args__, opts=opts, typ=GetResolverFirewallRuleGroupResult)
     return __ret__.apply(lambda __response__: GetResolverFirewallRuleGroupResult(
         arn=pulumi.get(__response__, 'arn'),

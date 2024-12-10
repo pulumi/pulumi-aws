@@ -111,7 +111,7 @@ def get_activity(arn: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'))
 def get_activity_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                         name: Optional[pulumi.Input[Optional[str]]] = None,
-                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActivityResult]:
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActivityResult]:
     """
     Provides a Step Functions Activity data source
 
@@ -131,7 +131,7 @@ def get_activity_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     __args__ = dict()
     __args__['arn'] = arn
     __args__['name'] = name
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:sfn/getActivity:getActivity', __args__, opts=opts, typ=GetActivityResult)
     return __ret__.apply(lambda __response__: GetActivityResult(
         arn=pulumi.get(__response__, 'arn'),

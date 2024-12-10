@@ -116,7 +116,7 @@ def get_launch_paths(accept_language: Optional[str] = None,
         summaries=pulumi.get(__ret__, 'summaries'))
 def get_launch_paths_output(accept_language: Optional[pulumi.Input[Optional[str]]] = None,
                             product_id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLaunchPathsResult]:
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLaunchPathsResult]:
     """
     Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.
 
@@ -140,7 +140,7 @@ def get_launch_paths_output(accept_language: Optional[pulumi.Input[Optional[str]
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language
     __args__['productId'] = product_id
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:servicecatalog/getLaunchPaths:getLaunchPaths', __args__, opts=opts, typ=GetLaunchPathsResult)
     return __ret__.apply(lambda __response__: GetLaunchPathsResult(
         accept_language=pulumi.get(__response__, 'accept_language'),

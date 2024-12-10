@@ -116,7 +116,7 @@ export interface GetComponentResult {
  * });
  * ```
  */
-export function getComponentOutput(args: GetComponentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetComponentResult> {
+export function getComponentOutput(args: GetComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:imagebuilder/getComponent:getComponent", {
         "arn": args.arn,

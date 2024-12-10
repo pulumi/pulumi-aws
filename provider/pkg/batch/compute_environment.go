@@ -24,7 +24,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 )
 
-func ComputeEnvironment(token tokens.Type, logProvider func(context.Context) tfbridge.Logger) *info.Resource {
+func ComputeEnvironment(token tokens.Type) *info.Resource {
 	return &info.Resource{
 		Tok: token,
 		TransformFromState: func(ctx context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
@@ -40,7 +40,7 @@ func ComputeEnvironment(token tokens.Type, logProvider func(context.Context) tfb
 				return pm, nil
 			}
 			replacement := resource.NewArrayProperty([]resource.PropertyValue{ec2c})
-			logProvider(ctx).Debug(fmt.Sprintf(
+			tfbridge.GetLogger(ctx).Debug(fmt.Sprintf(
 				"batch.ComputeEnvironment is wrapping old computeResources.ec2Configurations state in an array"))
 			cr.ObjectValue()["ec2Configuration"] = replacement
 			r["computeResources"] = cr

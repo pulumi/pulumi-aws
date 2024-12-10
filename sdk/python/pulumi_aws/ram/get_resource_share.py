@@ -211,7 +211,7 @@ def get_resource_share_output(filters: Optional[pulumi.Input[Optional[Sequence[U
                               resource_owner: Optional[pulumi.Input[str]] = None,
                               resource_share_status: Optional[pulumi.Input[Optional[str]]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceShareResult]:
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceShareResult]:
     """
     `ram.ResourceShare` Retrieve information about a RAM Resource Share.
 
@@ -251,7 +251,7 @@ def get_resource_share_output(filters: Optional[pulumi.Input[Optional[Sequence[U
     __args__['resourceOwner'] = resource_owner
     __args__['resourceShareStatus'] = resource_share_status
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ram/getResourceShare:getResourceShare', __args__, opts=opts, typ=GetResourceShareResult)
     return __ret__.apply(lambda __response__: GetResourceShareResult(
         arn=pulumi.get(__response__, 'arn'),

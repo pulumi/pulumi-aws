@@ -71,7 +71,7 @@ export interface GetClusterParameterGroupResult {
  * });
  * ```
  */
-export function getClusterParameterGroupOutput(args: GetClusterParameterGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterParameterGroupResult> {
+export function getClusterParameterGroupOutput(args: GetClusterParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterParameterGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:rds/getClusterParameterGroup:getClusterParameterGroup", {
         "name": args.name,

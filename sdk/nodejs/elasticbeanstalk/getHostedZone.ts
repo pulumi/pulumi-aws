@@ -59,7 +59,7 @@ export interface GetHostedZoneResult {
  * const current = aws.elasticbeanstalk.getHostedZone({});
  * ```
  */
-export function getHostedZoneOutput(args?: GetHostedZoneOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHostedZoneResult> {
+export function getHostedZoneOutput(args?: GetHostedZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostedZoneResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:elasticbeanstalk/getHostedZone:getHostedZone", {

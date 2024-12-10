@@ -164,7 +164,7 @@ def get_serverless_security_policy(name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_serverless_security_policy_output(name: Optional[pulumi.Input[str]] = None,
                                           type: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessSecurityPolicyResult]:
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerlessSecurityPolicyResult]:
     """
     Use this data source to get information about an AWS OpenSearch Serverless Security Policy.
 
@@ -185,7 +185,7 @@ def get_serverless_security_policy_output(name: Optional[pulumi.Input[str]] = No
     __args__ = dict()
     __args__['name'] = name
     __args__['type'] = type
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:opensearch/getServerlessSecurityPolicy:getServerlessSecurityPolicy', __args__, opts=opts, typ=GetServerlessSecurityPolicyResult)
     return __ret__.apply(lambda __response__: GetServerlessSecurityPolicyResult(
         created_date=pulumi.get(__response__, 'created_date'),

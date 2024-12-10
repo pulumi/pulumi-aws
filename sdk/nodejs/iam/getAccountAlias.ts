@@ -51,7 +51,7 @@ export interface GetAccountAliasResult {
  * export const accountAlias = current.then(current => current.accountAlias);
  * ```
  */
-export function getAccountAliasOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountAliasResult> {
+export function getAccountAliasOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountAliasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:iam/getAccountAlias:getAccountAlias", {
     }, opts);

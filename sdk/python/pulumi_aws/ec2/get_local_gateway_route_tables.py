@@ -120,7 +120,7 @@ def get_local_gateway_route_tables(filters: Optional[Sequence[Union['GetLocalGat
         tags=pulumi.get(__ret__, 'tags'))
 def get_local_gateway_route_tables_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetLocalGatewayRouteTablesFilterArgs', 'GetLocalGatewayRouteTablesFilterArgsDict']]]]] = None,
                                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalGatewayRouteTablesResult]:
+                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalGatewayRouteTablesResult]:
     """
     Provides information for multiple EC2 Local Gateway Route Tables, such as their identifiers.
 
@@ -147,7 +147,7 @@ def get_local_gateway_route_tables_output(filters: Optional[pulumi.Input[Optiona
     __args__ = dict()
     __args__['filters'] = filters
     __args__['tags'] = tags
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getLocalGatewayRouteTables:getLocalGatewayRouteTables', __args__, opts=opts, typ=GetLocalGatewayRouteTablesResult)
     return __ret__.apply(lambda __response__: GetLocalGatewayRouteTablesResult(
         filters=pulumi.get(__response__, 'filters'),

@@ -141,7 +141,7 @@ def get_repository_endpoint_output(domain: Optional[pulumi.Input[str]] = None,
                                    domain_owner: Optional[pulumi.Input[Optional[str]]] = None,
                                    format: Optional[pulumi.Input[str]] = None,
                                    repository: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryEndpointResult]:
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryEndpointResult]:
     """
     The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
 
@@ -167,7 +167,7 @@ def get_repository_endpoint_output(domain: Optional[pulumi.Input[str]] = None,
     __args__['domainOwner'] = domain_owner
     __args__['format'] = format
     __args__['repository'] = repository
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:codeartifact/getRepositoryEndpoint:getRepositoryEndpoint', __args__, opts=opts, typ=GetRepositoryEndpointResult)
     return __ret__.apply(lambda __response__: GetRepositoryEndpointResult(
         domain=pulumi.get(__response__, 'domain'),

@@ -149,7 +149,7 @@ def get_configuration(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         server_properties=pulumi.get(__ret__, 'server_properties'))
 def get_configuration_output(name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationResult]:
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationResult]:
     """
     Get information on an Amazon MSK Configuration.
 
@@ -167,7 +167,7 @@ def get_configuration_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:msk/getConfiguration:getConfiguration', __args__, opts=opts, typ=GetConfigurationResult)
     return __ret__.apply(lambda __response__: GetConfigurationResult(
         arn=pulumi.get(__response__, 'arn'),

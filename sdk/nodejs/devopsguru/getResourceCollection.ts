@@ -84,7 +84,7 @@ export interface GetResourceCollectionResult {
  * });
  * ```
  */
-export function getResourceCollectionOutput(args: GetResourceCollectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceCollectionResult> {
+export function getResourceCollectionOutput(args: GetResourceCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceCollectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:devopsguru/getResourceCollection:getResourceCollection", {
         "cloudformations": args.cloudformations,

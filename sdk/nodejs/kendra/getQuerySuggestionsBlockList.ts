@@ -123,7 +123,7 @@ export interface GetQuerySuggestionsBlockListResult {
  * });
  * ```
  */
-export function getQuerySuggestionsBlockListOutput(args: GetQuerySuggestionsBlockListOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetQuerySuggestionsBlockListResult> {
+export function getQuerySuggestionsBlockListOutput(args: GetQuerySuggestionsBlockListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQuerySuggestionsBlockListResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:kendra/getQuerySuggestionsBlockList:getQuerySuggestionsBlockList", {
         "indexId": args.indexId,
