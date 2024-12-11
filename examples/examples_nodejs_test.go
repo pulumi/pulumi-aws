@@ -210,9 +210,9 @@ func TestAccCloudWatchOIDCManual(t *testing.T) {
 			AllowEmptyUpdateChanges:  true,
 			// Unset any ambient credentials.
 			Env: []string{
-				`AWS_ACCESS_KEY_ID=""`,
-				`AWS_SECRET_ACCESS_KEY=""`,
-				`AWS_SESSION_TOKEN=""`,
+				`AWS_ACCESS_KEY_ID=`,
+				`AWS_SECRET_ACCESS_KEY=`,
+				`AWS_SESSION_TOKEN=`,
 				`AWS_REGION=` + os.Getenv("AWS_REGION"),
 			},
 		})
