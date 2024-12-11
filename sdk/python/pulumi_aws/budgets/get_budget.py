@@ -300,7 +300,7 @@ def get_budget_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
                       name: Optional[pulumi.Input[str]] = None,
                       name_prefix: Optional[pulumi.Input[Optional[str]]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBudgetResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBudgetResult]:
     """
     Data source for managing an AWS Web Services Budgets Budget.
 
@@ -328,7 +328,7 @@ def get_budget_output(account_id: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['name'] = name
     __args__['namePrefix'] = name_prefix
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:budgets/getBudget:getBudget', __args__, opts=opts, typ=GetBudgetResult)
     return __ret__.apply(lambda __response__: GetBudgetResult(
         account_id=pulumi.get(__response__, 'account_id'),

@@ -114,7 +114,7 @@ export interface GetJobQueueResult {
  * });
  * ```
  */
-export function getJobQueueOutput(args: GetJobQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobQueueResult> {
+export function getJobQueueOutput(args: GetJobQueueOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJobQueueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:batch/getJobQueue:getJobQueue", {
         "name": args.name,

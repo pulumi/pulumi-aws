@@ -275,7 +275,7 @@ def get_directory(directory_id: Optional[str] = None,
         vpc_settings=pulumi.get(__ret__, 'vpc_settings'))
 def get_directory_output(directory_id: Optional[pulumi.Input[str]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDirectoryResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDirectoryResult]:
     """
     Get attributes of AWS Directory Service directory (SimpleAD, Managed AD, AD Connector). It's especially useful to refer AWS Managed AD or on-premise AD in AD Connector configuration.
 
@@ -295,7 +295,7 @@ def get_directory_output(directory_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['directoryId'] = directory_id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:directoryservice/getDirectory:getDirectory', __args__, opts=opts, typ=GetDirectoryResult)
     return __ret__.apply(lambda __response__: GetDirectoryResult(
         access_url=pulumi.get(__response__, 'access_url'),

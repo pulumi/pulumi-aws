@@ -71,7 +71,7 @@ export interface GetTrackerAssociationResult {
  * });
  * ```
  */
-export function getTrackerAssociationOutput(args: GetTrackerAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrackerAssociationResult> {
+export function getTrackerAssociationOutput(args: GetTrackerAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTrackerAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:location/getTrackerAssociation:getTrackerAssociation", {
         "consumerArn": args.consumerArn,

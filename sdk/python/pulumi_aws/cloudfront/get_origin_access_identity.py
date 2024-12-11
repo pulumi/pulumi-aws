@@ -158,7 +158,7 @@ def get_origin_access_identity(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         s3_canonical_user_id=pulumi.get(__ret__, 's3_canonical_user_id'))
 def get_origin_access_identity_output(id: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginAccessIdentityResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOriginAccessIdentityResult]:
     """
     Use this data source to retrieve information for an Amazon CloudFront origin access identity.
 
@@ -178,7 +178,7 @@ def get_origin_access_identity_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cloudfront/getOriginAccessIdentity:getOriginAccessIdentity', __args__, opts=opts, typ=GetOriginAccessIdentityResult)
     return __ret__.apply(lambda __response__: GetOriginAccessIdentityResult(
         caller_reference=pulumi.get(__response__, 'caller_reference'),

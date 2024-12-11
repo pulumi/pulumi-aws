@@ -139,7 +139,7 @@ def get_group(group_name: Optional[str] = None,
         path=pulumi.get(__ret__, 'path'),
         users=pulumi.get(__ret__, 'users'))
 def get_group_output(group_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupResult]:
     """
     This data source can be used to fetch information about a specific
     IAM group. By using this data source, you can reference IAM group
@@ -159,7 +159,7 @@ def get_group_output(group_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['groupName'] = group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:iam/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult)
     return __ret__.apply(lambda __response__: GetGroupResult(
         arn=pulumi.get(__response__, 'arn'),

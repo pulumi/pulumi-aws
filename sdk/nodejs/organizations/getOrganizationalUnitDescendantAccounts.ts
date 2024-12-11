@@ -68,7 +68,7 @@ export interface GetOrganizationalUnitDescendantAccountsResult {
  * }));
  * ```
  */
-export function getOrganizationalUnitDescendantAccountsOutput(args: GetOrganizationalUnitDescendantAccountsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationalUnitDescendantAccountsResult> {
+export function getOrganizationalUnitDescendantAccountsOutput(args: GetOrganizationalUnitDescendantAccountsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrganizationalUnitDescendantAccountsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:organizations/getOrganizationalUnitDescendantAccounts:getOrganizationalUnitDescendantAccounts", {
         "parentId": args.parentId,

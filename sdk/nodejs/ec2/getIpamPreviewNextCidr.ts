@@ -93,7 +93,7 @@ export interface GetIpamPreviewNextCidrResult {
  * });
  * ```
  */
-export function getIpamPreviewNextCidrOutput(args: GetIpamPreviewNextCidrOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpamPreviewNextCidrResult> {
+export function getIpamPreviewNextCidrOutput(args: GetIpamPreviewNextCidrOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIpamPreviewNextCidrResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr", {
         "disallowedCidrs": args.disallowedCidrs,

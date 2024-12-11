@@ -90,7 +90,7 @@ export interface GetDirectConnectGatewayAttachmentResult {
  * });
  * ```
  */
-export function getDirectConnectGatewayAttachmentOutput(args?: GetDirectConnectGatewayAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDirectConnectGatewayAttachmentResult> {
+export function getDirectConnectGatewayAttachmentOutput(args?: GetDirectConnectGatewayAttachmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDirectConnectGatewayAttachmentResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment", {

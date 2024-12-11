@@ -324,7 +324,7 @@ def get_vpc_peering_connection_output(cidr_block: Optional[pulumi.Input[Optional
                                       status: Optional[pulumi.Input[Optional[str]]] = None,
                                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                       vpc_id: Optional[pulumi.Input[Optional[str]]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcPeeringConnectionResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcPeeringConnectionResult]:
     """
     The VPC Peering Connection data source provides details about
     a specific VPC peering connection.
@@ -378,7 +378,7 @@ def get_vpc_peering_connection_output(cidr_block: Optional[pulumi.Input[Optional
     __args__['status'] = status
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection', __args__, opts=opts, typ=GetVpcPeeringConnectionResult)
     return __ret__.apply(lambda __response__: GetVpcPeeringConnectionResult(
         accepter=pulumi.get(__response__, 'accepter'),
