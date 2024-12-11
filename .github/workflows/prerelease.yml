@@ -180,7 +180,9 @@ jobs:
       timeout-minutes: 60
   provider_test:
       name: provider_test
-      needs: build_sdk
+      needs:
+          - build_sdk
+          - build_provider
       permissions:
           contents: read
           id-token: write
@@ -249,7 +251,9 @@ jobs:
                   - java
   test_oidc:
       name: test_oidc
-      needs: build_sdk
+      needs:
+          - build_sdk
+          - build_provider
       permissions:
           contents: read
           id-token: write
