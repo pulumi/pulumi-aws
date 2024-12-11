@@ -30,7 +30,7 @@ runs:
 
     - name: Install pulumictl
       if: inputs.tools == 'all' || contains(inputs.tools, 'pulumictl')
-      uses: jaxxstorm/action-install-gh-release@71d17cb091aa850acb2a1a4cf87258d183eb941b # v1.11.0
+      uses: jaxxstorm/action-install-gh-release@cd6b2b78ad38bdd294341cda064ec0692b06215b # v1.14.0
       with:
         tag: v0.0.46
         repo: pulumi/pulumictl
@@ -43,7 +43,7 @@ runs:
 
     - name: Install Schema Tools
       if: inputs.tools == 'all' || contains(inputs.tools, 'schema-tools')
-      uses: jaxxstorm/action-install-gh-release@71d17cb091aa850acb2a1a4cf87258d183eb941b # v1.11.0
+      uses: jaxxstorm/action-install-gh-release@cd6b2b78ad38bdd294341cda064ec0692b06215b # v1.14.0
       with:
         repo: pulumi/schema-tools
 
