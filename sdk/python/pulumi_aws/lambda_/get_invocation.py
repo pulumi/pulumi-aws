@@ -121,7 +121,7 @@ def get_invocation(function_name: Optional[str] = None,
 def get_invocation_output(function_name: Optional[pulumi.Input[str]] = None,
                           input: Optional[pulumi.Input[str]] = None,
                           qualifier: Optional[pulumi.Input[Optional[str]]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInvocationResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInvocationResult]:
     """
     Use this data source to invoke custom lambda functions as data source.
     The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
@@ -139,7 +139,7 @@ def get_invocation_output(function_name: Optional[pulumi.Input[str]] = None,
     __args__['functionName'] = function_name
     __args__['input'] = input
     __args__['qualifier'] = qualifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:lambda/getInvocation:getInvocation', __args__, opts=opts, typ=GetInvocationResult)
     return __ret__.apply(lambda __response__: GetInvocationResult(
         function_name=pulumi.get(__response__, 'function_name'),

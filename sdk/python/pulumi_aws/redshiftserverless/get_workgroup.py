@@ -188,7 +188,7 @@ def get_workgroup(workgroup_name: Optional[str] = None,
         workgroup_id=pulumi.get(__ret__, 'workgroup_id'),
         workgroup_name=pulumi.get(__ret__, 'workgroup_name'))
 def get_workgroup_output(workgroup_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkgroupResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkgroupResult]:
     """
     Data source for managing an AWS Redshift Serverless Workgroup.
 
@@ -208,7 +208,7 @@ def get_workgroup_output(workgroup_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['workgroupName'] = workgroup_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:redshiftserverless/getWorkgroup:getWorkgroup', __args__, opts=opts, typ=GetWorkgroupResult)
     return __ret__.apply(lambda __response__: GetWorkgroupResult(
         arn=pulumi.get(__response__, 'arn'),

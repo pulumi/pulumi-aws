@@ -82,7 +82,7 @@ export interface GetInstanceStorageConfigResult {
  * });
  * ```
  */
-export function getInstanceStorageConfigOutput(args: GetInstanceStorageConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceStorageConfigResult> {
+export function getInstanceStorageConfigOutput(args: GetInstanceStorageConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInstanceStorageConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:connect/getInstanceStorageConfig:getInstanceStorageConfig", {
         "associationId": args.associationId,

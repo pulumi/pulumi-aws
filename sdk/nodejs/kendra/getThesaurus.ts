@@ -127,7 +127,7 @@ export interface GetThesaurusResult {
  * });
  * ```
  */
-export function getThesaurusOutput(args: GetThesaurusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThesaurusResult> {
+export function getThesaurusOutput(args: GetThesaurusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetThesaurusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:kendra/getThesaurus:getThesaurus", {
         "indexId": args.indexId,

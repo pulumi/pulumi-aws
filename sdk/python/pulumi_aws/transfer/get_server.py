@@ -258,7 +258,7 @@ def get_server(server_id: Optional[str] = None,
         url=pulumi.get(__ret__, 'url'))
 def get_server_output(server_id: Optional[pulumi.Input[str]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerResult]:
     """
     Use this data source to get the ARN of an AWS Transfer Server for use in other
     resources.
@@ -279,7 +279,7 @@ def get_server_output(server_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['serverId'] = server_id
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:transfer/getServer:getServer', __args__, opts=opts, typ=GetServerResult)
     return __ret__.apply(lambda __response__: GetServerResult(
         arn=pulumi.get(__response__, 'arn'),

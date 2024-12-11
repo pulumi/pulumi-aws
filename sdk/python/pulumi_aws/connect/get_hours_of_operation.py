@@ -204,7 +204,7 @@ def get_hours_of_operation_output(hours_of_operation_id: Optional[pulumi.Input[O
                                   instance_id: Optional[pulumi.Input[str]] = None,
                                   name: Optional[pulumi.Input[Optional[str]]] = None,
                                   tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHoursOfOperationResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHoursOfOperationResult]:
     """
     Provides details about a specific Amazon Connect Hours of Operation.
 
@@ -241,7 +241,7 @@ def get_hours_of_operation_output(hours_of_operation_id: Optional[pulumi.Input[O
     __args__['instanceId'] = instance_id
     __args__['name'] = name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:connect/getHoursOfOperation:getHoursOfOperation', __args__, opts=opts, typ=GetHoursOfOperationResult)
     return __ret__.apply(lambda __response__: GetHoursOfOperationResult(
         arn=pulumi.get(__response__, 'arn'),

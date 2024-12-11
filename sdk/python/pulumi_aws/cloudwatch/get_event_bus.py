@@ -125,7 +125,7 @@ def get_event_bus(name: Optional[str] = None,
         kms_key_identifier=pulumi.get(__ret__, 'kms_key_identifier'),
         name=pulumi.get(__ret__, 'name'))
 def get_event_bus_output(name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventBusResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventBusResult]:
     """
     This data source can be used to fetch information about a specific
     EventBridge event bus. Use this data source to compute the ARN of
@@ -145,7 +145,7 @@ def get_event_bus_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cloudwatch/getEventBus:getEventBus', __args__, opts=opts, typ=GetEventBusResult)
     return __ret__.apply(lambda __response__: GetEventBusResult(
         arn=pulumi.get(__response__, 'arn'),

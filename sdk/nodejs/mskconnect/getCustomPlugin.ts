@@ -84,7 +84,7 @@ export interface GetCustomPluginResult {
  * });
  * ```
  */
-export function getCustomPluginOutput(args: GetCustomPluginOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomPluginResult> {
+export function getCustomPluginOutput(args: GetCustomPluginOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomPluginResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:mskconnect/getCustomPlugin:getCustomPlugin", {
         "name": args.name,

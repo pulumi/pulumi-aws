@@ -109,7 +109,7 @@ def get_notification_channel(filters: Optional[Sequence[Union['GetNotificationCh
 def get_notification_channel_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetNotificationChannelFilterArgs', 'GetNotificationChannelFilterArgsDict']]]]] = None,
                                     id: Optional[pulumi.Input[str]] = None,
                                     sns: Optional[pulumi.Input[Optional[Sequence[Union['GetNotificationChannelSnArgs', 'GetNotificationChannelSnArgsDict']]]]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotificationChannelResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNotificationChannelResult]:
     """
     Data source for managing an AWS DevOps Guru Notification Channel.
 
@@ -133,7 +133,7 @@ def get_notification_channel_output(filters: Optional[pulumi.Input[Optional[Sequ
     __args__['filters'] = filters
     __args__['id'] = id
     __args__['sns'] = sns
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:devopsguru/getNotificationChannel:getNotificationChannel', __args__, opts=opts, typ=GetNotificationChannelResult)
     return __ret__.apply(lambda __response__: GetNotificationChannelResult(
         filters=pulumi.get(__response__, 'filters'),

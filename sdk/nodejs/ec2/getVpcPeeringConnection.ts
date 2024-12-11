@@ -180,7 +180,7 @@ export interface GetVpcPeeringConnectionResult {
  * });
  * ```
  */
-export function getVpcPeeringConnectionOutput(args?: GetVpcPeeringConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcPeeringConnectionResult> {
+export function getVpcPeeringConnectionOutput(args?: GetVpcPeeringConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcPeeringConnectionResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", {

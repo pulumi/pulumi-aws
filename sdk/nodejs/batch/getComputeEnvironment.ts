@@ -105,7 +105,7 @@ export interface GetComputeEnvironmentResult {
  * });
  * ```
  */
-export function getComputeEnvironmentOutput(args: GetComputeEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComputeEnvironmentResult> {
+export function getComputeEnvironmentOutput(args: GetComputeEnvironmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetComputeEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:batch/getComputeEnvironment:getComputeEnvironment", {
         "computeEnvironmentName": args.computeEnvironmentName,

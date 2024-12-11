@@ -300,7 +300,7 @@ def get_broker(broker_id: Optional[str] = None,
 def get_broker_output(broker_id: Optional[pulumi.Input[Optional[str]]] = None,
                       broker_name: Optional[pulumi.Input[Optional[str]]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBrokerResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBrokerResult]:
     """
     Provides information about a MQ Broker.
 
@@ -329,7 +329,7 @@ def get_broker_output(broker_id: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['brokerId'] = broker_id
     __args__['brokerName'] = broker_name
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:mq/getBroker:getBroker', __args__, opts=opts, typ=GetBrokerResult)
     return __ret__.apply(lambda __response__: GetBrokerResult(
         arn=pulumi.get(__response__, 'arn'),

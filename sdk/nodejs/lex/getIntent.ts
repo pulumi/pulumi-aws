@@ -101,7 +101,7 @@ export interface GetIntentResult {
  * });
  * ```
  */
-export function getIntentOutput(args: GetIntentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntentResult> {
+export function getIntentOutput(args: GetIntentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:lex/getIntent:getIntent", {
         "name": args.name,

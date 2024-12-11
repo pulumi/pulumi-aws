@@ -66,7 +66,7 @@ export interface GetDataSharesResult {
  * const example = aws.redshift.getDataShares({});
  * ```
  */
-export function getDataSharesOutput(args?: GetDataSharesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSharesResult> {
+export function getDataSharesOutput(args?: GetDataSharesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataSharesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:redshift/getDataShares:getDataShares", {

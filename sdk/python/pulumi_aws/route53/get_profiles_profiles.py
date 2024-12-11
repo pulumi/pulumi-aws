@@ -84,7 +84,7 @@ def get_profiles_profiles(opts: Optional[pulumi.InvokeOptions] = None) -> Awaita
     return AwaitableGetProfilesProfilesResult(
         id=pulumi.get(__ret__, 'id'),
         profiles=pulumi.get(__ret__, 'profiles'))
-def get_profiles_profiles_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfilesProfilesResult]:
+def get_profiles_profiles_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProfilesProfilesResult]:
     """
     Data source for managing an AWS Route 53 Profiles.
 
@@ -100,7 +100,7 @@ def get_profiles_profiles_output(opts: Optional[pulumi.InvokeOptions] = None) ->
     ```
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:route53/getProfilesProfiles:getProfilesProfiles', __args__, opts=opts, typ=GetProfilesProfilesResult)
     return __ret__.apply(lambda __response__: GetProfilesProfilesResult(
         id=pulumi.get(__response__, 'id'),

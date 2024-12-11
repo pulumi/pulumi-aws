@@ -147,7 +147,7 @@ def get_assets(arn: Optional[str] = None,
 def get_assets_output(arn: Optional[pulumi.Input[str]] = None,
                       host_id_filters: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                       status_id_filters: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssetsResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssetsResult]:
     """
     Information about hardware assets in an Outpost.
 
@@ -191,7 +191,7 @@ def get_assets_output(arn: Optional[pulumi.Input[str]] = None,
     __args__['arn'] = arn
     __args__['hostIdFilters'] = host_id_filters
     __args__['statusIdFilters'] = status_id_filters
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:outposts/getAssets:getAssets', __args__, opts=opts, typ=GetAssetsResult)
     return __ret__.apply(lambda __response__: GetAssetsResult(
         arn=pulumi.get(__response__, 'arn'),

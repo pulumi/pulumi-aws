@@ -105,7 +105,7 @@ def get_application_assignments(application_arn: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'))
 def get_application_assignments_output(application_arn: Optional[pulumi.Input[str]] = None,
                                        application_assignments: Optional[pulumi.Input[Optional[Sequence[Union['GetApplicationAssignmentsApplicationAssignmentArgs', 'GetApplicationAssignmentsApplicationAssignmentArgsDict']]]]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationAssignmentsResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationAssignmentsResult]:
     """
     Data source for managing AWS SSO Admin Application Assignments.
 
@@ -127,7 +127,7 @@ def get_application_assignments_output(application_arn: Optional[pulumi.Input[st
     __args__ = dict()
     __args__['applicationArn'] = application_arn
     __args__['applicationAssignments'] = application_assignments
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssoadmin/getApplicationAssignments:getApplicationAssignments', __args__, opts=opts, typ=GetApplicationAssignmentsResult)
     return __ret__.apply(lambda __response__: GetApplicationAssignmentsResult(
         application_arn=pulumi.get(__response__, 'application_arn'),

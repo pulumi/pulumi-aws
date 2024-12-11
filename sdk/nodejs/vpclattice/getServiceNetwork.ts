@@ -94,7 +94,7 @@ export interface GetServiceNetworkResult {
  * });
  * ```
  */
-export function getServiceNetworkOutput(args: GetServiceNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceNetworkResult> {
+export function getServiceNetworkOutput(args: GetServiceNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:vpclattice/getServiceNetwork:getServiceNetwork", {
         "serviceNetworkIdentifier": args.serviceNetworkIdentifier,

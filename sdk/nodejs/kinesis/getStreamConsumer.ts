@@ -85,7 +85,7 @@ export interface GetStreamConsumerResult {
  * });
  * ```
  */
-export function getStreamConsumerOutput(args: GetStreamConsumerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamConsumerResult> {
+export function getStreamConsumerOutput(args: GetStreamConsumerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStreamConsumerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:kinesis/getStreamConsumer:getStreamConsumer", {
         "arn": args.arn,

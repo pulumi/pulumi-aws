@@ -102,7 +102,7 @@ export interface GetConstraintResult {
  * });
  * ```
  */
-export function getConstraintOutput(args: GetConstraintOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConstraintResult> {
+export function getConstraintOutput(args: GetConstraintOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConstraintResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:servicecatalog/getConstraint:getConstraint", {
         "acceptLanguage": args.acceptLanguage,

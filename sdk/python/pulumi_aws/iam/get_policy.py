@@ -213,7 +213,7 @@ def get_policy_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                       name: Optional[pulumi.Input[Optional[str]]] = None,
                       path_prefix: Optional[pulumi.Input[Optional[str]]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyResult]:
     """
     This data source can be used to fetch information about a specific
     IAM policy.
@@ -253,7 +253,7 @@ def get_policy_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['name'] = name
     __args__['pathPrefix'] = path_prefix
     __args__['tags'] = tags
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:iam/getPolicy:getPolicy', __args__, opts=opts, typ=GetPolicyResult)
     return __ret__.apply(lambda __response__: GetPolicyResult(
         arn=pulumi.get(__response__, 'arn'),

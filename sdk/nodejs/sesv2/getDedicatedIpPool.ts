@@ -87,7 +87,7 @@ export interface GetDedicatedIpPoolResult {
  * });
  * ```
  */
-export function getDedicatedIpPoolOutput(args: GetDedicatedIpPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedIpPoolResult> {
+export function getDedicatedIpPoolOutput(args: GetDedicatedIpPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDedicatedIpPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:sesv2/getDedicatedIpPool:getDedicatedIpPool", {
         "poolName": args.poolName,
