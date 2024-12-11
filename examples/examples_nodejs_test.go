@@ -17,22 +17,16 @@ import (
 	"testing"
 	"time"
 
-	"github.com/pulumi/providertest/pulumitest"
-	"github.com/pulumi/providertest/pulumitest/opttest"
-	"github.com/pulumi/pulumi-aws/provider/v6/pkg/elb"
-	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
-	"github.com/pulumi/pulumi/sdk/v3/go/auto/optpreview"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/require"
-
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/lambda"
 	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/providertest/pulumitest/opttest"
+	"github.com/pulumi/pulumi-aws/provider/v6/pkg/elb"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
+	"github.com/pulumi/pulumi/sdk/v3/go/auto/optpreview"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -1091,21 +1085,6 @@ func TestUpstreamWarningsPropagated(t *testing.T) {
 		rr.StdErr+rr.StdOut,
 		"warning: S3 Object (index.ts) not found, removing from state",
 		"Expected upstream log.Printf to propagate under TF_LOG=DEBUG")
-}
-
-func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
-	envRegion := getEnvRegion(t)
-	baseJS := integration.ProgramTestOptions{
-		Config: map[string]string{
-			"aws:region":    "INVALID_REGION",
-			"aws:envRegion": envRegion,
-		},
-		Dependencies: []string{
-			"@pulumi/aws",
-		},
-	}
-
-	return baseJS
 }
 
 func createLambdaArchive(size int64) (string, error) {

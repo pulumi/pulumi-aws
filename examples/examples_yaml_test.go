@@ -44,6 +44,7 @@ import (
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/providertest/pulumitest/assertpreview"
 	"github.com/pulumi/providertest/pulumitest/opttest"
+	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optpreview"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optrefresh"
@@ -51,10 +52,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/apitype"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/require"
-
-	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -1074,15 +1071,6 @@ func deleteBucketTagging(ctx context.Context, awsBucket string) {
 		Bucket: &awsBucket,
 	})
 	contract.AssertNoErrorf(err, "failed to delete bucket tagging")
-}
-
-func getCwd(t *testing.T) string {
-	cwd, err := os.Getwd()
-	if err != nil {
-		t.FailNow()
-	}
-
-	return cwd
 }
 
 func getYamlBaseOptions(t *testing.T) integration.ProgramTestOptions {

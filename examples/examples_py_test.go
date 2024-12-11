@@ -13,14 +13,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
-	"github.com/pulumi/pulumi/sdk/v3/go/auto/optpreview"
-	"github.com/stretchr/testify/require"
-
 	"github.com/aws/aws-sdk-go-v2/config"
 	iamsdk "github.com/aws/aws-sdk-go-v2/service/iam"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
+	"github.com/pulumi/pulumi/sdk/v3/go/auto/optpreview"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestAccBucketPy(t *testing.T) {
@@ -212,20 +210,6 @@ func TestRegress4457(t *testing.T) {
 
 func getPythonBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	t.Helper()
-	envRegion := getEnvRegion(t)
-	pythonBase := integration.ProgramTestOptions{
-		Config: map[string]string{
-			"aws:region": envRegion,
-		},
-		Dependencies: []string{
-			filepath.Join("..", "sdk", "python", "bin"),
-		},
-	}
-
-	return pythonBase
-}
-
-func getPythonBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	envRegion := getEnvRegion(t)
 	pythonBase := integration.ProgramTestOptions{
 		Config: map[string]string{
