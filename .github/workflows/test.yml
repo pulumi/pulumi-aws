@@ -92,7 +92,7 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-region: ${{ env.AWS_REGION }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        role-duration-seconds: 3600
+        role-duration-seconds: 7200
         role-session-name: aws@githubActions
         role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
     - name: Make upstream
@@ -117,6 +117,11 @@ jobs:
       name: Run test of provider shim
       runs-on: ubuntu-latest
       steps:
+          - name: Free Disk Space (Ubuntu)
+            uses: jlumbroso/free-disk-space@main
+            with:
+              swap-storage: false
+              tool-cache: false
           - name: Checkout Repo
             uses: actions/checkout@v4
             with:
@@ -129,8 +134,8 @@ jobs:
             uses: ./.github/actions/setup-tools
             with:
               tools: pulumictl, pulumi, go
-          - name: Make upstream
-            run: make upstream
+          - name: Prepare local workspace
+            run: make prepare_local_workspace
           - name: go test
             run: |
               cd upstream
@@ -142,166 +147,6 @@ jobs:
             name: Upload coverage reports to Codecov
             uses: codecov/codecov-action@v4
       timeout-minutes: 60
-  provider_test:
-      name: provider_test
-      permissions:
-          contents: read
-          id-token: write
-      runs-on: ubuntu-latest
-      steps:
-          - name: Free Disk Space (Ubuntu)
-            uses: jlumbroso/free-disk-space@main
-            with:
-              swap-storage: false
-              tool-cache: false
-          - name: Checkout Repo
-            uses: actions/checkout@v4
-            with:
-              ref: ${{ env.PR_COMMIT_SHA }}
-              submodules: true
-          - uses: pulumi/provider-version-action@v1
-            with:
-              set-env: PROVIDER_VERSION
-          - name: Setup tools
-            uses: ./.github/actions/setup-tools
-            with:
-              tools: pulumictl, pulumi, go, node, dotnet, python, java
-          - name: Make upstream
-            run: make upstream
-          - name: Download provider + tfgen binaries
-            uses: actions/download-artifact@v4
-            with:
-              name: aws-provider.tar.gz
-              path: ${{ github.workspace }}/bin
-          - name: Untar provider binaries
-            run: |-
-              tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{ github.workspace}}/bin
-              find ${{ github.workspace }} -name "pulumi-*-aws" -print -exec chmod +x {} \;
-          - run: dotnet nuget add source ${{ github.workspace }}/nuget
-          - name: Download SDK
-            uses: actions/download-artifact@v4
-            with:
-              name: ${{ matrix.language }}-sdk.tar.gz
-              path: ${{ github.workspace}}/sdk/
-          - name: Uncompress SDK folder
-            run: tar -zxf ${{ github.workspace }}/sdk/${{ matrix.language }}.tar.gz -C ${{ github.workspace }}/sdk/${{ matrix.language }}
-          - name: Update path
-            run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
-          - name: Install Python deps
-            run: |-
-              pip3 install virtualenv==20.0.23
-              pip3 install pipenv
-          - name: Install dependencies
-            run: make install_${{ matrix.language}}_sdk
-          - name: Install gotestfmt
-            uses: GoTestTools/gotestfmt-action@v2
-            with:
-              token: ${{ secrets.GITHUB_TOKEN }}
-              version: v2.5.0
-          - name: Configure AWS Credentials
-            uses: aws-actions/configure-aws-credentials@v4
-            with:
-              aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-              aws-region: ${{ env.AWS_REGION }}
-              aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-              role-duration-seconds: 3600
-              role-session-name: aws@githubActions
-              role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
-          - name: Run provider tests
-            run: |
-              cd provider && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
-          - if: failure() && github.event_name == 'push'
-            name: Notify Slack
-            uses: 8398a7/action-slack@v3
-            with:
-              author_name: Failure in running ${{ matrix.language }} provider tests
-              fields: repo,commit,author,action
-              status: ${{ job.status }}
-      strategy:
-          fail-fast: false
-          matrix:
-              language:
-                  - nodejs
-                  - python
-                  - dotnet
-                  - go
-                  - java
-  test_oidc:
-      name: test_oidc
-      permissions:
-          contents: read
-          id-token: write
-      runs-on: ubuntu-latest
-      steps:
-          - name: Free Disk Space (Ubuntu)
-            uses: jlumbroso/free-disk-space@main
-            with:
-              dotnet: ${{ matrix.language != 'dotnet' }}
-              swap-storage: false
-              tool-cache: false
-          - name: Checkout Repo
-            uses: actions/checkout@v4
-            with:
-              ref: ${{ env.PR_COMMIT_SHA }}
-              submodules: true
-          - uses: pulumi/provider-version-action@v1
-            with:
-              set-env: PROVIDER_VERSION
-          - name: Setup tools
-            uses: ./.github/actions/setup-tools
-            with:
-              tools: pulumictl, pulumi, go, node
-          - name: Download provider + tfgen binaries
-            uses: actions/download-artifact@v4
-            with:
-              name: aws-provider.tar.gz
-              path: ${{ github.workspace }}/bin
-          - name: Untar provider binaries
-            run: |-
-              tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{ github.workspace}}/bin
-              find ${{ github.workspace }} -name "pulumi-*-aws" -print -exec chmod +x {} \;
-          - name: Download SDK
-            uses: actions/download-artifact@v4
-            with:
-              name: ${{ matrix.language }}-sdk.tar.gz
-              path: ${{ github.workspace}}/sdk/
-          - name: Uncompress SDK folder
-            run: tar -zxf ${{ github.workspace }}/sdk/${{ matrix.language }}.tar.gz -C ${{ github.workspace }}/sdk/${{ matrix.language }}
-          - name: Update path
-            run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
-          - name: Install dependencies
-            run: make install_${{ matrix.language}}_sdk
-          - name: Install gotestfmt
-            uses: GoTestTools/gotestfmt-action@v2
-            with:
-              token: ${{ secrets.GITHUB_TOKEN }}
-              version: v2.4.0
-          - name: Make upstream
-            run: make upstream
-          - name: Run selected tests with manual web identity/OIDC auth
-            run: cd examples && go test -v -json -count=1 -run TestAccCloudWatchOidcManual -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
-          - name: Configure AWS Credentials for OIDC
-            uses: aws-actions/configure-aws-credentials@v4
-            with:
-              aws-region: ${{ env.AWS_REGION }}
-              role-duration-seconds: 3600
-              role-session-name: aws@githubActions
-              role-to-assume: ${{ secrets.OIDC_ROLE_ARN }}
-              unset-current-credentials: true
-          - name: Run selected tests with configure-aws-credentials web identity/OIDC auth
-            run: cd examples && go test -v -json -count=1 -run TestAccCloudWatch -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
-          - if: failure() && github.event_name == 'push'
-            name: Notify Slack
-            uses: 8398a7/action-slack@v3
-            with:
-              author_name: Failure in running ${{ matrix.language }} tests
-              fields: repo,commit,author,action
-              status: ${{ job.status }}
-      strategy:
-          fail-fast: false
-          matrix:
-              language:
-                  - nodejs
   upstream_lint:
       name: Run upstream provider-lint
       runs-on: ubuntu-latest
@@ -320,9 +165,9 @@ jobs:
             uses: actions/setup-go@v5
             with:
               cache: false
-              go-version: 1.22.x
-          - name: Make upstream
-            run: make upstream
+              go-version: 1.23.x
+          - name: Prepare local workspace
+            run: make prepare_local_workspace
           - name: upstream lint
             run: |
               cd upstream
