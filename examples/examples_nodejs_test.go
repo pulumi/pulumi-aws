@@ -6,6 +6,7 @@ package examples
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"io"
 	"os"
@@ -14,6 +15,8 @@ import (
 	"testing"
 	"time"
 
+	"github.com/aws/aws-sdk-go-v2/config"
+	"github.com/aws/aws-sdk-go-v2/credentials/stscreds"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/lambda"
@@ -143,12 +146,45 @@ func TestAccCloudWatch(t *testing.T) {
 		With(integration.ProgramTestOptions{
 			Dir:           filepath.Join(getCwd(t), "cloudwatch"),
 			RunUpdateTest: true,
+			// Inherit ambient credentials.
 		})
 	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
-func TestAccCloudWatchOidcManual(t *testing.T) {
+func TestAccCloudWatchWithOIDC(t *testing.T) {
+	ctx := context.Background()
+
+	// Generate credentials for OIDC_ROLE_ARN.
+	cfg, err := config.LoadDefaultConfig(ctx,
+		config.WithRegion(os.Getenv("AWS_REGION")),
+		config.WithAssumeRoleCredentialOptions(func(opts *stscreds.AssumeRoleOptions) {
+			opts.Duration = 3600 * time.Second
+			opts.RoleSessionName = "aws@githubActions"
+			opts.RoleARN = os.Getenv("OIDC_ROLE_ARN")
+		}))
+	require.NoError(t, err)
+
+	creds, err := cfg.Credentials.Retrieve(ctx)
+	require.NoError(t, err)
+
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir:           filepath.Join(getCwd(t), "cloudwatch"),
+			RunUpdateTest: true,
+			// Override ambient credentials to use our OIDC role.
+			Env: []string{
+				"AWS_ACCESS_KEY_ID=" + creds.AccessKeyID,
+				"AWS_SECRET_ACCESS_KEY=" + creds.SecretAccessKey,
+				"AWS_SESSION_TOKEN=" + creds.SessionToken,
+				"AWS_REGION=" + os.Getenv("AWS_REGION"),
+			},
+		})
+	skipRefresh(&test)
+	integration.ProgramTest(t, &test)
+}
+
+func TestAccCloudWatchOIDCAmbient(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "cloudwatchOidcManual"),
@@ -157,6 +193,28 @@ func TestAccCloudWatchOidcManual(t *testing.T) {
 			SkipRefresh:              true,
 			AllowEmptyPreviewChanges: true,
 			AllowEmptyUpdateChanges:  true,
+			// Inherit ambient credentials.
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
+func TestAccCloudWatchOIDCManual(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "cloudwatchOidcManual"),
+
+			// TODO[pulumi/pulumi-aws#3193] multiple issues with refreshing and updating cleanly.
+			SkipRefresh:              true,
+			AllowEmptyPreviewChanges: true,
+			AllowEmptyUpdateChanges:  true,
+			// Unset any ambient credentials.
+			Env: []string{
+				`AWS_ACCESS_KEY_ID=`,
+				`AWS_SECRET_ACCESS_KEY=`,
+				`AWS_SESSION_TOKEN=`,
+				`AWS_REGION=` + os.Getenv("AWS_REGION"),
+			},
 		})
 
 	integration.ProgramTest(t, &test)
@@ -720,7 +778,7 @@ func TestServerlessAppRepositoryApplication(t *testing.T) {
 func TestAccEcrImage(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "ecr-image"),
+			Dir: filepath.Join(getCwd(t), "ecr-image"),
 			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
 				repoDigest, ok := stack.Outputs["digest"].(string)
 				assert.True(t, ok, "expected digest output to be set")
