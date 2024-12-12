@@ -100,7 +100,6 @@ jobs:
       - test
       - license_check
       - go_test_shim
-      - upstream_lint
     uses: ./.github/workflows/publish.yml
     secrets: inherit
     with:
@@ -235,32 +234,6 @@ jobs:
               CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
             name: Upload coverage reports to Codecov
             uses: codecov/codecov-action@v4
-      timeout-minutes: 60
-  upstream_lint:
-      name: Run upstream provider-lint
-      runs-on: ubuntu-latest
-      steps:
-          - name: Free Disk Space (Ubuntu)
-            uses: jlumbroso/free-disk-space@main
-            with:
-              swap-storage: false
-              tool-cache: false
-          - name: Checkout Repo
-            uses: actions/checkout@v4
-            with:
-              ref: ${{ env.PR_COMMIT_SHA }}
-              submodules: true
-          - name: Install Go
-            uses: actions/setup-go@v5
-            with:
-              cache: false
-              go-version: 1.23.x
-          - name: Prepare local workspace
-            run: make prepare_local_workspace
-          - name: upstream lint
-            run: |
-              cd upstream
-              make provider-lint
       timeout-minutes: 60
 
 name: master
