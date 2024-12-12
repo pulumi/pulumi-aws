@@ -187,10 +187,10 @@ jobs:
       run: make upstream
     - name: Run tests
       if: matrix.testTarget == 'local'
-      run: cd examples && go test -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -skip TestPulumiExamples -parallel 4 .
+      run: cd examples && go test -v -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -skip TestPulumiExamples -parallel 4 .
     - name: Run pulumi/examples tests
       if: matrix.testTarget == 'pulumiExamples'
-      run: cd examples && go test -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -run TestPulumiExamples -parallel 4 .
+      run: cd examples && go test -v -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -run TestPulumiExamples -parallel 4 .
     strategy:
       fail-fast: false
       matrix:

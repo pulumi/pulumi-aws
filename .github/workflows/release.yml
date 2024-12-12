@@ -140,7 +140,7 @@ jobs:
     - name: Make upstream
       run: make upstream
     - name: Run tests
-      run: cd examples && go test -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 .
+      run: cd examples && go test -v -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 .
     strategy:
       fail-fast: false
       matrix:

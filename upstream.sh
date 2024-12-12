@@ -286,7 +286,7 @@ rebase() {
     interactive_flag="--interactive"
   fi
   if ! git rebase --onto "${onto}" ${interactive_flag}; then
-    echo "Rebase failed. Please resolve the conflicts and run 'git rebase --continue' in the upstream directory."
+    echo "Rebase failed. Please resolve the conflicts and run 'git rebase --continue' in the upstream directory. Once the rebase is complete, run '${original_exec} check_in' to write to commits back to patches."
     exit 1
   fi
   cd ..
