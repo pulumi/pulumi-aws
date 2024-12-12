@@ -8,13 +8,9 @@ go 1.23.3
 godebug tlskyber=0
 
 require (
-	github.com/aws/aws-sdk-go-v2 v1.32.6
 	github.com/aws/aws-sdk-go-v2/config v1.28.6
 	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.16.21
-	github.com/aws/aws-sdk-go-v2/service/appconfig v1.36.1
 	github.com/aws/aws-sdk-go-v2/service/elasticloadbalancingv2 v1.43.1
-	github.com/aws/aws-sdk-go-v2/service/resourcegroupstaggingapi v1.25.7
-	github.com/aws/aws-sdk-go-v2/service/s3 v1.71.0
 	github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.59
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.35.0
 	github.com/hashicorp/terraform-provider-aws v1.60.1-0.20220923175450-ca71523cdc36
@@ -71,6 +67,7 @@ require (
 	github.com/armon/go-radix v1.0.0 // indirect
 	github.com/atotto/clipboard v0.1.4 // indirect
 	github.com/aws/aws-sdk-go v1.55.5 // indirect
+	github.com/aws/aws-sdk-go-v2 v1.32.6 // indirect
 	github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream v1.6.7 // indirect
 	github.com/aws/aws-sdk-go-v2/credentials v1.17.47 // indirect
 	github.com/aws/aws-sdk-go-v2/feature/s3/manager v1.17.43 // indirect
@@ -86,6 +83,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/amplify v1.27.5 // indirect
 	github.com/aws/aws-sdk-go-v2/service/apigateway v1.28.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/apigatewayv2 v1.24.7 // indirect
+	github.com/aws/aws-sdk-go-v2/service/appconfig v1.36.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/appfabric v1.11.7 // indirect
 	github.com/aws/aws-sdk-go-v2/service/appflow v1.45.8 // indirect
 	github.com/aws/aws-sdk-go-v2/service/appintegrations v1.30.7 // indirect
@@ -269,6 +267,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/resiliencehub v1.28.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/resourceexplorer2 v1.16.2 // indirect
 	github.com/aws/aws-sdk-go-v2/service/resourcegroups v1.27.7 // indirect
+	github.com/aws/aws-sdk-go-v2/service/resourcegroupstaggingapi v1.25.7 // indirect
 	github.com/aws/aws-sdk-go-v2/service/rolesanywhere v1.16.7 // indirect
 	github.com/aws/aws-sdk-go-v2/service/route53 v1.46.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/route53domains v1.27.7 // indirect
@@ -277,6 +276,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/route53recoveryreadiness v1.21.7 // indirect
 	github.com/aws/aws-sdk-go-v2/service/route53resolver v1.34.2 // indirect
 	github.com/aws/aws-sdk-go-v2/service/rum v1.21.7 // indirect
+	github.com/aws/aws-sdk-go-v2/service/s3 v1.71.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/s3control v1.52.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/s3outposts v1.28.7 // indirect
 	github.com/aws/aws-sdk-go-v2/service/s3tables v1.0.0 // indirect

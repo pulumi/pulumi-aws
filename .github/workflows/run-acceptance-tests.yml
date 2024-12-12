@@ -94,6 +94,8 @@ jobs:
     - test
     - build_provider
     - license_check
+    - go_test_shim
+    - upstream_lint
     runs-on: ubuntu-latest
     steps:
     - uses: guibranco/github-status-action-v2@0849440ec82c5fa69b2377725b9b7852a3977e76 # v1.1.13

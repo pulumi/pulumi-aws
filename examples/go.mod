@@ -4,12 +4,17 @@ go 1.23.3
 
 require (
 	github.com/aws/aws-sdk-go v1.55.5
+	github.com/aws/aws-sdk-go-v2 v1.32.6
 	github.com/aws/aws-sdk-go-v2/config v1.28.6
+	github.com/aws/aws-sdk-go-v2/service/appconfig v1.36.1
 	github.com/aws/aws-sdk-go-v2/service/iam v1.38.2
+	github.com/aws/aws-sdk-go-v2/service/resourcegroupstaggingapi v1.25.7
+	github.com/aws/aws-sdk-go-v2/service/s3 v1.71.0
 	github.com/pulumi/providertest v0.1.3
 	github.com/pulumi/pulumi-aws/provider/v6 v6.0.0-00010101000000-000000000000
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.97.1
 	github.com/pulumi/pulumi/pkg/v3 v3.142.0
+	github.com/pulumi/pulumi/sdk/v3 v3.142.0
 	github.com/stretchr/testify v1.9.0
 )
 
@@ -56,7 +61,6 @@ require (
 	github.com/apparentlymart/go-textseg/v15 v15.0.0 // indirect
 	github.com/armon/go-radix v1.0.0 // indirect
 	github.com/atotto/clipboard v0.1.4 // indirect
-	github.com/aws/aws-sdk-go-v2 v1.32.6 // indirect
 	github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream v1.6.7 // indirect
 	github.com/aws/aws-sdk-go-v2/credentials v1.17.47 // indirect
 	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.16.21 // indirect
@@ -73,7 +77,6 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/amplify v1.27.5 // indirect
 	github.com/aws/aws-sdk-go-v2/service/apigateway v1.28.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/apigatewayv2 v1.24.7 // indirect
-	github.com/aws/aws-sdk-go-v2/service/appconfig v1.36.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/appfabric v1.11.7 // indirect
 	github.com/aws/aws-sdk-go-v2/service/appflow v1.45.8 // indirect
 	github.com/aws/aws-sdk-go-v2/service/appintegrations v1.30.7 // indirect
@@ -257,7 +260,6 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/resiliencehub v1.28.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/resourceexplorer2 v1.16.2 // indirect
 	github.com/aws/aws-sdk-go-v2/service/resourcegroups v1.27.7 // indirect
-	github.com/aws/aws-sdk-go-v2/service/resourcegroupstaggingapi v1.25.7 // indirect
 	github.com/aws/aws-sdk-go-v2/service/rolesanywhere v1.16.7 // indirect
 	github.com/aws/aws-sdk-go-v2/service/route53 v1.46.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/route53domains v1.27.7 // indirect
@@ -266,7 +268,6 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/route53recoveryreadiness v1.21.7 // indirect
 	github.com/aws/aws-sdk-go-v2/service/route53resolver v1.34.2 // indirect
 	github.com/aws/aws-sdk-go-v2/service/rum v1.21.7 // indirect
-	github.com/aws/aws-sdk-go-v2/service/s3 v1.71.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/s3control v1.52.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/s3outposts v1.28.7 // indirect
 	github.com/aws/aws-sdk-go-v2/service/s3tables v1.0.0 // indirect
@@ -453,7 +454,6 @@ require (
 	github.com/pulumi/inflector v0.1.1 // indirect
 	github.com/pulumi/pulumi-java/pkg v0.18.0 // indirect
 	github.com/pulumi/pulumi-yaml v1.12.0 // indirect
-	github.com/pulumi/pulumi/sdk/v3 v3.142.0 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
