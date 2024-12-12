@@ -100,7 +100,6 @@ jobs:
       - test
       - license_check
       - go_test_shim
-      - test_oidc
       - upstream_lint
     uses: ./.github/workflows/publish.yml
     secrets: inherit
@@ -237,68 +236,6 @@ jobs:
             name: Upload coverage reports to Codecov
             uses: codecov/codecov-action@v4
       timeout-minutes: 60
-  test_oidc:
-      name: test_oidc
-      needs: build_sdk
-      permissions:
-          contents: read
-          id-token: write
-      runs-on: ubuntu-latest
-      steps:
-          - name: Free Disk Space (Ubuntu)
-            uses: jlumbroso/free-disk-space@main
-            with:
-              dotnet: ${{ matrix.language != 'dotnet' }}
-              swap-storage: false
-              tool-cache: false
-          - name: Checkout Repo
-            uses: actions/checkout@v4
-            with:
-              ref: ${{ env.PR_COMMIT_SHA }}
-              submodules: true
-          - uses: pulumi/provider-version-action@v1
-            with:
-              set-env: PROVIDER_VERSION
-          - name: Setup tools
-            uses: ./.github/actions/setup-tools
-            with:
-              tools: pulumictl, pulumi, go, node
-          - name: Prepare local workspace
-            run: make prepare_local_workspace
-          - name: Download bin
-            uses: ./.github/actions/download-bin
-          - name: Download SDK
-            uses: ./.github/actions/download-sdk
-            with:
-              language: ${{ matrix.language }}
-          - name: Restore makefile progress
-            run: make --touch provider schema build_${{ matrix.language }}
-          - name: Update path
-            run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
-          - name: Install dependencies
-            run: make install_${{ matrix.language}}_sdk
-          - name: Install gotestfmt
-            uses: GoTestTools/gotestfmt-action@v2
-            with:
-              token: ${{ secrets.GITHUB_TOKEN }}
-              version: v2.4.0
-          - name: Run selected tests with manual web identity/OIDC auth
-            run: cd examples && go test -v -json -count=1 -run TestAccCloudWatchOidcManual -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
-          - name: Configure AWS Credentials for OIDC
-            uses: aws-actions/configure-aws-credentials@v4
-            with:
-              aws-region: ${{ env.AWS_REGION }}
-              role-duration-seconds: 3600
-              role-session-name: aws@githubActions
-              role-to-assume: ${{ secrets.OIDC_ROLE_ARN }}
-              unset-current-credentials: true
-          - name: Run selected tests with configure-aws-credentials web identity/OIDC auth
-            run: cd examples && go test -v -json -count=1 -run TestAccCloudWatch -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
-      strategy:
-          fail-fast: false
-          matrix:
-              language:
-                  - nodejs
   upstream_lint:
       name: Run upstream provider-lint
       runs-on: ubuntu-latest
