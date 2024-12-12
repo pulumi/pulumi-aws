@@ -1,5 +1,5 @@
-// Copyright 2016-2023, Pulumi Corporation.  All rights reserved.
-package provider
+// Copyright 2016-2024, Pulumi Corporation.  All rights reserved.
+package examples
 
 import (
 	"bytes"
@@ -26,14 +26,6 @@ import (
 
 func TestUpgradeCoverage(t *testing.T) {
 	providertest.ReportUpgradeCoverage(t)
-}
-
-func getEnvRegion(t *testing.T) string {
-	envRegion := os.Getenv("AWS_REGION")
-	if envRegion == "" {
-		envRegion = "us-west-2"
-	}
-	return envRegion
 }
 
 func execPulumi(t *testing.T, ptest *pulumitest.PulumiTest, workdir string, args ...string) {
@@ -63,12 +55,6 @@ type testProviderUpgradeOptions struct {
 	extraOpts       []opttest.Option
 }
 
-func skipIfShort(t *testing.T) {
-	if testing.Short() {
-		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without credentials")
-	}
-
-}
 func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOptions) {
 	skipIfShort(t)
 	t.Parallel()
