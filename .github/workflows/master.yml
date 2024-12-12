@@ -99,7 +99,6 @@ jobs:
       - build_provider
       - test
       - license_check
-      - upstream_lint
     uses: ./.github/workflows/publish.yml
     secrets: inherit
     with:
