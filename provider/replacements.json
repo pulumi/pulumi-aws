@@ -1712,7 +1712,7 @@
     },
     {
       "old": "* `database_name` - (Optional, Forces new resources) Name for an automatically created database on cluster creation. Terraform will only perform drift detection if a configuration value is provided.\n",
-      "new": "* `database_name` - (Optional, Forces new resources) Name for an automatically created database on cluster creation. TODO will only perform drift detection if a configuration value is provided.\n"
+      "new": "* `database_name` - (Optional, Forces new resources) Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.\n"
     }
   ],
   "route.html.markdown": [
