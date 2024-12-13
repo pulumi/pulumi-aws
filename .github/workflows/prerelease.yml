@@ -59,7 +59,6 @@ jobs:
       - build_provider
       - test
       - license_check
-      - upstream_lint
     uses: ./.github/workflows/publish.yml
     secrets: inherit
     with:
@@ -67,107 +66,14 @@ jobs:
       isPrerelease: true
 
   test:
-    name: test
+    uses: ./.github/workflows/test.yml
     needs:
       - prerequisites
       - build_provider
       - build_sdk
-    permissions:
-      contents: read
-      id-token: write
-    runs-on: ubuntu-latest
-    env:
-      PROVIDER_VERSION: ${{ needs.prerequisites.outputs.version }}
-    steps:
-    # Run as first step so we don't delete things that have just been installed
-    - name: Free Disk Space (Ubuntu)
-      uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be # v1.3.1
-      with:
-        tool-cache: false
-        swap-storage: false
-        dotnet: false
-    - name: Checkout Repo
-      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-      with:
-        submodules: true
-        persist-credentials: false
-    - name: Setup tools
-      uses: ./.github/actions/setup-tools
-      with:
-        tools: pulumictl, pulumicli, nodejs, python, dotnet, go, java
-    - name: Prepare local workspace
-      run: make prepare_local_workspace
-    - name: Download bin
-      uses: ./.github/actions/download-bin
-    - name: Download SDK
-      uses: ./.github/actions/download-sdk
-      with:
-        language: ${{ matrix.language }}
-    - name: Restore makefile progress
-      run: make --touch provider schema build_${{ matrix.language }}
-    - name: Update path
-      run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
-    - name: Install Python deps
-      if: matrix.language == 'python'
-      run: |-
-        pip3 install virtualenv==20.0.23
-        pip3 install pipenv
-    - name: Install dependencies
-      run: make install_${{ matrix.language}}_sdk
-    - name: Install gotestfmt
-      uses: GoTestTools/gotestfmt-action@v2
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        version: v2.5.0
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-region: ${{ env.AWS_REGION }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        role-duration-seconds: 7200
-        role-session-name: aws@githubActions
-        role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
-    - name: Make upstream
-      run: make upstream
-    - name: Run tests
-      run: cd examples && go test -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 .
-    strategy:
-      fail-fast: false
-      matrix:
-        language:
-        - nodejs
-        - python
-        - dotnet
-        - go
-        - java
-  upstream_lint:
-      name: Run upstream provider-lint
-      runs-on: ubuntu-latest
-      steps:
-          - name: Free Disk Space (Ubuntu)
-            uses: jlumbroso/free-disk-space@main
-            with:
-              swap-storage: false
-              tool-cache: false
-          - name: Checkout Repo
-            uses: actions/checkout@v4
-            with:
-              ref: ${{ env.PR_COMMIT_SHA }}
-              submodules: true
-          - name: Install Go
-            uses: actions/setup-go@v5
-            with:
-              cache: false
-              go-version: 1.23.x
-          - name: Prepare local workspace
-            run: make prepare_local_workspace
-          - name: upstream lint
-            run: |
-              cd upstream
-              make provider-lint
-      timeout-minutes: 60
-
+    secrets: inherit
+    with:
+      version: ${{ needs.prerequisites.outputs.version }}
 
 name: prerelease
 on:

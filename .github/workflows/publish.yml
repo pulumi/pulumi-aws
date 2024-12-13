@@ -116,6 +116,8 @@ jobs:
     name: publish_sdk
     needs: publish
     runs-on: ubuntu-latest
+    outputs:
+      python_version: ${{ steps.python_version.outputs.version }}
     steps:
     - name: Checkout Repo
       uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
@@ -157,6 +159,13 @@ jobs:
           go.*
           go/**
           !*.tar.gz
+    - name: Extract python version
+      id: python_version
+      working-directory: sdk/python
+      run: |
+        pip install toml-cli==0.7.0
+        version=$(toml get --toml-path pyproject.toml project.version)
+        echo "version=${version}" >> "$GITHUB_OUTPUT"
   create_docs_build:
     name: create_docs_build
     needs: publish_sdk
@@ -208,3 +217,4 @@ jobs:
       # Prelease is run often but we only have 5 concurrent macos runners, so we only test after the stable release.
       enableMacosRunner: ${{ inputs.isPrerelease == false }}
       skipGoSdk: ${{ inputs.skipGoSdk }}
+      pythonVersion: ${{ needs.publish_sdk.outputs.python_version }}
