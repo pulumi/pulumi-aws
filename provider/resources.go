@@ -5964,33 +5964,48 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	) (resource.ID, error) {
 		return attrWithSeparator(state, "identifier"), nil
 	}
+
 	prov.Resources["aws_s3tables_table_bucket"].ComputeID = func(
 		ctx context.Context, state resource.PropertyMap,
 	) (resource.ID, error) {
 		return attrWithSeparator(state, "arn"), nil
 	}
-
 	prov.Resources["aws_s3tables_table_policy"].ComputeID = func(
 		ctx context.Context, state resource.PropertyMap,
 	) (resource.ID, error) {
 		return attrWithSeparator(state, ";", "tableBucketArn", "namespace", "name"), nil
 	}
-
 	prov.Resources["aws_s3tables_table"].ComputeID = func(
 		ctx context.Context, state resource.PropertyMap,
 	) (resource.ID, error) {
 		return attrWithSeparator(state, ";", "tableBucketArn", "namespace", "name"), nil
 	}
-
 	prov.Resources["aws_s3tables_namespace"].ComputeID = func(
 		ctx context.Context, state resource.PropertyMap,
 	) (resource.ID, error) {
 		return attrWithSeparator(state, ";", "tableBucketArn", "namespace"), nil
 	}
-
 	prov.Resources["aws_s3tables_table_bucket_policy"].ComputeID = func(
 		ctx context.Context, state resource.PropertyMap,
 	) (resource.ID, error) {
 		return attrWithSeparator(state, "tableBucketArn"), nil
+	}
+
+	prov.Resources["aws_servicecatalogappregistry_attribute_group_association"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attrWithSeparator(state, ",", "applicationId", "attributeGroupId"), nil
+	}
+
+	prov.Resources["aws_ecr_account_setting"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attr(state, "name"), nil
+	}
+
+	prov.Resources["aws_cloudwatch_log_anomaly_detector"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attr(state, "arn"), nil
 	}
 }

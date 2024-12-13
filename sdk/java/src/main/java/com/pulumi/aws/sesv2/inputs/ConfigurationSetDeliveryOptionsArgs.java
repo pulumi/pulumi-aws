@@ -5,6 +5,7 @@ package com.pulumi.aws.sesv2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class ConfigurationSetDeliveryOptionsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ConfigurationSetDeliveryOptionsArgs Empty = new ConfigurationSetDeliveryOptionsArgs();
+
+    /**
+     * The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+     * 
+     */
+    @Import(name="maxDeliverySeconds")
+    private @Nullable Output<Integer> maxDeliverySeconds;
+
+    /**
+     * @return The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+     * 
+     */
+    public Optional<Output<Integer>> maxDeliverySeconds() {
+        return Optional.ofNullable(this.maxDeliverySeconds);
+    }
 
     /**
      * The name of the dedicated IP pool to associate with the configuration set.
@@ -48,6 +64,7 @@ public final class ConfigurationSetDeliveryOptionsArgs extends com.pulumi.resour
     private ConfigurationSetDeliveryOptionsArgs() {}
 
     private ConfigurationSetDeliveryOptionsArgs(ConfigurationSetDeliveryOptionsArgs $) {
+        this.maxDeliverySeconds = $.maxDeliverySeconds;
         this.sendingPoolName = $.sendingPoolName;
         this.tlsPolicy = $.tlsPolicy;
     }
@@ -68,6 +85,27 @@ public final class ConfigurationSetDeliveryOptionsArgs extends com.pulumi.resour
 
         public Builder(ConfigurationSetDeliveryOptionsArgs defaults) {
             $ = new ConfigurationSetDeliveryOptionsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param maxDeliverySeconds The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxDeliverySeconds(@Nullable Output<Integer> maxDeliverySeconds) {
+            $.maxDeliverySeconds = maxDeliverySeconds;
+            return this;
+        }
+
+        /**
+         * @param maxDeliverySeconds The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maxDeliverySeconds(Integer maxDeliverySeconds) {
+            return maxDeliverySeconds(Output.of(maxDeliverySeconds));
         }
 
         /**

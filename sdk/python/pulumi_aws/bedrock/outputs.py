@@ -85,6 +85,9 @@ __all__ = [
     'GuardrailWordPolicyConfig',
     'GuardrailWordPolicyConfigManagedWordListsConfig',
     'GuardrailWordPolicyConfigWordsConfig',
+    'InferenceProfileModel',
+    'InferenceProfileModelSource',
+    'InferenceProfileTimeouts',
     'ProvisionedModelThroughputTimeouts',
     'GetAgentAgentVersionsAgentVersionSummaryResult',
     'GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationResult',
@@ -3333,6 +3336,119 @@ class GuardrailWordPolicyConfigWordsConfig(dict):
         The custom word text.
         """
         return pulumi.get(self, "text")
+
+
+@pulumi.output_type
+class InferenceProfileModel(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modelArn":
+            suggest = "model_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceProfileModel. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceProfileModel.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceProfileModel.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 model_arn: str):
+        """
+        :param str model_arn: The Amazon Resource Name (ARN) of the model.
+        """
+        pulumi.set(__self__, "model_arn", model_arn)
+
+    @property
+    @pulumi.getter(name="modelArn")
+    def model_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the model.
+        """
+        return pulumi.get(self, "model_arn")
+
+
+@pulumi.output_type
+class InferenceProfileModelSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "copyFrom":
+            suggest = "copy_from"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceProfileModelSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceProfileModelSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceProfileModelSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 copy_from: str):
+        """
+        :param str copy_from: The Amazon Resource Name (ARN) of the model.
+        """
+        pulumi.set(__self__, "copy_from", copy_from)
+
+    @property
+    @pulumi.getter(name="copyFrom")
+    def copy_from(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the model.
+        """
+        return pulumi.get(self, "copy_from")
+
+
+@pulumi.output_type
+class InferenceProfileTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None,
+                 update: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
 
 
 @pulumi.output_type

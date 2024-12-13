@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class ApprunnerFunctions {
@@ -287,6 +288,61 @@ public final class ApprunnerFunctions {
      * 
      */
     public static Output<GetHostedZoneIdResult> getHostedZoneId(GetHostedZoneIdArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:apprunner/getHostedZoneId:getHostedZoneId", TypeShape.of(GetHostedZoneIdResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get the HostedZoneId of an AWS App Runner service deployed
+     * in a given region for the purpose of using it in an AWS Route53 Alias record.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apprunner.ApprunnerFunctions;
+     * import com.pulumi.aws.apprunner.inputs.GetHostedZoneIdArgs;
+     * import com.pulumi.aws.route53.Record;
+     * import com.pulumi.aws.route53.RecordArgs;
+     * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = ApprunnerFunctions.getHostedZoneId();
+     * 
+     *         var www = new Record("www", RecordArgs.builder()
+     *             .zoneId(primary.zoneId())
+     *             .name("example.com")
+     *             .type("A")
+     *             .aliases(RecordAliasArgs.builder()
+     *                 .name(mainAwsApprunnerCustomDomainAssociation.dnsTarget())
+     *                 .zoneId(main.applyValue(getHostedZoneIdResult -> getHostedZoneIdResult.id()))
+     *                 .evaluateTargetHealth(true)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetHostedZoneIdResult> getHostedZoneId(GetHostedZoneIdArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:apprunner/getHostedZoneId:getHostedZoneId", TypeShape.of(GetHostedZoneIdResult.class), args, Utilities.withVersion(options));
     }
     /**

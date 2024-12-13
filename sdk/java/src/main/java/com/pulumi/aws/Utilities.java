@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 import javax.annotation.Nullable;
 import com.pulumi.core.internal.Environment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 
 public class Utilities {
 
@@ -57,16 +58,28 @@ public class Utilities {
         return Optional.empty();
 	}
 
-	public static InvokeOptions withVersion(@Nullable InvokeOptions options) {
-            if (options != null && options.getVersion().isPresent()) {
-                return options;
-            }
-            return new InvokeOptions(
-                options == null ? null : options.getParent().orElse(null),
-                options == null ? null : options.getProvider().orElse(null),
-                getVersion()
-            );
+    public static InvokeOptions withVersion(@Nullable InvokeOptions options) {
+        if (options != null && options.getVersion().isPresent()) {
+            return options;
         }
+        return new InvokeOptions(
+            options == null ? null : options.getParent().orElse(null),
+            options == null ? null : options.getProvider().orElse(null),
+            getVersion()
+        );
+    }
+
+    public static InvokeOutputOptions withVersion(@Nullable InvokeOutputOptions options) {
+        if (options != null && options.getVersion().isPresent()) {
+            return options;
+        }
+        return new InvokeOutputOptions(
+            options == null ? null : options.getParent().orElse(null),
+            options == null ? null : options.getProvider().orElse(null),
+            getVersion(),
+            options == null ? null : options.getDependsOn()
+        );
+    }
 
     private static final java.lang.String version;
     public static java.lang.String getVersion() {

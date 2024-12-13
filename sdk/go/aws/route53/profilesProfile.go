@@ -31,6 +31,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := route53.NewProfilesProfile(ctx, "example", &route53.ProfilesProfileArgs{
 //				Name: pulumi.String("example"),
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("dev"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -56,13 +59,14 @@ type ProfilesProfile struct {
 	// Name of the Profile.
 	Name    pulumi.StringOutput `pulumi:"name"`
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// Share status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+	// Share status of the Profile.
 	ShareStatus pulumi.StringOutput `pulumi:"shareStatus"`
-	// Status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+	// Status of the Profile.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Status message of the Profile.
-	StatusMessage pulumi.StringOutput    `pulumi:"statusMessage"`
-	Tags          pulumi.StringMapOutput `pulumi:"tags"`
+	StatusMessage pulumi.StringOutput `pulumi:"statusMessage"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
@@ -105,13 +109,14 @@ type profilesProfileState struct {
 	// Name of the Profile.
 	Name    *string `pulumi:"name"`
 	OwnerId *string `pulumi:"ownerId"`
-	// Share status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+	// Share status of the Profile.
 	ShareStatus *string `pulumi:"shareStatus"`
-	// Status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+	// Status of the Profile.
 	Status *string `pulumi:"status"`
 	// Status message of the Profile.
-	StatusMessage *string           `pulumi:"statusMessage"`
-	Tags          map[string]string `pulumi:"tags"`
+	StatusMessage *string `pulumi:"statusMessage"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
@@ -125,13 +130,14 @@ type ProfilesProfileState struct {
 	// Name of the Profile.
 	Name    pulumi.StringPtrInput
 	OwnerId pulumi.StringPtrInput
-	// Share status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+	// Share status of the Profile.
 	ShareStatus pulumi.StringPtrInput
-	// Status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+	// Status of the Profile.
 	Status pulumi.StringPtrInput
 	// Status message of the Profile.
 	StatusMessage pulumi.StringPtrInput
-	Tags          pulumi.StringMapInput
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
 	// Deprecated: Please use `tags` instead.
@@ -145,7 +151,8 @@ func (ProfilesProfileState) ElementType() reflect.Type {
 
 type profilesProfileArgs struct {
 	// Name of the Profile.
-	Name     *string                  `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string        `pulumi:"tags"`
 	Timeouts *ProfilesProfileTimeouts `pulumi:"timeouts"`
 }
@@ -153,7 +160,8 @@ type profilesProfileArgs struct {
 // The set of arguments for constructing a ProfilesProfile resource.
 type ProfilesProfileArgs struct {
 	// Name of the Profile.
-	Name     pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts ProfilesProfileTimeoutsPtrInput
 }
@@ -259,12 +267,12 @@ func (o ProfilesProfileOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesProfile) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// Share status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+// Share status of the Profile.
 func (o ProfilesProfileOutput) ShareStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesProfile) pulumi.StringOutput { return v.ShareStatus }).(pulumi.StringOutput)
 }
 
-// Status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+// Status of the Profile.
 func (o ProfilesProfileOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesProfile) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
@@ -274,6 +282,7 @@ func (o ProfilesProfileOutput) StatusMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesProfile) pulumi.StringOutput { return v.StatusMessage }).(pulumi.StringOutput)
 }
 
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ProfilesProfileOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ProfilesProfile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

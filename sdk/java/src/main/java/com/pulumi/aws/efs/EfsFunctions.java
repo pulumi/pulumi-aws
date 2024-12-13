@@ -20,6 +20,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class EfsFunctions {
@@ -188,6 +189,48 @@ public final class EfsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetAccessPointResult> getAccessPoint(GetAccessPointArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:efs/getAccessPoint:getAccessPoint", TypeShape.of(GetAccessPointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides information about an Elastic File System (EFS) Access Point.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.efs.EfsFunctions;
+     * import com.pulumi.aws.efs.inputs.GetAccessPointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = EfsFunctions.getAccessPoint(GetAccessPointArgs.builder()
+     *             .accessPointId("fsap-12345678")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetAccessPointResult> getAccessPointPlain(GetAccessPointPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:efs/getAccessPoint:getAccessPoint", TypeShape.of(GetAccessPointResult.class), args, Utilities.withVersion(options));
     }
@@ -315,6 +358,48 @@ public final class EfsFunctions {
      * 
      */
     public static Output<GetAccessPointsResult> getAccessPoints(GetAccessPointsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:efs/getAccessPoints:getAccessPoints", TypeShape.of(GetAccessPointsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides information about multiple Elastic File System (EFS) Access Points.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.efs.EfsFunctions;
+     * import com.pulumi.aws.efs.inputs.GetAccessPointsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = EfsFunctions.getAccessPoints(GetAccessPointsArgs.builder()
+     *             .fileSystemId("fs-12345678")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAccessPointsResult> getAccessPoints(GetAccessPointsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:efs/getAccessPoints:getAccessPoints", TypeShape.of(GetAccessPointsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -644,6 +729,54 @@ public final class EfsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetFileSystemResult> getFileSystem(GetFileSystemArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:efs/getFileSystem:getFileSystem", TypeShape.of(GetFileSystemResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides information about an Elastic File System (EFS) File System.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.efs.EfsFunctions;
+     * import com.pulumi.aws.efs.inputs.GetFileSystemArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var fileSystemId = config.get("fileSystemId").orElse("");
+     *         final var byId = EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
+     *             .fileSystemId(fileSystemId)
+     *             .build());
+     * 
+     *         final var byTag = EfsFunctions.getFileSystem(GetFileSystemArgs.builder()
+     *             .tags(Map.of("Environment", "dev"))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetFileSystemResult> getFileSystemPlain(GetFileSystemPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:efs/getFileSystem:getFileSystem", TypeShape.of(GetFileSystemResult.class), args, Utilities.withVersion(options));
     }
@@ -865,6 +998,50 @@ public final class EfsFunctions {
      * 
      */
     public static Output<GetMountTargetResult> getMountTarget(GetMountTargetArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:efs/getMountTarget:getMountTarget", TypeShape.of(GetMountTargetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides information about an Elastic File System Mount Target (EFS).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.efs.EfsFunctions;
+     * import com.pulumi.aws.efs.inputs.GetMountTargetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var mountTargetId = config.get("mountTargetId").orElse("");
+     *         final var byId = EfsFunctions.getMountTarget(GetMountTargetArgs.builder()
+     *             .mountTargetId(mountTargetId)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetMountTargetResult> getMountTarget(GetMountTargetArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:efs/getMountTarget:getMountTarget", TypeShape.of(GetMountTargetResult.class), args, Utilities.withVersion(options));
     }
     /**

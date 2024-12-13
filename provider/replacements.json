@@ -1709,6 +1709,10 @@
     {
       "old": "When you upgrade the version of an `aws_rds_global_cluster`, Terraform will attempt to in-place upgrade the engine versions of all associated clusters. Since the `aws_rds_cluster` resource is being updated through the `aws_rds_global_cluster`, you are likely to get an error (`Provider produced inconsistent final plan`). To avoid this, use the `lifecycle` `ignore_changes` meta argument as shown below on the `aws_rds_cluster`.",
       "new": "When you upgrade the version of an `aws_rds_global_cluster`, the provider will attempt to in-place upgrade the engine versions of all associated clusters. Since the `aws_rds_cluster` resource is being updated through the `aws_rds_global_cluster`, you are likely to get an error (`Provider produced inconsistent final plan`). To avoid this, use the `lifecycle` `ignore_changes` meta argument as shown below on the `aws_rds_cluster`."
+    },
+    {
+      "old": "* `database_name` - (Optional, Forces new resources) Name for an automatically created database on cluster creation. Terraform will only perform drift detection if a configuration value is provided.\n",
+      "new": "* `database_name` - (Optional, Forces new resources) Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.\n"
     }
   ],
   "route.html.markdown": [

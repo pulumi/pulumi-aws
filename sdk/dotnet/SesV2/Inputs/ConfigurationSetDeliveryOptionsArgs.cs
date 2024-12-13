@@ -13,6 +13,12 @@ namespace Pulumi.Aws.SesV2.Inputs
     public sealed class ConfigurationSetDeliveryOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+        /// </summary>
+        [Input("maxDeliverySeconds")]
+        public Input<int>? MaxDeliverySeconds { get; set; }
+
+        /// <summary>
         /// The name of the dedicated IP pool to associate with the configuration set.
         /// </summary>
         [Input("sendingPoolName")]

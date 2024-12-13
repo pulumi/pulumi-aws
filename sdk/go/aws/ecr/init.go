@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:ecr/accountSetting:AccountSetting":
+		r = &AccountSetting{}
 	case "aws:ecr/lifecyclePolicy:LifecyclePolicy":
 		r = &LifecyclePolicy{}
 	case "aws:ecr/pullThroughCacheRule:PullThroughCacheRule":
@@ -50,6 +52,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ecr/accountSetting",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ecr/lifecyclePolicy",

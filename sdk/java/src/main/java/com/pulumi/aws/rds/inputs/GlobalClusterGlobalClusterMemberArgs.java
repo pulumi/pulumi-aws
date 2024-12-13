@@ -17,14 +17,14 @@ public final class GlobalClusterGlobalClusterMemberArgs extends com.pulumi.resou
     public static final GlobalClusterGlobalClusterMemberArgs Empty = new GlobalClusterGlobalClusterMemberArgs();
 
     /**
-     * Amazon Resource Name (ARN) of member DB Cluster
+     * Amazon Resource Name (ARN) of member DB Cluster.
      * 
      */
     @Import(name="dbClusterArn")
     private @Nullable Output<String> dbClusterArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of member DB Cluster
+     * @return Amazon Resource Name (ARN) of member DB Cluster.
      * 
      */
     public Optional<Output<String>> dbClusterArn() {
@@ -32,14 +32,14 @@ public final class GlobalClusterGlobalClusterMemberArgs extends com.pulumi.resou
     }
 
     /**
-     * Whether the member is the primary DB Cluster
+     * Whether the member is the primary DB Cluster.
      * 
      */
     @Import(name="isWriter")
     private @Nullable Output<Boolean> isWriter;
 
     /**
-     * @return Whether the member is the primary DB Cluster
+     * @return Whether the member is the primary DB Cluster.
      * 
      */
     public Optional<Output<Boolean>> isWriter() {
@@ -72,7 +72,7 @@ public final class GlobalClusterGlobalClusterMemberArgs extends com.pulumi.resou
         }
 
         /**
-         * @param dbClusterArn Amazon Resource Name (ARN) of member DB Cluster
+         * @param dbClusterArn Amazon Resource Name (ARN) of member DB Cluster.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GlobalClusterGlobalClusterMemberArgs extends com.pulumi.resou
         }
 
         /**
-         * @param dbClusterArn Amazon Resource Name (ARN) of member DB Cluster
+         * @param dbClusterArn Amazon Resource Name (ARN) of member DB Cluster.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class GlobalClusterGlobalClusterMemberArgs extends com.pulumi.resou
         }
 
         /**
-         * @param isWriter Whether the member is the primary DB Cluster
+         * @param isWriter Whether the member is the primary DB Cluster.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class GlobalClusterGlobalClusterMemberArgs extends com.pulumi.resou
         }
 
         /**
-         * @param isWriter Whether the member is the primary DB Cluster
+         * @param isWriter Whether the member is the primary DB Cluster.
          * 
          * @return builder
          * 

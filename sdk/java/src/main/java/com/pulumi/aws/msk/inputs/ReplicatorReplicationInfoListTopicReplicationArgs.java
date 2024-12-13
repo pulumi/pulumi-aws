@@ -4,6 +4,7 @@
 package com.pulumi.aws.msk.inputs;
 
 import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs;
+import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -79,6 +80,13 @@ public final class ReplicatorReplicationInfoListTopicReplicationArgs extends com
         return Optional.ofNullable(this.startingPosition);
     }
 
+    @Import(name="topicNameConfiguration")
+    private @Nullable Output<ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs> topicNameConfiguration;
+
+    public Optional<Output<ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs>> topicNameConfiguration() {
+        return Optional.ofNullable(this.topicNameConfiguration);
+    }
+
     /**
      * List of regular expression patterns indicating the topics that should not be replica.
      * 
@@ -116,6 +124,7 @@ public final class ReplicatorReplicationInfoListTopicReplicationArgs extends com
         this.copyTopicConfigurations = $.copyTopicConfigurations;
         this.detectAndCopyNewTopics = $.detectAndCopyNewTopics;
         this.startingPosition = $.startingPosition;
+        this.topicNameConfiguration = $.topicNameConfiguration;
         this.topicsToExcludes = $.topicsToExcludes;
         this.topicsToReplicates = $.topicsToReplicates;
     }
@@ -220,6 +229,15 @@ public final class ReplicatorReplicationInfoListTopicReplicationArgs extends com
          */
         public Builder startingPosition(ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs startingPosition) {
             return startingPosition(Output.of(startingPosition));
+        }
+
+        public Builder topicNameConfiguration(@Nullable Output<ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs> topicNameConfiguration) {
+            $.topicNameConfiguration = topicNameConfiguration;
+            return this;
+        }
+
+        public Builder topicNameConfiguration(ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs topicNameConfiguration) {
+            return topicNameConfiguration(Output.of(topicNameConfiguration));
         }
 
         /**

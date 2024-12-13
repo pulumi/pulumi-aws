@@ -15,6 +15,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
@@ -250,6 +251,45 @@ public final class SesFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetActiveReceiptRuleSetResult> getActiveReceiptRuleSet(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", TypeShape.of(GetActiveReceiptRuleSetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieve the active SES receipt rule set
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ses.SesFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = SesFunctions.getActiveReceiptRuleSet();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetActiveReceiptRuleSetResult> getActiveReceiptRuleSetPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", TypeShape.of(GetActiveReceiptRuleSetResult.class), args, Utilities.withVersion(options));
     }
@@ -418,6 +458,48 @@ public final class SesFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetDomainIdentityResult> getDomainIdentity(GetDomainIdentityArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:ses/getDomainIdentity:getDomainIdentity", TypeShape.of(GetDomainIdentityResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieve the SES domain identity
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ses.SesFunctions;
+     * import com.pulumi.aws.ses.inputs.GetDomainIdentityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SesFunctions.getDomainIdentity(GetDomainIdentityArgs.builder()
+     *             .domain("example.com")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetDomainIdentityResult> getDomainIdentityPlain(GetDomainIdentityPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ses/getDomainIdentity:getDomainIdentity", TypeShape.of(GetDomainIdentityResult.class), args, Utilities.withVersion(options));
     }
@@ -545,6 +627,48 @@ public final class SesFunctions {
      * 
      */
     public static Output<GetEmailIdentityResult> getEmailIdentity(GetEmailIdentityArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ses/getEmailIdentity:getEmailIdentity", TypeShape.of(GetEmailIdentityResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieve the active SES email identity
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ses.SesFunctions;
+     * import com.pulumi.aws.ses.inputs.GetEmailIdentityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var example = SesFunctions.getEmailIdentity(GetEmailIdentityArgs.builder()
+     *             .email("awesome}{@literal @}{@code example.com")
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetEmailIdentityResult> getEmailIdentity(GetEmailIdentityArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:ses/getEmailIdentity:getEmailIdentity", TypeShape.of(GetEmailIdentityResult.class), args, Utilities.withVersion(options));
     }
     /**

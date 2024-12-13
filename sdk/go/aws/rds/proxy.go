@@ -12,57 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an RDS DB proxy resource. For additional information, see the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rds.NewProxy(ctx, "example", &rds.ProxyArgs{
-//				Name:              pulumi.String("example"),
-//				DebugLogging:      pulumi.Bool(false),
-//				EngineFamily:      pulumi.String("MYSQL"),
-//				IdleClientTimeout: pulumi.Int(1800),
-//				RequireTls:        pulumi.Bool(true),
-//				RoleArn:           pulumi.Any(exampleAwsIamRole.Arn),
-//				VpcSecurityGroupIds: pulumi.StringArray{
-//					exampleAwsSecurityGroup.Id,
-//				},
-//				VpcSubnetIds: pulumi.StringArray{
-//					exampleAwsSubnet.Id,
-//				},
-//				Auths: rds.ProxyAuthArray{
-//					&rds.ProxyAuthArgs{
-//						AuthScheme:  pulumi.String("SECRETS"),
-//						Description: pulumi.String("example"),
-//						IamAuth:     pulumi.String("DISABLED"),
-//						SecretArn:   pulumi.Any(exampleAwsSecretsmanagerSecret.Arn),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example"),
-//					"Key":  pulumi.String("value"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import DB proxies using the `name`. For example:

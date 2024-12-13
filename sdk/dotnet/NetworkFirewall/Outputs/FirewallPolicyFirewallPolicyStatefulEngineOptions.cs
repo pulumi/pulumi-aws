@@ -14,6 +14,10 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     public sealed class FirewallPolicyFirewallPolicyStatefulEngineOptions
     {
         /// <summary>
+        /// Amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
+        /// </summary>
+        public readonly Outputs.FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts? FlowTimeouts;
+        /// <summary>
         /// Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
         /// </summary>
         public readonly string? RuleOrder;
@@ -24,10 +28,13 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
 
         [OutputConstructor]
         private FirewallPolicyFirewallPolicyStatefulEngineOptions(
+            Outputs.FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts? flowTimeouts,
+
             string? ruleOrder,
 
             string? streamExceptionPolicy)
         {
+            FlowTimeouts = flowTimeouts;
             RuleOrder = ruleOrder;
             StreamExceptionPolicy = streamExceptionPolicy;
         }

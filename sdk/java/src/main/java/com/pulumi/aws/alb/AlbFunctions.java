@@ -17,6 +17,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class AlbFunctions {
@@ -313,6 +314,65 @@ public final class AlbFunctions {
      * 
      */
     public static Output<GetListenerResult> getListener(GetListenerArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:alb/getListener:getListener", TypeShape.of(GetListenerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Note:** `aws.alb.Listener` is known as `aws.lb.Listener`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer Listener.
+     * 
+     * This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetListenerArgs;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var listenerArn = config.get("listenerArn");
+     *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
+     *             .arn(listenerArn)
+     *             .build());
+     * 
+     *         // get listener from load_balancer_arn and port
+     *         final var selected = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *             .name("default-public")
+     *             .build());
+     * 
+     *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
+     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -> getLoadBalancerResult.arn()))
+     *             .port(443)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetListenerResult> getListener(GetListenerArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:alb/getListener:getListener", TypeShape.of(GetListenerResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -683,6 +743,58 @@ public final class AlbFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetLoadBalancerResult> getLoadBalancer(GetLoadBalancerArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:alb/getLoadBalancer:getLoadBalancer", TypeShape.of(GetLoadBalancerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Note:** `aws.alb.LoadBalancer` is known as `aws.lb.LoadBalancer`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer.
+     * 
+     * This data source can prove useful when a module accepts an LB as an input
+     * variable and needs to, for example, determine the security groups associated
+     * with it, etc.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetLoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbArn = config.get("lbArn").orElse("");
+     *         final var lbName = config.get("lbName").orElse("");
+     *         final var test = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *             .arn(lbArn)
+     *             .name(lbName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetLoadBalancerResult> getLoadBalancerPlain(GetLoadBalancerPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:alb/getLoadBalancer:getLoadBalancer", TypeShape.of(GetLoadBalancerResult.class), args, Utilities.withVersion(options));
     }
@@ -944,6 +1056,58 @@ public final class AlbFunctions {
      * 
      */
     public static Output<GetTargetGroupResult> getTargetGroup(GetTargetGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:alb/getTargetGroup:getTargetGroup", TypeShape.of(GetTargetGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Note:** `aws.alb.TargetGroup` is known as `aws.lb.TargetGroup`. The functionality is identical.
+     * 
+     * Provides information about a Load Balancer Target Group.
+     * 
+     * This data source can prove useful when a module accepts an LB Target Group as an
+     * input variable and needs to know its attributes. It can also be used to get the ARN of
+     * an LB Target Group for use in other resources, given LB Target Group name.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.lb.inputs.GetTargetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var lbTgArn = config.get("lbTgArn").orElse("");
+     *         final var lbTgName = config.get("lbTgName").orElse("");
+     *         final var test = LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
+     *             .arn(lbTgArn)
+     *             .name(lbTgName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTargetGroupResult> getTargetGroup(GetTargetGroupArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:alb/getTargetGroup:getTargetGroup", TypeShape.of(GetTargetGroupResult.class), args, Utilities.withVersion(options));
     }
     /**

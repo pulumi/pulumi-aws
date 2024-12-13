@@ -26,6 +26,7 @@ __all__ = [
     'FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable',
     'FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet',
     'FirewallPolicyFirewallPolicyStatefulEngineOptions',
+    'FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts',
     'FirewallPolicyFirewallPolicyStatefulRuleGroupReference',
     'FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride',
     'FirewallPolicyFirewallPolicyStatelessCustomAction',
@@ -574,7 +575,9 @@ class FirewallPolicyFirewallPolicyStatefulEngineOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "ruleOrder":
+        if key == "flowTimeouts":
+            suggest = "flow_timeouts"
+        elif key == "ruleOrder":
             suggest = "rule_order"
         elif key == "streamExceptionPolicy":
             suggest = "stream_exception_policy"
@@ -591,16 +594,28 @@ class FirewallPolicyFirewallPolicyStatefulEngineOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 flow_timeouts: Optional['outputs.FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts'] = None,
                  rule_order: Optional[str] = None,
                  stream_exception_policy: Optional[str] = None):
         """
+        :param 'FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs' flow_timeouts: Amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
         :param str rule_order: Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
         :param str stream_exception_policy: Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
         """
+        if flow_timeouts is not None:
+            pulumi.set(__self__, "flow_timeouts", flow_timeouts)
         if rule_order is not None:
             pulumi.set(__self__, "rule_order", rule_order)
         if stream_exception_policy is not None:
             pulumi.set(__self__, "stream_exception_policy", stream_exception_policy)
+
+    @property
+    @pulumi.getter(name="flowTimeouts")
+    def flow_timeouts(self) -> Optional['outputs.FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts']:
+        """
+        Amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
+        """
+        return pulumi.get(self, "flow_timeouts")
 
     @property
     @pulumi.getter(name="ruleOrder")
@@ -617,6 +632,42 @@ class FirewallPolicyFirewallPolicyStatefulEngineOptions(dict):
         Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
         """
         return pulumi.get(self, "stream_exception_policy")
+
+
+@pulumi.output_type
+class FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tcpIdleTimeoutSeconds":
+            suggest = "tcp_idle_timeout_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tcp_idle_timeout_seconds: Optional[int] = None):
+        """
+        :param int tcp_idle_timeout_seconds: Number of seconds that can pass without any TCP traffic sent through the firewall before the firewall determines that the connection is idle. After the idle timeout passes, data packets are dropped, however, the next TCP SYN packet is considered a new flow and is processed by the firewall. Clients or targets can use TCP keepalive packets to reset the idle timeout. Default value: `350`.
+        """
+        if tcp_idle_timeout_seconds is not None:
+            pulumi.set(__self__, "tcp_idle_timeout_seconds", tcp_idle_timeout_seconds)
+
+    @property
+    @pulumi.getter(name="tcpIdleTimeoutSeconds")
+    def tcp_idle_timeout_seconds(self) -> Optional[int]:
+        """
+        Number of seconds that can pass without any TCP traffic sent through the firewall before the firewall determines that the connection is idle. After the idle timeout passes, data packets are dropped, however, the next TCP SYN packet is considered a new flow and is processed by the firewall. Clients or targets can use TCP keepalive packets to reset the idle timeout. Default value: `350`.
+        """
+        return pulumi.get(self, "tcp_idle_timeout_seconds")
 
 
 @pulumi.output_type
@@ -975,7 +1026,7 @@ class LoggingConfigurationLoggingConfigurationLogDestinationConfig(dict):
                  log_type: str):
         """
         :param Mapping[str, str] log_destination: A map describing the logging destination for the chosen `log_destination_type`.
-               * For an Amazon S3 bucket, specify the key `bucketName` with the name of the bucket and optionally specify the key `prefix` with a path.
+               * For an Amazon S3 bucket, specify the key `bucketName` with the name of the bucket and optionally specify the key `prefix` with a path (Do not add a leading / in the `prefix` as the configuration will have two // when applied).
                * For a CloudWatch log group, specify the key `logGroup` with the name of the CloudWatch log group.
                * For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the name of the delivery stream.
         :param str log_destination_type: The location to send logs to. Valid values: `S3`, `CloudWatchLogs`, `KinesisDataFirehose`.
@@ -990,7 +1041,7 @@ class LoggingConfigurationLoggingConfigurationLogDestinationConfig(dict):
     def log_destination(self) -> Mapping[str, str]:
         """
         A map describing the logging destination for the chosen `log_destination_type`.
-        * For an Amazon S3 bucket, specify the key `bucketName` with the name of the bucket and optionally specify the key `prefix` with a path.
+        * For an Amazon S3 bucket, specify the key `bucketName` with the name of the bucket and optionally specify the key `prefix` with a path (Do not add a leading / in the `prefix` as the configuration will have two // when applied).
         * For a CloudWatch log group, specify the key `logGroup` with the name of the CloudWatch log group.
         * For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the name of the delivery stream.
         """

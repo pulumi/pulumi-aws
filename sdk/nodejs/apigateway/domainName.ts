@@ -90,10 +90,17 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import API Gateway domain names using their `name`. For example:
+ * For a private custom domain name:
+ *
+ * Using `pulumi import`, import API Gateway domain names using their `name` or `name` and `domain_name_id` (for private custom domain names). For example:
  *
  * ```sh
  * $ pulumi import aws:apigateway/domainName:DomainName example dev.example.com
+ * ```
+ * For a private custom domain name:
+ *
+ * ```sh
+ * $ pulumi import aws:apigateway/domainName:DomainName example dev.api.internal.example.com/abcde12345
  * ```
  */
 export class DomainName extends pulumi.CustomResource {
@@ -165,6 +172,10 @@ export class DomainName extends pulumi.CustomResource {
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
+     * The identifier for the domain name resource. Supported only for private custom domain names.
+     */
+    public /*out*/ readonly domainNameId!: pulumi.Output<string>;
+    /**
      * Configuration block defining API endpoint information including type. See below.
      */
     public readonly endpointConfiguration!: pulumi.Output<outputs.apigateway.DomainNameEndpointConfiguration>;
@@ -176,6 +187,10 @@ export class DomainName extends pulumi.CustomResource {
      * ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
      */
     public readonly ownershipVerificationCertificateArn!: pulumi.Output<string>;
+    /**
+     * A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+     */
+    public readonly policy!: pulumi.Output<string | undefined>;
     /**
      * ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
      *
@@ -234,9 +249,11 @@ export class DomainName extends pulumi.CustomResource {
             resourceInputs["cloudfrontDomainName"] = state ? state.cloudfrontDomainName : undefined;
             resourceInputs["cloudfrontZoneId"] = state ? state.cloudfrontZoneId : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["domainNameId"] = state ? state.domainNameId : undefined;
             resourceInputs["endpointConfiguration"] = state ? state.endpointConfiguration : undefined;
             resourceInputs["mutualTlsAuthentication"] = state ? state.mutualTlsAuthentication : undefined;
             resourceInputs["ownershipVerificationCertificateArn"] = state ? state.ownershipVerificationCertificateArn : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
             resourceInputs["regionalCertificateArn"] = state ? state.regionalCertificateArn : undefined;
             resourceInputs["regionalCertificateName"] = state ? state.regionalCertificateName : undefined;
             resourceInputs["regionalDomainName"] = state ? state.regionalDomainName : undefined;
@@ -258,6 +275,7 @@ export class DomainName extends pulumi.CustomResource {
             resourceInputs["endpointConfiguration"] = args ? args.endpointConfiguration : undefined;
             resourceInputs["mutualTlsAuthentication"] = args ? args.mutualTlsAuthentication : undefined;
             resourceInputs["ownershipVerificationCertificateArn"] = args ? args.ownershipVerificationCertificateArn : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["regionalCertificateArn"] = args ? args.regionalCertificateArn : undefined;
             resourceInputs["regionalCertificateName"] = args ? args.regionalCertificateName : undefined;
             resourceInputs["securityPolicy"] = args ? args.securityPolicy : undefined;
@@ -266,6 +284,7 @@ export class DomainName extends pulumi.CustomResource {
             resourceInputs["certificateUploadDate"] = undefined /*out*/;
             resourceInputs["cloudfrontDomainName"] = undefined /*out*/;
             resourceInputs["cloudfrontZoneId"] = undefined /*out*/;
+            resourceInputs["domainNameId"] = undefined /*out*/;
             resourceInputs["regionalDomainName"] = undefined /*out*/;
             resourceInputs["regionalZoneId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -322,6 +341,10 @@ export interface DomainNameState {
      */
     domainName?: pulumi.Input<string>;
     /**
+     * The identifier for the domain name resource. Supported only for private custom domain names.
+     */
+    domainNameId?: pulumi.Input<string>;
+    /**
      * Configuration block defining API endpoint information including type. See below.
      */
     endpointConfiguration?: pulumi.Input<inputs.apigateway.DomainNameEndpointConfiguration>;
@@ -333,6 +356,10 @@ export interface DomainNameState {
      * ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
      */
     ownershipVerificationCertificateArn?: pulumi.Input<string>;
+    /**
+     * A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+     */
+    policy?: pulumi.Input<string>;
     /**
      * ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
      *
@@ -409,6 +436,10 @@ export interface DomainNameArgs {
      * ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
      */
     ownershipVerificationCertificateArn?: pulumi.Input<string>;
+    /**
+     * A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+     */
+    policy?: pulumi.Input<string>;
     /**
      * ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
      *

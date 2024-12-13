@@ -25,6 +25,7 @@ export function getDomainName(args: GetDomainNameArgs, opts?: pulumi.InvokeOptio
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:apigateway/getDomainName:getDomainName", {
         "domainName": args.domainName,
+        "domainNameId": args.domainNameId,
         "tags": args.tags,
     }, opts);
 }
@@ -37,6 +38,10 @@ export interface GetDomainNameArgs {
      * Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
      */
     domainName: string;
+    /**
+     * The identifier for the domain name resource. Supported only for private custom domain names.
+     */
+    domainNameId?: string;
     /**
      * Key-value map of tags for the resource.
      */
@@ -72,6 +77,7 @@ export interface GetDomainNameResult {
      */
     readonly cloudfrontZoneId: string;
     readonly domainName: string;
+    readonly domainNameId: string;
     /**
      * List of objects with the endpoint configuration of this domain name.
      */
@@ -80,6 +86,10 @@ export interface GetDomainNameResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+     */
+    readonly policy: string;
     /**
      * ARN for an AWS-managed certificate that is used for validating the regional domain name.
      */
@@ -123,6 +133,7 @@ export function getDomainNameOutput(args: GetDomainNameOutputArgs, opts?: pulumi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:apigateway/getDomainName:getDomainName", {
         "domainName": args.domainName,
+        "domainNameId": args.domainNameId,
         "tags": args.tags,
     }, opts);
 }
@@ -135,6 +146,10 @@ export interface GetDomainNameOutputArgs {
      * Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
      */
     domainName: pulumi.Input<string>;
+    /**
+     * The identifier for the domain name resource. Supported only for private custom domain names.
+     */
+    domainNameId?: pulumi.Input<string>;
     /**
      * Key-value map of tags for the resource.
      */

@@ -8303,14 +8303,11 @@ if not MYPY:
     class LaunchTemplateNetworkInterfaceArgsDict(TypedDict):
         associate_carrier_ip_address: NotRequired[pulumi.Input[str]]
         """
-        Associate a Carrier IP address with `eth0` for a new network interface.
-        Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface.
-        Boolean value, can be left unset.
+        Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value, can be left unset.
         """
         associate_public_ip_address: NotRequired[pulumi.Input[str]]
         """
-        Associate a public ip address with the network interface.
-        Boolean value, can be left unset.
+        Associate a public ip address with the network interface. Boolean value, can be left unset.
         """
         delete_on_termination: NotRequired[pulumi.Input[str]]
         """
@@ -8411,11 +8408,8 @@ class LaunchTemplateNetworkInterfaceArgs:
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] associate_carrier_ip_address: Associate a Carrier IP address with `eth0` for a new network interface.
-               Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface.
-               Boolean value, can be left unset.
-        :param pulumi.Input[str] associate_public_ip_address: Associate a public ip address with the network interface.
-               Boolean value, can be left unset.
+        :param pulumi.Input[str] associate_carrier_ip_address: Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value, can be left unset.
+        :param pulumi.Input[str] associate_public_ip_address: Associate a public ip address with the network interface. Boolean value, can be left unset.
         :param pulumi.Input[str] delete_on_termination: Whether the network interface should be destroyed on instance termination.
         :param pulumi.Input[str] description: Description of the network interface.
         :param pulumi.Input[int] device_index: The integer index of the network interface attachment.
@@ -8480,9 +8474,7 @@ class LaunchTemplateNetworkInterfaceArgs:
     @pulumi.getter(name="associateCarrierIpAddress")
     def associate_carrier_ip_address(self) -> Optional[pulumi.Input[str]]:
         """
-        Associate a Carrier IP address with `eth0` for a new network interface.
-        Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface.
-        Boolean value, can be left unset.
+        Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value, can be left unset.
         """
         return pulumi.get(self, "associate_carrier_ip_address")
 
@@ -8494,8 +8486,7 @@ class LaunchTemplateNetworkInterfaceArgs:
     @pulumi.getter(name="associatePublicIpAddress")
     def associate_public_ip_address(self) -> Optional[pulumi.Input[str]]:
         """
-        Associate a public ip address with the network interface.
-        Boolean value, can be left unset.
+        Associate a public ip address with the network interface. Boolean value, can be left unset.
         """
         return pulumi.get(self, "associate_public_ip_address")
 

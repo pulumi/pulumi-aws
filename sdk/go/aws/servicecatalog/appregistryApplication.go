@@ -97,6 +97,12 @@ type AppregistryApplication struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A map of tags assigned to the Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewAppregistryApplication registers a new resource with the given unique name, arguments, and options.
@@ -139,6 +145,12 @@ type appregistryApplicationState struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// A map of tags assigned to the Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type AppregistryApplicationState struct {
@@ -152,6 +164,12 @@ type AppregistryApplicationState struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// A map of tags assigned to the Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapInput
 }
 
 func (AppregistryApplicationState) ElementType() reflect.Type {
@@ -165,6 +183,8 @@ type appregistryApplicationArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// A map of tags assigned to the Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AppregistryApplication resource.
@@ -175,6 +195,8 @@ type AppregistryApplicationArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// A map of tags assigned to the Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (AppregistryApplicationArgs) ElementType() reflect.Type {
@@ -284,6 +306,18 @@ func (o AppregistryApplicationOutput) Description() pulumi.StringPtrOutput {
 // The following arguments are optional:
 func (o AppregistryApplicationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppregistryApplication) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of tags assigned to the Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o AppregistryApplicationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AppregistryApplication) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
+func (o AppregistryApplicationOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AppregistryApplication) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 type AppregistryApplicationArrayOutput struct{ *pulumi.OutputState }

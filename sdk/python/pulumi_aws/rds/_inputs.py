@@ -587,6 +587,10 @@ if not MYPY:
         """
         Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
         """
+        seconds_until_auto_pause: NotRequired[pulumi.Input[int]]
+        """
+        Time, in seconds, before an Aurora DB cluster in `provisioned` DB engine mode is paused. Valid values are `300` through `86400`.
+        """
 elif False:
     ClusterServerlessv2ScalingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -594,13 +598,17 @@ elif False:
 class ClusterServerlessv2ScalingConfigurationArgs:
     def __init__(__self__, *,
                  max_capacity: pulumi.Input[float],
-                 min_capacity: pulumi.Input[float]):
+                 min_capacity: pulumi.Input[float],
+                 seconds_until_auto_pause: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[float] max_capacity: Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
         :param pulumi.Input[float] min_capacity: Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
+        :param pulumi.Input[int] seconds_until_auto_pause: Time, in seconds, before an Aurora DB cluster in `provisioned` DB engine mode is paused. Valid values are `300` through `86400`.
         """
         pulumi.set(__self__, "max_capacity", max_capacity)
         pulumi.set(__self__, "min_capacity", min_capacity)
+        if seconds_until_auto_pause is not None:
+            pulumi.set(__self__, "seconds_until_auto_pause", seconds_until_auto_pause)
 
     @property
     @pulumi.getter(name="maxCapacity")
@@ -625,6 +633,18 @@ class ClusterServerlessv2ScalingConfigurationArgs:
     @min_capacity.setter
     def min_capacity(self, value: pulumi.Input[float]):
         pulumi.set(self, "min_capacity", value)
+
+    @property
+    @pulumi.getter(name="secondsUntilAutoPause")
+    def seconds_until_auto_pause(self) -> Optional[pulumi.Input[int]]:
+        """
+        Time, in seconds, before an Aurora DB cluster in `provisioned` DB engine mode is paused. Valid values are `300` through `86400`.
+        """
+        return pulumi.get(self, "seconds_until_auto_pause")
+
+    @seconds_until_auto_pause.setter
+    def seconds_until_auto_pause(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "seconds_until_auto_pause", value)
 
 
 if not MYPY:
@@ -683,11 +703,11 @@ if not MYPY:
     class GlobalClusterGlobalClusterMemberArgsDict(TypedDict):
         db_cluster_arn: NotRequired[pulumi.Input[str]]
         """
-        Amazon Resource Name (ARN) of member DB Cluster
+        Amazon Resource Name (ARN) of member DB Cluster.
         """
         is_writer: NotRequired[pulumi.Input[bool]]
         """
-        Whether the member is the primary DB Cluster
+        Whether the member is the primary DB Cluster.
         """
 elif False:
     GlobalClusterGlobalClusterMemberArgsDict: TypeAlias = Mapping[str, Any]
@@ -698,8 +718,8 @@ class GlobalClusterGlobalClusterMemberArgs:
                  db_cluster_arn: Optional[pulumi.Input[str]] = None,
                  is_writer: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] db_cluster_arn: Amazon Resource Name (ARN) of member DB Cluster
-        :param pulumi.Input[bool] is_writer: Whether the member is the primary DB Cluster
+        :param pulumi.Input[str] db_cluster_arn: Amazon Resource Name (ARN) of member DB Cluster.
+        :param pulumi.Input[bool] is_writer: Whether the member is the primary DB Cluster.
         """
         if db_cluster_arn is not None:
             pulumi.set(__self__, "db_cluster_arn", db_cluster_arn)
@@ -710,7 +730,7 @@ class GlobalClusterGlobalClusterMemberArgs:
     @pulumi.getter(name="dbClusterArn")
     def db_cluster_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon Resource Name (ARN) of member DB Cluster
+        Amazon Resource Name (ARN) of member DB Cluster.
         """
         return pulumi.get(self, "db_cluster_arn")
 
@@ -722,7 +742,7 @@ class GlobalClusterGlobalClusterMemberArgs:
     @pulumi.getter(name="isWriter")
     def is_writer(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the member is the primary DB Cluster
+        Whether the member is the primary DB Cluster.
         """
         return pulumi.get(self, "is_writer")
 

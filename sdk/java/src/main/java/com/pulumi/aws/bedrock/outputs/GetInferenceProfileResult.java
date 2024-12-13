@@ -49,7 +49,7 @@ public final class GetInferenceProfileResult {
      */
     private String status;
     /**
-     * @return The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock.
+     * @return The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
      * 
      */
     private String type;
@@ -113,7 +113,7 @@ public final class GetInferenceProfileResult {
         return this.status;
     }
     /**
-     * @return The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock.
+     * @return The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
      * 
      */
     public String type() {

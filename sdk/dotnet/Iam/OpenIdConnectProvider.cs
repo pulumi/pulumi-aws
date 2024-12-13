@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Example Usage
     /// 
+    /// ### Basic Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,6 +40,28 @@ namespace Pulumi.Aws.Iam
     /// });
     /// ```
     /// 
+    /// ### Without A Thumbprint
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @default = new Aws.Iam.OpenIdConnectProvider("default", new()
+    ///     {
+    ///         Url = "https://accounts.google.com",
+    ///         ClientIdLists = new[]
+    ///         {
+    ///             "266362248691-342342xasdasdasda-apps.googleusercontent.com",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IAM OpenID Connect Providers using the `arn`. For example:
@@ -50,13 +74,13 @@ namespace Pulumi.Aws.Iam
     public partial class OpenIdConnectProvider : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN assigned by AWS for this provider.
+        /// ARN assigned by AWS for this provider.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the client_id parameter on OAuth requests.)
+        /// List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
         /// </summary>
         [Output("clientIdLists")]
         public Output<ImmutableArray<string>> ClientIdLists { get; private set; } = null!;
@@ -68,19 +92,16 @@ namespace Pulumi.Aws.Iam
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
-        /// </summary>
         [Output("thumbprintLists")]
         public Output<ImmutableArray<string>> ThumbprintLists { get; private set; } = null!;
 
         /// <summary>
-        /// The URL of the identity provider. Corresponds to the _iss_ claim.
+        /// URL of the identity provider, corresponding to the `iss` claim.
         /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
@@ -135,7 +156,7 @@ namespace Pulumi.Aws.Iam
         private InputList<string>? _clientIdLists;
 
         /// <summary>
-        /// A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the client_id parameter on OAuth requests.)
+        /// List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
         /// </summary>
         public InputList<string> ClientIdLists
         {
@@ -155,12 +176,8 @@ namespace Pulumi.Aws.Iam
             set => _tags = value;
         }
 
-        [Input("thumbprintLists", required: true)]
+        [Input("thumbprintLists")]
         private InputList<string>? _thumbprintLists;
-
-        /// <summary>
-        /// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
-        /// </summary>
         public InputList<string> ThumbprintLists
         {
             get => _thumbprintLists ?? (_thumbprintLists = new InputList<string>());
@@ -168,7 +185,7 @@ namespace Pulumi.Aws.Iam
         }
 
         /// <summary>
-        /// The URL of the identity provider. Corresponds to the _iss_ claim.
+        /// URL of the identity provider, corresponding to the `iss` claim.
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
@@ -182,7 +199,7 @@ namespace Pulumi.Aws.Iam
     public sealed class OpenIdConnectProviderState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN assigned by AWS for this provider.
+        /// ARN assigned by AWS for this provider.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -191,7 +208,7 @@ namespace Pulumi.Aws.Iam
         private InputList<string>? _clientIdLists;
 
         /// <summary>
-        /// A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the client_id parameter on OAuth requests.)
+        /// List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
         /// </summary>
         public InputList<string> ClientIdLists
         {
@@ -215,7 +232,7 @@ namespace Pulumi.Aws.Iam
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
@@ -226,10 +243,6 @@ namespace Pulumi.Aws.Iam
 
         [Input("thumbprintLists")]
         private InputList<string>? _thumbprintLists;
-
-        /// <summary>
-        /// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
-        /// </summary>
         public InputList<string> ThumbprintLists
         {
             get => _thumbprintLists ?? (_thumbprintLists = new InputList<string>());
@@ -237,7 +250,7 @@ namespace Pulumi.Aws.Iam
         }
 
         /// <summary>
-        /// The URL of the identity provider. Corresponds to the _iss_ claim.
+        /// URL of the identity provider, corresponding to the `iss` claim.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }

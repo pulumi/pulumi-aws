@@ -6397,11 +6397,8 @@ class LaunchTemplateNetworkInterface(dict):
                  security_groups: Optional[Sequence[str]] = None,
                  subnet_id: Optional[str] = None):
         """
-        :param str associate_carrier_ip_address: Associate a Carrier IP address with `eth0` for a new network interface.
-               Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface.
-               Boolean value, can be left unset.
-        :param str associate_public_ip_address: Associate a public ip address with the network interface.
-               Boolean value, can be left unset.
+        :param str associate_carrier_ip_address: Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value, can be left unset.
+        :param str associate_public_ip_address: Associate a public ip address with the network interface. Boolean value, can be left unset.
         :param str delete_on_termination: Whether the network interface should be destroyed on instance termination.
         :param str description: Description of the network interface.
         :param int device_index: The integer index of the network interface attachment.
@@ -6466,9 +6463,7 @@ class LaunchTemplateNetworkInterface(dict):
     @pulumi.getter(name="associateCarrierIpAddress")
     def associate_carrier_ip_address(self) -> Optional[str]:
         """
-        Associate a Carrier IP address with `eth0` for a new network interface.
-        Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface.
-        Boolean value, can be left unset.
+        Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value, can be left unset.
         """
         return pulumi.get(self, "associate_carrier_ip_address")
 
@@ -6476,8 +6471,7 @@ class LaunchTemplateNetworkInterface(dict):
     @pulumi.getter(name="associatePublicIpAddress")
     def associate_public_ip_address(self) -> Optional[str]:
         """
-        Associate a public ip address with the network interface.
-        Boolean value, can be left unset.
+        Associate a public ip address with the network interface. Boolean value, can be left unset.
         """
         return pulumi.get(self, "associate_public_ip_address")
 

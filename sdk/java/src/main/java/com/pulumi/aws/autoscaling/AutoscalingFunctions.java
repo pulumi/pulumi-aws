@@ -14,6 +14,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class AutoscalingFunctions {
@@ -392,6 +393,69 @@ public final class AutoscalingFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetAmiIdsResult> getAmiIds(GetAmiIdsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:autoscaling/getAmiIds:getAmiIds", TypeShape.of(GetAmiIdsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * The Autoscaling Groups data source allows access to the list of AWS
+     * ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.autoscaling.Notification;
+     * import com.pulumi.aws.autoscaling.NotificationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var groups = AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
+     *             .filters(            
+     *                 GetAmiIdsFilterArgs.builder()
+     *                     .name("tag:Team")
+     *                     .values("Pets")
+     *                     .build(),
+     *                 GetAmiIdsFilterArgs.builder()
+     *                     .name("tag-key")
+     *                     .values("Environment")
+     *                     .build())
+     *             .build());
+     * 
+     *         var slackNotifications = new Notification("slackNotifications", NotificationArgs.builder()
+     *             .groupNames(groups.applyValue(getAmiIdsResult -> getAmiIdsResult.names()))
+     *             .notifications(            
+     *                 "autoscaling:EC2_INSTANCE_LAUNCH",
+     *                 "autoscaling:EC2_INSTANCE_TERMINATE",
+     *                 "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
+     *                 "autoscaling:EC2_INSTANCE_TERMINATE_ERROR")
+     *             .topicArn("TOPIC ARN")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetAmiIdsResult> getAmiIdsPlain(GetAmiIdsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:autoscaling/getAmiIds:getAmiIds", TypeShape.of(GetAmiIdsResult.class), args, Utilities.withVersion(options));
     }
@@ -519,6 +583,48 @@ public final class AutoscalingFunctions {
      * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:autoscaling/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information on an existing autoscaling group.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
+     * import com.pulumi.aws.autoscaling.inputs.GetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var foo = AutoscalingFunctions.getGroup(GetGroupArgs.builder()
+     *             .name("foo")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:autoscaling/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
     }
     /**

@@ -288,6 +288,8 @@ func (o AccountVdmAttributesGuardianAttributesPtrOutput) OptimizedSharedDelivery
 }
 
 type ConfigurationSetDeliveryOptions struct {
+	// The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+	MaxDeliverySeconds *int `pulumi:"maxDeliverySeconds"`
 	// The name of the dedicated IP pool to associate with the configuration set.
 	SendingPoolName *string `pulumi:"sendingPoolName"`
 	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). Valid values: `REQUIRE`, `OPTIONAL`.
@@ -306,6 +308,8 @@ type ConfigurationSetDeliveryOptionsInput interface {
 }
 
 type ConfigurationSetDeliveryOptionsArgs struct {
+	// The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+	MaxDeliverySeconds pulumi.IntPtrInput `pulumi:"maxDeliverySeconds"`
 	// The name of the dedicated IP pool to associate with the configuration set.
 	SendingPoolName pulumi.StringPtrInput `pulumi:"sendingPoolName"`
 	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). Valid values: `REQUIRE`, `OPTIONAL`.
@@ -389,6 +393,11 @@ func (o ConfigurationSetDeliveryOptionsOutput) ToConfigurationSetDeliveryOptions
 	}).(ConfigurationSetDeliveryOptionsPtrOutput)
 }
 
+// The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+func (o ConfigurationSetDeliveryOptionsOutput) MaxDeliverySeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetDeliveryOptions) *int { return v.MaxDeliverySeconds }).(pulumi.IntPtrOutput)
+}
+
 // The name of the dedicated IP pool to associate with the configuration set.
 func (o ConfigurationSetDeliveryOptionsOutput) SendingPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetDeliveryOptions) *string { return v.SendingPoolName }).(pulumi.StringPtrOutput)
@@ -421,6 +430,16 @@ func (o ConfigurationSetDeliveryOptionsPtrOutput) Elem() ConfigurationSetDeliver
 		var ret ConfigurationSetDeliveryOptions
 		return ret
 	}).(ConfigurationSetDeliveryOptionsOutput)
+}
+
+// The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+func (o ConfigurationSetDeliveryOptionsPtrOutput) MaxDeliverySeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetDeliveryOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxDeliverySeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 // The name of the dedicated IP pool to associate with the configuration set.
@@ -1964,6 +1983,8 @@ func (o ConfigurationSetSuppressionOptionsPtrOutput) SuppressedReasons() pulumi.
 type ConfigurationSetTrackingOptions struct {
 	// The domain to use for tracking open and click events.
 	CustomRedirectDomain string `pulumi:"customRedirectDomain"`
+	// The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+	HttpsPolicy *string `pulumi:"httpsPolicy"`
 }
 
 // ConfigurationSetTrackingOptionsInput is an input type that accepts ConfigurationSetTrackingOptionsArgs and ConfigurationSetTrackingOptionsOutput values.
@@ -1980,6 +2001,8 @@ type ConfigurationSetTrackingOptionsInput interface {
 type ConfigurationSetTrackingOptionsArgs struct {
 	// The domain to use for tracking open and click events.
 	CustomRedirectDomain pulumi.StringInput `pulumi:"customRedirectDomain"`
+	// The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+	HttpsPolicy pulumi.StringPtrInput `pulumi:"httpsPolicy"`
 }
 
 func (ConfigurationSetTrackingOptionsArgs) ElementType() reflect.Type {
@@ -2064,6 +2087,11 @@ func (o ConfigurationSetTrackingOptionsOutput) CustomRedirectDomain() pulumi.Str
 	return o.ApplyT(func(v ConfigurationSetTrackingOptions) string { return v.CustomRedirectDomain }).(pulumi.StringOutput)
 }
 
+// The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+func (o ConfigurationSetTrackingOptionsOutput) HttpsPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetTrackingOptions) *string { return v.HttpsPolicy }).(pulumi.StringPtrOutput)
+}
+
 type ConfigurationSetTrackingOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetTrackingOptionsPtrOutput) ElementType() reflect.Type {
@@ -2095,6 +2123,16 @@ func (o ConfigurationSetTrackingOptionsPtrOutput) CustomRedirectDomain() pulumi.
 			return nil
 		}
 		return &v.CustomRedirectDomain
+	}).(pulumi.StringPtrOutput)
+}
+
+// The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+func (o ConfigurationSetTrackingOptionsPtrOutput) HttpsPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetTrackingOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpsPolicy
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2941,6 +2979,8 @@ func (o EmailIdentityDkimSigningAttributesPtrOutput) Tokens() pulumi.StringArray
 }
 
 type GetConfigurationSetDeliveryOption struct {
+	// The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+	MaxDeliverySeconds int `pulumi:"maxDeliverySeconds"`
 	// The name of the dedicated IP pool to associate with the configuration set.
 	SendingPoolName string `pulumi:"sendingPoolName"`
 	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
@@ -2959,6 +2999,8 @@ type GetConfigurationSetDeliveryOptionInput interface {
 }
 
 type GetConfigurationSetDeliveryOptionArgs struct {
+	// The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+	MaxDeliverySeconds pulumi.IntInput `pulumi:"maxDeliverySeconds"`
 	// The name of the dedicated IP pool to associate with the configuration set.
 	SendingPoolName pulumi.StringInput `pulumi:"sendingPoolName"`
 	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
@@ -3014,6 +3056,11 @@ func (o GetConfigurationSetDeliveryOptionOutput) ToGetConfigurationSetDeliveryOp
 
 func (o GetConfigurationSetDeliveryOptionOutput) ToGetConfigurationSetDeliveryOptionOutputWithContext(ctx context.Context) GetConfigurationSetDeliveryOptionOutput {
 	return o
+}
+
+// The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+func (o GetConfigurationSetDeliveryOptionOutput) MaxDeliverySeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetConfigurationSetDeliveryOption) int { return v.MaxDeliverySeconds }).(pulumi.IntOutput)
 }
 
 // The name of the dedicated IP pool to associate with the configuration set.
@@ -3349,6 +3396,8 @@ func (o GetConfigurationSetSuppressionOptionArrayOutput) Index(i pulumi.IntInput
 type GetConfigurationSetTrackingOption struct {
 	// The domain to use for tracking open and click events.
 	CustomRedirectDomain string `pulumi:"customRedirectDomain"`
+	// The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+	HttpsPolicy string `pulumi:"httpsPolicy"`
 }
 
 // GetConfigurationSetTrackingOptionInput is an input type that accepts GetConfigurationSetTrackingOptionArgs and GetConfigurationSetTrackingOptionOutput values.
@@ -3365,6 +3414,8 @@ type GetConfigurationSetTrackingOptionInput interface {
 type GetConfigurationSetTrackingOptionArgs struct {
 	// The domain to use for tracking open and click events.
 	CustomRedirectDomain pulumi.StringInput `pulumi:"customRedirectDomain"`
+	// The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+	HttpsPolicy pulumi.StringInput `pulumi:"httpsPolicy"`
 }
 
 func (GetConfigurationSetTrackingOptionArgs) ElementType() reflect.Type {
@@ -3421,6 +3472,11 @@ func (o GetConfigurationSetTrackingOptionOutput) ToGetConfigurationSetTrackingOp
 // The domain to use for tracking open and click events.
 func (o GetConfigurationSetTrackingOptionOutput) CustomRedirectDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConfigurationSetTrackingOption) string { return v.CustomRedirectDomain }).(pulumi.StringOutput)
+}
+
+// The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+func (o GetConfigurationSetTrackingOptionOutput) HttpsPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfigurationSetTrackingOption) string { return v.HttpsPolicy }).(pulumi.StringOutput)
 }
 
 type GetConfigurationSetTrackingOptionArrayOutput struct{ *pulumi.OutputState }

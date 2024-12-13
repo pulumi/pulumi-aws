@@ -67,6 +67,8 @@ type LookupAppregistryApplicationResult struct {
 	Id          string `pulumi:"id"`
 	// Name of the application.
 	Name string `pulumi:"name"`
+	// A map of tags assigned to the Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupAppregistryApplicationOutput(ctx *pulumi.Context, args LookupAppregistryApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupAppregistryApplicationResultOutput {
@@ -135,6 +137,11 @@ func (o LookupAppregistryApplicationResultOutput) Id() pulumi.StringOutput {
 // Name of the application.
 func (o LookupAppregistryApplicationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAppregistryApplicationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of tags assigned to the Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o LookupAppregistryApplicationResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupAppregistryApplicationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

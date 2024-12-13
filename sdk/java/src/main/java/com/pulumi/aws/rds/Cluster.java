@@ -272,7 +272,8 @@ import javax.annotation.Nullable;
  *             .storageEncrypted(true)
  *             .serverlessv2ScalingConfiguration(ClusterServerlessv2ScalingConfigurationArgs.builder()
  *                 .maxCapacity(1)
- *                 .minCapacity(0.5)
+ *                 .minCapacity(0)
+ *                 .secondsUntilAutoPause(3600)
  *                 .build())
  *             .build());
  * 

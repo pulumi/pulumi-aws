@@ -158,10 +158,17 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import API Gateway domain names using their `name`. For example:
+ * For a private custom domain name:
+ * 
+ * Using `pulumi import`, import API Gateway domain names using their `name` or `name` and `domain_name_id` (for private custom domain names). For example:
  * 
  * ```sh
  * $ pulumi import aws:apigateway/domainName:DomainName example dev.example.com
+ * ```
+ * For a private custom domain name:
+ * 
+ * ```sh
+ * $ pulumi import aws:apigateway/domainName:DomainName example dev.api.internal.example.com/abcde12345
  * ```
  * 
  */
@@ -308,6 +315,20 @@ public class DomainName extends com.pulumi.resources.CustomResource {
         return this.domainName;
     }
     /**
+     * The identifier for the domain name resource. Supported only for private custom domain names.
+     * 
+     */
+    @Export(name="domainNameId", refs={String.class}, tree="[0]")
+    private Output<String> domainNameId;
+
+    /**
+     * @return The identifier for the domain name resource. Supported only for private custom domain names.
+     * 
+     */
+    public Output<String> domainNameId() {
+        return this.domainNameId;
+    }
+    /**
      * Configuration block defining API endpoint information including type. See below.
      * 
      */
@@ -348,6 +369,20 @@ public class DomainName extends com.pulumi.resources.CustomResource {
      */
     public Output<String> ownershipVerificationCertificateArn() {
         return this.ownershipVerificationCertificateArn;
+    }
+    /**
+     * A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+     * 
+     */
+    @Export(name="policy", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> policy;
+
+    /**
+     * @return A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+     * 
+     */
+    public Output<Optional<String>> policy() {
+        return Codegen.optional(this.policy);
     }
     /**
      * ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.

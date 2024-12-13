@@ -15,7 +15,9 @@ import {RestApi} from "./index";
  *
  * For a non-root `base_path`:
  *
- * Using `pulumi import`, import `aws_api_gateway_base_path_mapping` using the domain name and base path. For example:
+ * For a non-root `base_path` and a private custom domain name:
+ *
+ * Using `pulumi import`, import `aws_api_gateway_base_path_mapping` using the domain name and base path or domain name, base path and domain name ID (for private custom domain names). For example:
  *
  * For an empty `base_path` or, in other words, a root path (`/`):
  *
@@ -26,6 +28,11 @@ import {RestApi} from "./index";
  *
  * ```sh
  * $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
+ * ```
+ * For a non-root `base_path` and a private custom domain name:
+ *
+ * ```sh
+ * $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example api.internal.example.com/base-path/abcde12345
  * ```
  */
 export class BasePathMapping extends pulumi.CustomResource {
@@ -65,6 +72,10 @@ export class BasePathMapping extends pulumi.CustomResource {
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
+     * The identifier for the domain name resource. Supported only for private custom domain names.
+     */
+    public readonly domainNameId!: pulumi.Output<string | undefined>;
+    /**
      * ID of the API to connect.
      */
     public readonly restApi!: pulumi.Output<string>;
@@ -88,6 +99,7 @@ export class BasePathMapping extends pulumi.CustomResource {
             const state = argsOrState as BasePathMappingState | undefined;
             resourceInputs["basePath"] = state ? state.basePath : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["domainNameId"] = state ? state.domainNameId : undefined;
             resourceInputs["restApi"] = state ? state.restApi : undefined;
             resourceInputs["stageName"] = state ? state.stageName : undefined;
         } else {
@@ -100,6 +112,7 @@ export class BasePathMapping extends pulumi.CustomResource {
             }
             resourceInputs["basePath"] = args ? args.basePath : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["domainNameId"] = args ? args.domainNameId : undefined;
             resourceInputs["restApi"] = args ? args.restApi : undefined;
             resourceInputs["stageName"] = args ? args.stageName : undefined;
         }
@@ -120,6 +133,10 @@ export interface BasePathMappingState {
      * Already-registered domain name to connect the API to.
      */
     domainName?: pulumi.Input<string>;
+    /**
+     * The identifier for the domain name resource. Supported only for private custom domain names.
+     */
+    domainNameId?: pulumi.Input<string>;
     /**
      * ID of the API to connect.
      */
@@ -142,6 +159,10 @@ export interface BasePathMappingArgs {
      * Already-registered domain name to connect the API to.
      */
     domainName: pulumi.Input<string>;
+    /**
+     * The identifier for the domain name resource. Supported only for private custom domain names.
+     */
+    domainNameId?: pulumi.Input<string>;
     /**
      * ID of the API to connect.
      */

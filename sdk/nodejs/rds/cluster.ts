@@ -142,7 +142,8 @@ import * as utilities from "../utilities";
  *     storageEncrypted: true,
  *     serverlessv2ScalingConfiguration: {
  *         maxCapacity: 1,
- *         minCapacity: 0.5,
+ *         minCapacity: 0,
+ *         secondsUntilAutoPause: 3600,
  *     },
  * });
  * const exampleClusterInstance = new aws.rds.ClusterInstance("example", {

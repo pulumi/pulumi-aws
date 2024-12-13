@@ -68,6 +68,10 @@ export class SnapshotCopy extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
+     */
+    public readonly completionDurationMinutes!: pulumi.Output<number | undefined>;
+    /**
      * The data encryption key identifier for the snapshot.
      */
     public /*out*/ readonly dataEncryptionKeyId!: pulumi.Output<string>;
@@ -142,6 +146,7 @@ export class SnapshotCopy extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SnapshotCopyState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["completionDurationMinutes"] = state ? state.completionDurationMinutes : undefined;
             resourceInputs["dataEncryptionKeyId"] = state ? state.dataEncryptionKeyId : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["encrypted"] = state ? state.encrypted : undefined;
@@ -166,6 +171,7 @@ export class SnapshotCopy extends pulumi.CustomResource {
             if ((!args || args.sourceSnapshotId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceSnapshotId'");
             }
+            resourceInputs["completionDurationMinutes"] = args ? args.completionDurationMinutes : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["encrypted"] = args ? args.encrypted : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
@@ -197,6 +203,10 @@ export interface SnapshotCopyState {
      * Amazon Resource Name (ARN) of the EBS Snapshot.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
+     */
+    completionDurationMinutes?: pulumi.Input<number>;
     /**
      * The data encryption key identifier for the snapshot.
      */
@@ -263,6 +273,10 @@ export interface SnapshotCopyState {
  * The set of arguments for constructing a SnapshotCopy resource.
  */
 export interface SnapshotCopyArgs {
+    /**
+     * Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
+     */
+    completionDurationMinutes?: pulumi.Input<number>;
     /**
      * A description of what the snapshot is.
      */

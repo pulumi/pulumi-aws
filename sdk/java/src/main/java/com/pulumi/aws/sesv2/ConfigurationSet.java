@@ -59,6 +59,7 @@ import javax.annotation.Nullable;
  *         var example = new ConfigurationSet("example", ConfigurationSetArgs.builder()
  *             .configurationSetName("example")
  *             .deliveryOptions(ConfigurationSetDeliveryOptionsArgs.builder()
+ *                 .maxDeliverySeconds(300)
  *                 .tlsPolicy("REQUIRE")
  *                 .build())
  *             .reputationOptions(ConfigurationSetReputationOptionsArgs.builder()
@@ -74,6 +75,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .trackingOptions(ConfigurationSetTrackingOptionsArgs.builder()
  *                 .customRedirectDomain("example.com")
+ *                 .httpsPolicy("REQUIRE")
  *                 .build())
  *             .build());
  * 

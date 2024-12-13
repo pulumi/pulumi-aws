@@ -131,13 +131,12 @@ class InstanceArgs:
                Replicate database managed by the provider will promote the database to a fully
                standalone database.
         :param pulumi.Input[str] db_name: The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
-        :param pulumi.Input[str] db_subnet_group_name: Name of DB subnet group. DB instance will
-               be created in the VPC associated with the DB subnet group. If unspecified, will
-               be created in the `default` VPC, or in EC2 Classic, if available. When working
-               with read replicas, it should be specified only if the source database
-               specifies an instance in another AWS Region. See [DBSubnetGroupName in API
-               action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-               for additional read replica constraints.
+        :param pulumi.Input[str] db_subnet_group_name: Name of DB subnet group.
+               DB instance will be created in the VPC associated with the DB subnet group.
+               If unspecified, will be created in the `default` Subnet Group.
+               When working with read replicas created in the same region, defaults to the Subnet Group Name of the source DB.
+               When working with read replicas created in a different region, defaults to the `default` Subnet Group.
+               See [DBSubnetGroupName in API action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html) for additional read replica constraints.
         :param pulumi.Input[bool] dedicated_log_volume: Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
         :param pulumi.Input[bool] delete_automated_backups: Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
         :param pulumi.Input[bool] deletion_protection: If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
@@ -204,25 +203,23 @@ class InstanceArgs:
                accessible. Default is `false`.
         :param pulumi.Input[str] replica_mode: Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
                is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
-        :param pulumi.Input[str] replicate_source_db: Specifies that this resource is a Replicate
-               database, and to use this value as the source database. This correlates to the
-               `identifier` of another Amazon RDS Database to replicate (if replicating within
-               a single region) or ARN of the Amazon RDS Database to replicate (if replicating
-               cross-region). Note that if you are
-               creating a cross-region replica of an encrypted database you will also need to
-               specify a `kms_key_id`. See [DB Instance Replication][instance-replication] and [Working with
-               PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
-               for more information on using Replication.
-        :param pulumi.Input['InstanceRestoreToPointInTimeArgs'] restore_to_point_in_time: A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+        :param pulumi.Input[str] replicate_source_db: Specifies that this resource is a Replica database, and to use this value as the source database.
+               If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `db_subnet_group_name`.
+               If specifying the `db_subnet_group_name` in the same region, use the `arn` of the source DB.
+               If replicating an Instance in a different region, use the `arn` of the source DB.
+               Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kms_key_id`.
+               See [DB Instance Replication][instance-replication] and [Working with PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) for more information on using Replication.
+        :param pulumi.Input['InstanceRestoreToPointInTimeArgs'] restore_to_point_in_time: A configuration block for restoring a DB instance to an arbitrary point in time.
+               Requires the `identifier` argument to be set with the name of the new DB instance to be created.
+               See Restore To Point In Time below for details.
         :param pulumi.Input['InstanceS3ImportArgs'] s3_import: Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is
                created before the DB instance is deleted. If true is specified, no DBSnapshot
                is created. If false is specified, a DB snapshot is created before the DB
                instance is deleted, using the value from `final_snapshot_identifier`. Default
                is `false`.
-        :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this
-               database from a snapshot. This correlates to the snapshot ID you'd find in the
-               RDS console, e.g: rds:production-2015-06-26-06-05.
+        :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this database from a snapshot.
+               This corresponds to the snapshot ID you'd find in the RDS console, e.g: rds:production-2015-06-26-06-05.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB instance is
                encrypted. Note that if you are creating a cross-region read replica this field
                is ignored and you should instead declare `kms_key_id` with a valid ARN. The
@@ -238,7 +235,8 @@ class InstanceArgs:
                creation. See [MSSQL User
                Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
                for more information.
-        :param pulumi.Input[bool] upgrade_storage_config: Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
+        :param pulumi.Input[bool] upgrade_storage_config: Whether to upgrade the storage file system configuration on the read replica.
+               Can only be set with `replicate_source_db`.
         :param pulumi.Input[str] username: (Required unless a `snapshot_identifier` or `replicate_source_db`
                is provided) Username for the master DB user. Cannot be specified for a replica.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to
@@ -603,13 +601,12 @@ class InstanceArgs:
     @pulumi.getter(name="dbSubnetGroupName")
     def db_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of DB subnet group. DB instance will
-        be created in the VPC associated with the DB subnet group. If unspecified, will
-        be created in the `default` VPC, or in EC2 Classic, if available. When working
-        with read replicas, it should be specified only if the source database
-        specifies an instance in another AWS Region. See [DBSubnetGroupName in API
-        action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-        for additional read replica constraints.
+        Name of DB subnet group.
+        DB instance will be created in the VPC associated with the DB subnet group.
+        If unspecified, will be created in the `default` Subnet Group.
+        When working with read replicas created in the same region, defaults to the Subnet Group Name of the source DB.
+        When working with read replicas created in a different region, defaults to the `default` Subnet Group.
+        See [DBSubnetGroupName in API action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html) for additional read replica constraints.
         """
         return pulumi.get(self, "db_subnet_group_name")
 
@@ -1115,15 +1112,12 @@ class InstanceArgs:
     @pulumi.getter(name="replicateSourceDb")
     def replicate_source_db(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies that this resource is a Replicate
-        database, and to use this value as the source database. This correlates to the
-        `identifier` of another Amazon RDS Database to replicate (if replicating within
-        a single region) or ARN of the Amazon RDS Database to replicate (if replicating
-        cross-region). Note that if you are
-        creating a cross-region replica of an encrypted database you will also need to
-        specify a `kms_key_id`. See [DB Instance Replication][instance-replication] and [Working with
-        PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
-        for more information on using Replication.
+        Specifies that this resource is a Replica database, and to use this value as the source database.
+        If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `db_subnet_group_name`.
+        If specifying the `db_subnet_group_name` in the same region, use the `arn` of the source DB.
+        If replicating an Instance in a different region, use the `arn` of the source DB.
+        Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kms_key_id`.
+        See [DB Instance Replication][instance-replication] and [Working with PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) for more information on using Replication.
         """
         return pulumi.get(self, "replicate_source_db")
 
@@ -1135,7 +1129,9 @@ class InstanceArgs:
     @pulumi.getter(name="restoreToPointInTime")
     def restore_to_point_in_time(self) -> Optional[pulumi.Input['InstanceRestoreToPointInTimeArgs']]:
         """
-        A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+        A configuration block for restoring a DB instance to an arbitrary point in time.
+        Requires the `identifier` argument to be set with the name of the new DB instance to be created.
+        See Restore To Point In Time below for details.
         """
         return pulumi.get(self, "restore_to_point_in_time")
 
@@ -1175,9 +1171,8 @@ class InstanceArgs:
     @pulumi.getter(name="snapshotIdentifier")
     def snapshot_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies whether or not to create this
-        database from a snapshot. This correlates to the snapshot ID you'd find in the
-        RDS console, e.g: rds:production-2015-06-26-06-05.
+        Specifies whether or not to create this database from a snapshot.
+        This corresponds to the snapshot ID you'd find in the RDS console, e.g: rds:production-2015-06-26-06-05.
         """
         return pulumi.get(self, "snapshot_identifier")
 
@@ -1259,7 +1254,8 @@ class InstanceArgs:
     @pulumi.getter(name="upgradeStorageConfig")
     def upgrade_storage_config(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
+        Whether to upgrade the storage file system configuration on the read replica.
+        Can only be set with `replicate_source_db`.
         """
         return pulumi.get(self, "upgrade_storage_config")
 
@@ -1419,13 +1415,12 @@ class _InstanceState:
                Replicate database managed by the provider will promote the database to a fully
                standalone database.
         :param pulumi.Input[str] db_name: The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
-        :param pulumi.Input[str] db_subnet_group_name: Name of DB subnet group. DB instance will
-               be created in the VPC associated with the DB subnet group. If unspecified, will
-               be created in the `default` VPC, or in EC2 Classic, if available. When working
-               with read replicas, it should be specified only if the source database
-               specifies an instance in another AWS Region. See [DBSubnetGroupName in API
-               action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-               for additional read replica constraints.
+        :param pulumi.Input[str] db_subnet_group_name: Name of DB subnet group.
+               DB instance will be created in the VPC associated with the DB subnet group.
+               If unspecified, will be created in the `default` Subnet Group.
+               When working with read replicas created in the same region, defaults to the Subnet Group Name of the source DB.
+               When working with read replicas created in a different region, defaults to the `default` Subnet Group.
+               See [DBSubnetGroupName in API action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html) for additional read replica constraints.
         :param pulumi.Input[bool] dedicated_log_volume: Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
         :param pulumi.Input[bool] delete_automated_backups: Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
         :param pulumi.Input[bool] deletion_protection: If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
@@ -1499,26 +1494,24 @@ class _InstanceState:
                accessible. Default is `false`.
         :param pulumi.Input[str] replica_mode: Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
                is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
-        :param pulumi.Input[str] replicate_source_db: Specifies that this resource is a Replicate
-               database, and to use this value as the source database. This correlates to the
-               `identifier` of another Amazon RDS Database to replicate (if replicating within
-               a single region) or ARN of the Amazon RDS Database to replicate (if replicating
-               cross-region). Note that if you are
-               creating a cross-region replica of an encrypted database you will also need to
-               specify a `kms_key_id`. See [DB Instance Replication][instance-replication] and [Working with
-               PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
-               for more information on using Replication.
+        :param pulumi.Input[str] replicate_source_db: Specifies that this resource is a Replica database, and to use this value as the source database.
+               If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `db_subnet_group_name`.
+               If specifying the `db_subnet_group_name` in the same region, use the `arn` of the source DB.
+               If replicating an Instance in a different region, use the `arn` of the source DB.
+               Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kms_key_id`.
+               See [DB Instance Replication][instance-replication] and [Working with PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) for more information on using Replication.
         :param pulumi.Input[str] resource_id: The RDS Resource ID of this instance.
-        :param pulumi.Input['InstanceRestoreToPointInTimeArgs'] restore_to_point_in_time: A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+        :param pulumi.Input['InstanceRestoreToPointInTimeArgs'] restore_to_point_in_time: A configuration block for restoring a DB instance to an arbitrary point in time.
+               Requires the `identifier` argument to be set with the name of the new DB instance to be created.
+               See Restore To Point In Time below for details.
         :param pulumi.Input['InstanceS3ImportArgs'] s3_import: Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is
                created before the DB instance is deleted. If true is specified, no DBSnapshot
                is created. If false is specified, a DB snapshot is created before the DB
                instance is deleted, using the value from `final_snapshot_identifier`. Default
                is `false`.
-        :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this
-               database from a snapshot. This correlates to the snapshot ID you'd find in the
-               RDS console, e.g: rds:production-2015-06-26-06-05.
+        :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this database from a snapshot.
+               This corresponds to the snapshot ID you'd find in the RDS console, e.g: rds:production-2015-06-26-06-05.
         :param pulumi.Input[str] status: The RDS instance status.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB instance is
                encrypted. Note that if you are creating a cross-region read replica this field
@@ -1536,7 +1529,8 @@ class _InstanceState:
                creation. See [MSSQL User
                Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
                for more information.
-        :param pulumi.Input[bool] upgrade_storage_config: Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
+        :param pulumi.Input[bool] upgrade_storage_config: Whether to upgrade the storage file system configuration on the read replica.
+               Can only be set with `replicate_source_db`.
         :param pulumi.Input[str] username: (Required unless a `snapshot_identifier` or `replicate_source_db`
                is provided) Username for the master DB user. Cannot be specified for a replica.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to
@@ -1941,13 +1935,12 @@ class _InstanceState:
     @pulumi.getter(name="dbSubnetGroupName")
     def db_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of DB subnet group. DB instance will
-        be created in the VPC associated with the DB subnet group. If unspecified, will
-        be created in the `default` VPC, or in EC2 Classic, if available. When working
-        with read replicas, it should be specified only if the source database
-        specifies an instance in another AWS Region. See [DBSubnetGroupName in API
-        action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-        for additional read replica constraints.
+        Name of DB subnet group.
+        DB instance will be created in the VPC associated with the DB subnet group.
+        If unspecified, will be created in the `default` Subnet Group.
+        When working with read replicas created in the same region, defaults to the Subnet Group Name of the source DB.
+        When working with read replicas created in a different region, defaults to the `default` Subnet Group.
+        See [DBSubnetGroupName in API action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html) for additional read replica constraints.
         """
         return pulumi.get(self, "db_subnet_group_name")
 
@@ -2546,15 +2539,12 @@ class _InstanceState:
     @pulumi.getter(name="replicateSourceDb")
     def replicate_source_db(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies that this resource is a Replicate
-        database, and to use this value as the source database. This correlates to the
-        `identifier` of another Amazon RDS Database to replicate (if replicating within
-        a single region) or ARN of the Amazon RDS Database to replicate (if replicating
-        cross-region). Note that if you are
-        creating a cross-region replica of an encrypted database you will also need to
-        specify a `kms_key_id`. See [DB Instance Replication][instance-replication] and [Working with
-        PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
-        for more information on using Replication.
+        Specifies that this resource is a Replica database, and to use this value as the source database.
+        If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `db_subnet_group_name`.
+        If specifying the `db_subnet_group_name` in the same region, use the `arn` of the source DB.
+        If replicating an Instance in a different region, use the `arn` of the source DB.
+        Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kms_key_id`.
+        See [DB Instance Replication][instance-replication] and [Working with PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) for more information on using Replication.
         """
         return pulumi.get(self, "replicate_source_db")
 
@@ -2578,7 +2568,9 @@ class _InstanceState:
     @pulumi.getter(name="restoreToPointInTime")
     def restore_to_point_in_time(self) -> Optional[pulumi.Input['InstanceRestoreToPointInTimeArgs']]:
         """
-        A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+        A configuration block for restoring a DB instance to an arbitrary point in time.
+        Requires the `identifier` argument to be set with the name of the new DB instance to be created.
+        See Restore To Point In Time below for details.
         """
         return pulumi.get(self, "restore_to_point_in_time")
 
@@ -2618,9 +2610,8 @@ class _InstanceState:
     @pulumi.getter(name="snapshotIdentifier")
     def snapshot_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies whether or not to create this
-        database from a snapshot. This correlates to the snapshot ID you'd find in the
-        RDS console, e.g: rds:production-2015-06-26-06-05.
+        Specifies whether or not to create this database from a snapshot.
+        This corresponds to the snapshot ID you'd find in the RDS console, e.g: rds:production-2015-06-26-06-05.
         """
         return pulumi.get(self, "snapshot_identifier")
 
@@ -2727,7 +2718,8 @@ class _InstanceState:
     @pulumi.getter(name="upgradeStorageConfig")
     def upgrade_storage_config(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
+        Whether to upgrade the storage file system configuration on the read replica.
+        Can only be set with `replicate_source_db`.
         """
         return pulumi.get(self, "upgrade_storage_config")
 
@@ -3129,13 +3121,12 @@ class Instance(pulumi.CustomResource):
                Replicate database managed by the provider will promote the database to a fully
                standalone database.
         :param pulumi.Input[str] db_name: The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
-        :param pulumi.Input[str] db_subnet_group_name: Name of DB subnet group. DB instance will
-               be created in the VPC associated with the DB subnet group. If unspecified, will
-               be created in the `default` VPC, or in EC2 Classic, if available. When working
-               with read replicas, it should be specified only if the source database
-               specifies an instance in another AWS Region. See [DBSubnetGroupName in API
-               action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-               for additional read replica constraints.
+        :param pulumi.Input[str] db_subnet_group_name: Name of DB subnet group.
+               DB instance will be created in the VPC associated with the DB subnet group.
+               If unspecified, will be created in the `default` Subnet Group.
+               When working with read replicas created in the same region, defaults to the Subnet Group Name of the source DB.
+               When working with read replicas created in a different region, defaults to the `default` Subnet Group.
+               See [DBSubnetGroupName in API action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html) for additional read replica constraints.
         :param pulumi.Input[bool] dedicated_log_volume: Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
         :param pulumi.Input[bool] delete_automated_backups: Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
         :param pulumi.Input[bool] deletion_protection: If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
@@ -3203,25 +3194,23 @@ class Instance(pulumi.CustomResource):
                accessible. Default is `false`.
         :param pulumi.Input[str] replica_mode: Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
                is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
-        :param pulumi.Input[str] replicate_source_db: Specifies that this resource is a Replicate
-               database, and to use this value as the source database. This correlates to the
-               `identifier` of another Amazon RDS Database to replicate (if replicating within
-               a single region) or ARN of the Amazon RDS Database to replicate (if replicating
-               cross-region). Note that if you are
-               creating a cross-region replica of an encrypted database you will also need to
-               specify a `kms_key_id`. See [DB Instance Replication][instance-replication] and [Working with
-               PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
-               for more information on using Replication.
-        :param pulumi.Input[Union['InstanceRestoreToPointInTimeArgs', 'InstanceRestoreToPointInTimeArgsDict']] restore_to_point_in_time: A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+        :param pulumi.Input[str] replicate_source_db: Specifies that this resource is a Replica database, and to use this value as the source database.
+               If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `db_subnet_group_name`.
+               If specifying the `db_subnet_group_name` in the same region, use the `arn` of the source DB.
+               If replicating an Instance in a different region, use the `arn` of the source DB.
+               Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kms_key_id`.
+               See [DB Instance Replication][instance-replication] and [Working with PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) for more information on using Replication.
+        :param pulumi.Input[Union['InstanceRestoreToPointInTimeArgs', 'InstanceRestoreToPointInTimeArgsDict']] restore_to_point_in_time: A configuration block for restoring a DB instance to an arbitrary point in time.
+               Requires the `identifier` argument to be set with the name of the new DB instance to be created.
+               See Restore To Point In Time below for details.
         :param pulumi.Input[Union['InstanceS3ImportArgs', 'InstanceS3ImportArgsDict']] s3_import: Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is
                created before the DB instance is deleted. If true is specified, no DBSnapshot
                is created. If false is specified, a DB snapshot is created before the DB
                instance is deleted, using the value from `final_snapshot_identifier`. Default
                is `false`.
-        :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this
-               database from a snapshot. This correlates to the snapshot ID you'd find in the
-               RDS console, e.g: rds:production-2015-06-26-06-05.
+        :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this database from a snapshot.
+               This corresponds to the snapshot ID you'd find in the RDS console, e.g: rds:production-2015-06-26-06-05.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB instance is
                encrypted. Note that if you are creating a cross-region read replica this field
                is ignored and you should instead declare `kms_key_id` with a valid ARN. The
@@ -3237,7 +3226,8 @@ class Instance(pulumi.CustomResource):
                creation. See [MSSQL User
                Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
                for more information.
-        :param pulumi.Input[bool] upgrade_storage_config: Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
+        :param pulumi.Input[bool] upgrade_storage_config: Whether to upgrade the storage file system configuration on the read replica.
+               Can only be set with `replicate_source_db`.
         :param pulumi.Input[str] username: (Required unless a `snapshot_identifier` or `replicate_source_db`
                is provided) Username for the master DB user. Cannot be specified for a replica.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to
@@ -3817,13 +3807,12 @@ class Instance(pulumi.CustomResource):
                Replicate database managed by the provider will promote the database to a fully
                standalone database.
         :param pulumi.Input[str] db_name: The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
-        :param pulumi.Input[str] db_subnet_group_name: Name of DB subnet group. DB instance will
-               be created in the VPC associated with the DB subnet group. If unspecified, will
-               be created in the `default` VPC, or in EC2 Classic, if available. When working
-               with read replicas, it should be specified only if the source database
-               specifies an instance in another AWS Region. See [DBSubnetGroupName in API
-               action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-               for additional read replica constraints.
+        :param pulumi.Input[str] db_subnet_group_name: Name of DB subnet group.
+               DB instance will be created in the VPC associated with the DB subnet group.
+               If unspecified, will be created in the `default` Subnet Group.
+               When working with read replicas created in the same region, defaults to the Subnet Group Name of the source DB.
+               When working with read replicas created in a different region, defaults to the `default` Subnet Group.
+               See [DBSubnetGroupName in API action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html) for additional read replica constraints.
         :param pulumi.Input[bool] dedicated_log_volume: Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
         :param pulumi.Input[bool] delete_automated_backups: Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
         :param pulumi.Input[bool] deletion_protection: If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
@@ -3897,26 +3886,24 @@ class Instance(pulumi.CustomResource):
                accessible. Default is `false`.
         :param pulumi.Input[str] replica_mode: Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
                is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
-        :param pulumi.Input[str] replicate_source_db: Specifies that this resource is a Replicate
-               database, and to use this value as the source database. This correlates to the
-               `identifier` of another Amazon RDS Database to replicate (if replicating within
-               a single region) or ARN of the Amazon RDS Database to replicate (if replicating
-               cross-region). Note that if you are
-               creating a cross-region replica of an encrypted database you will also need to
-               specify a `kms_key_id`. See [DB Instance Replication][instance-replication] and [Working with
-               PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
-               for more information on using Replication.
+        :param pulumi.Input[str] replicate_source_db: Specifies that this resource is a Replica database, and to use this value as the source database.
+               If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `db_subnet_group_name`.
+               If specifying the `db_subnet_group_name` in the same region, use the `arn` of the source DB.
+               If replicating an Instance in a different region, use the `arn` of the source DB.
+               Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kms_key_id`.
+               See [DB Instance Replication][instance-replication] and [Working with PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) for more information on using Replication.
         :param pulumi.Input[str] resource_id: The RDS Resource ID of this instance.
-        :param pulumi.Input[Union['InstanceRestoreToPointInTimeArgs', 'InstanceRestoreToPointInTimeArgsDict']] restore_to_point_in_time: A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+        :param pulumi.Input[Union['InstanceRestoreToPointInTimeArgs', 'InstanceRestoreToPointInTimeArgsDict']] restore_to_point_in_time: A configuration block for restoring a DB instance to an arbitrary point in time.
+               Requires the `identifier` argument to be set with the name of the new DB instance to be created.
+               See Restore To Point In Time below for details.
         :param pulumi.Input[Union['InstanceS3ImportArgs', 'InstanceS3ImportArgsDict']] s3_import: Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is
                created before the DB instance is deleted. If true is specified, no DBSnapshot
                is created. If false is specified, a DB snapshot is created before the DB
                instance is deleted, using the value from `final_snapshot_identifier`. Default
                is `false`.
-        :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this
-               database from a snapshot. This correlates to the snapshot ID you'd find in the
-               RDS console, e.g: rds:production-2015-06-26-06-05.
+        :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this database from a snapshot.
+               This corresponds to the snapshot ID you'd find in the RDS console, e.g: rds:production-2015-06-26-06-05.
         :param pulumi.Input[str] status: The RDS instance status.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB instance is
                encrypted. Note that if you are creating a cross-region read replica this field
@@ -3934,7 +3921,8 @@ class Instance(pulumi.CustomResource):
                creation. See [MSSQL User
                Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
                for more information.
-        :param pulumi.Input[bool] upgrade_storage_config: Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
+        :param pulumi.Input[bool] upgrade_storage_config: Whether to upgrade the storage file system configuration on the read replica.
+               Can only be set with `replicate_source_db`.
         :param pulumi.Input[str] username: (Required unless a `snapshot_identifier` or `replicate_source_db`
                is provided) Username for the master DB user. Cannot be specified for a replica.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to
@@ -4189,13 +4177,12 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="dbSubnetGroupName")
     def db_subnet_group_name(self) -> pulumi.Output[str]:
         """
-        Name of DB subnet group. DB instance will
-        be created in the VPC associated with the DB subnet group. If unspecified, will
-        be created in the `default` VPC, or in EC2 Classic, if available. When working
-        with read replicas, it should be specified only if the source database
-        specifies an instance in another AWS Region. See [DBSubnetGroupName in API
-        action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-        for additional read replica constraints.
+        Name of DB subnet group.
+        DB instance will be created in the VPC associated with the DB subnet group.
+        If unspecified, will be created in the `default` Subnet Group.
+        When working with read replicas created in the same region, defaults to the Subnet Group Name of the source DB.
+        When working with read replicas created in a different region, defaults to the `default` Subnet Group.
+        See [DBSubnetGroupName in API action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html) for additional read replica constraints.
         """
         return pulumi.get(self, "db_subnet_group_name")
 
@@ -4602,15 +4589,12 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="replicateSourceDb")
     def replicate_source_db(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies that this resource is a Replicate
-        database, and to use this value as the source database. This correlates to the
-        `identifier` of another Amazon RDS Database to replicate (if replicating within
-        a single region) or ARN of the Amazon RDS Database to replicate (if replicating
-        cross-region). Note that if you are
-        creating a cross-region replica of an encrypted database you will also need to
-        specify a `kms_key_id`. See [DB Instance Replication][instance-replication] and [Working with
-        PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
-        for more information on using Replication.
+        Specifies that this resource is a Replica database, and to use this value as the source database.
+        If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `db_subnet_group_name`.
+        If specifying the `db_subnet_group_name` in the same region, use the `arn` of the source DB.
+        If replicating an Instance in a different region, use the `arn` of the source DB.
+        Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kms_key_id`.
+        See [DB Instance Replication][instance-replication] and [Working with PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) for more information on using Replication.
         """
         return pulumi.get(self, "replicate_source_db")
 
@@ -4626,7 +4610,9 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="restoreToPointInTime")
     def restore_to_point_in_time(self) -> pulumi.Output[Optional['outputs.InstanceRestoreToPointInTime']]:
         """
-        A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+        A configuration block for restoring a DB instance to an arbitrary point in time.
+        Requires the `identifier` argument to be set with the name of the new DB instance to be created.
+        See Restore To Point In Time below for details.
         """
         return pulumi.get(self, "restore_to_point_in_time")
 
@@ -4654,9 +4640,8 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="snapshotIdentifier")
     def snapshot_identifier(self) -> pulumi.Output[str]:
         """
-        Specifies whether or not to create this
-        database from a snapshot. This correlates to the snapshot ID you'd find in the
-        RDS console, e.g: rds:production-2015-06-26-06-05.
+        Specifies whether or not to create this database from a snapshot.
+        This corresponds to the snapshot ID you'd find in the RDS console, e.g: rds:production-2015-06-26-06-05.
         """
         return pulumi.get(self, "snapshot_identifier")
 
@@ -4731,7 +4716,8 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="upgradeStorageConfig")
     def upgrade_storage_config(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicate_source_db`.
+        Whether to upgrade the storage file system configuration on the read replica.
+        Can only be set with `replicate_source_db`.
         """
         return pulumi.get(self, "upgrade_storage_config")
 

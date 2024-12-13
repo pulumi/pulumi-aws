@@ -47,6 +47,7 @@ __all__ = [
     'ReplicatorReplicationInfoListConsumerGroupReplication',
     'ReplicatorReplicationInfoListTopicReplication',
     'ReplicatorReplicationInfoListTopicReplicationStartingPosition',
+    'ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration',
     'ServerlessClusterClientAuthentication',
     'ServerlessClusterClientAuthenticationSasl',
     'ServerlessClusterClientAuthenticationSaslIam',
@@ -1356,6 +1357,8 @@ class ReplicatorReplicationInfoListTopicReplication(dict):
             suggest = "detect_and_copy_new_topics"
         elif key == "startingPosition":
             suggest = "starting_position"
+        elif key == "topicNameConfiguration":
+            suggest = "topic_name_configuration"
         elif key == "topicsToExcludes":
             suggest = "topics_to_excludes"
 
@@ -1376,6 +1379,7 @@ class ReplicatorReplicationInfoListTopicReplication(dict):
                  copy_topic_configurations: Optional[bool] = None,
                  detect_and_copy_new_topics: Optional[bool] = None,
                  starting_position: Optional['outputs.ReplicatorReplicationInfoListTopicReplicationStartingPosition'] = None,
+                 topic_name_configuration: Optional['outputs.ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration'] = None,
                  topics_to_excludes: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] topics_to_replicates: List of regular expression patterns indicating the topics to copy.
@@ -1394,6 +1398,8 @@ class ReplicatorReplicationInfoListTopicReplication(dict):
             pulumi.set(__self__, "detect_and_copy_new_topics", detect_and_copy_new_topics)
         if starting_position is not None:
             pulumi.set(__self__, "starting_position", starting_position)
+        if topic_name_configuration is not None:
+            pulumi.set(__self__, "topic_name_configuration", topic_name_configuration)
         if topics_to_excludes is not None:
             pulumi.set(__self__, "topics_to_excludes", topics_to_excludes)
 
@@ -1438,6 +1444,11 @@ class ReplicatorReplicationInfoListTopicReplication(dict):
         return pulumi.get(self, "starting_position")
 
     @property
+    @pulumi.getter(name="topicNameConfiguration")
+    def topic_name_configuration(self) -> Optional['outputs.ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration']:
+        return pulumi.get(self, "topic_name_configuration")
+
+    @property
     @pulumi.getter(name="topicsToExcludes")
     def topics_to_excludes(self) -> Optional[Sequence[str]]:
         """
@@ -1462,6 +1473,19 @@ class ReplicatorReplicationInfoListTopicReplicationStartingPosition(dict):
         """
         The type of replication starting position. Supports `LATEST` and `EARLIEST`.
         """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration(dict):
+    def __init__(__self__, *,
+                 type: Optional[str] = None):
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
         return pulumi.get(self, "type")
 
 

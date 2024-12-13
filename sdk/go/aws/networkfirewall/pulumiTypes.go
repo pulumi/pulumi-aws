@@ -1239,6 +1239,8 @@ func (o FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput) Defi
 }
 
 type FirewallPolicyFirewallPolicyStatefulEngineOptions struct {
+	// Amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
+	FlowTimeouts *FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts `pulumi:"flowTimeouts"`
 	// Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
 	RuleOrder *string `pulumi:"ruleOrder"`
 	// Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
@@ -1257,6 +1259,8 @@ type FirewallPolicyFirewallPolicyStatefulEngineOptionsInput interface {
 }
 
 type FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs struct {
+	// Amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
+	FlowTimeouts FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrInput `pulumi:"flowTimeouts"`
 	// Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
 	RuleOrder pulumi.StringPtrInput `pulumi:"ruleOrder"`
 	// Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
@@ -1340,6 +1344,13 @@ func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsOutput) ToFirewallPolic
 	}).(FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrOutput)
 }
 
+// Amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
+func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsOutput) FlowTimeouts() FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyFirewallPolicyStatefulEngineOptions) *FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts {
+		return v.FlowTimeouts
+	}).(FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutput)
+}
+
 // Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
 func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsOutput) RuleOrder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyFirewallPolicyStatefulEngineOptions) *string { return v.RuleOrder }).(pulumi.StringPtrOutput)
@@ -1374,6 +1385,16 @@ func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrOutput) Elem() Firew
 	}).(FirewallPolicyFirewallPolicyStatefulEngineOptionsOutput)
 }
 
+// Amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
+func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrOutput) FlowTimeouts() FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyFirewallPolicyStatefulEngineOptions) *FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts {
+		if v == nil {
+			return nil
+		}
+		return v.FlowTimeouts
+	}).(FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutput)
+}
+
 // Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
 func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrOutput) RuleOrder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallPolicyFirewallPolicyStatefulEngineOptions) *string {
@@ -1392,6 +1413,145 @@ func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrOutput) StreamExcept
 		}
 		return v.StreamExceptionPolicy
 	}).(pulumi.StringPtrOutput)
+}
+
+type FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts struct {
+	// Number of seconds that can pass without any TCP traffic sent through the firewall before the firewall determines that the connection is idle. After the idle timeout passes, data packets are dropped, however, the next TCP SYN packet is considered a new flow and is processed by the firewall. Clients or targets can use TCP keepalive packets to reset the idle timeout. Default value: `350`.
+	TcpIdleTimeoutSeconds *int `pulumi:"tcpIdleTimeoutSeconds"`
+}
+
+// FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsInput is an input type that accepts FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs and FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsOutput values.
+// You can construct a concrete instance of `FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsInput` via:
+//
+//	FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs{...}
+type FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsOutput() FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsOutput
+	ToFirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsOutputWithContext(context.Context) FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsOutput
+}
+
+type FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs struct {
+	// Number of seconds that can pass without any TCP traffic sent through the firewall before the firewall determines that the connection is idle. After the idle timeout passes, data packets are dropped, however, the next TCP SYN packet is considered a new flow and is processed by the firewall. Clients or targets can use TCP keepalive packets to reset the idle timeout. Default value: `350`.
+	TcpIdleTimeoutSeconds pulumi.IntPtrInput `pulumi:"tcpIdleTimeoutSeconds"`
+}
+
+func (FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts)(nil)).Elem()
+}
+
+func (i FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs) ToFirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsOutput() FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsOutput {
+	return i.ToFirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs) ToFirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsOutput)
+}
+
+func (i FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs) ToFirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutput() FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutput {
+	return i.ToFirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs) ToFirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsOutput).ToFirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutputWithContext(ctx)
+}
+
+// FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrInput is an input type that accepts FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs, FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtr and FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutput values.
+// You can construct a concrete instance of `FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrInput` via:
+//
+//	        FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutput() FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutput
+	ToFirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutputWithContext(context.Context) FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutput
+}
+
+type firewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrType FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs
+
+func FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtr(v *FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs) FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrInput {
+	return (*firewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrType)(v)
+}
+
+func (*firewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts)(nil)).Elem()
+}
+
+func (i *firewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrType) ToFirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutput() FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutput {
+	return i.ToFirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *firewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrType) ToFirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutput)
+}
+
+type FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts)(nil)).Elem()
+}
+
+func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsOutput) ToFirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsOutput() FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsOutput {
+	return o
+}
+
+func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsOutput) ToFirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsOutput {
+	return o
+}
+
+func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsOutput) ToFirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutput() FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutput {
+	return o.ToFirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsOutput) ToFirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts) *FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts {
+		return &v
+	}).(FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutput)
+}
+
+// Number of seconds that can pass without any TCP traffic sent through the firewall before the firewall determines that the connection is idle. After the idle timeout passes, data packets are dropped, however, the next TCP SYN packet is considered a new flow and is processed by the firewall. Clients or targets can use TCP keepalive packets to reset the idle timeout. Default value: `350`.
+func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsOutput) TcpIdleTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts) *int {
+		return v.TcpIdleTimeoutSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts)(nil)).Elem()
+}
+
+func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutput) ToFirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutput() FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutput) ToFirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutput) Elem() FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsOutput {
+	return o.ApplyT(func(v *FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts) FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts
+		return ret
+	}).(FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsOutput)
+}
+
+// Number of seconds that can pass without any TCP traffic sent through the firewall before the firewall determines that the connection is idle. After the idle timeout passes, data packets are dropped, however, the next TCP SYN packet is considered a new flow and is processed by the firewall. Clients or targets can use TCP keepalive packets to reset the idle timeout. Default value: `350`.
+func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutput) TcpIdleTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TcpIdleTimeoutSeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 type FirewallPolicyFirewallPolicyStatefulRuleGroupReference struct {
@@ -2316,7 +2476,7 @@ func (o LoggingConfigurationLoggingConfigurationPtrOutput) LogDestinationConfigs
 
 type LoggingConfigurationLoggingConfigurationLogDestinationConfig struct {
 	// A map describing the logging destination for the chosen `logDestinationType`.
-	// * For an Amazon S3 bucket, specify the key `bucketName` with the name of the bucket and optionally specify the key `prefix` with a path.
+	// * For an Amazon S3 bucket, specify the key `bucketName` with the name of the bucket and optionally specify the key `prefix` with a path (Do not add a leading / in the `prefix` as the configuration will have two // when applied).
 	// * For a CloudWatch log group, specify the key `logGroup` with the name of the CloudWatch log group.
 	// * For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the name of the delivery stream.
 	LogDestination map[string]string `pulumi:"logDestination"`
@@ -2339,7 +2499,7 @@ type LoggingConfigurationLoggingConfigurationLogDestinationConfigInput interface
 
 type LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs struct {
 	// A map describing the logging destination for the chosen `logDestinationType`.
-	// * For an Amazon S3 bucket, specify the key `bucketName` with the name of the bucket and optionally specify the key `prefix` with a path.
+	// * For an Amazon S3 bucket, specify the key `bucketName` with the name of the bucket and optionally specify the key `prefix` with a path (Do not add a leading / in the `prefix` as the configuration will have two // when applied).
 	// * For a CloudWatch log group, specify the key `logGroup` with the name of the CloudWatch log group.
 	// * For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the name of the delivery stream.
 	LogDestination pulumi.StringMapInput `pulumi:"logDestination"`
@@ -2401,7 +2561,7 @@ func (o LoggingConfigurationLoggingConfigurationLogDestinationConfigOutput) ToLo
 }
 
 // A map describing the logging destination for the chosen `logDestinationType`.
-// * For an Amazon S3 bucket, specify the key `bucketName` with the name of the bucket and optionally specify the key `prefix` with a path.
+// * For an Amazon S3 bucket, specify the key `bucketName` with the name of the bucket and optionally specify the key `prefix` with a path (Do not add a leading / in the `prefix` as the configuration will have two // when applied).
 // * For a CloudWatch log group, specify the key `logGroup` with the name of the CloudWatch log group.
 // * For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the name of the delivery stream.
 func (o LoggingConfigurationLoggingConfigurationLogDestinationConfigOutput) LogDestination() pulumi.StringMapOutput {
@@ -9234,6 +9394,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetInput)(nil)).Elem(), FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyStatefulEngineOptionsInput)(nil)).Elem(), FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrInput)(nil)).Elem(), FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsInput)(nil)).Elem(), FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrInput)(nil)).Elem(), FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceInput)(nil)).Elem(), FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayInput)(nil)).Elem(), FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideInput)(nil)).Elem(), FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs{})
@@ -9382,6 +9544,8 @@ func init() {
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyStatefulEngineOptionsOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput{})

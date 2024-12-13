@@ -18,14 +18,14 @@ public final class OpenIdConnectProviderState extends com.pulumi.resources.Resou
     public static final OpenIdConnectProviderState Empty = new OpenIdConnectProviderState();
 
     /**
-     * The ARN assigned by AWS for this provider.
+     * ARN assigned by AWS for this provider.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN assigned by AWS for this provider.
+     * @return ARN assigned by AWS for this provider.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -33,14 +33,14 @@ public final class OpenIdConnectProviderState extends com.pulumi.resources.Resou
     }
 
     /**
-     * A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that&#39;s sent as the client_id parameter on OAuth requests.)
+     * List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
      * 
      */
     @Import(name="clientIdLists")
     private @Nullable Output<List<String>> clientIdLists;
 
     /**
-     * @return A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that&#39;s sent as the client_id parameter on OAuth requests.)
+     * @return List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
      * 
      */
     public Optional<Output<List<String>>> clientIdLists() {
@@ -63,7 +63,7 @@ public final class OpenIdConnectProviderState extends com.pulumi.resources.Resou
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      * @deprecated
      * Please use `tags` instead.
@@ -74,7 +74,7 @@ public final class OpenIdConnectProviderState extends com.pulumi.resources.Resou
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      * @deprecated
      * Please use `tags` instead.
@@ -85,30 +85,22 @@ public final class OpenIdConnectProviderState extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.tagsAll);
     }
 
-    /**
-     * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider&#39;s server certificate(s).
-     * 
-     */
     @Import(name="thumbprintLists")
     private @Nullable Output<List<String>> thumbprintLists;
 
-    /**
-     * @return A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider&#39;s server certificate(s).
-     * 
-     */
     public Optional<Output<List<String>>> thumbprintLists() {
         return Optional.ofNullable(this.thumbprintLists);
     }
 
     /**
-     * The URL of the identity provider. Corresponds to the _iss_ claim.
+     * URL of the identity provider, corresponding to the `iss` claim.
      * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
-     * @return The URL of the identity provider. Corresponds to the _iss_ claim.
+     * @return URL of the identity provider, corresponding to the `iss` claim.
      * 
      */
     public Optional<Output<String>> url() {
@@ -145,7 +137,7 @@ public final class OpenIdConnectProviderState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param arn The ARN assigned by AWS for this provider.
+         * @param arn ARN assigned by AWS for this provider.
          * 
          * @return builder
          * 
@@ -156,7 +148,7 @@ public final class OpenIdConnectProviderState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param arn The ARN assigned by AWS for this provider.
+         * @param arn ARN assigned by AWS for this provider.
          * 
          * @return builder
          * 
@@ -166,7 +158,7 @@ public final class OpenIdConnectProviderState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param clientIdLists A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that&#39;s sent as the client_id parameter on OAuth requests.)
+         * @param clientIdLists List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
          * 
          * @return builder
          * 
@@ -177,7 +169,7 @@ public final class OpenIdConnectProviderState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param clientIdLists A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that&#39;s sent as the client_id parameter on OAuth requests.)
+         * @param clientIdLists List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
          * 
          * @return builder
          * 
@@ -187,7 +179,7 @@ public final class OpenIdConnectProviderState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param clientIdLists A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that&#39;s sent as the client_id parameter on OAuth requests.)
+         * @param clientIdLists List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
          * 
          * @return builder
          * 
@@ -218,7 +210,7 @@ public final class OpenIdConnectProviderState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -233,7 +225,7 @@ public final class OpenIdConnectProviderState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -246,39 +238,21 @@ public final class OpenIdConnectProviderState extends com.pulumi.resources.Resou
             return tagsAll(Output.of(tagsAll));
         }
 
-        /**
-         * @param thumbprintLists A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider&#39;s server certificate(s).
-         * 
-         * @return builder
-         * 
-         */
         public Builder thumbprintLists(@Nullable Output<List<String>> thumbprintLists) {
             $.thumbprintLists = thumbprintLists;
             return this;
         }
 
-        /**
-         * @param thumbprintLists A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider&#39;s server certificate(s).
-         * 
-         * @return builder
-         * 
-         */
         public Builder thumbprintLists(List<String> thumbprintLists) {
             return thumbprintLists(Output.of(thumbprintLists));
         }
 
-        /**
-         * @param thumbprintLists A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider&#39;s server certificate(s).
-         * 
-         * @return builder
-         * 
-         */
         public Builder thumbprintLists(String... thumbprintLists) {
             return thumbprintLists(List.of(thumbprintLists));
         }
 
         /**
-         * @param url The URL of the identity provider. Corresponds to the _iss_ claim.
+         * @param url URL of the identity provider, corresponding to the `iss` claim.
          * 
          * @return builder
          * 
@@ -289,7 +263,7 @@ public final class OpenIdConnectProviderState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param url The URL of the identity provider. Corresponds to the _iss_ claim.
+         * @param url URL of the identity provider, corresponding to the `iss` claim.
          * 
          * @return builder
          * 

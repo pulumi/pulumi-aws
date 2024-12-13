@@ -27,6 +27,7 @@ class ProfilesProfileArgs:
         """
         The set of arguments for constructing a ProfilesProfile resource.
         :param pulumi.Input[str] name: Name of the Profile.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -50,6 +51,9 @@ class ProfilesProfileArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -82,9 +86,10 @@ class _ProfilesProfileState:
         Input properties used for looking up and filtering ProfilesProfile resources.
         :param pulumi.Input[str] arn: ARN of the Profile.
         :param pulumi.Input[str] name: Name of the Profile.
-        :param pulumi.Input[str] share_status: Share status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
-        :param pulumi.Input[str] status: Status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+        :param pulumi.Input[str] share_status: Share status of the Profile.
+        :param pulumi.Input[str] status: Status of the Profile.
         :param pulumi.Input[str] status_message: Status message of the Profile.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
@@ -146,7 +151,7 @@ class _ProfilesProfileState:
     @pulumi.getter(name="shareStatus")
     def share_status(self) -> Optional[pulumi.Input[str]]:
         """
-        Share status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+        Share status of the Profile.
         """
         return pulumi.get(self, "share_status")
 
@@ -158,7 +163,7 @@ class _ProfilesProfileState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+        Status of the Profile.
         """
         return pulumi.get(self, "status")
 
@@ -181,6 +186,9 @@ class _ProfilesProfileState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -230,7 +238,11 @@ class ProfilesProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53.ProfilesProfile("example", name="example")
+        example = aws.route53.ProfilesProfile("example",
+            name="example",
+            tags={
+                "Environment": "dev",
+            })
         ```
 
         ## Import
@@ -244,6 +256,7 @@ class ProfilesProfile(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name of the Profile.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -262,7 +275,11 @@ class ProfilesProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53.ProfilesProfile("example", name="example")
+        example = aws.route53.ProfilesProfile("example",
+            name="example",
+            tags={
+                "Environment": "dev",
+            })
         ```
 
         ## Import
@@ -337,9 +354,10 @@ class ProfilesProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the Profile.
         :param pulumi.Input[str] name: Name of the Profile.
-        :param pulumi.Input[str] share_status: Share status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
-        :param pulumi.Input[str] status: Status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+        :param pulumi.Input[str] share_status: Share status of the Profile.
+        :param pulumi.Input[str] status: Status of the Profile.
         :param pulumi.Input[str] status_message: Status message of the Profile.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -382,7 +400,7 @@ class ProfilesProfile(pulumi.CustomResource):
     @pulumi.getter(name="shareStatus")
     def share_status(self) -> pulumi.Output[str]:
         """
-        Share status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+        Share status of the Profile.
         """
         return pulumi.get(self, "share_status")
 
@@ -390,7 +408,7 @@ class ProfilesProfile(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
-        Status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+        Status of the Profile.
         """
         return pulumi.get(self, "status")
 
@@ -405,6 +423,9 @@ class ProfilesProfile(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property

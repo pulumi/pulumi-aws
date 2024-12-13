@@ -39,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Guardrail{}
 	case "aws:bedrock/guardrailVersion:GuardrailVersion":
 		r = &GuardrailVersion{}
+	case "aws:bedrock/inferenceProfile:InferenceProfile":
+		r = &InferenceProfile{}
 	case "aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput":
 		r = &ProvisionedModelThroughput{}
 	default:
@@ -97,6 +99,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"bedrock/guardrailVersion",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"bedrock/inferenceProfile",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

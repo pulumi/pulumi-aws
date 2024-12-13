@@ -46,6 +46,21 @@ public final class BasePathMappingState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The identifier for the domain name resource. Supported only for private custom domain names.
+     * 
+     */
+    @Import(name="domainNameId")
+    private @Nullable Output<String> domainNameId;
+
+    /**
+     * @return The identifier for the domain name resource. Supported only for private custom domain names.
+     * 
+     */
+    public Optional<Output<String>> domainNameId() {
+        return Optional.ofNullable(this.domainNameId);
+    }
+
+    /**
      * ID of the API to connect.
      * 
      */
@@ -80,6 +95,7 @@ public final class BasePathMappingState extends com.pulumi.resources.ResourceArg
     private BasePathMappingState(BasePathMappingState $) {
         this.basePath = $.basePath;
         this.domainName = $.domainName;
+        this.domainNameId = $.domainNameId;
         this.restApi = $.restApi;
         this.stageName = $.stageName;
     }
@@ -142,6 +158,27 @@ public final class BasePathMappingState extends com.pulumi.resources.ResourceArg
          */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
+        }
+
+        /**
+         * @param domainNameId The identifier for the domain name resource. Supported only for private custom domain names.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainNameId(@Nullable Output<String> domainNameId) {
+            $.domainNameId = domainNameId;
+            return this;
+        }
+
+        /**
+         * @param domainNameId The identifier for the domain name resource. Supported only for private custom domain names.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainNameId(String domainNameId) {
+            return domainNameId(Output.of(domainNameId));
         }
 
         /**
