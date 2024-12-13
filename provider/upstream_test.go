@@ -23,6 +23,8 @@ import (
 )
 
 func TestUpstreamLint(t *testing.T) {
+	t.Parallel()
+
 	cmd := exec.Command("make", "provider-lint")
 	cmd.Dir = "../upstream"
 
