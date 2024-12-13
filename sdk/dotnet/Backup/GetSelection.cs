@@ -60,6 +60,31 @@ namespace Pulumi.Aws.Backup
         /// </summary>
         public static Output<GetSelectionResult> Invoke(GetSelectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSelectionResult>("aws:backup/getSelection:getSelection", args ?? new GetSelectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information on an existing backup selection.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Backup.GetSelection.Invoke(new()
+        ///     {
+        ///         PlanId = exampleAwsBackupPlan.Id,
+        ///         SelectionId = "selection-id-example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSelectionResult> Invoke(GetSelectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSelectionResult>("aws:backup/getSelection:getSelection", args ?? new GetSelectionInvokeArgs(), options.WithDefaults());
     }
 
 

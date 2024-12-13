@@ -56,6 +56,29 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         public static Output<GetInferenceProfilesResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInferenceProfilesResult>("aws:bedrock/getInferenceProfiles:getInferenceProfiles", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing AWS Bedrock AWS Bedrock Inference Profiles.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Bedrock.GetInferenceProfiles.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetInferenceProfilesResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInferenceProfilesResult>("aws:bedrock/getInferenceProfiles:getInferenceProfiles", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

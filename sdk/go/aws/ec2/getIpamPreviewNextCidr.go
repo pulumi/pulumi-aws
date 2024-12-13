@@ -82,21 +82,11 @@ type GetIpamPreviewNextCidrResult struct {
 }
 
 func GetIpamPreviewNextCidrOutput(ctx *pulumi.Context, args GetIpamPreviewNextCidrOutputArgs, opts ...pulumi.InvokeOption) GetIpamPreviewNextCidrResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetIpamPreviewNextCidrResultOutput, error) {
 			args := v.(GetIpamPreviewNextCidrArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetIpamPreviewNextCidrResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr", args, &rv, "", opts...)
-			if err != nil {
-				return GetIpamPreviewNextCidrResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetIpamPreviewNextCidrResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetIpamPreviewNextCidrResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr", args, GetIpamPreviewNextCidrResultOutput{}, options).(GetIpamPreviewNextCidrResultOutput), nil
 		}).(GetIpamPreviewNextCidrResultOutput)
 }
 

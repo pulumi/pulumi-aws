@@ -76,6 +76,39 @@ namespace Pulumi.Aws.ServiceQuotas
         /// </summary>
         public static Output<GetServiceQuotaResult> Invoke(GetServiceQuotaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceQuotaResult>("aws:servicequotas/getServiceQuota:getServiceQuota", args ?? new GetServiceQuotaInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve information about a Service Quota.
+        /// 
+        /// &gt; **NOTE:** Global quotas apply to all AWS regions, but can only be accessed in `us-east-1` in the Commercial partition or `us-gov-west-1` in the GovCloud partition. In other regions, the AWS API will return the error `The request failed because the specified service does not exist.`
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var byQuotaCode = Aws.ServiceQuotas.GetServiceQuota.Invoke(new()
+        ///     {
+        ///         QuotaCode = "L-F678F1CE",
+        ///         ServiceCode = "vpc",
+        ///     });
+        /// 
+        ///     var byQuotaName = Aws.ServiceQuotas.GetServiceQuota.Invoke(new()
+        ///     {
+        ///         QuotaName = "VPCs per Region",
+        ///         ServiceCode = "vpc",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetServiceQuotaResult> Invoke(GetServiceQuotaInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceQuotaResult>("aws:servicequotas/getServiceQuota:getServiceQuota", args ?? new GetServiceQuotaInvokeArgs(), options.WithDefaults());
     }
 
 

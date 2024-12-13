@@ -88,21 +88,11 @@ type GetCapacityBlockOfferingResult struct {
 }
 
 func GetCapacityBlockOfferingOutput(ctx *pulumi.Context, args GetCapacityBlockOfferingOutputArgs, opts ...pulumi.InvokeOption) GetCapacityBlockOfferingResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetCapacityBlockOfferingResultOutput, error) {
 			args := v.(GetCapacityBlockOfferingArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetCapacityBlockOfferingResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getCapacityBlockOffering:getCapacityBlockOffering", args, &rv, "", opts...)
-			if err != nil {
-				return GetCapacityBlockOfferingResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetCapacityBlockOfferingResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetCapacityBlockOfferingResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:ec2/getCapacityBlockOffering:getCapacityBlockOffering", args, GetCapacityBlockOfferingResultOutput{}, options).(GetCapacityBlockOfferingResultOutput), nil
 		}).(GetCapacityBlockOfferingResultOutput)
 }
 

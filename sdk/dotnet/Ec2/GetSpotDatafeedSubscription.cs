@@ -56,6 +56,29 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Output<GetSpotDatafeedSubscriptionResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpotDatafeedSubscriptionResult>("aws:ec2/getSpotDatafeedSubscription:getSpotDatafeedSubscription", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// &gt; There is only a single spot data feed subscription per account.
+        /// 
+        /// Data source for accessing an AWS EC2 (Elastic Compute Cloud) spot data feed subscription.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var @default = Aws.Ec2.GetSpotDatafeedSubscription.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSpotDatafeedSubscriptionResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSpotDatafeedSubscriptionResult>("aws:ec2/getSpotDatafeedSubscription:getSpotDatafeedSubscription", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

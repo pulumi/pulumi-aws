@@ -58,6 +58,30 @@ namespace Pulumi.Aws.MskConnect
         /// </summary>
         public static Output<GetWorkerConfigurationResult> Invoke(GetWorkerConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkerConfigurationResult>("aws:mskconnect/getWorkerConfiguration:getWorkerConfiguration", args ?? new GetWorkerConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get information on an Amazon MSK Connect Worker Configuration.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.MskConnect.GetWorkerConfiguration.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetWorkerConfigurationResult> Invoke(GetWorkerConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkerConfigurationResult>("aws:mskconnect/getWorkerConfiguration:getWorkerConfiguration", args ?? new GetWorkerConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -106,21 +106,11 @@ type GetPatchBaselinesResult struct {
 }
 
 func GetPatchBaselinesOutput(ctx *pulumi.Context, args GetPatchBaselinesOutputArgs, opts ...pulumi.InvokeOption) GetPatchBaselinesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetPatchBaselinesResultOutput, error) {
 			args := v.(GetPatchBaselinesArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetPatchBaselinesResult
-			secret, err := ctx.InvokePackageRaw("aws:ssm/getPatchBaselines:getPatchBaselines", args, &rv, "", opts...)
-			if err != nil {
-				return GetPatchBaselinesResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetPatchBaselinesResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetPatchBaselinesResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:ssm/getPatchBaselines:getPatchBaselines", args, GetPatchBaselinesResultOutput{}, options).(GetPatchBaselinesResultOutput), nil
 		}).(GetPatchBaselinesResultOutput)
 }
 

@@ -70,21 +70,11 @@ type LookupEventBusResult struct {
 }
 
 func LookupEventBusOutput(ctx *pulumi.Context, args LookupEventBusOutputArgs, opts ...pulumi.InvokeOption) LookupEventBusResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupEventBusResultOutput, error) {
 			args := v.(LookupEventBusArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupEventBusResult
-			secret, err := ctx.InvokePackageRaw("aws:cloudwatch/getEventBus:getEventBus", args, &rv, "", opts...)
-			if err != nil {
-				return LookupEventBusResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupEventBusResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupEventBusResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:cloudwatch/getEventBus:getEventBus", args, LookupEventBusResultOutput{}, options).(LookupEventBusResultOutput), nil
 		}).(LookupEventBusResultOutput)
 }
 

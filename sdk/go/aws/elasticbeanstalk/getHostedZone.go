@@ -61,21 +61,11 @@ type GetHostedZoneResult struct {
 }
 
 func GetHostedZoneOutput(ctx *pulumi.Context, args GetHostedZoneOutputArgs, opts ...pulumi.InvokeOption) GetHostedZoneResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetHostedZoneResultOutput, error) {
 			args := v.(GetHostedZoneArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetHostedZoneResult
-			secret, err := ctx.InvokePackageRaw("aws:elasticbeanstalk/getHostedZone:getHostedZone", args, &rv, "", opts...)
-			if err != nil {
-				return GetHostedZoneResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetHostedZoneResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetHostedZoneResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:elasticbeanstalk/getHostedZone:getHostedZone", args, GetHostedZoneResultOutput{}, options).(GetHostedZoneResultOutput), nil
 		}).(GetHostedZoneResultOutput)
 }
 

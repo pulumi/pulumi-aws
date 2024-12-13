@@ -84,21 +84,11 @@ type LookupFunctionResult struct {
 }
 
 func LookupFunctionOutput(ctx *pulumi.Context, args LookupFunctionOutputArgs, opts ...pulumi.InvokeOption) LookupFunctionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFunctionResultOutput, error) {
 			args := v.(LookupFunctionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFunctionResult
-			secret, err := ctx.InvokePackageRaw("aws:cloudfront/getFunction:getFunction", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFunctionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFunctionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFunctionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:cloudfront/getFunction:getFunction", args, LookupFunctionResultOutput{}, options).(LookupFunctionResultOutput), nil
 		}).(LookupFunctionResultOutput)
 }
 

@@ -56,6 +56,29 @@ namespace Pulumi.Aws.Ecr
         /// </summary>
         public static Output<GetRepositoriesResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoriesResult>("aws:ecr/getRepositories:getRepositories", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ecr.GetRepositories.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRepositoriesResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRepositoriesResult>("aws:ecr/getRepositories:getRepositories", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

@@ -76,21 +76,11 @@ type LookupCodeSigningConfigResult struct {
 }
 
 func LookupCodeSigningConfigOutput(ctx *pulumi.Context, args LookupCodeSigningConfigOutputArgs, opts ...pulumi.InvokeOption) LookupCodeSigningConfigResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCodeSigningConfigResultOutput, error) {
 			args := v.(LookupCodeSigningConfigArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupCodeSigningConfigResult
-			secret, err := ctx.InvokePackageRaw("aws:lambda/getCodeSigningConfig:getCodeSigningConfig", args, &rv, "", opts...)
-			if err != nil {
-				return LookupCodeSigningConfigResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupCodeSigningConfigResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupCodeSigningConfigResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:lambda/getCodeSigningConfig:getCodeSigningConfig", args, LookupCodeSigningConfigResultOutput{}, options).(LookupCodeSigningConfigResultOutput), nil
 		}).(LookupCodeSigningConfigResultOutput)
 }
 

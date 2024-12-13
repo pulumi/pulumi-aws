@@ -58,6 +58,30 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         public static Output<GetUserPoolSigningCertificateResult> Invoke(GetUserPoolSigningCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserPoolSigningCertificateResult>("aws:cognito/getUserPoolSigningCertificate:getUserPoolSigningCertificate", args ?? new GetUserPoolSigningCertificateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get the signing certificate for a Cognito IdP user pool.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var sc = Aws.Cognito.GetUserPoolSigningCertificate.Invoke(new()
+        ///     {
+        ///         UserPoolId = myPool.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetUserPoolSigningCertificateResult> Invoke(GetUserPoolSigningCertificateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserPoolSigningCertificateResult>("aws:cognito/getUserPoolSigningCertificate:getUserPoolSigningCertificate", args ?? new GetUserPoolSigningCertificateInvokeArgs(), options.WithDefaults());
     }
 
 

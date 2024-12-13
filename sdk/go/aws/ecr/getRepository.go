@@ -81,21 +81,11 @@ type LookupRepositoryResult struct {
 }
 
 func LookupRepositoryOutput(ctx *pulumi.Context, args LookupRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRepositoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRepositoryResultOutput, error) {
 			args := v.(LookupRepositoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupRepositoryResult
-			secret, err := ctx.InvokePackageRaw("aws:ecr/getRepository:getRepository", args, &rv, "", opts...)
-			if err != nil {
-				return LookupRepositoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupRepositoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupRepositoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:ecr/getRepository:getRepository", args, LookupRepositoryResultOutput{}, options).(LookupRepositoryResultOutput), nil
 		}).(LookupRepositoryResultOutput)
 }
 

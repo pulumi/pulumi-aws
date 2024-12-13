@@ -102,21 +102,11 @@ type LookupCatalogTableResult struct {
 }
 
 func LookupCatalogTableOutput(ctx *pulumi.Context, args LookupCatalogTableOutputArgs, opts ...pulumi.InvokeOption) LookupCatalogTableResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCatalogTableResultOutput, error) {
 			args := v.(LookupCatalogTableArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupCatalogTableResult
-			secret, err := ctx.InvokePackageRaw("aws:glue/getCatalogTable:getCatalogTable", args, &rv, "", opts...)
-			if err != nil {
-				return LookupCatalogTableResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupCatalogTableResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupCatalogTableResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:glue/getCatalogTable:getCatalogTable", args, LookupCatalogTableResultOutput{}, options).(LookupCatalogTableResultOutput), nil
 		}).(LookupCatalogTableResultOutput)
 }
 

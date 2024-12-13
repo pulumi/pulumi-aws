@@ -22,6 +22,12 @@ namespace Pulumi.Aws.AppStream
         /// </summary>
         public static Output<GetImageResult> Invoke(GetImageInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImageResult>("aws:appstream/getImage:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS AppStream 2.0 Image.
+        /// </summary>
+        public static Output<GetImageResult> Invoke(GetImageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetImageResult>("aws:appstream/getImage:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());
     }
 
 

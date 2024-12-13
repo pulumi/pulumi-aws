@@ -34,21 +34,11 @@ type GetSecretResult struct {
 }
 
 func GetSecretOutput(ctx *pulumi.Context, args GetSecretOutputArgs, opts ...pulumi.InvokeOption) GetSecretResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetSecretResultOutput, error) {
 			args := v.(GetSecretArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetSecretResult
-			secret, err := ctx.InvokePackageRaw("aws:kms/getSecret:getSecret", args, &rv, "", opts...)
-			if err != nil {
-				return GetSecretResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetSecretResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetSecretResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:kms/getSecret:getSecret", args, GetSecretResultOutput{}, options).(GetSecretResultOutput), nil
 		}).(GetSecretResultOutput)
 }
 

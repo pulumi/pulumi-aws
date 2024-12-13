@@ -66,6 +66,34 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         public static Output<GetResolverFirewallDomainListResult> Invoke(GetResolverFirewallDomainListInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverFirewallDomainListResult>("aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList", args ?? new GetResolverFirewallDomainListInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// `aws.route53.ResolverFirewallDomainList` Retrieves the specified firewall domain list.
+        /// 
+        /// This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall domain list.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// The following example shows how to get a firewall domain list from its ID.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Route53.GetResolverFirewallDomainList.Invoke(new()
+        ///     {
+        ///         FirewallDomainListId = "rslvr-fdl-example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetResolverFirewallDomainListResult> Invoke(GetResolverFirewallDomainListInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResolverFirewallDomainListResult>("aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList", args ?? new GetResolverFirewallDomainListInvokeArgs(), options.WithDefaults());
     }
 
 

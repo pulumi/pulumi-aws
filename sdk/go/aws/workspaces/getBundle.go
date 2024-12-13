@@ -108,21 +108,11 @@ type GetBundleResult struct {
 }
 
 func GetBundleOutput(ctx *pulumi.Context, args GetBundleOutputArgs, opts ...pulumi.InvokeOption) GetBundleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetBundleResultOutput, error) {
 			args := v.(GetBundleArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetBundleResult
-			secret, err := ctx.InvokePackageRaw("aws:workspaces/getBundle:getBundle", args, &rv, "", opts...)
-			if err != nil {
-				return GetBundleResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetBundleResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetBundleResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:workspaces/getBundle:getBundle", args, GetBundleResultOutput{}, options).(GetBundleResultOutput), nil
 		}).(GetBundleResultOutput)
 }
 

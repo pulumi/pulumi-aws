@@ -70,21 +70,11 @@ type LookupNotificationChannelResult struct {
 }
 
 func LookupNotificationChannelOutput(ctx *pulumi.Context, args LookupNotificationChannelOutputArgs, opts ...pulumi.InvokeOption) LookupNotificationChannelResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNotificationChannelResultOutput, error) {
 			args := v.(LookupNotificationChannelArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupNotificationChannelResult
-			secret, err := ctx.InvokePackageRaw("aws:devopsguru/getNotificationChannel:getNotificationChannel", args, &rv, "", opts...)
-			if err != nil {
-				return LookupNotificationChannelResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupNotificationChannelResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupNotificationChannelResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:devopsguru/getNotificationChannel:getNotificationChannel", args, LookupNotificationChannelResultOutput{}, options).(LookupNotificationChannelResultOutput), nil
 		}).(LookupNotificationChannelResultOutput)
 }
 

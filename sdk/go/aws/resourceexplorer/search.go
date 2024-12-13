@@ -74,21 +74,11 @@ type SearchResult struct {
 }
 
 func SearchOutput(ctx *pulumi.Context, args SearchOutputArgs, opts ...pulumi.InvokeOption) SearchResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (SearchResultOutput, error) {
 			args := v.(SearchArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv SearchResult
-			secret, err := ctx.InvokePackageRaw("aws:resourceexplorer/search:Search", args, &rv, "", opts...)
-			if err != nil {
-				return SearchResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(SearchResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(SearchResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:resourceexplorer/search:Search", args, SearchResultOutput{}, options).(SearchResultOutput), nil
 		}).(SearchResultOutput)
 }
 

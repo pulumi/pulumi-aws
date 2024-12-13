@@ -66,6 +66,34 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// </summary>
         public static Output<GetCustomRoutingAcceleratorResult> Invoke(GetCustomRoutingAcceleratorInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomRoutingAcceleratorResult>("aws:globalaccelerator/getCustomRoutingAccelerator:getCustomRoutingAccelerator", args ?? new GetCustomRoutingAcceleratorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides information about a Global Accelerator custom routing accelerator.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var config = new Config();
+        ///     var acceleratorArn = config.Get("acceleratorArn") ?? "";
+        ///     var acceleratorName = config.Get("acceleratorName") ?? "";
+        ///     var example = Aws.GlobalAccelerator.GetCustomRoutingAccelerator.Invoke(new()
+        ///     {
+        ///         Arn = acceleratorArn,
+        ///         Name = acceleratorName,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetCustomRoutingAcceleratorResult> Invoke(GetCustomRoutingAcceleratorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomRoutingAcceleratorResult>("aws:globalaccelerator/getCustomRoutingAccelerator:getCustomRoutingAccelerator", args ?? new GetCustomRoutingAcceleratorInvokeArgs(), options.WithDefaults());
     }
 
 

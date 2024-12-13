@@ -62,6 +62,32 @@ namespace Pulumi.Aws.SecretsManager
         /// </summary>
         public static Output<GetSecretRotationResult> Invoke(GetSecretRotationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretRotationResult>("aws:secretsmanager/getSecretRotation:getSecretRotation", args ?? new GetSecretRotationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Retrieve Secret Rotation Configuration
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.SecretsManager.GetSecretRotation.Invoke(new()
+        ///     {
+        ///         SecretId = exampleAwsSecretsmanagerSecret.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSecretRotationResult> Invoke(GetSecretRotationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecretRotationResult>("aws:secretsmanager/getSecretRotation:getSecretRotation", args ?? new GetSecretRotationInvokeArgs(), options.WithDefaults());
     }
 
 

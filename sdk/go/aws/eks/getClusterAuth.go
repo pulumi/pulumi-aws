@@ -75,21 +75,11 @@ type GetClusterAuthResult struct {
 }
 
 func GetClusterAuthOutput(ctx *pulumi.Context, args GetClusterAuthOutputArgs, opts ...pulumi.InvokeOption) GetClusterAuthResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetClusterAuthResultOutput, error) {
 			args := v.(GetClusterAuthArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetClusterAuthResult
-			secret, err := ctx.InvokePackageRaw("aws:eks/getClusterAuth:getClusterAuth", args, &rv, "", opts...)
-			if err != nil {
-				return GetClusterAuthResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetClusterAuthResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetClusterAuthResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:eks/getClusterAuth:getClusterAuth", args, GetClusterAuthResultOutput{}, options).(GetClusterAuthResultOutput), nil
 		}).(GetClusterAuthResultOutput)
 }
 

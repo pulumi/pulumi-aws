@@ -80,6 +80,41 @@ namespace Pulumi.Aws.DynamoDB
         /// </summary>
         public static Output<GetTableItemResult> Invoke(GetTableItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableItemResult>("aws:dynamodb/getTableItem:getTableItem", args ?? new GetTableItemInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for retrieving a value from an AWS DynamoDB table.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.DynamoDB.GetTableItem.Invoke(new()
+        ///     {
+        ///         TableName = example.Name,
+        ///         ExpressionAttributeNames = 
+        ///         {
+        ///             { "#P", "Percentile" },
+        ///         },
+        ///         ProjectionExpression = "#P",
+        ///         Key = @"{
+        /// 	""hashKey"": {""S"": ""example""}
+        /// }
+        /// ",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetTableItemResult> Invoke(GetTableItemInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTableItemResult>("aws:dynamodb/getTableItem:getTableItem", args ?? new GetTableItemInvokeArgs(), options.WithDefaults());
     }
 
 

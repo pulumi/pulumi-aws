@@ -96,6 +96,49 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         public static Output<GetEbsVolumesResult> Invoke(GetEbsVolumesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEbsVolumesResult>("aws:ebs/getEbsVolumes:getEbsVolumes", args ?? new GetEbsVolumesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// `aws.ebs.getEbsVolumes` provides identifying information for EBS volumes matching given criteria.
+        /// 
+        /// This data source can be useful for getting a list of volume IDs with (for example) matching tags.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// The following demonstrates obtaining a map of availability zone to EBS volume ID for volumes with a given tag value.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ebs.GetEbsVolumes.Invoke(new()
+        ///     {
+        ///         Tags = 
+        ///         {
+        ///             { "VolumeSet", "TestVolumeSet" },
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleGetVolume = ;
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["availabilityZoneToVolumeId"] = exampleGetVolume.Apply(exampleGetVolume =&gt; (exampleGetVolume).Values.ToDictionary(item =&gt; {
+        ///             var s = item.Value;
+        ///             return s.Id;
+        ///         }, item =&gt; {
+        ///             var s = item.Value;
+        ///             return s.AvailabilityZone;
+        ///         })),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetEbsVolumesResult> Invoke(GetEbsVolumesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEbsVolumesResult>("aws:ebs/getEbsVolumes:getEbsVolumes", args ?? new GetEbsVolumesInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -82,6 +82,42 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Output<GetInternetGatewayResult> Invoke(GetInternetGatewayInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInternetGatewayResult>("aws:ec2/getInternetGateway:getInternetGateway", args ?? new GetInternetGatewayInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// `aws.ec2.InternetGateway` provides details about a specific Internet Gateway.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var config = new Config();
+        ///     var vpcId = config.RequireObject&lt;dynamic&gt;("vpcId");
+        ///     var @default = Aws.Ec2.GetInternetGateway.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetInternetGatewayFilterInputArgs
+        ///             {
+        ///                 Name = "attachment.vpc-id",
+        ///                 Values = new[]
+        ///                 {
+        ///                     vpcId,
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetInternetGatewayResult> Invoke(GetInternetGatewayInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInternetGatewayResult>("aws:ec2/getInternetGateway:getInternetGateway", args ?? new GetInternetGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

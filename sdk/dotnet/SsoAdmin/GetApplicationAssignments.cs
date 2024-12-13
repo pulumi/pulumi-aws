@@ -62,6 +62,32 @@ namespace Pulumi.Aws.SsoAdmin
         /// </summary>
         public static Output<GetApplicationAssignmentsResult> Invoke(GetApplicationAssignmentsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationAssignmentsResult>("aws:ssoadmin/getApplicationAssignments:getApplicationAssignments", args ?? new GetApplicationAssignmentsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing AWS SSO Admin Application Assignments.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.SsoAdmin.GetApplicationAssignments.Invoke(new()
+        ///     {
+        ///         ApplicationArn = exampleAwsSsoadminApplication.ApplicationArn,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetApplicationAssignmentsResult> Invoke(GetApplicationAssignmentsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationAssignmentsResult>("aws:ssoadmin/getApplicationAssignments:getApplicationAssignments", args ?? new GetApplicationAssignmentsInvokeArgs(), options.WithDefaults());
     }
 
 

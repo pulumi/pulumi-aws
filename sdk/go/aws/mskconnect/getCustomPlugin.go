@@ -74,21 +74,11 @@ type LookupCustomPluginResult struct {
 }
 
 func LookupCustomPluginOutput(ctx *pulumi.Context, args LookupCustomPluginOutputArgs, opts ...pulumi.InvokeOption) LookupCustomPluginResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCustomPluginResultOutput, error) {
 			args := v.(LookupCustomPluginArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupCustomPluginResult
-			secret, err := ctx.InvokePackageRaw("aws:mskconnect/getCustomPlugin:getCustomPlugin", args, &rv, "", opts...)
-			if err != nil {
-				return LookupCustomPluginResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupCustomPluginResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupCustomPluginResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:mskconnect/getCustomPlugin:getCustomPlugin", args, LookupCustomPluginResultOutput{}, options).(LookupCustomPluginResultOutput), nil
 		}).(LookupCustomPluginResultOutput)
 }
 

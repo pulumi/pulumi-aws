@@ -109,21 +109,11 @@ type LookupUserHierarchyGroupResult struct {
 }
 
 func LookupUserHierarchyGroupOutput(ctx *pulumi.Context, args LookupUserHierarchyGroupOutputArgs, opts ...pulumi.InvokeOption) LookupUserHierarchyGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupUserHierarchyGroupResultOutput, error) {
 			args := v.(LookupUserHierarchyGroupArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupUserHierarchyGroupResult
-			secret, err := ctx.InvokePackageRaw("aws:connect/getUserHierarchyGroup:getUserHierarchyGroup", args, &rv, "", opts...)
-			if err != nil {
-				return LookupUserHierarchyGroupResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupUserHierarchyGroupResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupUserHierarchyGroupResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:connect/getUserHierarchyGroup:getUserHierarchyGroup", args, LookupUserHierarchyGroupResultOutput{}, options).(LookupUserHierarchyGroupResultOutput), nil
 		}).(LookupUserHierarchyGroupResultOutput)
 }
 

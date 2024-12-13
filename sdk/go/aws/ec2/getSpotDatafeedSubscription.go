@@ -60,18 +60,8 @@ type LookupSpotDatafeedSubscriptionResult struct {
 
 func LookupSpotDatafeedSubscriptionOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupSpotDatafeedSubscriptionResultOutput {
 	return pulumi.ToOutput(0).ApplyT(func(int) (LookupSpotDatafeedSubscriptionResultOutput, error) {
-		opts = internal.PkgInvokeDefaultOpts(opts)
-		var rv LookupSpotDatafeedSubscriptionResult
-		secret, err := ctx.InvokePackageRaw("aws:ec2/getSpotDatafeedSubscription:getSpotDatafeedSubscription", nil, &rv, "", opts...)
-		if err != nil {
-			return LookupSpotDatafeedSubscriptionResultOutput{}, err
-		}
-
-		output := pulumi.ToOutput(rv).(LookupSpotDatafeedSubscriptionResultOutput)
-		if secret {
-			return pulumi.ToSecret(output).(LookupSpotDatafeedSubscriptionResultOutput), nil
-		}
-		return output, nil
+		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+		return ctx.InvokeOutput("aws:ec2/getSpotDatafeedSubscription:getSpotDatafeedSubscription", nil, LookupSpotDatafeedSubscriptionResultOutput{}, options).(LookupSpotDatafeedSubscriptionResultOutput), nil
 	}).(LookupSpotDatafeedSubscriptionResultOutput)
 }
 

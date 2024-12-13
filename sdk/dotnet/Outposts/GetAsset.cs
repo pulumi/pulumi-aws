@@ -22,6 +22,12 @@ namespace Pulumi.Aws.Outposts
         /// </summary>
         public static Output<GetAssetResult> Invoke(GetAssetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssetResult>("aws:outposts/getAsset:getAsset", args ?? new GetAssetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Information about a specific hardware asset in an Outpost.
+        /// </summary>
+        public static Output<GetAssetResult> Invoke(GetAssetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssetResult>("aws:outposts/getAsset:getAsset", args ?? new GetAssetInvokeArgs(), options.WithDefaults());
     }
 
 

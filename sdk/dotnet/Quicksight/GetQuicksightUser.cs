@@ -66,6 +66,34 @@ namespace Pulumi.Aws.Quicksight
         /// </summary>
         public static Output<GetQuicksightUserResult> Invoke(GetQuicksightUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQuicksightUserResult>("aws:quicksight/getQuicksightUser:getQuicksightUser", args ?? new GetQuicksightUserInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This data source can be used to fetch information about a specific
+        /// QuickSight user. By using this data source, you can reference QuickSight user
+        /// properties without having to hard code ARNs or unique IDs as input.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Quicksight.GetQuicksightUser.Invoke(new()
+        ///     {
+        ///         UserName = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetQuicksightUserResult> Invoke(GetQuicksightUserInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetQuicksightUserResult>("aws:quicksight/getQuicksightUser:getQuicksightUser", args ?? new GetQuicksightUserInvokeArgs(), options.WithDefaults());
     }
 
 

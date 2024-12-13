@@ -72,6 +72,37 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Output<GetLocalGatewayRouteTableResult> Invoke(GetLocalGatewayRouteTableInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewayRouteTableResult>("aws:ec2/getLocalGatewayRouteTable:getLocalGatewayRouteTable", args ?? new GetLocalGatewayRouteTableInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about an EC2 Local Gateway Route Table.
+        /// 
+        /// This data source can prove useful when a module accepts a local gateway route table id as
+        /// an input variable and needs to, for example, find the associated Outpost or Local Gateway.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// The following example returns a specific local gateway route table ID
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var config = new Config();
+        ///     var awsEc2LocalGatewayRouteTable = config.RequireObject&lt;dynamic&gt;("awsEc2LocalGatewayRouteTable");
+        ///     var selected = Aws.Ec2.GetLocalGatewayRouteTable.Invoke(new()
+        ///     {
+        ///         LocalGatewayRouteTableId = awsEc2LocalGatewayRouteTable,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocalGatewayRouteTableResult> Invoke(GetLocalGatewayRouteTableInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewayRouteTableResult>("aws:ec2/getLocalGatewayRouteTable:getLocalGatewayRouteTable", args ?? new GetLocalGatewayRouteTableInvokeArgs(), options.WithDefaults());
     }
 
 

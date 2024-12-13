@@ -71,21 +71,11 @@ type GetLocalGatewayVirtualInterfaceGroupResult struct {
 }
 
 func GetLocalGatewayVirtualInterfaceGroupOutput(ctx *pulumi.Context, args GetLocalGatewayVirtualInterfaceGroupOutputArgs, opts ...pulumi.InvokeOption) GetLocalGatewayVirtualInterfaceGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetLocalGatewayVirtualInterfaceGroupResultOutput, error) {
 			args := v.(GetLocalGatewayVirtualInterfaceGroupArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetLocalGatewayVirtualInterfaceGroupResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getLocalGatewayVirtualInterfaceGroup:getLocalGatewayVirtualInterfaceGroup", args, &rv, "", opts...)
-			if err != nil {
-				return GetLocalGatewayVirtualInterfaceGroupResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetLocalGatewayVirtualInterfaceGroupResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetLocalGatewayVirtualInterfaceGroupResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:ec2/getLocalGatewayVirtualInterfaceGroup:getLocalGatewayVirtualInterfaceGroup", args, GetLocalGatewayVirtualInterfaceGroupResultOutput{}, options).(GetLocalGatewayVirtualInterfaceGroupResultOutput), nil
 		}).(GetLocalGatewayVirtualInterfaceGroupResultOutput)
 }
 

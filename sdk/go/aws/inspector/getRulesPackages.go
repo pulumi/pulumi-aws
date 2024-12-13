@@ -84,18 +84,8 @@ type GetRulesPackagesResult struct {
 
 func GetRulesPackagesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetRulesPackagesResultOutput {
 	return pulumi.ToOutput(0).ApplyT(func(int) (GetRulesPackagesResultOutput, error) {
-		opts = internal.PkgInvokeDefaultOpts(opts)
-		var rv GetRulesPackagesResult
-		secret, err := ctx.InvokePackageRaw("aws:inspector/getRulesPackages:getRulesPackages", nil, &rv, "", opts...)
-		if err != nil {
-			return GetRulesPackagesResultOutput{}, err
-		}
-
-		output := pulumi.ToOutput(rv).(GetRulesPackagesResultOutput)
-		if secret {
-			return pulumi.ToSecret(output).(GetRulesPackagesResultOutput), nil
-		}
-		return output, nil
+		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+		return ctx.InvokeOutput("aws:inspector/getRulesPackages:getRulesPackages", nil, GetRulesPackagesResultOutput{}, options).(GetRulesPackagesResultOutput), nil
 	}).(GetRulesPackagesResultOutput)
 }
 

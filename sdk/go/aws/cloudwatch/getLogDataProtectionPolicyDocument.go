@@ -120,21 +120,11 @@ type GetLogDataProtectionPolicyDocumentResult struct {
 }
 
 func GetLogDataProtectionPolicyDocumentOutput(ctx *pulumi.Context, args GetLogDataProtectionPolicyDocumentOutputArgs, opts ...pulumi.InvokeOption) GetLogDataProtectionPolicyDocumentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetLogDataProtectionPolicyDocumentResultOutput, error) {
 			args := v.(GetLogDataProtectionPolicyDocumentArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetLogDataProtectionPolicyDocumentResult
-			secret, err := ctx.InvokePackageRaw("aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument", args, &rv, "", opts...)
-			if err != nil {
-				return GetLogDataProtectionPolicyDocumentResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetLogDataProtectionPolicyDocumentResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetLogDataProtectionPolicyDocumentResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument", args, GetLogDataProtectionPolicyDocumentResultOutput{}, options).(GetLogDataProtectionPolicyDocumentResultOutput), nil
 		}).(GetLogDataProtectionPolicyDocumentResultOutput)
 }
 

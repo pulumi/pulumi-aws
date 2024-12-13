@@ -70,21 +70,11 @@ type GetInstanceProfilesResult struct {
 }
 
 func GetInstanceProfilesOutput(ctx *pulumi.Context, args GetInstanceProfilesOutputArgs, opts ...pulumi.InvokeOption) GetInstanceProfilesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetInstanceProfilesResultOutput, error) {
 			args := v.(GetInstanceProfilesArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetInstanceProfilesResult
-			secret, err := ctx.InvokePackageRaw("aws:iam/getInstanceProfiles:getInstanceProfiles", args, &rv, "", opts...)
-			if err != nil {
-				return GetInstanceProfilesResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetInstanceProfilesResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetInstanceProfilesResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:iam/getInstanceProfiles:getInstanceProfiles", args, GetInstanceProfilesResultOutput{}, options).(GetInstanceProfilesResultOutput), nil
 		}).(GetInstanceProfilesResultOutput)
 }
 

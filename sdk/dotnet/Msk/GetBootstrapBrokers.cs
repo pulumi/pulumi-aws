@@ -58,6 +58,30 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         public static Output<GetBootstrapBrokersResult> Invoke(GetBootstrapBrokersInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBootstrapBrokersResult>("aws:msk/getBootstrapBrokers:getBootstrapBrokers", args ?? new GetBootstrapBrokersInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a list of brokers that a client application can use to bootstrap.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Msk.GetBootstrapBrokers.Invoke(new()
+        ///     {
+        ///         ClusterArn = exampleAwsMskCluster.Arn,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetBootstrapBrokersResult> Invoke(GetBootstrapBrokersInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBootstrapBrokersResult>("aws:msk/getBootstrapBrokers:getBootstrapBrokers", args ?? new GetBootstrapBrokersInvokeArgs(), options.WithDefaults());
     }
 
 

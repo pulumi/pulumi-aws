@@ -80,6 +80,41 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public static Output<GetComponentsResult> Invoke(GetComponentsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetComponentsResult>("aws:imagebuilder/getComponents:getComponents", args ?? new GetComponentsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get the ARNs and names of Image Builder Components matching the specified criteria.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.ImageBuilder.GetComponents.Invoke(new()
+        ///     {
+        ///         Owner = "Self",
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.ImageBuilder.Inputs.GetComponentsFilterInputArgs
+        ///             {
+        ///                 Name = "platform",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "Linux",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetComponentsResult> Invoke(GetComponentsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetComponentsResult>("aws:imagebuilder/getComponents:getComponents", args ?? new GetComponentsInvokeArgs(), options.WithDefaults());
     }
 
 

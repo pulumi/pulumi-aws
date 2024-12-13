@@ -101,21 +101,11 @@ type GetPublicKeyResult struct {
 }
 
 func GetPublicKeyOutput(ctx *pulumi.Context, args GetPublicKeyOutputArgs, opts ...pulumi.InvokeOption) GetPublicKeyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetPublicKeyResultOutput, error) {
 			args := v.(GetPublicKeyArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetPublicKeyResult
-			secret, err := ctx.InvokePackageRaw("aws:kms/getPublicKey:getPublicKey", args, &rv, "", opts...)
-			if err != nil {
-				return GetPublicKeyResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetPublicKeyResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetPublicKeyResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:kms/getPublicKey:getPublicKey", args, GetPublicKeyResultOutput{}, options).(GetPublicKeyResultOutput), nil
 		}).(GetPublicKeyResultOutput)
 }
 

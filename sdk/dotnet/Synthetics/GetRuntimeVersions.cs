@@ -56,6 +56,29 @@ namespace Pulumi.Aws.Synthetics
         /// </summary>
         public static Output<GetRuntimeVersionsResult> Invoke(GetRuntimeVersionsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRuntimeVersionsResult>("aws:synthetics/getRuntimeVersions:getRuntimeVersions", args ?? new GetRuntimeVersionsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS CloudWatch Synthetics Runtime Versions.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Synthetics.GetRuntimeVersions.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRuntimeVersionsResult> Invoke(GetRuntimeVersionsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRuntimeVersionsResult>("aws:synthetics/getRuntimeVersions:getRuntimeVersions", args ?? new GetRuntimeVersionsInvokeArgs(), options.WithDefaults());
     }
 
 

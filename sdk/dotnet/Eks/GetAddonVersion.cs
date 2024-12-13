@@ -98,6 +98,50 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         public static Output<GetAddonVersionResult> Invoke(GetAddonVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAddonVersionResult>("aws:eks/getAddonVersion:getAddonVersion", args ?? new GetAddonVersionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var @default = Aws.Eks.GetAddonVersion.Invoke(new()
+        ///     {
+        ///         AddonName = "vpc-cni",
+        ///         KubernetesVersion = example.Version,
+        ///     });
+        /// 
+        ///     var latest = Aws.Eks.GetAddonVersion.Invoke(new()
+        ///     {
+        ///         AddonName = "vpc-cni",
+        ///         KubernetesVersion = example.Version,
+        ///         MostRecent = true,
+        ///     });
+        /// 
+        ///     var vpcCni = new Aws.Eks.Addon("vpc_cni", new()
+        ///     {
+        ///         ClusterName = example.Name,
+        ///         AddonName = "vpc-cni",
+        ///         AddonVersion = latest.Apply(getAddonVersionResult =&gt; getAddonVersionResult.Version),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["default"] = @default.Apply(@default =&gt; @default.Apply(getAddonVersionResult =&gt; getAddonVersionResult.Version)),
+        ///         ["latest"] = latest.Apply(getAddonVersionResult =&gt; getAddonVersionResult.Version),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetAddonVersionResult> Invoke(GetAddonVersionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAddonVersionResult>("aws:eks/getAddonVersion:getAddonVersion", args ?? new GetAddonVersionInvokeArgs(), options.WithDefaults());
     }
 
 

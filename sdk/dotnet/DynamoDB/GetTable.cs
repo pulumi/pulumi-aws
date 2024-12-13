@@ -58,6 +58,30 @@ namespace Pulumi.Aws.DynamoDB
         /// </summary>
         public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("aws:dynamodb/getTable:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides information about a DynamoDB table.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var tableName = Aws.DynamoDB.GetTable.Invoke(new()
+        ///     {
+        ///         Name = "tableName",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("aws:dynamodb/getTable:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
     }
 
 

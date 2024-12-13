@@ -58,18 +58,8 @@ type GetInferenceProfilesResult struct {
 
 func GetInferenceProfilesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetInferenceProfilesResultOutput {
 	return pulumi.ToOutput(0).ApplyT(func(int) (GetInferenceProfilesResultOutput, error) {
-		opts = internal.PkgInvokeDefaultOpts(opts)
-		var rv GetInferenceProfilesResult
-		secret, err := ctx.InvokePackageRaw("aws:bedrock/getInferenceProfiles:getInferenceProfiles", nil, &rv, "", opts...)
-		if err != nil {
-			return GetInferenceProfilesResultOutput{}, err
-		}
-
-		output := pulumi.ToOutput(rv).(GetInferenceProfilesResultOutput)
-		if secret {
-			return pulumi.ToSecret(output).(GetInferenceProfilesResultOutput), nil
-		}
-		return output, nil
+		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+		return ctx.InvokeOutput("aws:bedrock/getInferenceProfiles:getInferenceProfiles", nil, GetInferenceProfilesResultOutput{}, options).(GetInferenceProfilesResultOutput), nil
 	}).(GetInferenceProfilesResultOutput)
 }
 

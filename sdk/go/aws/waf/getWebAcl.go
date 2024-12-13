@@ -62,21 +62,11 @@ type LookupWebAclResult struct {
 }
 
 func LookupWebAclOutput(ctx *pulumi.Context, args LookupWebAclOutputArgs, opts ...pulumi.InvokeOption) LookupWebAclResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupWebAclResultOutput, error) {
 			args := v.(LookupWebAclArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupWebAclResult
-			secret, err := ctx.InvokePackageRaw("aws:waf/getWebAcl:getWebAcl", args, &rv, "", opts...)
-			if err != nil {
-				return LookupWebAclResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupWebAclResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupWebAclResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:waf/getWebAcl:getWebAcl", args, LookupWebAclResultOutput{}, options).(LookupWebAclResultOutput), nil
 		}).(LookupWebAclResultOutput)
 }
 

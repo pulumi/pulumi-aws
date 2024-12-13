@@ -60,6 +60,31 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         public static Output<GetCatalogTableResult> Invoke(GetCatalogTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCatalogTableResult>("aws:glue/getCatalogTable:getCatalogTable", args ?? new GetCatalogTableInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This data source can be used to fetch information about an AWS Glue Data Catalog Table.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Glue.GetCatalogTable.Invoke(new()
+        ///     {
+        ///         Name = "MyCatalogTable",
+        ///         DatabaseName = "MyCatalogDatabase",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetCatalogTableResult> Invoke(GetCatalogTableInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCatalogTableResult>("aws:glue/getCatalogTable:getCatalogTable", args ?? new GetCatalogTableInvokeArgs(), options.WithDefaults());
     }
 
 

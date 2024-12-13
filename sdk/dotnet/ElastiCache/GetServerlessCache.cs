@@ -58,6 +58,30 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public static Output<GetServerlessCacheResult> Invoke(GetServerlessCacheInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerlessCacheResult>("aws:elasticache/getServerlessCache:getServerlessCache", args ?? new GetServerlessCacheInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information about an ElastiCache Serverless Cache.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.ElastiCache.GetServerlessCache.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetServerlessCacheResult> Invoke(GetServerlessCacheInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerlessCacheResult>("aws:elasticache/getServerlessCache:getServerlessCache", args ?? new GetServerlessCacheInvokeArgs(), options.WithDefaults());
     }
 
 

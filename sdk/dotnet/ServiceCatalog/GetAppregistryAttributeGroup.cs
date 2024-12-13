@@ -62,6 +62,32 @@ namespace Pulumi.Aws.ServiceCatalog
         /// </summary>
         public static Output<GetAppregistryAttributeGroupResult> Invoke(GetAppregistryAttributeGroupInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppregistryAttributeGroupResult>("aws:servicecatalog/getAppregistryAttributeGroup:getAppregistryAttributeGroup", args ?? new GetAppregistryAttributeGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS Service Catalog AppRegistry Attribute Group.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.ServiceCatalog.GetAppregistryAttributeGroup.Invoke(new()
+        ///     {
+        ///         Name = "example_attribute_group",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetAppregistryAttributeGroupResult> Invoke(GetAppregistryAttributeGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAppregistryAttributeGroupResult>("aws:servicecatalog/getAppregistryAttributeGroup:getAppregistryAttributeGroup", args ?? new GetAppregistryAttributeGroupInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -102,6 +102,52 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         public static Output<GetContactFlowResult> Invoke(GetContactFlowInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContactFlowResult>("aws:connect/getContactFlow:getContactFlow", args ?? new GetContactFlowInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about a specific Amazon Connect Contact Flow.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// By name
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Connect.GetContactFlow.Invoke(new()
+        ///     {
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         Name = "Test",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// By contact_flow_id
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Connect.GetContactFlow.Invoke(new()
+        ///     {
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         ContactFlowId = "cccccccc-bbbb-cccc-dddd-111111111111",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetContactFlowResult> Invoke(GetContactFlowInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetContactFlowResult>("aws:connect/getContactFlow:getContactFlow", args ?? new GetContactFlowInvokeArgs(), options.WithDefaults());
     }
 
 

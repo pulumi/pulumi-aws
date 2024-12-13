@@ -108,6 +108,55 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         public static Output<GetPatchBaselineResult> Invoke(GetPatchBaselineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPatchBaselineResult>("aws:ssm/getPatchBaseline:getPatchBaseline", args ?? new GetPatchBaselineInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// To retrieve a baseline provided by AWS:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var centos = Aws.Ssm.GetPatchBaseline.Invoke(new()
+        ///     {
+        ///         Owner = "AWS",
+        ///         NamePrefix = "AWS-",
+        ///         OperatingSystem = "CENTOS",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// To retrieve a baseline on your account:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var defaultCustom = Aws.Ssm.GetPatchBaseline.Invoke(new()
+        ///     {
+        ///         Owner = "Self",
+        ///         NamePrefix = "MyCustomBaseline",
+        ///         DefaultBaseline = true,
+        ///         OperatingSystem = "WINDOWS",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetPatchBaselineResult> Invoke(GetPatchBaselineInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPatchBaselineResult>("aws:ssm/getPatchBaseline:getPatchBaseline", args ?? new GetPatchBaselineInvokeArgs(), options.WithDefaults());
     }
 
 

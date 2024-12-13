@@ -66,6 +66,34 @@ namespace Pulumi.Aws.SsoAdmin
         /// </summary>
         public static Output<GetPermissionSetsResult> Invoke(GetPermissionSetsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPermissionSetsResult>("aws:ssoadmin/getPermissionSets:getPermissionSets", args ?? new GetPermissionSetsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source returning the ARN of all AWS SSO Admin Permission Sets.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
+        /// 
+        ///     var exampleGetPermissionSets = Aws.SsoAdmin.GetPermissionSets.Invoke(new()
+        ///     {
+        ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetPermissionSetsResult> Invoke(GetPermissionSetsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPermissionSetsResult>("aws:ssoadmin/getPermissionSets:getPermissionSets", args ?? new GetPermissionSetsInvokeArgs(), options.WithDefaults());
     }
 
 

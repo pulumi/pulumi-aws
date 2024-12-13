@@ -126,21 +126,11 @@ type LookupNatGatewayResult struct {
 }
 
 func LookupNatGatewayOutput(ctx *pulumi.Context, args LookupNatGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupNatGatewayResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNatGatewayResultOutput, error) {
 			args := v.(LookupNatGatewayArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupNatGatewayResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getNatGateway:getNatGateway", args, &rv, "", opts...)
-			if err != nil {
-				return LookupNatGatewayResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupNatGatewayResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupNatGatewayResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:ec2/getNatGateway:getNatGateway", args, LookupNatGatewayResultOutput{}, options).(LookupNatGatewayResultOutput), nil
 		}).(LookupNatGatewayResultOutput)
 }
 

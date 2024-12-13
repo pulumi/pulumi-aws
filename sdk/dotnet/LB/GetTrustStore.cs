@@ -78,6 +78,40 @@ namespace Pulumi.Aws.LB
         /// </summary>
         public static Output<GetTrustStoreResult> Invoke(GetTrustStoreInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrustStoreResult>("aws:lb/getTrustStore:getTrustStore", args ?? new GetTrustStoreInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// &gt; **Note:** `aws_alb_trust_store` is known as `aws.lb.TrustStore`. The functionality is identical.
+        /// 
+        /// Provides information about a Load Balancer Trust Store.
+        /// 
+        /// This data source can prove useful when a module accepts an LB Trust Store as an
+        /// input variable and needs to know its attributes. It can also be used to get the ARN of
+        /// an LB Trust Store for use in other resources, given LB Trust Store name.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var config = new Config();
+        ///     var lbTsArn = config.Get("lbTsArn") ?? "";
+        ///     var lbTsName = config.Get("lbTsName") ?? "";
+        ///     var test = Aws.LB.GetTrustStore.Invoke(new()
+        ///     {
+        ///         Arn = lbTsArn,
+        ///         Name = lbTsName,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetTrustStoreResult> Invoke(GetTrustStoreInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTrustStoreResult>("aws:lb/getTrustStore:getTrustStore", args ?? new GetTrustStoreInvokeArgs(), options.WithDefaults());
     }
 
 

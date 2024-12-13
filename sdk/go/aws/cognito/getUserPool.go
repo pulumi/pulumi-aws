@@ -108,21 +108,11 @@ type LookupUserPoolResult struct {
 }
 
 func LookupUserPoolOutput(ctx *pulumi.Context, args LookupUserPoolOutputArgs, opts ...pulumi.InvokeOption) LookupUserPoolResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupUserPoolResultOutput, error) {
 			args := v.(LookupUserPoolArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupUserPoolResult
-			secret, err := ctx.InvokePackageRaw("aws:cognito/getUserPool:getUserPool", args, &rv, "", opts...)
-			if err != nil {
-				return LookupUserPoolResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupUserPoolResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupUserPoolResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:cognito/getUserPool:getUserPool", args, LookupUserPoolResultOutput{}, options).(LookupUserPoolResultOutput), nil
 		}).(LookupUserPoolResultOutput)
 }
 

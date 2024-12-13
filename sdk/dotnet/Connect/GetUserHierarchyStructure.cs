@@ -58,6 +58,30 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         public static Output<GetUserHierarchyStructureResult> Invoke(GetUserHierarchyStructureInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserHierarchyStructureResult>("aws:connect/getUserHierarchyStructure:getUserHierarchyStructure", args ?? new GetUserHierarchyStructureInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about a specific Amazon Connect User Hierarchy Structure
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Connect.GetUserHierarchyStructure.Invoke(new()
+        ///     {
+        ///         InstanceId = testAwsConnectInstance.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetUserHierarchyStructureResult> Invoke(GetUserHierarchyStructureInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserHierarchyStructureResult>("aws:connect/getUserHierarchyStructure:getUserHierarchyStructure", args ?? new GetUserHierarchyStructureInvokeArgs(), options.WithDefaults());
     }
 
 

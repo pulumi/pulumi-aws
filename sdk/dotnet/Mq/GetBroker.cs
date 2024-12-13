@@ -74,6 +74,38 @@ namespace Pulumi.Aws.Mq
         /// </summary>
         public static Output<GetBrokerResult> Invoke(GetBrokerInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBrokerResult>("aws:mq/getBroker:getBroker", args ?? new GetBrokerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides information about a MQ Broker.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var config = new Config();
+        ///     var brokerId = config.Get("brokerId") ?? "";
+        ///     var brokerName = config.Get("brokerName") ?? "";
+        ///     var byId = Aws.Mq.GetBroker.Invoke(new()
+        ///     {
+        ///         BrokerId = brokerId,
+        ///     });
+        /// 
+        ///     var byName = Aws.Mq.GetBroker.Invoke(new()
+        ///     {
+        ///         BrokerName = brokerName,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetBrokerResult> Invoke(GetBrokerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBrokerResult>("aws:mq/getBroker:getBroker", args ?? new GetBrokerInvokeArgs(), options.WithDefaults());
     }
 
 

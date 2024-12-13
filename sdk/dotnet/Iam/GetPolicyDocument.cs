@@ -1524,6 +1524,763 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public static Output<GetPolicyDocumentResult> Invoke(GetPolicyDocumentInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyDocumentResult>("aws:iam/getPolicyDocument:getPolicyDocument", args ?? new GetPolicyDocumentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Generates an IAM policy document in JSON format for use with resources that expect policy documents such as `aws.iam.Policy`.
+        /// 
+        /// Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `file` interpolation function to read a raw JSON policy document from a file.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Example
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     {
+        ///         Statements = new[]
+        ///         {
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Sid = "1",
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "s3:ListAllMyBuckets",
+        ///                     "s3:GetBucketLocation",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     "arn:aws:s3:::*",
+        ///                 },
+        ///             },
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "s3:ListBucket",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     $"arn:aws:s3:::{s3BucketName}",
+        ///                 },
+        ///                 Conditions = new[]
+        ///                 {
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+        ///                     {
+        ///                         Test = "StringLike",
+        ///                         Variable = "s3:prefix",
+        ///                         Values = new[]
+        ///                         {
+        ///                             "",
+        ///                             "home/",
+        ///                             "home/&amp;{aws:username}/",
+        ///                         },
+        ///                     },
+        ///                 },
+        ///             },
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "s3:*",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     $"arn:aws:s3:::{s3BucketName}/home/&amp;{{aws:username}}",
+        ///                     $"arn:aws:s3:::{s3BucketName}/home/&amp;{{aws:username}}/*",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var examplePolicy = new Aws.Iam.Policy("example", new()
+        ///     {
+        ///         Name = "example_policy",
+        ///         Path = "/",
+        ///         PolicyDocument = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Example Multiple Condition Keys and Values
+        /// 
+        /// You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleMultipleConditionKeysAndValues = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     {
+        ///         Statements = new[]
+        ///         {
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "kms:Decrypt",
+        ///                     "kms:GenerateDataKey",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     "*",
+        ///                 },
+        ///                 Conditions = new[]
+        ///                 {
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+        ///                     {
+        ///                         Test = "ForAnyValue:StringEquals",
+        ///                         Variable = "kms:EncryptionContext:service",
+        ///                         Values = new[]
+        ///                         {
+        ///                             "pi",
+        ///                         },
+        ///                     },
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+        ///                     {
+        ///                         Test = "ForAnyValue:StringEquals",
+        ///                         Variable = "kms:EncryptionContext:aws:pi:service",
+        ///                         Values = new[]
+        ///                         {
+        ///                             "rds",
+        ///                         },
+        ///                     },
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+        ///                     {
+        ///                         Test = "ForAnyValue:StringEquals",
+        ///                         Variable = "kms:EncryptionContext:aws:rds:db-id",
+        ///                         Values = new[]
+        ///                         {
+        ///                             "db-AAAAABBBBBCCCCCDDDDDEEEEE",
+        ///                             "db-EEEEEDDDDDCCCCCBBBBBAAAAA",
+        ///                         },
+        ///                     },
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
+        /// 
+        /// ```json
+        /// {
+        ///   "Version": "2012-10-17",
+        ///   "Statement": [
+        ///     {
+        ///       "Sid": "",
+        ///       "Effect": "Allow",
+        ///       "Action": [
+        ///         "kms:GenerateDataKey",
+        ///         "kms:Decrypt"
+        ///       ],
+        ///       "Resource": "*",
+        ///       "Condition": {
+        ///         "ForAnyValue:StringEquals": {
+        ///           "kms:EncryptionContext:aws:pi:service": "rds",
+        ///           "kms:EncryptionContext:aws:rds:db-id": [
+        ///             "db-AAAAABBBBBCCCCCDDDDDEEEEE",
+        ///             "db-EEEEEDDDDDCCCCCBBBBBAAAAA"
+        ///           ],
+        ///           "kms:EncryptionContext:service": "pi"
+        ///         }
+        ///       }
+        ///     }
+        ///   ]
+        /// }
+        /// ```
+        /// 
+        /// ### Example Assume-Role Policy with Multiple Principals
+        /// 
+        /// You can specify multiple principal blocks with different types. You can also use this data source to generate an assume-role policy.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var eventStreamBucketRoleAssumeRolePolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     {
+        ///         Statements = new[]
+        ///         {
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "sts:AssumeRole",
+        ///                 },
+        ///                 Principals = new[]
+        ///                 {
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+        ///                     {
+        ///                         Type = "Service",
+        ///                         Identifiers = new[]
+        ///                         {
+        ///                             "firehose.amazonaws.com",
+        ///                         },
+        ///                     },
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+        ///                     {
+        ///                         Type = "AWS",
+        ///                         Identifiers = new[]
+        ///                         {
+        ///                             trustedRoleArn,
+        ///                         },
+        ///                     },
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+        ///                     {
+        ///                         Type = "Federated",
+        ///                         Identifiers = new[]
+        ///                         {
+        ///                             $"arn:aws:iam::{accountId}:saml-provider/{providerName}",
+        ///                             "cognito-identity.amazonaws.com",
+        ///                         },
+        ///                     },
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Example Using A Source Document
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var source = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     {
+        ///         Statements = new[]
+        ///         {
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "ec2:*",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     "*",
+        ///                 },
+        ///             },
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Sid = "SidToOverride",
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "s3:*",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     "*",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var sourceDocumentExample = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     {
+        ///         SourcePolicyDocuments = new[]
+        ///         {
+        ///             source.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///         },
+        ///         Statements = new[]
+        ///         {
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Sid = "SidToOverride",
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "s3:*",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     "arn:aws:s3:::somebucket",
+        ///                     "arn:aws:s3:::somebucket/*",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// `data.aws_iam_policy_document.source_document_example.json` will evaluate to:
+        /// 
+        /// ```json
+        /// {
+        ///   "Version": "2012-10-17",
+        ///   "Statement": [
+        ///     {
+        ///       "Sid": "",
+        ///       "Effect": "Allow",
+        ///       "Action": "ec2:*",
+        ///       "Resource": "*"
+        ///     },
+        ///     {
+        ///       "Sid": "SidToOverride",
+        ///       "Effect": "Allow",
+        ///       "Action": "s3:*",
+        ///       "Resource": [
+        ///         "arn:aws:s3:::somebucket/*",
+        ///         "arn:aws:s3:::somebucket"
+        ///       ]
+        ///     }
+        ///   ]
+        /// }
+        /// ```
+        /// 
+        /// ### Example Using An Override Document
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var @override = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     {
+        ///         Statements = new[]
+        ///         {
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Sid = "SidToOverride",
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "s3:*",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     "*",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var overridePolicyDocumentExample = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     {
+        ///         OverridePolicyDocuments = new[]
+        ///         {
+        ///             @override.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///         },
+        ///         Statements = new[]
+        ///         {
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "ec2:*",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     "*",
+        ///                 },
+        ///             },
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Sid = "SidToOverride",
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "s3:*",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     "arn:aws:s3:::somebucket",
+        ///                     "arn:aws:s3:::somebucket/*",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// `data.aws_iam_policy_document.override_policy_document_example.json` will evaluate to:
+        /// 
+        /// ```json
+        /// {
+        ///   "Version": "2012-10-17",
+        ///   "Statement": [
+        ///     {
+        ///       "Sid": "",
+        ///       "Effect": "Allow",
+        ///       "Action": "ec2:*",
+        ///       "Resource": "*"
+        ///     },
+        ///     {
+        ///       "Sid": "SidToOverride",
+        ///       "Effect": "Allow",
+        ///       "Action": "s3:*",
+        ///       "Resource": "*"
+        ///     }
+        ///   ]
+        /// }
+        /// ```
+        /// 
+        /// ### Example with Both Source and Override Documents
+        /// 
+        /// You can also combine `source_policy_documents` and `override_policy_documents` in the same document.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var source = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     {
+        ///         Statements = new[]
+        ///         {
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Sid = "OverridePlaceholder",
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "ec2:DescribeAccountAttributes",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     "*",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var @override = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     {
+        ///         Statements = new[]
+        ///         {
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Sid = "OverridePlaceholder",
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "s3:GetObject",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     "*",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var politik = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     {
+        ///         SourcePolicyDocuments = new[]
+        ///         {
+        ///             source.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///         },
+        ///         OverridePolicyDocuments = new[]
+        ///         {
+        ///             @override.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// `data.aws_iam_policy_document.politik.json` will evaluate to:
+        /// 
+        /// ```json
+        /// {
+        ///   "Version": "2012-10-17",
+        ///   "Statement": [
+        ///     {
+        ///       "Sid": "OverridePlaceholder",
+        ///       "Effect": "Allow",
+        ///       "Action": "s3:GetObject",
+        ///       "Resource": "*"
+        ///     }
+        ///   ]
+        /// }
+        /// ```
+        /// 
+        /// ### Example of Merging Source Documents
+        /// 
+        /// Multiple documents can be combined using the `source_policy_documents` or `override_policy_documents` attributes. `source_policy_documents` requires that all documents have unique Sids, while `override_policy_documents` will iteratively override matching Sids.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var sourceOne = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     {
+        ///         Statements = new[]
+        ///         {
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "ec2:*",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     "*",
+        ///                 },
+        ///             },
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Sid = "UniqueSidOne",
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "s3:*",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     "*",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var sourceTwo = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     {
+        ///         Statements = new[]
+        ///         {
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Sid = "UniqueSidTwo",
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "iam:*",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     "*",
+        ///                 },
+        ///             },
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "lambda:*",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     "*",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var combined = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     {
+        ///         SourcePolicyDocuments = new[]
+        ///         {
+        ///             sourceOne.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///             sourceTwo.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// `data.aws_iam_policy_document.combined.json` will evaluate to:
+        /// 
+        /// ```json
+        /// {
+        ///   "Version": "2012-10-17",
+        ///   "Statement": [
+        ///     {
+        ///       "Sid": "",
+        ///       "Effect": "Allow",
+        ///       "Action": "ec2:*",
+        ///       "Resource": "*"
+        ///     },
+        ///     {
+        ///       "Sid": "UniqueSidOne",
+        ///       "Effect": "Allow",
+        ///       "Action": "s3:*",
+        ///       "Resource": "*"
+        ///     },
+        ///     {
+        ///       "Sid": "UniqueSidTwo",
+        ///       "Effect": "Allow",
+        ///       "Action": "iam:*",
+        ///       "Resource": "*"
+        ///     },
+        ///     {
+        ///       "Sid": "",
+        ///       "Effect": "Allow",
+        ///       "Action": "lambda:*",
+        ///       "Resource": "*"
+        ///     }
+        ///   ]
+        /// }
+        /// ```
+        /// 
+        /// ### Example of Merging Override Documents
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var policyOne = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     {
+        ///         Statements = new[]
+        ///         {
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Sid = "OverridePlaceHolderOne",
+        ///                 Effect = "Allow",
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "s3:*",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     "*",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var policyTwo = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     {
+        ///         Statements = new[]
+        ///         {
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Effect = "Allow",
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "ec2:*",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     "*",
+        ///                 },
+        ///             },
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Sid = "OverridePlaceHolderTwo",
+        ///                 Effect = "Allow",
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "iam:*",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     "*",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var policyThree = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     {
+        ///         Statements = new[]
+        ///         {
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Sid = "OverridePlaceHolderOne",
+        ///                 Effect = "Deny",
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "logs:*",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     "*",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var combined = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     {
+        ///         OverridePolicyDocuments = new[]
+        ///         {
+        ///             policyOne.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///             policyTwo.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///             policyThree.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///         },
+        ///         Statements = new[]
+        ///         {
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Sid = "OverridePlaceHolderTwo",
+        ///                 Effect = "Deny",
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "*",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     "*",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// `data.aws_iam_policy_document.combined.json` will evaluate to:
+        /// 
+        /// ```json
+        /// {
+        ///   "Version": "2012-10-17",
+        ///   "Statement": [
+        ///     {
+        ///       "Sid": "OverridePlaceholderTwo",
+        ///       "Effect": "Allow",
+        ///       "Action": "iam:*",
+        ///       "Resource": "*"
+        ///     },
+        ///     {
+        ///       "Sid": "OverridePlaceholderOne",
+        ///       "Effect": "Deny",
+        ///       "Action": "logs:*",
+        ///       "Resource": "*"
+        ///     },
+        ///     {
+        ///       "Sid": "",
+        ///       "Effect": "Allow",
+        ///       "Action": "ec2:*",
+        ///       "Resource": "*"
+        ///     },
+        ///   ]
+        /// }
+        /// ```
+        /// </summary>
+        public static Output<GetPolicyDocumentResult> Invoke(GetPolicyDocumentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPolicyDocumentResult>("aws:iam/getPolicyDocument:getPolicyDocument", args ?? new GetPolicyDocumentInvokeArgs(), options.WithDefaults());
     }
 
 

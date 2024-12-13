@@ -88,21 +88,11 @@ type LookupImageRecipeResult struct {
 }
 
 func LookupImageRecipeOutput(ctx *pulumi.Context, args LookupImageRecipeOutputArgs, opts ...pulumi.InvokeOption) LookupImageRecipeResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupImageRecipeResultOutput, error) {
 			args := v.(LookupImageRecipeArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupImageRecipeResult
-			secret, err := ctx.InvokePackageRaw("aws:imagebuilder/getImageRecipe:getImageRecipe", args, &rv, "", opts...)
-			if err != nil {
-				return LookupImageRecipeResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupImageRecipeResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupImageRecipeResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:imagebuilder/getImageRecipe:getImageRecipe", args, LookupImageRecipeResultOutput{}, options).(LookupImageRecipeResultOutput), nil
 		}).(LookupImageRecipeResultOutput)
 }
 

@@ -133,21 +133,11 @@ type LookupFleetResult struct {
 }
 
 func LookupFleetOutput(ctx *pulumi.Context, args LookupFleetOutputArgs, opts ...pulumi.InvokeOption) LookupFleetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFleetResultOutput, error) {
 			args := v.(LookupFleetArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFleetResult
-			secret, err := ctx.InvokePackageRaw("aws:codebuild/getFleet:getFleet", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFleetResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFleetResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFleetResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:codebuild/getFleet:getFleet", args, LookupFleetResultOutput{}, options).(LookupFleetResultOutput), nil
 		}).(LookupFleetResultOutput)
 }
 

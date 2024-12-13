@@ -80,6 +80,41 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         public static Output<GetRouteTableRoutesResult> Invoke(GetRouteTableRoutesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteTableRoutesResult>("aws:ec2transitgateway/getRouteTableRoutes:getRouteTableRoutes", args ?? new GetRouteTableRoutesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides informations for routes of a specific transit gateway, such as state, type, cidr
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Ec2TransitGateway.GetRouteTableRoutes.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2TransitGateway.Inputs.GetRouteTableRoutesFilterInputArgs
+        ///             {
+        ///                 Name = "type",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "propagated",
+        ///                 },
+        ///             },
+        ///         },
+        ///         TransitGatewayRouteTableId = example.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRouteTableRoutesResult> Invoke(GetRouteTableRoutesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRouteTableRoutesResult>("aws:ec2transitgateway/getRouteTableRoutes:getRouteTableRoutes", args ?? new GetRouteTableRoutesInvokeArgs(), options.WithDefaults());
     }
 
 

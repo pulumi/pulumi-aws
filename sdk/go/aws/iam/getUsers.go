@@ -123,21 +123,11 @@ type GetUsersResult struct {
 }
 
 func GetUsersOutput(ctx *pulumi.Context, args GetUsersOutputArgs, opts ...pulumi.InvokeOption) GetUsersResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetUsersResultOutput, error) {
 			args := v.(GetUsersArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetUsersResult
-			secret, err := ctx.InvokePackageRaw("aws:iam/getUsers:getUsers", args, &rv, "", opts...)
-			if err != nil {
-				return GetUsersResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetUsersResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetUsersResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:iam/getUsers:getUsers", args, GetUsersResultOutput{}, options).(GetUsersResultOutput), nil
 		}).(GetUsersResultOutput)
 }
 

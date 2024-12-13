@@ -62,6 +62,32 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         public static Output<GetRouteTableAssociationsResult> Invoke(GetRouteTableAssociationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteTableAssociationsResult>("aws:ec2transitgateway/getRouteTableAssociations:getRouteTableAssociations", args ?? new GetRouteTableAssociationsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides information for multiple EC2 Transit Gateway Route Table Associations, such as their identifiers.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### By Transit Gateway Identifier
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ec2TransitGateway.GetRouteTableAssociations.Invoke(new()
+        ///     {
+        ///         TransitGatewayRouteTableId = exampleAwsEc2TransitGatewayRouteTable.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRouteTableAssociationsResult> Invoke(GetRouteTableAssociationsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRouteTableAssociationsResult>("aws:ec2transitgateway/getRouteTableAssociations:getRouteTableAssociations", args ?? new GetRouteTableAssociationsInvokeArgs(), options.WithDefaults());
     }
 
 

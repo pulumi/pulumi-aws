@@ -83,21 +83,11 @@ type LookupVirtualNodeResult struct {
 }
 
 func LookupVirtualNodeOutput(ctx *pulumi.Context, args LookupVirtualNodeOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualNodeResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVirtualNodeResultOutput, error) {
 			args := v.(LookupVirtualNodeArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupVirtualNodeResult
-			secret, err := ctx.InvokePackageRaw("aws:appmesh/getVirtualNode:getVirtualNode", args, &rv, "", opts...)
-			if err != nil {
-				return LookupVirtualNodeResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupVirtualNodeResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupVirtualNodeResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:appmesh/getVirtualNode:getVirtualNode", args, LookupVirtualNodeResultOutput{}, options).(LookupVirtualNodeResultOutput), nil
 		}).(LookupVirtualNodeResultOutput)
 }
 

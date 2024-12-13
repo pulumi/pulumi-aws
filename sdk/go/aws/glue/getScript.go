@@ -278,21 +278,11 @@ type GetScriptResult struct {
 }
 
 func GetScriptOutput(ctx *pulumi.Context, args GetScriptOutputArgs, opts ...pulumi.InvokeOption) GetScriptResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetScriptResultOutput, error) {
 			args := v.(GetScriptArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetScriptResult
-			secret, err := ctx.InvokePackageRaw("aws:glue/getScript:getScript", args, &rv, "", opts...)
-			if err != nil {
-				return GetScriptResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetScriptResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetScriptResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:glue/getScript:getScript", args, GetScriptResultOutput{}, options).(GetScriptResultOutput), nil
 		}).(GetScriptResultOutput)
 }
 

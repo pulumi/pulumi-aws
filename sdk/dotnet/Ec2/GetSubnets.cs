@@ -22,6 +22,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Output<GetSubnetsResult> Invoke(GetSubnetsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubnetsResult>("aws:ec2/getSubnets:getSubnets", args ?? new GetSubnetsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This resource can be useful for getting back a set of subnet IDs.
+        /// </summary>
+        public static Output<GetSubnetsResult> Invoke(GetSubnetsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubnetsResult>("aws:ec2/getSubnets:getSubnets", args ?? new GetSubnetsInvokeArgs(), options.WithDefaults());
     }
 
 

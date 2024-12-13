@@ -172,6 +172,87 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         public static Output<GetLogDataProtectionPolicyDocumentResult> Invoke(GetLogDataProtectionPolicyDocumentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogDataProtectionPolicyDocumentResult>("aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument", args ?? new GetLogDataProtectionPolicyDocumentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Generates a CloudWatch Log Group Data Protection Policy document in JSON format for use with the `aws.cloudwatch.LogDataProtectionPolicy` resource.
+        /// 
+        /// &gt; For more information about data protection policies, see the [Help protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.CloudWatch.GetLogDataProtectionPolicyDocument.Invoke(new()
+        ///     {
+        ///         Name = "Example",
+        ///         Statements = new[]
+        ///         {
+        ///             new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Sid = "Audit",
+        ///                 DataIdentifiers = new[]
+        ///                 {
+        ///                     "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+        ///                     "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
+        ///                 },
+        ///                 Operation = new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementOperationInputArgs
+        ///                 {
+        ///                     Audit = new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditInputArgs
+        ///                     {
+        ///                         FindingsDestination = new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationInputArgs
+        ///                         {
+        ///                             CloudwatchLogs = new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsInputArgs
+        ///                             {
+        ///                                 LogGroup = audit.Name,
+        ///                             },
+        ///                             Firehose = new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseInputArgs
+        ///                             {
+        ///                                 DeliveryStream = auditAwsKinesisFirehoseDeliveryStream.Name,
+        ///                             },
+        ///                             S3 = new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3InputArgs
+        ///                             {
+        ///                                 Bucket = auditAwsS3Bucket.Bucket,
+        ///                             },
+        ///                         },
+        ///                     },
+        ///                 },
+        ///             },
+        ///             new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Sid = "Deidentify",
+        ///                 DataIdentifiers = new[]
+        ///                 {
+        ///                     "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+        ///                     "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
+        ///                 },
+        ///                 Operation = new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementOperationInputArgs
+        ///                 {
+        ///                     Deidentify = new Aws.CloudWatch.Inputs.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyInputArgs
+        ///                     {
+        ///                         MaskConfig = null,
+        ///                     },
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleLogDataProtectionPolicy = new Aws.CloudWatch.LogDataProtectionPolicy("example", new()
+        ///     {
+        ///         LogGroupName = exampleAwsCloudwatchLogGroup.Name,
+        ///         PolicyDocument = example.Apply(getLogDataProtectionPolicyDocumentResult =&gt; getLogDataProtectionPolicyDocumentResult.Json),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLogDataProtectionPolicyDocumentResult> Invoke(GetLogDataProtectionPolicyDocumentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLogDataProtectionPolicyDocumentResult>("aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument", args ?? new GetLogDataProtectionPolicyDocumentInvokeArgs(), options.WithDefaults());
     }
 
 

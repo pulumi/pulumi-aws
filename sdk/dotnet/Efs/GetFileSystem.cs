@@ -78,6 +78,40 @@ namespace Pulumi.Aws.Efs
         /// </summary>
         public static Output<GetFileSystemResult> Invoke(GetFileSystemInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileSystemResult>("aws:efs/getFileSystem:getFileSystem", args ?? new GetFileSystemInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides information about an Elastic File System (EFS) File System.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var config = new Config();
+        ///     var fileSystemId = config.Get("fileSystemId") ?? "";
+        ///     var byId = Aws.Efs.GetFileSystem.Invoke(new()
+        ///     {
+        ///         FileSystemId = fileSystemId,
+        ///     });
+        /// 
+        ///     var byTag = Aws.Efs.GetFileSystem.Invoke(new()
+        ///     {
+        ///         Tags = 
+        ///         {
+        ///             { "Environment", "dev" },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFileSystemResult> Invoke(GetFileSystemInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFileSystemResult>("aws:efs/getFileSystem:getFileSystem", args ?? new GetFileSystemInvokeArgs(), options.WithDefaults());
     }
 
 

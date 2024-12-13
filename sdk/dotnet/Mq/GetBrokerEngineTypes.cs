@@ -62,6 +62,32 @@ namespace Pulumi.Aws.Mq
         /// </summary>
         public static Output<GetBrokerEngineTypesResult> Invoke(GetBrokerEngineTypesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBrokerEngineTypesResult>("aws:mq/getBrokerEngineTypes:getBrokerEngineTypes", args ?? new GetBrokerEngineTypesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve information about available broker engines.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Mq.GetBrokerEngineTypes.Invoke(new()
+        ///     {
+        ///         EngineType = "ACTIVEMQ",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetBrokerEngineTypesResult> Invoke(GetBrokerEngineTypesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBrokerEngineTypesResult>("aws:mq/getBrokerEngineTypes:getBrokerEngineTypes", args ?? new GetBrokerEngineTypesInvokeArgs(), options.WithDefaults());
     }
 
 

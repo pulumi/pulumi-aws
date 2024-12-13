@@ -146,6 +146,74 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         public static Output<GetLogDeliveryCanonicalUserIdResult> Invoke(GetLogDeliveryCanonicalUserIdInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogDeliveryCanonicalUserIdResult>("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", args ?? new GetLogDeliveryCanonicalUserIdInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The CloudFront Log Delivery Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS `awslogsdelivery` account for CloudFront bucket logging.
+        /// See the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) for more information.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Aws.S3.GetCanonicalUserId.Invoke();
+        /// 
+        ///     var example = Aws.CloudFront.GetLogDeliveryCanonicalUserId.Invoke();
+        /// 
+        ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+        ///     {
+        ///         Bucket = "example",
+        ///     });
+        /// 
+        ///     var exampleBucketOwnershipControls = new Aws.S3.BucketOwnershipControls("example", new()
+        ///     {
+        ///         Bucket = exampleBucketV2.Id,
+        ///         Rule = new Aws.S3.Inputs.BucketOwnershipControlsRuleArgs
+        ///         {
+        ///             ObjectOwnership = "BucketOwnerPreferred",
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("example", new()
+        ///     {
+        ///         Bucket = exampleBucketV2.Id,
+        ///         AccessControlPolicy = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyArgs
+        ///         {
+        ///             Grants = new[]
+        ///             {
+        ///                 new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantArgs
+        ///                 {
+        ///                     Grantee = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantGranteeArgs
+        ///                     {
+        ///                         Id = example.Apply(getLogDeliveryCanonicalUserIdResult =&gt; getLogDeliveryCanonicalUserIdResult.Id),
+        ///                         Type = "CanonicalUser",
+        ///                     },
+        ///                     Permission = "FULL_CONTROL",
+        ///                 },
+        ///             },
+        ///             Owner = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyOwnerArgs
+        ///             {
+        ///                 Id = current.Apply(getCanonicalUserIdResult =&gt; getCanonicalUserIdResult.Id),
+        ///             },
+        ///         },
+        ///     }, new CustomResourceOptions
+        ///     {
+        ///         DependsOn =
+        ///         {
+        ///             exampleBucketOwnershipControls,
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLogDeliveryCanonicalUserIdResult> Invoke(GetLogDeliveryCanonicalUserIdInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLogDeliveryCanonicalUserIdResult>("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", args ?? new GetLogDeliveryCanonicalUserIdInvokeArgs(), options.WithDefaults());
     }
 
 

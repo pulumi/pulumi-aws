@@ -98,6 +98,50 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("aws:ebs/getVolume:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information about an EBS volume for use in other
+        /// resources.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var ebsVolume = Aws.Ebs.GetVolume.Invoke(new()
+        ///     {
+        ///         MostRecent = true,
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ebs.Inputs.GetVolumeFilterInputArgs
+        ///             {
+        ///                 Name = "volume-type",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "gp2",
+        ///                 },
+        ///             },
+        ///             new Aws.Ebs.Inputs.GetVolumeFilterInputArgs
+        ///             {
+        ///                 Name = "tag:Name",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "Example",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("aws:ebs/getVolume:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
     }
 
 

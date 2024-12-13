@@ -76,21 +76,11 @@ type GetUserSshKeyResult struct {
 }
 
 func GetUserSshKeyOutput(ctx *pulumi.Context, args GetUserSshKeyOutputArgs, opts ...pulumi.InvokeOption) GetUserSshKeyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetUserSshKeyResultOutput, error) {
 			args := v.(GetUserSshKeyArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetUserSshKeyResult
-			secret, err := ctx.InvokePackageRaw("aws:iam/getUserSshKey:getUserSshKey", args, &rv, "", opts...)
-			if err != nil {
-				return GetUserSshKeyResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetUserSshKeyResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetUserSshKeyResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:iam/getUserSshKey:getUserSshKey", args, GetUserSshKeyResultOutput{}, options).(GetUserSshKeyResultOutput), nil
 		}).(GetUserSshKeyResultOutput)
 }
 

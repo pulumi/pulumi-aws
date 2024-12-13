@@ -72,6 +72,37 @@ namespace Pulumi.Aws.SesV2
         /// </summary>
         public static Output<GetEmailIdentityMailFromAttributesResult> Invoke(GetEmailIdentityMailFromAttributesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEmailIdentityMailFromAttributesResult>("aws:sesv2/getEmailIdentityMailFromAttributes:getEmailIdentityMailFromAttributes", args ?? new GetEmailIdentityMailFromAttributesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.SesV2.GetEmailIdentity.Invoke(new()
+        ///     {
+        ///         EmailIdentity = "example.com",
+        ///     });
+        /// 
+        ///     var exampleGetEmailIdentityMailFromAttributes = Aws.SesV2.GetEmailIdentityMailFromAttributes.Invoke(new()
+        ///     {
+        ///         EmailIdentity = example.Apply(getEmailIdentityResult =&gt; getEmailIdentityResult.EmailIdentity),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetEmailIdentityMailFromAttributesResult> Invoke(GetEmailIdentityMailFromAttributesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEmailIdentityMailFromAttributesResult>("aws:sesv2/getEmailIdentityMailFromAttributes:getEmailIdentityMailFromAttributes", args ?? new GetEmailIdentityMailFromAttributesInvokeArgs(), options.WithDefaults());
     }
 
 

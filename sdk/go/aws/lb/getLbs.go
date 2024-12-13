@@ -70,21 +70,11 @@ type GetLbsResult struct {
 }
 
 func GetLbsOutput(ctx *pulumi.Context, args GetLbsOutputArgs, opts ...pulumi.InvokeOption) GetLbsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetLbsResultOutput, error) {
 			args := v.(GetLbsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetLbsResult
-			secret, err := ctx.InvokePackageRaw("aws:lb/getLbs:getLbs", args, &rv, "", opts...)
-			if err != nil {
-				return GetLbsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetLbsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetLbsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:lb/getLbs:getLbs", args, GetLbsResultOutput{}, options).(GetLbsResultOutput), nil
 		}).(GetLbsResultOutput)
 }
 

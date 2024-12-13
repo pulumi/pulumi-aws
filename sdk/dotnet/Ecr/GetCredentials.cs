@@ -16,6 +16,9 @@ namespace Pulumi.Aws.Ecr
 
         public static Output<GetCredentialsResult> Invoke(GetCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCredentialsResult>("aws:ecr/getCredentials:getCredentials", args ?? new GetCredentialsInvokeArgs(), options.WithDefaults());
+
+        public static Output<GetCredentialsResult> Invoke(GetCredentialsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCredentialsResult>("aws:ecr/getCredentials:getCredentials", args ?? new GetCredentialsInvokeArgs(), options.WithDefaults());
     }
 
 

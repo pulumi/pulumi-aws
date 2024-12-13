@@ -98,6 +98,50 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Output<GetInstanceTypeOfferingsResult> Invoke(GetInstanceTypeOfferingsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceTypeOfferingsResult>("aws:ec2/getInstanceTypeOfferings:getInstanceTypeOfferings", args ?? new GetInstanceTypeOfferingsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Information about EC2 Instance Type Offerings.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ec2.GetInstanceTypeOfferings.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetInstanceTypeOfferingsFilterInputArgs
+        ///             {
+        ///                 Name = "instance-type",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "t2.micro",
+        ///                     "t3.micro",
+        ///                 },
+        ///             },
+        ///             new Aws.Ec2.Inputs.GetInstanceTypeOfferingsFilterInputArgs
+        ///             {
+        ///                 Name = "location",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "usw2-az4",
+        ///                 },
+        ///             },
+        ///         },
+        ///         LocationType = "availability-zone-id",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetInstanceTypeOfferingsResult> Invoke(GetInstanceTypeOfferingsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInstanceTypeOfferingsResult>("aws:ec2/getInstanceTypeOfferings:getInstanceTypeOfferings", args ?? new GetInstanceTypeOfferingsInvokeArgs(), options.WithDefaults());
     }
 
 

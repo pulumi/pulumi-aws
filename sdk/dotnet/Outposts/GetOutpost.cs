@@ -58,6 +58,30 @@ namespace Pulumi.Aws.Outposts
         /// </summary>
         public static Output<GetOutpostResult> Invoke(GetOutpostInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOutpostResult>("aws:outposts/getOutpost:getOutpost", args ?? new GetOutpostInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about an Outposts Outpost.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Outposts.GetOutpost.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetOutpostResult> Invoke(GetOutpostInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOutpostResult>("aws:outposts/getOutpost:getOutpost", args ?? new GetOutpostInvokeArgs(), options.WithDefaults());
     }
 
 

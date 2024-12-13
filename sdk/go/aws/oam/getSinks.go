@@ -58,18 +58,8 @@ type GetSinksResult struct {
 
 func GetSinksOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetSinksResultOutput {
 	return pulumi.ToOutput(0).ApplyT(func(int) (GetSinksResultOutput, error) {
-		opts = internal.PkgInvokeDefaultOpts(opts)
-		var rv GetSinksResult
-		secret, err := ctx.InvokePackageRaw("aws:oam/getSinks:getSinks", nil, &rv, "", opts...)
-		if err != nil {
-			return GetSinksResultOutput{}, err
-		}
-
-		output := pulumi.ToOutput(rv).(GetSinksResultOutput)
-		if secret {
-			return pulumi.ToSecret(output).(GetSinksResultOutput), nil
-		}
-		return output, nil
+		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+		return ctx.InvokeOutput("aws:oam/getSinks:getSinks", nil, GetSinksResultOutput{}, options).(GetSinksResultOutput), nil
 	}).(GetSinksResultOutput)
 }
 

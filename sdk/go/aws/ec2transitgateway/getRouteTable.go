@@ -117,21 +117,11 @@ type LookupRouteTableResult struct {
 }
 
 func LookupRouteTableOutput(ctx *pulumi.Context, args LookupRouteTableOutputArgs, opts ...pulumi.InvokeOption) LookupRouteTableResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRouteTableResultOutput, error) {
 			args := v.(LookupRouteTableArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupRouteTableResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2transitgateway/getRouteTable:getRouteTable", args, &rv, "", opts...)
-			if err != nil {
-				return LookupRouteTableResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupRouteTableResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupRouteTableResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:ec2transitgateway/getRouteTable:getRouteTable", args, LookupRouteTableResultOutput{}, options).(LookupRouteTableResultOutput), nil
 		}).(LookupRouteTableResultOutput)
 }
 
