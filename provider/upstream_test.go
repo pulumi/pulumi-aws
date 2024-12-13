@@ -14,8 +14,8 @@
 package provider
 
 import (
+	"os"
 	"os/exec"
-	"strings"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -26,12 +26,12 @@ func TestUpstreamLint(t *testing.T) {
 	cmd := exec.Command("make", "provider-lint")
 	cmd.Dir = "../upstream"
 
-	buf := &strings.Builder{}
-	cmd.Stderr = buf
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
 
 	err := cmd.Start()
 	require.NoError(t, err)
 
 	err = cmd.Wait()
-	assert.NoError(t, err, buf.String())
+	assert.NoError(t, err)
 }
