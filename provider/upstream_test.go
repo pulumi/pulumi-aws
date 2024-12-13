@@ -18,16 +18,6 @@ import (
 	"os/exec"
 	"testing"
 
-	// Compile these into our test binary directly. Normally these are already
-	// compiled and cached, but cold boots take a while and we don't want to
-	// time out during the test if it needs to build providerlint from scratch.
-	// NB: This is fragile because upstream (and upstream/.ci/providerlint)
-	// exist in different modules. If our versioning differs we will end up
-	// re-compiling. It would be beneficial to keep everything in one module.
-	_ "github.com/bflad/tfproviderlint/passes"
-	_ "github.com/bflad/tfproviderlint/xpasses"
-	_ "github.com/hashicorp/aws-sdk-go-base/v2"
-
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
