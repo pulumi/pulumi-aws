@@ -85,6 +85,8 @@ type NetworkInterface struct {
 	Attachments NetworkInterfaceAttachmentTypeArrayOutput `pulumi:"attachments"`
 	// Description for the network interface.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
+	EnablePrimaryIpv6 pulumi.BoolOutput `pulumi:"enablePrimaryIpv6"`
 	// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interfaceType` will cause the resource to be destroyed and re-created.
 	InterfaceType pulumi.StringOutput `pulumi:"interfaceType"`
 	// Number of IPv4 prefixes that AWS automatically assigns to the network interface.
@@ -93,7 +95,7 @@ type NetworkInterface struct {
 	Ipv4Prefixes pulumi.StringArrayOutput `pulumi:"ipv4Prefixes"`
 	// Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
 	Ipv6AddressCount pulumi.IntOutput `pulumi:"ipv6AddressCount"`
-	// Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default false.
+	// Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default is `false`.
 	Ipv6AddressListEnabled pulumi.BoolPtrOutput `pulumi:"ipv6AddressListEnabled"`
 	// List of private IPs to assign to the ENI in sequential order.
 	Ipv6AddressLists pulumi.StringArrayOutput `pulumi:"ipv6AddressLists"`
@@ -111,7 +113,7 @@ type NetworkInterface struct {
 	// Private DNS name of the network interface (IPv4).
 	PrivateDnsName pulumi.StringOutput `pulumi:"privateDnsName"`
 	PrivateIp      pulumi.StringOutput `pulumi:"privateIp"`
-	// Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default false.
+	// Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default is `false`.
 	PrivateIpListEnabled pulumi.BoolPtrOutput `pulumi:"privateIpListEnabled"`
 	// List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnabled` to `true`.
 	PrivateIpLists pulumi.StringArrayOutput `pulumi:"privateIpLists"`
@@ -174,6 +176,8 @@ type networkInterfaceState struct {
 	Attachments []NetworkInterfaceAttachmentType `pulumi:"attachments"`
 	// Description for the network interface.
 	Description *string `pulumi:"description"`
+	// Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
+	EnablePrimaryIpv6 *bool `pulumi:"enablePrimaryIpv6"`
 	// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interfaceType` will cause the resource to be destroyed and re-created.
 	InterfaceType *string `pulumi:"interfaceType"`
 	// Number of IPv4 prefixes that AWS automatically assigns to the network interface.
@@ -182,7 +186,7 @@ type networkInterfaceState struct {
 	Ipv4Prefixes []string `pulumi:"ipv4Prefixes"`
 	// Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
 	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
-	// Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default false.
+	// Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default is `false`.
 	Ipv6AddressListEnabled *bool `pulumi:"ipv6AddressListEnabled"`
 	// List of private IPs to assign to the ENI in sequential order.
 	Ipv6AddressLists []string `pulumi:"ipv6AddressLists"`
@@ -200,7 +204,7 @@ type networkInterfaceState struct {
 	// Private DNS name of the network interface (IPv4).
 	PrivateDnsName *string `pulumi:"privateDnsName"`
 	PrivateIp      *string `pulumi:"privateIp"`
-	// Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default false.
+	// Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default is `false`.
 	PrivateIpListEnabled *bool `pulumi:"privateIpListEnabled"`
 	// List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnabled` to `true`.
 	PrivateIpLists []string `pulumi:"privateIpLists"`
@@ -231,6 +235,8 @@ type NetworkInterfaceState struct {
 	Attachments NetworkInterfaceAttachmentTypeArrayInput
 	// Description for the network interface.
 	Description pulumi.StringPtrInput
+	// Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
+	EnablePrimaryIpv6 pulumi.BoolPtrInput
 	// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interfaceType` will cause the resource to be destroyed and re-created.
 	InterfaceType pulumi.StringPtrInput
 	// Number of IPv4 prefixes that AWS automatically assigns to the network interface.
@@ -239,7 +245,7 @@ type NetworkInterfaceState struct {
 	Ipv4Prefixes pulumi.StringArrayInput
 	// Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
 	Ipv6AddressCount pulumi.IntPtrInput
-	// Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default false.
+	// Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default is `false`.
 	Ipv6AddressListEnabled pulumi.BoolPtrInput
 	// List of private IPs to assign to the ENI in sequential order.
 	Ipv6AddressLists pulumi.StringArrayInput
@@ -257,7 +263,7 @@ type NetworkInterfaceState struct {
 	// Private DNS name of the network interface (IPv4).
 	PrivateDnsName pulumi.StringPtrInput
 	PrivateIp      pulumi.StringPtrInput
-	// Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default false.
+	// Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default is `false`.
 	PrivateIpListEnabled pulumi.BoolPtrInput
 	// List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnabled` to `true`.
 	PrivateIpLists pulumi.StringArrayInput
@@ -290,6 +296,8 @@ type networkInterfaceArgs struct {
 	Attachments []NetworkInterfaceAttachmentType `pulumi:"attachments"`
 	// Description for the network interface.
 	Description *string `pulumi:"description"`
+	// Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
+	EnablePrimaryIpv6 *bool `pulumi:"enablePrimaryIpv6"`
 	// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interfaceType` will cause the resource to be destroyed and re-created.
 	InterfaceType *string `pulumi:"interfaceType"`
 	// Number of IPv4 prefixes that AWS automatically assigns to the network interface.
@@ -298,7 +306,7 @@ type networkInterfaceArgs struct {
 	Ipv4Prefixes []string `pulumi:"ipv4Prefixes"`
 	// Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
 	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
-	// Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default false.
+	// Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default is `false`.
 	Ipv6AddressListEnabled *bool `pulumi:"ipv6AddressListEnabled"`
 	// List of private IPs to assign to the ENI in sequential order.
 	Ipv6AddressLists []string `pulumi:"ipv6AddressLists"`
@@ -309,7 +317,7 @@ type networkInterfaceArgs struct {
 	// One or more IPv6 prefixes assigned to the network interface.
 	Ipv6Prefixes []string `pulumi:"ipv6Prefixes"`
 	PrivateIp    *string  `pulumi:"privateIp"`
-	// Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default false.
+	// Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default is `false`.
 	PrivateIpListEnabled *bool `pulumi:"privateIpListEnabled"`
 	// List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnabled` to `true`.
 	PrivateIpLists []string `pulumi:"privateIpLists"`
@@ -335,6 +343,8 @@ type NetworkInterfaceArgs struct {
 	Attachments NetworkInterfaceAttachmentTypeArrayInput
 	// Description for the network interface.
 	Description pulumi.StringPtrInput
+	// Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
+	EnablePrimaryIpv6 pulumi.BoolPtrInput
 	// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interfaceType` will cause the resource to be destroyed and re-created.
 	InterfaceType pulumi.StringPtrInput
 	// Number of IPv4 prefixes that AWS automatically assigns to the network interface.
@@ -343,7 +353,7 @@ type NetworkInterfaceArgs struct {
 	Ipv4Prefixes pulumi.StringArrayInput
 	// Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
 	Ipv6AddressCount pulumi.IntPtrInput
-	// Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default false.
+	// Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default is `false`.
 	Ipv6AddressListEnabled pulumi.BoolPtrInput
 	// List of private IPs to assign to the ENI in sequential order.
 	Ipv6AddressLists pulumi.StringArrayInput
@@ -354,7 +364,7 @@ type NetworkInterfaceArgs struct {
 	// One or more IPv6 prefixes assigned to the network interface.
 	Ipv6Prefixes pulumi.StringArrayInput
 	PrivateIp    pulumi.StringPtrInput
-	// Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default false.
+	// Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default is `false`.
 	PrivateIpListEnabled pulumi.BoolPtrInput
 	// List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnabled` to `true`.
 	PrivateIpLists pulumi.StringArrayInput
@@ -476,6 +486,11 @@ func (o NetworkInterfaceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterface) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
+func (o NetworkInterfaceOutput) EnablePrimaryIpv6() pulumi.BoolOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.BoolOutput { return v.EnablePrimaryIpv6 }).(pulumi.BoolOutput)
+}
+
 // Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interfaceType` will cause the resource to be destroyed and re-created.
 func (o NetworkInterfaceOutput) InterfaceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterface) pulumi.StringOutput { return v.InterfaceType }).(pulumi.StringOutput)
@@ -496,7 +511,7 @@ func (o NetworkInterfaceOutput) Ipv6AddressCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *NetworkInterface) pulumi.IntOutput { return v.Ipv6AddressCount }).(pulumi.IntOutput)
 }
 
-// Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default false.
+// Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default is `false`.
 func (o NetworkInterfaceOutput) Ipv6AddressListEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NetworkInterface) pulumi.BoolPtrOutput { return v.Ipv6AddressListEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -544,7 +559,7 @@ func (o NetworkInterfaceOutput) PrivateIp() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterface) pulumi.StringOutput { return v.PrivateIp }).(pulumi.StringOutput)
 }
 
-// Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default false.
+// Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default is `false`.
 func (o NetworkInterfaceOutput) PrivateIpListEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NetworkInterface) pulumi.BoolPtrOutput { return v.PrivateIpListEnabled }).(pulumi.BoolPtrOutput)
 }

@@ -386,6 +386,12 @@ namespace Pulumi.Aws.Ec2
         public Output<bool> EbsOptimized { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
+        /// </summary>
+        [Output("enablePrimaryIpv6")]
+        public Output<bool> EnablePrimaryIpv6 { get; private set; } = null!;
+
+        /// <summary>
         /// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         /// </summary>
         [Output("enclaveOptions")]
@@ -780,6 +786,12 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? EbsOptimized { get; set; }
 
         /// <summary>
+        /// Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
+        /// </summary>
+        [Input("enablePrimaryIpv6")]
+        public Input<bool>? EnablePrimaryIpv6 { get; set; }
+
+        /// <summary>
         /// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         /// </summary>
         [Input("enclaveOptions")]
@@ -1129,6 +1141,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("ebsOptimized")]
         public Input<bool>? EbsOptimized { get; set; }
+
+        /// <summary>
+        /// Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
+        /// </summary>
+        [Input("enablePrimaryIpv6")]
+        public Input<bool>? EnablePrimaryIpv6 { get; set; }
 
         /// <summary>
         /// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.

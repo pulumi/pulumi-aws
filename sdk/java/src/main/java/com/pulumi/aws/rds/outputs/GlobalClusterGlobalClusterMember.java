@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GlobalClusterGlobalClusterMember {
     /**
-     * @return Amazon Resource Name (ARN) of member DB Cluster
+     * @return Amazon Resource Name (ARN) of member DB Cluster.
      * 
      */
     private @Nullable String dbClusterArn;
     /**
-     * @return Whether the member is the primary DB Cluster
+     * @return Whether the member is the primary DB Cluster.
      * 
      */
     private @Nullable Boolean isWriter;
 
     private GlobalClusterGlobalClusterMember() {}
     /**
-     * @return Amazon Resource Name (ARN) of member DB Cluster
+     * @return Amazon Resource Name (ARN) of member DB Cluster.
      * 
      */
     public Optional<String> dbClusterArn() {
         return Optional.ofNullable(this.dbClusterArn);
     }
     /**
-     * @return Whether the member is the primary DB Cluster
+     * @return Whether the member is the primary DB Cluster.
      * 
      */
     public Optional<Boolean> isWriter() {

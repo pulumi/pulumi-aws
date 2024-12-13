@@ -34,11 +34,14 @@ type ProfilesAssociation struct {
 	ProfileId pulumi.StringOutput `pulumi:"profileId"`
 	// Resource ID of the VPC the profile to be associated with.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
-	// Status of the Profile Association. See the [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html) for valid values.
+	// Status of the Profile Association.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Status message of the Profile Association.
-	StatusMessage pulumi.StringOutput    `pulumi:"statusMessage"`
-	Tags          pulumi.StringMapOutput `pulumi:"tags"`
+	StatusMessage pulumi.StringOutput `pulumi:"statusMessage"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapOutput               `pulumi:"tagsAll"`
 	Timeouts ProfilesAssociationTimeoutsPtrOutput `pulumi:"timeouts"`
@@ -88,11 +91,14 @@ type profilesAssociationState struct {
 	ProfileId *string `pulumi:"profileId"`
 	// Resource ID of the VPC the profile to be associated with.
 	ResourceId *string `pulumi:"resourceId"`
-	// Status of the Profile Association. See the [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html) for valid values.
+	// Status of the Profile Association.
 	Status *string `pulumi:"status"`
 	// Status message of the Profile Association.
-	StatusMessage *string           `pulumi:"statusMessage"`
-	Tags          map[string]string `pulumi:"tags"`
+	StatusMessage *string `pulumi:"statusMessage"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll  map[string]string            `pulumi:"tagsAll"`
 	Timeouts *ProfilesAssociationTimeouts `pulumi:"timeouts"`
@@ -107,11 +113,14 @@ type ProfilesAssociationState struct {
 	ProfileId pulumi.StringPtrInput
 	// Resource ID of the VPC the profile to be associated with.
 	ResourceId pulumi.StringPtrInput
-	// Status of the Profile Association. See the [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html) for valid values.
+	// Status of the Profile Association.
 	Status pulumi.StringPtrInput
 	// Status message of the Profile Association.
 	StatusMessage pulumi.StringPtrInput
-	Tags          pulumi.StringMapInput
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapInput
 	Timeouts ProfilesAssociationTimeoutsPtrInput
@@ -127,9 +136,10 @@ type profilesAssociationArgs struct {
 	// ID of the profile associated with the VPC.
 	ProfileId string `pulumi:"profileId"`
 	// Resource ID of the VPC the profile to be associated with.
-	ResourceId string                       `pulumi:"resourceId"`
-	Tags       map[string]string            `pulumi:"tags"`
-	Timeouts   *ProfilesAssociationTimeouts `pulumi:"timeouts"`
+	ResourceId string `pulumi:"resourceId"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags     map[string]string            `pulumi:"tags"`
+	Timeouts *ProfilesAssociationTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a ProfilesAssociation resource.
@@ -140,8 +150,9 @@ type ProfilesAssociationArgs struct {
 	ProfileId pulumi.StringInput
 	// Resource ID of the VPC the profile to be associated with.
 	ResourceId pulumi.StringInput
-	Tags       pulumi.StringMapInput
-	Timeouts   ProfilesAssociationTimeoutsPtrInput
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags     pulumi.StringMapInput
+	Timeouts ProfilesAssociationTimeoutsPtrInput
 }
 
 func (ProfilesAssociationArgs) ElementType() reflect.Type {
@@ -254,7 +265,7 @@ func (o ProfilesAssociationOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesAssociation) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// Status of the Profile Association. See the [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html) for valid values.
+// Status of the Profile Association.
 func (o ProfilesAssociationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesAssociation) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
@@ -264,10 +275,13 @@ func (o ProfilesAssociationOutput) StatusMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesAssociation) pulumi.StringOutput { return v.StatusMessage }).(pulumi.StringOutput)
 }
 
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ProfilesAssociationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ProfilesAssociation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
 // Deprecated: Please use `tags` instead.
 func (o ProfilesAssociationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ProfilesAssociation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)

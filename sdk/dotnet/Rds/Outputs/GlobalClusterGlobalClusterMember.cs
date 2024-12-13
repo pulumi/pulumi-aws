@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Rds.Outputs
     public sealed class GlobalClusterGlobalClusterMember
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of member DB Cluster
+        /// Amazon Resource Name (ARN) of member DB Cluster.
         /// </summary>
         public readonly string? DbClusterArn;
         /// <summary>
-        /// Whether the member is the primary DB Cluster
+        /// Whether the member is the primary DB Cluster.
         /// </summary>
         public readonly bool? IsWriter;
 

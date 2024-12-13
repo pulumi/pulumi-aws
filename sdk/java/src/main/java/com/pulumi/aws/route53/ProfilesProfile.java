@@ -48,6 +48,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ProfilesProfile("example", ProfilesProfileArgs.builder()
  *             .name("example")
+ *             .tags(Map.of("Environment", "dev"))
  *             .build());
  * 
  *     }
@@ -102,28 +103,28 @@ public class ProfilesProfile extends com.pulumi.resources.CustomResource {
         return this.ownerId;
     }
     /**
-     * Share status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+     * Share status of the Profile.
      * 
      */
     @Export(name="shareStatus", refs={String.class}, tree="[0]")
     private Output<String> shareStatus;
 
     /**
-     * @return Share status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+     * @return Share status of the Profile.
      * 
      */
     public Output<String> shareStatus() {
         return this.shareStatus;
     }
     /**
-     * Status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+     * Status of the Profile.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return Status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+     * @return Status of the Profile.
      * 
      */
     public Output<String> status() {
@@ -143,9 +144,17 @@ public class ProfilesProfile extends com.pulumi.resources.CustomResource {
     public Output<String> statusMessage() {
         return this.statusMessage;
     }
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

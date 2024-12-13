@@ -52,6 +52,8 @@ func LookupDomainName(ctx *pulumi.Context, args *LookupDomainNameArgs, opts ...p
 type LookupDomainNameArgs struct {
 	// Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
 	DomainName string `pulumi:"domainName"`
+	// The identifier for the domain name resource. Supported only for private custom domain names.
+	DomainNameId *string `pulumi:"domainNameId"`
 	// Key-value map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -71,10 +73,13 @@ type LookupDomainNameResult struct {
 	// For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
 	CloudfrontZoneId string `pulumi:"cloudfrontZoneId"`
 	DomainName       string `pulumi:"domainName"`
+	DomainNameId     string `pulumi:"domainNameId"`
 	// List of objects with the endpoint configuration of this domain name.
 	EndpointConfigurations []GetDomainNameEndpointConfiguration `pulumi:"endpointConfigurations"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+	Policy string `pulumi:"policy"`
 	// ARN for an AWS-managed certificate that is used for validating the regional domain name.
 	RegionalCertificateArn string `pulumi:"regionalCertificateArn"`
 	// User-friendly name of the certificate that is used by regional endpoint for this domain name.
@@ -112,6 +117,8 @@ func LookupDomainNameOutput(ctx *pulumi.Context, args LookupDomainNameOutputArgs
 type LookupDomainNameOutputArgs struct {
 	// Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
 	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// The identifier for the domain name resource. Supported only for private custom domain names.
+	DomainNameId pulumi.StringPtrInput `pulumi:"domainNameId"`
 	// Key-value map of tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -169,6 +176,10 @@ func (o LookupDomainNameResultOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) string { return v.DomainName }).(pulumi.StringOutput)
 }
 
+func (o LookupDomainNameResultOutput) DomainNameId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainNameResult) string { return v.DomainNameId }).(pulumi.StringOutput)
+}
+
 // List of objects with the endpoint configuration of this domain name.
 func (o LookupDomainNameResultOutput) EndpointConfigurations() GetDomainNameEndpointConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) []GetDomainNameEndpointConfiguration { return v.EndpointConfigurations }).(GetDomainNameEndpointConfigurationArrayOutput)
@@ -177,6 +188,11 @@ func (o LookupDomainNameResultOutput) EndpointConfigurations() GetDomainNameEndp
 // The provider-assigned unique ID for this managed resource.
 func (o LookupDomainNameResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+func (o LookupDomainNameResultOutput) Policy() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainNameResult) string { return v.Policy }).(pulumi.StringOutput)
 }
 
 // ARN for an AWS-managed certificate that is used for validating the regional domain name.

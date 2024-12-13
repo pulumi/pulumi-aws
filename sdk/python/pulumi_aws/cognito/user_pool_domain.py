@@ -256,7 +256,7 @@ class UserPoolDomain(pulumi.CustomResource):
 
         example_user_pool = aws.cognito.UserPool("example", name="example-pool")
         main = aws.cognito.UserPoolDomain("main",
-            domain="example-domain",
+            domain="auth.example.com",
             certificate_arn=cert["arn"],
             user_pool_id=example_user_pool.id)
         example = aws.route53.get_zone(name="example.com")
@@ -316,7 +316,7 @@ class UserPoolDomain(pulumi.CustomResource):
 
         example_user_pool = aws.cognito.UserPool("example", name="example-pool")
         main = aws.cognito.UserPoolDomain("main",
-            domain="example-domain",
+            domain="auth.example.com",
             certificate_arn=cert["arn"],
             user_pool_id=example_user_pool.id)
         example = aws.route53.get_zone(name="example.com")

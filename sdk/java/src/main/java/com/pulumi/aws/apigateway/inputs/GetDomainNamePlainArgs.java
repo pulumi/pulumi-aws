@@ -32,6 +32,21 @@ public final class GetDomainNamePlainArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
+     * The identifier for the domain name resource. Supported only for private custom domain names.
+     * 
+     */
+    @Import(name="domainNameId")
+    private @Nullable String domainNameId;
+
+    /**
+     * @return The identifier for the domain name resource. Supported only for private custom domain names.
+     * 
+     */
+    public Optional<String> domainNameId() {
+        return Optional.ofNullable(this.domainNameId);
+    }
+
+    /**
      * Key-value map of tags for the resource.
      * 
      */
@@ -50,6 +65,7 @@ public final class GetDomainNamePlainArgs extends com.pulumi.resources.InvokeArg
 
     private GetDomainNamePlainArgs(GetDomainNamePlainArgs $) {
         this.domainName = $.domainName;
+        this.domainNameId = $.domainNameId;
         this.tags = $.tags;
     }
 
@@ -79,6 +95,17 @@ public final class GetDomainNamePlainArgs extends com.pulumi.resources.InvokeArg
          */
         public Builder domainName(String domainName) {
             $.domainName = domainName;
+            return this;
+        }
+
+        /**
+         * @param domainNameId The identifier for the domain name resource. Supported only for private custom domain names.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainNameId(@Nullable String domainNameId) {
+            $.domainNameId = domainNameId;
             return this;
         }
 

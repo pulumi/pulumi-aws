@@ -187,14 +187,14 @@ public final class NotebookInstanceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
+     * The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
      * 
      */
     @Import(name="platformIdentifier")
     private @Nullable Output<String> platformIdentifier;
 
     /**
-     * @return The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
+     * @return The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
      * 
      */
     public Optional<Output<String>> platformIdentifier() {
@@ -627,7 +627,7 @@ public final class NotebookInstanceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param platformIdentifier The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
+         * @param platformIdentifier The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
          * 
          * @return builder
          * 
@@ -638,7 +638,7 @@ public final class NotebookInstanceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param platformIdentifier The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
+         * @param platformIdentifier The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
          * 
          * @return builder
          * 

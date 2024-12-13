@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class AppstreamFunctions {
@@ -47,6 +48,13 @@ public final class AppstreamFunctions {
      * 
      */
     public static Output<GetImageResult> getImage(GetImageArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:appstream/getImage:getImage", TypeShape.of(GetImageResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS AppStream 2.0 Image.
+     * 
+     */
+    public static Output<GetImageResult> getImage(GetImageArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:appstream/getImage:getImage", TypeShape.of(GetImageResult.class), args, Utilities.withVersion(options));
     }
     /**

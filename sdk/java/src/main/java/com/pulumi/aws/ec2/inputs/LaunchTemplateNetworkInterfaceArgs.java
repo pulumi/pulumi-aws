@@ -18,18 +18,14 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
     public static final LaunchTemplateNetworkInterfaceArgs Empty = new LaunchTemplateNetworkInterfaceArgs();
 
     /**
-     * Associate a Carrier IP address with `eth0` for a new network interface.
-     * Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface.
-     * Boolean value, can be left unset.
+     * Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value, can be left unset.
      * 
      */
     @Import(name="associateCarrierIpAddress")
     private @Nullable Output<String> associateCarrierIpAddress;
 
     /**
-     * @return Associate a Carrier IP address with `eth0` for a new network interface.
-     * Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface.
-     * Boolean value, can be left unset.
+     * @return Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value, can be left unset.
      * 
      */
     public Optional<Output<String>> associateCarrierIpAddress() {
@@ -37,16 +33,14 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
     }
 
     /**
-     * Associate a public ip address with the network interface.
-     * Boolean value, can be left unset.
+     * Associate a public ip address with the network interface. Boolean value, can be left unset.
      * 
      */
     @Import(name="associatePublicIpAddress")
     private @Nullable Output<String> associatePublicIpAddress;
 
     /**
-     * @return Associate a public ip address with the network interface.
-     * Boolean value, can be left unset.
+     * @return Associate a public ip address with the network interface. Boolean value, can be left unset.
      * 
      */
     public Optional<Output<String>> associatePublicIpAddress() {
@@ -367,9 +361,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param associateCarrierIpAddress Associate a Carrier IP address with `eth0` for a new network interface.
-         * Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface.
-         * Boolean value, can be left unset.
+         * @param associateCarrierIpAddress Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value, can be left unset.
          * 
          * @return builder
          * 
@@ -380,9 +372,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param associateCarrierIpAddress Associate a Carrier IP address with `eth0` for a new network interface.
-         * Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface.
-         * Boolean value, can be left unset.
+         * @param associateCarrierIpAddress Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value, can be left unset.
          * 
          * @return builder
          * 
@@ -392,8 +382,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param associatePublicIpAddress Associate a public ip address with the network interface.
-         * Boolean value, can be left unset.
+         * @param associatePublicIpAddress Associate a public ip address with the network interface. Boolean value, can be left unset.
          * 
          * @return builder
          * 
@@ -404,8 +393,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param associatePublicIpAddress Associate a public ip address with the network interface.
-         * Boolean value, can be left unset.
+         * @param associatePublicIpAddress Associate a public ip address with the network interface. Boolean value, can be left unset.
          * 
          * @return builder
          * 

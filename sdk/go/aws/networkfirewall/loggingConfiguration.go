@@ -37,7 +37,7 @@ import (
 //						&networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs{
 //							LogDestination: pulumi.StringMap{
 //								"bucketName": pulumi.Any(exampleAwsS3Bucket.Bucket),
-//								"prefix":     pulumi.String("/example"),
+//								"prefix":     pulumi.String("example"),
 //							},
 //							LogDestinationType: pulumi.String("S3"),
 //							LogType:            pulumi.String("FLOW"),

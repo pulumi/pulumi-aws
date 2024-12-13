@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *
  * const exampleUserPool = new aws.cognito.UserPool("example", {name: "example-pool"});
  * const main = new aws.cognito.UserPoolDomain("main", {
- *     domain: "example-domain",
+ *     domain: "auth.example.com",
  *     certificateArn: cert.arn,
  *     userPoolId: exampleUserPool.id,
  * });

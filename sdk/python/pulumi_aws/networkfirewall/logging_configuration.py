@@ -121,7 +121,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                 "log_destination_configs": [{
                     "log_destination": {
                         "bucketName": example_aws_s3_bucket["bucket"],
-                        "prefix": "/example",
+                        "prefix": "example",
                     },
                     "log_destination_type": "S3",
                     "log_type": "FLOW",
@@ -203,7 +203,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                 "log_destination_configs": [{
                     "log_destination": {
                         "bucketName": example_aws_s3_bucket["bucket"],
-                        "prefix": "/example",
+                        "prefix": "example",
                     },
                     "log_destination_type": "S3",
                     "log_type": "FLOW",

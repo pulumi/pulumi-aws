@@ -36,6 +36,9 @@ namespace Pulumi.Aws.Msk.Inputs
         [Input("startingPosition")]
         public Input<Inputs.ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs>? StartingPosition { get; set; }
 
+        [Input("topicNameConfiguration")]
+        public Input<Inputs.ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs>? TopicNameConfiguration { get; set; }
+
         [Input("topicsToExcludes")]
         private InputList<string>? _topicsToExcludes;
 

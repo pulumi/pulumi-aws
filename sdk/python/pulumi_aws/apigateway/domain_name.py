@@ -30,6 +30,7 @@ class DomainNameArgs:
                  endpoint_configuration: Optional[pulumi.Input['DomainNameEndpointConfigurationArgs']] = None,
                  mutual_tls_authentication: Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']] = None,
                  ownership_verification_certificate_arn: Optional[pulumi.Input[str]] = None,
+                 policy: Optional[pulumi.Input[str]] = None,
                  regional_certificate_arn: Optional[pulumi.Input[str]] = None,
                  regional_certificate_name: Optional[pulumi.Input[str]] = None,
                  security_policy: Optional[pulumi.Input[str]] = None,
@@ -45,6 +46,7 @@ class DomainNameArgs:
         :param pulumi.Input['DomainNameEndpointConfigurationArgs'] endpoint_configuration: Configuration block defining API endpoint information including type. See below.
         :param pulumi.Input['DomainNameMutualTlsAuthenticationArgs'] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name. See below.
         :param pulumi.Input[str] ownership_verification_certificate_arn: ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
+        :param pulumi.Input[str] policy: A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
         :param pulumi.Input[str] regional_certificate_arn: ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
                
                When uploading a certificate, the following arguments are supported:
@@ -71,6 +73,8 @@ class DomainNameArgs:
             pulumi.set(__self__, "mutual_tls_authentication", mutual_tls_authentication)
         if ownership_verification_certificate_arn is not None:
             pulumi.set(__self__, "ownership_verification_certificate_arn", ownership_verification_certificate_arn)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
         if regional_certificate_arn is not None:
             pulumi.set(__self__, "regional_certificate_arn", regional_certificate_arn)
         if regional_certificate_name is not None:
@@ -189,6 +193,18 @@ class DomainNameArgs:
         pulumi.set(self, "ownership_verification_certificate_arn", value)
 
     @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy", value)
+
+    @property
     @pulumi.getter(name="regionalCertificateArn")
     def regional_certificate_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -254,9 +270,11 @@ class _DomainNameState:
                  cloudfront_domain_name: Optional[pulumi.Input[str]] = None,
                  cloudfront_zone_id: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
+                 domain_name_id: Optional[pulumi.Input[str]] = None,
                  endpoint_configuration: Optional[pulumi.Input['DomainNameEndpointConfigurationArgs']] = None,
                  mutual_tls_authentication: Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']] = None,
                  ownership_verification_certificate_arn: Optional[pulumi.Input[str]] = None,
+                 policy: Optional[pulumi.Input[str]] = None,
                  regional_certificate_arn: Optional[pulumi.Input[str]] = None,
                  regional_certificate_name: Optional[pulumi.Input[str]] = None,
                  regional_domain_name: Optional[pulumi.Input[str]] = None,
@@ -276,9 +294,11 @@ class _DomainNameState:
         :param pulumi.Input[str] cloudfront_domain_name: Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
         :param pulumi.Input[str] cloudfront_zone_id: For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
         :param pulumi.Input[str] domain_name: Fully-qualified domain name to register.
+        :param pulumi.Input[str] domain_name_id: The identifier for the domain name resource. Supported only for private custom domain names.
         :param pulumi.Input['DomainNameEndpointConfigurationArgs'] endpoint_configuration: Configuration block defining API endpoint information including type. See below.
         :param pulumi.Input['DomainNameMutualTlsAuthenticationArgs'] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name. See below.
         :param pulumi.Input[str] ownership_verification_certificate_arn: ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
+        :param pulumi.Input[str] policy: A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
         :param pulumi.Input[str] regional_certificate_arn: ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
                
                When uploading a certificate, the following arguments are supported:
@@ -311,12 +331,16 @@ class _DomainNameState:
             pulumi.set(__self__, "cloudfront_zone_id", cloudfront_zone_id)
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
+        if domain_name_id is not None:
+            pulumi.set(__self__, "domain_name_id", domain_name_id)
         if endpoint_configuration is not None:
             pulumi.set(__self__, "endpoint_configuration", endpoint_configuration)
         if mutual_tls_authentication is not None:
             pulumi.set(__self__, "mutual_tls_authentication", mutual_tls_authentication)
         if ownership_verification_certificate_arn is not None:
             pulumi.set(__self__, "ownership_verification_certificate_arn", ownership_verification_certificate_arn)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
         if regional_certificate_arn is not None:
             pulumi.set(__self__, "regional_certificate_arn", regional_certificate_arn)
         if regional_certificate_name is not None:
@@ -456,6 +480,18 @@ class _DomainNameState:
         pulumi.set(self, "domain_name", value)
 
     @property
+    @pulumi.getter(name="domainNameId")
+    def domain_name_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier for the domain name resource. Supported only for private custom domain names.
+        """
+        return pulumi.get(self, "domain_name_id")
+
+    @domain_name_id.setter
+    def domain_name_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_name_id", value)
+
+    @property
     @pulumi.getter(name="endpointConfiguration")
     def endpoint_configuration(self) -> Optional[pulumi.Input['DomainNameEndpointConfigurationArgs']]:
         """
@@ -490,6 +526,18 @@ class _DomainNameState:
     @ownership_verification_certificate_arn.setter
     def ownership_verification_certificate_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ownership_verification_certificate_arn", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy", value)
 
     @property
     @pulumi.getter(name="regionalCertificateArn")
@@ -595,6 +643,7 @@ class DomainName(pulumi.CustomResource):
                  endpoint_configuration: Optional[pulumi.Input[Union['DomainNameEndpointConfigurationArgs', 'DomainNameEndpointConfigurationArgsDict']]] = None,
                  mutual_tls_authentication: Optional[pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
                  ownership_verification_certificate_arn: Optional[pulumi.Input[str]] = None,
+                 policy: Optional[pulumi.Input[str]] = None,
                  regional_certificate_arn: Optional[pulumi.Input[str]] = None,
                  regional_certificate_name: Optional[pulumi.Input[str]] = None,
                  security_policy: Optional[pulumi.Input[str]] = None,
@@ -679,10 +728,17 @@ class DomainName(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import API Gateway domain names using their `name`. For example:
+        For a private custom domain name:
+
+        Using `pulumi import`, import API Gateway domain names using their `name` or `name` and `domain_name_id` (for private custom domain names). For example:
 
         ```sh
         $ pulumi import aws:apigateway/domainName:DomainName example dev.example.com
+        ```
+        For a private custom domain name:
+
+        ```sh
+        $ pulumi import aws:apigateway/domainName:DomainName example dev.api.internal.example.com/abcde12345
         ```
 
         :param str resource_name: The name of the resource.
@@ -696,6 +752,7 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.Input[Union['DomainNameEndpointConfigurationArgs', 'DomainNameEndpointConfigurationArgsDict']] endpoint_configuration: Configuration block defining API endpoint information including type. See below.
         :param pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name. See below.
         :param pulumi.Input[str] ownership_verification_certificate_arn: ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
+        :param pulumi.Input[str] policy: A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
         :param pulumi.Input[str] regional_certificate_arn: ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
                
                When uploading a certificate, the following arguments are supported:
@@ -790,10 +847,17 @@ class DomainName(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import API Gateway domain names using their `name`. For example:
+        For a private custom domain name:
+
+        Using `pulumi import`, import API Gateway domain names using their `name` or `name` and `domain_name_id` (for private custom domain names). For example:
 
         ```sh
         $ pulumi import aws:apigateway/domainName:DomainName example dev.example.com
+        ```
+        For a private custom domain name:
+
+        ```sh
+        $ pulumi import aws:apigateway/domainName:DomainName example dev.api.internal.example.com/abcde12345
         ```
 
         :param str resource_name: The name of the resource.
@@ -820,6 +884,7 @@ class DomainName(pulumi.CustomResource):
                  endpoint_configuration: Optional[pulumi.Input[Union['DomainNameEndpointConfigurationArgs', 'DomainNameEndpointConfigurationArgsDict']]] = None,
                  mutual_tls_authentication: Optional[pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
                  ownership_verification_certificate_arn: Optional[pulumi.Input[str]] = None,
+                 policy: Optional[pulumi.Input[str]] = None,
                  regional_certificate_arn: Optional[pulumi.Input[str]] = None,
                  regional_certificate_name: Optional[pulumi.Input[str]] = None,
                  security_policy: Optional[pulumi.Input[str]] = None,
@@ -844,6 +909,7 @@ class DomainName(pulumi.CustomResource):
             __props__.__dict__["endpoint_configuration"] = endpoint_configuration
             __props__.__dict__["mutual_tls_authentication"] = mutual_tls_authentication
             __props__.__dict__["ownership_verification_certificate_arn"] = ownership_verification_certificate_arn
+            __props__.__dict__["policy"] = policy
             __props__.__dict__["regional_certificate_arn"] = regional_certificate_arn
             __props__.__dict__["regional_certificate_name"] = regional_certificate_name
             __props__.__dict__["security_policy"] = security_policy
@@ -852,6 +918,7 @@ class DomainName(pulumi.CustomResource):
             __props__.__dict__["certificate_upload_date"] = None
             __props__.__dict__["cloudfront_domain_name"] = None
             __props__.__dict__["cloudfront_zone_id"] = None
+            __props__.__dict__["domain_name_id"] = None
             __props__.__dict__["regional_domain_name"] = None
             __props__.__dict__["regional_zone_id"] = None
             __props__.__dict__["tags_all"] = None
@@ -877,9 +944,11 @@ class DomainName(pulumi.CustomResource):
             cloudfront_domain_name: Optional[pulumi.Input[str]] = None,
             cloudfront_zone_id: Optional[pulumi.Input[str]] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
+            domain_name_id: Optional[pulumi.Input[str]] = None,
             endpoint_configuration: Optional[pulumi.Input[Union['DomainNameEndpointConfigurationArgs', 'DomainNameEndpointConfigurationArgsDict']]] = None,
             mutual_tls_authentication: Optional[pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
             ownership_verification_certificate_arn: Optional[pulumi.Input[str]] = None,
+            policy: Optional[pulumi.Input[str]] = None,
             regional_certificate_arn: Optional[pulumi.Input[str]] = None,
             regional_certificate_name: Optional[pulumi.Input[str]] = None,
             regional_domain_name: Optional[pulumi.Input[str]] = None,
@@ -904,9 +973,11 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.Input[str] cloudfront_domain_name: Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
         :param pulumi.Input[str] cloudfront_zone_id: For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
         :param pulumi.Input[str] domain_name: Fully-qualified domain name to register.
+        :param pulumi.Input[str] domain_name_id: The identifier for the domain name resource. Supported only for private custom domain names.
         :param pulumi.Input[Union['DomainNameEndpointConfigurationArgs', 'DomainNameEndpointConfigurationArgsDict']] endpoint_configuration: Configuration block defining API endpoint information including type. See below.
         :param pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name. See below.
         :param pulumi.Input[str] ownership_verification_certificate_arn: ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
+        :param pulumi.Input[str] policy: A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
         :param pulumi.Input[str] regional_certificate_arn: ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
                
                When uploading a certificate, the following arguments are supported:
@@ -933,9 +1004,11 @@ class DomainName(pulumi.CustomResource):
         __props__.__dict__["cloudfront_domain_name"] = cloudfront_domain_name
         __props__.__dict__["cloudfront_zone_id"] = cloudfront_zone_id
         __props__.__dict__["domain_name"] = domain_name
+        __props__.__dict__["domain_name_id"] = domain_name_id
         __props__.__dict__["endpoint_configuration"] = endpoint_configuration
         __props__.__dict__["mutual_tls_authentication"] = mutual_tls_authentication
         __props__.__dict__["ownership_verification_certificate_arn"] = ownership_verification_certificate_arn
+        __props__.__dict__["policy"] = policy
         __props__.__dict__["regional_certificate_arn"] = regional_certificate_arn
         __props__.__dict__["regional_certificate_name"] = regional_certificate_name
         __props__.__dict__["regional_domain_name"] = regional_domain_name
@@ -1026,6 +1099,14 @@ class DomainName(pulumi.CustomResource):
         return pulumi.get(self, "domain_name")
 
     @property
+    @pulumi.getter(name="domainNameId")
+    def domain_name_id(self) -> pulumi.Output[str]:
+        """
+        The identifier for the domain name resource. Supported only for private custom domain names.
+        """
+        return pulumi.get(self, "domain_name_id")
+
+    @property
     @pulumi.getter(name="endpointConfiguration")
     def endpoint_configuration(self) -> pulumi.Output['outputs.DomainNameEndpointConfiguration']:
         """
@@ -1048,6 +1129,14 @@ class DomainName(pulumi.CustomResource):
         ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
         """
         return pulumi.get(self, "ownership_verification_certificate_arn")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> pulumi.Output[Optional[str]]:
+        """
+        A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+        """
+        return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter(name="regionalCertificateArn")

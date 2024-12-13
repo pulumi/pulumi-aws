@@ -31,8 +31,8 @@ class CatalogTableOptimizerArgs:
         :param pulumi.Input[str] catalog_id: The Catalog ID of the table.
         :param pulumi.Input[str] database_name: The name of the database in the catalog in which the table resides.
         :param pulumi.Input[str] table_name: The name of the table.
-        :param pulumi.Input[str] type: The type of table optimizer. Currently, the only valid value is compaction.
-        :param pulumi.Input['CatalogTableOptimizerConfigurationArgs'] configuration: A configuration block that defines the table optimizer settings. The block contains:
+        :param pulumi.Input[str] type: The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
+        :param pulumi.Input['CatalogTableOptimizerConfigurationArgs'] configuration: A configuration block that defines the table optimizer settings. See Configuration for additional details.
         """
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "database_name", database_name)
@@ -81,7 +81,7 @@ class CatalogTableOptimizerArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of table optimizer. Currently, the only valid value is compaction.
+        The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
         """
         return pulumi.get(self, "type")
 
@@ -93,7 +93,7 @@ class CatalogTableOptimizerArgs:
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['CatalogTableOptimizerConfigurationArgs']]:
         """
-        A configuration block that defines the table optimizer settings. The block contains:
+        A configuration block that defines the table optimizer settings. See Configuration for additional details.
         """
         return pulumi.get(self, "configuration")
 
@@ -113,10 +113,10 @@ class _CatalogTableOptimizerState:
         """
         Input properties used for looking up and filtering CatalogTableOptimizer resources.
         :param pulumi.Input[str] catalog_id: The Catalog ID of the table.
-        :param pulumi.Input['CatalogTableOptimizerConfigurationArgs'] configuration: A configuration block that defines the table optimizer settings. The block contains:
+        :param pulumi.Input['CatalogTableOptimizerConfigurationArgs'] configuration: A configuration block that defines the table optimizer settings. See Configuration for additional details.
         :param pulumi.Input[str] database_name: The name of the database in the catalog in which the table resides.
         :param pulumi.Input[str] table_name: The name of the table.
-        :param pulumi.Input[str] type: The type of table optimizer. Currently, the only valid value is compaction.
+        :param pulumi.Input[str] type: The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
         """
         if catalog_id is not None:
             pulumi.set(__self__, "catalog_id", catalog_id)
@@ -145,7 +145,7 @@ class _CatalogTableOptimizerState:
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['CatalogTableOptimizerConfigurationArgs']]:
         """
-        A configuration block that defines the table optimizer settings. The block contains:
+        A configuration block that defines the table optimizer settings. See Configuration for additional details.
         """
         return pulumi.get(self, "configuration")
 
@@ -181,7 +181,7 @@ class _CatalogTableOptimizerState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of table optimizer. Currently, the only valid value is compaction.
+        The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
         """
         return pulumi.get(self, "type")
 
@@ -206,7 +206,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Basic Usage
+        ### Compaction Optimizer
 
         ```python
         import pulumi
@@ -221,6 +221,53 @@ class CatalogTableOptimizer(pulumi.CustomResource):
                 "enabled": True,
             },
             type="compaction")
+        ```
+
+        ### Snapshot Retention Optimizer
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.CatalogTableOptimizer("example",
+            catalog_id="123456789012",
+            database_name="example_database",
+            table_name="example_table",
+            configuration={
+                "role_arn": "arn:aws:iam::123456789012:role/example-role",
+                "enabled": True,
+                "retention_configuration": {
+                    "iceberg_configuration": {
+                        "snapshot_retention_period_in_days": 7,
+                        "number_of_snapshots_to_retain": 3,
+                        "clean_expired_files": True,
+                    },
+                },
+            },
+            type="retention")
+        ```
+
+        ### Orphan File Deletion Optimizer
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.CatalogTableOptimizer("example",
+            catalog_id="123456789012",
+            database_name="example_database",
+            table_name="example_table",
+            configuration={
+                "role_arn": "arn:aws:iam::123456789012:role/example-role",
+                "enabled": True,
+                "orphan_file_deletion_configuration": {
+                    "iceberg_configuration": {
+                        "orphan_file_retention_period_in_days": 7,
+                        "location": "s3://example-bucket/example_table/",
+                    },
+                },
+            },
+            type="orphan_file_deletion")
         ```
 
         ## Import
@@ -234,10 +281,10 @@ class CatalogTableOptimizer(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] catalog_id: The Catalog ID of the table.
-        :param pulumi.Input[Union['CatalogTableOptimizerConfigurationArgs', 'CatalogTableOptimizerConfigurationArgsDict']] configuration: A configuration block that defines the table optimizer settings. The block contains:
+        :param pulumi.Input[Union['CatalogTableOptimizerConfigurationArgs', 'CatalogTableOptimizerConfigurationArgsDict']] configuration: A configuration block that defines the table optimizer settings. See Configuration for additional details.
         :param pulumi.Input[str] database_name: The name of the database in the catalog in which the table resides.
         :param pulumi.Input[str] table_name: The name of the table.
-        :param pulumi.Input[str] type: The type of table optimizer. Currently, the only valid value is compaction.
+        :param pulumi.Input[str] type: The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
         """
         ...
     @overload
@@ -250,7 +297,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Basic Usage
+        ### Compaction Optimizer
 
         ```python
         import pulumi
@@ -265,6 +312,53 @@ class CatalogTableOptimizer(pulumi.CustomResource):
                 "enabled": True,
             },
             type="compaction")
+        ```
+
+        ### Snapshot Retention Optimizer
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.CatalogTableOptimizer("example",
+            catalog_id="123456789012",
+            database_name="example_database",
+            table_name="example_table",
+            configuration={
+                "role_arn": "arn:aws:iam::123456789012:role/example-role",
+                "enabled": True,
+                "retention_configuration": {
+                    "iceberg_configuration": {
+                        "snapshot_retention_period_in_days": 7,
+                        "number_of_snapshots_to_retain": 3,
+                        "clean_expired_files": True,
+                    },
+                },
+            },
+            type="retention")
+        ```
+
+        ### Orphan File Deletion Optimizer
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.glue.CatalogTableOptimizer("example",
+            catalog_id="123456789012",
+            database_name="example_database",
+            table_name="example_table",
+            configuration={
+                "role_arn": "arn:aws:iam::123456789012:role/example-role",
+                "enabled": True,
+                "orphan_file_deletion_configuration": {
+                    "iceberg_configuration": {
+                        "orphan_file_retention_period_in_days": 7,
+                        "location": "s3://example-bucket/example_table/",
+                    },
+                },
+            },
+            type="orphan_file_deletion")
         ```
 
         ## Import
@@ -340,10 +434,10 @@ class CatalogTableOptimizer(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] catalog_id: The Catalog ID of the table.
-        :param pulumi.Input[Union['CatalogTableOptimizerConfigurationArgs', 'CatalogTableOptimizerConfigurationArgsDict']] configuration: A configuration block that defines the table optimizer settings. The block contains:
+        :param pulumi.Input[Union['CatalogTableOptimizerConfigurationArgs', 'CatalogTableOptimizerConfigurationArgsDict']] configuration: A configuration block that defines the table optimizer settings. See Configuration for additional details.
         :param pulumi.Input[str] database_name: The name of the database in the catalog in which the table resides.
         :param pulumi.Input[str] table_name: The name of the table.
-        :param pulumi.Input[str] type: The type of table optimizer. Currently, the only valid value is compaction.
+        :param pulumi.Input[str] type: The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -368,7 +462,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
     @pulumi.getter
     def configuration(self) -> pulumi.Output[Optional['outputs.CatalogTableOptimizerConfiguration']]:
         """
-        A configuration block that defines the table optimizer settings. The block contains:
+        A configuration block that defines the table optimizer settings. See Configuration for additional details.
         """
         return pulumi.get(self, "configuration")
 
@@ -392,7 +486,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of table optimizer. Currently, the only valid value is compaction.
+        The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
         """
         return pulumi.get(self, "type")
 

@@ -14,6 +14,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class TimestreamwriteFunctions {
@@ -147,6 +148,50 @@ public final class TimestreamwriteFunctions {
      * 
      */
     public static Output<GetDatabaseResult> getDatabase(GetDatabaseArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:timestreamwrite/getDatabase:getDatabase", TypeShape.of(GetDatabaseResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Timestream Write Database.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.timestreamwrite.TimestreamwriteFunctions;
+     * import com.pulumi.aws.timestreamwrite.inputs.GetDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = TimestreamwriteFunctions.getDatabase(GetDatabaseArgs.builder()
+     *             .name("database-example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetDatabaseResult> getDatabase(GetDatabaseArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:timestreamwrite/getDatabase:getDatabase", TypeShape.of(GetDatabaseResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -326,6 +371,51 @@ public final class TimestreamwriteFunctions {
      * 
      */
     public static Output<GetTableResult> getTable(GetTableArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:timestreamwrite/getTable:getTable", TypeShape.of(GetTableResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Timestream Write Table.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.timestreamwrite.TimestreamwriteFunctions;
+     * import com.pulumi.aws.timestreamwrite.inputs.GetTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = TimestreamwriteFunctions.getTable(GetTableArgs.builder()
+     *             .databaseName(testAwsTimestreamwriteDatabase.databaseName())
+     *             .name(testAwsTimestreamwriteTable.tableName())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetTableResult> getTable(GetTableArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:timestreamwrite/getTable:getTable", TypeShape.of(GetTableResult.class), args, Utilities.withVersion(options));
     }
     /**

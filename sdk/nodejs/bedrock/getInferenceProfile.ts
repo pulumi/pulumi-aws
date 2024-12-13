@@ -75,7 +75,7 @@ export interface GetInferenceProfileResult {
      */
     readonly status: string;
     /**
-     * The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock.
+     * The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
      */
     readonly type: string;
     /**

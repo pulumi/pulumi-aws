@@ -69,6 +69,12 @@ namespace Pulumi.Aws.ApiGateway
         [Input("domainName", required: true)]
         public string DomainName { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier for the domain name resource. Supported only for private custom domain names.
+        /// </summary>
+        [Input("domainNameId")]
+        public string? DomainNameId { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -94,6 +100,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
+
+        /// <summary>
+        /// The identifier for the domain name resource. Supported only for private custom domain names.
+        /// </summary>
+        [Input("domainNameId")]
+        public Input<string>? DomainNameId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -142,6 +154,7 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         public readonly string CloudfrontZoneId;
         public readonly string DomainName;
+        public readonly string DomainNameId;
         /// <summary>
         /// List of objects with the endpoint configuration of this domain name.
         /// </summary>
@@ -150,6 +163,10 @@ namespace Pulumi.Aws.ApiGateway
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+        /// </summary>
+        public readonly string Policy;
         /// <summary>
         /// ARN for an AWS-managed certificate that is used for validating the regional domain name.
         /// </summary>
@@ -191,9 +208,13 @@ namespace Pulumi.Aws.ApiGateway
 
             string domainName,
 
+            string domainNameId,
+
             ImmutableArray<Outputs.GetDomainNameEndpointConfigurationResult> endpointConfigurations,
 
             string id,
+
+            string policy,
 
             string regionalCertificateArn,
 
@@ -214,8 +235,10 @@ namespace Pulumi.Aws.ApiGateway
             CloudfrontDomainName = cloudfrontDomainName;
             CloudfrontZoneId = cloudfrontZoneId;
             DomainName = domainName;
+            DomainNameId = domainNameId;
             EndpointConfigurations = endpointConfigurations;
             Id = id;
+            Policy = policy;
             RegionalCertificateArn = regionalCertificateArn;
             RegionalCertificateName = regionalCertificateName;
             RegionalDomainName = regionalDomainName;

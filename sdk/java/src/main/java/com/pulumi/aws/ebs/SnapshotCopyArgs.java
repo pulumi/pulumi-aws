@@ -20,6 +20,21 @@ public final class SnapshotCopyArgs extends com.pulumi.resources.ResourceArgs {
     public static final SnapshotCopyArgs Empty = new SnapshotCopyArgs();
 
     /**
+     * Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
+     * 
+     */
+    @Import(name="completionDurationMinutes")
+    private @Nullable Output<Integer> completionDurationMinutes;
+
+    /**
+     * @return Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
+     * 
+     */
+    public Optional<Output<Integer>> completionDurationMinutes() {
+        return Optional.ofNullable(this.completionDurationMinutes);
+    }
+
+    /**
      * A description of what the snapshot is.
      * 
      */
@@ -157,6 +172,7 @@ public final class SnapshotCopyArgs extends com.pulumi.resources.ResourceArgs {
     private SnapshotCopyArgs() {}
 
     private SnapshotCopyArgs(SnapshotCopyArgs $) {
+        this.completionDurationMinutes = $.completionDurationMinutes;
         this.description = $.description;
         this.encrypted = $.encrypted;
         this.kmsKeyId = $.kmsKeyId;
@@ -184,6 +200,27 @@ public final class SnapshotCopyArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(SnapshotCopyArgs defaults) {
             $ = new SnapshotCopyArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param completionDurationMinutes Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder completionDurationMinutes(@Nullable Output<Integer> completionDurationMinutes) {
+            $.completionDurationMinutes = completionDurationMinutes;
+            return this;
+        }
+
+        /**
+         * @param completionDurationMinutes Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder completionDurationMinutes(Integer completionDurationMinutes) {
+            return completionDurationMinutes(Output.of(completionDurationMinutes));
         }
 
         /**

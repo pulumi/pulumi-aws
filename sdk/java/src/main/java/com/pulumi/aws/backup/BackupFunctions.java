@@ -23,6 +23,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class BackupFunctions {
@@ -150,6 +151,48 @@ public final class BackupFunctions {
      * 
      */
     public static Output<GetFrameworkResult> getFramework(GetFrameworkArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:backup/getFramework:getFramework", TypeShape.of(GetFrameworkResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information on an existing backup framework.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.backup.BackupFunctions;
+     * import com.pulumi.aws.backup.inputs.GetFrameworkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = BackupFunctions.getFramework(GetFrameworkArgs.builder()
+     *             .name("my_example_backup_framework_name")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetFrameworkResult> getFramework(GetFrameworkArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:backup/getFramework:getFramework", TypeShape.of(GetFrameworkResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -359,6 +402,48 @@ public final class BackupFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetPlanResult> getPlan(GetPlanArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:backup/getPlan:getPlan", TypeShape.of(GetPlanResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information on an existing backup plan.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.backup.BackupFunctions;
+     * import com.pulumi.aws.backup.inputs.GetPlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = BackupFunctions.getPlan(GetPlanArgs.builder()
+     *             .planId("my_example_backup_plan_id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetPlanResult> getPlanPlain(GetPlanPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:backup/getPlan:getPlan", TypeShape.of(GetPlanResult.class), args, Utilities.withVersion(options));
     }
@@ -486,6 +571,48 @@ public final class BackupFunctions {
      * 
      */
     public static Output<GetReportPlanResult> getReportPlan(GetReportPlanArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:backup/getReportPlan:getReportPlan", TypeShape.of(GetReportPlanResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information on an existing backup report plan.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.backup.BackupFunctions;
+     * import com.pulumi.aws.backup.inputs.GetReportPlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = BackupFunctions.getReportPlan(GetReportPlanArgs.builder()
+     *             .name("my_example_backup_report_plan_name")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetReportPlanResult> getReportPlan(GetReportPlanArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:backup/getReportPlan:getReportPlan", TypeShape.of(GetReportPlanResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -699,6 +826,49 @@ public final class BackupFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetSelectionResult> getSelection(GetSelectionArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:backup/getSelection:getSelection", TypeShape.of(GetSelectionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information on an existing backup selection.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.backup.BackupFunctions;
+     * import com.pulumi.aws.backup.inputs.GetSelectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = BackupFunctions.getSelection(GetSelectionArgs.builder()
+     *             .planId(exampleAwsBackupPlan.id())
+     *             .selectionId("selection-id-example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetSelectionResult> getSelectionPlain(GetSelectionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:backup/getSelection:getSelection", TypeShape.of(GetSelectionResult.class), args, Utilities.withVersion(options));
     }
@@ -826,6 +996,48 @@ public final class BackupFunctions {
      * 
      */
     public static Output<GetVaultResult> getVault(GetVaultArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:backup/getVault:getVault", TypeShape.of(GetVaultResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get information on an existing backup vault.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.backup.BackupFunctions;
+     * import com.pulumi.aws.backup.inputs.GetVaultArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = BackupFunctions.getVault(GetVaultArgs.builder()
+     *             .name("example_backup_vault")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetVaultResult> getVault(GetVaultArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:backup/getVault:getVault", TypeShape.of(GetVaultResult.class), args, Utilities.withVersion(options));
     }
     /**

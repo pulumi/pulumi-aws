@@ -23,6 +23,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class DmsFunctions {
@@ -156,6 +157,50 @@ public final class DmsFunctions {
      * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:dms/getCertificate:getCertificate", TypeShape.of(GetCertificateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS DMS (Database Migration) Certificate.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.dms.DmsFunctions;
+     * import com.pulumi.aws.dms.inputs.GetCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DmsFunctions.getCertificate(GetCertificateArgs.builder()
+     *             .certificateId(test.certificateId())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:dms/getCertificate:getCertificate", TypeShape.of(GetCertificateResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -375,6 +420,50 @@ public final class DmsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetEndpointResult> getEndpoint(GetEndpointArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:dms/getEndpoint:getEndpoint", TypeShape.of(GetEndpointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS DMS (Database Migration) Endpoint.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.dms.DmsFunctions;
+     * import com.pulumi.aws.dms.inputs.GetEndpointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DmsFunctions.getEndpoint(GetEndpointArgs.builder()
+     *             .endpointId("test_id")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetEndpointResult> getEndpointPlain(GetEndpointPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:dms/getEndpoint:getEndpoint", TypeShape.of(GetEndpointResult.class), args, Utilities.withVersion(options));
     }
@@ -502,6 +591,48 @@ public final class DmsFunctions {
      * 
      */
     public static Output<GetReplicationInstanceResult> getReplicationInstance(GetReplicationInstanceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:dms/getReplicationInstance:getReplicationInstance", TypeShape.of(GetReplicationInstanceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS DMS (Database Migration) Replication Instance.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.dms.DmsFunctions;
+     * import com.pulumi.aws.dms.inputs.GetReplicationInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DmsFunctions.getReplicationInstance(GetReplicationInstanceArgs.builder()
+     *             .replicationInstanceId(testAwsDmsReplicationInstance.replicationInstanceId())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetReplicationInstanceResult> getReplicationInstance(GetReplicationInstanceArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:dms/getReplicationInstance:getReplicationInstance", TypeShape.of(GetReplicationInstanceResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -719,6 +850,50 @@ public final class DmsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetReplicationSubnetGroupResult> getReplicationSubnetGroup(GetReplicationSubnetGroupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup", TypeShape.of(GetReplicationSubnetGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.dms.DmsFunctions;
+     * import com.pulumi.aws.dms.inputs.GetReplicationSubnetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DmsFunctions.getReplicationSubnetGroup(GetReplicationSubnetGroupArgs.builder()
+     *             .replicationSubnetGroupId(testAwsDmsReplicationSubnetGroup.replicationSubnetGroupId())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetReplicationSubnetGroupResult> getReplicationSubnetGroupPlain(GetReplicationSubnetGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup", TypeShape.of(GetReplicationSubnetGroupResult.class), args, Utilities.withVersion(options));
     }
@@ -852,6 +1027,50 @@ public final class DmsFunctions {
      * 
      */
     public static Output<GetReplicationTaskResult> getReplicationTask(GetReplicationTaskArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:dms/getReplicationTask:getReplicationTask", TypeShape.of(GetReplicationTaskResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS DMS (Database Migration) Replication Task.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.dms.DmsFunctions;
+     * import com.pulumi.aws.dms.inputs.GetReplicationTaskArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DmsFunctions.getReplicationTask(GetReplicationTaskArgs.builder()
+     *             .replicationTaskId(testAwsDmsReplicationTask.replicationTaskId())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetReplicationTaskResult> getReplicationTask(GetReplicationTaskArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:dms/getReplicationTask:getReplicationTask", TypeShape.of(GetReplicationTaskResult.class), args, Utilities.withVersion(options));
     }
     /**

@@ -119,10 +119,17 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import API Gateway domain names using their `name`. For example:
+    /// For a private custom domain name:
+    /// 
+    /// Using `pulumi import`, import API Gateway domain names using their `name` or `name` and `domain_name_id` (for private custom domain names). For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:apigateway/domainName:DomainName example dev.example.com
+    /// ```
+    /// For a private custom domain name:
+    /// 
+    /// ```sh
+    /// $ pulumi import aws:apigateway/domainName:DomainName example dev.api.internal.example.com/abcde12345
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/domainName:DomainName")]
@@ -189,6 +196,12 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> Domain { get; private set; } = null!;
 
         /// <summary>
+        /// The identifier for the domain name resource. Supported only for private custom domain names.
+        /// </summary>
+        [Output("domainNameId")]
+        public Output<string> DomainNameId { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block defining API endpoint information including type. See below.
         /// </summary>
         [Output("endpointConfiguration")]
@@ -205,6 +218,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Output("ownershipVerificationCertificateArn")]
         public Output<string> OwnershipVerificationCertificateArn { get; private set; } = null!;
+
+        /// <summary>
+        /// A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+        /// </summary>
+        [Output("policy")]
+        public Output<string?> Policy { get; private set; } = null!;
 
         /// <summary>
         /// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
@@ -367,6 +386,12 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? OwnershipVerificationCertificateArn { get; set; }
 
         /// <summary>
+        /// A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+        /// </summary>
+        [Input("policy")]
+        public Input<string>? Policy { get; set; }
+
+        /// <summary>
         /// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
         /// 
         /// When uploading a certificate, the following arguments are supported:
@@ -479,6 +504,12 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? Domain { get; set; }
 
         /// <summary>
+        /// The identifier for the domain name resource. Supported only for private custom domain names.
+        /// </summary>
+        [Input("domainNameId")]
+        public Input<string>? DomainNameId { get; set; }
+
+        /// <summary>
         /// Configuration block defining API endpoint information including type. See below.
         /// </summary>
         [Input("endpointConfiguration")]
@@ -495,6 +526,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("ownershipVerificationCertificateArn")]
         public Input<string>? OwnershipVerificationCertificateArn { get; set; }
+
+        /// <summary>
+        /// A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+        /// </summary>
+        [Input("policy")]
+        public Input<string>? Policy { get; set; }
 
         /// <summary>
         /// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.

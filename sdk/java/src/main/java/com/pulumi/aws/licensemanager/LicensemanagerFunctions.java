@@ -17,6 +17,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class LicensemanagerFunctions {
@@ -323,6 +324,57 @@ public final class LicensemanagerFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetLicenseGrantsResult> getLicenseGrants(GetLicenseGrantsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:licensemanager/getLicenseGrants:getLicenseGrants", TypeShape.of(GetLicenseGrantsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * This resource can be used to get a set of license grant ARNs matching a filter.
+     * 
+     * ## Example Usage
+     * 
+     * The following shows getting all license grant ARNs granted to your account.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+     * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
+     * import com.pulumi.aws.licensemanager.inputs.GetLicenseGrantsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = AwsFunctions.getCallerIdentity();
+     * 
+     *         final var test = LicensemanagerFunctions.getLicenseGrants(GetLicenseGrantsArgs.builder()
+     *             .filters(GetLicenseGrantsFilterArgs.builder()
+     *                 .name("GranteePrincipalARN")
+     *                 .values(String.format("arn:aws:iam::%s:root", current.applyValue(getCallerIdentityResult -> getCallerIdentityResult.accountId())))
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetLicenseGrantsResult> getLicenseGrantsPlain(GetLicenseGrantsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:licensemanager/getLicenseGrants:getLicenseGrants", TypeShape.of(GetLicenseGrantsResult.class), args, Utilities.withVersion(options));
     }
@@ -456,6 +508,50 @@ public final class LicensemanagerFunctions {
      * 
      */
     public static Output<GetReceivedLicenseResult> getReceivedLicense(GetReceivedLicenseArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:licensemanager/getReceivedLicense:getReceivedLicense", TypeShape.of(GetReceivedLicenseResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * This resource can be used to get data on a received license using an ARN. This can be helpful for pulling in data on a license from the AWS marketplace and sharing that license with another account.
+     * 
+     * ## Example Usage
+     * 
+     * The following shows getting the received license data using and ARN.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
+     * import com.pulumi.aws.licensemanager.inputs.GetReceivedLicenseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = LicensemanagerFunctions.getReceivedLicense(GetReceivedLicenseArgs.builder()
+     *             .licenseArn("arn:aws:license-manager::111111111111:license:l-ecbaa94eb71a4830b6d7e49268fecaa0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetReceivedLicenseResult> getReceivedLicense(GetReceivedLicenseArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:licensemanager/getReceivedLicense:getReceivedLicense", TypeShape.of(GetReceivedLicenseResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -735,6 +831,53 @@ public final class LicensemanagerFunctions {
      * 
      */
     public static Output<GetReceivedLicensesResult> getReceivedLicenses(GetReceivedLicensesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:licensemanager/getReceivedLicenses:getReceivedLicenses", TypeShape.of(GetReceivedLicensesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * This resource can be used to get a set of license ARNs matching a filter.
+     * 
+     * ## Example Usage
+     * 
+     * The following shows getting all license ARNs issued from the AWS marketplace. Providing no filter, would provide all license ARNs for the entire account.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
+     * import com.pulumi.aws.licensemanager.inputs.GetReceivedLicensesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = LicensemanagerFunctions.getReceivedLicenses(GetReceivedLicensesArgs.builder()
+     *             .filters(GetReceivedLicensesFilterArgs.builder()
+     *                 .name("IssuerName")
+     *                 .values("AWS/Marketplace")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetReceivedLicensesResult> getReceivedLicenses(GetReceivedLicensesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:licensemanager/getReceivedLicenses:getReceivedLicenses", TypeShape.of(GetReceivedLicensesResult.class), args, Utilities.withVersion(options));
     }
     /**

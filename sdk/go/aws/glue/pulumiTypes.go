@@ -889,6 +889,10 @@ func (o CatalogTableOpenTableFormatInputIcebergInputPtrOutput) Version() pulumi.
 type CatalogTableOptimizerConfiguration struct {
 	// Indicates whether the table optimizer is enabled.
 	Enabled bool `pulumi:"enabled"`
+	// The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
+	OrphanFileDeletionConfiguration *CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration `pulumi:"orphanFileDeletionConfiguration"`
+	// The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
+	RetentionConfiguration *CatalogTableOptimizerConfigurationRetentionConfiguration `pulumi:"retentionConfiguration"`
 	// The ARN of the IAM role to use for the table optimizer.
 	RoleArn string `pulumi:"roleArn"`
 }
@@ -907,6 +911,10 @@ type CatalogTableOptimizerConfigurationInput interface {
 type CatalogTableOptimizerConfigurationArgs struct {
 	// Indicates whether the table optimizer is enabled.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
+	OrphanFileDeletionConfiguration CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrInput `pulumi:"orphanFileDeletionConfiguration"`
+	// The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
+	RetentionConfiguration CatalogTableOptimizerConfigurationRetentionConfigurationPtrInput `pulumi:"retentionConfiguration"`
 	// The ARN of the IAM role to use for the table optimizer.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
@@ -993,6 +1001,20 @@ func (o CatalogTableOptimizerConfigurationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v CatalogTableOptimizerConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
+func (o CatalogTableOptimizerConfigurationOutput) OrphanFileDeletionConfiguration() CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput {
+	return o.ApplyT(func(v CatalogTableOptimizerConfiguration) *CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration {
+		return v.OrphanFileDeletionConfiguration
+	}).(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput)
+}
+
+// The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
+func (o CatalogTableOptimizerConfigurationOutput) RetentionConfiguration() CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput {
+	return o.ApplyT(func(v CatalogTableOptimizerConfiguration) *CatalogTableOptimizerConfigurationRetentionConfiguration {
+		return v.RetentionConfiguration
+	}).(CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput)
+}
+
 // The ARN of the IAM role to use for the table optimizer.
 func (o CatalogTableOptimizerConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogTableOptimizerConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
@@ -1032,6 +1054,26 @@ func (o CatalogTableOptimizerConfigurationPtrOutput) Enabled() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
+func (o CatalogTableOptimizerConfigurationPtrOutput) OrphanFileDeletionConfiguration() CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput {
+	return o.ApplyT(func(v *CatalogTableOptimizerConfiguration) *CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.OrphanFileDeletionConfiguration
+	}).(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput)
+}
+
+// The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
+func (o CatalogTableOptimizerConfigurationPtrOutput) RetentionConfiguration() CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput {
+	return o.ApplyT(func(v *CatalogTableOptimizerConfiguration) *CatalogTableOptimizerConfigurationRetentionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionConfiguration
+	}).(CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput)
+}
+
 // The ARN of the IAM role to use for the table optimizer.
 func (o CatalogTableOptimizerConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogTableOptimizerConfiguration) *string {
@@ -1040,6 +1082,625 @@ func (o CatalogTableOptimizerConfigurationPtrOutput) RoleArn() pulumi.StringPtrO
 		}
 		return &v.RoleArn
 	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration struct {
+	// The configuration for an Iceberg orphan file deletion optimizer.
+	IcebergConfiguration *CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration `pulumi:"icebergConfiguration"`
+}
+
+// CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationInput is an input type that accepts CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs and CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationOutput values.
+// You can construct a concrete instance of `CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationInput` via:
+//
+//	CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs{...}
+type CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationInput interface {
+	pulumi.Input
+
+	ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationOutput() CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationOutput
+	ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationOutputWithContext(context.Context) CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationOutput
+}
+
+type CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs struct {
+	// The configuration for an Iceberg orphan file deletion optimizer.
+	IcebergConfiguration CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrInput `pulumi:"icebergConfiguration"`
+}
+
+func (CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration)(nil)).Elem()
+}
+
+func (i CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs) ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationOutput() CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationOutput {
+	return i.ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs) ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationOutput)
+}
+
+func (i CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs) ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput() CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput {
+	return i.ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs) ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationOutput).ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutputWithContext(ctx)
+}
+
+// CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrInput is an input type that accepts CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs, CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtr and CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput values.
+// You can construct a concrete instance of `CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrInput` via:
+//
+//	        CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput() CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput
+	ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutputWithContext(context.Context) CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput
+}
+
+type catalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrType CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs
+
+func CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtr(v *CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs) CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrInput {
+	return (*catalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrType)(v)
+}
+
+func (*catalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration)(nil)).Elem()
+}
+
+func (i *catalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrType) ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput() CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput {
+	return i.ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrType) ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput)
+}
+
+type CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration)(nil)).Elem()
+}
+
+func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationOutput) ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationOutput() CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationOutput {
+	return o
+}
+
+func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationOutput) ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationOutput {
+	return o
+}
+
+func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationOutput) ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput() CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput {
+	return o.ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationOutput) ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration) *CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration {
+		return &v
+	}).(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput)
+}
+
+// The configuration for an Iceberg orphan file deletion optimizer.
+func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationOutput) IcebergConfiguration() CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput {
+	return o.ApplyT(func(v CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration) *CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration {
+		return v.IcebergConfiguration
+	}).(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput)
+}
+
+type CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration)(nil)).Elem()
+}
+
+func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput) ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput() CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput {
+	return o
+}
+
+func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput) ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput {
+	return o
+}
+
+func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput) Elem() CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationOutput {
+	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration) CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration
+		return ret
+	}).(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationOutput)
+}
+
+// The configuration for an Iceberg orphan file deletion optimizer.
+func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput) IcebergConfiguration() CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput {
+	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration) *CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.IcebergConfiguration
+	}).(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput)
+}
+
+type CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration struct {
+	// Specifies a directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table's location.
+	Location *string `pulumi:"location"`
+	// The number of days that orphan files should be retained before file deletion. Defaults to `3`.
+	OrphanFileRetentionPeriodInDays *float64 `pulumi:"orphanFileRetentionPeriodInDays"`
+}
+
+// CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationInput is an input type that accepts CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs and CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput values.
+// You can construct a concrete instance of `CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationInput` via:
+//
+//	CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs{...}
+type CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationInput interface {
+	pulumi.Input
+
+	ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput() CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput
+	ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutputWithContext(context.Context) CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput
+}
+
+type CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs struct {
+	// Specifies a directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table's location.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The number of days that orphan files should be retained before file deletion. Defaults to `3`.
+	OrphanFileRetentionPeriodInDays pulumi.Float64PtrInput `pulumi:"orphanFileRetentionPeriodInDays"`
+}
+
+func (CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration)(nil)).Elem()
+}
+
+func (i CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs) ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput() CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput {
+	return i.ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs) ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput)
+}
+
+func (i CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs) ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput() CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput {
+	return i.ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs) ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput).ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutputWithContext(ctx)
+}
+
+// CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrInput is an input type that accepts CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs, CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtr and CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput values.
+// You can construct a concrete instance of `CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrInput` via:
+//
+//	        CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput() CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput
+	ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutputWithContext(context.Context) CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput
+}
+
+type catalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrType CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs
+
+func CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtr(v *CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs) CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrInput {
+	return (*catalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrType)(v)
+}
+
+func (*catalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration)(nil)).Elem()
+}
+
+func (i *catalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrType) ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput() CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput {
+	return i.ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrType) ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput)
+}
+
+type CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration)(nil)).Elem()
+}
+
+func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput) ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput() CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput {
+	return o
+}
+
+func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput) ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput {
+	return o
+}
+
+func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput) ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput() CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput {
+	return o.ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput) ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration) *CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration {
+		return &v
+	}).(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput)
+}
+
+// Specifies a directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table's location.
+func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration) *string {
+		return v.Location
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of days that orphan files should be retained before file deletion. Defaults to `3`.
+func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput) OrphanFileRetentionPeriodInDays() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration) *float64 {
+		return v.OrphanFileRetentionPeriodInDays
+	}).(pulumi.Float64PtrOutput)
+}
+
+type CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration)(nil)).Elem()
+}
+
+func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput) ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput() CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput {
+	return o
+}
+
+func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput) ToCatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput {
+	return o
+}
+
+func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput) Elem() CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput {
+	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration) CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration
+		return ret
+	}).(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput)
+}
+
+// Specifies a directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table's location.
+func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Location
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of days that orphan files should be retained before file deletion. Defaults to `3`.
+func (o CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput) OrphanFileRetentionPeriodInDays() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.OrphanFileRetentionPeriodInDays
+	}).(pulumi.Float64PtrOutput)
+}
+
+type CatalogTableOptimizerConfigurationRetentionConfiguration struct {
+	// The configuration for an Iceberg snapshot retention optimizer.
+	IcebergConfiguration *CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration `pulumi:"icebergConfiguration"`
+}
+
+// CatalogTableOptimizerConfigurationRetentionConfigurationInput is an input type that accepts CatalogTableOptimizerConfigurationRetentionConfigurationArgs and CatalogTableOptimizerConfigurationRetentionConfigurationOutput values.
+// You can construct a concrete instance of `CatalogTableOptimizerConfigurationRetentionConfigurationInput` via:
+//
+//	CatalogTableOptimizerConfigurationRetentionConfigurationArgs{...}
+type CatalogTableOptimizerConfigurationRetentionConfigurationInput interface {
+	pulumi.Input
+
+	ToCatalogTableOptimizerConfigurationRetentionConfigurationOutput() CatalogTableOptimizerConfigurationRetentionConfigurationOutput
+	ToCatalogTableOptimizerConfigurationRetentionConfigurationOutputWithContext(context.Context) CatalogTableOptimizerConfigurationRetentionConfigurationOutput
+}
+
+type CatalogTableOptimizerConfigurationRetentionConfigurationArgs struct {
+	// The configuration for an Iceberg snapshot retention optimizer.
+	IcebergConfiguration CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrInput `pulumi:"icebergConfiguration"`
+}
+
+func (CatalogTableOptimizerConfigurationRetentionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOptimizerConfigurationRetentionConfiguration)(nil)).Elem()
+}
+
+func (i CatalogTableOptimizerConfigurationRetentionConfigurationArgs) ToCatalogTableOptimizerConfigurationRetentionConfigurationOutput() CatalogTableOptimizerConfigurationRetentionConfigurationOutput {
+	return i.ToCatalogTableOptimizerConfigurationRetentionConfigurationOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOptimizerConfigurationRetentionConfigurationArgs) ToCatalogTableOptimizerConfigurationRetentionConfigurationOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationRetentionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOptimizerConfigurationRetentionConfigurationOutput)
+}
+
+func (i CatalogTableOptimizerConfigurationRetentionConfigurationArgs) ToCatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput() CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput {
+	return i.ToCatalogTableOptimizerConfigurationRetentionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOptimizerConfigurationRetentionConfigurationArgs) ToCatalogTableOptimizerConfigurationRetentionConfigurationPtrOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOptimizerConfigurationRetentionConfigurationOutput).ToCatalogTableOptimizerConfigurationRetentionConfigurationPtrOutputWithContext(ctx)
+}
+
+// CatalogTableOptimizerConfigurationRetentionConfigurationPtrInput is an input type that accepts CatalogTableOptimizerConfigurationRetentionConfigurationArgs, CatalogTableOptimizerConfigurationRetentionConfigurationPtr and CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput values.
+// You can construct a concrete instance of `CatalogTableOptimizerConfigurationRetentionConfigurationPtrInput` via:
+//
+//	        CatalogTableOptimizerConfigurationRetentionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogTableOptimizerConfigurationRetentionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput() CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput
+	ToCatalogTableOptimizerConfigurationRetentionConfigurationPtrOutputWithContext(context.Context) CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput
+}
+
+type catalogTableOptimizerConfigurationRetentionConfigurationPtrType CatalogTableOptimizerConfigurationRetentionConfigurationArgs
+
+func CatalogTableOptimizerConfigurationRetentionConfigurationPtr(v *CatalogTableOptimizerConfigurationRetentionConfigurationArgs) CatalogTableOptimizerConfigurationRetentionConfigurationPtrInput {
+	return (*catalogTableOptimizerConfigurationRetentionConfigurationPtrType)(v)
+}
+
+func (*catalogTableOptimizerConfigurationRetentionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableOptimizerConfigurationRetentionConfiguration)(nil)).Elem()
+}
+
+func (i *catalogTableOptimizerConfigurationRetentionConfigurationPtrType) ToCatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput() CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput {
+	return i.ToCatalogTableOptimizerConfigurationRetentionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogTableOptimizerConfigurationRetentionConfigurationPtrType) ToCatalogTableOptimizerConfigurationRetentionConfigurationPtrOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput)
+}
+
+type CatalogTableOptimizerConfigurationRetentionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOptimizerConfigurationRetentionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOptimizerConfigurationRetentionConfiguration)(nil)).Elem()
+}
+
+func (o CatalogTableOptimizerConfigurationRetentionConfigurationOutput) ToCatalogTableOptimizerConfigurationRetentionConfigurationOutput() CatalogTableOptimizerConfigurationRetentionConfigurationOutput {
+	return o
+}
+
+func (o CatalogTableOptimizerConfigurationRetentionConfigurationOutput) ToCatalogTableOptimizerConfigurationRetentionConfigurationOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationRetentionConfigurationOutput {
+	return o
+}
+
+func (o CatalogTableOptimizerConfigurationRetentionConfigurationOutput) ToCatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput() CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput {
+	return o.ToCatalogTableOptimizerConfigurationRetentionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogTableOptimizerConfigurationRetentionConfigurationOutput) ToCatalogTableOptimizerConfigurationRetentionConfigurationPtrOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogTableOptimizerConfigurationRetentionConfiguration) *CatalogTableOptimizerConfigurationRetentionConfiguration {
+		return &v
+	}).(CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput)
+}
+
+// The configuration for an Iceberg snapshot retention optimizer.
+func (o CatalogTableOptimizerConfigurationRetentionConfigurationOutput) IcebergConfiguration() CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput {
+	return o.ApplyT(func(v CatalogTableOptimizerConfigurationRetentionConfiguration) *CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration {
+		return v.IcebergConfiguration
+	}).(CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput)
+}
+
+type CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableOptimizerConfigurationRetentionConfiguration)(nil)).Elem()
+}
+
+func (o CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput) ToCatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput() CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput {
+	return o
+}
+
+func (o CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput) ToCatalogTableOptimizerConfigurationRetentionConfigurationPtrOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput {
+	return o
+}
+
+func (o CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput) Elem() CatalogTableOptimizerConfigurationRetentionConfigurationOutput {
+	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationRetentionConfiguration) CatalogTableOptimizerConfigurationRetentionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogTableOptimizerConfigurationRetentionConfiguration
+		return ret
+	}).(CatalogTableOptimizerConfigurationRetentionConfigurationOutput)
+}
+
+// The configuration for an Iceberg snapshot retention optimizer.
+func (o CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput) IcebergConfiguration() CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput {
+	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationRetentionConfiguration) *CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.IcebergConfiguration
+	}).(CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput)
+}
+
+type CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration struct {
+	// If set to `false`, snapshots are only deleted from table metadata, and the underlying data and metadata files are not deleted. Defaults to `false`.
+	CleanExpiredFiles *bool `pulumi:"cleanExpiredFiles"`
+	// The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
+	NumberOfSnapshotsToRetain *float64 `pulumi:"numberOfSnapshotsToRetain"`
+	// The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
+	SnapshotRetentionPeriodInDays *float64 `pulumi:"snapshotRetentionPeriodInDays"`
+}
+
+// CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationInput is an input type that accepts CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs and CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput values.
+// You can construct a concrete instance of `CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationInput` via:
+//
+//	CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs{...}
+type CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationInput interface {
+	pulumi.Input
+
+	ToCatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput() CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput
+	ToCatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutputWithContext(context.Context) CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput
+}
+
+type CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs struct {
+	// If set to `false`, snapshots are only deleted from table metadata, and the underlying data and metadata files are not deleted. Defaults to `false`.
+	CleanExpiredFiles pulumi.BoolPtrInput `pulumi:"cleanExpiredFiles"`
+	// The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
+	NumberOfSnapshotsToRetain pulumi.Float64PtrInput `pulumi:"numberOfSnapshotsToRetain"`
+	// The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
+	SnapshotRetentionPeriodInDays pulumi.Float64PtrInput `pulumi:"snapshotRetentionPeriodInDays"`
+}
+
+func (CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration)(nil)).Elem()
+}
+
+func (i CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs) ToCatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput() CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput {
+	return i.ToCatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs) ToCatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput)
+}
+
+func (i CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs) ToCatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput() CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput {
+	return i.ToCatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs) ToCatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput).ToCatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutputWithContext(ctx)
+}
+
+// CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrInput is an input type that accepts CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs, CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtr and CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput values.
+// You can construct a concrete instance of `CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrInput` via:
+//
+//	        CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput() CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput
+	ToCatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutputWithContext(context.Context) CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput
+}
+
+type catalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrType CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs
+
+func CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtr(v *CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs) CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrInput {
+	return (*catalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrType)(v)
+}
+
+func (*catalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration)(nil)).Elem()
+}
+
+func (i *catalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrType) ToCatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput() CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput {
+	return i.ToCatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrType) ToCatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput)
+}
+
+type CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration)(nil)).Elem()
+}
+
+func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput) ToCatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput() CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput {
+	return o
+}
+
+func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput) ToCatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput {
+	return o
+}
+
+func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput) ToCatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput() CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput {
+	return o.ToCatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput) ToCatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration) *CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration {
+		return &v
+	}).(CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput)
+}
+
+// If set to `false`, snapshots are only deleted from table metadata, and the underlying data and metadata files are not deleted. Defaults to `false`.
+func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput) CleanExpiredFiles() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration) *bool {
+		return v.CleanExpiredFiles
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
+func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput) NumberOfSnapshotsToRetain() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration) *float64 {
+		return v.NumberOfSnapshotsToRetain
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
+func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput) SnapshotRetentionPeriodInDays() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration) *float64 {
+		return v.SnapshotRetentionPeriodInDays
+	}).(pulumi.Float64PtrOutput)
+}
+
+type CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration)(nil)).Elem()
+}
+
+func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput) ToCatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput() CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput {
+	return o
+}
+
+func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput) ToCatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput {
+	return o
+}
+
+func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput) Elem() CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput {
+	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration) CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration
+		return ret
+	}).(CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput)
+}
+
+// If set to `false`, snapshots are only deleted from table metadata, and the underlying data and metadata files are not deleted. Defaults to `false`.
+func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput) CleanExpiredFiles() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CleanExpiredFiles
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
+func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput) NumberOfSnapshotsToRetain() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfSnapshotsToRetain
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
+func (o CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput) SnapshotRetentionPeriodInDays() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotRetentionPeriodInDays
+	}).(pulumi.Float64PtrOutput)
 }
 
 type CatalogTablePartitionIndex struct {
@@ -11633,6 +12294,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputPtrInput)(nil)).Elem(), CatalogTableOpenTableFormatInputIcebergInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOptimizerConfigurationInput)(nil)).Elem(), CatalogTableOptimizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOptimizerConfigurationPtrInput)(nil)).Elem(), CatalogTableOptimizerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationInput)(nil)).Elem(), CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrInput)(nil)).Elem(), CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationInput)(nil)).Elem(), CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrInput)(nil)).Elem(), CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOptimizerConfigurationRetentionConfigurationInput)(nil)).Elem(), CatalogTableOptimizerConfigurationRetentionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOptimizerConfigurationRetentionConfigurationPtrInput)(nil)).Elem(), CatalogTableOptimizerConfigurationRetentionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationInput)(nil)).Elem(), CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrInput)(nil)).Elem(), CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTablePartitionIndexInput)(nil)).Elem(), CatalogTablePartitionIndexArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTablePartitionIndexArrayInput)(nil)).Elem(), CatalogTablePartitionIndexArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTablePartitionKeyInput)(nil)).Elem(), CatalogTablePartitionKeyArgs{})
@@ -11789,6 +12458,14 @@ func init() {
 	pulumi.RegisterOutputType(CatalogTableOpenTableFormatInputIcebergInputPtrOutput{})
 	pulumi.RegisterOutputType(CatalogTableOptimizerConfigurationOutput{})
 	pulumi.RegisterOutputType(CatalogTableOptimizerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationOutput{})
+	pulumi.RegisterOutputType(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput{})
+	pulumi.RegisterOutputType(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CatalogTableOptimizerConfigurationRetentionConfigurationOutput{})
+	pulumi.RegisterOutputType(CatalogTableOptimizerConfigurationRetentionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationOutput{})
+	pulumi.RegisterOutputType(CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CatalogTablePartitionIndexOutput{})
 	pulumi.RegisterOutputType(CatalogTablePartitionIndexArrayOutput{})
 	pulumi.RegisterOutputType(CatalogTablePartitionKeyOutput{})

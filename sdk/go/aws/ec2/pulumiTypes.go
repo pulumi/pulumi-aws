@@ -14025,12 +14025,9 @@ func (o LaunchTemplateMonitoringPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type LaunchTemplateNetworkInterface struct {
-	// Associate a Carrier IP address with `eth0` for a new network interface.
-	// Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface.
-	// Boolean value, can be left unset.
+	// Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value, can be left unset.
 	AssociateCarrierIpAddress *string `pulumi:"associateCarrierIpAddress"`
-	// Associate a public ip address with the network interface.
-	// Boolean value, can be left unset.
+	// Associate a public ip address with the network interface. Boolean value, can be left unset.
 	AssociatePublicIpAddress *string `pulumi:"associatePublicIpAddress"`
 	// Whether the network interface should be destroyed on instance termination.
 	DeleteOnTermination *string `pulumi:"deleteOnTermination"`
@@ -14082,12 +14079,9 @@ type LaunchTemplateNetworkInterfaceInput interface {
 }
 
 type LaunchTemplateNetworkInterfaceArgs struct {
-	// Associate a Carrier IP address with `eth0` for a new network interface.
-	// Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface.
-	// Boolean value, can be left unset.
+	// Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value, can be left unset.
 	AssociateCarrierIpAddress pulumi.StringPtrInput `pulumi:"associateCarrierIpAddress"`
-	// Associate a public ip address with the network interface.
-	// Boolean value, can be left unset.
+	// Associate a public ip address with the network interface. Boolean value, can be left unset.
 	AssociatePublicIpAddress pulumi.StringPtrInput `pulumi:"associatePublicIpAddress"`
 	// Whether the network interface should be destroyed on instance termination.
 	DeleteOnTermination pulumi.StringPtrInput `pulumi:"deleteOnTermination"`
@@ -14178,15 +14172,12 @@ func (o LaunchTemplateNetworkInterfaceOutput) ToLaunchTemplateNetworkInterfaceOu
 	return o
 }
 
-// Associate a Carrier IP address with `eth0` for a new network interface.
-// Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface.
-// Boolean value, can be left unset.
+// Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value, can be left unset.
 func (o LaunchTemplateNetworkInterfaceOutput) AssociateCarrierIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.AssociateCarrierIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// Associate a public ip address with the network interface.
-// Boolean value, can be left unset.
+// Associate a public ip address with the network interface. Boolean value, can be left unset.
 func (o LaunchTemplateNetworkInterfaceOutput) AssociatePublicIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.AssociatePublicIpAddress }).(pulumi.StringPtrOutput)
 }

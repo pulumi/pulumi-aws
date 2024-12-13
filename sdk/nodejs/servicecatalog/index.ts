@@ -10,6 +10,16 @@ export type AppregistryApplication = import("./appregistryApplication").Appregis
 export const AppregistryApplication: typeof import("./appregistryApplication").AppregistryApplication = null as any;
 utilities.lazyLoad(exports, ["AppregistryApplication"], () => require("./appregistryApplication"));
 
+export { AppregistryAttributeGroupArgs, AppregistryAttributeGroupState } from "./appregistryAttributeGroup";
+export type AppregistryAttributeGroup = import("./appregistryAttributeGroup").AppregistryAttributeGroup;
+export const AppregistryAttributeGroup: typeof import("./appregistryAttributeGroup").AppregistryAttributeGroup = null as any;
+utilities.lazyLoad(exports, ["AppregistryAttributeGroup"], () => require("./appregistryAttributeGroup"));
+
+export { AppregistryAttributeGroupAssociationArgs, AppregistryAttributeGroupAssociationState } from "./appregistryAttributeGroupAssociation";
+export type AppregistryAttributeGroupAssociation = import("./appregistryAttributeGroupAssociation").AppregistryAttributeGroupAssociation;
+export const AppregistryAttributeGroupAssociation: typeof import("./appregistryAttributeGroupAssociation").AppregistryAttributeGroupAssociation = null as any;
+utilities.lazyLoad(exports, ["AppregistryAttributeGroupAssociation"], () => require("./appregistryAttributeGroupAssociation"));
+
 export { BudgetResourceAssociationArgs, BudgetResourceAssociationState } from "./budgetResourceAssociation";
 export type BudgetResourceAssociation = import("./budgetResourceAssociation").BudgetResourceAssociation;
 export const BudgetResourceAssociation: typeof import("./budgetResourceAssociation").BudgetResourceAssociation = null as any;
@@ -24,6 +34,11 @@ export { GetAppregistryApplicationArgs, GetAppregistryApplicationResult, GetAppr
 export const getAppregistryApplication: typeof import("./getAppregistryApplication").getAppregistryApplication = null as any;
 export const getAppregistryApplicationOutput: typeof import("./getAppregistryApplication").getAppregistryApplicationOutput = null as any;
 utilities.lazyLoad(exports, ["getAppregistryApplication","getAppregistryApplicationOutput"], () => require("./getAppregistryApplication"));
+
+export { GetAppregistryAttributeGroupArgs, GetAppregistryAttributeGroupResult, GetAppregistryAttributeGroupOutputArgs } from "./getAppregistryAttributeGroup";
+export const getAppregistryAttributeGroup: typeof import("./getAppregistryAttributeGroup").getAppregistryAttributeGroup = null as any;
+export const getAppregistryAttributeGroupOutput: typeof import("./getAppregistryAttributeGroup").getAppregistryAttributeGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getAppregistryAttributeGroup","getAppregistryAttributeGroupOutput"], () => require("./getAppregistryAttributeGroup"));
 
 export { GetConstraintArgs, GetConstraintResult, GetConstraintOutputArgs } from "./getConstraint";
 export const getConstraint: typeof import("./getConstraint").getConstraint = null as any;
@@ -117,6 +132,10 @@ const _module = {
         switch (type) {
             case "aws:servicecatalog/appregistryApplication:AppregistryApplication":
                 return new AppregistryApplication(name, <any>undefined, { urn })
+            case "aws:servicecatalog/appregistryAttributeGroup:AppregistryAttributeGroup":
+                return new AppregistryAttributeGroup(name, <any>undefined, { urn })
+            case "aws:servicecatalog/appregistryAttributeGroupAssociation:AppregistryAttributeGroupAssociation":
+                return new AppregistryAttributeGroupAssociation(name, <any>undefined, { urn })
             case "aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation":
                 return new BudgetResourceAssociation(name, <any>undefined, { urn })
             case "aws:servicecatalog/constraint:Constraint":
@@ -149,6 +168,8 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "servicecatalog/appregistryApplication", _module)
+pulumi.runtime.registerResourceModule("aws", "servicecatalog/appregistryAttributeGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "servicecatalog/appregistryAttributeGroupAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "servicecatalog/budgetResourceAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "servicecatalog/constraint", _module)
 pulumi.runtime.registerResourceModule("aws", "servicecatalog/organizationsAccess", _module)

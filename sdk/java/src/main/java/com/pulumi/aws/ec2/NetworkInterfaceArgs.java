@@ -52,6 +52,21 @@ public final class NetworkInterfaceArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
+     * 
+     */
+    @Import(name="enablePrimaryIpv6")
+    private @Nullable Output<Boolean> enablePrimaryIpv6;
+
+    /**
+     * @return Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
+     * 
+     */
+    public Optional<Output<Boolean>> enablePrimaryIpv6() {
+        return Optional.ofNullable(this.enablePrimaryIpv6);
+    }
+
+    /**
      * Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
      * 
      */
@@ -112,14 +127,14 @@ public final class NetworkInterfaceArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default false.
+     * Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default is `false`.
      * 
      */
     @Import(name="ipv6AddressListEnabled")
     private @Nullable Output<Boolean> ipv6AddressListEnabled;
 
     /**
-     * @return Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default false.
+     * @return Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> ipv6AddressListEnabled() {
@@ -194,14 +209,14 @@ public final class NetworkInterfaceArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default false.
+     * Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default is `false`.
      * 
      */
     @Import(name="privateIpListEnabled")
     private @Nullable Output<Boolean> privateIpListEnabled;
 
     /**
-     * @return Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default false.
+     * @return Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> privateIpListEnabled() {
@@ -322,6 +337,7 @@ public final class NetworkInterfaceArgs extends com.pulumi.resources.ResourceArg
     private NetworkInterfaceArgs(NetworkInterfaceArgs $) {
         this.attachments = $.attachments;
         this.description = $.description;
+        this.enablePrimaryIpv6 = $.enablePrimaryIpv6;
         this.interfaceType = $.interfaceType;
         this.ipv4PrefixCount = $.ipv4PrefixCount;
         this.ipv4Prefixes = $.ipv4Prefixes;
@@ -410,6 +426,27 @@ public final class NetworkInterfaceArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param enablePrimaryIpv6 Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enablePrimaryIpv6(@Nullable Output<Boolean> enablePrimaryIpv6) {
+            $.enablePrimaryIpv6 = enablePrimaryIpv6;
+            return this;
+        }
+
+        /**
+         * @param enablePrimaryIpv6 Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enablePrimaryIpv6(Boolean enablePrimaryIpv6) {
+            return enablePrimaryIpv6(Output.of(enablePrimaryIpv6));
         }
 
         /**
@@ -507,7 +544,7 @@ public final class NetworkInterfaceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param ipv6AddressListEnabled Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default false.
+         * @param ipv6AddressListEnabled Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default is `false`.
          * 
          * @return builder
          * 
@@ -518,7 +555,7 @@ public final class NetworkInterfaceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param ipv6AddressListEnabled Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default false.
+         * @param ipv6AddressListEnabled Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default is `false`.
          * 
          * @return builder
          * 
@@ -651,7 +688,7 @@ public final class NetworkInterfaceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param privateIpListEnabled Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default false.
+         * @param privateIpListEnabled Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default is `false`.
          * 
          * @return builder
          * 
@@ -662,7 +699,7 @@ public final class NetworkInterfaceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param privateIpListEnabled Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default false.
+         * @param privateIpListEnabled Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default is `false`.
          * 
          * @return builder
          * 

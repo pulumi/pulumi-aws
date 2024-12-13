@@ -44,6 +44,7 @@ public final class GetDomainNameResult {
      */
     private String cloudfrontZoneId;
     private String domainName;
+    private String domainNameId;
     /**
      * @return List of objects with the endpoint configuration of this domain name.
      * 
@@ -54,6 +55,11 @@ public final class GetDomainNameResult {
      * 
      */
     private String id;
+    /**
+     * @return A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+     * 
+     */
+    private String policy;
     /**
      * @return ARN for an AWS-managed certificate that is used for validating the regional domain name.
      * 
@@ -131,6 +137,9 @@ public final class GetDomainNameResult {
     public String domainName() {
         return this.domainName;
     }
+    public String domainNameId() {
+        return this.domainNameId;
+    }
     /**
      * @return List of objects with the endpoint configuration of this domain name.
      * 
@@ -144,6 +153,13 @@ public final class GetDomainNameResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+     * 
+     */
+    public String policy() {
+        return this.policy;
     }
     /**
      * @return ARN for an AWS-managed certificate that is used for validating the regional domain name.
@@ -204,8 +220,10 @@ public final class GetDomainNameResult {
         private String cloudfrontDomainName;
         private String cloudfrontZoneId;
         private String domainName;
+        private String domainNameId;
         private List<GetDomainNameEndpointConfiguration> endpointConfigurations;
         private String id;
+        private String policy;
         private String regionalCertificateArn;
         private String regionalCertificateName;
         private String regionalDomainName;
@@ -222,8 +240,10 @@ public final class GetDomainNameResult {
     	      this.cloudfrontDomainName = defaults.cloudfrontDomainName;
     	      this.cloudfrontZoneId = defaults.cloudfrontZoneId;
     	      this.domainName = defaults.domainName;
+    	      this.domainNameId = defaults.domainNameId;
     	      this.endpointConfigurations = defaults.endpointConfigurations;
     	      this.id = defaults.id;
+    	      this.policy = defaults.policy;
     	      this.regionalCertificateArn = defaults.regionalCertificateArn;
     	      this.regionalCertificateName = defaults.regionalCertificateName;
     	      this.regionalDomainName = defaults.regionalDomainName;
@@ -289,6 +309,14 @@ public final class GetDomainNameResult {
             return this;
         }
         @CustomType.Setter
+        public Builder domainNameId(String domainNameId) {
+            if (domainNameId == null) {
+              throw new MissingRequiredPropertyException("GetDomainNameResult", "domainNameId");
+            }
+            this.domainNameId = domainNameId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder endpointConfigurations(List<GetDomainNameEndpointConfiguration> endpointConfigurations) {
             if (endpointConfigurations == null) {
               throw new MissingRequiredPropertyException("GetDomainNameResult", "endpointConfigurations");
@@ -305,6 +333,14 @@ public final class GetDomainNameResult {
               throw new MissingRequiredPropertyException("GetDomainNameResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder policy(String policy) {
+            if (policy == null) {
+              throw new MissingRequiredPropertyException("GetDomainNameResult", "policy");
+            }
+            this.policy = policy;
             return this;
         }
         @CustomType.Setter
@@ -364,8 +400,10 @@ public final class GetDomainNameResult {
             _resultValue.cloudfrontDomainName = cloudfrontDomainName;
             _resultValue.cloudfrontZoneId = cloudfrontZoneId;
             _resultValue.domainName = domainName;
+            _resultValue.domainNameId = domainNameId;
             _resultValue.endpointConfigurations = endpointConfigurations;
             _resultValue.id = id;
+            _resultValue.policy = policy;
             _resultValue.regionalCertificateArn = regionalCertificateArn;
             _resultValue.regionalCertificateName = regionalCertificateName;
             _resultValue.regionalDomainName = regionalDomainName;

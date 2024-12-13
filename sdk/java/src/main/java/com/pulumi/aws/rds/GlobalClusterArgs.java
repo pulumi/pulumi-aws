@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -17,17 +18,9 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GlobalClusterArgs Empty = new GlobalClusterArgs();
 
-    /**
-     * Name for an automatically created database on cluster creation.
-     * 
-     */
     @Import(name="databaseName")
     private @Nullable Output<String> databaseName;
 
-    /**
-     * @return Name for an automatically created database on cluster creation.
-     * 
-     */
     public Optional<Output<String>> databaseName() {
         return Optional.ofNullable(this.databaseName);
     }
@@ -152,6 +145,21 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.storageEncrypted);
     }
 
+    /**
+     * A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Output<Map<String,String>> tags;
+
+    /**
+     * @return A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
     private GlobalClusterArgs() {}
 
     private GlobalClusterArgs(GlobalClusterArgs $) {
@@ -164,6 +172,7 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.globalClusterIdentifier = $.globalClusterIdentifier;
         this.sourceDbClusterIdentifier = $.sourceDbClusterIdentifier;
         this.storageEncrypted = $.storageEncrypted;
+        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -184,23 +193,11 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
             $ = new GlobalClusterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param databaseName Name for an automatically created database on cluster creation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(@Nullable Output<String> databaseName) {
             $.databaseName = databaseName;
             return this;
         }
 
-        /**
-         * @param databaseName Name for an automatically created database on cluster creation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
         }
@@ -371,6 +368,27 @@ public final class GlobalClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder storageEncrypted(Boolean storageEncrypted) {
             return storageEncrypted(Output.of(storageEncrypted));
+        }
+
+        /**
+         * @param tags A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Output<Map<String,String>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        /**
+         * @param tags A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(Map<String,String> tags) {
+            return tags(Output.of(tags));
         }
 
         public GlobalClusterArgs build() {

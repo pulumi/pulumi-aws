@@ -33,14 +33,14 @@ public final class CatalogTableOptimizerArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A configuration block that defines the table optimizer settings. The block contains:
+     * A configuration block that defines the table optimizer settings. See Configuration for additional details.
      * 
      */
     @Import(name="configuration")
     private @Nullable Output<CatalogTableOptimizerConfigurationArgs> configuration;
 
     /**
-     * @return A configuration block that defines the table optimizer settings. The block contains:
+     * @return A configuration block that defines the table optimizer settings. See Configuration for additional details.
      * 
      */
     public Optional<Output<CatalogTableOptimizerConfigurationArgs>> configuration() {
@@ -78,14 +78,14 @@ public final class CatalogTableOptimizerArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The type of table optimizer. Currently, the only valid value is compaction.
+     * The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of table optimizer. Currently, the only valid value is compaction.
+     * @return The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
      * 
      */
     public Output<String> type() {
@@ -142,7 +142,7 @@ public final class CatalogTableOptimizerArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param configuration A configuration block that defines the table optimizer settings. The block contains:
+         * @param configuration A configuration block that defines the table optimizer settings. See Configuration for additional details.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class CatalogTableOptimizerArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param configuration A configuration block that defines the table optimizer settings. The block contains:
+         * @param configuration A configuration block that defines the table optimizer settings. See Configuration for additional details.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class CatalogTableOptimizerArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type The type of table optimizer. Currently, the only valid value is compaction.
+         * @param type The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class CatalogTableOptimizerArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type The type of table optimizer. Currently, the only valid value is compaction.
+         * @param type The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
          * 
          * @return builder
          * 

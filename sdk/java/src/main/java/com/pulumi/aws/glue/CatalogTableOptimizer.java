@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * ### Basic Usage
+ * ### Compaction Optimizer
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -63,6 +63,109 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Snapshot Retention Optimizer
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.glue.CatalogTableOptimizer;
+ * import com.pulumi.aws.glue.CatalogTableOptimizerArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTableOptimizerConfigurationArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTableOptimizerConfigurationRetentionConfigurationArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new CatalogTableOptimizer("example", CatalogTableOptimizerArgs.builder()
+ *             .catalogId("123456789012")
+ *             .databaseName("example_database")
+ *             .tableName("example_table")
+ *             .configuration(CatalogTableOptimizerConfigurationArgs.builder()
+ *                 .roleArn("arn:aws:iam::123456789012:role/example-role")
+ *                 .enabled(true)
+ *                 .retentionConfiguration(CatalogTableOptimizerConfigurationRetentionConfigurationArgs.builder()
+ *                     .icebergConfiguration(CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs.builder()
+ *                         .snapshotRetentionPeriodInDays(7)
+ *                         .numberOfSnapshotsToRetain(3)
+ *                         .cleanExpiredFiles(true)
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .type("retention")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Orphan File Deletion Optimizer
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.glue.CatalogTableOptimizer;
+ * import com.pulumi.aws.glue.CatalogTableOptimizerArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTableOptimizerConfigurationArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new CatalogTableOptimizer("example", CatalogTableOptimizerArgs.builder()
+ *             .catalogId("123456789012")
+ *             .databaseName("example_database")
+ *             .tableName("example_table")
+ *             .configuration(CatalogTableOptimizerConfigurationArgs.builder()
+ *                 .roleArn("arn:aws:iam::123456789012:role/example-role")
+ *                 .enabled(true)
+ *                 .orphanFileDeletionConfiguration(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs.builder()
+ *                     .icebergConfiguration(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs.builder()
+ *                         .orphanFileRetentionPeriodInDays(7)
+ *                         .location("s3://example-bucket/example_table/")
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .type("orphan_file_deletion")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Glue Catalog Table Optimizer using the `catalog_id,database_name,table_name,type`. For example:
@@ -89,14 +192,14 @@ public class CatalogTableOptimizer extends com.pulumi.resources.CustomResource {
         return this.catalogId;
     }
     /**
-     * A configuration block that defines the table optimizer settings. The block contains:
+     * A configuration block that defines the table optimizer settings. See Configuration for additional details.
      * 
      */
     @Export(name="configuration", refs={CatalogTableOptimizerConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ CatalogTableOptimizerConfiguration> configuration;
 
     /**
-     * @return A configuration block that defines the table optimizer settings. The block contains:
+     * @return A configuration block that defines the table optimizer settings. See Configuration for additional details.
      * 
      */
     public Output<Optional<CatalogTableOptimizerConfiguration>> configuration() {
@@ -131,14 +234,14 @@ public class CatalogTableOptimizer extends com.pulumi.resources.CustomResource {
         return this.tableName;
     }
     /**
-     * The type of table optimizer. Currently, the only valid value is compaction.
+     * The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of table optimizer. Currently, the only valid value is compaction.
+     * @return The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
      * 
      */
     public Output<String> type() {

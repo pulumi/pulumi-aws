@@ -18,7 +18,9 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// For a non-root `base_path`:
     /// 
-    /// Using `pulumi import`, import `aws_api_gateway_base_path_mapping` using the domain name and base path. For example:
+    /// For a non-root `base_path` and a private custom domain name:
+    /// 
+    /// Using `pulumi import`, import `aws_api_gateway_base_path_mapping` using the domain name and base path or domain name, base path and domain name ID (for private custom domain names). For example:
     /// 
     /// For an empty `base_path` or, in other words, a root path (`/`):
     /// 
@@ -29,6 +31,11 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ```sh
     /// $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
+    /// ```
+    /// For a non-root `base_path` and a private custom domain name:
+    /// 
+    /// ```sh
+    /// $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example api.internal.example.com/base-path/abcde12345
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/basePathMapping:BasePathMapping")]
@@ -45,6 +52,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
+
+        /// <summary>
+        /// The identifier for the domain name resource. Supported only for private custom domain names.
+        /// </summary>
+        [Output("domainNameId")]
+        public Output<string?> DomainNameId { get; private set; } = null!;
 
         /// <summary>
         /// ID of the API to connect.
@@ -117,6 +130,12 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
+        /// The identifier for the domain name resource. Supported only for private custom domain names.
+        /// </summary>
+        [Input("domainNameId")]
+        public Input<string>? DomainNameId { get; set; }
+
+        /// <summary>
         /// ID of the API to connect.
         /// </summary>
         [Input("restApi", required: true)]
@@ -147,6 +166,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
+
+        /// <summary>
+        /// The identifier for the domain name resource. Supported only for private custom domain names.
+        /// </summary>
+        [Input("domainNameId")]
+        public Input<string>? DomainNameId { get; set; }
 
         /// <summary>
         /// ID of the API to connect.

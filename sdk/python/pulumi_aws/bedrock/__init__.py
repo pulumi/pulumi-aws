@@ -19,6 +19,7 @@ from .get_inference_profile import *
 from .get_inference_profiles import *
 from .guardrail import *
 from .guardrail_version import *
+from .inference_profile import *
 from .provisioned_model_throughput import *
 from ._inputs import *
 from . import outputs

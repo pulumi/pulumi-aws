@@ -20,27 +20,27 @@ __all__ = ['OpenIdConnectProviderArgs', 'OpenIdConnectProvider']
 class OpenIdConnectProviderArgs:
     def __init__(__self__, *,
                  client_id_lists: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 thumbprint_lists: pulumi.Input[Sequence[pulumi.Input[str]]],
                  url: pulumi.Input[str],
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 thumbprint_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a OpenIdConnectProvider resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_id_lists: A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the client_id parameter on OAuth requests.)
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] thumbprint_lists: A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
-        :param pulumi.Input[str] url: The URL of the identity provider. Corresponds to the _iss_ claim.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_id_lists: List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
+        :param pulumi.Input[str] url: URL of the identity provider, corresponding to the `iss` claim.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the IAM OIDC provider. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "client_id_lists", client_id_lists)
-        pulumi.set(__self__, "thumbprint_lists", thumbprint_lists)
         pulumi.set(__self__, "url", url)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if thumbprint_lists is not None:
+            pulumi.set(__self__, "thumbprint_lists", thumbprint_lists)
 
     @property
     @pulumi.getter(name="clientIdLists")
     def client_id_lists(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the client_id parameter on OAuth requests.)
+        List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
         """
         return pulumi.get(self, "client_id_lists")
 
@@ -49,22 +49,10 @@ class OpenIdConnectProviderArgs:
         pulumi.set(self, "client_id_lists", value)
 
     @property
-    @pulumi.getter(name="thumbprintLists")
-    def thumbprint_lists(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
-        """
-        return pulumi.get(self, "thumbprint_lists")
-
-    @thumbprint_lists.setter
-    def thumbprint_lists(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "thumbprint_lists", value)
-
-    @property
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
         """
-        The URL of the identity provider. Corresponds to the _iss_ claim.
+        URL of the identity provider, corresponding to the `iss` claim.
         """
         return pulumi.get(self, "url")
 
@@ -84,6 +72,15 @@ class OpenIdConnectProviderArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="thumbprintLists")
+    def thumbprint_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "thumbprint_lists")
+
+    @thumbprint_lists.setter
+    def thumbprint_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "thumbprint_lists", value)
+
 
 @pulumi.input_type
 class _OpenIdConnectProviderState:
@@ -96,12 +93,11 @@ class _OpenIdConnectProviderState:
                  url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OpenIdConnectProvider resources.
-        :param pulumi.Input[str] arn: The ARN assigned by AWS for this provider.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_id_lists: A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the client_id parameter on OAuth requests.)
+        :param pulumi.Input[str] arn: ARN assigned by AWS for this provider.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_id_lists: List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the IAM OIDC provider. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] thumbprint_lists: A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
-        :param pulumi.Input[str] url: The URL of the identity provider. Corresponds to the _iss_ claim.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] url: URL of the identity provider, corresponding to the `iss` claim.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -123,7 +119,7 @@ class _OpenIdConnectProviderState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN assigned by AWS for this provider.
+        ARN assigned by AWS for this provider.
         """
         return pulumi.get(self, "arn")
 
@@ -135,7 +131,7 @@ class _OpenIdConnectProviderState:
     @pulumi.getter(name="clientIdLists")
     def client_id_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the client_id parameter on OAuth requests.)
+        List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
         """
         return pulumi.get(self, "client_id_lists")
 
@@ -160,7 +156,7 @@ class _OpenIdConnectProviderState:
     @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -171,9 +167,6 @@ class _OpenIdConnectProviderState:
     @property
     @pulumi.getter(name="thumbprintLists")
     def thumbprint_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
-        """
         return pulumi.get(self, "thumbprint_lists")
 
     @thumbprint_lists.setter
@@ -184,7 +177,7 @@ class _OpenIdConnectProviderState:
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
         """
-        The URL of the identity provider. Corresponds to the _iss_ claim.
+        URL of the identity provider, corresponding to the `iss` claim.
         """
         return pulumi.get(self, "url")
 
@@ -208,6 +201,8 @@ class OpenIdConnectProvider(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -216,6 +211,17 @@ class OpenIdConnectProvider(pulumi.CustomResource):
             url="https://accounts.google.com",
             client_id_lists=["266362248691-342342xasdasdasda-apps.googleusercontent.com"],
             thumbprint_lists=["cf23df2207d99a74fbe169e3eba035e633b65d94"])
+        ```
+
+        ### Without A Thumbprint
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.iam.OpenIdConnectProvider("default",
+            url="https://accounts.google.com",
+            client_id_lists=["266362248691-342342xasdasdasda-apps.googleusercontent.com"])
         ```
 
         ## Import
@@ -228,10 +234,9 @@ class OpenIdConnectProvider(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_id_lists: A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the client_id parameter on OAuth requests.)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_id_lists: List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the IAM OIDC provider. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] thumbprint_lists: A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
-        :param pulumi.Input[str] url: The URL of the identity provider. Corresponds to the _iss_ claim.
+        :param pulumi.Input[str] url: URL of the identity provider, corresponding to the `iss` claim.
         """
         ...
     @overload
@@ -244,6 +249,8 @@ class OpenIdConnectProvider(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -252,6 +259,17 @@ class OpenIdConnectProvider(pulumi.CustomResource):
             url="https://accounts.google.com",
             client_id_lists=["266362248691-342342xasdasdasda-apps.googleusercontent.com"],
             thumbprint_lists=["cf23df2207d99a74fbe169e3eba035e633b65d94"])
+        ```
+
+        ### Without A Thumbprint
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        default = aws.iam.OpenIdConnectProvider("default",
+            url="https://accounts.google.com",
+            client_id_lists=["266362248691-342342xasdasdasda-apps.googleusercontent.com"])
         ```
 
         ## Import
@@ -294,8 +312,6 @@ class OpenIdConnectProvider(pulumi.CustomResource):
                 raise TypeError("Missing required property 'client_id_lists'")
             __props__.__dict__["client_id_lists"] = client_id_lists
             __props__.__dict__["tags"] = tags
-            if thumbprint_lists is None and not opts.urn:
-                raise TypeError("Missing required property 'thumbprint_lists'")
             __props__.__dict__["thumbprint_lists"] = thumbprint_lists
             if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
@@ -325,12 +341,11 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The ARN assigned by AWS for this provider.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_id_lists: A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the client_id parameter on OAuth requests.)
+        :param pulumi.Input[str] arn: ARN assigned by AWS for this provider.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_id_lists: List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the IAM OIDC provider. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] thumbprint_lists: A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
-        :param pulumi.Input[str] url: The URL of the identity provider. Corresponds to the _iss_ claim.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] url: URL of the identity provider, corresponding to the `iss` claim.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -348,7 +363,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The ARN assigned by AWS for this provider.
+        ARN assigned by AWS for this provider.
         """
         return pulumi.get(self, "arn")
 
@@ -356,7 +371,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
     @pulumi.getter(name="clientIdLists")
     def client_id_lists(self) -> pulumi.Output[Sequence[str]]:
         """
-        A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the client_id parameter on OAuth requests.)
+        List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
         """
         return pulumi.get(self, "client_id_lists")
 
@@ -373,23 +388,20 @@ class OpenIdConnectProvider(pulumi.CustomResource):
     @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="thumbprintLists")
     def thumbprint_lists(self) -> pulumi.Output[Sequence[str]]:
-        """
-        A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
-        """
         return pulumi.get(self, "thumbprint_lists")
 
     @property
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
         """
-        The URL of the identity provider. Corresponds to the _iss_ claim.
+        URL of the identity provider, corresponding to the `iss` claim.
         """
         return pulumi.get(self, "url")
 

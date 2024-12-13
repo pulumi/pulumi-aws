@@ -2251,7 +2251,8 @@ class Cluster(pulumi.CustomResource):
             storage_encrypted=True,
             serverlessv2_scaling_configuration={
                 "max_capacity": 1,
-                "min_capacity": 0.5,
+                "min_capacity": 0,
+                "seconds_until_auto_pause": 3600,
             })
         example_cluster_instance = aws.rds.ClusterInstance("example",
             cluster_identifier=example.id,
@@ -2526,7 +2527,8 @@ class Cluster(pulumi.CustomResource):
             storage_encrypted=True,
             serverlessv2_scaling_configuration={
                 "max_capacity": 1,
-                "min_capacity": 0.5,
+                "min_capacity": 0,
+                "seconds_until_auto_pause": 3600,
             })
         example_cluster_instance = aws.rds.ClusterInstance("example",
             cluster_identifier=example.id,

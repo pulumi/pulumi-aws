@@ -77,6 +77,8 @@ __all__ = [
     'ReplicatorReplicationInfoListTopicReplicationArgsDict',
     'ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs',
     'ReplicatorReplicationInfoListTopicReplicationStartingPositionArgsDict',
+    'ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs',
+    'ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgsDict',
     'ServerlessClusterClientAuthenticationArgs',
     'ServerlessClusterClientAuthenticationArgsDict',
     'ServerlessClusterClientAuthenticationSaslArgs',
@@ -1600,6 +1602,7 @@ if not MYPY:
         """
         Configuration for specifying the position in the topics to start replicating from.
         """
+        topic_name_configuration: NotRequired[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgsDict']]
         topics_to_excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
         List of regular expression patterns indicating the topics that should not be replica.
@@ -1615,6 +1618,7 @@ class ReplicatorReplicationInfoListTopicReplicationArgs:
                  copy_topic_configurations: Optional[pulumi.Input[bool]] = None,
                  detect_and_copy_new_topics: Optional[pulumi.Input[bool]] = None,
                  starting_position: Optional[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs']] = None,
+                 topic_name_configuration: Optional[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs']] = None,
                  topics_to_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics_to_replicates: List of regular expression patterns indicating the topics to copy.
@@ -1633,6 +1637,8 @@ class ReplicatorReplicationInfoListTopicReplicationArgs:
             pulumi.set(__self__, "detect_and_copy_new_topics", detect_and_copy_new_topics)
         if starting_position is not None:
             pulumi.set(__self__, "starting_position", starting_position)
+        if topic_name_configuration is not None:
+            pulumi.set(__self__, "topic_name_configuration", topic_name_configuration)
         if topics_to_excludes is not None:
             pulumi.set(__self__, "topics_to_excludes", topics_to_excludes)
 
@@ -1697,6 +1703,15 @@ class ReplicatorReplicationInfoListTopicReplicationArgs:
         pulumi.set(self, "starting_position", value)
 
     @property
+    @pulumi.getter(name="topicNameConfiguration")
+    def topic_name_configuration(self) -> Optional[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs']]:
+        return pulumi.get(self, "topic_name_configuration")
+
+    @topic_name_configuration.setter
+    def topic_name_configuration(self, value: Optional[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs']]):
+        pulumi.set(self, "topic_name_configuration", value)
+
+    @property
     @pulumi.getter(name="topicsToExcludes")
     def topics_to_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -1734,6 +1749,29 @@ class ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs:
         """
         The type of replication starting position. Supports `LATEST` and `EARLIEST`.
         """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgsDict(TypedDict):
+        type: NotRequired[pulumi.Input[str]]
+elif False:
+    ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[str]] = None):
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "type")
 
     @type.setter

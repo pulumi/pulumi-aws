@@ -29,6 +29,14 @@ __all__ = [
     'CatalogTableOpenTableFormatInputIcebergInputArgsDict',
     'CatalogTableOptimizerConfigurationArgs',
     'CatalogTableOptimizerConfigurationArgsDict',
+    'CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs',
+    'CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgsDict',
+    'CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs',
+    'CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgsDict',
+    'CatalogTableOptimizerConfigurationRetentionConfigurationArgs',
+    'CatalogTableOptimizerConfigurationRetentionConfigurationArgsDict',
+    'CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs',
+    'CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgsDict',
     'CatalogTablePartitionIndexArgs',
     'CatalogTablePartitionIndexArgsDict',
     'CatalogTablePartitionKeyArgs',
@@ -445,6 +453,14 @@ if not MYPY:
         """
         The ARN of the IAM role to use for the table optimizer.
         """
+        orphan_file_deletion_configuration: NotRequired[pulumi.Input['CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgsDict']]
+        """
+        The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
+        """
+        retention_configuration: NotRequired[pulumi.Input['CatalogTableOptimizerConfigurationRetentionConfigurationArgsDict']]
+        """
+        The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
+        """
 elif False:
     CatalogTableOptimizerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -452,13 +468,21 @@ elif False:
 class CatalogTableOptimizerConfigurationArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 role_arn: pulumi.Input[str]):
+                 role_arn: pulumi.Input[str],
+                 orphan_file_deletion_configuration: Optional[pulumi.Input['CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs']] = None,
+                 retention_configuration: Optional[pulumi.Input['CatalogTableOptimizerConfigurationRetentionConfigurationArgs']] = None):
         """
         :param pulumi.Input[bool] enabled: Indicates whether the table optimizer is enabled.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role to use for the table optimizer.
+        :param pulumi.Input['CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs'] orphan_file_deletion_configuration: The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
+        :param pulumi.Input['CatalogTableOptimizerConfigurationRetentionConfigurationArgs'] retention_configuration: The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "role_arn", role_arn)
+        if orphan_file_deletion_configuration is not None:
+            pulumi.set(__self__, "orphan_file_deletion_configuration", orphan_file_deletion_configuration)
+        if retention_configuration is not None:
+            pulumi.set(__self__, "retention_configuration", retention_configuration)
 
     @property
     @pulumi.getter
@@ -483,6 +507,218 @@ class CatalogTableOptimizerConfigurationArgs:
     @role_arn.setter
     def role_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="orphanFileDeletionConfiguration")
+    def orphan_file_deletion_configuration(self) -> Optional[pulumi.Input['CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs']]:
+        """
+        The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
+        """
+        return pulumi.get(self, "orphan_file_deletion_configuration")
+
+    @orphan_file_deletion_configuration.setter
+    def orphan_file_deletion_configuration(self, value: Optional[pulumi.Input['CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs']]):
+        pulumi.set(self, "orphan_file_deletion_configuration", value)
+
+    @property
+    @pulumi.getter(name="retentionConfiguration")
+    def retention_configuration(self) -> Optional[pulumi.Input['CatalogTableOptimizerConfigurationRetentionConfigurationArgs']]:
+        """
+        The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
+        """
+        return pulumi.get(self, "retention_configuration")
+
+    @retention_configuration.setter
+    def retention_configuration(self, value: Optional[pulumi.Input['CatalogTableOptimizerConfigurationRetentionConfigurationArgs']]):
+        pulumi.set(self, "retention_configuration", value)
+
+
+if not MYPY:
+    class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgsDict(TypedDict):
+        iceberg_configuration: NotRequired[pulumi.Input['CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgsDict']]
+        """
+        The configuration for an Iceberg orphan file deletion optimizer.
+        """
+elif False:
+    CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs:
+    def __init__(__self__, *,
+                 iceberg_configuration: Optional[pulumi.Input['CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs'] iceberg_configuration: The configuration for an Iceberg orphan file deletion optimizer.
+        """
+        if iceberg_configuration is not None:
+            pulumi.set(__self__, "iceberg_configuration", iceberg_configuration)
+
+    @property
+    @pulumi.getter(name="icebergConfiguration")
+    def iceberg_configuration(self) -> Optional[pulumi.Input['CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs']]:
+        """
+        The configuration for an Iceberg orphan file deletion optimizer.
+        """
+        return pulumi.get(self, "iceberg_configuration")
+
+    @iceberg_configuration.setter
+    def iceberg_configuration(self, value: Optional[pulumi.Input['CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs']]):
+        pulumi.set(self, "iceberg_configuration", value)
+
+
+if not MYPY:
+    class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgsDict(TypedDict):
+        location: NotRequired[pulumi.Input[str]]
+        """
+        Specifies a directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table's location.
+        """
+        orphan_file_retention_period_in_days: NotRequired[pulumi.Input[float]]
+        """
+        The number of days that orphan files should be retained before file deletion. Defaults to `3`.
+        """
+elif False:
+    CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs:
+    def __init__(__self__, *,
+                 location: Optional[pulumi.Input[str]] = None,
+                 orphan_file_retention_period_in_days: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[str] location: Specifies a directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table's location.
+        :param pulumi.Input[float] orphan_file_retention_period_in_days: The number of days that orphan files should be retained before file deletion. Defaults to `3`.
+        """
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if orphan_file_retention_period_in_days is not None:
+            pulumi.set(__self__, "orphan_file_retention_period_in_days", orphan_file_retention_period_in_days)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table's location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="orphanFileRetentionPeriodInDays")
+    def orphan_file_retention_period_in_days(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of days that orphan files should be retained before file deletion. Defaults to `3`.
+        """
+        return pulumi.get(self, "orphan_file_retention_period_in_days")
+
+    @orphan_file_retention_period_in_days.setter
+    def orphan_file_retention_period_in_days(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "orphan_file_retention_period_in_days", value)
+
+
+if not MYPY:
+    class CatalogTableOptimizerConfigurationRetentionConfigurationArgsDict(TypedDict):
+        iceberg_configuration: NotRequired[pulumi.Input['CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgsDict']]
+        """
+        The configuration for an Iceberg snapshot retention optimizer.
+        """
+elif False:
+    CatalogTableOptimizerConfigurationRetentionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CatalogTableOptimizerConfigurationRetentionConfigurationArgs:
+    def __init__(__self__, *,
+                 iceberg_configuration: Optional[pulumi.Input['CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs'] iceberg_configuration: The configuration for an Iceberg snapshot retention optimizer.
+        """
+        if iceberg_configuration is not None:
+            pulumi.set(__self__, "iceberg_configuration", iceberg_configuration)
+
+    @property
+    @pulumi.getter(name="icebergConfiguration")
+    def iceberg_configuration(self) -> Optional[pulumi.Input['CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs']]:
+        """
+        The configuration for an Iceberg snapshot retention optimizer.
+        """
+        return pulumi.get(self, "iceberg_configuration")
+
+    @iceberg_configuration.setter
+    def iceberg_configuration(self, value: Optional[pulumi.Input['CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs']]):
+        pulumi.set(self, "iceberg_configuration", value)
+
+
+if not MYPY:
+    class CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgsDict(TypedDict):
+        clean_expired_files: NotRequired[pulumi.Input[bool]]
+        """
+        If set to `false`, snapshots are only deleted from table metadata, and the underlying data and metadata files are not deleted. Defaults to `false`.
+        """
+        number_of_snapshots_to_retain: NotRequired[pulumi.Input[float]]
+        """
+        The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
+        """
+        snapshot_retention_period_in_days: NotRequired[pulumi.Input[float]]
+        """
+        The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
+        """
+elif False:
+    CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs:
+    def __init__(__self__, *,
+                 clean_expired_files: Optional[pulumi.Input[bool]] = None,
+                 number_of_snapshots_to_retain: Optional[pulumi.Input[float]] = None,
+                 snapshot_retention_period_in_days: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[bool] clean_expired_files: If set to `false`, snapshots are only deleted from table metadata, and the underlying data and metadata files are not deleted. Defaults to `false`.
+        :param pulumi.Input[float] number_of_snapshots_to_retain: The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
+        :param pulumi.Input[float] snapshot_retention_period_in_days: The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
+        """
+        if clean_expired_files is not None:
+            pulumi.set(__self__, "clean_expired_files", clean_expired_files)
+        if number_of_snapshots_to_retain is not None:
+            pulumi.set(__self__, "number_of_snapshots_to_retain", number_of_snapshots_to_retain)
+        if snapshot_retention_period_in_days is not None:
+            pulumi.set(__self__, "snapshot_retention_period_in_days", snapshot_retention_period_in_days)
+
+    @property
+    @pulumi.getter(name="cleanExpiredFiles")
+    def clean_expired_files(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to `false`, snapshots are only deleted from table metadata, and the underlying data and metadata files are not deleted. Defaults to `false`.
+        """
+        return pulumi.get(self, "clean_expired_files")
+
+    @clean_expired_files.setter
+    def clean_expired_files(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "clean_expired_files", value)
+
+    @property
+    @pulumi.getter(name="numberOfSnapshotsToRetain")
+    def number_of_snapshots_to_retain(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
+        """
+        return pulumi.get(self, "number_of_snapshots_to_retain")
+
+    @number_of_snapshots_to_retain.setter
+    def number_of_snapshots_to_retain(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "number_of_snapshots_to_retain", value)
+
+    @property
+    @pulumi.getter(name="snapshotRetentionPeriodInDays")
+    def snapshot_retention_period_in_days(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
+        """
+        return pulumi.get(self, "snapshot_retention_period_in_days")
+
+    @snapshot_retention_period_in_days.setter
+    def snapshot_retention_period_in_days(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "snapshot_retention_period_in_days", value)
 
 
 if not MYPY:

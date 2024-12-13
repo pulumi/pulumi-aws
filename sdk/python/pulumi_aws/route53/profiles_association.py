@@ -31,6 +31,7 @@ class ProfilesAssociationArgs:
         :param pulumi.Input[str] profile_id: ID of the profile associated with the VPC.
         :param pulumi.Input[str] resource_id: Resource ID of the VPC the profile to be associated with.
         :param pulumi.Input[str] name: Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\\\-_' ']+)`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "profile_id", profile_id)
         pulumi.set(__self__, "resource_id", resource_id)
@@ -80,6 +81,9 @@ class ProfilesAssociationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -114,8 +118,10 @@ class _ProfilesAssociationState:
         :param pulumi.Input[str] name: Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\\\-_' ']+)`.
         :param pulumi.Input[str] profile_id: ID of the profile associated with the VPC.
         :param pulumi.Input[str] resource_id: Resource ID of the VPC the profile to be associated with.
-        :param pulumi.Input[str] status: Status of the Profile Association. See the [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html) for valid values.
+        :param pulumi.Input[str] status: Status of the Profile Association.
         :param pulumi.Input[str] status_message: Status message of the Profile Association.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -199,7 +205,7 @@ class _ProfilesAssociationState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Status of the Profile Association. See the [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html) for valid values.
+        Status of the Profile Association.
         """
         return pulumi.get(self, "status")
 
@@ -222,6 +228,9 @@ class _ProfilesAssociationState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -232,6 +241,9 @@ class _ProfilesAssociationState:
     @pulumi.getter(name="tagsAll")
     @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -277,6 +289,7 @@ class ProfilesAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\\\-_' ']+)`.
         :param pulumi.Input[str] profile_id: ID of the profile associated with the VPC.
         :param pulumi.Input[str] resource_id: Resource ID of the VPC the profile to be associated with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -370,8 +383,10 @@ class ProfilesAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\\\-_' ']+)`.
         :param pulumi.Input[str] profile_id: ID of the profile associated with the VPC.
         :param pulumi.Input[str] resource_id: Resource ID of the VPC the profile to be associated with.
-        :param pulumi.Input[str] status: Status of the Profile Association. See the [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html) for valid values.
+        :param pulumi.Input[str] status: Status of the Profile Association.
         :param pulumi.Input[str] status_message: Status message of the Profile Association.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -427,7 +442,7 @@ class ProfilesAssociation(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
-        Status of the Profile Association. See the [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html) for valid values.
+        Status of the Profile Association.
         """
         return pulumi.get(self, "status")
 
@@ -442,12 +457,18 @@ class ProfilesAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

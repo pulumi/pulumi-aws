@@ -182,7 +182,8 @@ namespace Pulumi.Aws.Rds
     ///         Serverlessv2ScalingConfiguration = new Aws.Rds.Inputs.ClusterServerlessv2ScalingConfigurationArgs
     ///         {
     ///             MaxCapacity = 1,
-    ///             MinCapacity = 0.5,
+    ///             MinCapacity = 0,
+    ///             SecondsUntilAutoPause = 3600,
     ///         },
     ///     });
     /// 

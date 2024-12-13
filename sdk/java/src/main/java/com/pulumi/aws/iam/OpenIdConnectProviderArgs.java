@@ -19,14 +19,14 @@ public final class OpenIdConnectProviderArgs extends com.pulumi.resources.Resour
     public static final OpenIdConnectProviderArgs Empty = new OpenIdConnectProviderArgs();
 
     /**
-     * A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that&#39;s sent as the client_id parameter on OAuth requests.)
+     * List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
      * 
      */
     @Import(name="clientIdLists", required=true)
     private Output<List<String>> clientIdLists;
 
     /**
-     * @return A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that&#39;s sent as the client_id parameter on OAuth requests.)
+     * @return List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
      * 
      */
     public Output<List<String>> clientIdLists() {
@@ -48,30 +48,22 @@ public final class OpenIdConnectProviderArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider&#39;s server certificate(s).
-     * 
-     */
-    @Import(name="thumbprintLists", required=true)
-    private Output<List<String>> thumbprintLists;
+    @Import(name="thumbprintLists")
+    private @Nullable Output<List<String>> thumbprintLists;
 
-    /**
-     * @return A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider&#39;s server certificate(s).
-     * 
-     */
-    public Output<List<String>> thumbprintLists() {
-        return this.thumbprintLists;
+    public Optional<Output<List<String>>> thumbprintLists() {
+        return Optional.ofNullable(this.thumbprintLists);
     }
 
     /**
-     * The URL of the identity provider. Corresponds to the _iss_ claim.
+     * URL of the identity provider, corresponding to the `iss` claim.
      * 
      */
     @Import(name="url", required=true)
     private Output<String> url;
 
     /**
-     * @return The URL of the identity provider. Corresponds to the _iss_ claim.
+     * @return URL of the identity provider, corresponding to the `iss` claim.
      * 
      */
     public Output<String> url() {
@@ -106,7 +98,7 @@ public final class OpenIdConnectProviderArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param clientIdLists A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that&#39;s sent as the client_id parameter on OAuth requests.)
+         * @param clientIdLists List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
          * 
          * @return builder
          * 
@@ -117,7 +109,7 @@ public final class OpenIdConnectProviderArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param clientIdLists A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that&#39;s sent as the client_id parameter on OAuth requests.)
+         * @param clientIdLists List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
          * 
          * @return builder
          * 
@@ -127,7 +119,7 @@ public final class OpenIdConnectProviderArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param clientIdLists A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that&#39;s sent as the client_id parameter on OAuth requests.)
+         * @param clientIdLists List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
          * 
          * @return builder
          * 
@@ -157,39 +149,21 @@ public final class OpenIdConnectProviderArgs extends com.pulumi.resources.Resour
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param thumbprintLists A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider&#39;s server certificate(s).
-         * 
-         * @return builder
-         * 
-         */
-        public Builder thumbprintLists(Output<List<String>> thumbprintLists) {
+        public Builder thumbprintLists(@Nullable Output<List<String>> thumbprintLists) {
             $.thumbprintLists = thumbprintLists;
             return this;
         }
 
-        /**
-         * @param thumbprintLists A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider&#39;s server certificate(s).
-         * 
-         * @return builder
-         * 
-         */
         public Builder thumbprintLists(List<String> thumbprintLists) {
             return thumbprintLists(Output.of(thumbprintLists));
         }
 
-        /**
-         * @param thumbprintLists A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider&#39;s server certificate(s).
-         * 
-         * @return builder
-         * 
-         */
         public Builder thumbprintLists(String... thumbprintLists) {
             return thumbprintLists(List.of(thumbprintLists));
         }
 
         /**
-         * @param url The URL of the identity provider. Corresponds to the _iss_ claim.
+         * @param url URL of the identity provider, corresponding to the `iss` claim.
          * 
          * @return builder
          * 
@@ -200,7 +174,7 @@ public final class OpenIdConnectProviderArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param url The URL of the identity provider. Corresponds to the _iss_ claim.
+         * @param url URL of the identity provider, corresponding to the `iss` claim.
          * 
          * @return builder
          * 
@@ -212,9 +186,6 @@ public final class OpenIdConnectProviderArgs extends com.pulumi.resources.Resour
         public OpenIdConnectProviderArgs build() {
             if ($.clientIdLists == null) {
                 throw new MissingRequiredPropertyException("OpenIdConnectProviderArgs", "clientIdLists");
-            }
-            if ($.thumbprintLists == null) {
-                throw new MissingRequiredPropertyException("OpenIdConnectProviderArgs", "thumbprintLists");
             }
             if ($.url == null) {
                 throw new MissingRequiredPropertyException("OpenIdConnectProviderArgs", "url");

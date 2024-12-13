@@ -20,6 +20,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class Wafv2Functions {
@@ -150,6 +151,49 @@ public final class Wafv2Functions {
      * 
      */
     public static Output<GetIpSetResult> getIpSet(GetIpSetArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:wafv2/getIpSet:getIpSet", TypeShape.of(GetIpSetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the summary of a WAFv2 IP Set.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafv2.Wafv2Functions;
+     * import com.pulumi.aws.wafv2.inputs.GetIpSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Wafv2Functions.getIpSet(GetIpSetArgs.builder()
+     *             .name("some-ip-set")
+     *             .scope("REGIONAL")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetIpSetResult> getIpSet(GetIpSetArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:wafv2/getIpSet:getIpSet", TypeShape.of(GetIpSetResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -364,6 +408,49 @@ public final class Wafv2Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetRegexPatternSetResult> getRegexPatternSet(GetRegexPatternSetArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:wafv2/getRegexPatternSet:getRegexPatternSet", TypeShape.of(GetRegexPatternSetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the summary of a WAFv2 Regex Pattern Set.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafv2.Wafv2Functions;
+     * import com.pulumi.aws.wafv2.inputs.GetRegexPatternSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Wafv2Functions.getRegexPatternSet(GetRegexPatternSetArgs.builder()
+     *             .name("some-regex-pattern-set")
+     *             .scope("REGIONAL")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetRegexPatternSetResult> getRegexPatternSetPlain(GetRegexPatternSetPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:wafv2/getRegexPatternSet:getRegexPatternSet", TypeShape.of(GetRegexPatternSetResult.class), args, Utilities.withVersion(options));
     }
@@ -536,6 +623,49 @@ public final class Wafv2Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetRuleGroupResult> getRuleGroup(GetRuleGroupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:wafv2/getRuleGroup:getRuleGroup", TypeShape.of(GetRuleGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the summary of a WAFv2 Rule Group.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafv2.Wafv2Functions;
+     * import com.pulumi.aws.wafv2.inputs.GetRuleGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Wafv2Functions.getRuleGroup(GetRuleGroupArgs.builder()
+     *             .name("some-rule-group")
+     *             .scope("REGIONAL")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetRuleGroupResult> getRuleGroupPlain(GetRuleGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:wafv2/getRuleGroup:getRuleGroup", TypeShape.of(GetRuleGroupResult.class), args, Utilities.withVersion(options));
     }
@@ -666,6 +796,49 @@ public final class Wafv2Functions {
      * 
      */
     public static Output<GetWebAclResult> getWebAcl(GetWebAclArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:wafv2/getWebAcl:getWebAcl", TypeShape.of(GetWebAclResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieves the summary of a WAFv2 Web ACL.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafv2.Wafv2Functions;
+     * import com.pulumi.aws.wafv2.inputs.GetWebAclArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Wafv2Functions.getWebAcl(GetWebAclArgs.builder()
+     *             .name("some-web-acl")
+     *             .scope("REGIONAL")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetWebAclResult> getWebAcl(GetWebAclArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:wafv2/getWebAcl:getWebAcl", TypeShape.of(GetWebAclResult.class), args, Utilities.withVersion(options));
     }
     /**

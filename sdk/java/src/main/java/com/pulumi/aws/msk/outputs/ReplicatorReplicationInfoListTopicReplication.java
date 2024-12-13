@@ -4,6 +4,7 @@
 package com.pulumi.aws.msk.outputs;
 
 import com.pulumi.aws.msk.outputs.ReplicatorReplicationInfoListTopicReplicationStartingPosition;
+import com.pulumi.aws.msk.outputs.ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -35,6 +36,7 @@ public final class ReplicatorReplicationInfoListTopicReplication {
      * 
      */
     private @Nullable ReplicatorReplicationInfoListTopicReplicationStartingPosition startingPosition;
+    private @Nullable ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration topicNameConfiguration;
     /**
      * @return List of regular expression patterns indicating the topics that should not be replica.
      * 
@@ -75,6 +77,9 @@ public final class ReplicatorReplicationInfoListTopicReplication {
     public Optional<ReplicatorReplicationInfoListTopicReplicationStartingPosition> startingPosition() {
         return Optional.ofNullable(this.startingPosition);
     }
+    public Optional<ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration> topicNameConfiguration() {
+        return Optional.ofNullable(this.topicNameConfiguration);
+    }
     /**
      * @return List of regular expression patterns indicating the topics that should not be replica.
      * 
@@ -103,6 +108,7 @@ public final class ReplicatorReplicationInfoListTopicReplication {
         private @Nullable Boolean copyTopicConfigurations;
         private @Nullable Boolean detectAndCopyNewTopics;
         private @Nullable ReplicatorReplicationInfoListTopicReplicationStartingPosition startingPosition;
+        private @Nullable ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration topicNameConfiguration;
         private @Nullable List<String> topicsToExcludes;
         private List<String> topicsToReplicates;
         public Builder() {}
@@ -112,6 +118,7 @@ public final class ReplicatorReplicationInfoListTopicReplication {
     	      this.copyTopicConfigurations = defaults.copyTopicConfigurations;
     	      this.detectAndCopyNewTopics = defaults.detectAndCopyNewTopics;
     	      this.startingPosition = defaults.startingPosition;
+    	      this.topicNameConfiguration = defaults.topicNameConfiguration;
     	      this.topicsToExcludes = defaults.topicsToExcludes;
     	      this.topicsToReplicates = defaults.topicsToReplicates;
         }
@@ -141,6 +148,12 @@ public final class ReplicatorReplicationInfoListTopicReplication {
             return this;
         }
         @CustomType.Setter
+        public Builder topicNameConfiguration(@Nullable ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration topicNameConfiguration) {
+
+            this.topicNameConfiguration = topicNameConfiguration;
+            return this;
+        }
+        @CustomType.Setter
         public Builder topicsToExcludes(@Nullable List<String> topicsToExcludes) {
 
             this.topicsToExcludes = topicsToExcludes;
@@ -166,6 +179,7 @@ public final class ReplicatorReplicationInfoListTopicReplication {
             _resultValue.copyTopicConfigurations = copyTopicConfigurations;
             _resultValue.detectAndCopyNewTopics = detectAndCopyNewTopics;
             _resultValue.startingPosition = startingPosition;
+            _resultValue.topicNameConfiguration = topicNameConfiguration;
             _resultValue.topicsToExcludes = topicsToExcludes;
             _resultValue.topicsToReplicates = topicsToReplicates;
             return _resultValue;

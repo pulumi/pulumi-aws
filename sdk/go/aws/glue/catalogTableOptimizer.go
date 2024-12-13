@@ -16,7 +16,7 @@ import (
 //
 // ## Example Usage
 //
-// ### Basic Usage
+// ### Compaction Optimizer
 //
 // ```go
 // package main
@@ -49,6 +49,85 @@ import (
 //
 // ```
 //
+// ### Snapshot Retention Optimizer
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := glue.NewCatalogTableOptimizer(ctx, "example", &glue.CatalogTableOptimizerArgs{
+//				CatalogId:    pulumi.String("123456789012"),
+//				DatabaseName: pulumi.String("example_database"),
+//				TableName:    pulumi.String("example_table"),
+//				Configuration: &glue.CatalogTableOptimizerConfigurationArgs{
+//					RoleArn: pulumi.String("arn:aws:iam::123456789012:role/example-role"),
+//					Enabled: pulumi.Bool(true),
+//					RetentionConfiguration: &glue.CatalogTableOptimizerConfigurationRetentionConfigurationArgs{
+//						IcebergConfiguration: &glue.CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs{
+//							SnapshotRetentionPeriodInDays: pulumi.Float64(7),
+//							NumberOfSnapshotsToRetain:     pulumi.Float64(3),
+//							CleanExpiredFiles:             pulumi.Bool(true),
+//						},
+//					},
+//				},
+//				Type: pulumi.String("retention"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Orphan File Deletion Optimizer
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := glue.NewCatalogTableOptimizer(ctx, "example", &glue.CatalogTableOptimizerArgs{
+//				CatalogId:    pulumi.String("123456789012"),
+//				DatabaseName: pulumi.String("example_database"),
+//				TableName:    pulumi.String("example_table"),
+//				Configuration: &glue.CatalogTableOptimizerConfigurationArgs{
+//					RoleArn: pulumi.String("arn:aws:iam::123456789012:role/example-role"),
+//					Enabled: pulumi.Bool(true),
+//					OrphanFileDeletionConfiguration: &glue.CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs{
+//						IcebergConfiguration: &glue.CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs{
+//							OrphanFileRetentionPeriodInDays: pulumi.Float64(7),
+//							Location:                        pulumi.String("s3://example-bucket/example_table/"),
+//						},
+//					},
+//				},
+//				Type: pulumi.String("orphan_file_deletion"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Glue Catalog Table Optimizer using the `catalog_id,database_name,table_name,type`. For example:
@@ -61,13 +140,13 @@ type CatalogTableOptimizer struct {
 
 	// The Catalog ID of the table.
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
-	// A configuration block that defines the table optimizer settings. The block contains:
+	// A configuration block that defines the table optimizer settings. See Configuration for additional details.
 	Configuration CatalogTableOptimizerConfigurationPtrOutput `pulumi:"configuration"`
 	// The name of the database in the catalog in which the table resides.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// The name of the table.
 	TableName pulumi.StringOutput `pulumi:"tableName"`
-	// The type of table optimizer. Currently, the only valid value is compaction.
+	// The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -115,26 +194,26 @@ func GetCatalogTableOptimizer(ctx *pulumi.Context,
 type catalogTableOptimizerState struct {
 	// The Catalog ID of the table.
 	CatalogId *string `pulumi:"catalogId"`
-	// A configuration block that defines the table optimizer settings. The block contains:
+	// A configuration block that defines the table optimizer settings. See Configuration for additional details.
 	Configuration *CatalogTableOptimizerConfiguration `pulumi:"configuration"`
 	// The name of the database in the catalog in which the table resides.
 	DatabaseName *string `pulumi:"databaseName"`
 	// The name of the table.
 	TableName *string `pulumi:"tableName"`
-	// The type of table optimizer. Currently, the only valid value is compaction.
+	// The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
 	Type *string `pulumi:"type"`
 }
 
 type CatalogTableOptimizerState struct {
 	// The Catalog ID of the table.
 	CatalogId pulumi.StringPtrInput
-	// A configuration block that defines the table optimizer settings. The block contains:
+	// A configuration block that defines the table optimizer settings. See Configuration for additional details.
 	Configuration CatalogTableOptimizerConfigurationPtrInput
 	// The name of the database in the catalog in which the table resides.
 	DatabaseName pulumi.StringPtrInput
 	// The name of the table.
 	TableName pulumi.StringPtrInput
-	// The type of table optimizer. Currently, the only valid value is compaction.
+	// The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
 	Type pulumi.StringPtrInput
 }
 
@@ -145,13 +224,13 @@ func (CatalogTableOptimizerState) ElementType() reflect.Type {
 type catalogTableOptimizerArgs struct {
 	// The Catalog ID of the table.
 	CatalogId string `pulumi:"catalogId"`
-	// A configuration block that defines the table optimizer settings. The block contains:
+	// A configuration block that defines the table optimizer settings. See Configuration for additional details.
 	Configuration *CatalogTableOptimizerConfiguration `pulumi:"configuration"`
 	// The name of the database in the catalog in which the table resides.
 	DatabaseName string `pulumi:"databaseName"`
 	// The name of the table.
 	TableName string `pulumi:"tableName"`
-	// The type of table optimizer. Currently, the only valid value is compaction.
+	// The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
 	Type string `pulumi:"type"`
 }
 
@@ -159,13 +238,13 @@ type catalogTableOptimizerArgs struct {
 type CatalogTableOptimizerArgs struct {
 	// The Catalog ID of the table.
 	CatalogId pulumi.StringInput
-	// A configuration block that defines the table optimizer settings. The block contains:
+	// A configuration block that defines the table optimizer settings. See Configuration for additional details.
 	Configuration CatalogTableOptimizerConfigurationPtrInput
 	// The name of the database in the catalog in which the table resides.
 	DatabaseName pulumi.StringInput
 	// The name of the table.
 	TableName pulumi.StringInput
-	// The type of table optimizer. Currently, the only valid value is compaction.
+	// The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
 	Type pulumi.StringInput
 }
 
@@ -261,7 +340,7 @@ func (o CatalogTableOptimizerOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogTableOptimizer) pulumi.StringOutput { return v.CatalogId }).(pulumi.StringOutput)
 }
 
-// A configuration block that defines the table optimizer settings. The block contains:
+// A configuration block that defines the table optimizer settings. See Configuration for additional details.
 func (o CatalogTableOptimizerOutput) Configuration() CatalogTableOptimizerConfigurationPtrOutput {
 	return o.ApplyT(func(v *CatalogTableOptimizer) CatalogTableOptimizerConfigurationPtrOutput { return v.Configuration }).(CatalogTableOptimizerConfigurationPtrOutput)
 }
@@ -276,7 +355,7 @@ func (o CatalogTableOptimizerOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogTableOptimizer) pulumi.StringOutput { return v.TableName }).(pulumi.StringOutput)
 }
 
-// The type of table optimizer. Currently, the only valid value is compaction.
+// The type of table optimizer. Valid values are `compaction`, `retention`, and `orphanFileDeletion`.
 func (o CatalogTableOptimizerOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogTableOptimizer) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

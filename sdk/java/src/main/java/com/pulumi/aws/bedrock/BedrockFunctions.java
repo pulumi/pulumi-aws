@@ -19,6 +19,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
@@ -196,6 +197,50 @@ public final class BedrockFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetAgentAgentVersionsResult> getAgentAgentVersions(GetAgentAgentVersionsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:bedrock/getAgentAgentVersions:getAgentAgentVersions", TypeShape.of(GetAgentAgentVersionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Amazon BedrockAgent Agent Versions.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetAgentAgentVersionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = BedrockFunctions.getAgentAgentVersions(GetAgentAgentVersionsArgs.builder()
+     *             .agentId(testAwsBedrockagentAgent.agentId())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetAgentAgentVersionsResult> getAgentAgentVersionsPlain(GetAgentAgentVersionsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:bedrock/getAgentAgentVersions:getAgentAgentVersions", TypeShape.of(GetAgentAgentVersionsResult.class), args, Utilities.withVersion(options));
     }
@@ -323,6 +368,48 @@ public final class BedrockFunctions {
      * 
      */
     public static Output<GetCustomModelResult> getCustomModel(GetCustomModelArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:bedrock/getCustomModel:getCustomModel", TypeShape.of(GetCustomModelResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Returns properties of a specific Amazon Bedrock custom model.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetCustomModelArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = BedrockFunctions.getCustomModel(GetCustomModelArgs.builder()
+     *             .modelId("arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4 ")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetCustomModelResult> getCustomModel(GetCustomModelArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:bedrock/getCustomModel:getCustomModel", TypeShape.of(GetCustomModelResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -598,6 +685,45 @@ public final class BedrockFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetCustomModelsResult> getCustomModels(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:bedrock/getCustomModels:getCustomModels", TypeShape.of(GetCustomModelsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Returns a list of Amazon Bedrock custom models.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = BedrockFunctions.getCustomModels();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetCustomModelsResult> getCustomModelsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:bedrock/getCustomModels:getCustomModels", TypeShape.of(GetCustomModelsResult.class), args, Utilities.withVersion(options));
     }
@@ -737,6 +863,52 @@ public final class BedrockFunctions {
      * 
      */
     public static Output<GetInferenceProfileResult> getInferenceProfile(GetInferenceProfileArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:bedrock/getInferenceProfile:getInferenceProfile", TypeShape.of(GetInferenceProfileResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Bedrock Inference Profile.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import com.pulumi.aws.bedrock.inputs.GetInferenceProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = BedrockFunctions.getInferenceProfiles();
+     * 
+     *         final var testGetInferenceProfile = BedrockFunctions.getInferenceProfile(GetInferenceProfileArgs.builder()
+     *             .inferenceProfileId(test.applyValue(getInferenceProfilesResult -> getInferenceProfilesResult.inferenceProfileSummaries()[0].inferenceProfileId()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetInferenceProfileResult> getInferenceProfile(GetInferenceProfileArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:bedrock/getInferenceProfile:getInferenceProfile", TypeShape.of(GetInferenceProfileResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -988,6 +1160,47 @@ public final class BedrockFunctions {
      * 
      */
     public static Output<GetInferenceProfilesResult> getInferenceProfiles(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:bedrock/getInferenceProfiles:getInferenceProfiles", TypeShape.of(GetInferenceProfilesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing AWS Bedrock AWS Bedrock Inference Profiles.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = BedrockFunctions.getInferenceProfiles();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetInferenceProfilesResult> getInferenceProfiles(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:bedrock/getInferenceProfiles:getInferenceProfiles", TypeShape.of(GetInferenceProfilesResult.class), args, Utilities.withVersion(options));
     }
     /**

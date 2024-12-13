@@ -8,36 +8,6 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides an RDS DB proxy resource. For additional information, see the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.rds.Proxy("example", {
- *     name: "example",
- *     debugLogging: false,
- *     engineFamily: "MYSQL",
- *     idleClientTimeout: 1800,
- *     requireTls: true,
- *     roleArn: exampleAwsIamRole.arn,
- *     vpcSecurityGroupIds: [exampleAwsSecurityGroup.id],
- *     vpcSubnetIds: [exampleAwsSubnet.id],
- *     auths: [{
- *         authScheme: "SECRETS",
- *         description: "example",
- *         iamAuth: "DISABLED",
- *         secretArn: exampleAwsSecretsmanagerSecret.arn,
- *     }],
- *     tags: {
- *         Name: "example",
- *         Key: "value",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import DB proxies using the `name`. For example:

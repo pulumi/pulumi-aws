@@ -278,14 +278,14 @@ public class NotebookInstance extends com.pulumi.resources.CustomResource {
         return this.networkInterfaceId;
     }
     /**
-     * The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
+     * The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
      * 
      */
     @Export(name="platformIdentifier", refs={String.class}, tree="[0]")
     private Output<String> platformIdentifier;
 
     /**
-     * @return The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
+     * @return The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
      * 
      */
     public Output<String> platformIdentifier() {

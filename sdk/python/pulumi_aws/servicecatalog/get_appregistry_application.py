@@ -26,7 +26,7 @@ class GetAppregistryApplicationResult:
     """
     A collection of values returned by getAppregistryApplication.
     """
-    def __init__(__self__, application_tag=None, arn=None, description=None, id=None, name=None):
+    def __init__(__self__, application_tag=None, arn=None, description=None, id=None, name=None, tags=None):
         if application_tag and not isinstance(application_tag, dict):
             raise TypeError("Expected argument 'application_tag' to be a dict")
         pulumi.set(__self__, "application_tag", application_tag)
@@ -42,6 +42,9 @@ class GetAppregistryApplicationResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="applicationTag")
@@ -80,6 +83,14 @@ class GetAppregistryApplicationResult:
         """
         return pulumi.get(self, "name")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        A map of tags assigned to the Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetAppregistryApplicationResult(GetAppregistryApplicationResult):
     # pylint: disable=using-constant-test
@@ -91,7 +102,8 @@ class AwaitableGetAppregistryApplicationResult(GetAppregistryApplicationResult):
             arn=self.arn,
             description=self.description,
             id=self.id,
-            name=self.name)
+            name=self.name,
+            tags=self.tags)
 
 
 def get_appregistry_application(id: Optional[str] = None,
@@ -123,7 +135,8 @@ def get_appregistry_application(id: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
-        name=pulumi.get(__ret__, 'name'))
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_appregistry_application_output(id: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppregistryApplicationResult]:
     """
@@ -152,4 +165,5 @@ def get_appregistry_application_output(id: Optional[pulumi.Input[str]] = None,
         arn=pulumi.get(__response__, 'arn'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name')))
+        name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags')))

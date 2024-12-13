@@ -7,7 +7,10 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
+import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ClusterServerlessv2ScalingConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -44,11 +47,27 @@ public final class ClusterServerlessv2ScalingConfigurationArgs extends com.pulum
         return this.minCapacity;
     }
 
+    /**
+     * Time, in seconds, before an Aurora DB cluster in `provisioned` DB engine mode is paused. Valid values are `300` through `86400`.
+     * 
+     */
+    @Import(name="secondsUntilAutoPause")
+    private @Nullable Output<Integer> secondsUntilAutoPause;
+
+    /**
+     * @return Time, in seconds, before an Aurora DB cluster in `provisioned` DB engine mode is paused. Valid values are `300` through `86400`.
+     * 
+     */
+    public Optional<Output<Integer>> secondsUntilAutoPause() {
+        return Optional.ofNullable(this.secondsUntilAutoPause);
+    }
+
     private ClusterServerlessv2ScalingConfigurationArgs() {}
 
     private ClusterServerlessv2ScalingConfigurationArgs(ClusterServerlessv2ScalingConfigurationArgs $) {
         this.maxCapacity = $.maxCapacity;
         this.minCapacity = $.minCapacity;
+        this.secondsUntilAutoPause = $.secondsUntilAutoPause;
     }
 
     public static Builder builder() {
@@ -109,6 +128,27 @@ public final class ClusterServerlessv2ScalingConfigurationArgs extends com.pulum
          */
         public Builder minCapacity(Double minCapacity) {
             return minCapacity(Output.of(minCapacity));
+        }
+
+        /**
+         * @param secondsUntilAutoPause Time, in seconds, before an Aurora DB cluster in `provisioned` DB engine mode is paused. Valid values are `300` through `86400`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondsUntilAutoPause(@Nullable Output<Integer> secondsUntilAutoPause) {
+            $.secondsUntilAutoPause = secondsUntilAutoPause;
+            return this;
+        }
+
+        /**
+         * @param secondsUntilAutoPause Time, in seconds, before an Aurora DB cluster in `provisioned` DB engine mode is paused. Valid values are `300` through `86400`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondsUntilAutoPause(Integer secondsUntilAutoPause) {
+            return secondsUntilAutoPause(Output.of(secondsUntilAutoPause));
         }
 
         public ClusterServerlessv2ScalingConfigurationArgs build() {

@@ -24,6 +24,12 @@ namespace Pulumi.Aws.Rds.Inputs
         [Input("minCapacity", required: true)]
         public Input<double> MinCapacity { get; set; } = null!;
 
+        /// <summary>
+        /// Time, in seconds, before an Aurora DB cluster in `provisioned` DB engine mode is paused. Valid values are `300` through `86400`.
+        /// </summary>
+        [Input("secondsUntilAutoPause")]
+        public Input<int>? SecondsUntilAutoPause { get; set; }
+
         public ClusterServerlessv2ScalingConfigurationArgs()
         {
         }

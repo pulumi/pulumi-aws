@@ -202,13 +202,10 @@ export class GlobalCluster extends pulumi.CustomResource {
     }
 
     /**
-     * RDS Global Cluster Amazon Resource Name (ARN)
+     * RDS Global Cluster Amazon Resource Name (ARN).
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Name for an automatically created database on cluster creation.
-     */
-    public readonly databaseName!: pulumi.Output<string | undefined>;
+    public readonly databaseName!: pulumi.Output<string>;
     /**
      * If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
      */
@@ -243,7 +240,7 @@ export class GlobalCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly globalClusterMembers!: pulumi.Output<outputs.rds.GlobalClusterGlobalClusterMember[]>;
     /**
-     * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
+     * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
      */
     public /*out*/ readonly globalClusterResourceId!: pulumi.Output<string>;
     /**
@@ -254,6 +251,16 @@ export class GlobalCluster extends pulumi.CustomResource {
      * Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
      */
     public readonly storageEncrypted!: pulumi.Output<boolean>;
+    /**
+     * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated Please use `tags` instead.
+     */
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a GlobalCluster resource with the given unique name, arguments, and options.
@@ -282,6 +289,8 @@ export class GlobalCluster extends pulumi.CustomResource {
             resourceInputs["globalClusterResourceId"] = state ? state.globalClusterResourceId : undefined;
             resourceInputs["sourceDbClusterIdentifier"] = state ? state.sourceDbClusterIdentifier : undefined;
             resourceInputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as GlobalClusterArgs | undefined;
             if ((!args || args.globalClusterIdentifier === undefined) && !opts.urn) {
@@ -296,11 +305,13 @@ export class GlobalCluster extends pulumi.CustomResource {
             resourceInputs["globalClusterIdentifier"] = args ? args.globalClusterIdentifier : undefined;
             resourceInputs["sourceDbClusterIdentifier"] = args ? args.sourceDbClusterIdentifier : undefined;
             resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["engineVersionActual"] = undefined /*out*/;
             resourceInputs["globalClusterMembers"] = undefined /*out*/;
             resourceInputs["globalClusterResourceId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GlobalCluster.__pulumiType, name, resourceInputs, opts);
@@ -312,12 +323,9 @@ export class GlobalCluster extends pulumi.CustomResource {
  */
 export interface GlobalClusterState {
     /**
-     * RDS Global Cluster Amazon Resource Name (ARN)
+     * RDS Global Cluster Amazon Resource Name (ARN).
      */
     arn?: pulumi.Input<string>;
-    /**
-     * Name for an automatically created database on cluster creation.
-     */
     databaseName?: pulumi.Input<string>;
     /**
      * If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
@@ -353,7 +361,7 @@ export interface GlobalClusterState {
      */
     globalClusterMembers?: pulumi.Input<pulumi.Input<inputs.rds.GlobalClusterGlobalClusterMember>[]>;
     /**
-     * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
+     * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
      */
     globalClusterResourceId?: pulumi.Input<string>;
     /**
@@ -364,15 +372,22 @@ export interface GlobalClusterState {
      * Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
      */
     storageEncrypted?: pulumi.Input<boolean>;
+    /**
+     * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated Please use `tags` instead.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
  * The set of arguments for constructing a GlobalCluster resource.
  */
 export interface GlobalClusterArgs {
-    /**
-     * Name for an automatically created database on cluster creation.
-     */
     databaseName?: pulumi.Input<string>;
     /**
      * If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
@@ -406,4 +421,8 @@ export interface GlobalClusterArgs {
      * Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
      */
     storageEncrypted?: pulumi.Input<boolean>;
+    /**
+     * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

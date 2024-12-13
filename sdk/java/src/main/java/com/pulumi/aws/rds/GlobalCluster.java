@@ -14,6 +14,7 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -309,32 +310,24 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rds/globalCluster:GlobalCluster")
 public class GlobalCluster extends com.pulumi.resources.CustomResource {
     /**
-     * RDS Global Cluster Amazon Resource Name (ARN)
+     * RDS Global Cluster Amazon Resource Name (ARN).
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return RDS Global Cluster Amazon Resource Name (ARN)
+     * @return RDS Global Cluster Amazon Resource Name (ARN).
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Name for an automatically created database on cluster creation.
-     * 
-     */
     @Export(name="databaseName", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> databaseName;
+    private Output<String> databaseName;
 
-    /**
-     * @return Name for an automatically created database on cluster creation.
-     * 
-     */
-    public Output<Optional<String>> databaseName() {
-        return Codegen.optional(this.databaseName);
+    public Output<String> databaseName() {
+        return this.databaseName;
     }
     /**
      * If the Global Cluster should have deletion protection enabled. The database can&#39;t be deleted when this value is set to `true`. The default is `false`.
@@ -455,14 +448,14 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
         return this.globalClusterMembers;
     }
     /**
-     * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
+     * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
      * 
      */
     @Export(name="globalClusterResourceId", refs={String.class}, tree="[0]")
     private Output<String> globalClusterResourceId;
 
     /**
-     * @return AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
+     * @return AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
      * 
      */
     public Output<String> globalClusterResourceId() {
@@ -495,6 +488,38 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Boolean> storageEncrypted() {
         return this.storageEncrypted;
+    }
+    /**
+     * A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> tags;
+
+    /**
+     * @return A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> tags() {
+        return Codegen.optional(this.tags);
+    }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     * @deprecated
+     * Please use `tags` instead.
+     * 
+     */
+    @Deprecated /* Please use `tags` instead. */
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Output<Map<String,String>> tagsAll() {
+        return this.tagsAll;
     }
 
     /**
