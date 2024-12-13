@@ -20,61 +20,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides an RDS DB proxy resource. For additional information, see the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html).
- * 
- * ## Example Usage
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.rds.Proxy;
- * import com.pulumi.aws.rds.ProxyArgs;
- * import com.pulumi.aws.rds.inputs.ProxyAuthArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Proxy("example", ProxyArgs.builder()
- *             .name("example")
- *             .debugLogging(false)
- *             .engineFamily("MYSQL")
- *             .idleClientTimeout(1800)
- *             .requireTls(true)
- *             .roleArn(exampleAwsIamRole.arn())
- *             .vpcSecurityGroupIds(exampleAwsSecurityGroup.id())
- *             .vpcSubnetIds(exampleAwsSubnet.id())
- *             .auths(ProxyAuthArgs.builder()
- *                 .authScheme("SECRETS")
- *                 .description("example")
- *                 .iamAuth("DISABLED")
- *                 .secretArn(exampleAwsSecretsmanagerSecret.arn())
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry("Name", "example"),
- *                 Map.entry("Key", "value")
- *             ))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
  * ## Import
  * 
  * Using `pulumi import`, import DB proxies using the `name`. For example:

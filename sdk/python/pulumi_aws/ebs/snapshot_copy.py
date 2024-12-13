@@ -21,6 +21,7 @@ class SnapshotCopyArgs:
     def __init__(__self__, *,
                  source_region: pulumi.Input[str],
                  source_snapshot_id: pulumi.Input[str],
+                 completion_duration_minutes: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -32,6 +33,7 @@ class SnapshotCopyArgs:
         The set of arguments for constructing a SnapshotCopy resource.
         :param pulumi.Input[str] source_region: The region of the source snapshot.
         :param pulumi.Input[str] source_snapshot_id: The ARN for the snapshot to be copied.
+        :param pulumi.Input[int] completion_duration_minutes: Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
         :param pulumi.Input[str] description: A description of what the snapshot is.
         :param pulumi.Input[bool] encrypted: Whether the snapshot is encrypted.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key.
@@ -42,6 +44,8 @@ class SnapshotCopyArgs:
         """
         pulumi.set(__self__, "source_region", source_region)
         pulumi.set(__self__, "source_snapshot_id", source_snapshot_id)
+        if completion_duration_minutes is not None:
+            pulumi.set(__self__, "completion_duration_minutes", completion_duration_minutes)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encrypted is not None:
@@ -80,6 +84,18 @@ class SnapshotCopyArgs:
     @source_snapshot_id.setter
     def source_snapshot_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "source_snapshot_id", value)
+
+    @property
+    @pulumi.getter(name="completionDurationMinutes")
+    def completion_duration_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
+        """
+        return pulumi.get(self, "completion_duration_minutes")
+
+    @completion_duration_minutes.setter
+    def completion_duration_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "completion_duration_minutes", value)
 
     @property
     @pulumi.getter
@@ -170,6 +186,7 @@ class SnapshotCopyArgs:
 class _SnapshotCopyState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
+                 completion_duration_minutes: Optional[pulumi.Input[int]] = None,
                  data_encryption_key_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
@@ -189,6 +206,7 @@ class _SnapshotCopyState:
         """
         Input properties used for looking up and filtering SnapshotCopy resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the EBS Snapshot.
+        :param pulumi.Input[int] completion_duration_minutes: Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
         :param pulumi.Input[str] data_encryption_key_id: The data encryption key identifier for the snapshot.
         :param pulumi.Input[str] description: A description of what the snapshot is.
         :param pulumi.Input[bool] encrypted: Whether the snapshot is encrypted.
@@ -206,6 +224,8 @@ class _SnapshotCopyState:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if completion_duration_minutes is not None:
+            pulumi.set(__self__, "completion_duration_minutes", completion_duration_minutes)
         if data_encryption_key_id is not None:
             pulumi.set(__self__, "data_encryption_key_id", data_encryption_key_id)
         if description is not None:
@@ -253,6 +273,18 @@ class _SnapshotCopyState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="completionDurationMinutes")
+    def completion_duration_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
+        """
+        return pulumi.get(self, "completion_duration_minutes")
+
+    @completion_duration_minutes.setter
+    def completion_duration_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "completion_duration_minutes", value)
 
     @property
     @pulumi.getter(name="dataEncryptionKeyId")
@@ -447,6 +479,7 @@ class SnapshotCopy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 completion_duration_minutes: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -487,6 +520,7 @@ class SnapshotCopy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] completion_duration_minutes: Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
         :param pulumi.Input[str] description: A description of what the snapshot is.
         :param pulumi.Input[bool] encrypted: Whether the snapshot is encrypted.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key.
@@ -546,6 +580,7 @@ class SnapshotCopy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 completion_duration_minutes: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -564,6 +599,7 @@ class SnapshotCopy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SnapshotCopyArgs.__new__(SnapshotCopyArgs)
 
+            __props__.__dict__["completion_duration_minutes"] = completion_duration_minutes
             __props__.__dict__["description"] = description
             __props__.__dict__["encrypted"] = encrypted
             __props__.__dict__["kms_key_id"] = kms_key_id
@@ -596,6 +632,7 @@ class SnapshotCopy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            completion_duration_minutes: Optional[pulumi.Input[int]] = None,
             data_encryption_key_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             encrypted: Optional[pulumi.Input[bool]] = None,
@@ -620,6 +657,7 @@ class SnapshotCopy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the EBS Snapshot.
+        :param pulumi.Input[int] completion_duration_minutes: Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
         :param pulumi.Input[str] data_encryption_key_id: The data encryption key identifier for the snapshot.
         :param pulumi.Input[str] description: A description of what the snapshot is.
         :param pulumi.Input[bool] encrypted: Whether the snapshot is encrypted.
@@ -640,6 +678,7 @@ class SnapshotCopy(pulumi.CustomResource):
         __props__ = _SnapshotCopyState.__new__(_SnapshotCopyState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["completion_duration_minutes"] = completion_duration_minutes
         __props__.__dict__["data_encryption_key_id"] = data_encryption_key_id
         __props__.__dict__["description"] = description
         __props__.__dict__["encrypted"] = encrypted
@@ -665,6 +704,14 @@ class SnapshotCopy(pulumi.CustomResource):
         Amazon Resource Name (ARN) of the EBS Snapshot.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="completionDurationMinutes")
+    def completion_duration_minutes(self) -> pulumi.Output[Optional[int]]:
+        """
+        Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
+        """
+        return pulumi.get(self, "completion_duration_minutes")
 
     @property
     @pulumi.getter(name="dataEncryptionKeyId")

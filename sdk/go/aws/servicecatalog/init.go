@@ -23,6 +23,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:servicecatalog/appregistryApplication:AppregistryApplication":
 		r = &AppregistryApplication{}
+	case "aws:servicecatalog/appregistryAttributeGroup:AppregistryAttributeGroup":
+		r = &AppregistryAttributeGroup{}
+	case "aws:servicecatalog/appregistryAttributeGroupAssociation:AppregistryAttributeGroupAssociation":
+		r = &AppregistryAttributeGroupAssociation{}
 	case "aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation":
 		r = &BudgetResourceAssociation{}
 	case "aws:servicecatalog/constraint:Constraint":
@@ -65,6 +69,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"servicecatalog/appregistryApplication",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"servicecatalog/appregistryAttributeGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"servicecatalog/appregistryAttributeGroupAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

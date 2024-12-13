@@ -20,7 +20,9 @@ import (
 //
 // For a non-root `base_path`:
 //
-// Using `pulumi import`, import `aws_api_gateway_base_path_mapping` using the domain name and base path. For example:
+// For a non-root `base_path` and a private custom domain name:
+//
+// Using `pulumi import`, import `aws_api_gateway_base_path_mapping` using the domain name and base path or domain name, base path and domain name ID (for private custom domain names). For example:
 //
 // For an empty `base_path` or, in other words, a root path (`/`):
 //
@@ -32,6 +34,11 @@ import (
 // ```sh
 // $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
 // ```
+// For a non-root `base_path` and a private custom domain name:
+//
+// ```sh
+// $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example api.internal.example.com/base-path/abcde12345
+// ```
 type BasePathMapping struct {
 	pulumi.CustomResourceState
 
@@ -39,6 +46,8 @@ type BasePathMapping struct {
 	BasePath pulumi.StringPtrOutput `pulumi:"basePath"`
 	// Already-registered domain name to connect the API to.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	// The identifier for the domain name resource. Supported only for private custom domain names.
+	DomainNameId pulumi.StringPtrOutput `pulumi:"domainNameId"`
 	// ID of the API to connect.
 	RestApi pulumi.StringOutput `pulumi:"restApi"`
 	// Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
@@ -85,6 +94,8 @@ type basePathMappingState struct {
 	BasePath *string `pulumi:"basePath"`
 	// Already-registered domain name to connect the API to.
 	DomainName *string `pulumi:"domainName"`
+	// The identifier for the domain name resource. Supported only for private custom domain names.
+	DomainNameId *string `pulumi:"domainNameId"`
 	// ID of the API to connect.
 	RestApi interface{} `pulumi:"restApi"`
 	// Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
@@ -96,6 +107,8 @@ type BasePathMappingState struct {
 	BasePath pulumi.StringPtrInput
 	// Already-registered domain name to connect the API to.
 	DomainName pulumi.StringPtrInput
+	// The identifier for the domain name resource. Supported only for private custom domain names.
+	DomainNameId pulumi.StringPtrInput
 	// ID of the API to connect.
 	RestApi pulumi.Input
 	// Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
@@ -111,6 +124,8 @@ type basePathMappingArgs struct {
 	BasePath *string `pulumi:"basePath"`
 	// Already-registered domain name to connect the API to.
 	DomainName string `pulumi:"domainName"`
+	// The identifier for the domain name resource. Supported only for private custom domain names.
+	DomainNameId *string `pulumi:"domainNameId"`
 	// ID of the API to connect.
 	RestApi interface{} `pulumi:"restApi"`
 	// Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
@@ -123,6 +138,8 @@ type BasePathMappingArgs struct {
 	BasePath pulumi.StringPtrInput
 	// Already-registered domain name to connect the API to.
 	DomainName pulumi.StringInput
+	// The identifier for the domain name resource. Supported only for private custom domain names.
+	DomainNameId pulumi.StringPtrInput
 	// ID of the API to connect.
 	RestApi pulumi.Input
 	// Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
@@ -224,6 +241,11 @@ func (o BasePathMappingOutput) BasePath() pulumi.StringPtrOutput {
 // Already-registered domain name to connect the API to.
 func (o BasePathMappingOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *BasePathMapping) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The identifier for the domain name resource. Supported only for private custom domain names.
+func (o BasePathMappingOutput) DomainNameId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BasePathMapping) pulumi.StringPtrOutput { return v.DomainNameId }).(pulumi.StringPtrOutput)
 }
 
 // ID of the API to connect.

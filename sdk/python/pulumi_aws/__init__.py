@@ -2010,6 +2010,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "bedrock/inferenceProfile",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/inferenceProfile:InferenceProfile": "InferenceProfile"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "bedrock/provisionedModelThroughput",
   "fqn": "pulumi_aws.bedrock",
   "classes": {
@@ -2622,6 +2630,14 @@ _utilities.register(
   "fqn": "pulumi_aws.cloudwatch",
   "classes": {
    "aws:cloudwatch/logAccountPolicy:LogAccountPolicy": "LogAccountPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudwatch/logAnomalyDetector",
+  "fqn": "pulumi_aws.cloudwatch",
+  "classes": {
+   "aws:cloudwatch/logAnomalyDetector:LogAnomalyDetector": "LogAnomalyDetector"
   }
  },
  {
@@ -5158,6 +5174,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ec2transitgateway",
   "classes": {
    "aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter": "VpcAttachmentAccepter"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ecr/accountSetting",
+  "fqn": "pulumi_aws.ecr",
+  "classes": {
+   "aws:ecr/accountSetting:AccountSetting": "AccountSetting"
   }
  },
  {
@@ -8042,6 +8066,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "msk/singleScramSecretAssociation",
+  "fqn": "pulumi_aws.msk",
+  "classes": {
+   "aws:msk/singleScramSecretAssociation:SingleScramSecretAssociation": "SingleScramSecretAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "msk/vpcConnection",
   "fqn": "pulumi_aws.msk",
   "classes": {
@@ -10774,6 +10806,22 @@ _utilities.register(
   "fqn": "pulumi_aws.servicecatalog",
   "classes": {
    "aws:servicecatalog/appregistryApplication:AppregistryApplication": "AppregistryApplication"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "servicecatalog/appregistryAttributeGroup",
+  "fqn": "pulumi_aws.servicecatalog",
+  "classes": {
+   "aws:servicecatalog/appregistryAttributeGroup:AppregistryAttributeGroup": "AppregistryAttributeGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "servicecatalog/appregistryAttributeGroupAssociation",
+  "fqn": "pulumi_aws.servicecatalog",
+  "classes": {
+   "aws:servicecatalog/appregistryAttributeGroupAssociation:AppregistryAttributeGroupAssociation": "AppregistryAttributeGroupAssociation"
   }
  },
  {

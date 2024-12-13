@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *         logDestinationConfigs: [{
  *             logDestination: {
  *                 bucketName: exampleAwsS3Bucket.bucket,
- *                 prefix: "/example",
+ *                 prefix: "example",
  *             },
  *             logDestinationType: "S3",
  *             logType: "FLOW",

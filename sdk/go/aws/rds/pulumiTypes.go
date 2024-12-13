@@ -924,6 +924,8 @@ type ClusterServerlessv2ScalingConfiguration struct {
 	MaxCapacity float64 `pulumi:"maxCapacity"`
 	// Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
 	MinCapacity float64 `pulumi:"minCapacity"`
+	// Time, in seconds, before an Aurora DB cluster in `provisioned` DB engine mode is paused. Valid values are `300` through `86400`.
+	SecondsUntilAutoPause *int `pulumi:"secondsUntilAutoPause"`
 }
 
 // ClusterServerlessv2ScalingConfigurationInput is an input type that accepts ClusterServerlessv2ScalingConfigurationArgs and ClusterServerlessv2ScalingConfigurationOutput values.
@@ -942,6 +944,8 @@ type ClusterServerlessv2ScalingConfigurationArgs struct {
 	MaxCapacity pulumi.Float64Input `pulumi:"maxCapacity"`
 	// Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
 	MinCapacity pulumi.Float64Input `pulumi:"minCapacity"`
+	// Time, in seconds, before an Aurora DB cluster in `provisioned` DB engine mode is paused. Valid values are `300` through `86400`.
+	SecondsUntilAutoPause pulumi.IntPtrInput `pulumi:"secondsUntilAutoPause"`
 }
 
 func (ClusterServerlessv2ScalingConfigurationArgs) ElementType() reflect.Type {
@@ -1031,6 +1035,11 @@ func (o ClusterServerlessv2ScalingConfigurationOutput) MinCapacity() pulumi.Floa
 	return o.ApplyT(func(v ClusterServerlessv2ScalingConfiguration) float64 { return v.MinCapacity }).(pulumi.Float64Output)
 }
 
+// Time, in seconds, before an Aurora DB cluster in `provisioned` DB engine mode is paused. Valid values are `300` through `86400`.
+func (o ClusterServerlessv2ScalingConfigurationOutput) SecondsUntilAutoPause() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterServerlessv2ScalingConfiguration) *int { return v.SecondsUntilAutoPause }).(pulumi.IntPtrOutput)
+}
+
 type ClusterServerlessv2ScalingConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterServerlessv2ScalingConfigurationPtrOutput) ElementType() reflect.Type {
@@ -1073,6 +1082,16 @@ func (o ClusterServerlessv2ScalingConfigurationPtrOutput) MinCapacity() pulumi.F
 		}
 		return &v.MinCapacity
 	}).(pulumi.Float64PtrOutput)
+}
+
+// Time, in seconds, before an Aurora DB cluster in `provisioned` DB engine mode is paused. Valid values are `300` through `86400`.
+func (o ClusterServerlessv2ScalingConfigurationPtrOutput) SecondsUntilAutoPause() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterServerlessv2ScalingConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SecondsUntilAutoPause
+	}).(pulumi.IntPtrOutput)
 }
 
 type ExportTaskTimeouts struct {
@@ -1232,9 +1251,9 @@ func (o ExportTaskTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 }
 
 type GlobalClusterGlobalClusterMember struct {
-	// Amazon Resource Name (ARN) of member DB Cluster
+	// Amazon Resource Name (ARN) of member DB Cluster.
 	DbClusterArn *string `pulumi:"dbClusterArn"`
-	// Whether the member is the primary DB Cluster
+	// Whether the member is the primary DB Cluster.
 	IsWriter *bool `pulumi:"isWriter"`
 }
 
@@ -1250,9 +1269,9 @@ type GlobalClusterGlobalClusterMemberInput interface {
 }
 
 type GlobalClusterGlobalClusterMemberArgs struct {
-	// Amazon Resource Name (ARN) of member DB Cluster
+	// Amazon Resource Name (ARN) of member DB Cluster.
 	DbClusterArn pulumi.StringPtrInput `pulumi:"dbClusterArn"`
-	// Whether the member is the primary DB Cluster
+	// Whether the member is the primary DB Cluster.
 	IsWriter pulumi.BoolPtrInput `pulumi:"isWriter"`
 }
 
@@ -1307,12 +1326,12 @@ func (o GlobalClusterGlobalClusterMemberOutput) ToGlobalClusterGlobalClusterMemb
 	return o
 }
 
-// Amazon Resource Name (ARN) of member DB Cluster
+// Amazon Resource Name (ARN) of member DB Cluster.
 func (o GlobalClusterGlobalClusterMemberOutput) DbClusterArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalClusterGlobalClusterMember) *string { return v.DbClusterArn }).(pulumi.StringPtrOutput)
 }
 
-// Whether the member is the primary DB Cluster
+// Whether the member is the primary DB Cluster.
 func (o GlobalClusterGlobalClusterMemberOutput) IsWriter() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GlobalClusterGlobalClusterMember) *bool { return v.IsWriter }).(pulumi.BoolPtrOutput)
 }

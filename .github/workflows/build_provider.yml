@@ -15,6 +15,7 @@ jobs:
     env:
       PROVIDER_VERSION: ${{ inputs.version }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      AZURE_SIGNING_CONFIGURED: ${{ secrets.AZURE_SIGNING_CLIENT_ID != '' && secrets.AZURE_SIGNING_CLIENT_SECRET != '' && secrets.AZURE_SIGNING_TENANT_ID != '' && secrets.AZURE_SIGNING_KEY_VAULT_URI != '' }}
     strategy:
       fail-fast: true
       matrix:
@@ -37,6 +38,7 @@ jobs:
           tool-cache: false
           swap-storage: false
           dotnet: false
+          large-packages: false
       - name: Checkout Repo
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
@@ -58,8 +60,31 @@ jobs:
           path: provider/cmd/pulumi-resource-aws
       - name: Restore makefile progress
         run: make --touch provider schema
-      - name: Build & package provider
+
+      - name: Build provider
+        run: make "provider-${{ matrix.platform.os }}-${{ matrix.platform.arch }}"
+
+      - name: Sign windows provider
+        if: matrix.platform.os == 'windows' && env.AZURE_SIGNING_CONFIGURED == 'true'
+        run: |
+          az login --service-principal \
+            -u ${{ secrets.AZURE_SIGNING_CLIENT_ID }} \
+            -p ${{ secrets.AZURE_SIGNING_CLIENT_SECRET }} \
+            -t ${{ secrets.AZURE_SIGNING_TENANT_ID }} \
+            -o none;
+
+          wget https://github.com/ebourg/jsign/releases/download/6.0/jsign-6.0.jar;
+
+          java -jar jsign-6.0.jar \
+             --storetype AZUREKEYVAULT \
+             --keystore "PulumiCodeSigning" \
+             --url ${{ secrets.AZURE_SIGNING_KEY_VAULT_URI }} \
+             --storepass "$(az account get-access-token --resource "https://vault.azure.net" | jq -r .accessToken)" \
+             bin/windows-amd64/pulumi-resource-aws.exe;
+
+      - name: Package provider
         run: make provider_dist-${{ matrix.platform.os }}-${{ matrix.platform.arch }}
+
       - name: Upload artifacts
         uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
         with:

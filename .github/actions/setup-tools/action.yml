@@ -14,6 +14,12 @@ inputs:
         dotnet
         java
     default: all
+  cache-go:
+    description: |
+      Whether to enable the GitHub cache for Go. Appropriate for disabling in
+      smaller jobs that typically completely before the "real" job has an
+      opportunity to populate the cache.
+    default: "true"
 
 runs:
   using: "composite"
@@ -27,6 +33,8 @@ runs:
           provider/*.sum
           upstream/*.sum
           sdk/*.sum
+        # TODO(https://github.com/actions/setup-go/issues/316): Restore but don't save the cache.
+        cache: ${{ inputs.cache-go }}
 
     - name: Install pulumictl
       if: inputs.tools == 'all' || contains(inputs.tools, 'pulumictl')

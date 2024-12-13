@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ScramSecretAssociation{}
 	case "aws:msk/serverlessCluster:ServerlessCluster":
 		r = &ServerlessCluster{}
+	case "aws:msk/singleScramSecretAssociation:SingleScramSecretAssociation":
+		r = &SingleScramSecretAssociation{}
 	case "aws:msk/vpcConnection:VpcConnection":
 		r = &VpcConnection{}
 	default:
@@ -76,6 +78,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"msk/serverlessCluster",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"msk/singleScramSecretAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

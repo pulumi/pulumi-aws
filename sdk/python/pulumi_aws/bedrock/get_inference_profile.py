@@ -124,7 +124,7 @@ class GetInferenceProfileResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock.
+        The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
         """
         return pulumi.get(self, "type")
 

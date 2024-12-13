@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class RamFunctions {
@@ -258,6 +259,88 @@ public final class RamFunctions {
      * 
      */
     public static Output<GetResourceShareResult> getResourceShare(GetResourceShareArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ram/getResourceShare:getResourceShare", TypeShape.of(GetResourceShareResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * `aws.ram.ResourceShare` Retrieve information about a RAM Resource Share.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ram.RamFunctions;
+     * import com.pulumi.aws.ram.inputs.GetResourceShareArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RamFunctions.getResourceShare(GetResourceShareArgs.builder()
+     *             .name("example")
+     *             .resourceOwner("SELF")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## Search by filters
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ram.RamFunctions;
+     * import com.pulumi.aws.ram.inputs.GetResourceShareArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var tagFilter = RamFunctions.getResourceShare(GetResourceShareArgs.builder()
+     *             .resourceOwner("SELF")
+     *             .filters(GetResourceShareFilterArgs.builder()
+     *                 .name("NameOfTag")
+     *                 .values("exampleNameTagValue")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetResourceShareResult> getResourceShare(GetResourceShareArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:ram/getResourceShare:getResourceShare", TypeShape.of(GetResourceShareResult.class), args, Utilities.withVersion(options));
     }
     /**

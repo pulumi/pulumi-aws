@@ -6,7 +6,10 @@ package com.pulumi.aws.rds.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
+import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterServerlessv2ScalingConfiguration {
@@ -20,6 +23,11 @@ public final class ClusterServerlessv2ScalingConfiguration {
      * 
      */
     private Double minCapacity;
+    /**
+     * @return Time, in seconds, before an Aurora DB cluster in `provisioned` DB engine mode is paused. Valid values are `300` through `86400`.
+     * 
+     */
+    private @Nullable Integer secondsUntilAutoPause;
 
     private ClusterServerlessv2ScalingConfiguration() {}
     /**
@@ -36,6 +44,13 @@ public final class ClusterServerlessv2ScalingConfiguration {
     public Double minCapacity() {
         return this.minCapacity;
     }
+    /**
+     * @return Time, in seconds, before an Aurora DB cluster in `provisioned` DB engine mode is paused. Valid values are `300` through `86400`.
+     * 
+     */
+    public Optional<Integer> secondsUntilAutoPause() {
+        return Optional.ofNullable(this.secondsUntilAutoPause);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -48,11 +63,13 @@ public final class ClusterServerlessv2ScalingConfiguration {
     public static final class Builder {
         private Double maxCapacity;
         private Double minCapacity;
+        private @Nullable Integer secondsUntilAutoPause;
         public Builder() {}
         public Builder(ClusterServerlessv2ScalingConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxCapacity = defaults.maxCapacity;
     	      this.minCapacity = defaults.minCapacity;
+    	      this.secondsUntilAutoPause = defaults.secondsUntilAutoPause;
         }
 
         @CustomType.Setter
@@ -71,10 +88,17 @@ public final class ClusterServerlessv2ScalingConfiguration {
             this.minCapacity = minCapacity;
             return this;
         }
+        @CustomType.Setter
+        public Builder secondsUntilAutoPause(@Nullable Integer secondsUntilAutoPause) {
+
+            this.secondsUntilAutoPause = secondsUntilAutoPause;
+            return this;
+        }
         public ClusterServerlessv2ScalingConfiguration build() {
             final var _resultValue = new ClusterServerlessv2ScalingConfiguration();
             _resultValue.maxCapacity = maxCapacity;
             _resultValue.minCapacity = minCapacity;
+            _resultValue.secondsUntilAutoPause = secondsUntilAutoPause;
             return _resultValue;
         }
     }

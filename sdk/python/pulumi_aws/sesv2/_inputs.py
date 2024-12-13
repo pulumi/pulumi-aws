@@ -123,6 +123,10 @@ class AccountVdmAttributesGuardianAttributesArgs:
 
 if not MYPY:
     class ConfigurationSetDeliveryOptionsArgsDict(TypedDict):
+        max_delivery_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+        """
         sending_pool_name: NotRequired[pulumi.Input[str]]
         """
         The name of the dedicated IP pool to associate with the configuration set.
@@ -137,16 +141,32 @@ elif False:
 @pulumi.input_type
 class ConfigurationSetDeliveryOptionsArgs:
     def __init__(__self__, *,
+                 max_delivery_seconds: Optional[pulumi.Input[int]] = None,
                  sending_pool_name: Optional[pulumi.Input[str]] = None,
                  tls_policy: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[int] max_delivery_seconds: The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
         :param pulumi.Input[str] sending_pool_name: The name of the dedicated IP pool to associate with the configuration set.
         :param pulumi.Input[str] tls_policy: Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). Valid values: `REQUIRE`, `OPTIONAL`.
         """
+        if max_delivery_seconds is not None:
+            pulumi.set(__self__, "max_delivery_seconds", max_delivery_seconds)
         if sending_pool_name is not None:
             pulumi.set(__self__, "sending_pool_name", sending_pool_name)
         if tls_policy is not None:
             pulumi.set(__self__, "tls_policy", tls_policy)
+
+    @property
+    @pulumi.getter(name="maxDeliverySeconds")
+    def max_delivery_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+        """
+        return pulumi.get(self, "max_delivery_seconds")
+
+    @max_delivery_seconds.setter
+    def max_delivery_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_delivery_seconds", value)
 
     @property
     @pulumi.getter(name="sendingPoolName")
@@ -673,17 +693,25 @@ if not MYPY:
         """
         The domain to use for tracking open and click events.
         """
+        https_policy: NotRequired[pulumi.Input[str]]
+        """
+        The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+        """
 elif False:
     ConfigurationSetTrackingOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationSetTrackingOptionsArgs:
     def __init__(__self__, *,
-                 custom_redirect_domain: pulumi.Input[str]):
+                 custom_redirect_domain: pulumi.Input[str],
+                 https_policy: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] custom_redirect_domain: The domain to use for tracking open and click events.
+        :param pulumi.Input[str] https_policy: The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
         """
         pulumi.set(__self__, "custom_redirect_domain", custom_redirect_domain)
+        if https_policy is not None:
+            pulumi.set(__self__, "https_policy", https_policy)
 
     @property
     @pulumi.getter(name="customRedirectDomain")
@@ -696,6 +724,18 @@ class ConfigurationSetTrackingOptionsArgs:
     @custom_redirect_domain.setter
     def custom_redirect_domain(self, value: pulumi.Input[str]):
         pulumi.set(self, "custom_redirect_domain", value)
+
+    @property
+    @pulumi.getter(name="httpsPolicy")
+    def https_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+        """
+        return pulumi.get(self, "https_policy")
+
+    @https_policy.setter
+    def https_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "https_policy", value)
 
 
 if not MYPY:

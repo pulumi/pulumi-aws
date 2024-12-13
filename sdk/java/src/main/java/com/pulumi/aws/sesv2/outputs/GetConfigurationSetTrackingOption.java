@@ -15,6 +15,11 @@ public final class GetConfigurationSetTrackingOption {
      * 
      */
     private String customRedirectDomain;
+    /**
+     * @return The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+     * 
+     */
+    private String httpsPolicy;
 
     private GetConfigurationSetTrackingOption() {}
     /**
@@ -23,6 +28,13 @@ public final class GetConfigurationSetTrackingOption {
      */
     public String customRedirectDomain() {
         return this.customRedirectDomain;
+    }
+    /**
+     * @return The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+     * 
+     */
+    public String httpsPolicy() {
+        return this.httpsPolicy;
     }
 
     public static Builder builder() {
@@ -35,10 +47,12 @@ public final class GetConfigurationSetTrackingOption {
     @CustomType.Builder
     public static final class Builder {
         private String customRedirectDomain;
+        private String httpsPolicy;
         public Builder() {}
         public Builder(GetConfigurationSetTrackingOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customRedirectDomain = defaults.customRedirectDomain;
+    	      this.httpsPolicy = defaults.httpsPolicy;
         }
 
         @CustomType.Setter
@@ -49,9 +63,18 @@ public final class GetConfigurationSetTrackingOption {
             this.customRedirectDomain = customRedirectDomain;
             return this;
         }
+        @CustomType.Setter
+        public Builder httpsPolicy(String httpsPolicy) {
+            if (httpsPolicy == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationSetTrackingOption", "httpsPolicy");
+            }
+            this.httpsPolicy = httpsPolicy;
+            return this;
+        }
         public GetConfigurationSetTrackingOption build() {
             final var _resultValue = new GetConfigurationSetTrackingOption();
             _resultValue.customRedirectDomain = customRedirectDomain;
+            _resultValue.httpsPolicy = httpsPolicy;
             return _resultValue;
         }
     }

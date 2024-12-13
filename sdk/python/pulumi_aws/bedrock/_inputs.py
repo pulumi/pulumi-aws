@@ -153,6 +153,12 @@ __all__ = [
     'GuardrailWordPolicyConfigManagedWordListsConfigArgsDict',
     'GuardrailWordPolicyConfigWordsConfigArgs',
     'GuardrailWordPolicyConfigWordsConfigArgsDict',
+    'InferenceProfileModelArgs',
+    'InferenceProfileModelArgsDict',
+    'InferenceProfileModelSourceArgs',
+    'InferenceProfileModelSourceArgsDict',
+    'InferenceProfileTimeoutsArgs',
+    'InferenceProfileTimeoutsArgsDict',
     'ProvisionedModelThroughputTimeoutsArgs',
     'ProvisionedModelThroughputTimeoutsArgsDict',
     'GetAgentAgentVersionsAgentVersionSummaryArgs',
@@ -4062,6 +4068,140 @@ class GuardrailWordPolicyConfigWordsConfigArgs:
     @text.setter
     def text(self, value: pulumi.Input[str]):
         pulumi.set(self, "text", value)
+
+
+if not MYPY:
+    class InferenceProfileModelArgsDict(TypedDict):
+        model_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the model.
+        """
+elif False:
+    InferenceProfileModelArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class InferenceProfileModelArgs:
+    def __init__(__self__, *,
+                 model_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] model_arn: The Amazon Resource Name (ARN) of the model.
+        """
+        pulumi.set(__self__, "model_arn", model_arn)
+
+    @property
+    @pulumi.getter(name="modelArn")
+    def model_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the model.
+        """
+        return pulumi.get(self, "model_arn")
+
+    @model_arn.setter
+    def model_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "model_arn", value)
+
+
+if not MYPY:
+    class InferenceProfileModelSourceArgsDict(TypedDict):
+        copy_from: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the model.
+        """
+elif False:
+    InferenceProfileModelSourceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class InferenceProfileModelSourceArgs:
+    def __init__(__self__, *,
+                 copy_from: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] copy_from: The Amazon Resource Name (ARN) of the model.
+        """
+        pulumi.set(__self__, "copy_from", copy_from)
+
+    @property
+    @pulumi.getter(name="copyFrom")
+    def copy_from(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the model.
+        """
+        return pulumi.get(self, "copy_from")
+
+    @copy_from.setter
+    def copy_from(self, value: pulumi.Input[str]):
+        pulumi.set(self, "copy_from", value)
+
+
+if not MYPY:
+    class InferenceProfileTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    InferenceProfileTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class InferenceProfileTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 delete: Optional[pulumi.Input[str]] = None,
+                 update: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete", value)
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update", value)
 
 
 if not MYPY:

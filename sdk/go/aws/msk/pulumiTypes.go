@@ -4330,7 +4330,8 @@ type ReplicatorReplicationInfoListTopicReplication struct {
 	// Whether to periodically check for new topics and partitions.
 	DetectAndCopyNewTopics *bool `pulumi:"detectAndCopyNewTopics"`
 	// Configuration for specifying the position in the topics to start replicating from.
-	StartingPosition *ReplicatorReplicationInfoListTopicReplicationStartingPosition `pulumi:"startingPosition"`
+	StartingPosition       *ReplicatorReplicationInfoListTopicReplicationStartingPosition       `pulumi:"startingPosition"`
+	TopicNameConfiguration *ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration `pulumi:"topicNameConfiguration"`
 	// List of regular expression patterns indicating the topics that should not be replica.
 	TopicsToExcludes []string `pulumi:"topicsToExcludes"`
 	// List of regular expression patterns indicating the topics to copy.
@@ -4356,7 +4357,8 @@ type ReplicatorReplicationInfoListTopicReplicationArgs struct {
 	// Whether to periodically check for new topics and partitions.
 	DetectAndCopyNewTopics pulumi.BoolPtrInput `pulumi:"detectAndCopyNewTopics"`
 	// Configuration for specifying the position in the topics to start replicating from.
-	StartingPosition ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrInput `pulumi:"startingPosition"`
+	StartingPosition       ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrInput       `pulumi:"startingPosition"`
+	TopicNameConfiguration ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrInput `pulumi:"topicNameConfiguration"`
 	// List of regular expression patterns indicating the topics that should not be replica.
 	TopicsToExcludes pulumi.StringArrayInput `pulumi:"topicsToExcludes"`
 	// List of regular expression patterns indicating the topics to copy.
@@ -4434,6 +4436,12 @@ func (o ReplicatorReplicationInfoListTopicReplicationOutput) StartingPosition() 
 	return o.ApplyT(func(v ReplicatorReplicationInfoListTopicReplication) *ReplicatorReplicationInfoListTopicReplicationStartingPosition {
 		return v.StartingPosition
 	}).(ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput)
+}
+
+func (o ReplicatorReplicationInfoListTopicReplicationOutput) TopicNameConfiguration() ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput {
+	return o.ApplyT(func(v ReplicatorReplicationInfoListTopicReplication) *ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration {
+		return v.TopicNameConfiguration
+	}).(ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput)
 }
 
 // List of regular expression patterns indicating the topics that should not be replica.
@@ -4596,6 +4604,139 @@ func (o ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput) 
 // The type of replication starting position. Supports `LATEST` and `EARLIEST`.
 func (o ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicatorReplicationInfoListTopicReplicationStartingPosition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration struct {
+	Type *string `pulumi:"type"`
+}
+
+// ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationInput is an input type that accepts ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs and ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutput values.
+// You can construct a concrete instance of `ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationInput` via:
+//
+//	ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs{...}
+type ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationInput interface {
+	pulumi.Input
+
+	ToReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutput() ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutput
+	ToReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutputWithContext(context.Context) ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutput
+}
+
+type ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs struct {
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration)(nil)).Elem()
+}
+
+func (i ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs) ToReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutput() ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutput {
+	return i.ToReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutputWithContext(context.Background())
+}
+
+func (i ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs) ToReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutputWithContext(ctx context.Context) ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutput)
+}
+
+func (i ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs) ToReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput() ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput {
+	return i.ToReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs) ToReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutputWithContext(ctx context.Context) ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutput).ToReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutputWithContext(ctx)
+}
+
+// ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrInput is an input type that accepts ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs, ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtr and ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput values.
+// You can construct a concrete instance of `ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrInput` via:
+//
+//	        ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput() ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput
+	ToReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutputWithContext(context.Context) ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput
+}
+
+type replicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrType ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs
+
+func ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtr(v *ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs) ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrInput {
+	return (*replicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrType)(v)
+}
+
+func (*replicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration)(nil)).Elem()
+}
+
+func (i *replicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrType) ToReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput() ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput {
+	return i.ToReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *replicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrType) ToReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutputWithContext(ctx context.Context) ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput)
+}
+
+type ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration)(nil)).Elem()
+}
+
+func (o ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutput) ToReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutput() ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutput {
+	return o
+}
+
+func (o ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutput) ToReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutputWithContext(ctx context.Context) ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutput {
+	return o
+}
+
+func (o ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutput) ToReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput() ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput {
+	return o.ToReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutput) ToReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutputWithContext(ctx context.Context) ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration) *ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration {
+		return &v
+	}).(ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput)
+}
+
+func (o ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration)(nil)).Elem()
+}
+
+func (o ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput) ToReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput() ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput {
+	return o
+}
+
+func (o ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput) ToReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutputWithContext(ctx context.Context) ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput {
+	return o
+}
+
+func (o ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput) Elem() ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutput {
+	return o.ApplyT(func(v *ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration) ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration
+		return ret
+	}).(ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutput)
+}
+
+func (o ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -6257,6 +6398,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationInfoListTopicReplicationArrayInput)(nil)).Elem(), ReplicatorReplicationInfoListTopicReplicationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationInfoListTopicReplicationStartingPositionInput)(nil)).Elem(), ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrInput)(nil)).Elem(), ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationInput)(nil)).Elem(), ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrInput)(nil)).Elem(), ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterClientAuthenticationInput)(nil)).Elem(), ServerlessClusterClientAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterClientAuthenticationPtrInput)(nil)).Elem(), ServerlessClusterClientAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterClientAuthenticationSaslInput)(nil)).Elem(), ServerlessClusterClientAuthenticationSaslArgs{})
@@ -6345,6 +6488,8 @@ func init() {
 	pulumi.RegisterOutputType(ReplicatorReplicationInfoListTopicReplicationArrayOutput{})
 	pulumi.RegisterOutputType(ReplicatorReplicationInfoListTopicReplicationStartingPositionOutput{})
 	pulumi.RegisterOutputType(ReplicatorReplicationInfoListTopicReplicationStartingPositionPtrOutput{})
+	pulumi.RegisterOutputType(ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationOutput{})
+	pulumi.RegisterOutputType(ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServerlessClusterClientAuthenticationOutput{})
 	pulumi.RegisterOutputType(ServerlessClusterClientAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(ServerlessClusterClientAuthenticationSaslOutput{})

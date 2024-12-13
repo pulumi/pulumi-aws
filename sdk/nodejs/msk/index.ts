@@ -65,6 +65,11 @@ export type ServerlessCluster = import("./serverlessCluster").ServerlessCluster;
 export const ServerlessCluster: typeof import("./serverlessCluster").ServerlessCluster = null as any;
 utilities.lazyLoad(exports, ["ServerlessCluster"], () => require("./serverlessCluster"));
 
+export { SingleScramSecretAssociationArgs, SingleScramSecretAssociationState } from "./singleScramSecretAssociation";
+export type SingleScramSecretAssociation = import("./singleScramSecretAssociation").SingleScramSecretAssociation;
+export const SingleScramSecretAssociation: typeof import("./singleScramSecretAssociation").SingleScramSecretAssociation = null as any;
+utilities.lazyLoad(exports, ["SingleScramSecretAssociation"], () => require("./singleScramSecretAssociation"));
+
 export { VpcConnectionArgs, VpcConnectionState } from "./vpcConnection";
 export type VpcConnection = import("./vpcConnection").VpcConnection;
 export const VpcConnection: typeof import("./vpcConnection").VpcConnection = null as any;
@@ -87,6 +92,8 @@ const _module = {
                 return new ScramSecretAssociation(name, <any>undefined, { urn })
             case "aws:msk/serverlessCluster:ServerlessCluster":
                 return new ServerlessCluster(name, <any>undefined, { urn })
+            case "aws:msk/singleScramSecretAssociation:SingleScramSecretAssociation":
+                return new SingleScramSecretAssociation(name, <any>undefined, { urn })
             case "aws:msk/vpcConnection:VpcConnection":
                 return new VpcConnection(name, <any>undefined, { urn })
             default:
@@ -100,4 +107,5 @@ pulumi.runtime.registerResourceModule("aws", "msk/configuration", _module)
 pulumi.runtime.registerResourceModule("aws", "msk/replicator", _module)
 pulumi.runtime.registerResourceModule("aws", "msk/scramSecretAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "msk/serverlessCluster", _module)
+pulumi.runtime.registerResourceModule("aws", "msk/singleScramSecretAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "msk/vpcConnection", _module)

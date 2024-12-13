@@ -77,14 +77,14 @@ public final class ProfilesAssociationState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Status of the Profile Association. See the [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html) for valid values.
+     * Status of the Profile Association.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Status of the Profile Association. See the [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html) for valid values.
+     * @return Status of the Profile Association.
      * 
      */
     public Optional<Output<String>> status() {
@@ -106,14 +106,24 @@ public final class ProfilesAssociationState extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.statusMessage);
     }
 
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
     /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
      * @deprecated
      * Please use `tags` instead.
      * 
@@ -123,6 +133,8 @@ public final class ProfilesAssociationState extends com.pulumi.resources.Resourc
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
      * @deprecated
      * Please use `tags` instead.
      * 
@@ -254,7 +266,7 @@ public final class ProfilesAssociationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param status Status of the Profile Association. See the [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html) for valid values.
+         * @param status Status of the Profile Association.
          * 
          * @return builder
          * 
@@ -265,7 +277,7 @@ public final class ProfilesAssociationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param status Status of the Profile Association. See the [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html) for valid values.
+         * @param status Status of the Profile Association.
          * 
          * @return builder
          * 
@@ -295,16 +307,30 @@ public final class ProfilesAssociationState extends com.pulumi.resources.Resourc
             return statusMessage(Output.of(statusMessage));
         }
 
+        /**
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
         /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -318,6 +344,8 @@ public final class ProfilesAssociationState extends com.pulumi.resources.Resourc
         }
 
         /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
          * @return builder
          * 
          * @deprecated

@@ -20,6 +20,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class SfnFunctions {
@@ -272,6 +273,48 @@ public final class SfnFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetActivityResult> getActivity(GetActivityArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:sfn/getActivity:getActivity", TypeShape.of(GetActivityResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a Step Functions Activity data source
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sfn.SfnFunctions;
+     * import com.pulumi.aws.sfn.inputs.GetActivityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var sfnActivity = SfnFunctions.getActivity(GetActivityArgs.builder()
+     *             .name("my-activity")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetActivityResult> getActivityPlain(GetActivityPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:sfn/getActivity:getActivity", TypeShape.of(GetActivityResult.class), args, Utilities.withVersion(options));
     }
@@ -408,6 +451,51 @@ public final class SfnFunctions {
      * 
      */
     public static Output<GetAliasResult> getAlias(GetAliasArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:sfn/getAlias:getAlias", TypeShape.of(GetAliasResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS SFN (Step Functions) State Machine Alias.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sfn.SfnFunctions;
+     * import com.pulumi.aws.sfn.inputs.GetAliasArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SfnFunctions.getAlias(GetAliasArgs.builder()
+     *             .name("my_sfn_alias")
+     *             .statemachineArn(sfnTest.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAliasResult> getAlias(GetAliasArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:sfn/getAlias:getAlias", TypeShape.of(GetAliasResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -628,6 +716,50 @@ public final class SfnFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetStateMachineResult> getStateMachine(GetStateMachineArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:sfn/getStateMachine:getStateMachine", TypeShape.of(GetStateMachineResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get the ARN of a State Machine in AWS Step
+     * Function (SFN). By using this data source, you can reference a
+     * state machine without having to hard code the ARNs as input.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sfn.SfnFunctions;
+     * import com.pulumi.aws.sfn.inputs.GetStateMachineArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SfnFunctions.getStateMachine(GetStateMachineArgs.builder()
+     *             .name("an_example_sfn_name")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetStateMachineResult> getStateMachinePlain(GetStateMachinePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:sfn/getStateMachine:getStateMachine", TypeShape.of(GetStateMachineResult.class), args, Utilities.withVersion(options));
     }
@@ -761,6 +893,50 @@ public final class SfnFunctions {
      * 
      */
     public static Output<GetStateMachineVersionsResult> getStateMachineVersions(GetStateMachineVersionsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:sfn/getStateMachineVersions:getStateMachineVersions", TypeShape.of(GetStateMachineVersionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS SFN (Step Functions) State Machine Versions.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sfn.SfnFunctions;
+     * import com.pulumi.aws.sfn.inputs.GetStateMachineVersionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = SfnFunctions.getStateMachineVersions(GetStateMachineVersionsArgs.builder()
+     *             .statemachineArn(testAwsSfnStateMachine.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetStateMachineVersionsResult> getStateMachineVersions(GetStateMachineVersionsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:sfn/getStateMachineVersions:getStateMachineVersions", TypeShape.of(GetStateMachineVersionsResult.class), args, Utilities.withVersion(options));
     }
     /**

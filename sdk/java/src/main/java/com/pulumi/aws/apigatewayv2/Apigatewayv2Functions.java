@@ -20,6 +20,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class Apigatewayv2Functions {
@@ -147,6 +148,48 @@ public final class Apigatewayv2Functions {
      * 
      */
     public static Output<GetApiResult> getApi(GetApiArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:apigatewayv2/getApi:getApi", TypeShape.of(GetApiResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a specific Amazon API Gateway Version 2 API.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
+     * import com.pulumi.aws.apigatewayv2.inputs.GetApiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Apigatewayv2Functions.getApi(GetApiArgs.builder()
+     *             .apiId("aabbccddee")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetApiResult> getApi(GetApiArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:apigatewayv2/getApi:getApi", TypeShape.of(GetApiResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -440,6 +483,48 @@ public final class Apigatewayv2Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetApisResult> getApis(GetApisArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:apigatewayv2/getApis:getApis", TypeShape.of(GetApisResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about multiple Amazon API Gateway Version 2 APIs.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
+     * import com.pulumi.aws.apigatewayv2.inputs.GetApisArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Apigatewayv2Functions.getApis(GetApisArgs.builder()
+     *             .protocolType("HTTP")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetApisResult> getApisPlain(GetApisPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:apigatewayv2/getApis:getApis", TypeShape.of(GetApisResult.class), args, Utilities.withVersion(options));
     }
@@ -616,6 +701,50 @@ public final class Apigatewayv2Functions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetExportResult> getExport(GetExportArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:apigatewayv2/getExport:getExport", TypeShape.of(GetExportResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Exports a definition of an API in a particular output format and specification.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
+     * import com.pulumi.aws.apigatewayv2.inputs.GetExportArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Apigatewayv2Functions.getExport(GetExportArgs.builder()
+     *             .apiId(testAwsApigatewayv2Route.apiId())
+     *             .specification("OAS30")
+     *             .outputType("JSON")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetExportResult> getExportPlain(GetExportPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:apigatewayv2/getExport:getExport", TypeShape.of(GetExportResult.class), args, Utilities.withVersion(options));
     }
@@ -749,6 +878,50 @@ public final class Apigatewayv2Functions {
      * 
      */
     public static Output<GetVpcLinkResult> getVpcLink(GetVpcLinkArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:apigatewayv2/getVpcLink:getVpcLink", TypeShape.of(GetVpcLinkResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS API Gateway V2 VPC Link.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
+     * import com.pulumi.aws.apigatewayv2.inputs.GetVpcLinkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Apigatewayv2Functions.getVpcLink(GetVpcLinkArgs.builder()
+     *             .vpcLinkId("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetVpcLinkResult> getVpcLink(GetVpcLinkArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:apigatewayv2/getVpcLink:getVpcLink", TypeShape.of(GetVpcLinkResult.class), args, Utilities.withVersion(options));
     }
     /**

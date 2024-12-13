@@ -93,6 +93,10 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
+     */
+    public readonly enablePrimaryIpv6!: pulumi.Output<boolean>;
+    /**
      * Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interfaceType` will cause the resource to be destroyed and re-created.
      */
     public readonly interfaceType!: pulumi.Output<string>;
@@ -109,7 +113,7 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public readonly ipv6AddressCount!: pulumi.Output<number>;
     /**
-     * Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default false.
+     * Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default is `false`.
      */
     public readonly ipv6AddressListEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -143,7 +147,7 @@ export class NetworkInterface extends pulumi.CustomResource {
     public /*out*/ readonly privateDnsName!: pulumi.Output<string>;
     public readonly privateIp!: pulumi.Output<string>;
     /**
-     * Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default false.
+     * Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default is `false`.
      */
     public readonly privateIpListEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -199,6 +203,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["attachments"] = state ? state.attachments : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enablePrimaryIpv6"] = state ? state.enablePrimaryIpv6 : undefined;
             resourceInputs["interfaceType"] = state ? state.interfaceType : undefined;
             resourceInputs["ipv4PrefixCount"] = state ? state.ipv4PrefixCount : undefined;
             resourceInputs["ipv4Prefixes"] = state ? state.ipv4Prefixes : undefined;
@@ -229,6 +234,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             }
             resourceInputs["attachments"] = args ? args.attachments : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enablePrimaryIpv6"] = args ? args.enablePrimaryIpv6 : undefined;
             resourceInputs["interfaceType"] = args ? args.interfaceType : undefined;
             resourceInputs["ipv4PrefixCount"] = args ? args.ipv4PrefixCount : undefined;
             resourceInputs["ipv4Prefixes"] = args ? args.ipv4Prefixes : undefined;
@@ -276,6 +282,10 @@ export interface NetworkInterfaceState {
      */
     description?: pulumi.Input<string>;
     /**
+     * Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
+     */
+    enablePrimaryIpv6?: pulumi.Input<boolean>;
+    /**
      * Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interfaceType` will cause the resource to be destroyed and re-created.
      */
     interfaceType?: pulumi.Input<string>;
@@ -292,7 +302,7 @@ export interface NetworkInterfaceState {
      */
     ipv6AddressCount?: pulumi.Input<number>;
     /**
-     * Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default false.
+     * Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default is `false`.
      */
     ipv6AddressListEnabled?: pulumi.Input<boolean>;
     /**
@@ -326,7 +336,7 @@ export interface NetworkInterfaceState {
     privateDnsName?: pulumi.Input<string>;
     privateIp?: pulumi.Input<string>;
     /**
-     * Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default false.
+     * Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default is `false`.
      */
     privateIpListEnabled?: pulumi.Input<boolean>;
     /**
@@ -380,6 +390,10 @@ export interface NetworkInterfaceArgs {
      */
     description?: pulumi.Input<string>;
     /**
+     * Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
+     */
+    enablePrimaryIpv6?: pulumi.Input<boolean>;
+    /**
      * Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interfaceType` will cause the resource to be destroyed and re-created.
      */
     interfaceType?: pulumi.Input<string>;
@@ -396,7 +410,7 @@ export interface NetworkInterfaceArgs {
      */
     ipv6AddressCount?: pulumi.Input<number>;
     /**
-     * Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default false.
+     * Whether `ipv6AddressList` is allowed and controls the IPs to assign to the ENI and `ipv6Addresses` and `ipv6AddressCount` become read-only. Default is `false`.
      */
     ipv6AddressListEnabled?: pulumi.Input<boolean>;
     /**
@@ -417,7 +431,7 @@ export interface NetworkInterfaceArgs {
     ipv6Prefixes?: pulumi.Input<pulumi.Input<string>[]>;
     privateIp?: pulumi.Input<string>;
     /**
-     * Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default false.
+     * Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default is `false`.
      */
     privateIpListEnabled?: pulumi.Input<boolean>;
     /**

@@ -32,6 +32,11 @@ public final class GetAppregistryApplicationResult {
      * 
      */
     private String name;
+    /**
+     * @return A map of tags assigned to the Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    private Map<String,String> tags;
 
     private GetAppregistryApplicationResult() {}
     /**
@@ -65,6 +70,13 @@ public final class GetAppregistryApplicationResult {
     public String name() {
         return this.name;
     }
+    /**
+     * @return A map of tags assigned to the Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    public Map<String,String> tags() {
+        return this.tags;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -80,6 +92,7 @@ public final class GetAppregistryApplicationResult {
         private String description;
         private String id;
         private String name;
+        private Map<String,String> tags;
         public Builder() {}
         public Builder(GetAppregistryApplicationResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -88,6 +101,7 @@ public final class GetAppregistryApplicationResult {
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.tags = defaults.tags;
         }
 
         @CustomType.Setter
@@ -130,6 +144,14 @@ public final class GetAppregistryApplicationResult {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder tags(Map<String,String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetAppregistryApplicationResult", "tags");
+            }
+            this.tags = tags;
+            return this;
+        }
         public GetAppregistryApplicationResult build() {
             final var _resultValue = new GetAppregistryApplicationResult();
             _resultValue.applicationTag = applicationTag;
@@ -137,6 +159,7 @@ public final class GetAppregistryApplicationResult {
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.tags = tags;
             return _resultValue;
         }
     }

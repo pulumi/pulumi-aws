@@ -10315,6 +10315,415 @@ func (o GuardrailWordPolicyConfigWordsConfigArrayOutput) Index(i pulumi.IntInput
 	}).(GuardrailWordPolicyConfigWordsConfigOutput)
 }
 
+type InferenceProfileModel struct {
+	// The Amazon Resource Name (ARN) of the model.
+	ModelArn string `pulumi:"modelArn"`
+}
+
+// InferenceProfileModelInput is an input type that accepts InferenceProfileModelArgs and InferenceProfileModelOutput values.
+// You can construct a concrete instance of `InferenceProfileModelInput` via:
+//
+//	InferenceProfileModelArgs{...}
+type InferenceProfileModelInput interface {
+	pulumi.Input
+
+	ToInferenceProfileModelOutput() InferenceProfileModelOutput
+	ToInferenceProfileModelOutputWithContext(context.Context) InferenceProfileModelOutput
+}
+
+type InferenceProfileModelArgs struct {
+	// The Amazon Resource Name (ARN) of the model.
+	ModelArn pulumi.StringInput `pulumi:"modelArn"`
+}
+
+func (InferenceProfileModelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceProfileModel)(nil)).Elem()
+}
+
+func (i InferenceProfileModelArgs) ToInferenceProfileModelOutput() InferenceProfileModelOutput {
+	return i.ToInferenceProfileModelOutputWithContext(context.Background())
+}
+
+func (i InferenceProfileModelArgs) ToInferenceProfileModelOutputWithContext(ctx context.Context) InferenceProfileModelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceProfileModelOutput)
+}
+
+// InferenceProfileModelArrayInput is an input type that accepts InferenceProfileModelArray and InferenceProfileModelArrayOutput values.
+// You can construct a concrete instance of `InferenceProfileModelArrayInput` via:
+//
+//	InferenceProfileModelArray{ InferenceProfileModelArgs{...} }
+type InferenceProfileModelArrayInput interface {
+	pulumi.Input
+
+	ToInferenceProfileModelArrayOutput() InferenceProfileModelArrayOutput
+	ToInferenceProfileModelArrayOutputWithContext(context.Context) InferenceProfileModelArrayOutput
+}
+
+type InferenceProfileModelArray []InferenceProfileModelInput
+
+func (InferenceProfileModelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InferenceProfileModel)(nil)).Elem()
+}
+
+func (i InferenceProfileModelArray) ToInferenceProfileModelArrayOutput() InferenceProfileModelArrayOutput {
+	return i.ToInferenceProfileModelArrayOutputWithContext(context.Background())
+}
+
+func (i InferenceProfileModelArray) ToInferenceProfileModelArrayOutputWithContext(ctx context.Context) InferenceProfileModelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceProfileModelArrayOutput)
+}
+
+type InferenceProfileModelOutput struct{ *pulumi.OutputState }
+
+func (InferenceProfileModelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceProfileModel)(nil)).Elem()
+}
+
+func (o InferenceProfileModelOutput) ToInferenceProfileModelOutput() InferenceProfileModelOutput {
+	return o
+}
+
+func (o InferenceProfileModelOutput) ToInferenceProfileModelOutputWithContext(ctx context.Context) InferenceProfileModelOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the model.
+func (o InferenceProfileModelOutput) ModelArn() pulumi.StringOutput {
+	return o.ApplyT(func(v InferenceProfileModel) string { return v.ModelArn }).(pulumi.StringOutput)
+}
+
+type InferenceProfileModelArrayOutput struct{ *pulumi.OutputState }
+
+func (InferenceProfileModelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InferenceProfileModel)(nil)).Elem()
+}
+
+func (o InferenceProfileModelArrayOutput) ToInferenceProfileModelArrayOutput() InferenceProfileModelArrayOutput {
+	return o
+}
+
+func (o InferenceProfileModelArrayOutput) ToInferenceProfileModelArrayOutputWithContext(ctx context.Context) InferenceProfileModelArrayOutput {
+	return o
+}
+
+func (o InferenceProfileModelArrayOutput) Index(i pulumi.IntInput) InferenceProfileModelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InferenceProfileModel {
+		return vs[0].([]InferenceProfileModel)[vs[1].(int)]
+	}).(InferenceProfileModelOutput)
+}
+
+type InferenceProfileModelSource struct {
+	// The Amazon Resource Name (ARN) of the model.
+	CopyFrom string `pulumi:"copyFrom"`
+}
+
+// InferenceProfileModelSourceInput is an input type that accepts InferenceProfileModelSourceArgs and InferenceProfileModelSourceOutput values.
+// You can construct a concrete instance of `InferenceProfileModelSourceInput` via:
+//
+//	InferenceProfileModelSourceArgs{...}
+type InferenceProfileModelSourceInput interface {
+	pulumi.Input
+
+	ToInferenceProfileModelSourceOutput() InferenceProfileModelSourceOutput
+	ToInferenceProfileModelSourceOutputWithContext(context.Context) InferenceProfileModelSourceOutput
+}
+
+type InferenceProfileModelSourceArgs struct {
+	// The Amazon Resource Name (ARN) of the model.
+	CopyFrom pulumi.StringInput `pulumi:"copyFrom"`
+}
+
+func (InferenceProfileModelSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceProfileModelSource)(nil)).Elem()
+}
+
+func (i InferenceProfileModelSourceArgs) ToInferenceProfileModelSourceOutput() InferenceProfileModelSourceOutput {
+	return i.ToInferenceProfileModelSourceOutputWithContext(context.Background())
+}
+
+func (i InferenceProfileModelSourceArgs) ToInferenceProfileModelSourceOutputWithContext(ctx context.Context) InferenceProfileModelSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceProfileModelSourceOutput)
+}
+
+func (i InferenceProfileModelSourceArgs) ToInferenceProfileModelSourcePtrOutput() InferenceProfileModelSourcePtrOutput {
+	return i.ToInferenceProfileModelSourcePtrOutputWithContext(context.Background())
+}
+
+func (i InferenceProfileModelSourceArgs) ToInferenceProfileModelSourcePtrOutputWithContext(ctx context.Context) InferenceProfileModelSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceProfileModelSourceOutput).ToInferenceProfileModelSourcePtrOutputWithContext(ctx)
+}
+
+// InferenceProfileModelSourcePtrInput is an input type that accepts InferenceProfileModelSourceArgs, InferenceProfileModelSourcePtr and InferenceProfileModelSourcePtrOutput values.
+// You can construct a concrete instance of `InferenceProfileModelSourcePtrInput` via:
+//
+//	        InferenceProfileModelSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type InferenceProfileModelSourcePtrInput interface {
+	pulumi.Input
+
+	ToInferenceProfileModelSourcePtrOutput() InferenceProfileModelSourcePtrOutput
+	ToInferenceProfileModelSourcePtrOutputWithContext(context.Context) InferenceProfileModelSourcePtrOutput
+}
+
+type inferenceProfileModelSourcePtrType InferenceProfileModelSourceArgs
+
+func InferenceProfileModelSourcePtr(v *InferenceProfileModelSourceArgs) InferenceProfileModelSourcePtrInput {
+	return (*inferenceProfileModelSourcePtrType)(v)
+}
+
+func (*inferenceProfileModelSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceProfileModelSource)(nil)).Elem()
+}
+
+func (i *inferenceProfileModelSourcePtrType) ToInferenceProfileModelSourcePtrOutput() InferenceProfileModelSourcePtrOutput {
+	return i.ToInferenceProfileModelSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *inferenceProfileModelSourcePtrType) ToInferenceProfileModelSourcePtrOutputWithContext(ctx context.Context) InferenceProfileModelSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceProfileModelSourcePtrOutput)
+}
+
+type InferenceProfileModelSourceOutput struct{ *pulumi.OutputState }
+
+func (InferenceProfileModelSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceProfileModelSource)(nil)).Elem()
+}
+
+func (o InferenceProfileModelSourceOutput) ToInferenceProfileModelSourceOutput() InferenceProfileModelSourceOutput {
+	return o
+}
+
+func (o InferenceProfileModelSourceOutput) ToInferenceProfileModelSourceOutputWithContext(ctx context.Context) InferenceProfileModelSourceOutput {
+	return o
+}
+
+func (o InferenceProfileModelSourceOutput) ToInferenceProfileModelSourcePtrOutput() InferenceProfileModelSourcePtrOutput {
+	return o.ToInferenceProfileModelSourcePtrOutputWithContext(context.Background())
+}
+
+func (o InferenceProfileModelSourceOutput) ToInferenceProfileModelSourcePtrOutputWithContext(ctx context.Context) InferenceProfileModelSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceProfileModelSource) *InferenceProfileModelSource {
+		return &v
+	}).(InferenceProfileModelSourcePtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the model.
+func (o InferenceProfileModelSourceOutput) CopyFrom() pulumi.StringOutput {
+	return o.ApplyT(func(v InferenceProfileModelSource) string { return v.CopyFrom }).(pulumi.StringOutput)
+}
+
+type InferenceProfileModelSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceProfileModelSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceProfileModelSource)(nil)).Elem()
+}
+
+func (o InferenceProfileModelSourcePtrOutput) ToInferenceProfileModelSourcePtrOutput() InferenceProfileModelSourcePtrOutput {
+	return o
+}
+
+func (o InferenceProfileModelSourcePtrOutput) ToInferenceProfileModelSourcePtrOutputWithContext(ctx context.Context) InferenceProfileModelSourcePtrOutput {
+	return o
+}
+
+func (o InferenceProfileModelSourcePtrOutput) Elem() InferenceProfileModelSourceOutput {
+	return o.ApplyT(func(v *InferenceProfileModelSource) InferenceProfileModelSource {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceProfileModelSource
+		return ret
+	}).(InferenceProfileModelSourceOutput)
+}
+
+// The Amazon Resource Name (ARN) of the model.
+func (o InferenceProfileModelSourcePtrOutput) CopyFrom() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceProfileModelSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CopyFrom
+	}).(pulumi.StringPtrOutput)
+}
+
+type InferenceProfileTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// InferenceProfileTimeoutsInput is an input type that accepts InferenceProfileTimeoutsArgs and InferenceProfileTimeoutsOutput values.
+// You can construct a concrete instance of `InferenceProfileTimeoutsInput` via:
+//
+//	InferenceProfileTimeoutsArgs{...}
+type InferenceProfileTimeoutsInput interface {
+	pulumi.Input
+
+	ToInferenceProfileTimeoutsOutput() InferenceProfileTimeoutsOutput
+	ToInferenceProfileTimeoutsOutputWithContext(context.Context) InferenceProfileTimeoutsOutput
+}
+
+type InferenceProfileTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (InferenceProfileTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceProfileTimeouts)(nil)).Elem()
+}
+
+func (i InferenceProfileTimeoutsArgs) ToInferenceProfileTimeoutsOutput() InferenceProfileTimeoutsOutput {
+	return i.ToInferenceProfileTimeoutsOutputWithContext(context.Background())
+}
+
+func (i InferenceProfileTimeoutsArgs) ToInferenceProfileTimeoutsOutputWithContext(ctx context.Context) InferenceProfileTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceProfileTimeoutsOutput)
+}
+
+func (i InferenceProfileTimeoutsArgs) ToInferenceProfileTimeoutsPtrOutput() InferenceProfileTimeoutsPtrOutput {
+	return i.ToInferenceProfileTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i InferenceProfileTimeoutsArgs) ToInferenceProfileTimeoutsPtrOutputWithContext(ctx context.Context) InferenceProfileTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceProfileTimeoutsOutput).ToInferenceProfileTimeoutsPtrOutputWithContext(ctx)
+}
+
+// InferenceProfileTimeoutsPtrInput is an input type that accepts InferenceProfileTimeoutsArgs, InferenceProfileTimeoutsPtr and InferenceProfileTimeoutsPtrOutput values.
+// You can construct a concrete instance of `InferenceProfileTimeoutsPtrInput` via:
+//
+//	        InferenceProfileTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type InferenceProfileTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToInferenceProfileTimeoutsPtrOutput() InferenceProfileTimeoutsPtrOutput
+	ToInferenceProfileTimeoutsPtrOutputWithContext(context.Context) InferenceProfileTimeoutsPtrOutput
+}
+
+type inferenceProfileTimeoutsPtrType InferenceProfileTimeoutsArgs
+
+func InferenceProfileTimeoutsPtr(v *InferenceProfileTimeoutsArgs) InferenceProfileTimeoutsPtrInput {
+	return (*inferenceProfileTimeoutsPtrType)(v)
+}
+
+func (*inferenceProfileTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceProfileTimeouts)(nil)).Elem()
+}
+
+func (i *inferenceProfileTimeoutsPtrType) ToInferenceProfileTimeoutsPtrOutput() InferenceProfileTimeoutsPtrOutput {
+	return i.ToInferenceProfileTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *inferenceProfileTimeoutsPtrType) ToInferenceProfileTimeoutsPtrOutputWithContext(ctx context.Context) InferenceProfileTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceProfileTimeoutsPtrOutput)
+}
+
+type InferenceProfileTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (InferenceProfileTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceProfileTimeouts)(nil)).Elem()
+}
+
+func (o InferenceProfileTimeoutsOutput) ToInferenceProfileTimeoutsOutput() InferenceProfileTimeoutsOutput {
+	return o
+}
+
+func (o InferenceProfileTimeoutsOutput) ToInferenceProfileTimeoutsOutputWithContext(ctx context.Context) InferenceProfileTimeoutsOutput {
+	return o
+}
+
+func (o InferenceProfileTimeoutsOutput) ToInferenceProfileTimeoutsPtrOutput() InferenceProfileTimeoutsPtrOutput {
+	return o.ToInferenceProfileTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceProfileTimeoutsOutput) ToInferenceProfileTimeoutsPtrOutputWithContext(ctx context.Context) InferenceProfileTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceProfileTimeouts) *InferenceProfileTimeouts {
+		return &v
+	}).(InferenceProfileTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o InferenceProfileTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InferenceProfileTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o InferenceProfileTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InferenceProfileTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o InferenceProfileTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InferenceProfileTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type InferenceProfileTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceProfileTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceProfileTimeouts)(nil)).Elem()
+}
+
+func (o InferenceProfileTimeoutsPtrOutput) ToInferenceProfileTimeoutsPtrOutput() InferenceProfileTimeoutsPtrOutput {
+	return o
+}
+
+func (o InferenceProfileTimeoutsPtrOutput) ToInferenceProfileTimeoutsPtrOutputWithContext(ctx context.Context) InferenceProfileTimeoutsPtrOutput {
+	return o
+}
+
+func (o InferenceProfileTimeoutsPtrOutput) Elem() InferenceProfileTimeoutsOutput {
+	return o.ApplyT(func(v *InferenceProfileTimeouts) InferenceProfileTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceProfileTimeouts
+		return ret
+	}).(InferenceProfileTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o InferenceProfileTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceProfileTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o InferenceProfileTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceProfileTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o InferenceProfileTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceProfileTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type ProvisionedModelThroughputTimeouts struct {
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
@@ -11918,6 +12327,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailWordPolicyConfigManagedWordListsConfigArrayInput)(nil)).Elem(), GuardrailWordPolicyConfigManagedWordListsConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailWordPolicyConfigWordsConfigInput)(nil)).Elem(), GuardrailWordPolicyConfigWordsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailWordPolicyConfigWordsConfigArrayInput)(nil)).Elem(), GuardrailWordPolicyConfigWordsConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceProfileModelInput)(nil)).Elem(), InferenceProfileModelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceProfileModelArrayInput)(nil)).Elem(), InferenceProfileModelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceProfileModelSourceInput)(nil)).Elem(), InferenceProfileModelSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceProfileModelSourcePtrInput)(nil)).Elem(), InferenceProfileModelSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceProfileTimeoutsInput)(nil)).Elem(), InferenceProfileTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceProfileTimeoutsPtrInput)(nil)).Elem(), InferenceProfileTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedModelThroughputTimeoutsInput)(nil)).Elem(), ProvisionedModelThroughputTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedModelThroughputTimeoutsPtrInput)(nil)).Elem(), ProvisionedModelThroughputTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAgentAgentVersionsAgentVersionSummaryInput)(nil)).Elem(), GetAgentAgentVersionsAgentVersionSummaryArgs{})
@@ -12082,6 +12497,12 @@ func init() {
 	pulumi.RegisterOutputType(GuardrailWordPolicyConfigManagedWordListsConfigArrayOutput{})
 	pulumi.RegisterOutputType(GuardrailWordPolicyConfigWordsConfigOutput{})
 	pulumi.RegisterOutputType(GuardrailWordPolicyConfigWordsConfigArrayOutput{})
+	pulumi.RegisterOutputType(InferenceProfileModelOutput{})
+	pulumi.RegisterOutputType(InferenceProfileModelArrayOutput{})
+	pulumi.RegisterOutputType(InferenceProfileModelSourceOutput{})
+	pulumi.RegisterOutputType(InferenceProfileModelSourcePtrOutput{})
+	pulumi.RegisterOutputType(InferenceProfileTimeoutsOutput{})
+	pulumi.RegisterOutputType(InferenceProfileTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ProvisionedModelThroughputTimeoutsOutput{})
 	pulumi.RegisterOutputType(ProvisionedModelThroughputTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(GetAgentAgentVersionsAgentVersionSummaryOutput{})

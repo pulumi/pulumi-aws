@@ -23,6 +23,10 @@ __all__ = [
     'CatalogTableOpenTableFormatInput',
     'CatalogTableOpenTableFormatInputIcebergInput',
     'CatalogTableOptimizerConfiguration',
+    'CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration',
+    'CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration',
+    'CatalogTableOptimizerConfigurationRetentionConfiguration',
+    'CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration',
     'CatalogTablePartitionIndex',
     'CatalogTablePartitionKey',
     'CatalogTableStorageDescriptor',
@@ -360,6 +364,10 @@ class CatalogTableOptimizerConfiguration(dict):
         suggest = None
         if key == "roleArn":
             suggest = "role_arn"
+        elif key == "orphanFileDeletionConfiguration":
+            suggest = "orphan_file_deletion_configuration"
+        elif key == "retentionConfiguration":
+            suggest = "retention_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CatalogTableOptimizerConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -374,13 +382,21 @@ class CatalogTableOptimizerConfiguration(dict):
 
     def __init__(__self__, *,
                  enabled: bool,
-                 role_arn: str):
+                 role_arn: str,
+                 orphan_file_deletion_configuration: Optional['outputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration'] = None,
+                 retention_configuration: Optional['outputs.CatalogTableOptimizerConfigurationRetentionConfiguration'] = None):
         """
         :param bool enabled: Indicates whether the table optimizer is enabled.
         :param str role_arn: The ARN of the IAM role to use for the table optimizer.
+        :param 'CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs' orphan_file_deletion_configuration: The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
+        :param 'CatalogTableOptimizerConfigurationRetentionConfigurationArgs' retention_configuration: The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "role_arn", role_arn)
+        if orphan_file_deletion_configuration is not None:
+            pulumi.set(__self__, "orphan_file_deletion_configuration", orphan_file_deletion_configuration)
+        if retention_configuration is not None:
+            pulumi.set(__self__, "retention_configuration", retention_configuration)
 
     @property
     @pulumi.getter
@@ -397,6 +413,206 @@ class CatalogTableOptimizerConfiguration(dict):
         The ARN of the IAM role to use for the table optimizer.
         """
         return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="orphanFileDeletionConfiguration")
+    def orphan_file_deletion_configuration(self) -> Optional['outputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration']:
+        """
+        The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
+        """
+        return pulumi.get(self, "orphan_file_deletion_configuration")
+
+    @property
+    @pulumi.getter(name="retentionConfiguration")
+    def retention_configuration(self) -> Optional['outputs.CatalogTableOptimizerConfigurationRetentionConfiguration']:
+        """
+        The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
+        """
+        return pulumi.get(self, "retention_configuration")
+
+
+@pulumi.output_type
+class CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "icebergConfiguration":
+            suggest = "iceberg_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 iceberg_configuration: Optional['outputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration'] = None):
+        """
+        :param 'CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs' iceberg_configuration: The configuration for an Iceberg orphan file deletion optimizer.
+        """
+        if iceberg_configuration is not None:
+            pulumi.set(__self__, "iceberg_configuration", iceberg_configuration)
+
+    @property
+    @pulumi.getter(name="icebergConfiguration")
+    def iceberg_configuration(self) -> Optional['outputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration']:
+        """
+        The configuration for an Iceberg orphan file deletion optimizer.
+        """
+        return pulumi.get(self, "iceberg_configuration")
+
+
+@pulumi.output_type
+class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "orphanFileRetentionPeriodInDays":
+            suggest = "orphan_file_retention_period_in_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 location: Optional[str] = None,
+                 orphan_file_retention_period_in_days: Optional[float] = None):
+        """
+        :param str location: Specifies a directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table's location.
+        :param float orphan_file_retention_period_in_days: The number of days that orphan files should be retained before file deletion. Defaults to `3`.
+        """
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if orphan_file_retention_period_in_days is not None:
+            pulumi.set(__self__, "orphan_file_retention_period_in_days", orphan_file_retention_period_in_days)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Specifies a directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table's location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="orphanFileRetentionPeriodInDays")
+    def orphan_file_retention_period_in_days(self) -> Optional[float]:
+        """
+        The number of days that orphan files should be retained before file deletion. Defaults to `3`.
+        """
+        return pulumi.get(self, "orphan_file_retention_period_in_days")
+
+
+@pulumi.output_type
+class CatalogTableOptimizerConfigurationRetentionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "icebergConfiguration":
+            suggest = "iceberg_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogTableOptimizerConfigurationRetentionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogTableOptimizerConfigurationRetentionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogTableOptimizerConfigurationRetentionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 iceberg_configuration: Optional['outputs.CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration'] = None):
+        """
+        :param 'CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs' iceberg_configuration: The configuration for an Iceberg snapshot retention optimizer.
+        """
+        if iceberg_configuration is not None:
+            pulumi.set(__self__, "iceberg_configuration", iceberg_configuration)
+
+    @property
+    @pulumi.getter(name="icebergConfiguration")
+    def iceberg_configuration(self) -> Optional['outputs.CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration']:
+        """
+        The configuration for an Iceberg snapshot retention optimizer.
+        """
+        return pulumi.get(self, "iceberg_configuration")
+
+
+@pulumi.output_type
+class CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cleanExpiredFiles":
+            suggest = "clean_expired_files"
+        elif key == "numberOfSnapshotsToRetain":
+            suggest = "number_of_snapshots_to_retain"
+        elif key == "snapshotRetentionPeriodInDays":
+            suggest = "snapshot_retention_period_in_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 clean_expired_files: Optional[bool] = None,
+                 number_of_snapshots_to_retain: Optional[float] = None,
+                 snapshot_retention_period_in_days: Optional[float] = None):
+        """
+        :param bool clean_expired_files: If set to `false`, snapshots are only deleted from table metadata, and the underlying data and metadata files are not deleted. Defaults to `false`.
+        :param float number_of_snapshots_to_retain: The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
+        :param float snapshot_retention_period_in_days: The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
+        """
+        if clean_expired_files is not None:
+            pulumi.set(__self__, "clean_expired_files", clean_expired_files)
+        if number_of_snapshots_to_retain is not None:
+            pulumi.set(__self__, "number_of_snapshots_to_retain", number_of_snapshots_to_retain)
+        if snapshot_retention_period_in_days is not None:
+            pulumi.set(__self__, "snapshot_retention_period_in_days", snapshot_retention_period_in_days)
+
+    @property
+    @pulumi.getter(name="cleanExpiredFiles")
+    def clean_expired_files(self) -> Optional[bool]:
+        """
+        If set to `false`, snapshots are only deleted from table metadata, and the underlying data and metadata files are not deleted. Defaults to `false`.
+        """
+        return pulumi.get(self, "clean_expired_files")
+
+    @property
+    @pulumi.getter(name="numberOfSnapshotsToRetain")
+    def number_of_snapshots_to_retain(self) -> Optional[float]:
+        """
+        The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
+        """
+        return pulumi.get(self, "number_of_snapshots_to_retain")
+
+    @property
+    @pulumi.getter(name="snapshotRetentionPeriodInDays")
+    def snapshot_retention_period_in_days(self) -> Optional[float]:
+        """
+        The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
+        """
+        return pulumi.get(self, "snapshot_retention_period_in_days")
 
 
 @pulumi.output_type

@@ -52,11 +52,6 @@ jobs:
         ref: ${{ env.PR_COMMIT_SHA }}
         submodules: true
         persist-credentials: false
-    - name: Checkout p/examples
-      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-      with:
-        repository: pulumi/examples
-        path: p-examples
     - name: Setup tools
       uses: ./.github/actions/setup-tools
     - name: Prepare local workspace
@@ -120,7 +115,7 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-region: ${{ env.AWS_REGION }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        role-duration-seconds: 3600
+        role-duration-seconds: 7200
         role-session-name: aws@githubActions
         role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
     - name: Make upstream
@@ -148,108 +143,6 @@ jobs:
          - 7
          - 8
          - 9
-  go_test_shim:
-      name: Run test of provider shim
-      runs-on: ubuntu-latest
-      steps:
-          - name: Free Disk Space (Ubuntu)
-            uses: jlumbroso/free-disk-space@main
-            with:
-              swap-storage: false
-              tool-cache: false
-          - name: Checkout Repo
-            uses: actions/checkout@v4
-            with:
-              ref: ${{ env.PR_COMMIT_SHA }}
-              submodules: true
-          - uses: pulumi/provider-version-action@v1
-            with:
-              set-env: PROVIDER_VERSION
-          - name: Setup tools
-            uses: ./.github/actions/setup-tools
-            with:
-              tools: pulumictl, pulumi, go
-          - name: Prepare local workspace
-            run: make prepare_local_workspace
-          - name: go test
-            run: |
-              cd upstream
-              go get github.com/hashicorp/aws-sdk-go-base@v1.1.0
-              cd shim
-              go test -v -coverprofile="coverage.txt" .
-          - env:
-              CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-            name: Upload coverage reports to Codecov
-            uses: codecov/codecov-action@v4
-      timeout-minutes: 60
-  provider_test:
-      name: provider_test
-      permissions:
-          contents: read
-          id-token: write
-      runs-on: ubuntu-latest
-      steps:
-          - name: Free Disk Space (Ubuntu)
-            uses: jlumbroso/free-disk-space@main
-            with:
-              swap-storage: false
-              tool-cache: false
-          - name: Checkout Repo
-            uses: actions/checkout@v4
-            with:
-              ref: ${{ env.PR_COMMIT_SHA }}
-              submodules: true
-          - uses: pulumi/provider-version-action@v1
-            with:
-              set-env: PROVIDER_VERSION
-          - name: Setup tools
-            uses: ./.github/actions/setup-tools
-            with:
-              tools: pulumictl, pulumi, go, node, dotnet, python, java
-          - name: Prepare local workspace
-            run: make prepare_local_workspace
-          - name: Download bin
-            uses: ./.github/actions/download-bin
-          - name: Download SDK
-            uses: ./.github/actions/download-sdk
-            with:
-              language: ${{ matrix.language }}
-          - name: Restore makefile progress
-            run: make --touch provider schema build_${{ matrix.language }}
-          - name: Update path
-            run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
-          - name: Install Python deps
-            run: |-
-              pip3 install virtualenv==20.0.23
-              pip3 install pipenv
-          - name: Install dependencies
-            run: make install_${{ matrix.language}}_sdk
-          - name: Install gotestfmt
-            uses: GoTestTools/gotestfmt-action@v2
-            with:
-              token: ${{ secrets.GITHUB_TOKEN }}
-              version: v2.5.0
-          - name: Configure AWS Credentials
-            uses: aws-actions/configure-aws-credentials@v4
-            with:
-              aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-              aws-region: ${{ env.AWS_REGION }}
-              aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-              role-duration-seconds: 3600
-              role-session-name: aws@githubActions
-              role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
-          - name: Run provider tests
-            run: |
-              cd provider && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
-      strategy:
-          fail-fast: false
-          matrix:
-              language:
-                  - nodejs
-                  - python
-                  - dotnet
-                  - go
-                  - java
   upstream_lint:
       name: Run upstream provider-lint
       runs-on: ubuntu-latest

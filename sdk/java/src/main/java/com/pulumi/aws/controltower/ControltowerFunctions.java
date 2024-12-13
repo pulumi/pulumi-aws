@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class ControltowerFunctions {
@@ -48,6 +49,18 @@ public final class ControltowerFunctions {
      * 
      */
     public static Output<GetControlsResult> getControls(GetControlsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:controltower/getControls:getControls", TypeShape.of(GetControlsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * List of Control Tower controls applied to an OU.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetControlsResult> getControls(GetControlsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:controltower/getControls:getControls", TypeShape.of(GetControlsResult.class), args, Utilities.withVersion(options));
     }
     /**

@@ -58,6 +58,10 @@ export interface GetAppregistryApplicationResult {
      * Name of the application.
      */
     readonly name: string;
+    /**
+     * A map of tags assigned to the Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    readonly tags: {[key: string]: string};
 }
 /**
  * Data source for managing an AWS Service Catalog AppRegistry Application.

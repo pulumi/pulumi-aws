@@ -67,6 +67,8 @@ type SnapshotCopy struct {
 
 	// Amazon Resource Name (ARN) of the EBS Snapshot.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
+	CompletionDurationMinutes pulumi.IntPtrOutput `pulumi:"completionDurationMinutes"`
 	// The data encryption key identifier for the snapshot.
 	DataEncryptionKeyId pulumi.StringOutput `pulumi:"dataEncryptionKeyId"`
 	// A description of what the snapshot is.
@@ -139,6 +141,8 @@ func GetSnapshotCopy(ctx *pulumi.Context,
 type snapshotCopyState struct {
 	// Amazon Resource Name (ARN) of the EBS Snapshot.
 	Arn *string `pulumi:"arn"`
+	// Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
+	CompletionDurationMinutes *int `pulumi:"completionDurationMinutes"`
 	// The data encryption key identifier for the snapshot.
 	DataEncryptionKeyId *string `pulumi:"dataEncryptionKeyId"`
 	// A description of what the snapshot is.
@@ -176,6 +180,8 @@ type snapshotCopyState struct {
 type SnapshotCopyState struct {
 	// Amazon Resource Name (ARN) of the EBS Snapshot.
 	Arn pulumi.StringPtrInput
+	// Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
+	CompletionDurationMinutes pulumi.IntPtrInput
 	// The data encryption key identifier for the snapshot.
 	DataEncryptionKeyId pulumi.StringPtrInput
 	// A description of what the snapshot is.
@@ -215,6 +221,8 @@ func (SnapshotCopyState) ElementType() reflect.Type {
 }
 
 type snapshotCopyArgs struct {
+	// Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
+	CompletionDurationMinutes *int `pulumi:"completionDurationMinutes"`
 	// A description of what the snapshot is.
 	Description *string `pulumi:"description"`
 	// Whether the snapshot is encrypted.
@@ -237,6 +245,8 @@ type snapshotCopyArgs struct {
 
 // The set of arguments for constructing a SnapshotCopy resource.
 type SnapshotCopyArgs struct {
+	// Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
+	CompletionDurationMinutes pulumi.IntPtrInput
 	// A description of what the snapshot is.
 	Description pulumi.StringPtrInput
 	// Whether the snapshot is encrypted.
@@ -347,6 +357,11 @@ func (o SnapshotCopyOutput) ToSnapshotCopyOutputWithContext(ctx context.Context)
 // Amazon Resource Name (ARN) of the EBS Snapshot.
 func (o SnapshotCopyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
+func (o SnapshotCopyOutput) CompletionDurationMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SnapshotCopy) pulumi.IntPtrOutput { return v.CompletionDurationMinutes }).(pulumi.IntPtrOutput)
 }
 
 // The data encryption key identifier for the snapshot.

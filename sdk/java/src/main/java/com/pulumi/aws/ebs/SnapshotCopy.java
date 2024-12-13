@@ -90,6 +90,20 @@ public class SnapshotCopy extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
+     * Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
+     * 
+     */
+    @Export(name="completionDurationMinutes", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> completionDurationMinutes;
+
+    /**
+     * @return Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
+     * 
+     */
+    public Output<Optional<Integer>> completionDurationMinutes() {
+        return Codegen.optional(this.completionDurationMinutes);
+    }
+    /**
      * The data encryption key identifier for the snapshot.
      * 
      */

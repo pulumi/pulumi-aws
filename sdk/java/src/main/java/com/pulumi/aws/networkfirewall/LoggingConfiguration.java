@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *                 .logDestinationConfigs(LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs.builder()
  *                     .logDestination(Map.ofEntries(
  *                         Map.entry("bucketName", exampleAwsS3Bucket.bucket()),
- *                         Map.entry("prefix", "/example")
+ *                         Map.entry("prefix", "example")
  *                     ))
  *                     .logDestinationType("S3")
  *                     .logType("FLOW")

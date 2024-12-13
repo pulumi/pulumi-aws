@@ -34,6 +34,7 @@ class InstanceArgs:
                  disable_api_termination: Optional[pulumi.Input[bool]] = None,
                  ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceEbsBlockDeviceArgs']]]] = None,
                  ebs_optimized: Optional[pulumi.Input[bool]] = None,
+                 enable_primary_ipv6: Optional[pulumi.Input[bool]] = None,
                  enclave_options: Optional[pulumi.Input['InstanceEnclaveOptionsArgs']] = None,
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceEphemeralBlockDeviceArgs']]]] = None,
                  get_password_data: Optional[pulumi.Input[bool]] = None,
@@ -84,6 +85,7 @@ class InstanceArgs:
         :param pulumi.Input[bool] disable_api_termination: If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
         :param pulumi.Input[Sequence[pulumi.Input['InstanceEbsBlockDeviceArgs']]] ebs_block_devices: One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
         :param pulumi.Input[bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
+        :param pulumi.Input[bool] enable_primary_ipv6: Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
         :param pulumi.Input['InstanceEnclaveOptionsArgs'] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['InstanceEphemeralBlockDeviceArgs']]] ephemeral_block_devices: One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
         :param pulumi.Input[bool] get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
@@ -153,6 +155,8 @@ class InstanceArgs:
             pulumi.set(__self__, "ebs_block_devices", ebs_block_devices)
         if ebs_optimized is not None:
             pulumi.set(__self__, "ebs_optimized", ebs_optimized)
+        if enable_primary_ipv6 is not None:
+            pulumi.set(__self__, "enable_primary_ipv6", enable_primary_ipv6)
         if enclave_options is not None:
             pulumi.set(__self__, "enclave_options", enclave_options)
         if ephemeral_block_devices is not None:
@@ -372,6 +376,18 @@ class InstanceArgs:
     @ebs_optimized.setter
     def ebs_optimized(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "ebs_optimized", value)
+
+    @property
+    @pulumi.getter(name="enablePrimaryIpv6")
+    def enable_primary_ipv6(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
+        """
+        return pulumi.get(self, "enable_primary_ipv6")
+
+    @enable_primary_ipv6.setter
+    def enable_primary_ipv6(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_primary_ipv6", value)
 
     @property
     @pulumi.getter(name="enclaveOptions")
@@ -803,6 +819,7 @@ class _InstanceState:
                  disable_api_termination: Optional[pulumi.Input[bool]] = None,
                  ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceEbsBlockDeviceArgs']]]] = None,
                  ebs_optimized: Optional[pulumi.Input[bool]] = None,
+                 enable_primary_ipv6: Optional[pulumi.Input[bool]] = None,
                  enclave_options: Optional[pulumi.Input['InstanceEnclaveOptionsArgs']] = None,
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceEphemeralBlockDeviceArgs']]]] = None,
                  get_password_data: Optional[pulumi.Input[bool]] = None,
@@ -864,6 +881,7 @@ class _InstanceState:
         :param pulumi.Input[bool] disable_api_termination: If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
         :param pulumi.Input[Sequence[pulumi.Input['InstanceEbsBlockDeviceArgs']]] ebs_block_devices: One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
         :param pulumi.Input[bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
+        :param pulumi.Input[bool] enable_primary_ipv6: Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
         :param pulumi.Input['InstanceEnclaveOptionsArgs'] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['InstanceEphemeralBlockDeviceArgs']]] ephemeral_block_devices: One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
         :param pulumi.Input[bool] get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
@@ -945,6 +963,8 @@ class _InstanceState:
             pulumi.set(__self__, "ebs_block_devices", ebs_block_devices)
         if ebs_optimized is not None:
             pulumi.set(__self__, "ebs_optimized", ebs_optimized)
+        if enable_primary_ipv6 is not None:
+            pulumi.set(__self__, "enable_primary_ipv6", enable_primary_ipv6)
         if enclave_options is not None:
             pulumi.set(__self__, "enclave_options", enclave_options)
         if ephemeral_block_devices is not None:
@@ -1199,6 +1219,18 @@ class _InstanceState:
     @ebs_optimized.setter
     def ebs_optimized(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "ebs_optimized", value)
+
+    @property
+    @pulumi.getter(name="enablePrimaryIpv6")
+    def enable_primary_ipv6(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
+        """
+        return pulumi.get(self, "enable_primary_ipv6")
+
+    @enable_primary_ipv6.setter
+    def enable_primary_ipv6(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_primary_ipv6", value)
 
     @property
     @pulumi.getter(name="enclaveOptions")
@@ -1752,6 +1784,7 @@ class Instance(pulumi.CustomResource):
                  disable_api_termination: Optional[pulumi.Input[bool]] = None,
                  ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceEbsBlockDeviceArgs', 'InstanceEbsBlockDeviceArgsDict']]]]] = None,
                  ebs_optimized: Optional[pulumi.Input[bool]] = None,
+                 enable_primary_ipv6: Optional[pulumi.Input[bool]] = None,
                  enclave_options: Optional[pulumi.Input[Union['InstanceEnclaveOptionsArgs', 'InstanceEnclaveOptionsArgsDict']]] = None,
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceEphemeralBlockDeviceArgs', 'InstanceEphemeralBlockDeviceArgsDict']]]]] = None,
                  get_password_data: Optional[pulumi.Input[bool]] = None,
@@ -1976,6 +2009,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[bool] disable_api_termination: If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
         :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceEbsBlockDeviceArgs', 'InstanceEbsBlockDeviceArgsDict']]]] ebs_block_devices: One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
         :param pulumi.Input[bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
+        :param pulumi.Input[bool] enable_primary_ipv6: Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
         :param pulumi.Input[Union['InstanceEnclaveOptionsArgs', 'InstanceEnclaveOptionsArgsDict']] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceEphemeralBlockDeviceArgs', 'InstanceEphemeralBlockDeviceArgsDict']]]] ephemeral_block_devices: One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
         :param pulumi.Input[bool] get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
@@ -2221,6 +2255,7 @@ class Instance(pulumi.CustomResource):
                  disable_api_termination: Optional[pulumi.Input[bool]] = None,
                  ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceEbsBlockDeviceArgs', 'InstanceEbsBlockDeviceArgsDict']]]]] = None,
                  ebs_optimized: Optional[pulumi.Input[bool]] = None,
+                 enable_primary_ipv6: Optional[pulumi.Input[bool]] = None,
                  enclave_options: Optional[pulumi.Input[Union['InstanceEnclaveOptionsArgs', 'InstanceEnclaveOptionsArgsDict']]] = None,
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceEphemeralBlockDeviceArgs', 'InstanceEphemeralBlockDeviceArgsDict']]]]] = None,
                  get_password_data: Optional[pulumi.Input[bool]] = None,
@@ -2276,6 +2311,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["disable_api_termination"] = disable_api_termination
             __props__.__dict__["ebs_block_devices"] = ebs_block_devices
             __props__.__dict__["ebs_optimized"] = ebs_optimized
+            __props__.__dict__["enable_primary_ipv6"] = enable_primary_ipv6
             __props__.__dict__["enclave_options"] = enclave_options
             __props__.__dict__["ephemeral_block_devices"] = ephemeral_block_devices
             __props__.__dict__["get_password_data"] = get_password_data
@@ -2344,6 +2380,7 @@ class Instance(pulumi.CustomResource):
             disable_api_termination: Optional[pulumi.Input[bool]] = None,
             ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceEbsBlockDeviceArgs', 'InstanceEbsBlockDeviceArgsDict']]]]] = None,
             ebs_optimized: Optional[pulumi.Input[bool]] = None,
+            enable_primary_ipv6: Optional[pulumi.Input[bool]] = None,
             enclave_options: Optional[pulumi.Input[Union['InstanceEnclaveOptionsArgs', 'InstanceEnclaveOptionsArgsDict']]] = None,
             ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceEphemeralBlockDeviceArgs', 'InstanceEphemeralBlockDeviceArgsDict']]]]] = None,
             get_password_data: Optional[pulumi.Input[bool]] = None,
@@ -2410,6 +2447,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[bool] disable_api_termination: If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
         :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceEbsBlockDeviceArgs', 'InstanceEbsBlockDeviceArgsDict']]]] ebs_block_devices: One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
         :param pulumi.Input[bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
+        :param pulumi.Input[bool] enable_primary_ipv6: Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
         :param pulumi.Input[Union['InstanceEnclaveOptionsArgs', 'InstanceEnclaveOptionsArgsDict']] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceEphemeralBlockDeviceArgs', 'InstanceEphemeralBlockDeviceArgsDict']]]] ephemeral_block_devices: One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
         :param pulumi.Input[bool] get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
@@ -2476,6 +2514,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["disable_api_termination"] = disable_api_termination
         __props__.__dict__["ebs_block_devices"] = ebs_block_devices
         __props__.__dict__["ebs_optimized"] = ebs_optimized
+        __props__.__dict__["enable_primary_ipv6"] = enable_primary_ipv6
         __props__.__dict__["enclave_options"] = enclave_options
         __props__.__dict__["ephemeral_block_devices"] = ephemeral_block_devices
         __props__.__dict__["get_password_data"] = get_password_data
@@ -2629,6 +2668,14 @@ class Instance(pulumi.CustomResource):
         If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
         """
         return pulumi.get(self, "ebs_optimized")
+
+    @property
+    @pulumi.getter(name="enablePrimaryIpv6")
+    def enable_primary_ipv6(self) -> pulumi.Output[bool]:
+        """
+        Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
+        """
+        return pulumi.get(self, "enable_primary_ipv6")
 
     @property
     @pulumi.getter(name="enclaveOptions")

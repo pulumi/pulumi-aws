@@ -27,7 +27,7 @@ class GetDomainNameResult:
     """
     A collection of values returned by getDomainName.
     """
-    def __init__(__self__, arn=None, certificate_arn=None, certificate_name=None, certificate_upload_date=None, cloudfront_domain_name=None, cloudfront_zone_id=None, domain_name=None, endpoint_configurations=None, id=None, regional_certificate_arn=None, regional_certificate_name=None, regional_domain_name=None, regional_zone_id=None, security_policy=None, tags=None):
+    def __init__(__self__, arn=None, certificate_arn=None, certificate_name=None, certificate_upload_date=None, cloudfront_domain_name=None, cloudfront_zone_id=None, domain_name=None, domain_name_id=None, endpoint_configurations=None, id=None, policy=None, regional_certificate_arn=None, regional_certificate_name=None, regional_domain_name=None, regional_zone_id=None, security_policy=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -49,12 +49,18 @@ class GetDomainNameResult:
         if domain_name and not isinstance(domain_name, str):
             raise TypeError("Expected argument 'domain_name' to be a str")
         pulumi.set(__self__, "domain_name", domain_name)
+        if domain_name_id and not isinstance(domain_name_id, str):
+            raise TypeError("Expected argument 'domain_name_id' to be a str")
+        pulumi.set(__self__, "domain_name_id", domain_name_id)
         if endpoint_configurations and not isinstance(endpoint_configurations, list):
             raise TypeError("Expected argument 'endpoint_configurations' to be a list")
         pulumi.set(__self__, "endpoint_configurations", endpoint_configurations)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if policy and not isinstance(policy, str):
+            raise TypeError("Expected argument 'policy' to be a str")
+        pulumi.set(__self__, "policy", policy)
         if regional_certificate_arn and not isinstance(regional_certificate_arn, str):
             raise TypeError("Expected argument 'regional_certificate_arn' to be a str")
         pulumi.set(__self__, "regional_certificate_arn", regional_certificate_arn)
@@ -128,6 +134,11 @@ class GetDomainNameResult:
         return pulumi.get(self, "domain_name")
 
     @property
+    @pulumi.getter(name="domainNameId")
+    def domain_name_id(self) -> str:
+        return pulumi.get(self, "domain_name_id")
+
+    @property
     @pulumi.getter(name="endpointConfigurations")
     def endpoint_configurations(self) -> Sequence['outputs.GetDomainNameEndpointConfigurationResult']:
         """
@@ -142,6 +153,14 @@ class GetDomainNameResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> str:
+        """
+        A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+        """
+        return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter(name="regionalCertificateArn")
@@ -205,8 +224,10 @@ class AwaitableGetDomainNameResult(GetDomainNameResult):
             cloudfront_domain_name=self.cloudfront_domain_name,
             cloudfront_zone_id=self.cloudfront_zone_id,
             domain_name=self.domain_name,
+            domain_name_id=self.domain_name_id,
             endpoint_configurations=self.endpoint_configurations,
             id=self.id,
+            policy=self.policy,
             regional_certificate_arn=self.regional_certificate_arn,
             regional_certificate_name=self.regional_certificate_name,
             regional_domain_name=self.regional_domain_name,
@@ -216,6 +237,7 @@ class AwaitableGetDomainNameResult(GetDomainNameResult):
 
 
 def get_domain_name(domain_name: Optional[str] = None,
+                    domain_name_id: Optional[str] = None,
                     tags: Optional[Mapping[str, str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainNameResult:
     """
@@ -232,10 +254,12 @@ def get_domain_name(domain_name: Optional[str] = None,
 
 
     :param str domain_name: Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
+    :param str domain_name_id: The identifier for the domain name resource. Supported only for private custom domain names.
     :param Mapping[str, str] tags: Key-value map of tags for the resource.
     """
     __args__ = dict()
     __args__['domainName'] = domain_name
+    __args__['domainNameId'] = domain_name_id
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:apigateway/getDomainName:getDomainName', __args__, opts=opts, typ=GetDomainNameResult).value
@@ -248,8 +272,10 @@ def get_domain_name(domain_name: Optional[str] = None,
         cloudfront_domain_name=pulumi.get(__ret__, 'cloudfront_domain_name'),
         cloudfront_zone_id=pulumi.get(__ret__, 'cloudfront_zone_id'),
         domain_name=pulumi.get(__ret__, 'domain_name'),
+        domain_name_id=pulumi.get(__ret__, 'domain_name_id'),
         endpoint_configurations=pulumi.get(__ret__, 'endpoint_configurations'),
         id=pulumi.get(__ret__, 'id'),
+        policy=pulumi.get(__ret__, 'policy'),
         regional_certificate_arn=pulumi.get(__ret__, 'regional_certificate_arn'),
         regional_certificate_name=pulumi.get(__ret__, 'regional_certificate_name'),
         regional_domain_name=pulumi.get(__ret__, 'regional_domain_name'),
@@ -257,6 +283,7 @@ def get_domain_name(domain_name: Optional[str] = None,
         security_policy=pulumi.get(__ret__, 'security_policy'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_domain_name_output(domain_name: Optional[pulumi.Input[str]] = None,
+                           domain_name_id: Optional[pulumi.Input[Optional[str]]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainNameResult]:
     """
@@ -273,10 +300,12 @@ def get_domain_name_output(domain_name: Optional[pulumi.Input[str]] = None,
 
 
     :param str domain_name: Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
+    :param str domain_name_id: The identifier for the domain name resource. Supported only for private custom domain names.
     :param Mapping[str, str] tags: Key-value map of tags for the resource.
     """
     __args__ = dict()
     __args__['domainName'] = domain_name
+    __args__['domainNameId'] = domain_name_id
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:apigateway/getDomainName:getDomainName', __args__, opts=opts, typ=GetDomainNameResult)
@@ -288,8 +317,10 @@ def get_domain_name_output(domain_name: Optional[pulumi.Input[str]] = None,
         cloudfront_domain_name=pulumi.get(__response__, 'cloudfront_domain_name'),
         cloudfront_zone_id=pulumi.get(__response__, 'cloudfront_zone_id'),
         domain_name=pulumi.get(__response__, 'domain_name'),
+        domain_name_id=pulumi.get(__response__, 'domain_name_id'),
         endpoint_configurations=pulumi.get(__response__, 'endpoint_configurations'),
         id=pulumi.get(__response__, 'id'),
+        policy=pulumi.get(__response__, 'policy'),
         regional_certificate_arn=pulumi.get(__response__, 'regional_certificate_arn'),
         regional_certificate_name=pulumi.get(__response__, 'regional_certificate_name'),
         regional_domain_name=pulumi.get(__response__, 'regional_domain_name'),

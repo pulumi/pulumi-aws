@@ -71,7 +71,7 @@ import (
 //				return err
 //			}
 //			main, err := cognito.NewUserPoolDomain(ctx, "main", &cognito.UserPoolDomainArgs{
-//				Domain:         pulumi.String("example-domain"),
+//				Domain:         pulumi.String("auth.example.com"),
 //				CertificateArn: pulumi.Any(cert.Arn),
 //				UserPoolId:     exampleUserPool.ID(),
 //			})

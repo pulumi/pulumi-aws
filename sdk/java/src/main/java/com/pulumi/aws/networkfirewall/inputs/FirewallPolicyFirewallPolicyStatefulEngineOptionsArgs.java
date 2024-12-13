@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.networkfirewall.inputs;
 
+import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs Empty = new FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs();
+
+    /**
+     * Amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
+     * 
+     */
+    @Import(name="flowTimeouts")
+    private @Nullable Output<FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs> flowTimeouts;
+
+    /**
+     * @return Amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
+     * 
+     */
+    public Optional<Output<FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs>> flowTimeouts() {
+        return Optional.ofNullable(this.flowTimeouts);
+    }
 
     /**
      * Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
@@ -48,6 +64,7 @@ public final class FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs extends
     private FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs() {}
 
     private FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs(FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs $) {
+        this.flowTimeouts = $.flowTimeouts;
         this.ruleOrder = $.ruleOrder;
         this.streamExceptionPolicy = $.streamExceptionPolicy;
     }
@@ -68,6 +85,27 @@ public final class FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs extends
 
         public Builder(FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs defaults) {
             $ = new FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param flowTimeouts Amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder flowTimeouts(@Nullable Output<FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs> flowTimeouts) {
+            $.flowTimeouts = flowTimeouts;
+            return this;
+        }
+
+        /**
+         * @param flowTimeouts Amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder flowTimeouts(FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs flowTimeouts) {
+            return flowTimeouts(Output.of(flowTimeouts));
         }
 
         /**

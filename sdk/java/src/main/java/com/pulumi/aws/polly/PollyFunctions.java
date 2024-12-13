@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class PollyFunctions {
@@ -397,6 +398,83 @@ public final class PollyFunctions {
      * 
      */
     public static Output<GetVoicesResult> getVoices(GetVoicesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:polly/getVoices:getVoices", TypeShape.of(GetVoicesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Polly Voices.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.polly.PollyFunctions;
+     * import com.pulumi.aws.polly.inputs.GetVoicesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PollyFunctions.getVoices();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### With Language Code
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.polly.PollyFunctions;
+     * import com.pulumi.aws.polly.inputs.GetVoicesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PollyFunctions.getVoices(GetVoicesArgs.builder()
+     *             .languageCode("en-GB")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetVoicesResult> getVoices(GetVoicesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:polly/getVoices:getVoices", TypeShape.of(GetVoicesResult.class), args, Utilities.withVersion(options));
     }
     /**

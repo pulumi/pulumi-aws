@@ -102,6 +102,11 @@ export type LogAccountPolicy = import("./logAccountPolicy").LogAccountPolicy;
 export const LogAccountPolicy: typeof import("./logAccountPolicy").LogAccountPolicy = null as any;
 utilities.lazyLoad(exports, ["LogAccountPolicy"], () => require("./logAccountPolicy"));
 
+export { LogAnomalyDetectorArgs, LogAnomalyDetectorState } from "./logAnomalyDetector";
+export type LogAnomalyDetector = import("./logAnomalyDetector").LogAnomalyDetector;
+export const LogAnomalyDetector: typeof import("./logAnomalyDetector").LogAnomalyDetector = null as any;
+utilities.lazyLoad(exports, ["LogAnomalyDetector"], () => require("./logAnomalyDetector"));
+
 export { LogDataProtectionPolicyArgs, LogDataProtectionPolicyState } from "./logDataProtectionPolicy";
 export type LogDataProtectionPolicy = import("./logDataProtectionPolicy").LogDataProtectionPolicy;
 export const LogDataProtectionPolicy: typeof import("./logDataProtectionPolicy").LogDataProtectionPolicy = null as any;
@@ -189,6 +194,8 @@ const _module = {
                 return new InternetMonitor(name, <any>undefined, { urn })
             case "aws:cloudwatch/logAccountPolicy:LogAccountPolicy":
                 return new LogAccountPolicy(name, <any>undefined, { urn })
+            case "aws:cloudwatch/logAnomalyDetector:LogAnomalyDetector":
+                return new LogAnomalyDetector(name, <any>undefined, { urn })
             case "aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy":
                 return new LogDataProtectionPolicy(name, <any>undefined, { urn })
             case "aws:cloudwatch/logDestination:LogDestination":
@@ -229,6 +236,7 @@ pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventRule", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventTarget", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/internetMonitor", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logAccountPolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudwatch/logAnomalyDetector", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logDataProtectionPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logDestination", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logDestinationPolicy", _module)

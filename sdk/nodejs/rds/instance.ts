@@ -400,13 +400,12 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly dbName!: pulumi.Output<string>;
     /**
-     * Name of DB subnet group. DB instance will
-     * be created in the VPC associated with the DB subnet group. If unspecified, will
-     * be created in the `default` VPC, or in EC2 Classic, if available. When working
-     * with read replicas, it should be specified only if the source database
-     * specifies an instance in another AWS Region. See [DBSubnetGroupName in API
-     * action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-     * for additional read replica constraints.
+     * Name of DB subnet group.
+     * DB instance will be created in the VPC associated with the DB subnet group.
+     * If unspecified, will be created in the `default` Subnet Group.
+     * When working with read replicas created in the same region, defaults to the Subnet Group Name of the source DB.
+     * When working with read replicas created in a different region, defaults to the `default` Subnet Group.
+     * See [DBSubnetGroupName in API action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html) for additional read replica constraints.
      */
     public readonly dbSubnetGroupName!: pulumi.Output<string>;
     /**
@@ -623,15 +622,12 @@ export class Instance extends pulumi.CustomResource {
     public readonly replicaMode!: pulumi.Output<string>;
     public /*out*/ readonly replicas!: pulumi.Output<string[]>;
     /**
-     * Specifies that this resource is a Replicate
-     * database, and to use this value as the source database. This correlates to the
-     * `identifier` of another Amazon RDS Database to replicate (if replicating within
-     * a single region) or ARN of the Amazon RDS Database to replicate (if replicating
-     * cross-region). Note that if you are
-     * creating a cross-region replica of an encrypted database you will also need to
-     * specify a `kmsKeyId`. See [DB Instance Replication][instance-replication] and [Working with
-     * PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
-     * for more information on using Replication.
+     * Specifies that this resource is a Replica database, and to use this value as the source database.
+     * If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `dbSubnetGroupName`.
+     * If specifying the `dbSubnetGroupName` in the same region, use the `arn` of the source DB.
+     * If replicating an Instance in a different region, use the `arn` of the source DB.
+     * Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kmsKeyId`.
+     * See [DB Instance Replication][instance-replication] and [Working with PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) for more information on using Replication.
      */
     public readonly replicateSourceDb!: pulumi.Output<string | undefined>;
     /**
@@ -639,7 +635,9 @@ export class Instance extends pulumi.CustomResource {
      */
     public /*out*/ readonly resourceId!: pulumi.Output<string>;
     /**
-     * A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+     * A configuration block for restoring a DB instance to an arbitrary point in time.
+     * Requires the `identifier` argument to be set with the name of the new DB instance to be created.
+     * See Restore To Point In Time below for details.
      */
     public readonly restoreToPointInTime!: pulumi.Output<outputs.rds.InstanceRestoreToPointInTime | undefined>;
     /**
@@ -655,9 +653,8 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly skipFinalSnapshot!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies whether or not to create this
-     * database from a snapshot. This correlates to the snapshot ID you'd find in the
-     * RDS console, e.g: rds:production-2015-06-26-06-05.
+     * Specifies whether or not to create this database from a snapshot.
+     * This corresponds to the snapshot ID you'd find in the RDS console, e.g: rds:production-2015-06-26-06-05.
      */
     public readonly snapshotIdentifier!: pulumi.Output<string>;
     /**
@@ -701,7 +698,8 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly timezone!: pulumi.Output<string>;
     /**
-     * Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicateSourceDb`.
+     * Whether to upgrade the storage file system configuration on the read replica.
+     * Can only be set with `replicateSourceDb`.
      */
     public readonly upgradeStorageConfig!: pulumi.Output<boolean | undefined>;
     /**
@@ -998,13 +996,12 @@ export interface InstanceState {
      */
     dbName?: pulumi.Input<string>;
     /**
-     * Name of DB subnet group. DB instance will
-     * be created in the VPC associated with the DB subnet group. If unspecified, will
-     * be created in the `default` VPC, or in EC2 Classic, if available. When working
-     * with read replicas, it should be specified only if the source database
-     * specifies an instance in another AWS Region. See [DBSubnetGroupName in API
-     * action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-     * for additional read replica constraints.
+     * Name of DB subnet group.
+     * DB instance will be created in the VPC associated with the DB subnet group.
+     * If unspecified, will be created in the `default` Subnet Group.
+     * When working with read replicas created in the same region, defaults to the Subnet Group Name of the source DB.
+     * When working with read replicas created in a different region, defaults to the `default` Subnet Group.
+     * See [DBSubnetGroupName in API action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html) for additional read replica constraints.
      */
     dbSubnetGroupName?: pulumi.Input<string>;
     /**
@@ -1221,15 +1218,12 @@ export interface InstanceState {
     replicaMode?: pulumi.Input<string>;
     replicas?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies that this resource is a Replicate
-     * database, and to use this value as the source database. This correlates to the
-     * `identifier` of another Amazon RDS Database to replicate (if replicating within
-     * a single region) or ARN of the Amazon RDS Database to replicate (if replicating
-     * cross-region). Note that if you are
-     * creating a cross-region replica of an encrypted database you will also need to
-     * specify a `kmsKeyId`. See [DB Instance Replication][instance-replication] and [Working with
-     * PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
-     * for more information on using Replication.
+     * Specifies that this resource is a Replica database, and to use this value as the source database.
+     * If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `dbSubnetGroupName`.
+     * If specifying the `dbSubnetGroupName` in the same region, use the `arn` of the source DB.
+     * If replicating an Instance in a different region, use the `arn` of the source DB.
+     * Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kmsKeyId`.
+     * See [DB Instance Replication][instance-replication] and [Working with PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) for more information on using Replication.
      */
     replicateSourceDb?: pulumi.Input<string>;
     /**
@@ -1237,7 +1231,9 @@ export interface InstanceState {
      */
     resourceId?: pulumi.Input<string>;
     /**
-     * A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+     * A configuration block for restoring a DB instance to an arbitrary point in time.
+     * Requires the `identifier` argument to be set with the name of the new DB instance to be created.
+     * See Restore To Point In Time below for details.
      */
     restoreToPointInTime?: pulumi.Input<inputs.rds.InstanceRestoreToPointInTime>;
     /**
@@ -1253,9 +1249,8 @@ export interface InstanceState {
      */
     skipFinalSnapshot?: pulumi.Input<boolean>;
     /**
-     * Specifies whether or not to create this
-     * database from a snapshot. This correlates to the snapshot ID you'd find in the
-     * RDS console, e.g: rds:production-2015-06-26-06-05.
+     * Specifies whether or not to create this database from a snapshot.
+     * This corresponds to the snapshot ID you'd find in the RDS console, e.g: rds:production-2015-06-26-06-05.
      */
     snapshotIdentifier?: pulumi.Input<string>;
     /**
@@ -1299,7 +1294,8 @@ export interface InstanceState {
      */
     timezone?: pulumi.Input<string>;
     /**
-     * Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicateSourceDb`.
+     * Whether to upgrade the storage file system configuration on the read replica.
+     * Can only be set with `replicateSourceDb`.
      */
     upgradeStorageConfig?: pulumi.Input<boolean>;
     /**
@@ -1401,13 +1397,12 @@ export interface InstanceArgs {
      */
     dbName?: pulumi.Input<string>;
     /**
-     * Name of DB subnet group. DB instance will
-     * be created in the VPC associated with the DB subnet group. If unspecified, will
-     * be created in the `default` VPC, or in EC2 Classic, if available. When working
-     * with read replicas, it should be specified only if the source database
-     * specifies an instance in another AWS Region. See [DBSubnetGroupName in API
-     * action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-     * for additional read replica constraints.
+     * Name of DB subnet group.
+     * DB instance will be created in the VPC associated with the DB subnet group.
+     * If unspecified, will be created in the `default` Subnet Group.
+     * When working with read replicas created in the same region, defaults to the Subnet Group Name of the source DB.
+     * When working with read replicas created in a different region, defaults to the `default` Subnet Group.
+     * See [DBSubnetGroupName in API action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html) for additional read replica constraints.
      */
     dbSubnetGroupName?: pulumi.Input<string>;
     /**
@@ -1599,19 +1594,18 @@ export interface InstanceArgs {
      */
     replicaMode?: pulumi.Input<string>;
     /**
-     * Specifies that this resource is a Replicate
-     * database, and to use this value as the source database. This correlates to the
-     * `identifier` of another Amazon RDS Database to replicate (if replicating within
-     * a single region) or ARN of the Amazon RDS Database to replicate (if replicating
-     * cross-region). Note that if you are
-     * creating a cross-region replica of an encrypted database you will also need to
-     * specify a `kmsKeyId`. See [DB Instance Replication][instance-replication] and [Working with
-     * PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
-     * for more information on using Replication.
+     * Specifies that this resource is a Replica database, and to use this value as the source database.
+     * If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `dbSubnetGroupName`.
+     * If specifying the `dbSubnetGroupName` in the same region, use the `arn` of the source DB.
+     * If replicating an Instance in a different region, use the `arn` of the source DB.
+     * Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kmsKeyId`.
+     * See [DB Instance Replication][instance-replication] and [Working with PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) for more information on using Replication.
      */
     replicateSourceDb?: pulumi.Input<string>;
     /**
-     * A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+     * A configuration block for restoring a DB instance to an arbitrary point in time.
+     * Requires the `identifier` argument to be set with the name of the new DB instance to be created.
+     * See Restore To Point In Time below for details.
      */
     restoreToPointInTime?: pulumi.Input<inputs.rds.InstanceRestoreToPointInTime>;
     /**
@@ -1627,9 +1621,8 @@ export interface InstanceArgs {
      */
     skipFinalSnapshot?: pulumi.Input<boolean>;
     /**
-     * Specifies whether or not to create this
-     * database from a snapshot. This correlates to the snapshot ID you'd find in the
-     * RDS console, e.g: rds:production-2015-06-26-06-05.
+     * Specifies whether or not to create this database from a snapshot.
+     * This corresponds to the snapshot ID you'd find in the RDS console, e.g: rds:production-2015-06-26-06-05.
      */
     snapshotIdentifier?: pulumi.Input<string>;
     /**
@@ -1663,7 +1656,8 @@ export interface InstanceArgs {
      */
     timezone?: pulumi.Input<string>;
     /**
-     * Whether to upgrade the storage file system configuration on the read replica. Can only be set with `replicateSourceDb`.
+     * Whether to upgrade the storage file system configuration on the read replica.
+     * Can only be set with `replicateSourceDb`.
      */
     upgradeStorageConfig?: pulumi.Input<boolean>;
     /**

@@ -17,6 +17,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class ElasticbeanstalkFunctions {
@@ -150,6 +151,50 @@ public final class ElasticbeanstalkFunctions {
      * 
      */
     public static Output<GetApplicationResult> getApplication(GetApplicationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:elasticbeanstalk/getApplication:getApplication", TypeShape.of(GetApplicationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieve information about an Elastic Beanstalk Application.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticbeanstalk.ElasticbeanstalkFunctions;
+     * import com.pulumi.aws.elasticbeanstalk.inputs.GetApplicationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ElasticbeanstalkFunctions.getApplication(GetApplicationArgs.builder()
+     *             .name("example")
+     *             .build());
+     * 
+     *         ctx.export("arn", example.applyValue(getApplicationResult -> getApplicationResult.arn()));
+     *         ctx.export("description", example.applyValue(getApplicationResult -> getApplicationResult.description()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetApplicationResult> getApplication(GetApplicationArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:elasticbeanstalk/getApplication:getApplication", TypeShape.of(GetApplicationResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -433,6 +478,46 @@ public final class ElasticbeanstalkFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetHostedZoneResult> getHostedZone(GetHostedZoneArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:elasticbeanstalk/getHostedZone:getHostedZone", TypeShape.of(GetHostedZoneResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get the ID of an [elastic beanstalk hosted zone](http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region).
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticbeanstalk.ElasticbeanstalkFunctions;
+     * import com.pulumi.aws.elasticbeanstalk.inputs.GetHostedZoneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var current = ElasticbeanstalkFunctions.getHostedZone();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetHostedZoneResult> getHostedZonePlain(GetHostedZonePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:elasticbeanstalk/getHostedZone:getHostedZone", TypeShape.of(GetHostedZoneResult.class), args, Utilities.withVersion(options));
     }
@@ -563,6 +648,49 @@ public final class ElasticbeanstalkFunctions {
      * 
      */
     public static Output<GetSolutionStackResult> getSolutionStack(GetSolutionStackArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", TypeShape.of(GetSolutionStackResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get the name of a elastic beanstalk solution stack.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticbeanstalk.ElasticbeanstalkFunctions;
+     * import com.pulumi.aws.elasticbeanstalk.inputs.GetSolutionStackArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var multiDocker = ElasticbeanstalkFunctions.getSolutionStack(GetSolutionStackArgs.builder()
+     *             .mostRecent(true)
+     *             .nameRegex("^64bit Amazon Linux (.*) Multi-container Docker (.*)$")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetSolutionStackResult> getSolutionStack(GetSolutionStackArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", TypeShape.of(GetSolutionStackResult.class), args, Utilities.withVersion(options));
     }
     /**

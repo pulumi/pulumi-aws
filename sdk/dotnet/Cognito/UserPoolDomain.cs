@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Cognito
     /// 
     ///     var main = new Aws.Cognito.UserPoolDomain("main", new()
     ///     {
-    ///         Domain = "example-domain",
+    ///         Domain = "auth.example.com",
     ///         CertificateArn = cert.Arn,
     ///         UserPoolId = exampleUserPool.Id,
     ///     });

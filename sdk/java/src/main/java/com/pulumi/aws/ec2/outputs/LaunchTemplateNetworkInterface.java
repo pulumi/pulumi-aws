@@ -14,15 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LaunchTemplateNetworkInterface {
     /**
-     * @return Associate a Carrier IP address with `eth0` for a new network interface.
-     * Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface.
-     * Boolean value, can be left unset.
+     * @return Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value, can be left unset.
      * 
      */
     private @Nullable String associateCarrierIpAddress;
     /**
-     * @return Associate a public ip address with the network interface.
-     * Boolean value, can be left unset.
+     * @return Associate a public ip address with the network interface. Boolean value, can be left unset.
      * 
      */
     private @Nullable String associatePublicIpAddress;
@@ -119,17 +116,14 @@ public final class LaunchTemplateNetworkInterface {
 
     private LaunchTemplateNetworkInterface() {}
     /**
-     * @return Associate a Carrier IP address with `eth0` for a new network interface.
-     * Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface.
-     * Boolean value, can be left unset.
+     * @return Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value, can be left unset.
      * 
      */
     public Optional<String> associateCarrierIpAddress() {
         return Optional.ofNullable(this.associateCarrierIpAddress);
     }
     /**
-     * @return Associate a public ip address with the network interface.
-     * Boolean value, can be left unset.
+     * @return Associate a public ip address with the network interface. Boolean value, can be left unset.
      * 
      */
     public Optional<String> associatePublicIpAddress() {

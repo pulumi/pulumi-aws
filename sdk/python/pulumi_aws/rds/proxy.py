@@ -419,35 +419,6 @@ class Proxy(pulumi.CustomResource):
                  vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides an RDS DB proxy resource. For additional information, see the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rds.Proxy("example",
-            name="example",
-            debug_logging=False,
-            engine_family="MYSQL",
-            idle_client_timeout=1800,
-            require_tls=True,
-            role_arn=example_aws_iam_role["arn"],
-            vpc_security_group_ids=[example_aws_security_group["id"]],
-            vpc_subnet_ids=[example_aws_subnet["id"]],
-            auths=[{
-                "auth_scheme": "SECRETS",
-                "description": "example",
-                "iam_auth": "DISABLED",
-                "secret_arn": example_aws_secretsmanager_secret["arn"],
-            }],
-            tags={
-                "Name": "example",
-                "Key": "value",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import DB proxies using the `name`. For example:
@@ -476,35 +447,6 @@ class Proxy(pulumi.CustomResource):
                  args: ProxyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an RDS DB proxy resource. For additional information, see the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rds.Proxy("example",
-            name="example",
-            debug_logging=False,
-            engine_family="MYSQL",
-            idle_client_timeout=1800,
-            require_tls=True,
-            role_arn=example_aws_iam_role["arn"],
-            vpc_security_group_ids=[example_aws_security_group["id"]],
-            vpc_subnet_ids=[example_aws_subnet["id"]],
-            auths=[{
-                "auth_scheme": "SECRETS",
-                "description": "example",
-                "iam_auth": "DISABLED",
-                "secret_arn": example_aws_secretsmanager_secret["arn"],
-            }],
-            tags={
-                "Name": "example",
-                "Key": "value",
-            })
-        ```
-
         ## Import
 
         Using `pulumi import`, import DB proxies using the `name`. For example:

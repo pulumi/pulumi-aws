@@ -155,6 +155,21 @@ public final class DomainNameArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+     * 
+     */
+    @Import(name="policy")
+    private @Nullable Output<String> policy;
+
+    /**
+     * @return A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+     * 
+     */
+    public Optional<Output<String>> policy() {
+        return Optional.ofNullable(this.policy);
+    }
+
+    /**
      * ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
      * 
      * When uploading a certificate, the following arguments are supported:
@@ -234,6 +249,7 @@ public final class DomainNameArgs extends com.pulumi.resources.ResourceArgs {
         this.endpointConfiguration = $.endpointConfiguration;
         this.mutualTlsAuthentication = $.mutualTlsAuthentication;
         this.ownershipVerificationCertificateArn = $.ownershipVerificationCertificateArn;
+        this.policy = $.policy;
         this.regionalCertificateArn = $.regionalCertificateArn;
         this.regionalCertificateName = $.regionalCertificateName;
         this.securityPolicy = $.securityPolicy;
@@ -445,6 +461,27 @@ public final class DomainNameArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder ownershipVerificationCertificateArn(String ownershipVerificationCertificateArn) {
             return ownershipVerificationCertificateArn(Output.of(ownershipVerificationCertificateArn));
+        }
+
+        /**
+         * @param policy A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policy(@Nullable Output<String> policy) {
+            $.policy = policy;
+            return this;
+        }
+
+        /**
+         * @param policy A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policy(String policy) {
+            return policy(Output.of(policy));
         }
 
         /**

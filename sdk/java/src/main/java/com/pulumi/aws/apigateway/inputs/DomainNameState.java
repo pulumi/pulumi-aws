@@ -169,6 +169,21 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The identifier for the domain name resource. Supported only for private custom domain names.
+     * 
+     */
+    @Import(name="domainNameId")
+    private @Nullable Output<String> domainNameId;
+
+    /**
+     * @return The identifier for the domain name resource. Supported only for private custom domain names.
+     * 
+     */
+    public Optional<Output<String>> domainNameId() {
+        return Optional.ofNullable(this.domainNameId);
+    }
+
+    /**
      * Configuration block defining API endpoint information including type. See below.
      * 
      */
@@ -211,6 +226,21 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> ownershipVerificationCertificateArn() {
         return Optional.ofNullable(this.ownershipVerificationCertificateArn);
+    }
+
+    /**
+     * A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+     * 
+     */
+    @Import(name="policy")
+    private @Nullable Output<String> policy;
+
+    /**
+     * @return A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+     * 
+     */
+    public Optional<Output<String>> policy() {
+        return Optional.ofNullable(this.policy);
     }
 
     /**
@@ -347,9 +377,11 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
         this.cloudfrontDomainName = $.cloudfrontDomainName;
         this.cloudfrontZoneId = $.cloudfrontZoneId;
         this.domainName = $.domainName;
+        this.domainNameId = $.domainNameId;
         this.endpointConfiguration = $.endpointConfiguration;
         this.mutualTlsAuthentication = $.mutualTlsAuthentication;
         this.ownershipVerificationCertificateArn = $.ownershipVerificationCertificateArn;
+        this.policy = $.policy;
         this.regionalCertificateArn = $.regionalCertificateArn;
         this.regionalCertificateName = $.regionalCertificateName;
         this.regionalDomainName = $.regionalDomainName;
@@ -588,6 +620,27 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param domainNameId The identifier for the domain name resource. Supported only for private custom domain names.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainNameId(@Nullable Output<String> domainNameId) {
+            $.domainNameId = domainNameId;
+            return this;
+        }
+
+        /**
+         * @param domainNameId The identifier for the domain name resource. Supported only for private custom domain names.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainNameId(String domainNameId) {
+            return domainNameId(Output.of(domainNameId));
+        }
+
+        /**
          * @param endpointConfiguration Configuration block defining API endpoint information including type. See below.
          * 
          * @return builder
@@ -648,6 +701,27 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder ownershipVerificationCertificateArn(String ownershipVerificationCertificateArn) {
             return ownershipVerificationCertificateArn(Output.of(ownershipVerificationCertificateArn));
+        }
+
+        /**
+         * @param policy A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policy(@Nullable Output<String> policy) {
+            $.policy = policy;
+            return this;
+        }
+
+        /**
+         * @param policy A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policy(String policy) {
+            return policy(Output.of(policy));
         }
 
         /**

@@ -131,7 +131,7 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock.
+        /// The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
         /// </summary>
         public readonly string Type;
         /// <summary>
