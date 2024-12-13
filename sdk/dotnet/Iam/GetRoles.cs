@@ -210,6 +210,106 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public static Output<GetRolesResult> Invoke(GetRolesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRolesResult>("aws:iam/getRoles:getRoles", args ?? new GetRolesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get the ARNs and Names of IAM Roles.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### All roles in an account
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var roles = Aws.Iam.GetRoles.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Roles filtered by name regex
+        /// 
+        /// Roles whose role-name contains `project`
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var roles = Aws.Iam.GetRoles.Invoke(new()
+        ///     {
+        ///         NameRegex = ".*project.*",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Roles filtered by path prefix
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var roles = Aws.Iam.GetRoles.Invoke(new()
+        ///     {
+        ///         PathPrefix = "/custom-path",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Roles provisioned by AWS SSO
+        /// 
+        /// Roles in the account filtered by path prefix
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var roles = Aws.Iam.GetRoles.Invoke(new()
+        ///     {
+        ///         PathPrefix = "/aws-reserved/sso.amazonaws.com/",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// Specific role in the account filtered by name regex and path prefix
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var roles = Aws.Iam.GetRoles.Invoke(new()
+        ///     {
+        ///         NameRegex = "AWSReservedSSO_permission_set_name_.*",
+        ///         PathPrefix = "/aws-reserved/sso.amazonaws.com/",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRolesResult> Invoke(GetRolesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRolesResult>("aws:iam/getRoles:getRoles", args ?? new GetRolesInvokeArgs(), options.WithDefaults());
     }
 
 

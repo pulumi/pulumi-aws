@@ -71,21 +71,11 @@ type GetImageResult struct {
 }
 
 func GetImageOutput(ctx *pulumi.Context, args GetImageOutputArgs, opts ...pulumi.InvokeOption) GetImageResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetImageResultOutput, error) {
 			args := v.(GetImageArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetImageResult
-			secret, err := ctx.InvokePackageRaw("aws:workspaces/getImage:getImage", args, &rv, "", opts...)
-			if err != nil {
-				return GetImageResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetImageResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetImageResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:workspaces/getImage:getImage", args, GetImageResultOutput{}, options).(GetImageResultOutput), nil
 		}).(GetImageResultOutput)
 }
 

@@ -58,6 +58,30 @@ namespace Pulumi.Aws.Location
         /// </summary>
         public static Output<GetRouteCalculatorResult> Invoke(GetRouteCalculatorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteCalculatorResult>("aws:location/getRouteCalculator:getRouteCalculator", args ?? new GetRouteCalculatorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve information about a Location Service Route Calculator.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Location.GetRouteCalculator.Invoke(new()
+        ///     {
+        ///         CalculatorName = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRouteCalculatorResult> Invoke(GetRouteCalculatorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRouteCalculatorResult>("aws:location/getRouteCalculator:getRouteCalculator", args ?? new GetRouteCalculatorInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -62,6 +62,32 @@ namespace Pulumi.Aws.GuardDuty
         /// </summary>
         public static Output<GetFindingIdsResult> Invoke(GetFindingIdsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFindingIdsResult>("aws:guardduty/getFindingIds:getFindingIds", args ?? new GetFindingIdsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS GuardDuty Finding Ids.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.GuardDuty.GetFindingIds.Invoke(new()
+        ///     {
+        ///         DetectorId = exampleAwsGuarddutyDetector.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFindingIdsResult> Invoke(GetFindingIdsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFindingIdsResult>("aws:guardduty/getFindingIds:getFindingIds", args ?? new GetFindingIdsInvokeArgs(), options.WithDefaults());
     }
 
 

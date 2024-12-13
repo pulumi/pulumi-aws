@@ -58,6 +58,30 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         public static Output<GetVpcConnectionResult> Invoke(GetVpcConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcConnectionResult>("aws:msk/getVpcConnection:getVpcConnection", args ?? new GetVpcConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get information on an Amazon MSK VPC Connection.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Msk.GetVpcConnection.Invoke(new()
+        ///     {
+        ///         Arn = exampleAwsMskVpcConnection.Arn,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVpcConnectionResult> Invoke(GetVpcConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVpcConnectionResult>("aws:msk/getVpcConnection:getVpcConnection", args ?? new GetVpcConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

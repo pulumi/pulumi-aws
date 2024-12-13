@@ -97,21 +97,11 @@ type LookupListenerResult struct {
 }
 
 func LookupListenerOutput(ctx *pulumi.Context, args LookupListenerOutputArgs, opts ...pulumi.InvokeOption) LookupListenerResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupListenerResultOutput, error) {
 			args := v.(LookupListenerArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupListenerResult
-			secret, err := ctx.InvokePackageRaw("aws:alb/getListener:getListener", args, &rv, "", opts...)
-			if err != nil {
-				return LookupListenerResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupListenerResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupListenerResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:alb/getListener:getListener", args, LookupListenerResultOutput{}, options).(LookupListenerResultOutput), nil
 		}).(LookupListenerResultOutput)
 }
 

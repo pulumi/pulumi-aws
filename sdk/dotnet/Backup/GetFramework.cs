@@ -58,6 +58,30 @@ namespace Pulumi.Aws.Backup
         /// </summary>
         public static Output<GetFrameworkResult> Invoke(GetFrameworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrameworkResult>("aws:backup/getFramework:getFramework", args ?? new GetFrameworkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information on an existing backup framework.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Backup.GetFramework.Invoke(new()
+        ///     {
+        ///         Name = "my_example_backup_framework_name",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFrameworkResult> Invoke(GetFrameworkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFrameworkResult>("aws:backup/getFramework:getFramework", args ?? new GetFrameworkInvokeArgs(), options.WithDefaults());
     }
 
 

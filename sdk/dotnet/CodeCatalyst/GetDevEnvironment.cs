@@ -66,6 +66,34 @@ namespace Pulumi.Aws.CodeCatalyst
         /// </summary>
         public static Output<GetDevEnvironmentResult> Invoke(GetDevEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevEnvironmentResult>("aws:codecatalyst/getDevEnvironment:getDevEnvironment", args ?? new GetDevEnvironmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS CodeCatalyst Dev Environment.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.CodeCatalyst.GetDevEnvironment.Invoke(new()
+        ///     {
+        ///         SpaceName = "myspace",
+        ///         ProjectName = "myproject",
+        ///         EnvId = exampleAwsCodecatalystDevEnvironment.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetDevEnvironmentResult> Invoke(GetDevEnvironmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDevEnvironmentResult>("aws:codecatalyst/getDevEnvironment:getDevEnvironment", args ?? new GetDevEnvironmentInvokeArgs(), options.WithDefaults());
     }
 
 

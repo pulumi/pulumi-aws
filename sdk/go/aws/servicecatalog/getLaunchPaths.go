@@ -71,21 +71,11 @@ type GetLaunchPathsResult struct {
 }
 
 func GetLaunchPathsOutput(ctx *pulumi.Context, args GetLaunchPathsOutputArgs, opts ...pulumi.InvokeOption) GetLaunchPathsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetLaunchPathsResultOutput, error) {
 			args := v.(GetLaunchPathsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetLaunchPathsResult
-			secret, err := ctx.InvokePackageRaw("aws:servicecatalog/getLaunchPaths:getLaunchPaths", args, &rv, "", opts...)
-			if err != nil {
-				return GetLaunchPathsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetLaunchPathsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetLaunchPathsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:servicecatalog/getLaunchPaths:getLaunchPaths", args, GetLaunchPathsResultOutput{}, options).(GetLaunchPathsResultOutput), nil
 		}).(GetLaunchPathsResultOutput)
 }
 

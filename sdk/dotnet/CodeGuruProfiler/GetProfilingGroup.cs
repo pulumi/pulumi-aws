@@ -62,6 +62,32 @@ namespace Pulumi.Aws.CodeGuruProfiler
         /// </summary>
         public static Output<GetProfilingGroupResult> Invoke(GetProfilingGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProfilingGroupResult>("aws:codeguruprofiler/getProfilingGroup:getProfilingGroup", args ?? new GetProfilingGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS CodeGuru Profiler Profiling Group.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.CodeGuruProfiler.GetProfilingGroup.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetProfilingGroupResult> Invoke(GetProfilingGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProfilingGroupResult>("aws:codeguruprofiler/getProfilingGroup:getProfilingGroup", args ?? new GetProfilingGroupInvokeArgs(), options.WithDefaults());
     }
 
 

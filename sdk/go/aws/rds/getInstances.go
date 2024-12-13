@@ -106,21 +106,11 @@ type GetInstancesResult struct {
 }
 
 func GetInstancesOutput(ctx *pulumi.Context, args GetInstancesOutputArgs, opts ...pulumi.InvokeOption) GetInstancesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetInstancesResultOutput, error) {
 			args := v.(GetInstancesArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetInstancesResult
-			secret, err := ctx.InvokePackageRaw("aws:rds/getInstances:getInstances", args, &rv, "", opts...)
-			if err != nil {
-				return GetInstancesResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetInstancesResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetInstancesResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:rds/getInstances:getInstances", args, GetInstancesResultOutput{}, options).(GetInstancesResultOutput), nil
 		}).(GetInstancesResultOutput)
 }
 

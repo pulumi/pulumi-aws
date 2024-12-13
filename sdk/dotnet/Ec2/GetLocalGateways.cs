@@ -76,6 +76,39 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Output<GetLocalGatewaysResult> Invoke(GetLocalGatewaysInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewaysResult>("aws:ec2/getLocalGateways:getLocalGateways", args ?? new GetLocalGatewaysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides information for multiple EC2 Local Gateways, such as their identifiers.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = Aws.Ec2.GetLocalGateways.Invoke(new()
+        ///     {
+        ///         Tags = 
+        ///         {
+        ///             { "service", "production" },
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["foo"] = foo.Apply(getLocalGatewaysResult =&gt; getLocalGatewaysResult.Ids),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocalGatewaysResult> Invoke(GetLocalGatewaysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewaysResult>("aws:ec2/getLocalGateways:getLocalGateways", args ?? new GetLocalGatewaysInvokeArgs(), options.WithDefaults());
     }
 
 

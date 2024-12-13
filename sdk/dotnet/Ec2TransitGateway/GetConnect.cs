@@ -118,6 +118,60 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         public static Output<GetConnectResult> Invoke(GetConnectInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectResult>("aws:ec2transitgateway/getConnect:getConnect", args ?? new GetConnectInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get information on an EC2 Transit Gateway Connect.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### By Filter
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ec2TransitGateway.GetConnect.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2TransitGateway.Inputs.GetConnectFilterInputArgs
+        ///             {
+        ///                 Name = "transport-transit-gateway-attachment-id",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "tgw-attach-12345678",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### By Identifier
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ec2TransitGateway.GetConnect.Invoke(new()
+        ///     {
+        ///         TransitGatewayConnectId = "tgw-attach-12345678",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetConnectResult> Invoke(GetConnectInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectResult>("aws:ec2transitgateway/getConnect:getConnect", args ?? new GetConnectInvokeArgs(), options.WithDefaults());
     }
 
 

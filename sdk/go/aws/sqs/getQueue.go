@@ -72,21 +72,11 @@ type LookupQueueResult struct {
 }
 
 func LookupQueueOutput(ctx *pulumi.Context, args LookupQueueOutputArgs, opts ...pulumi.InvokeOption) LookupQueueResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupQueueResultOutput, error) {
 			args := v.(LookupQueueArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupQueueResult
-			secret, err := ctx.InvokePackageRaw("aws:sqs/getQueue:getQueue", args, &rv, "", opts...)
-			if err != nil {
-				return LookupQueueResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupQueueResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupQueueResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:sqs/getQueue:getQueue", args, LookupQueueResultOutput{}, options).(LookupQueueResultOutput), nil
 		}).(LookupQueueResultOutput)
 }
 

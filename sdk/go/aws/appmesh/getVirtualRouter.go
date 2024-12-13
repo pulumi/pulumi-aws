@@ -82,21 +82,11 @@ type LookupVirtualRouterResult struct {
 }
 
 func LookupVirtualRouterOutput(ctx *pulumi.Context, args LookupVirtualRouterOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualRouterResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVirtualRouterResultOutput, error) {
 			args := v.(LookupVirtualRouterArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupVirtualRouterResult
-			secret, err := ctx.InvokePackageRaw("aws:appmesh/getVirtualRouter:getVirtualRouter", args, &rv, "", opts...)
-			if err != nil {
-				return LookupVirtualRouterResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupVirtualRouterResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupVirtualRouterResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:appmesh/getVirtualRouter:getVirtualRouter", args, LookupVirtualRouterResultOutput{}, options).(LookupVirtualRouterResultOutput), nil
 		}).(LookupVirtualRouterResultOutput)
 }
 

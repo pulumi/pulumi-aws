@@ -62,6 +62,32 @@ namespace Pulumi.Aws.Ivs
         /// </summary>
         public static Output<GetStreamKeyResult> Invoke(GetStreamKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStreamKeyResult>("aws:ivs/getStreamKey:getStreamKey", args ?? new GetStreamKeyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS IVS (Interactive Video) Stream Key.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ivs.GetStreamKey.Invoke(new()
+        ///     {
+        ///         ChannelArn = "arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetStreamKeyResult> Invoke(GetStreamKeyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStreamKeyResult>("aws:ivs/getStreamKey:getStreamKey", args ?? new GetStreamKeyInvokeArgs(), options.WithDefaults());
     }
 
 

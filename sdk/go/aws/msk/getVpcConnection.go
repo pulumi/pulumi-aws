@@ -76,21 +76,11 @@ type LookupVpcConnectionResult struct {
 }
 
 func LookupVpcConnectionOutput(ctx *pulumi.Context, args LookupVpcConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupVpcConnectionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVpcConnectionResultOutput, error) {
 			args := v.(LookupVpcConnectionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupVpcConnectionResult
-			secret, err := ctx.InvokePackageRaw("aws:msk/getVpcConnection:getVpcConnection", args, &rv, "", opts...)
-			if err != nil {
-				return LookupVpcConnectionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupVpcConnectionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupVpcConnectionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:msk/getVpcConnection:getVpcConnection", args, LookupVpcConnectionResultOutput{}, options).(LookupVpcConnectionResultOutput), nil
 		}).(LookupVpcConnectionResultOutput)
 }
 

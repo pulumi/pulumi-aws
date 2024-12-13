@@ -62,6 +62,32 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         public static Output<GetRouteTablePropagationsResult> Invoke(GetRouteTablePropagationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteTablePropagationsResult>("aws:ec2transitgateway/getRouteTablePropagations:getRouteTablePropagations", args ?? new GetRouteTablePropagationsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides information for multiple EC2 Transit Gateway Route Table Propagations, such as their identifiers.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### By Transit Gateway Identifier
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ec2TransitGateway.GetRouteTablePropagations.Invoke(new()
+        ///     {
+        ///         TransitGatewayRouteTableId = exampleAwsEc2TransitGatewayRouteTable.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRouteTablePropagationsResult> Invoke(GetRouteTablePropagationsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRouteTablePropagationsResult>("aws:ec2transitgateway/getRouteTablePropagations:getRouteTablePropagations", args ?? new GetRouteTablePropagationsInvokeArgs(), options.WithDefaults());
     }
 
 

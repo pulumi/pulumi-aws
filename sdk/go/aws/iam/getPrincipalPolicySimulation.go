@@ -268,21 +268,11 @@ type LookupPrincipalPolicySimulationResult struct {
 }
 
 func LookupPrincipalPolicySimulationOutput(ctx *pulumi.Context, args LookupPrincipalPolicySimulationOutputArgs, opts ...pulumi.InvokeOption) LookupPrincipalPolicySimulationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPrincipalPolicySimulationResultOutput, error) {
 			args := v.(LookupPrincipalPolicySimulationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupPrincipalPolicySimulationResult
-			secret, err := ctx.InvokePackageRaw("aws:iam/getPrincipalPolicySimulation:getPrincipalPolicySimulation", args, &rv, "", opts...)
-			if err != nil {
-				return LookupPrincipalPolicySimulationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupPrincipalPolicySimulationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupPrincipalPolicySimulationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:iam/getPrincipalPolicySimulation:getPrincipalPolicySimulation", args, LookupPrincipalPolicySimulationResultOutput{}, options).(LookupPrincipalPolicySimulationResultOutput), nil
 		}).(LookupPrincipalPolicySimulationResultOutput)
 }
 

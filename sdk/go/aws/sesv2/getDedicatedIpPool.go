@@ -74,21 +74,11 @@ type LookupDedicatedIpPoolResult struct {
 }
 
 func LookupDedicatedIpPoolOutput(ctx *pulumi.Context, args LookupDedicatedIpPoolOutputArgs, opts ...pulumi.InvokeOption) LookupDedicatedIpPoolResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDedicatedIpPoolResultOutput, error) {
 			args := v.(LookupDedicatedIpPoolArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDedicatedIpPoolResult
-			secret, err := ctx.InvokePackageRaw("aws:sesv2/getDedicatedIpPool:getDedicatedIpPool", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDedicatedIpPoolResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDedicatedIpPoolResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDedicatedIpPoolResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:sesv2/getDedicatedIpPool:getDedicatedIpPool", args, LookupDedicatedIpPoolResultOutput{}, options).(LookupDedicatedIpPoolResultOutput), nil
 		}).(LookupDedicatedIpPoolResultOutput)
 }
 

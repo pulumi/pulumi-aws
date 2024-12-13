@@ -64,6 +64,33 @@ namespace Pulumi.Aws.Auditmanager
         /// </summary>
         public static Output<GetFrameworkResult> Invoke(GetFrameworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrameworkResult>("aws:auditmanager/getFramework:getFramework", args ?? new GetFrameworkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS Audit Manager Framework.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Auditmanager.GetFramework.Invoke(new()
+        ///     {
+        ///         Name = "Essential Eight",
+        ///         FrameworkType = "Standard",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFrameworkResult> Invoke(GetFrameworkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFrameworkResult>("aws:auditmanager/getFramework:getFramework", args ?? new GetFrameworkInvokeArgs(), options.WithDefaults());
     }
 
 

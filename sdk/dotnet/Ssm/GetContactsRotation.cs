@@ -58,6 +58,30 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         public static Output<GetContactsRotationResult> Invoke(GetContactsRotationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContactsRotationResult>("aws:ssm/getContactsRotation:getContactsRotation", args ?? new GetContactsRotationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ssm.GetContactsRotation.Invoke(new()
+        ///     {
+        ///         Arn = "arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetContactsRotationResult> Invoke(GetContactsRotationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetContactsRotationResult>("aws:ssm/getContactsRotation:getContactsRotation", args ?? new GetContactsRotationInvokeArgs(), options.WithDefaults());
     }
 
 

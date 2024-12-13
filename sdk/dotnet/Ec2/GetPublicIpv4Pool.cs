@@ -62,6 +62,32 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Output<GetPublicIpv4PoolResult> Invoke(GetPublicIpv4PoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicIpv4PoolResult>("aws:ec2/getPublicIpv4Pool:getPublicIpv4Pool", args ?? new GetPublicIpv4PoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about a specific AWS EC2 Public IPv4 Pool.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ec2.GetPublicIpv4Pool.Invoke(new()
+        ///     {
+        ///         PoolId = "ipv4pool-ec2-000df99cff0c1ec10",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetPublicIpv4PoolResult> Invoke(GetPublicIpv4PoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPublicIpv4PoolResult>("aws:ec2/getPublicIpv4Pool:getPublicIpv4Pool", args ?? new GetPublicIpv4PoolInvokeArgs(), options.WithDefaults());
     }
 
 

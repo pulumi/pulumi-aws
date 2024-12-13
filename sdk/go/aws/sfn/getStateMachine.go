@@ -77,21 +77,11 @@ type LookupStateMachineResult struct {
 }
 
 func LookupStateMachineOutput(ctx *pulumi.Context, args LookupStateMachineOutputArgs, opts ...pulumi.InvokeOption) LookupStateMachineResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupStateMachineResultOutput, error) {
 			args := v.(LookupStateMachineArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupStateMachineResult
-			secret, err := ctx.InvokePackageRaw("aws:sfn/getStateMachine:getStateMachine", args, &rv, "", opts...)
-			if err != nil {
-				return LookupStateMachineResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupStateMachineResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupStateMachineResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:sfn/getStateMachine:getStateMachine", args, LookupStateMachineResultOutput{}, options).(LookupStateMachineResultOutput), nil
 		}).(LookupStateMachineResultOutput)
 }
 

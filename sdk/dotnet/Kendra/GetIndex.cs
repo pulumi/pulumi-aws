@@ -58,6 +58,30 @@ namespace Pulumi.Aws.Kendra
         /// </summary>
         public static Output<GetIndexResult> Invoke(GetIndexInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIndexResult>("aws:kendra/getIndex:getIndex", args ?? new GetIndexInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about a specific Amazon Kendra Index.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Kendra.GetIndex.Invoke(new()
+        ///     {
+        ///         Id = "12345678-1234-1234-1234-123456789123",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetIndexResult> Invoke(GetIndexInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIndexResult>("aws:kendra/getIndex:getIndex", args ?? new GetIndexInvokeArgs(), options.WithDefaults());
     }
 
 

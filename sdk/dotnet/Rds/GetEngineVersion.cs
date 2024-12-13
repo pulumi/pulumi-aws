@@ -134,6 +134,68 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public static Output<GetEngineVersionResult> Invoke(GetEngineVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEngineVersionResult>("aws:rds/getEngineVersion:getEngineVersion", args ?? new GetEngineVersionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Information about an RDS engine version.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Rds.GetEngineVersion.Invoke(new()
+        ///     {
+        ///         Engine = "mysql",
+        ///         PreferredVersions = new[]
+        ///         {
+        ///             "8.0.27",
+        ///             "8.0.26",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### With `filter`
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Rds.GetEngineVersion.Invoke(new()
+        ///     {
+        ///         Engine = "aurora-postgresql",
+        ///         Version = "10.14",
+        ///         IncludeAll = true,
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Rds.Inputs.GetEngineVersionFilterInputArgs
+        ///             {
+        ///                 Name = "engine-mode",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "serverless",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetEngineVersionResult> Invoke(GetEngineVersionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEngineVersionResult>("aws:rds/getEngineVersion:getEngineVersion", args ?? new GetEngineVersionInvokeArgs(), options.WithDefaults());
     }
 
 

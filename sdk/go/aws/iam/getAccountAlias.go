@@ -58,18 +58,8 @@ type LookupAccountAliasResult struct {
 
 func LookupAccountAliasOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupAccountAliasResultOutput {
 	return pulumi.ToOutput(0).ApplyT(func(int) (LookupAccountAliasResultOutput, error) {
-		opts = internal.PkgInvokeDefaultOpts(opts)
-		var rv LookupAccountAliasResult
-		secret, err := ctx.InvokePackageRaw("aws:iam/getAccountAlias:getAccountAlias", nil, &rv, "", opts...)
-		if err != nil {
-			return LookupAccountAliasResultOutput{}, err
-		}
-
-		output := pulumi.ToOutput(rv).(LookupAccountAliasResultOutput)
-		if secret {
-			return pulumi.ToSecret(output).(LookupAccountAliasResultOutput), nil
-		}
-		return output, nil
+		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+		return ctx.InvokeOutput("aws:iam/getAccountAlias:getAccountAlias", nil, LookupAccountAliasResultOutput{}, options).(LookupAccountAliasResultOutput), nil
 	}).(LookupAccountAliasResultOutput)
 }
 

@@ -129,21 +129,11 @@ type GetTaskExecutionResult struct {
 }
 
 func GetTaskExecutionOutput(ctx *pulumi.Context, args GetTaskExecutionOutputArgs, opts ...pulumi.InvokeOption) GetTaskExecutionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetTaskExecutionResultOutput, error) {
 			args := v.(GetTaskExecutionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetTaskExecutionResult
-			secret, err := ctx.InvokePackageRaw("aws:ecs/getTaskExecution:getTaskExecution", args, &rv, "", opts...)
-			if err != nil {
-				return GetTaskExecutionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetTaskExecutionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetTaskExecutionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:ecs/getTaskExecution:getTaskExecution", args, GetTaskExecutionResultOutput{}, options).(GetTaskExecutionResultOutput), nil
 		}).(GetTaskExecutionResultOutput)
 }
 

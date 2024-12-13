@@ -64,6 +64,33 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         public static Output<GetRouterConfigurationResult> Invoke(GetRouterConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouterConfigurationResult>("aws:directconnect/getRouterConfiguration:getRouterConfiguration", args ?? new GetRouterConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.DirectConnect.GetRouterConfiguration.Invoke(new()
+        ///     {
+        ///         VirtualInterfaceId = "dxvif-abcde123",
+        ///         RouterTypeIdentifier = "CiscoSystemsInc-2900SeriesRouters-IOS124",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRouterConfigurationResult> Invoke(GetRouterConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRouterConfigurationResult>("aws:directconnect/getRouterConfiguration:getRouterConfiguration", args ?? new GetRouterConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -138,6 +138,70 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public static Output<GetOrderableDbInstanceResult> Invoke(GetOrderableDbInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrderableDbInstanceResult>("aws:rds/getOrderableDbInstance:getOrderableDbInstance", args ?? new GetOrderableDbInstanceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Information about RDS orderable DB instances and valid parameter combinations.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Rds.GetOrderableDbInstance.Invoke(new()
+        ///     {
+        ///         Engine = "mysql",
+        ///         EngineVersion = "5.7.22",
+        ///         LicenseModel = "general-public-license",
+        ///         StorageType = "standard",
+        ///         PreferredInstanceClasses = new[]
+        ///         {
+        ///             "db.r6.xlarge",
+        ///             "db.m4.large",
+        ///             "db.t3.small",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Rds.GetOrderableDbInstance.Invoke(new()
+        ///     {
+        ///         Engine = "mysql",
+        ///         LicenseModel = "general-public-license",
+        ///         PreferredEngineVersions = new[]
+        ///         {
+        ///             "5.6.35",
+        ///             "5.6.41",
+        ///             "5.6.44",
+        ///         },
+        ///         PreferredInstanceClasses = new[]
+        ///         {
+        ///             "db.t2.small",
+        ///             "db.t3.medium",
+        ///             "db.t3.large",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetOrderableDbInstanceResult> Invoke(GetOrderableDbInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOrderableDbInstanceResult>("aws:rds/getOrderableDbInstance:getOrderableDbInstance", args ?? new GetOrderableDbInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

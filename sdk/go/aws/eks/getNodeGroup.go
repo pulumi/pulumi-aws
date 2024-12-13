@@ -102,21 +102,11 @@ type LookupNodeGroupResult struct {
 }
 
 func LookupNodeGroupOutput(ctx *pulumi.Context, args LookupNodeGroupOutputArgs, opts ...pulumi.InvokeOption) LookupNodeGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNodeGroupResultOutput, error) {
 			args := v.(LookupNodeGroupArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupNodeGroupResult
-			secret, err := ctx.InvokePackageRaw("aws:eks/getNodeGroup:getNodeGroup", args, &rv, "", opts...)
-			if err != nil {
-				return LookupNodeGroupResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupNodeGroupResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupNodeGroupResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:eks/getNodeGroup:getNodeGroup", args, LookupNodeGroupResultOutput{}, options).(LookupNodeGroupResultOutput), nil
 		}).(LookupNodeGroupResultOutput)
 }
 

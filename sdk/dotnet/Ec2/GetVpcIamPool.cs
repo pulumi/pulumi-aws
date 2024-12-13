@@ -123,6 +123,62 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Output<GetVpcIamPoolResult> Invoke(GetVpcIamPoolInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcIamPoolResult>("aws:ec2/getVpcIamPool:getVpcIamPool", args ?? new GetVpcIamPoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// `aws.ec2.VpcIpamPool` provides details about an IPAM pool.
+        /// 
+        /// This resource can prove useful when an ipam pool was created in another root
+        /// module and you need the pool's id as an input variable. For example, pools
+        /// can be shared via RAM and used to create vpcs with CIDRs from that pool.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// The following example shows an account that has only 1 pool, perhaps shared
+        /// via RAM, and using that pool id to create a VPC with a CIDR derived from
+        /// AWS IPAM.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Ec2.GetVpcIpamPool.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetVpcIpamPoolFilterInputArgs
+        ///             {
+        ///                 Name = "description",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "*test*",
+        ///                 },
+        ///             },
+        ///             new Aws.Ec2.Inputs.GetVpcIpamPoolFilterInputArgs
+        ///             {
+        ///                 Name = "address-family",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "ipv4",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var testVpc = new Aws.Ec2.Vpc("test", new()
+        ///     {
+        ///         Ipv4IpamPoolId = test.Apply(getVpcIpamPoolResult =&gt; getVpcIpamPoolResult.Id),
+        ///         Ipv4NetmaskLength = 28,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVpcIamPoolResult> Invoke(GetVpcIamPoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVpcIamPoolResult>("aws:ec2/getVpcIamPool:getVpcIamPool", args ?? new GetVpcIamPoolInvokeArgs(), options.WithDefaults());
     }
 
 

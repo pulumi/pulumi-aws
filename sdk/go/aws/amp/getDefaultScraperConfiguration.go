@@ -56,18 +56,8 @@ type GetDefaultScraperConfigurationResult struct {
 
 func GetDefaultScraperConfigurationOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetDefaultScraperConfigurationResultOutput {
 	return pulumi.ToOutput(0).ApplyT(func(int) (GetDefaultScraperConfigurationResultOutput, error) {
-		opts = internal.PkgInvokeDefaultOpts(opts)
-		var rv GetDefaultScraperConfigurationResult
-		secret, err := ctx.InvokePackageRaw("aws:amp/getDefaultScraperConfiguration:getDefaultScraperConfiguration", nil, &rv, "", opts...)
-		if err != nil {
-			return GetDefaultScraperConfigurationResultOutput{}, err
-		}
-
-		output := pulumi.ToOutput(rv).(GetDefaultScraperConfigurationResultOutput)
-		if secret {
-			return pulumi.ToSecret(output).(GetDefaultScraperConfigurationResultOutput), nil
-		}
-		return output, nil
+		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+		return ctx.InvokeOutput("aws:amp/getDefaultScraperConfiguration:getDefaultScraperConfiguration", nil, GetDefaultScraperConfigurationResultOutput{}, options).(GetDefaultScraperConfigurationResultOutput), nil
 	}).(GetDefaultScraperConfigurationResultOutput)
 }
 

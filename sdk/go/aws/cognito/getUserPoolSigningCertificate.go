@@ -64,21 +64,11 @@ type GetUserPoolSigningCertificateResult struct {
 }
 
 func GetUserPoolSigningCertificateOutput(ctx *pulumi.Context, args GetUserPoolSigningCertificateOutputArgs, opts ...pulumi.InvokeOption) GetUserPoolSigningCertificateResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetUserPoolSigningCertificateResultOutput, error) {
 			args := v.(GetUserPoolSigningCertificateArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetUserPoolSigningCertificateResult
-			secret, err := ctx.InvokePackageRaw("aws:cognito/getUserPoolSigningCertificate:getUserPoolSigningCertificate", args, &rv, "", opts...)
-			if err != nil {
-				return GetUserPoolSigningCertificateResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetUserPoolSigningCertificateResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetUserPoolSigningCertificateResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:cognito/getUserPoolSigningCertificate:getUserPoolSigningCertificate", args, GetUserPoolSigningCertificateResultOutput{}, options).(GetUserPoolSigningCertificateResultOutput), nil
 		}).(GetUserPoolSigningCertificateResultOutput)
 }
 

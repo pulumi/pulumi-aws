@@ -102,6 +102,52 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Output<GetVpcIpamPoolsResult> Invoke(GetVpcIpamPoolsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcIpamPoolsResult>("aws:ec2/getVpcIpamPools:getVpcIpamPools", args ?? new GetVpcIpamPoolsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// `aws.ec2.getVpcIpamPools` provides details about IPAM pools.
+        /// 
+        /// This resource can prove useful when IPAM pools are created in another root
+        /// module and you need the pool ids as input variables. For example, pools
+        /// can be shared via RAM and used to create vpcs with CIDRs from that pool.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Ec2.GetVpcIpamPools.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetVpcIpamPoolsFilterInputArgs
+        ///             {
+        ///                 Name = "description",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "*test*",
+        ///                 },
+        ///             },
+        ///             new Aws.Ec2.Inputs.GetVpcIpamPoolsFilterInputArgs
+        ///             {
+        ///                 Name = "address-family",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "ipv4",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVpcIpamPoolsResult> Invoke(GetVpcIpamPoolsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVpcIpamPoolsResult>("aws:ec2/getVpcIpamPools:getVpcIpamPools", args ?? new GetVpcIpamPoolsInvokeArgs(), options.WithDefaults());
     }
 
 

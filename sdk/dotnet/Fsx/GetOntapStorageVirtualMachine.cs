@@ -118,6 +118,60 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         public static Output<GetOntapStorageVirtualMachineResult> Invoke(GetOntapStorageVirtualMachineInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOntapStorageVirtualMachineResult>("aws:fsx/getOntapStorageVirtualMachine:getOntapStorageVirtualMachine", args ?? new GetOntapStorageVirtualMachineInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Fsx.GetOntapStorageVirtualMachine.Invoke(new()
+        ///     {
+        ///         Id = "svm-12345678",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Filter Example
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Fsx.GetOntapStorageVirtualMachine.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Fsx.Inputs.GetOntapStorageVirtualMachineFilterInputArgs
+        ///             {
+        ///                 Name = "file-system-id",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "fs-12345678",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetOntapStorageVirtualMachineResult> Invoke(GetOntapStorageVirtualMachineInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOntapStorageVirtualMachineResult>("aws:fsx/getOntapStorageVirtualMachine:getOntapStorageVirtualMachine", args ?? new GetOntapStorageVirtualMachineInvokeArgs(), options.WithDefaults());
     }
 
 

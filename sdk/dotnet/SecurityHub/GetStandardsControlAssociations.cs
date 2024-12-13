@@ -66,6 +66,34 @@ namespace Pulumi.Aws.SecurityHub
         /// </summary>
         public static Output<GetStandardsControlAssociationsResult> Invoke(GetStandardsControlAssociationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStandardsControlAssociationsResult>("aws:securityhub/getStandardsControlAssociations:getStandardsControlAssociations", args ?? new GetStandardsControlAssociationsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS Security Hub Standards Control Associations.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var testAccount = new Aws.SecurityHub.Account("test");
+        /// 
+        ///     var test = Aws.SecurityHub.GetStandardsControlAssociations.Invoke(new()
+        ///     {
+        ///         SecurityControlId = "IAM.1",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetStandardsControlAssociationsResult> Invoke(GetStandardsControlAssociationsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStandardsControlAssociationsResult>("aws:securityhub/getStandardsControlAssociations:getStandardsControlAssociations", args ?? new GetStandardsControlAssociationsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -145,21 +145,11 @@ type LookupInstanceResult struct {
 }
 
 func LookupInstanceOutput(ctx *pulumi.Context, args LookupInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupInstanceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupInstanceResultOutput, error) {
 			args := v.(LookupInstanceArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupInstanceResult
-			secret, err := ctx.InvokePackageRaw("aws:rds/getInstance:getInstance", args, &rv, "", opts...)
-			if err != nil {
-				return LookupInstanceResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupInstanceResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupInstanceResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:rds/getInstance:getInstance", args, LookupInstanceResultOutput{}, options).(LookupInstanceResultOutput), nil
 		}).(LookupInstanceResultOutput)
 }
 

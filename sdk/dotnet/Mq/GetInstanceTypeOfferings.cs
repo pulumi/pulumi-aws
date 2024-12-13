@@ -96,6 +96,49 @@ namespace Pulumi.Aws.Mq
         /// </summary>
         public static Output<GetInstanceTypeOfferingsResult> Invoke(GetInstanceTypeOfferingsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceTypeOfferingsResult>("aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings", args ?? new GetInstanceTypeOfferingsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides information about a MQ Broker Instance Offerings.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var empty = Aws.Mq.GetInstanceTypeOfferings.Invoke();
+        /// 
+        ///     var engine = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     {
+        ///         EngineType = "ACTIVEMQ",
+        ///     });
+        /// 
+        ///     var storage = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     {
+        ///         StorageType = "EBS",
+        ///     });
+        /// 
+        ///     var instance = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     {
+        ///         HostInstanceType = "mq.m5.large",
+        ///     });
+        /// 
+        ///     var all = Aws.Mq.GetInstanceTypeOfferings.Invoke(new()
+        ///     {
+        ///         HostInstanceType = "mq.m5.large",
+        ///         StorageType = "EBS",
+        ///         EngineType = "ACTIVEMQ",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetInstanceTypeOfferingsResult> Invoke(GetInstanceTypeOfferingsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInstanceTypeOfferingsResult>("aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings", args ?? new GetInstanceTypeOfferingsInvokeArgs(), options.WithDefaults());
     }
 
 

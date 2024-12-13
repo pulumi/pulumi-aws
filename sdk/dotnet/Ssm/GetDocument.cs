@@ -110,6 +110,56 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         public static Output<GetDocumentResult> Invoke(GetDocumentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDocumentResult>("aws:ssm/getDocument:getDocument", args ?? new GetDocumentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the contents of the specified Systems Manager document.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// To get the contents of the document owned by AWS.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = Aws.Ssm.GetDocument.Invoke(new()
+        ///     {
+        ///         Name = "AWS-GatherSoftwareInventory",
+        ///         DocumentFormat = "YAML",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["content"] = foo.Apply(getDocumentResult =&gt; getDocumentResult.Content),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// To get the contents of the custom document.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Ssm.GetDocument.Invoke(new()
+        ///     {
+        ///         Name = testAwsSsmDocument.Name,
+        ///         DocumentFormat = "JSON",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetDocumentResult> Invoke(GetDocumentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDocumentResult>("aws:ssm/getDocument:getDocument", args ?? new GetDocumentInvokeArgs(), options.WithDefaults());
     }
 
 

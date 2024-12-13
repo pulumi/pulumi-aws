@@ -60,18 +60,8 @@ type GetInstancesResult struct {
 
 func GetInstancesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetInstancesResultOutput {
 	return pulumi.ToOutput(0).ApplyT(func(int) (GetInstancesResultOutput, error) {
-		opts = internal.PkgInvokeDefaultOpts(opts)
-		var rv GetInstancesResult
-		secret, err := ctx.InvokePackageRaw("aws:ssoadmin/getInstances:getInstances", nil, &rv, "", opts...)
-		if err != nil {
-			return GetInstancesResultOutput{}, err
-		}
-
-		output := pulumi.ToOutput(rv).(GetInstancesResultOutput)
-		if secret {
-			return pulumi.ToSecret(output).(GetInstancesResultOutput), nil
-		}
-		return output, nil
+		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+		return ctx.InvokeOutput("aws:ssoadmin/getInstances:getInstances", nil, GetInstancesResultOutput{}, options).(GetInstancesResultOutput), nil
 	}).(GetInstancesResultOutput)
 }
 

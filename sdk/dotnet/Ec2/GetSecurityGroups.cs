@@ -134,6 +134,68 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Output<GetSecurityGroupsResult> Invoke(GetSecurityGroupsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityGroupsResult>("aws:ec2/getSecurityGroups:getSecurityGroups", args ?? new GetSecurityGroupsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Ec2.GetSecurityGroups.Invoke(new()
+        ///     {
+        ///         Tags = 
+        ///         {
+        ///             { "Application", "k8s" },
+        ///             { "Environment", "dev" },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Ec2.GetSecurityGroups.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetSecurityGroupsFilterInputArgs
+        ///             {
+        ///                 Name = "group-name",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "*nodes*",
+        ///                 },
+        ///             },
+        ///             new Aws.Ec2.Inputs.GetSecurityGroupsFilterInputArgs
+        ///             {
+        ///                 Name = "vpc-id",
+        ///                 Values = new[]
+        ///                 {
+        ///                     vpcId,
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSecurityGroupsResult> Invoke(GetSecurityGroupsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityGroupsResult>("aws:ec2/getSecurityGroups:getSecurityGroups", args ?? new GetSecurityGroupsInvokeArgs(), options.WithDefaults());
     }
 
 

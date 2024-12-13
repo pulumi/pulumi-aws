@@ -104,6 +104,53 @@ namespace Pulumi.Aws.SecretsManager
         /// </summary>
         public static Output<GetSecretVersionResult> Invoke(GetSecretVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretVersionResult>("aws:secretsmanager/getSecretVersion:getSecretVersion", args ?? new GetSecretVersionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Retrieve Current Secret Version
+        /// 
+        /// By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var secret_version = Aws.SecretsManager.GetSecretVersion.Invoke(new()
+        ///     {
+        ///         SecretId = example.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Retrieve Specific Secret Version
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var by_version_stage = Aws.SecretsManager.GetSecretVersion.Invoke(new()
+        ///     {
+        ///         SecretId = example.Id,
+        ///         VersionStage = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSecretVersionResult> Invoke(GetSecretVersionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecretVersionResult>("aws:secretsmanager/getSecretVersion:getSecretVersion", args ?? new GetSecretVersionInvokeArgs(), options.WithDefaults());
     }
 
 

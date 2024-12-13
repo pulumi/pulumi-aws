@@ -150,6 +150,76 @@ namespace Pulumi.Aws.Outposts
         /// </summary>
         public static Output<GetAssetsResult> Invoke(GetAssetsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssetsResult>("aws:outposts/getAssets:getAssets", args ?? new GetAssetsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Information about hardware assets in an Outpost.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Outposts.GetAssets.Invoke(new()
+        ///     {
+        ///         Arn = exampleAwsOutpostsOutpost.Arn,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### With Host ID Filter
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Outposts.GetAssets.Invoke(new()
+        ///     {
+        ///         Arn = exampleAwsOutpostsOutpost.Arn,
+        ///         HostIdFilters = new[]
+        ///         {
+        ///             "h-x38g5n0yd2a0ueb61",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### With Status ID Filter
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Outposts.GetAssets.Invoke(new()
+        ///     {
+        ///         Arn = exampleAwsOutpostsOutpost.Arn,
+        ///         StatusIdFilters = new[]
+        ///         {
+        ///             "ACTIVE",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetAssetsResult> Invoke(GetAssetsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssetsResult>("aws:outposts/getAssets:getAssets", args ?? new GetAssetsInvokeArgs(), options.WithDefaults());
     }
 
 

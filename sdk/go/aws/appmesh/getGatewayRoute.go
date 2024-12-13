@@ -87,21 +87,11 @@ type LookupGatewayRouteResult struct {
 }
 
 func LookupGatewayRouteOutput(ctx *pulumi.Context, args LookupGatewayRouteOutputArgs, opts ...pulumi.InvokeOption) LookupGatewayRouteResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupGatewayRouteResultOutput, error) {
 			args := v.(LookupGatewayRouteArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupGatewayRouteResult
-			secret, err := ctx.InvokePackageRaw("aws:appmesh/getGatewayRoute:getGatewayRoute", args, &rv, "", opts...)
-			if err != nil {
-				return LookupGatewayRouteResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupGatewayRouteResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupGatewayRouteResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:appmesh/getGatewayRoute:getGatewayRoute", args, LookupGatewayRouteResultOutput{}, options).(LookupGatewayRouteResultOutput), nil
 		}).(LookupGatewayRouteResultOutput)
 }
 

@@ -68,21 +68,11 @@ type GetOrganizationalUnitChildAccountsResult struct {
 }
 
 func GetOrganizationalUnitChildAccountsOutput(ctx *pulumi.Context, args GetOrganizationalUnitChildAccountsOutputArgs, opts ...pulumi.InvokeOption) GetOrganizationalUnitChildAccountsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetOrganizationalUnitChildAccountsResultOutput, error) {
 			args := v.(GetOrganizationalUnitChildAccountsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetOrganizationalUnitChildAccountsResult
-			secret, err := ctx.InvokePackageRaw("aws:organizations/getOrganizationalUnitChildAccounts:getOrganizationalUnitChildAccounts", args, &rv, "", opts...)
-			if err != nil {
-				return GetOrganizationalUnitChildAccountsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetOrganizationalUnitChildAccountsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetOrganizationalUnitChildAccountsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:organizations/getOrganizationalUnitChildAccounts:getOrganizationalUnitChildAccounts", args, GetOrganizationalUnitChildAccountsResultOutput{}, options).(GetOrganizationalUnitChildAccountsResultOutput), nil
 		}).(GetOrganizationalUnitChildAccountsResultOutput)
 }
 

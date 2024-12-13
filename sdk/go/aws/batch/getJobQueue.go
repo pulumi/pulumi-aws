@@ -92,21 +92,11 @@ type LookupJobQueueResult struct {
 }
 
 func LookupJobQueueOutput(ctx *pulumi.Context, args LookupJobQueueOutputArgs, opts ...pulumi.InvokeOption) LookupJobQueueResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupJobQueueResultOutput, error) {
 			args := v.(LookupJobQueueArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupJobQueueResult
-			secret, err := ctx.InvokePackageRaw("aws:batch/getJobQueue:getJobQueue", args, &rv, "", opts...)
-			if err != nil {
-				return LookupJobQueueResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupJobQueueResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupJobQueueResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:batch/getJobQueue:getJobQueue", args, LookupJobQueueResultOutput{}, options).(LookupJobQueueResultOutput), nil
 		}).(LookupJobQueueResultOutput)
 }
 

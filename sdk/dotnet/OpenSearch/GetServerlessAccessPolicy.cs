@@ -64,6 +64,33 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         public static Output<GetServerlessAccessPolicyResult> Invoke(GetServerlessAccessPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerlessAccessPolicyResult>("aws:opensearch/getServerlessAccessPolicy:getServerlessAccessPolicy", args ?? new GetServerlessAccessPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS OpenSearch Serverless Access Policy.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.OpenSearch.GetServerlessAccessPolicy.Invoke(new()
+        ///     {
+        ///         Name = exampleAwsOpensearchserverlessAccessPolicy.Name,
+        ///         Type = exampleAwsOpensearchserverlessAccessPolicy.Type,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetServerlessAccessPolicyResult> Invoke(GetServerlessAccessPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerlessAccessPolicyResult>("aws:opensearch/getServerlessAccessPolicy:getServerlessAccessPolicy", args ?? new GetServerlessAccessPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

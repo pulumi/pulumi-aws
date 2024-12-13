@@ -66,6 +66,34 @@ namespace Pulumi.Aws.CostExplorer
         /// </summary>
         public static Output<GetTagsResult> Invoke(GetTagsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagsResult>("aws:costexplorer/getTags:getTags", args ?? new GetTagsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides the available cost allocation tag keys and tag values for a specified period.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.CostExplorer.GetTags.Invoke(new()
+        ///     {
+        ///         TimePeriod = new Aws.CostExplorer.Inputs.GetTagsTimePeriodInputArgs
+        ///         {
+        ///             Start = "2021-01-01",
+        ///             End = "2022-12-01",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetTagsResult> Invoke(GetTagsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTagsResult>("aws:costexplorer/getTags:getTags", args ?? new GetTagsInvokeArgs(), options.WithDefaults());
     }
 
 

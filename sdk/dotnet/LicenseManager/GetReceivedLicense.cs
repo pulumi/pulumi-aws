@@ -62,6 +62,32 @@ namespace Pulumi.Aws.LicenseManager
         /// </summary>
         public static Output<GetReceivedLicenseResult> Invoke(GetReceivedLicenseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReceivedLicenseResult>("aws:licensemanager/getReceivedLicense:getReceivedLicense", args ?? new GetReceivedLicenseInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This resource can be used to get data on a received license using an ARN. This can be helpful for pulling in data on a license from the AWS marketplace and sharing that license with another account.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// The following shows getting the received license data using and ARN.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.LicenseManager.GetReceivedLicense.Invoke(new()
+        ///     {
+        ///         LicenseArn = "arn:aws:license-manager::111111111111:license:l-ecbaa94eb71a4830b6d7e49268fecaa0",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetReceivedLicenseResult> Invoke(GetReceivedLicenseInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetReceivedLicenseResult>("aws:licensemanager/getReceivedLicense:getReceivedLicense", args ?? new GetReceivedLicenseInvokeArgs(), options.WithDefaults());
     }
 
 

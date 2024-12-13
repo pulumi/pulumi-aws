@@ -62,6 +62,32 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         public static Output<GetProducerDataSharesResult> Invoke(GetProducerDataSharesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProducerDataSharesResult>("aws:redshift/getProducerDataShares:getProducerDataShares", args ?? new GetProducerDataSharesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing AWS Redshift Producer Data Shares.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.RedShift.GetProducerDataShares.Invoke(new()
+        ///     {
+        ///         ProducerArn = "",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetProducerDataSharesResult> Invoke(GetProducerDataSharesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProducerDataSharesResult>("aws:redshift/getProducerDataShares:getProducerDataShares", args ?? new GetProducerDataSharesInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -92,6 +92,47 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         public static Output<GetZoneResult> Invoke(GetZoneInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetZoneResult>("aws:route53/getZone:getZone", args ?? new GetZoneInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// `aws.route53.Zone` provides details about a specific Route 53 Hosted Zone.
+        /// 
+        /// This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var selected = Aws.Route53.GetZone.Invoke(new()
+        ///     {
+        ///         Name = "test.com.",
+        ///         PrivateZone = true,
+        ///     });
+        /// 
+        ///     var www = new Aws.Route53.Record("www", new()
+        ///     {
+        ///         ZoneId = selected.Apply(getZoneResult =&gt; getZoneResult.ZoneId),
+        ///         Name = $"www.{selected.Apply(getZoneResult =&gt; getZoneResult.Name)}",
+        ///         Type = Aws.Route53.RecordType.A,
+        ///         Ttl = 300,
+        ///         Records = new[]
+        ///         {
+        ///             "10.0.0.1",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetZoneResult> Invoke(GetZoneInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetZoneResult>("aws:route53/getZone:getZone", args ?? new GetZoneInvokeArgs(), options.WithDefaults());
     }
 
 

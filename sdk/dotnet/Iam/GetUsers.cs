@@ -132,6 +132,67 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public static Output<GetUsersResult> Invoke(GetUsersInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUsersResult>("aws:iam/getUsers:getUsers", args ?? new GetUsersInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get the ARNs and Names of IAM Users.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### All users in an account
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var users = Aws.Iam.GetUsers.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Users filtered by name regex
+        /// 
+        /// Users whose username contains `abc`
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var users = Aws.Iam.GetUsers.Invoke(new()
+        ///     {
+        ///         NameRegex = ".*abc.*",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Users filtered by path prefix
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var users = Aws.Iam.GetUsers.Invoke(new()
+        ///     {
+        ///         PathPrefix = "/custom-path",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetUsersResult> Invoke(GetUsersInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUsersResult>("aws:iam/getUsers:getUsers", args ?? new GetUsersInvokeArgs(), options.WithDefaults());
     }
 
 

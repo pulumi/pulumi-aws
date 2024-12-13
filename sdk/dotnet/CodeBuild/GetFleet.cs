@@ -138,6 +138,70 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         public static Output<GetFleetResult> Invoke(GetFleetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetResult>("aws:codebuild/getFleet:getFleet", args ?? new GetFleetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve information about an CodeBuild Fleet.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var testFleet = new Aws.CodeBuild.Fleet("test", new()
+        ///     {
+        ///         BaseCapacity = 2,
+        ///         ComputeType = "BUILD_GENERAL1_SMALL",
+        ///         EnvironmentType = "LINUX_CONTAINER",
+        ///         Name = "full-example-codebuild-fleet",
+        ///         OverflowBehavior = "QUEUE",
+        ///         ScalingConfiguration = new Aws.CodeBuild.Inputs.FleetScalingConfigurationArgs
+        ///         {
+        ///             MaxCapacity = 5,
+        ///             ScalingType = "TARGET_TRACKING_SCALING",
+        ///             TargetTrackingScalingConfigs = new[]
+        ///             {
+        ///                 new Aws.CodeBuild.Inputs.FleetScalingConfigurationTargetTrackingScalingConfigArgs
+        ///                 {
+        ///                     MetricType = "FLEET_UTILIZATION_RATE",
+        ///                     TargetValue = 97.5,
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var test = Aws.CodeBuild.GetFleet.Invoke(new()
+        ///     {
+        ///         Name = testFleet.Name,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.CodeBuild.GetFleet.Invoke(new()
+        ///     {
+        ///         Name = "my-codebuild-fleet-name",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFleetResult> Invoke(GetFleetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFleetResult>("aws:codebuild/getFleet:getFleet", args ?? new GetFleetInvokeArgs(), options.WithDefaults());
     }
 
 

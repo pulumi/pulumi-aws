@@ -109,21 +109,11 @@ type GetSecurityGroupsResult struct {
 }
 
 func GetSecurityGroupsOutput(ctx *pulumi.Context, args GetSecurityGroupsOutputArgs, opts ...pulumi.InvokeOption) GetSecurityGroupsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetSecurityGroupsResultOutput, error) {
 			args := v.(GetSecurityGroupsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetSecurityGroupsResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getSecurityGroups:getSecurityGroups", args, &rv, "", opts...)
-			if err != nil {
-				return GetSecurityGroupsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetSecurityGroupsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetSecurityGroupsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:ec2/getSecurityGroups:getSecurityGroups", args, GetSecurityGroupsResultOutput{}, options).(GetSecurityGroupsResultOutput), nil
 		}).(GetSecurityGroupsResultOutput)
 }
 

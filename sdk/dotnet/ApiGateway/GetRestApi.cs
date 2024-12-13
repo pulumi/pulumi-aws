@@ -64,6 +64,33 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         public static Output<GetRestApiResult> Invoke(GetRestApiInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRestApiResult>("aws:apigateway/getRestApi:getRestApi", args ?? new GetRestApiInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get the id and root_resource_id of a REST API in
+        /// API Gateway. To fetch the REST API you must provide a name to match against.
+        /// As there is no unique name constraint on REST APIs this data source will
+        /// error if there is more than one match.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var myRestApi = Aws.ApiGateway.GetRestApi.Invoke(new()
+        ///     {
+        ///         Name = "my-rest-api",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRestApiResult> Invoke(GetRestApiInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRestApiResult>("aws:apigateway/getRestApi:getRestApi", args ?? new GetRestApiInvokeArgs(), options.WithDefaults());
     }
 
 

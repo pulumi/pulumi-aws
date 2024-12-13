@@ -86,21 +86,11 @@ type LookupRoleResult struct {
 }
 
 func LookupRoleOutput(ctx *pulumi.Context, args LookupRoleOutputArgs, opts ...pulumi.InvokeOption) LookupRoleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRoleResultOutput, error) {
 			args := v.(LookupRoleArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupRoleResult
-			secret, err := ctx.InvokePackageRaw("aws:iam/getRole:getRole", args, &rv, "", opts...)
-			if err != nil {
-				return LookupRoleResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupRoleResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupRoleResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:iam/getRole:getRole", args, LookupRoleResultOutput{}, options).(LookupRoleResultOutput), nil
 		}).(LookupRoleResultOutput)
 }
 

@@ -115,21 +115,11 @@ type LookupClusterResult struct {
 }
 
 func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupClusterResultOutput, error) {
 			args := v.(LookupClusterArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupClusterResult
-			secret, err := ctx.InvokePackageRaw("aws:elasticache/getCluster:getCluster", args, &rv, "", opts...)
-			if err != nil {
-				return LookupClusterResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupClusterResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupClusterResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:elasticache/getCluster:getCluster", args, LookupClusterResultOutput{}, options).(LookupClusterResultOutput), nil
 		}).(LookupClusterResultOutput)
 }
 

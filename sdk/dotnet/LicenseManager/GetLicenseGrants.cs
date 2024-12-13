@@ -86,6 +86,44 @@ namespace Pulumi.Aws.LicenseManager
         /// </summary>
         public static Output<GetLicenseGrantsResult> Invoke(GetLicenseGrantsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLicenseGrantsResult>("aws:licensemanager/getLicenseGrants:getLicenseGrants", args ?? new GetLicenseGrantsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This resource can be used to get a set of license grant ARNs matching a filter.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// The following shows getting all license grant ARNs granted to your account.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Aws.GetCallerIdentity.Invoke();
+        /// 
+        ///     var test = Aws.LicenseManager.GetLicenseGrants.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.LicenseManager.Inputs.GetLicenseGrantsFilterInputArgs
+        ///             {
+        ///                 Name = "GranteePrincipalARN",
+        ///                 Values = new[]
+        ///                 {
+        ///                     $"arn:aws:iam::{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:root",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLicenseGrantsResult> Invoke(GetLicenseGrantsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLicenseGrantsResult>("aws:licensemanager/getLicenseGrants:getLicenseGrants", args ?? new GetLicenseGrantsInvokeArgs(), options.WithDefaults());
     }
 
 

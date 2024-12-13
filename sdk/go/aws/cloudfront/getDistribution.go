@@ -89,21 +89,11 @@ type LookupDistributionResult struct {
 }
 
 func LookupDistributionOutput(ctx *pulumi.Context, args LookupDistributionOutputArgs, opts ...pulumi.InvokeOption) LookupDistributionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDistributionResultOutput, error) {
 			args := v.(LookupDistributionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDistributionResult
-			secret, err := ctx.InvokePackageRaw("aws:cloudfront/getDistribution:getDistribution", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDistributionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDistributionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDistributionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:cloudfront/getDistribution:getDistribution", args, LookupDistributionResultOutput{}, options).(LookupDistributionResultOutput), nil
 		}).(LookupDistributionResultOutput)
 }
 

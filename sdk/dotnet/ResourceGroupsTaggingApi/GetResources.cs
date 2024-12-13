@@ -156,6 +156,79 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
         /// </summary>
         public static Output<GetResourcesResult> Invoke(GetResourcesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourcesResult>("aws:resourcegroupstaggingapi/getResources:getResources", args ?? new GetResourcesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about resource tagging.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Get All Resource Tag Mappings
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.ResourceGroupsTaggingApi.GetResources.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Filter By Tag Key and Value
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.ResourceGroupsTaggingApi.GetResources.Invoke(new()
+        ///     {
+        ///         TagFilters = new[]
+        ///         {
+        ///             new Aws.ResourceGroupsTaggingApi.Inputs.GetResourcesTagFilterInputArgs
+        ///             {
+        ///                 Key = "tag-key",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "tag-value-1",
+        ///                     "tag-value-2",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Filter By Resource Type
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.ResourceGroupsTaggingApi.GetResources.Invoke(new()
+        ///     {
+        ///         ResourceTypeFilters = new[]
+        ///         {
+        ///             "ec2:instance",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetResourcesResult> Invoke(GetResourcesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourcesResult>("aws:resourcegroupstaggingapi/getResources:getResources", args ?? new GetResourcesInvokeArgs(), options.WithDefaults());
     }
 
 

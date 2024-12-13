@@ -108,6 +108,55 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public static Output<GetSnapshotResult> Invoke(GetSnapshotInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("aws:rds/getSnapshot:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information about a DB Snapshot for use when provisioning DB instances
+        /// 
+        /// &gt; **NOTE:** This data source does not apply to snapshots created on Aurora DB clusters.
+        /// See the `aws.rds.ClusterSnapshot` data source for DB Cluster snapshots.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var prod = new Aws.Rds.Instance("prod", new()
+        ///     {
+        ///         AllocatedStorage = 10,
+        ///         Engine = "mysql",
+        ///         EngineVersion = "5.6.17",
+        ///         InstanceClass = Aws.Rds.InstanceType.T2_Micro,
+        ///         DbName = "mydb",
+        ///         Username = "foo",
+        ///         Password = "bar",
+        ///         DbSubnetGroupName = "my_database_subnet_group",
+        ///         ParameterGroupName = "default.mysql5.6",
+        ///     });
+        /// 
+        ///     var latestProdSnapshot = Aws.Rds.GetSnapshot.Invoke(new()
+        ///     {
+        ///         DbInstanceIdentifier = prod.Identifier,
+        ///         MostRecent = true,
+        ///     });
+        /// 
+        ///     // Use the latest production snapshot to create a dev instance.
+        ///     var dev = new Aws.Rds.Instance("dev", new()
+        ///     {
+        ///         InstanceClass = Aws.Rds.InstanceType.T2_Micro,
+        ///         DbName = "mydbdev",
+        ///         SnapshotIdentifier = latestProdSnapshot.Apply(getSnapshotResult =&gt; getSnapshotResult.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSnapshotResult> Invoke(GetSnapshotInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("aws:rds/getSnapshot:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithDefaults());
     }
 
 

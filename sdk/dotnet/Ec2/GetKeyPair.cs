@@ -98,6 +98,50 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Output<GetKeyPairResult> Invoke(GetKeyPairInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyPairResult>("aws:ec2/getKeyPair:getKeyPair", args ?? new GetKeyPairInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information about a specific EC2 Key Pair.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// The following example shows how to get a EC2 Key Pair including the public key material from its name.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ec2.GetKeyPair.Invoke(new()
+        ///     {
+        ///         KeyName = "test",
+        ///         IncludePublicKey = true,
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetKeyPairFilterInputArgs
+        ///             {
+        ///                 Name = "tag:Component",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "web",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["fingerprint"] = example.Apply(getKeyPairResult =&gt; getKeyPairResult.Fingerprint),
+        ///         ["name"] = example.Apply(getKeyPairResult =&gt; getKeyPairResult.KeyName),
+        ///         ["id"] = example.Apply(getKeyPairResult =&gt; getKeyPairResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetKeyPairResult> Invoke(GetKeyPairInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetKeyPairResult>("aws:ec2/getKeyPair:getKeyPair", args ?? new GetKeyPairInvokeArgs(), options.WithDefaults());
     }
 
 

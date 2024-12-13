@@ -60,6 +60,31 @@ namespace Pulumi.Aws.Kendra
         /// </summary>
         public static Output<GetFaqResult> Invoke(GetFaqInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFaqResult>("aws:kendra/getFaq:getFaq", args ?? new GetFaqInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about a specific Amazon Kendra Faq.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Kendra.GetFaq.Invoke(new()
+        ///     {
+        ///         FaqId = "87654321-1234-4321-4321-321987654321",
+        ///         IndexId = "12345678-1234-1234-1234-123456789123",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFaqResult> Invoke(GetFaqInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFaqResult>("aws:kendra/getFaq:getFaq", args ?? new GetFaqInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -82,6 +82,42 @@ namespace Pulumi.Aws.LicenseManager
         /// </summary>
         public static Output<GetReceivedLicensesResult> Invoke(GetReceivedLicensesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReceivedLicensesResult>("aws:licensemanager/getReceivedLicenses:getReceivedLicenses", args ?? new GetReceivedLicensesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This resource can be used to get a set of license ARNs matching a filter.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// The following shows getting all license ARNs issued from the AWS marketplace. Providing no filter, would provide all license ARNs for the entire account.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.LicenseManager.GetReceivedLicenses.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.LicenseManager.Inputs.GetReceivedLicensesFilterInputArgs
+        ///             {
+        ///                 Name = "IssuerName",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "AWS/Marketplace",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetReceivedLicensesResult> Invoke(GetReceivedLicensesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetReceivedLicensesResult>("aws:licensemanager/getReceivedLicenses:getReceivedLicenses", args ?? new GetReceivedLicensesInvokeArgs(), options.WithDefaults());
     }
 
 

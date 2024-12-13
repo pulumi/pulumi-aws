@@ -202,6 +202,102 @@ namespace Pulumi.Aws.Organizations
         /// </summary>
         public static Output<GetOrganizationResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationResult>("aws:organizations/getOrganization:getOrganization", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Get information about the organization that the user's account belongs to
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### List all account IDs for the organization
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Organizations.GetOrganization.Invoke();
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["accountIds"] = example.Apply(getOrganizationResult =&gt; getOrganizationResult.Accounts).Select(__item =&gt; __item.Id).ToList(),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### SNS topic that can be interacted by the organization only
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Organizations.GetOrganization.Invoke();
+        /// 
+        ///     var snsTopic = new Aws.Sns.Topic("sns_topic", new()
+        ///     {
+        ///         Name = "my-sns-topic",
+        ///     });
+        /// 
+        ///     var snsTopicPolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     {
+        ///         Statements = new[]
+        ///         {
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Effect = "Allow",
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "SNS:Subscribe",
+        ///                     "SNS:Publish",
+        ///                 },
+        ///                 Conditions = new[]
+        ///                 {
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+        ///                     {
+        ///                         Test = "StringEquals",
+        ///                         Variable = "aws:PrincipalOrgID",
+        ///                         Values = new[]
+        ///                         {
+        ///                             example.Apply(getOrganizationResult =&gt; getOrganizationResult.Id),
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 Principals = new[]
+        ///                 {
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+        ///                     {
+        ///                         Type = "AWS",
+        ///                         Identifiers = new[]
+        ///                         {
+        ///                             "*",
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     snsTopic.Arn,
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var snsTopicPolicyTopicPolicy = new Aws.Sns.TopicPolicy("sns_topic_policy", new()
+        ///     {
+        ///         Arn = snsTopic.Arn,
+        ///         Policy = snsTopicPolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetOrganizationResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationResult>("aws:organizations/getOrganization:getOrganization", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

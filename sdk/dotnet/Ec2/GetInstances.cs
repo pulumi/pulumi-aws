@@ -136,6 +136,69 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Output<GetInstancesResult> Invoke(GetInstancesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstancesResult>("aws:ec2/getInstances:getInstances", args ?? new GetInstancesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get IDs or IPs of Amazon EC2 instances to be referenced elsewhere,
+        /// e.g., to allow easier migration from another management solution
+        /// or to make it easier for an operator to connect through bastion host(s).
+        /// 
+        /// 
+        /// 
+        /// 
+        /// 
+        /// &gt; **Note:** It's strongly discouraged to use this data source for querying ephemeral
+        /// instances (e.g., managed via autoscaling group), as the output may change at any time
+        /// and you'd need to re-run `apply` every time an instance comes up or dies.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using System.Threading.Tasks;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(async() =&gt; 
+        /// {
+        ///     var test = await Aws.Ec2.GetInstances.InvokeAsync(new()
+        ///     {
+        ///         InstanceTags = 
+        ///         {
+        ///             { "Role", "HardWorker" },
+        ///         },
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetInstancesFilterInputArgs
+        ///             {
+        ///                 Name = "instance.group-id",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "sg-12345678",
+        ///                 },
+        ///             },
+        ///         },
+        ///         InstanceStateNames = new[]
+        ///         {
+        ///             "running",
+        ///             "stopped",
+        ///         },
+        ///     });
+        /// 
+        ///     var testEip = new List&lt;Aws.Ec2.Eip&gt;();
+        ///     for (var rangeIndex = 0; rangeIndex &lt; test.Ids.Length; rangeIndex++)
+        ///     {
+        ///         var range = new { Value = rangeIndex };
+        ///         testEip.Add(new Aws.Ec2.Eip($"test-{range.Value}", new()
+        ///         {
+        ///             Instance = test.Ids[range.Value],
+        ///         }));
+        ///     }
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetInstancesResult> Invoke(GetInstancesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInstancesResult>("aws:ec2/getInstances:getInstances", args ?? new GetInstancesInvokeArgs(), options.WithDefaults());
     }
 
 

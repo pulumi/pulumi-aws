@@ -74,21 +74,11 @@ type GetProducerDataSharesResult struct {
 }
 
 func GetProducerDataSharesOutput(ctx *pulumi.Context, args GetProducerDataSharesOutputArgs, opts ...pulumi.InvokeOption) GetProducerDataSharesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetProducerDataSharesResultOutput, error) {
 			args := v.(GetProducerDataSharesArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetProducerDataSharesResult
-			secret, err := ctx.InvokePackageRaw("aws:redshift/getProducerDataShares:getProducerDataShares", args, &rv, "", opts...)
-			if err != nil {
-				return GetProducerDataSharesResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetProducerDataSharesResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetProducerDataSharesResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:redshift/getProducerDataShares:getProducerDataShares", args, GetProducerDataSharesResultOutput{}, options).(GetProducerDataSharesResultOutput), nil
 		}).(GetProducerDataSharesResultOutput)
 }
 

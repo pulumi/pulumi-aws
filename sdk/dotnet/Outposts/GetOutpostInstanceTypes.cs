@@ -58,6 +58,30 @@ namespace Pulumi.Aws.Outposts
         /// </summary>
         public static Output<GetOutpostInstanceTypesResult> Invoke(GetOutpostInstanceTypesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOutpostInstanceTypesResult>("aws:outposts/getOutpostInstanceTypes:getOutpostInstanceTypes", args ?? new GetOutpostInstanceTypesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Information about Outposts Instance Types.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Outposts.GetOutpostInstanceTypes.Invoke(new()
+        ///     {
+        ///         Arn = exampleAwsOutpostsOutpost.Arn,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetOutpostInstanceTypesResult> Invoke(GetOutpostInstanceTypesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOutpostInstanceTypesResult>("aws:outposts/getOutpostInstanceTypes:getOutpostInstanceTypes", args ?? new GetOutpostInstanceTypesInvokeArgs(), options.WithDefaults());
     }
 
 

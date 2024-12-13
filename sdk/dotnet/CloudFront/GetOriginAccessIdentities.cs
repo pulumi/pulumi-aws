@@ -104,6 +104,53 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         public static Output<GetOriginAccessIdentitiesResult> Invoke(GetOriginAccessIdentitiesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOriginAccessIdentitiesResult>("aws:cloudfront/getOriginAccessIdentities:getOriginAccessIdentities", args ?? new GetOriginAccessIdentitiesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### All origin access identities in the account
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.CloudFront.GetOriginAccessIdentities.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Origin access identities filtered by comment/name
+        /// 
+        /// Origin access identities whose comments are `example-comment1`, `example-comment2`
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.CloudFront.GetOriginAccessIdentities.Invoke(new()
+        ///     {
+        ///         Comments = new[]
+        ///         {
+        ///             "example-comment1",
+        ///             "example-comment2",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetOriginAccessIdentitiesResult> Invoke(GetOriginAccessIdentitiesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOriginAccessIdentitiesResult>("aws:cloudfront/getOriginAccessIdentities:getOriginAccessIdentities", args ?? new GetOriginAccessIdentitiesInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -92,21 +92,11 @@ type LookupServiceQuotaResult struct {
 }
 
 func LookupServiceQuotaOutput(ctx *pulumi.Context, args LookupServiceQuotaOutputArgs, opts ...pulumi.InvokeOption) LookupServiceQuotaResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupServiceQuotaResultOutput, error) {
 			args := v.(LookupServiceQuotaArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupServiceQuotaResult
-			secret, err := ctx.InvokePackageRaw("aws:servicequotas/getServiceQuota:getServiceQuota", args, &rv, "", opts...)
-			if err != nil {
-				return LookupServiceQuotaResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupServiceQuotaResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupServiceQuotaResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:servicequotas/getServiceQuota:getServiceQuota", args, LookupServiceQuotaResultOutput{}, options).(LookupServiceQuotaResultOutput), nil
 		}).(LookupServiceQuotaResultOutput)
 }
 

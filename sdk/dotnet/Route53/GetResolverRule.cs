@@ -64,6 +64,33 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         public static Output<GetResolverRuleResult> Invoke(GetResolverRuleInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverRuleResult>("aws:route53/getResolverRule:getResolverRule", args ?? new GetResolverRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// `aws.route53.ResolverRule` provides details about a specific Route53 Resolver rule.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Route53.GetResolverRule.Invoke(new()
+        ///     {
+        ///         DomainName = "subdomain.example.com",
+        ///         RuleType = "SYSTEM",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetResolverRuleResult> Invoke(GetResolverRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResolverRuleResult>("aws:route53/getResolverRule:getResolverRule", args ?? new GetResolverRuleInvokeArgs(), options.WithDefaults());
     }
 
 

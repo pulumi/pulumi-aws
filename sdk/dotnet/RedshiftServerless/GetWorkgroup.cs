@@ -62,6 +62,32 @@ namespace Pulumi.Aws.RedshiftServerless
         /// </summary>
         public static Output<GetWorkgroupResult> Invoke(GetWorkgroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkgroupResult>("aws:redshiftserverless/getWorkgroup:getWorkgroup", args ?? new GetWorkgroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS Redshift Serverless Workgroup.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.RedshiftServerless.GetWorkgroup.Invoke(new()
+        ///     {
+        ///         WorkgroupName = exampleAwsRedshiftserverlessWorkgroup.WorkgroupName,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetWorkgroupResult> Invoke(GetWorkgroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkgroupResult>("aws:redshiftserverless/getWorkgroup:getWorkgroup", args ?? new GetWorkgroupInvokeArgs(), options.WithDefaults());
     }
 
 

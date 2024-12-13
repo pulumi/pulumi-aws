@@ -62,6 +62,32 @@ namespace Pulumi.Aws.Organizations
         /// </summary>
         public static Output<GetOrganizationalUnitDescendantOrganizationalUnitsResult> Invoke(GetOrganizationalUnitDescendantOrganizationalUnitsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationalUnitDescendantOrganizationalUnitsResult>("aws:organizations/getOrganizationalUnitDescendantOrganizationalUnits:getOrganizationalUnitDescendantOrganizationalUnits", args ?? new GetOrganizationalUnitDescendantOrganizationalUnitsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get all direct child organizational units under a parent organizational unit. This provides all children.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var org = Aws.Organizations.GetOrganization.Invoke();
+        /// 
+        ///     var ous = Aws.Organizations.GetOrganizationalUnitDescendantOrganizationalUnits.Invoke(new()
+        ///     {
+        ///         ParentId = org.Apply(getOrganizationResult =&gt; getOrganizationResult.Roots[0]?.Id),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetOrganizationalUnitDescendantOrganizationalUnitsResult> Invoke(GetOrganizationalUnitDescendantOrganizationalUnitsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationalUnitDescendantOrganizationalUnitsResult>("aws:organizations/getOrganizationalUnitDescendantOrganizationalUnits:getOrganizationalUnitDescendantOrganizationalUnits", args ?? new GetOrganizationalUnitDescendantOrganizationalUnitsInvokeArgs(), options.WithDefaults());
     }
 
 

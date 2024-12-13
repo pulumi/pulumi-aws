@@ -63,6 +63,32 @@ namespace Pulumi.Aws.Quicksight
         /// </summary>
         public static Output<GetAnalysisResult> Invoke(GetAnalysisInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAnalysisResult>("aws:quicksight/getAnalysis:getAnalysis", args ?? new GetAnalysisInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS QuickSight Analysis.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Quicksight.GetQuicksightAnalysis.Invoke(new()
+        ///     {
+        ///         AnalysisId = "example-id",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetAnalysisResult> Invoke(GetAnalysisInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAnalysisResult>("aws:quicksight/getAnalysis:getAnalysis", args ?? new GetAnalysisInvokeArgs(), options.WithDefaults());
     }
 
 

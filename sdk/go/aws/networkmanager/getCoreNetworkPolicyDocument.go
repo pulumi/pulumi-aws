@@ -157,21 +157,11 @@ type GetCoreNetworkPolicyDocumentResult struct {
 }
 
 func GetCoreNetworkPolicyDocumentOutput(ctx *pulumi.Context, args GetCoreNetworkPolicyDocumentOutputArgs, opts ...pulumi.InvokeOption) GetCoreNetworkPolicyDocumentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetCoreNetworkPolicyDocumentResultOutput, error) {
 			args := v.(GetCoreNetworkPolicyDocumentArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetCoreNetworkPolicyDocumentResult
-			secret, err := ctx.InvokePackageRaw("aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument", args, &rv, "", opts...)
-			if err != nil {
-				return GetCoreNetworkPolicyDocumentResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetCoreNetworkPolicyDocumentResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetCoreNetworkPolicyDocumentResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument", args, GetCoreNetworkPolicyDocumentResultOutput{}, options).(GetCoreNetworkPolicyDocumentResultOutput), nil
 		}).(GetCoreNetworkPolicyDocumentResultOutput)
 }
 

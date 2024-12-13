@@ -100,6 +100,51 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         public static Output<GetJobDefinitionResult> Invoke(GetJobDefinitionInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobDefinitionResult>("aws:batch/getJobDefinition:getJobDefinition", args ?? new GetJobDefinitionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS Batch Job Definition.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Lookup via Arn
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var arn = Aws.Batch.GetJobDefinition.Invoke(new()
+        ///     {
+        ///         Arn = "arn:aws:batch:us-east-1:012345678910:job-definition/example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Lookup via Name
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var name = Aws.Batch.GetJobDefinition.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///         Revision = 2,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetJobDefinitionResult> Invoke(GetJobDefinitionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetJobDefinitionResult>("aws:batch/getJobDefinition:getJobDefinition", args ?? new GetJobDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

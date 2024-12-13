@@ -107,21 +107,11 @@ type LookupResponseHeadersPolicyResult struct {
 }
 
 func LookupResponseHeadersPolicyOutput(ctx *pulumi.Context, args LookupResponseHeadersPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupResponseHeadersPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupResponseHeadersPolicyResultOutput, error) {
 			args := v.(LookupResponseHeadersPolicyArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupResponseHeadersPolicyResult
-			secret, err := ctx.InvokePackageRaw("aws:cloudfront/getResponseHeadersPolicy:getResponseHeadersPolicy", args, &rv, "", opts...)
-			if err != nil {
-				return LookupResponseHeadersPolicyResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupResponseHeadersPolicyResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupResponseHeadersPolicyResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:cloudfront/getResponseHeadersPolicy:getResponseHeadersPolicy", args, LookupResponseHeadersPolicyResultOutput{}, options).(LookupResponseHeadersPolicyResultOutput), nil
 		}).(LookupResponseHeadersPolicyResultOutput)
 }
 

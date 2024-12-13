@@ -100,6 +100,51 @@ namespace Pulumi.Aws.Workspaces
         /// </summary>
         public static Output<GetBundleResult> Invoke(GetBundleInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBundleResult>("aws:workspaces/getBundle:getBundle", args ?? new GetBundleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve information about an AWS WorkSpaces bundle.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### By ID
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Workspaces.GetBundle.Invoke(new()
+        ///     {
+        ///         BundleId = "wsb-b0s22j3d7",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### By Owner &amp; Name
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Workspaces.GetBundle.Invoke(new()
+        ///     {
+        ///         Owner = "AMAZON",
+        ///         Name = "Value with Windows 10 and Office 2016",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetBundleResult> Invoke(GetBundleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBundleResult>("aws:workspaces/getBundle:getBundle", args ?? new GetBundleInvokeArgs(), options.WithDefaults());
     }
 
 
