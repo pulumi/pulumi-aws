@@ -34,9 +34,17 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
+     * 
+     */
     @Import(name="databaseName")
     private @Nullable Output<String> databaseName;
 
+    /**
+     * @return Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
+     * 
+     */
     public Optional<Output<String>> databaseName() {
         return Optional.ofNullable(this.databaseName);
     }
@@ -311,11 +319,23 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param databaseName Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
+         * 
+         * @return builder
+         * 
+         */
         public Builder databaseName(@Nullable Output<String> databaseName) {
             $.databaseName = databaseName;
             return this;
         }
 
+        /**
+         * @param databaseName Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
+         * 
+         * @return builder
+         * 
+         */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
         }

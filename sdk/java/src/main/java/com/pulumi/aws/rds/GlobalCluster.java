@@ -323,9 +323,17 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
+     * 
+     */
     @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output<String> databaseName;
 
+    /**
+     * @return Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
+     * 
+     */
     public Output<String> databaseName() {
         return this.databaseName;
     }

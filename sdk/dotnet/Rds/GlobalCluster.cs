@@ -241,6 +241,9 @@ namespace Pulumi.Aws.Rds
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
+        /// </summary>
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
 
@@ -371,6 +374,9 @@ namespace Pulumi.Aws.Rds
 
     public sealed class GlobalClusterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
+        /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
 
@@ -448,6 +454,9 @@ namespace Pulumi.Aws.Rds
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
+        /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
 

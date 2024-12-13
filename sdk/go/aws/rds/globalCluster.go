@@ -273,7 +273,8 @@ type GlobalCluster struct {
 	pulumi.CustomResourceState
 
 	// RDS Global Cluster Amazon Resource Name (ARN).
-	Arn          pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
@@ -340,7 +341,8 @@ func GetGlobalCluster(ctx *pulumi.Context,
 // Input properties used for looking up and filtering GlobalCluster resources.
 type globalClusterState struct {
 	// RDS Global Cluster Amazon Resource Name (ARN).
-	Arn          *string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
 	DatabaseName *string `pulumi:"databaseName"`
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
@@ -375,7 +377,8 @@ type globalClusterState struct {
 
 type GlobalClusterState struct {
 	// RDS Global Cluster Amazon Resource Name (ARN).
-	Arn          pulumi.StringPtrInput
+	Arn pulumi.StringPtrInput
+	// Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
 	DatabaseName pulumi.StringPtrInput
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection pulumi.BoolPtrInput
@@ -413,6 +416,7 @@ func (GlobalClusterState) ElementType() reflect.Type {
 }
 
 type globalClusterArgs struct {
+	// Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
 	DatabaseName *string `pulumi:"databaseName"`
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
@@ -436,6 +440,7 @@ type globalClusterArgs struct {
 
 // The set of arguments for constructing a GlobalCluster resource.
 type GlobalClusterArgs struct {
+	// Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
 	DatabaseName pulumi.StringPtrInput
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection pulumi.BoolPtrInput
@@ -549,6 +554,7 @@ func (o GlobalClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalCluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
 func (o GlobalClusterOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalCluster) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }

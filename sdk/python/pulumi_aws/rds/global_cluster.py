@@ -34,6 +34,7 @@ class GlobalClusterArgs:
         """
         The set of arguments for constructing a GlobalCluster resource.
         :param pulumi.Input[str] global_cluster_identifier: Global cluster identifier.
+        :param pulumi.Input[str] database_name: Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[bool] deletion_protection: If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         :param pulumi.Input[str] engine: Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
         :param pulumi.Input[str] engine_lifecycle_support: The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
@@ -78,6 +79,9 @@ class GlobalClusterArgs:
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
+        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -203,6 +207,7 @@ class _GlobalClusterState:
         """
         Input properties used for looking up and filtering GlobalCluster resources.
         :param pulumi.Input[str] arn: RDS Global Cluster Amazon Resource Name (ARN).
+        :param pulumi.Input[str] database_name: Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[bool] deletion_protection: If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         :param pulumi.Input[str] endpoint: Writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
         :param pulumi.Input[str] engine: Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
@@ -268,6 +273,9 @@ class _GlobalClusterState:
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
+        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -609,6 +617,7 @@ class GlobalCluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] database_name: Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[bool] deletion_protection: If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         :param pulumi.Input[str] engine: Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
         :param pulumi.Input[str] engine_lifecycle_support: The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
@@ -861,6 +870,7 @@ class GlobalCluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: RDS Global Cluster Amazon Resource Name (ARN).
+        :param pulumi.Input[str] database_name: Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[bool] deletion_protection: If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         :param pulumi.Input[str] endpoint: Writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
         :param pulumi.Input[str] engine: Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
@@ -908,6 +918,9 @@ class GlobalCluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Output[str]:
+        """
+        Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
+        """
         return pulumi.get(self, "database_name")
 
     @property

@@ -205,6 +205,9 @@ export class GlobalCluster extends pulumi.CustomResource {
      * RDS Global Cluster Amazon Resource Name (ARN).
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
+     */
     public readonly databaseName!: pulumi.Output<string>;
     /**
      * If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
@@ -326,6 +329,9 @@ export interface GlobalClusterState {
      * RDS Global Cluster Amazon Resource Name (ARN).
      */
     arn?: pulumi.Input<string>;
+    /**
+     * Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
+     */
     databaseName?: pulumi.Input<string>;
     /**
      * If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
@@ -388,6 +394,9 @@ export interface GlobalClusterState {
  * The set of arguments for constructing a GlobalCluster resource.
  */
 export interface GlobalClusterArgs {
+    /**
+     * Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
+     */
     databaseName?: pulumi.Input<string>;
     /**
      * If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
