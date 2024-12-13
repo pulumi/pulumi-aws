@@ -23,6 +23,7 @@ import (
 	"path/filepath"
 	"strconv"
 	"strings"
+	"sync"
 	"sync/atomic"
 	"time"
 	"unicode"
@@ -493,9 +494,13 @@ var namespaceMap = map[string]string{
 	"aws": "Aws",
 }
 
+var _nslock = sync.Mutex{}
+
 // awsMember manufactures a type token for the AWS package and the given module, file name, and type.
 func awsMember(moduleTitle string, fn string, mem string) tokens.ModuleMember {
 	moduleName := strings.ToLower(moduleTitle)
+	_nslock.Lock()
+	defer _nslock.Unlock()
 	namespaceMap[moduleName] = moduleTitle
 	if fn != "" {
 		moduleName += "/" + fn

@@ -10,6 +10,8 @@ import (
 )
 
 func TestReplaceWafV2TypesWithRecursive(t *testing.T) {
+	t.Parallel()
+
 	spec := schema.PackageSpec{
 		Types: map[string]schema.ComplexTypeSpec{
 			// Root statement - keep it.

@@ -4,12 +4,14 @@ import (
 	"context"
 	"testing"
 
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
+	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestParseDuration(t *testing.T) {
+	t.Parallel()
+
 	for _, v := range []string{
 		"1",
 		"60",
@@ -29,6 +31,8 @@ func TestParseDuration(t *testing.T) {
 }
 
 func TestHasNonComputedTagsAndTagsAllOptimized(t *testing.T) {
+	t.Parallel()
+
 	p := Provider()
 	p.P.ResourcesMap().Range(func(key string, value shim.Resource) bool {
 		actual := hasNonComputedTagsAndTagsAllOptimized(key, value)
@@ -50,6 +54,8 @@ func TestHasNonComputedTagsAndTagsAllOptimized(t *testing.T) {
 }
 
 func TestHasOptionalOrRequiredNamePropertyOptimized(t *testing.T) {
+	t.Parallel()
+
 	p := Provider()
 	p.P.ResourcesMap().Range(func(key string, value shim.Resource) bool {
 		actual := hasOptionalOrRequiredNameProperty(p.P, key)
@@ -67,6 +73,8 @@ func TestHasOptionalOrRequiredNamePropertyOptimized(t *testing.T) {
 	}
 }
 func TestExtractTags(t *testing.T) {
+	t.Parallel()
+
 	tests := []struct {
 		name     string
 		vars     resource.PropertyMap

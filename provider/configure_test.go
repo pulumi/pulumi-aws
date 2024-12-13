@@ -29,6 +29,8 @@ import (
 )
 
 func TestCheckConfigWithUnknownKeys(t *testing.T) {
+	t.Parallel()
+
 	// Double checking that this is a failure, but no longer over-fitting the test on the exact
 	// error message. See pulumi/pulumi-terraform-bridge codebase instead for controlling the
 	// generated error message.
@@ -57,6 +59,8 @@ func TestCheckConfigWithUnknownKeys(t *testing.T) {
 }
 
 func TestCheckConfigRunsUpstreamValidators(t *testing.T) {
+	t.Parallel()
+
 	replaySequence(t, strings.ReplaceAll(`
 	[{
 	  "method": "/pulumirpc.ResourceProvider/CheckConfig",
@@ -84,6 +88,8 @@ func TestCheckConfigRunsUpstreamValidators(t *testing.T) {
 }
 
 func TestCheckConfigFastWithCustomEndpoints(t *testing.T) {
+	t.Parallel()
+
 	time0 := time.Now()
 	replaySequence(t, `
 	[{

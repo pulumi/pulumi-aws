@@ -23,6 +23,8 @@ import (
 
 // This checks that any runtime checks in the underlying provider (with patches) are passed.
 func TestProviderShim(t *testing.T) {
+	t.Parallel()
+
 	ctx := context.Background()
 	_, err := shim.NewUpstreamProvider(ctx)
 	if err != nil {
