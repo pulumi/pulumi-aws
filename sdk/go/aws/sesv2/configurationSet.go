@@ -33,7 +33,8 @@ import (
 //			_, err := sesv2.NewConfigurationSet(ctx, "example", &sesv2.ConfigurationSetArgs{
 //				ConfigurationSetName: pulumi.String("example"),
 //				DeliveryOptions: &sesv2.ConfigurationSetDeliveryOptionsArgs{
-//					TlsPolicy: pulumi.String("REQUIRE"),
+//					MaxDeliverySeconds: pulumi.Int(300),
+//					TlsPolicy:          pulumi.String("REQUIRE"),
 //				},
 //				ReputationOptions: &sesv2.ConfigurationSetReputationOptionsArgs{
 //					ReputationMetricsEnabled: pulumi.Bool(false),
@@ -49,6 +50,7 @@ import (
 //				},
 //				TrackingOptions: &sesv2.ConfigurationSetTrackingOptionsArgs{
 //					CustomRedirectDomain: pulumi.String("example.com"),
+//					HttpsPolicy:          pulumi.String("REQUIRE"),
 //				},
 //			})
 //			if err != nil {

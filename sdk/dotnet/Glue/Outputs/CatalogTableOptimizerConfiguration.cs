@@ -18,6 +18,14 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
+        /// The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
+        /// </summary>
+        public readonly Outputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration? OrphanFileDeletionConfiguration;
+        /// <summary>
+        /// The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
+        /// </summary>
+        public readonly Outputs.CatalogTableOptimizerConfigurationRetentionConfiguration? RetentionConfiguration;
+        /// <summary>
         /// The ARN of the IAM role to use for the table optimizer.
         /// </summary>
         public readonly string RoleArn;
@@ -26,9 +34,15 @@ namespace Pulumi.Aws.Glue.Outputs
         private CatalogTableOptimizerConfiguration(
             bool enabled,
 
+            Outputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration? orphanFileDeletionConfiguration,
+
+            Outputs.CatalogTableOptimizerConfigurationRetentionConfiguration? retentionConfiguration,
+
             string roleArn)
         {
             Enabled = enabled;
+            OrphanFileDeletionConfiguration = orphanFileDeletionConfiguration;
+            RetentionConfiguration = retentionConfiguration;
             RoleArn = roleArn;
         }
     }

@@ -114,6 +114,10 @@ namespace Pulumi.Aws.ServiceCatalog
         /// Name of the application.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// A map of tags assigned to the Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetAppregistryApplicationResult(
@@ -125,13 +129,16 @@ namespace Pulumi.Aws.ServiceCatalog
 
             string id,
 
-            string name)
+            string name,
+
+            ImmutableDictionary<string, string> tags)
         {
             ApplicationTag = applicationTag;
             Arn = arn;
             Description = description;
             Id = id;
             Name = name;
+            Tags = tags;
         }
     }
 }

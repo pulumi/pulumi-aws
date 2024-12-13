@@ -80,6 +80,7 @@ import javax.annotation.Nullable;
  *                 .targetKafkaClusterArn(target.arn())
  *                 .targetCompressionType("NONE")
  *                 .topicReplications(ReplicatorReplicationInfoListTopicReplicationArgs.builder()
+ *                     .topicConfigurationName(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *                     .topicsToReplicates(".*")
  *                     .startingPosition(ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs.builder()
  *                         .type("LATEST")

@@ -17,6 +17,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class RedshiftserverlessFunctions {
@@ -144,6 +145,48 @@ public final class RedshiftserverlessFunctions {
      * 
      */
     public static Output<GetCredentialsResult> getCredentials(GetCredentialsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:redshiftserverless/getCredentials:getCredentials", TypeShape.of(GetCredentialsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides redshift serverless temporary credentials for a workgroup.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
+     * import com.pulumi.aws.redshiftserverless.inputs.GetCredentialsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftserverlessFunctions.getCredentials(GetCredentialsArgs.builder()
+     *             .workgroupName(exampleAwsRedshiftserverlessWorkgroup.workgroupName())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetCredentialsResult> getCredentials(GetCredentialsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:redshiftserverless/getCredentials:getCredentials", TypeShape.of(GetCredentialsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -353,6 +396,48 @@ public final class RedshiftserverlessFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetNamespaceResult> getNamespace(GetNamespaceArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:redshiftserverless/getNamespace:getNamespace", TypeShape.of(GetNamespaceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Redshift Serverless Namespace.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
+     * import com.pulumi.aws.redshiftserverless.inputs.GetNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftserverlessFunctions.getNamespace(GetNamespaceArgs.builder()
+     *             .namespaceName("example-namespace")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetNamespaceResult> getNamespacePlain(GetNamespacePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:redshiftserverless/getNamespace:getNamespace", TypeShape.of(GetNamespaceResult.class), args, Utilities.withVersion(options));
     }
@@ -486,6 +571,50 @@ public final class RedshiftserverlessFunctions {
      * 
      */
     public static Output<GetWorkgroupResult> getWorkgroup(GetWorkgroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:redshiftserverless/getWorkgroup:getWorkgroup", TypeShape.of(GetWorkgroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Redshift Serverless Workgroup.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
+     * import com.pulumi.aws.redshiftserverless.inputs.GetWorkgroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftserverlessFunctions.getWorkgroup(GetWorkgroupArgs.builder()
+     *             .workgroupName(exampleAwsRedshiftserverlessWorkgroup.workgroupName())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetWorkgroupResult> getWorkgroup(GetWorkgroupArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:redshiftserverless/getWorkgroup:getWorkgroup", TypeShape.of(GetWorkgroupResult.class), args, Utilities.withVersion(options));
     }
     /**

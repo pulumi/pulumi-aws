@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.networkfirewall.outputs;
 
+import com.pulumi.aws.networkfirewall.outputs.FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
@@ -11,6 +12,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirewallPolicyFirewallPolicyStatefulEngineOptions {
+    /**
+     * @return Amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
+     * 
+     */
+    private @Nullable FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts flowTimeouts;
     /**
      * @return Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
      * 
@@ -23,6 +29,13 @@ public final class FirewallPolicyFirewallPolicyStatefulEngineOptions {
     private @Nullable String streamExceptionPolicy;
 
     private FirewallPolicyFirewallPolicyStatefulEngineOptions() {}
+    /**
+     * @return Amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
+     * 
+     */
+    public Optional<FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts> flowTimeouts() {
+        return Optional.ofNullable(this.flowTimeouts);
+    }
     /**
      * @return Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
      * 
@@ -47,15 +60,23 @@ public final class FirewallPolicyFirewallPolicyStatefulEngineOptions {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts flowTimeouts;
         private @Nullable String ruleOrder;
         private @Nullable String streamExceptionPolicy;
         public Builder() {}
         public Builder(FirewallPolicyFirewallPolicyStatefulEngineOptions defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.flowTimeouts = defaults.flowTimeouts;
     	      this.ruleOrder = defaults.ruleOrder;
     	      this.streamExceptionPolicy = defaults.streamExceptionPolicy;
         }
 
+        @CustomType.Setter
+        public Builder flowTimeouts(@Nullable FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts flowTimeouts) {
+
+            this.flowTimeouts = flowTimeouts;
+            return this;
+        }
         @CustomType.Setter
         public Builder ruleOrder(@Nullable String ruleOrder) {
 
@@ -70,6 +91,7 @@ public final class FirewallPolicyFirewallPolicyStatefulEngineOptions {
         }
         public FirewallPolicyFirewallPolicyStatefulEngineOptions build() {
             final var _resultValue = new FirewallPolicyFirewallPolicyStatefulEngineOptions();
+            _resultValue.flowTimeouts = flowTimeouts;
             _resultValue.ruleOrder = ruleOrder;
             _resultValue.streamExceptionPolicy = streamExceptionPolicy;
             return _resultValue;

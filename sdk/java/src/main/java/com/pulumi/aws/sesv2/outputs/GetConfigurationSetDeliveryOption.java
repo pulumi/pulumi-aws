@@ -5,11 +5,17 @@ package com.pulumi.aws.sesv2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 
 @CustomType
 public final class GetConfigurationSetDeliveryOption {
+    /**
+     * @return The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+     * 
+     */
+    private Integer maxDeliverySeconds;
     /**
      * @return The name of the dedicated IP pool to associate with the configuration set.
      * 
@@ -22,6 +28,13 @@ public final class GetConfigurationSetDeliveryOption {
     private String tlsPolicy;
 
     private GetConfigurationSetDeliveryOption() {}
+    /**
+     * @return The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+     * 
+     */
+    public Integer maxDeliverySeconds() {
+        return this.maxDeliverySeconds;
+    }
     /**
      * @return The name of the dedicated IP pool to associate with the configuration set.
      * 
@@ -46,15 +59,25 @@ public final class GetConfigurationSetDeliveryOption {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Integer maxDeliverySeconds;
         private String sendingPoolName;
         private String tlsPolicy;
         public Builder() {}
         public Builder(GetConfigurationSetDeliveryOption defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.maxDeliverySeconds = defaults.maxDeliverySeconds;
     	      this.sendingPoolName = defaults.sendingPoolName;
     	      this.tlsPolicy = defaults.tlsPolicy;
         }
 
+        @CustomType.Setter
+        public Builder maxDeliverySeconds(Integer maxDeliverySeconds) {
+            if (maxDeliverySeconds == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationSetDeliveryOption", "maxDeliverySeconds");
+            }
+            this.maxDeliverySeconds = maxDeliverySeconds;
+            return this;
+        }
         @CustomType.Setter
         public Builder sendingPoolName(String sendingPoolName) {
             if (sendingPoolName == null) {
@@ -73,6 +96,7 @@ public final class GetConfigurationSetDeliveryOption {
         }
         public GetConfigurationSetDeliveryOption build() {
             final var _resultValue = new GetConfigurationSetDeliveryOption();
+            _resultValue.maxDeliverySeconds = maxDeliverySeconds;
             _resultValue.sendingPoolName = sendingPoolName;
             _resultValue.tlsPolicy = tlsPolicy;
             return _resultValue;

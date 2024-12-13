@@ -133,7 +133,7 @@ export class NotebookInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly networkInterfaceId!: pulumi.Output<string>;
     /**
-     * The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
+     * The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
      */
     public readonly platformIdentifier!: pulumi.Output<string>;
     /**
@@ -288,7 +288,7 @@ export interface NotebookInstanceState {
      */
     networkInterfaceId?: pulumi.Input<string>;
     /**
-     * The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
+     * The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
      */
     platformIdentifier?: pulumi.Input<string>;
     /**
@@ -369,7 +369,7 @@ export interface NotebookInstanceArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
+     * The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
      */
     platformIdentifier?: pulumi.Input<string>;
     /**

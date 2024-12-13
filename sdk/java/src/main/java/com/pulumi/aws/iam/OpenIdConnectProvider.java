@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Basic Usage
+ * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
@@ -56,6 +58,42 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Without A Thumbprint
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.OpenIdConnectProvider;
+ * import com.pulumi.aws.iam.OpenIdConnectProviderArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var default_ = new OpenIdConnectProvider("default", OpenIdConnectProviderArgs.builder()
+ *             .url("https://accounts.google.com")
+ *             .clientIdLists("266362248691-342342xasdasdasda-apps.googleusercontent.com")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import IAM OpenID Connect Providers using the `arn`. For example:
@@ -68,28 +106,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:iam/openIdConnectProvider:OpenIdConnectProvider")
 public class OpenIdConnectProvider extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN assigned by AWS for this provider.
+     * ARN assigned by AWS for this provider.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN assigned by AWS for this provider.
+     * @return ARN assigned by AWS for this provider.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that&#39;s sent as the client_id parameter on OAuth requests.)
+     * List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
      * 
      */
     @Export(name="clientIdLists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> clientIdLists;
 
     /**
-     * @return A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that&#39;s sent as the client_id parameter on OAuth requests.)
+     * @return List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
      * 
      */
     public Output<List<String>> clientIdLists() {
@@ -110,7 +148,7 @@ public class OpenIdConnectProvider extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      * @deprecated
      * Please use `tags` instead.
@@ -121,35 +159,27 @@ public class OpenIdConnectProvider extends com.pulumi.resources.CustomResource {
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider&#39;s server certificate(s).
-     * 
-     */
     @Export(name="thumbprintLists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> thumbprintLists;
 
-    /**
-     * @return A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider&#39;s server certificate(s).
-     * 
-     */
     public Output<List<String>> thumbprintLists() {
         return this.thumbprintLists;
     }
     /**
-     * The URL of the identity provider. Corresponds to the _iss_ claim.
+     * URL of the identity provider, corresponding to the `iss` claim.
      * 
      */
     @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**
-     * @return The URL of the identity provider. Corresponds to the _iss_ claim.
+     * @return URL of the identity provider, corresponding to the `iss` claim.
      * 
      */
     public Output<String> url() {

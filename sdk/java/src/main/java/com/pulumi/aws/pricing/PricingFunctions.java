@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class PricingFunctions {
@@ -354,6 +355,120 @@ public final class PricingFunctions {
      * 
      */
     public static Output<GetProductResult> getProduct(GetProductArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:pricing/getProduct:getProduct", TypeShape.of(GetProductResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get the pricing information of all products in AWS.
+     * This data source is only available in a us-east-1 or ap-south-1 provider.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.pricing.PricingFunctions;
+     * import com.pulumi.aws.pricing.inputs.GetProductArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PricingFunctions.getProduct(GetProductArgs.builder()
+     *             .serviceCode("AmazonEC2")
+     *             .filters(            
+     *                 GetProductFilterArgs.builder()
+     *                     .field("instanceType")
+     *                     .value("c5.xlarge")
+     *                     .build(),
+     *                 GetProductFilterArgs.builder()
+     *                     .field("operatingSystem")
+     *                     .value("Linux")
+     *                     .build(),
+     *                 GetProductFilterArgs.builder()
+     *                     .field("location")
+     *                     .value("US East (N. Virginia)")
+     *                     .build(),
+     *                 GetProductFilterArgs.builder()
+     *                     .field("preInstalledSw")
+     *                     .value("NA")
+     *                     .build(),
+     *                 GetProductFilterArgs.builder()
+     *                     .field("licenseModel")
+     *                     .value("No License required")
+     *                     .build(),
+     *                 GetProductFilterArgs.builder()
+     *                     .field("tenancy")
+     *                     .value("Shared")
+     *                     .build(),
+     *                 GetProductFilterArgs.builder()
+     *                     .field("capacitystatus")
+     *                     .value("Used")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.pricing.PricingFunctions;
+     * import com.pulumi.aws.pricing.inputs.GetProductArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PricingFunctions.getProduct(GetProductArgs.builder()
+     *             .serviceCode("AmazonRedshift")
+     *             .filters(            
+     *                 GetProductFilterArgs.builder()
+     *                     .field("instanceType")
+     *                     .value("ds1.xlarge")
+     *                     .build(),
+     *                 GetProductFilterArgs.builder()
+     *                     .field("location")
+     *                     .value("US East (N. Virginia)")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetProductResult> getProduct(GetProductArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:pricing/getProduct:getProduct", TypeShape.of(GetProductResult.class), args, Utilities.withVersion(options));
     }
     /**

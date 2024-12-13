@@ -17,6 +17,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class LakeformationFunctions {
@@ -228,6 +229,48 @@ public final class LakeformationFunctions {
      * 
      */
     public static Output<GetDataLakeSettingsResult> getDataLakeSettings(GetDataLakeSettingsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:lakeformation/getDataLakeSettings:getDataLakeSettings", TypeShape.of(GetDataLakeSettingsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lakeformation.LakeformationFunctions;
+     * import com.pulumi.aws.lakeformation.inputs.GetDataLakeSettingsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LakeformationFunctions.getDataLakeSettings(GetDataLakeSettingsArgs.builder()
+     *             .catalogId("14916253649")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetDataLakeSettingsResult> getDataLakeSettings(GetDataLakeSettingsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:lakeformation/getDataLakeSettings:getDataLakeSettings", TypeShape.of(GetDataLakeSettingsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -829,6 +872,146 @@ public final class LakeformationFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetPermissionsResult> getPermissions(GetPermissionsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:lakeformation/getPermissions:getPermissions", TypeShape.of(GetPermissionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get permissions for a principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, tables, LF-tags, and LF-tag policies. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
+     * 
+     * &gt; **NOTE:** This data source deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Permissions For A Lake Formation S3 Resource
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lakeformation.LakeformationFunctions;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsDataLocationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
+     *             .principal(workflowRole.arn())
+     *             .dataLocation(GetPermissionsDataLocationArgs.builder()
+     *                 .arn(testAwsLakeformationResource.arn())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Permissions For A Glue Catalog Database
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lakeformation.LakeformationFunctions;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsDatabaseArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
+     *             .principal(workflowRole.arn())
+     *             .database(GetPermissionsDatabaseArgs.builder()
+     *                 .name(testAwsGlueCatalogDatabase.name())
+     *                 .catalogId("110376042874")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Permissions For Tag-Based Access Control
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lakeformation.LakeformationFunctions;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsLfTagPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
+     *             .principal(workflowRole.arn())
+     *             .lfTagPolicy(GetPermissionsLfTagPolicyArgs.builder()
+     *                 .resourceType("DATABASE")
+     *                 .expressions(                
+     *                     GetPermissionsLfTagPolicyExpressionArgs.builder()
+     *                         .key("Team")
+     *                         .values("Sales")
+     *                         .build(),
+     *                     GetPermissionsLfTagPolicyExpressionArgs.builder()
+     *                         .key("Environment")
+     *                         .values(                        
+     *                             "Dev",
+     *                             "Production")
+     *                         .build())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetPermissionsResult> getPermissionsPlain(GetPermissionsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:lakeformation/getPermissions:getPermissions", TypeShape.of(GetPermissionsResult.class), args, Utilities.withVersion(options));
     }
@@ -956,6 +1139,48 @@ public final class LakeformationFunctions {
      * 
      */
     public static Output<GetResourceResult> getResource(GetResourceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:lakeformation/getResource:getResource", TypeShape.of(GetResourceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a Lake Formation resource.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lakeformation.LakeformationFunctions;
+     * import com.pulumi.aws.lakeformation.inputs.GetResourceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LakeformationFunctions.getResource(GetResourceArgs.builder()
+     *             .arn("arn:aws:s3:::tf-acc-test-9151654063908211878")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetResourceResult> getResource(GetResourceArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:lakeformation/getResource:getResource", TypeShape.of(GetResourceResult.class), args, Utilities.withVersion(options));
     }
     /**

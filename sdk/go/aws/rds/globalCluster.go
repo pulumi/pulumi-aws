@@ -272,10 +272,10 @@ import (
 type GlobalCluster struct {
 	pulumi.CustomResourceState
 
-	// RDS Global Cluster Amazon Resource Name (ARN)
+	// RDS Global Cluster Amazon Resource Name (ARN).
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name for an automatically created database on cluster creation.
-	DatabaseName pulumi.StringPtrOutput `pulumi:"databaseName"`
+	// Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
+	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
 	// Writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
@@ -293,12 +293,18 @@ type GlobalCluster struct {
 	GlobalClusterIdentifier pulumi.StringOutput `pulumi:"globalClusterIdentifier"`
 	// Set of objects containing Global Cluster members.
 	GlobalClusterMembers GlobalClusterGlobalClusterMemberArrayOutput `pulumi:"globalClusterMembers"`
-	// AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
+	// AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
 	GlobalClusterResourceId pulumi.StringOutput `pulumi:"globalClusterResourceId"`
 	// Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
 	SourceDbClusterIdentifier pulumi.StringOutput `pulumi:"sourceDbClusterIdentifier"`
 	// Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
 	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
+	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewGlobalCluster registers a new resource with the given unique name, arguments, and options.
@@ -334,9 +340,9 @@ func GetGlobalCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GlobalCluster resources.
 type globalClusterState struct {
-	// RDS Global Cluster Amazon Resource Name (ARN)
+	// RDS Global Cluster Amazon Resource Name (ARN).
 	Arn *string `pulumi:"arn"`
-	// Name for an automatically created database on cluster creation.
+	// Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
 	DatabaseName *string `pulumi:"databaseName"`
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
@@ -355,18 +361,24 @@ type globalClusterState struct {
 	GlobalClusterIdentifier *string `pulumi:"globalClusterIdentifier"`
 	// Set of objects containing Global Cluster members.
 	GlobalClusterMembers []GlobalClusterGlobalClusterMember `pulumi:"globalClusterMembers"`
-	// AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
+	// AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
 	GlobalClusterResourceId *string `pulumi:"globalClusterResourceId"`
 	// Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
 	SourceDbClusterIdentifier *string `pulumi:"sourceDbClusterIdentifier"`
 	// Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
+	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type GlobalClusterState struct {
-	// RDS Global Cluster Amazon Resource Name (ARN)
+	// RDS Global Cluster Amazon Resource Name (ARN).
 	Arn pulumi.StringPtrInput
-	// Name for an automatically created database on cluster creation.
+	// Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
 	DatabaseName pulumi.StringPtrInput
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection pulumi.BoolPtrInput
@@ -385,12 +397,18 @@ type GlobalClusterState struct {
 	GlobalClusterIdentifier pulumi.StringPtrInput
 	// Set of objects containing Global Cluster members.
 	GlobalClusterMembers GlobalClusterGlobalClusterMemberArrayInput
-	// AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
+	// AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
 	GlobalClusterResourceId pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
 	SourceDbClusterIdentifier pulumi.StringPtrInput
 	// Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
 	StorageEncrypted pulumi.BoolPtrInput
+	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapInput
 }
 
 func (GlobalClusterState) ElementType() reflect.Type {
@@ -398,7 +416,7 @@ func (GlobalClusterState) ElementType() reflect.Type {
 }
 
 type globalClusterArgs struct {
-	// Name for an automatically created database on cluster creation.
+	// Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
 	DatabaseName *string `pulumi:"databaseName"`
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
@@ -416,11 +434,13 @@ type globalClusterArgs struct {
 	SourceDbClusterIdentifier *string `pulumi:"sourceDbClusterIdentifier"`
 	// Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
+	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a GlobalCluster resource.
 type GlobalClusterArgs struct {
-	// Name for an automatically created database on cluster creation.
+	// Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
 	DatabaseName pulumi.StringPtrInput
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection pulumi.BoolPtrInput
@@ -438,6 +458,8 @@ type GlobalClusterArgs struct {
 	SourceDbClusterIdentifier pulumi.StringPtrInput
 	// Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
 	StorageEncrypted pulumi.BoolPtrInput
+	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (GlobalClusterArgs) ElementType() reflect.Type {
@@ -527,14 +549,14 @@ func (o GlobalClusterOutput) ToGlobalClusterOutputWithContext(ctx context.Contex
 	return o
 }
 
-// RDS Global Cluster Amazon Resource Name (ARN)
+// RDS Global Cluster Amazon Resource Name (ARN).
 func (o GlobalClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalCluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name for an automatically created database on cluster creation.
-func (o GlobalClusterOutput) DatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GlobalCluster) pulumi.StringPtrOutput { return v.DatabaseName }).(pulumi.StringPtrOutput)
+// Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
+func (o GlobalClusterOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v *GlobalCluster) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
 // If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
@@ -581,7 +603,7 @@ func (o GlobalClusterOutput) GlobalClusterMembers() GlobalClusterGlobalClusterMe
 	return o.ApplyT(func(v *GlobalCluster) GlobalClusterGlobalClusterMemberArrayOutput { return v.GlobalClusterMembers }).(GlobalClusterGlobalClusterMemberArrayOutput)
 }
 
-// AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
+// AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
 func (o GlobalClusterOutput) GlobalClusterResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalCluster) pulumi.StringOutput { return v.GlobalClusterResourceId }).(pulumi.StringOutput)
 }
@@ -594,6 +616,18 @@ func (o GlobalClusterOutput) SourceDbClusterIdentifier() pulumi.StringOutput {
 // Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
 func (o GlobalClusterOutput) StorageEncrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v *GlobalCluster) pulumi.BoolOutput { return v.StorageEncrypted }).(pulumi.BoolOutput)
+}
+
+// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o GlobalClusterOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *GlobalCluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
+func (o GlobalClusterOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *GlobalCluster) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 type GlobalClusterArrayOutput struct{ *pulumi.OutputState }

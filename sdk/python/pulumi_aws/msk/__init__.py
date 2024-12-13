@@ -17,6 +17,7 @@ from .get_vpc_connection import *
 from .replicator import *
 from .scram_secret_association import *
 from .serverless_cluster import *
+from .single_scram_secret_association import *
 from .vpc_connection import *
 from ._inputs import *
 from . import outputs

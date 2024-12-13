@@ -14,6 +14,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class GlobalacceleratorFunctions {
@@ -290,6 +291,52 @@ public final class GlobalacceleratorFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetAcceleratorResult> getAccelerator(GetAcceleratorArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:globalaccelerator/getAccelerator:getAccelerator", TypeShape.of(GetAcceleratorResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides information about a Global Accelerator accelerator.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.globalaccelerator.GlobalacceleratorFunctions;
+     * import com.pulumi.aws.globalaccelerator.inputs.GetAcceleratorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var acceleratorArn = config.get("acceleratorArn").orElse("");
+     *         final var acceleratorName = config.get("acceleratorName").orElse("");
+     *         final var example = GlobalacceleratorFunctions.getAccelerator(GetAcceleratorArgs.builder()
+     *             .arn(acceleratorArn)
+     *             .name(acceleratorName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetAcceleratorResult> getAcceleratorPlain(GetAcceleratorPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:globalaccelerator/getAccelerator:getAccelerator", TypeShape.of(GetAcceleratorResult.class), args, Utilities.withVersion(options));
     }
@@ -521,6 +568,52 @@ public final class GlobalacceleratorFunctions {
      * 
      */
     public static Output<GetCustomRoutingAcceleratorResult> getCustomRoutingAccelerator(GetCustomRoutingAcceleratorArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:globalaccelerator/getCustomRoutingAccelerator:getCustomRoutingAccelerator", TypeShape.of(GetCustomRoutingAcceleratorResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides information about a Global Accelerator custom routing accelerator.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.globalaccelerator.GlobalacceleratorFunctions;
+     * import com.pulumi.aws.globalaccelerator.inputs.GetCustomRoutingAcceleratorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var config = ctx.config();
+     *         final var acceleratorArn = config.get("acceleratorArn").orElse("");
+     *         final var acceleratorName = config.get("acceleratorName").orElse("");
+     *         final var example = GlobalacceleratorFunctions.getCustomRoutingAccelerator(GetCustomRoutingAcceleratorArgs.builder()
+     *             .arn(acceleratorArn)
+     *             .name(acceleratorName)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetCustomRoutingAcceleratorResult> getCustomRoutingAccelerator(GetCustomRoutingAcceleratorArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:globalaccelerator/getCustomRoutingAccelerator:getCustomRoutingAccelerator", TypeShape.of(GetCustomRoutingAcceleratorResult.class), args, Utilities.withVersion(options));
     }
     /**

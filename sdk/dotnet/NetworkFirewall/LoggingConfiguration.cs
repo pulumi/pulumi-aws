@@ -36,7 +36,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                     LogDestination = 
     ///                     {
     ///                         { "bucketName", exampleAwsS3Bucket.Bucket },
-    ///                         { "prefix", "/example" },
+    ///                         { "prefix", "example" },
     ///                     },
     ///                     LogDestinationType = "S3",
     ///                     LogType = "FLOW",

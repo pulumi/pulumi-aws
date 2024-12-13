@@ -32,6 +32,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class CognitoFunctions {
@@ -165,6 +166,50 @@ public final class CognitoFunctions {
      * 
      */
     public static Output<GetIdentityPoolResult> getIdentityPool(GetIdentityPoolArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:cognito/getIdentityPool:getIdentityPool", TypeShape.of(GetIdentityPoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Cognito Identity Pool.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetIdentityPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CognitoFunctions.getIdentityPool(GetIdentityPoolArgs.builder()
+     *             .identityPoolName("test pool")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetIdentityPoolResult> getIdentityPool(GetIdentityPoolArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:cognito/getIdentityPool:getIdentityPool", TypeShape.of(GetIdentityPoolResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -388,6 +433,51 @@ public final class CognitoFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetUserGroupResult> getUserGroup(GetUserGroupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:cognito/getUserGroup:getUserGroup", TypeShape.of(GetUserGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Cognito IDP (Identity Provider) User Group.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetUserGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CognitoFunctions.getUserGroup(GetUserGroupArgs.builder()
+     *             .userPoolId("us-west-2_aaaaaaaaa")
+     *             .name("example")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetUserGroupResult> getUserGroupPlain(GetUserGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:cognito/getUserGroup:getUserGroup", TypeShape.of(GetUserGroupResult.class), args, Utilities.withVersion(options));
     }
@@ -521,6 +611,50 @@ public final class CognitoFunctions {
      * 
      */
     public static Output<GetUserGroupsResult> getUserGroups(GetUserGroupsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:cognito/getUserGroups:getUserGroups", TypeShape.of(GetUserGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing AWS Cognito IDP (Identity Provider) User Groups.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetUserGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CognitoFunctions.getUserGroups(GetUserGroupsArgs.builder()
+     *             .userPoolId("us-west-2_aaaaaaaaa")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetUserGroupsResult> getUserGroups(GetUserGroupsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:cognito/getUserGroups:getUserGroups", TypeShape.of(GetUserGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -740,6 +874,50 @@ public final class CognitoFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetUserPoolResult> getUserPool(GetUserPoolArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:cognito/getUserPool:getUserPool", TypeShape.of(GetUserPoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Cognito User Pool.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetUserPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CognitoFunctions.getUserPool(GetUserPoolArgs.builder()
+     *             .userPoolId("us-west-2_aaaaaaaaa")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetUserPoolResult> getUserPoolPlain(GetUserPoolPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:cognito/getUserPool:getUserPool", TypeShape.of(GetUserPoolResult.class), args, Utilities.withVersion(options));
     }
@@ -870,6 +1048,49 @@ public final class CognitoFunctions {
      * 
      */
     public static Output<GetUserPoolClientResult> getUserPoolClient(GetUserPoolClientArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:cognito/getUserPoolClient:getUserPoolClient", TypeShape.of(GetUserPoolClientResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a Cognito User Pool Client resource.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetUserPoolClientArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var client = CognitoFunctions.getUserPoolClient(GetUserPoolClientArgs.builder()
+     *             .clientId("38fjsnc484p94kpqsnet7mpld0")
+     *             .userPoolId("us-west-2_aaaaaaaaa")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetUserPoolClientResult> getUserPoolClient(GetUserPoolClientArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:cognito/getUserPoolClient:getUserPoolClient", TypeShape.of(GetUserPoolClientResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1080,6 +1301,48 @@ public final class CognitoFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetUserPoolClientsResult> getUserPoolClients(GetUserPoolClientsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:cognito/getUserPoolClients:getUserPoolClients", TypeShape.of(GetUserPoolClientsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get a list of Cognito user pools clients for a Cognito IdP user pool.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetUserPoolClientsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var main = CognitoFunctions.getUserPoolClients(GetUserPoolClientsArgs.builder()
+     *             .userPoolId(mainAwsCognitoUserPool.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetUserPoolClientsResult> getUserPoolClientsPlain(GetUserPoolClientsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:cognito/getUserPoolClients:getUserPoolClients", TypeShape.of(GetUserPoolClientsResult.class), args, Utilities.withVersion(options));
     }
@@ -1207,6 +1470,48 @@ public final class CognitoFunctions {
      * 
      */
     public static Output<GetUserPoolSigningCertificateResult> getUserPoolSigningCertificate(GetUserPoolSigningCertificateArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:cognito/getUserPoolSigningCertificate:getUserPoolSigningCertificate", TypeShape.of(GetUserPoolSigningCertificateResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get the signing certificate for a Cognito IdP user pool.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetUserPoolSigningCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var sc = CognitoFunctions.getUserPoolSigningCertificate(GetUserPoolSigningCertificateArgs.builder()
+     *             .userPoolId(myPool.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetUserPoolSigningCertificateResult> getUserPoolSigningCertificate(GetUserPoolSigningCertificateArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:cognito/getUserPoolSigningCertificate:getUserPoolSigningCertificate", TypeShape.of(GetUserPoolSigningCertificateResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1420,6 +1725,63 @@ public final class CognitoFunctions {
      * 
      */
     public static Output<GetUserPoolsResult> getUserPools(GetUserPoolsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:cognito/getUserPools:getUserPools", TypeShape.of(GetUserPoolsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to get a list of cognito user pools.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigateway.ApigatewayFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetRestApiArgs;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetUserPoolsArgs;
+     * import com.pulumi.aws.apigateway.Authorizer;
+     * import com.pulumi.aws.apigateway.AuthorizerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var selected = ApigatewayFunctions.getRestApi(GetRestApiArgs.builder()
+     *             .name(apiGatewayName)
+     *             .build());
+     * 
+     *         final var selectedGetUserPools = CognitoFunctions.getUserPools(GetUserPoolsArgs.builder()
+     *             .name(cognitoUserPoolName)
+     *             .build());
+     * 
+     *         var cognito = new Authorizer("cognito", AuthorizerArgs.builder()
+     *             .name("cognito")
+     *             .type("COGNITO_USER_POOLS")
+     *             .restApi(selected.applyValue(getRestApiResult -> getRestApiResult.id()))
+     *             .providerArns(selectedGetUserPools.applyValue(getUserPoolsResult -> getUserPoolsResult.arns()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetUserPoolsResult> getUserPools(GetUserPoolsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:cognito/getUserPools:getUserPools", TypeShape.of(GetUserPoolsResult.class), args, Utilities.withVersion(options));
     }
     /**

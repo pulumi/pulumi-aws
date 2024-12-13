@@ -3,12 +3,16 @@
 
 package com.pulumi.aws.glue.inputs;
 
+import com.pulumi.aws.glue.inputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs;
+import com.pulumi.aws.glue.inputs.CatalogTableOptimizerConfigurationRetentionConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class CatalogTableOptimizerConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -31,6 +35,36 @@ public final class CatalogTableOptimizerConfigurationArgs extends com.pulumi.res
     }
 
     /**
+     * The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
+     * 
+     */
+    @Import(name="orphanFileDeletionConfiguration")
+    private @Nullable Output<CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs> orphanFileDeletionConfiguration;
+
+    /**
+     * @return The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
+     * 
+     */
+    public Optional<Output<CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs>> orphanFileDeletionConfiguration() {
+        return Optional.ofNullable(this.orphanFileDeletionConfiguration);
+    }
+
+    /**
+     * The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
+     * 
+     */
+    @Import(name="retentionConfiguration")
+    private @Nullable Output<CatalogTableOptimizerConfigurationRetentionConfigurationArgs> retentionConfiguration;
+
+    /**
+     * @return The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
+     * 
+     */
+    public Optional<Output<CatalogTableOptimizerConfigurationRetentionConfigurationArgs>> retentionConfiguration() {
+        return Optional.ofNullable(this.retentionConfiguration);
+    }
+
+    /**
      * The ARN of the IAM role to use for the table optimizer.
      * 
      */
@@ -49,6 +83,8 @@ public final class CatalogTableOptimizerConfigurationArgs extends com.pulumi.res
 
     private CatalogTableOptimizerConfigurationArgs(CatalogTableOptimizerConfigurationArgs $) {
         this.enabled = $.enabled;
+        this.orphanFileDeletionConfiguration = $.orphanFileDeletionConfiguration;
+        this.retentionConfiguration = $.retentionConfiguration;
         this.roleArn = $.roleArn;
     }
 
@@ -89,6 +125,48 @@ public final class CatalogTableOptimizerConfigurationArgs extends com.pulumi.res
          */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
+        }
+
+        /**
+         * @param orphanFileDeletionConfiguration The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder orphanFileDeletionConfiguration(@Nullable Output<CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs> orphanFileDeletionConfiguration) {
+            $.orphanFileDeletionConfiguration = orphanFileDeletionConfiguration;
+            return this;
+        }
+
+        /**
+         * @param orphanFileDeletionConfiguration The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder orphanFileDeletionConfiguration(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs orphanFileDeletionConfiguration) {
+            return orphanFileDeletionConfiguration(Output.of(orphanFileDeletionConfiguration));
+        }
+
+        /**
+         * @param retentionConfiguration The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retentionConfiguration(@Nullable Output<CatalogTableOptimizerConfigurationRetentionConfigurationArgs> retentionConfiguration) {
+            $.retentionConfiguration = retentionConfiguration;
+            return this;
+        }
+
+        /**
+         * @param retentionConfiguration The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retentionConfiguration(CatalogTableOptimizerConfigurationRetentionConfigurationArgs retentionConfiguration) {
+            return retentionConfiguration(Output.of(retentionConfiguration));
         }
 
         /**

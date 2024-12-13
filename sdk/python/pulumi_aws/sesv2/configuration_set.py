@@ -349,6 +349,7 @@ class ConfigurationSet(pulumi.CustomResource):
         example = aws.sesv2.ConfigurationSet("example",
             configuration_set_name="example",
             delivery_options={
+                "max_delivery_seconds": 300,
                 "tls_policy": "REQUIRE",
             },
             reputation_options={
@@ -365,6 +366,7 @@ class ConfigurationSet(pulumi.CustomResource):
             },
             tracking_options={
                 "custom_redirect_domain": "example.com",
+                "https_policy": "REQUIRE",
             })
         ```
 
@@ -407,6 +409,7 @@ class ConfigurationSet(pulumi.CustomResource):
         example = aws.sesv2.ConfigurationSet("example",
             configuration_set_name="example",
             delivery_options={
+                "max_delivery_seconds": 300,
                 "tls_policy": "REQUIRE",
             },
             reputation_options={
@@ -423,6 +426,7 @@ class ConfigurationSet(pulumi.CustomResource):
             },
             tracking_options={
                 "custom_redirect_domain": "example.com",
+                "https_policy": "REQUIRE",
             })
         ```
 

@@ -93,6 +93,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
+        /// </summary>
+        [Output("enablePrimaryIpv6")]
+        public Output<bool> EnablePrimaryIpv6 { get; private set; } = null!;
+
+        /// <summary>
         /// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Output("interfaceType")]
@@ -117,7 +123,7 @@ namespace Pulumi.Aws.Ec2
         public Output<int> Ipv6AddressCount { get; private set; } = null!;
 
         /// <summary>
-        /// Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default false.
+        /// Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default is `false`.
         /// </summary>
         [Output("ipv6AddressListEnabled")]
         public Output<bool?> Ipv6AddressListEnabled { get; private set; } = null!;
@@ -171,7 +177,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PrivateIp { get; private set; } = null!;
 
         /// <summary>
-        /// Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default false.
+        /// Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default is `false`.
         /// </summary>
         [Output("privateIpListEnabled")]
         public Output<bool?> PrivateIpListEnabled { get; private set; } = null!;
@@ -291,6 +297,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
+        /// </summary>
+        [Input("enablePrimaryIpv6")]
+        public Input<bool>? EnablePrimaryIpv6 { get; set; }
+
+        /// <summary>
         /// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Input("interfaceType")]
@@ -321,7 +333,7 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? Ipv6AddressCount { get; set; }
 
         /// <summary>
-        /// Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default false.
+        /// Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default is `false`.
         /// </summary>
         [Input("ipv6AddressListEnabled")]
         public Input<bool>? Ipv6AddressListEnabled { get; set; }
@@ -372,7 +384,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PrivateIp { get; set; }
 
         /// <summary>
-        /// Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default false.
+        /// Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default is `false`.
         /// </summary>
         [Input("privateIpListEnabled")]
         public Input<bool>? PrivateIpListEnabled { get; set; }
@@ -478,6 +490,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
+        /// </summary>
+        [Input("enablePrimaryIpv6")]
+        public Input<bool>? EnablePrimaryIpv6 { get; set; }
+
+        /// <summary>
         /// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Input("interfaceType")]
@@ -508,7 +526,7 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? Ipv6AddressCount { get; set; }
 
         /// <summary>
-        /// Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default false.
+        /// Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default is `false`.
         /// </summary>
         [Input("ipv6AddressListEnabled")]
         public Input<bool>? Ipv6AddressListEnabled { get; set; }
@@ -580,7 +598,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PrivateIp { get; set; }
 
         /// <summary>
-        /// Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default false.
+        /// Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default is `false`.
         /// </summary>
         [Input("privateIpListEnabled")]
         public Input<bool>? PrivateIpListEnabled { get; set; }

@@ -42,6 +42,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
@@ -295,6 +296,48 @@ public final class OrganizationsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetDelegatedAdministratorsResult> getDelegatedAdministrators(GetDelegatedAdministratorsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:organizations/getDelegatedAdministrators:getDelegatedAdministrators", TypeShape.of(GetDelegatedAdministratorsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a list of AWS accounts that are designated as delegated administrators in this organization
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetDelegatedAdministratorsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OrganizationsFunctions.getDelegatedAdministrators(GetDelegatedAdministratorsArgs.builder()
+     *             .servicePrincipal("SERVICE PRINCIPAL")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetDelegatedAdministratorsResult> getDelegatedAdministratorsPlain(GetDelegatedAdministratorsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:organizations/getDelegatedAdministrators:getDelegatedAdministrators", TypeShape.of(GetDelegatedAdministratorsResult.class), args, Utilities.withVersion(options));
     }
@@ -422,6 +465,48 @@ public final class OrganizationsFunctions {
      * 
      */
     public static Output<GetDelegatedServicesResult> getDelegatedServices(GetDelegatedServicesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:organizations/getDelegatedServices:getDelegatedServices", TypeShape.of(GetDelegatedServicesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get a list the AWS services for which the specified account is a delegated administrator
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetDelegatedServicesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OrganizationsFunctions.getDelegatedServices(GetDelegatedServicesArgs.builder()
+     *             .accountId("AWS ACCOUNT ID")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetDelegatedServicesResult> getDelegatedServices(GetDelegatedServicesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:organizations/getDelegatedServices:getDelegatedServices", TypeShape.of(GetDelegatedServicesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1111,6 +1196,114 @@ public final class OrganizationsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetOrganizationResult> getOrganization(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:organizations/getOrganization:getOrganization", TypeShape.of(GetOrganizationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get information about the organization that the user&#39;s account belongs to
+     * 
+     * ## Example Usage
+     * 
+     * ### List all account IDs for the organization
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OrganizationsFunctions.getOrganization();
+     * 
+     *         ctx.export("accountIds", example.applyValue(getOrganizationResult -> getOrganizationResult.accounts()).stream().map(element -> element.id()).collect(toList()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### SNS topic that can be interacted by the organization only
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.sns.Topic;
+     * import com.pulumi.aws.sns.TopicArgs;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.sns.TopicPolicy;
+     * import com.pulumi.aws.sns.TopicPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OrganizationsFunctions.getOrganization();
+     * 
+     *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()
+     *             .name("my-sns-topic")
+     *             .build());
+     * 
+     *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .effect("Allow")
+     *                 .actions(                
+     *                     "SNS:Subscribe",
+     *                     "SNS:Publish")
+     *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+     *                     .test("StringEquals")
+     *                     .variable("aws:PrincipalOrgID")
+     *                     .values(example.applyValue(getOrganizationResult -> getOrganizationResult.id()))
+     *                     .build())
+     *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                     .type("AWS")
+     *                     .identifiers("*")
+     *                     .build())
+     *                 .resources(snsTopic.arn())
+     *                 .build())
+     *             .build());
+     * 
+     *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()
+     *             .arn(snsTopic.arn())
+     *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult).applyValue(snsTopicPolicy -> snsTopicPolicy.applyValue(getPolicyDocumentResult -> getPolicyDocumentResult.json())))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetOrganizationResult> getOrganizationPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:organizations/getOrganization:getOrganization", TypeShape.of(GetOrganizationResult.class), args, Utilities.withVersion(options));
     }
@@ -1253,6 +1446,53 @@ public final class OrganizationsFunctions {
      * 
      */
     public static Output<GetOrganizationalUnitResult> getOrganizationalUnit(GetOrganizationalUnitArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:organizations/getOrganizationalUnit:getOrganizationalUnit", TypeShape.of(GetOrganizationalUnitResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for getting an AWS Organizations Organizational Unit.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var org = OrganizationsFunctions.getOrganization();
+     * 
+     *         final var ou = OrganizationsFunctions.getOrganizationalUnit(GetOrganizationalUnitArgs.builder()
+     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .name("dev")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetOrganizationalUnitResult> getOrganizationalUnit(GetOrganizationalUnitArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:organizations/getOrganizationalUnit:getOrganizationalUnit", TypeShape.of(GetOrganizationalUnitResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1475,6 +1715,50 @@ public final class OrganizationsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetOrganizationalUnitChildAccountsResult> getOrganizationalUnitChildAccounts(GetOrganizationalUnitChildAccountsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:organizations/getOrganizationalUnitChildAccounts:getOrganizationalUnitChildAccounts", TypeShape.of(GetOrganizationalUnitChildAccountsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get all direct child accounts under a parent organizational unit. This only provides immediate children, not all children.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitChildAccountsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var org = OrganizationsFunctions.getOrganization();
+     * 
+     *         final var accounts = OrganizationsFunctions.getOrganizationalUnitChildAccounts(GetOrganizationalUnitChildAccountsArgs.builder()
+     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetOrganizationalUnitChildAccountsResult> getOrganizationalUnitChildAccountsPlain(GetOrganizationalUnitChildAccountsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:organizations/getOrganizationalUnitChildAccounts:getOrganizationalUnitChildAccounts", TypeShape.of(GetOrganizationalUnitChildAccountsResult.class), args, Utilities.withVersion(options));
     }
@@ -1608,6 +1892,50 @@ public final class OrganizationsFunctions {
      * 
      */
     public static Output<GetOrganizationalUnitDescendantAccountsResult> getOrganizationalUnitDescendantAccounts(GetOrganizationalUnitDescendantAccountsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:organizations/getOrganizationalUnitDescendantAccounts:getOrganizationalUnitDescendantAccounts", TypeShape.of(GetOrganizationalUnitDescendantAccountsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get all direct child accounts under a parent organizational unit. This provides all children.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantAccountsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var org = OrganizationsFunctions.getOrganization();
+     * 
+     *         final var accounts = OrganizationsFunctions.getOrganizationalUnitDescendantAccounts(GetOrganizationalUnitDescendantAccountsArgs.builder()
+     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetOrganizationalUnitDescendantAccountsResult> getOrganizationalUnitDescendantAccounts(GetOrganizationalUnitDescendantAccountsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:organizations/getOrganizationalUnitDescendantAccounts:getOrganizationalUnitDescendantAccounts", TypeShape.of(GetOrganizationalUnitDescendantAccountsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1827,6 +2155,50 @@ public final class OrganizationsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetOrganizationalUnitDescendantOrganizationalUnitsResult> getOrganizationalUnitDescendantOrganizationalUnits(GetOrganizationalUnitDescendantOrganizationalUnitsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:organizations/getOrganizationalUnitDescendantOrganizationalUnits:getOrganizationalUnitDescendantOrganizationalUnits", TypeShape.of(GetOrganizationalUnitDescendantOrganizationalUnitsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get all direct child organizational units under a parent organizational unit. This provides all children.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantOrganizationalUnitsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var org = OrganizationsFunctions.getOrganization();
+     * 
+     *         final var ous = OrganizationsFunctions.getOrganizationalUnitDescendantOrganizationalUnits(GetOrganizationalUnitDescendantOrganizationalUnitsArgs.builder()
+     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetOrganizationalUnitDescendantOrganizationalUnitsResult> getOrganizationalUnitDescendantOrganizationalUnitsPlain(GetOrganizationalUnitDescendantOrganizationalUnitsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:organizations/getOrganizationalUnitDescendantOrganizationalUnits:getOrganizationalUnitDescendantOrganizationalUnits", TypeShape.of(GetOrganizationalUnitDescendantOrganizationalUnitsResult.class), args, Utilities.withVersion(options));
     }
@@ -2003,6 +2375,50 @@ public final class OrganizationsFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
+    public static Output<GetOrganizationalUnitsResult> getOrganizationalUnits(GetOrganizationalUnitsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:organizations/getOrganizationalUnits:getOrganizationalUnits", TypeShape.of(GetOrganizationalUnitsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var org = OrganizationsFunctions.getOrganization();
+     * 
+     *         final var ou = OrganizationsFunctions.getOrganizationalUnits(GetOrganizationalUnitsArgs.builder()
+     *             .parentId(org.applyValue(getOrganizationResult -> getOrganizationResult.roots()[0].id()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
     public static CompletableFuture<GetOrganizationalUnitsResult> getOrganizationalUnitsPlain(GetOrganizationalUnitsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:organizations/getOrganizationalUnits:getOrganizationalUnits", TypeShape.of(GetOrganizationalUnitsResult.class), args, Utilities.withVersion(options));
     }
@@ -2031,6 +2447,15 @@ public final class OrganizationsFunctions {
      * 
      */
     public static Output<GetPoliciesResult> getPolicies(GetPoliciesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:organizations/getPolicies:getPolicies", TypeShape.of(GetPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Organizations Policies.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static Output<GetPoliciesResult> getPolicies(GetPoliciesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:organizations/getPolicies:getPolicies", TypeShape.of(GetPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2075,6 +2500,15 @@ public final class OrganizationsFunctions {
      * ## Example Usage
      * 
      */
+    public static Output<GetPoliciesForTargetResult> getPoliciesForTarget(GetPoliciesForTargetArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:organizations/getPoliciesForTarget:getPoliciesForTarget", TypeShape.of(GetPoliciesForTargetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Organizations Policies For Target.
+     * 
+     * ## Example Usage
+     * 
+     */
     public static CompletableFuture<GetPoliciesForTargetResult> getPoliciesForTargetPlain(GetPoliciesForTargetPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:organizations/getPoliciesForTarget:getPoliciesForTarget", TypeShape.of(GetPoliciesForTargetResult.class), args, Utilities.withVersion(options));
     }
@@ -2103,6 +2537,15 @@ public final class OrganizationsFunctions {
      * 
      */
     public static Output<GetPolicyResult> getPolicy(GetPolicyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:organizations/getPolicy:getPolicy", TypeShape.of(GetPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Organizations Policy.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static Output<GetPolicyResult> getPolicy(GetPolicyArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:organizations/getPolicy:getPolicy", TypeShape.of(GetPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2238,6 +2681,48 @@ public final class OrganizationsFunctions {
      * 
      */
     public static Output<GetResourceTagsResult> getResourceTags(GetResourceTagsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:organizations/getResourceTags:getResourceTags", TypeShape.of(GetResourceTagsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get tags attached to the specified AWS Organizations resource.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetResourceTagsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var account = OrganizationsFunctions.getResourceTags(GetResourceTagsArgs.builder()
+     *             .resourceId("123456123846")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetResourceTagsResult> getResourceTags(GetResourceTagsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:organizations/getResourceTags:getResourceTags", TypeShape.of(GetResourceTagsResult.class), args, Utilities.withVersion(options));
     }
     /**

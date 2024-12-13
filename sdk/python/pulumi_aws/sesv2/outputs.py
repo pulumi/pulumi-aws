@@ -124,7 +124,9 @@ class ConfigurationSetDeliveryOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "sendingPoolName":
+        if key == "maxDeliverySeconds":
+            suggest = "max_delivery_seconds"
+        elif key == "sendingPoolName":
             suggest = "sending_pool_name"
         elif key == "tlsPolicy":
             suggest = "tls_policy"
@@ -141,16 +143,28 @@ class ConfigurationSetDeliveryOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 max_delivery_seconds: Optional[int] = None,
                  sending_pool_name: Optional[str] = None,
                  tls_policy: Optional[str] = None):
         """
+        :param int max_delivery_seconds: The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
         :param str sending_pool_name: The name of the dedicated IP pool to associate with the configuration set.
         :param str tls_policy: Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). Valid values: `REQUIRE`, `OPTIONAL`.
         """
+        if max_delivery_seconds is not None:
+            pulumi.set(__self__, "max_delivery_seconds", max_delivery_seconds)
         if sending_pool_name is not None:
             pulumi.set(__self__, "sending_pool_name", sending_pool_name)
         if tls_policy is not None:
             pulumi.set(__self__, "tls_policy", tls_policy)
+
+    @property
+    @pulumi.getter(name="maxDeliverySeconds")
+    def max_delivery_seconds(self) -> Optional[int]:
+        """
+        The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+        """
+        return pulumi.get(self, "max_delivery_seconds")
 
     @property
     @pulumi.getter(name="sendingPoolName")
@@ -654,6 +668,8 @@ class ConfigurationSetTrackingOptions(dict):
         suggest = None
         if key == "customRedirectDomain":
             suggest = "custom_redirect_domain"
+        elif key == "httpsPolicy":
+            suggest = "https_policy"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetTrackingOptions. Access the value via the '{suggest}' property getter instead.")
@@ -667,11 +683,15 @@ class ConfigurationSetTrackingOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 custom_redirect_domain: str):
+                 custom_redirect_domain: str,
+                 https_policy: Optional[str] = None):
         """
         :param str custom_redirect_domain: The domain to use for tracking open and click events.
+        :param str https_policy: The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
         """
         pulumi.set(__self__, "custom_redirect_domain", custom_redirect_domain)
+        if https_policy is not None:
+            pulumi.set(__self__, "https_policy", https_policy)
 
     @property
     @pulumi.getter(name="customRedirectDomain")
@@ -680,6 +700,14 @@ class ConfigurationSetTrackingOptions(dict):
         The domain to use for tracking open and click events.
         """
         return pulumi.get(self, "custom_redirect_domain")
+
+    @property
+    @pulumi.getter(name="httpsPolicy")
+    def https_policy(self) -> Optional[str]:
+        """
+        The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+        """
+        return pulumi.get(self, "https_policy")
 
 
 @pulumi.output_type
@@ -1018,14 +1046,25 @@ class EmailIdentityDkimSigningAttributes(dict):
 @pulumi.output_type
 class GetConfigurationSetDeliveryOptionResult(dict):
     def __init__(__self__, *,
+                 max_delivery_seconds: int,
                  sending_pool_name: str,
                  tls_policy: str):
         """
+        :param int max_delivery_seconds: The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
         :param str sending_pool_name: The name of the dedicated IP pool to associate with the configuration set.
         :param str tls_policy: Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
         """
+        pulumi.set(__self__, "max_delivery_seconds", max_delivery_seconds)
         pulumi.set(__self__, "sending_pool_name", sending_pool_name)
         pulumi.set(__self__, "tls_policy", tls_policy)
+
+    @property
+    @pulumi.getter(name="maxDeliverySeconds")
+    def max_delivery_seconds(self) -> int:
+        """
+        The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+        """
+        return pulumi.get(self, "max_delivery_seconds")
 
     @property
     @pulumi.getter(name="sendingPoolName")
@@ -1112,11 +1151,14 @@ class GetConfigurationSetSuppressionOptionResult(dict):
 @pulumi.output_type
 class GetConfigurationSetTrackingOptionResult(dict):
     def __init__(__self__, *,
-                 custom_redirect_domain: str):
+                 custom_redirect_domain: str,
+                 https_policy: str):
         """
         :param str custom_redirect_domain: The domain to use for tracking open and click events.
+        :param str https_policy: The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
         """
         pulumi.set(__self__, "custom_redirect_domain", custom_redirect_domain)
+        pulumi.set(__self__, "https_policy", https_policy)
 
     @property
     @pulumi.getter(name="customRedirectDomain")
@@ -1125,6 +1167,14 @@ class GetConfigurationSetTrackingOptionResult(dict):
         The domain to use for tracking open and click events.
         """
         return pulumi.get(self, "custom_redirect_domain")
+
+    @property
+    @pulumi.getter(name="httpsPolicy")
+    def https_policy(self) -> str:
+        """
+        The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+        """
+        return pulumi.get(self, "https_policy")
 
 
 @pulumi.output_type

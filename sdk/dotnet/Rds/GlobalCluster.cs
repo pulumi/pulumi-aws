@@ -236,16 +236,16 @@ namespace Pulumi.Aws.Rds
     public partial class GlobalCluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// RDS Global Cluster Amazon Resource Name (ARN)
+        /// RDS Global Cluster Amazon Resource Name (ARN).
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Name for an automatically created database on cluster creation.
+        /// Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Output("databaseName")]
-        public Output<string?> DatabaseName { get; private set; } = null!;
+        public Output<string> DatabaseName { get; private set; } = null!;
 
         /// <summary>
         /// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
@@ -299,7 +299,7 @@ namespace Pulumi.Aws.Rds
         public Output<ImmutableArray<Outputs.GlobalClusterGlobalClusterMember>> GlobalClusterMembers { get; private set; } = null!;
 
         /// <summary>
-        /// AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
+        /// AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
         /// </summary>
         [Output("globalClusterResourceId")]
         public Output<string> GlobalClusterResourceId { get; private set; } = null!;
@@ -315,6 +315,18 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Output("storageEncrypted")]
         public Output<bool> StorageEncrypted { get; private set; } = null!;
+
+        /// <summary>
+        /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
 
         /// <summary>
@@ -363,7 +375,7 @@ namespace Pulumi.Aws.Rds
     public sealed class GlobalClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name for an automatically created database on cluster creation.
+        /// Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
@@ -416,6 +428,18 @@ namespace Pulumi.Aws.Rds
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public GlobalClusterArgs()
         {
         }
@@ -425,13 +449,13 @@ namespace Pulumi.Aws.Rds
     public sealed class GlobalClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// RDS Global Cluster Amazon Resource Name (ARN)
+        /// RDS Global Cluster Amazon Resource Name (ARN).
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Name for an automatically created database on cluster creation.
+        /// Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
@@ -494,7 +518,7 @@ namespace Pulumi.Aws.Rds
         }
 
         /// <summary>
-        /// AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
+        /// AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
         /// </summary>
         [Input("globalClusterResourceId")]
         public Input<string>? GlobalClusterResourceId { get; set; }
@@ -510,6 +534,31 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        [Obsolete(@"Please use `tags` instead.")]
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
 
         public GlobalClusterState()
         {

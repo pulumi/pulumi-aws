@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Example Usage
     /// 
-    /// ### Basic Usage
+    /// ### Compaction Optimizer
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -40,6 +40,75 @@ namespace Pulumi.Aws.Glue
     /// });
     /// ```
     /// 
+    /// ### Snapshot Retention Optimizer
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Glue.CatalogTableOptimizer("example", new()
+    ///     {
+    ///         CatalogId = "123456789012",
+    ///         DatabaseName = "example_database",
+    ///         TableName = "example_table",
+    ///         Configuration = new Aws.Glue.Inputs.CatalogTableOptimizerConfigurationArgs
+    ///         {
+    ///             RoleArn = "arn:aws:iam::123456789012:role/example-role",
+    ///             Enabled = true,
+    ///             RetentionConfiguration = new Aws.Glue.Inputs.CatalogTableOptimizerConfigurationRetentionConfigurationArgs
+    ///             {
+    ///                 IcebergConfiguration = new Aws.Glue.Inputs.CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs
+    ///                 {
+    ///                     SnapshotRetentionPeriodInDays = 7,
+    ///                     NumberOfSnapshotsToRetain = 3,
+    ///                     CleanExpiredFiles = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Type = "retention",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Orphan File Deletion Optimizer
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Glue.CatalogTableOptimizer("example", new()
+    ///     {
+    ///         CatalogId = "123456789012",
+    ///         DatabaseName = "example_database",
+    ///         TableName = "example_table",
+    ///         Configuration = new Aws.Glue.Inputs.CatalogTableOptimizerConfigurationArgs
+    ///         {
+    ///             RoleArn = "arn:aws:iam::123456789012:role/example-role",
+    ///             Enabled = true,
+    ///             OrphanFileDeletionConfiguration = new Aws.Glue.Inputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs
+    ///             {
+    ///                 IcebergConfiguration = new Aws.Glue.Inputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs
+    ///                 {
+    ///                     OrphanFileRetentionPeriodInDays = 7,
+    ///                     Location = "s3://example-bucket/example_table/",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Type = "orphan_file_deletion",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Glue Catalog Table Optimizer using the `catalog_id,database_name,table_name,type`. For example:
@@ -58,7 +127,7 @@ namespace Pulumi.Aws.Glue
         public Output<string> CatalogId { get; private set; } = null!;
 
         /// <summary>
-        /// A configuration block that defines the table optimizer settings. The block contains:
+        /// A configuration block that defines the table optimizer settings. See Configuration for additional details.
         /// </summary>
         [Output("configuration")]
         public Output<Outputs.CatalogTableOptimizerConfiguration?> Configuration { get; private set; } = null!;
@@ -76,7 +145,7 @@ namespace Pulumi.Aws.Glue
         public Output<string> TableName { get; private set; } = null!;
 
         /// <summary>
-        /// The type of table optimizer. Currently, the only valid value is compaction.
+        /// The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -134,7 +203,7 @@ namespace Pulumi.Aws.Glue
         public Input<string> CatalogId { get; set; } = null!;
 
         /// <summary>
-        /// A configuration block that defines the table optimizer settings. The block contains:
+        /// A configuration block that defines the table optimizer settings. See Configuration for additional details.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.CatalogTableOptimizerConfigurationArgs>? Configuration { get; set; }
@@ -152,7 +221,7 @@ namespace Pulumi.Aws.Glue
         public Input<string> TableName { get; set; } = null!;
 
         /// <summary>
-        /// The type of table optimizer. Currently, the only valid value is compaction.
+        /// The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -172,7 +241,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? CatalogId { get; set; }
 
         /// <summary>
-        /// A configuration block that defines the table optimizer settings. The block contains:
+        /// A configuration block that defines the table optimizer settings. See Configuration for additional details.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.CatalogTableOptimizerConfigurationGetArgs>? Configuration { get; set; }
@@ -190,7 +259,7 @@ namespace Pulumi.Aws.Glue
         public Input<string>? TableName { get; set; }
 
         /// <summary>
-        /// The type of table optimizer. Currently, the only valid value is compaction.
+        /// The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

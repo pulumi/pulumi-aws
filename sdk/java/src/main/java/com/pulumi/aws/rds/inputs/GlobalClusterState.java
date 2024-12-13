@@ -9,6 +9,7 @@ import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -19,14 +20,14 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
     public static final GlobalClusterState Empty = new GlobalClusterState();
 
     /**
-     * RDS Global Cluster Amazon Resource Name (ARN)
+     * RDS Global Cluster Amazon Resource Name (ARN).
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return RDS Global Cluster Amazon Resource Name (ARN)
+     * @return RDS Global Cluster Amazon Resource Name (ARN).
      * 
      */
     public Optional<Output<String>> arn() {
@@ -34,14 +35,14 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Name for an automatically created database on cluster creation.
+     * Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
      * 
      */
     @Import(name="databaseName")
     private @Nullable Output<String> databaseName;
 
     /**
-     * @return Name for an automatically created database on cluster creation.
+     * @return Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
      * 
      */
     public Optional<Output<String>> databaseName() {
@@ -176,14 +177,14 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
+     * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
      * 
      */
     @Import(name="globalClusterResourceId")
     private @Nullable Output<String> globalClusterResourceId;
 
     /**
-     * @return AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
+     * @return AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
      * 
      */
     public Optional<Output<String>> globalClusterResourceId() {
@@ -220,6 +221,44 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.storageEncrypted);
     }
 
+    /**
+     * A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Output<Map<String,String>> tags;
+
+    /**
+     * @return A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     * @deprecated
+     * Please use `tags` instead.
+     * 
+     */
+    @Deprecated /* Please use `tags` instead. */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     * @deprecated
+     * Please use `tags` instead.
+     * 
+     */
+    @Deprecated /* Please use `tags` instead. */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
     private GlobalClusterState() {}
 
     private GlobalClusterState(GlobalClusterState $) {
@@ -237,6 +276,8 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         this.globalClusterResourceId = $.globalClusterResourceId;
         this.sourceDbClusterIdentifier = $.sourceDbClusterIdentifier;
         this.storageEncrypted = $.storageEncrypted;
+        this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
     }
 
     public static Builder builder() {
@@ -258,7 +299,7 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn RDS Global Cluster Amazon Resource Name (ARN)
+         * @param arn RDS Global Cluster Amazon Resource Name (ARN).
          * 
          * @return builder
          * 
@@ -269,7 +310,7 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn RDS Global Cluster Amazon Resource Name (ARN)
+         * @param arn RDS Global Cluster Amazon Resource Name (ARN).
          * 
          * @return builder
          * 
@@ -279,7 +320,7 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param databaseName Name for an automatically created database on cluster creation.
+         * @param databaseName Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
          * 
          * @return builder
          * 
@@ -290,7 +331,7 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param databaseName Name for an automatically created database on cluster creation.
+         * @param databaseName Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
          * 
          * @return builder
          * 
@@ -487,7 +528,7 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param globalClusterResourceId AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
+         * @param globalClusterResourceId AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
          * 
          * @return builder
          * 
@@ -498,7 +539,7 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param globalClusterResourceId AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
+         * @param globalClusterResourceId AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
          * 
          * @return builder
          * 
@@ -547,6 +588,56 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder storageEncrypted(Boolean storageEncrypted) {
             return storageEncrypted(Output.of(storageEncrypted));
+        }
+
+        /**
+         * @param tags A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Output<Map<String,String>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        /**
+         * @param tags A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(Map<String,String> tags) {
+            return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Please use `tags` instead.
+         * 
+         */
+        @Deprecated /* Please use `tags` instead. */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Please use `tags` instead.
+         * 
+         */
+        @Deprecated /* Please use `tags` instead. */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         public GlobalClusterState build() {

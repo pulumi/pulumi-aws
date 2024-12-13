@@ -213,8 +213,9 @@ import (
 //				MasterPassword:    pulumi.String("must_be_eight_characters"),
 //				StorageEncrypted:  pulumi.Bool(true),
 //				Serverlessv2ScalingConfiguration: &rds.ClusterServerlessv2ScalingConfigurationArgs{
-//					MaxCapacity: pulumi.Float64(1),
-//					MinCapacity: pulumi.Float64(0.5),
+//					MaxCapacity:           pulumi.Float64(1),
+//					MinCapacity:           pulumi.Float64(0),
+//					SecondsUntilAutoPause: pulumi.Int(3600),
 //				},
 //			})
 //			if err != nil {

@@ -27,6 +27,10 @@ namespace Pulumi.Aws.Route53
     ///     var example = new Aws.Route53.ProfilesProfile("example", new()
     ///     {
     ///         Name = "example",
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "dev" },
+    ///         },
     ///     });
     /// 
     /// });
@@ -59,13 +63,13 @@ namespace Pulumi.Aws.Route53
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
-        /// Share status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+        /// Share status of the Profile.
         /// </summary>
         [Output("shareStatus")]
         public Output<string> ShareStatus { get; private set; } = null!;
 
         /// <summary>
-        /// Status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+        /// Status of the Profile.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -76,6 +80,9 @@ namespace Pulumi.Aws.Route53
         [Output("statusMessage")]
         public Output<string> StatusMessage { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -142,6 +149,10 @@ namespace Pulumi.Aws.Route53
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -175,13 +186,13 @@ namespace Pulumi.Aws.Route53
         public Input<string>? OwnerId { get; set; }
 
         /// <summary>
-        /// Share status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+        /// Share status of the Profile.
         /// </summary>
         [Input("shareStatus")]
         public Input<string>? ShareStatus { get; set; }
 
         /// <summary>
-        /// Status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+        /// Status of the Profile.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -194,6 +205,10 @@ namespace Pulumi.Aws.Route53
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

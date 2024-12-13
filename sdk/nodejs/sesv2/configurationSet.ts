@@ -21,6 +21,7 @@ import * as utilities from "../utilities";
  * const example = new aws.sesv2.ConfigurationSet("example", {
  *     configurationSetName: "example",
  *     deliveryOptions: {
+ *         maxDeliverySeconds: 300,
  *         tlsPolicy: "REQUIRE",
  *     },
  *     reputationOptions: {
@@ -37,6 +38,7 @@ import * as utilities from "../utilities";
  *     },
  *     trackingOptions: {
  *         customRedirectDomain: "example.com",
+ *         httpsPolicy: "REQUIRE",
  *     },
  * });
  * ```

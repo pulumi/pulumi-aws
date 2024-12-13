@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AccountSettingArgs, AccountSettingState } from "./accountSetting";
+export type AccountSetting = import("./accountSetting").AccountSetting;
+export const AccountSetting: typeof import("./accountSetting").AccountSetting = null as any;
+utilities.lazyLoad(exports, ["AccountSetting"], () => require("./accountSetting"));
+
 export { GetAuthorizationTokenArgs, GetAuthorizationTokenResult, GetAuthorizationTokenOutputArgs } from "./getAuthorizationToken";
 export const getAuthorizationToken: typeof import("./getAuthorizationToken").getAuthorizationToken = null as any;
 export const getAuthorizationTokenOutput: typeof import("./getAuthorizationToken").getAuthorizationTokenOutput = null as any;
@@ -91,6 +96,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:ecr/accountSetting:AccountSetting":
+                return new AccountSetting(name, <any>undefined, { urn })
             case "aws:ecr/lifecyclePolicy:LifecyclePolicy":
                 return new LifecyclePolicy(name, <any>undefined, { urn })
             case "aws:ecr/pullThroughCacheRule:PullThroughCacheRule":
@@ -112,6 +119,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "ecr/accountSetting", _module)
 pulumi.runtime.registerResourceModule("aws", "ecr/lifecyclePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "ecr/pullThroughCacheRule", _module)
 pulumi.runtime.registerResourceModule("aws", "ecr/registryPolicy", _module)

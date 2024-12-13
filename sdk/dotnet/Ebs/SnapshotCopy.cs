@@ -64,6 +64,12 @@ namespace Pulumi.Aws.Ebs
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
+        /// </summary>
+        [Output("completionDurationMinutes")]
+        public Output<int?> CompletionDurationMinutes { get; private set; } = null!;
+
+        /// <summary>
         /// The data encryption key identifier for the snapshot.
         /// </summary>
         [Output("dataEncryptionKeyId")]
@@ -200,6 +206,12 @@ namespace Pulumi.Aws.Ebs
     public sealed class SnapshotCopyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
+        /// </summary>
+        [Input("completionDurationMinutes")]
+        public Input<int>? CompletionDurationMinutes { get; set; }
+
+        /// <summary>
         /// A description of what the snapshot is.
         /// </summary>
         [Input("description")]
@@ -272,6 +284,12 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
+        /// </summary>
+        [Input("completionDurationMinutes")]
+        public Input<int>? CompletionDurationMinutes { get; set; }
 
         /// <summary>
         /// The data encryption key identifier for the snapshot.

@@ -1399,7 +1399,7 @@ func (o ClusterServiceConnectDefaultsPtrOutput) Namespace() pulumi.StringPtrOutp
 type ClusterSetting struct {
 	// Name of the setting to manage. Valid values: `containerInsights`.
 	Name string `pulumi:"name"`
-	// Value to assign to the setting. Valid values: `enabled`, `disabled`.
+	// Value to assign to the setting. Valid values: `enhanced`, `enabled`, `disabled`.
 	Value string `pulumi:"value"`
 }
 
@@ -1417,7 +1417,7 @@ type ClusterSettingInput interface {
 type ClusterSettingArgs struct {
 	// Name of the setting to manage. Valid values: `containerInsights`.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Value to assign to the setting. Valid values: `enabled`, `disabled`.
+	// Value to assign to the setting. Valid values: `enhanced`, `enabled`, `disabled`.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1477,7 +1477,7 @@ func (o ClusterSettingOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterSetting) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Value to assign to the setting. Valid values: `enabled`, `disabled`.
+// Value to assign to the setting. Valid values: `enhanced`, `enabled`, `disabled`.
 func (o ClusterSettingOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterSetting) string { return v.Value }).(pulumi.StringOutput)
 }

@@ -29,6 +29,7 @@ namespace Pulumi.Aws.Msk.Outputs
         /// Configuration for specifying the position in the topics to start replicating from.
         /// </summary>
         public readonly Outputs.ReplicatorReplicationInfoListTopicReplicationStartingPosition? StartingPosition;
+        public readonly Outputs.ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration? TopicNameConfiguration;
         /// <summary>
         /// List of regular expression patterns indicating the topics that should not be replica.
         /// </summary>
@@ -48,6 +49,8 @@ namespace Pulumi.Aws.Msk.Outputs
 
             Outputs.ReplicatorReplicationInfoListTopicReplicationStartingPosition? startingPosition,
 
+            Outputs.ReplicatorReplicationInfoListTopicReplicationTopicNameConfiguration? topicNameConfiguration,
+
             ImmutableArray<string> topicsToExcludes,
 
             ImmutableArray<string> topicsToReplicates)
@@ -56,6 +59,7 @@ namespace Pulumi.Aws.Msk.Outputs
             CopyTopicConfigurations = copyTopicConfigurations;
             DetectAndCopyNewTopics = detectAndCopyNewTopics;
             StartingPosition = startingPosition;
+            TopicNameConfiguration = topicNameConfiguration;
             TopicsToExcludes = topicsToExcludes;
             TopicsToReplicates = topicsToReplicates;
         }

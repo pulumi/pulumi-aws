@@ -23,7 +23,9 @@ import javax.annotation.Nullable;
  * 
  * For a non-root `base_path`:
  * 
- * Using `pulumi import`, import `aws_api_gateway_base_path_mapping` using the domain name and base path. For example:
+ * For a non-root `base_path` and a private custom domain name:
+ * 
+ * Using `pulumi import`, import `aws_api_gateway_base_path_mapping` using the domain name and base path or domain name, base path and domain name ID (for private custom domain names). For example:
  * 
  * For an empty `base_path` or, in other words, a root path (`/`):
  * 
@@ -34,6 +36,11 @@ import javax.annotation.Nullable;
  * 
  * ```sh
  * $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
+ * ```
+ * For a non-root `base_path` and a private custom domain name:
+ * 
+ * ```sh
+ * $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example api.internal.example.com/base-path/abcde12345
  * ```
  * 
  */
@@ -66,6 +73,20 @@ public class BasePathMapping extends com.pulumi.resources.CustomResource {
      */
     public Output<String> domainName() {
         return this.domainName;
+    }
+    /**
+     * The identifier for the domain name resource. Supported only for private custom domain names.
+     * 
+     */
+    @Export(name="domainNameId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> domainNameId;
+
+    /**
+     * @return The identifier for the domain name resource. Supported only for private custom domain names.
+     * 
+     */
+    public Output<Optional<String>> domainNameId() {
+        return Codegen.optional(this.domainNameId);
     }
     /**
      * ID of the API to connect.

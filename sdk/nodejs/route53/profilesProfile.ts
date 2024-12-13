@@ -18,7 +18,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.route53.ProfilesProfile("example", {name: "example"});
+ * const example = new aws.route53.ProfilesProfile("example", {
+ *     name: "example",
+ *     tags: {
+ *         Environment: "dev",
+ *     },
+ * });
  * ```
  *
  * ## Import
@@ -67,17 +72,20 @@ export class ProfilesProfile extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
-     * Share status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+     * Share status of the Profile.
      */
     public /*out*/ readonly shareStatus!: pulumi.Output<string>;
     /**
-     * Status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+     * Status of the Profile.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Status message of the Profile.
      */
     public /*out*/ readonly statusMessage!: pulumi.Output<string>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -140,17 +148,20 @@ export interface ProfilesProfileState {
     name?: pulumi.Input<string>;
     ownerId?: pulumi.Input<string>;
     /**
-     * Share status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+     * Share status of the Profile.
      */
     shareStatus?: pulumi.Input<string>;
     /**
-     * Status of the Profile. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
+     * Status of the Profile.
      */
     status?: pulumi.Input<string>;
     /**
      * Status message of the Profile.
      */
     statusMessage?: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -169,6 +180,9 @@ export interface ProfilesProfileArgs {
      * Name of the Profile.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.route53.ProfilesProfileTimeouts>;
 }

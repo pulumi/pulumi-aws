@@ -29,6 +29,7 @@ namespace Pulumi.Aws.SesV2
     ///         ConfigurationSetName = "example",
     ///         DeliveryOptions = new Aws.SesV2.Inputs.ConfigurationSetDeliveryOptionsArgs
     ///         {
+    ///             MaxDeliverySeconds = 300,
     ///             TlsPolicy = "REQUIRE",
     ///         },
     ///         ReputationOptions = new Aws.SesV2.Inputs.ConfigurationSetReputationOptionsArgs
@@ -50,6 +51,7 @@ namespace Pulumi.Aws.SesV2
     ///         TrackingOptions = new Aws.SesV2.Inputs.ConfigurationSetTrackingOptionsArgs
     ///         {
     ///             CustomRedirectDomain = "example.com",
+    ///             HttpsPolicy = "REQUIRE",
     ///         },
     ///     });
     /// 

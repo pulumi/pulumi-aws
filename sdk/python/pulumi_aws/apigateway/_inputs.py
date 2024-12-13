@@ -284,7 +284,7 @@ if not MYPY:
     class DomainNameEndpointConfigurationArgsDict(TypedDict):
         types: pulumi.Input[str]
         """
-        List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+        A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
         """
 elif False:
     DomainNameEndpointConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -294,7 +294,7 @@ class DomainNameEndpointConfigurationArgs:
     def __init__(__self__, *,
                  types: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] types: List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+        :param pulumi.Input[str] types: A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
         """
         pulumi.set(__self__, "types", types)
 
@@ -302,7 +302,7 @@ class DomainNameEndpointConfigurationArgs:
     @pulumi.getter
     def types(self) -> pulumi.Input[str]:
         """
-        List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+        A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
         """
         return pulumi.get(self, "types")
 

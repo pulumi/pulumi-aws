@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ConfigurationSetTrackingOptionsArgs extends com.pulumi.resources.ResourceArgs {
@@ -29,10 +31,26 @@ public final class ConfigurationSetTrackingOptionsArgs extends com.pulumi.resour
         return this.customRedirectDomain;
     }
 
+    /**
+     * The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+     * 
+     */
+    @Import(name="httpsPolicy")
+    private @Nullable Output<String> httpsPolicy;
+
+    /**
+     * @return The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+     * 
+     */
+    public Optional<Output<String>> httpsPolicy() {
+        return Optional.ofNullable(this.httpsPolicy);
+    }
+
     private ConfigurationSetTrackingOptionsArgs() {}
 
     private ConfigurationSetTrackingOptionsArgs(ConfigurationSetTrackingOptionsArgs $) {
         this.customRedirectDomain = $.customRedirectDomain;
+        this.httpsPolicy = $.httpsPolicy;
     }
 
     public static Builder builder() {
@@ -72,6 +90,27 @@ public final class ConfigurationSetTrackingOptionsArgs extends com.pulumi.resour
          */
         public Builder customRedirectDomain(String customRedirectDomain) {
             return customRedirectDomain(Output.of(customRedirectDomain));
+        }
+
+        /**
+         * @param httpsPolicy The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpsPolicy(@Nullable Output<String> httpsPolicy) {
+            $.httpsPolicy = httpsPolicy;
+            return this;
+        }
+
+        /**
+         * @param httpsPolicy The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpsPolicy(String httpsPolicy) {
+            return httpsPolicy(Output.of(httpsPolicy));
         }
 
         public ConfigurationSetTrackingOptionsArgs build() {

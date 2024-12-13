@@ -24,6 +24,7 @@ from .get_log_group import *
 from .get_log_groups import *
 from .internet_monitor import *
 from .log_account_policy import *
+from .log_anomaly_detector import *
 from .log_data_protection_policy import *
 from .log_destination import *
 from .log_destination_policy import *
