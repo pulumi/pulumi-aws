@@ -62,6 +62,32 @@ namespace Pulumi.Aws.VerifiedPermissions
         /// </summary>
         public static Output<GetPolicyStoreResult> Invoke(GetPolicyStoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyStoreResult>("aws:verifiedpermissions/getPolicyStore:getPolicyStore", args ?? new GetPolicyStoreInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS Verified Permissions Policy Store.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.VerifiedPermissions.GetPolicyStore.Invoke(new()
+        ///     {
+        ///         Id = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetPolicyStoreResult> Invoke(GetPolicyStoreInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPolicyStoreResult>("aws:verifiedpermissions/getPolicyStore:getPolicyStore", args ?? new GetPolicyStoreInvokeArgs(), options.WithDefaults());
     }
 
 

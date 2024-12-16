@@ -99,21 +99,11 @@ type LookupOpenIdConnectProviderResult struct {
 }
 
 func LookupOpenIdConnectProviderOutput(ctx *pulumi.Context, args LookupOpenIdConnectProviderOutputArgs, opts ...pulumi.InvokeOption) LookupOpenIdConnectProviderResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupOpenIdConnectProviderResultOutput, error) {
 			args := v.(LookupOpenIdConnectProviderArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupOpenIdConnectProviderResult
-			secret, err := ctx.InvokePackageRaw("aws:iam/getOpenIdConnectProvider:getOpenIdConnectProvider", args, &rv, "", opts...)
-			if err != nil {
-				return LookupOpenIdConnectProviderResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupOpenIdConnectProviderResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupOpenIdConnectProviderResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:iam/getOpenIdConnectProvider:getOpenIdConnectProvider", args, LookupOpenIdConnectProviderResultOutput{}, options).(LookupOpenIdConnectProviderResultOutput), nil
 		}).(LookupOpenIdConnectProviderResultOutput)
 }
 

@@ -124,6 +124,63 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Output<GetManagedPrefixListResult> Invoke(GetManagedPrefixListInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedPrefixListResult>("aws:ec2/getManagedPrefixList:getManagedPrefixList", args ?? new GetManagedPrefixListInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// `aws.ec2.ManagedPrefixList` provides details about a specific AWS prefix list or
+        /// customer-managed prefix list in the current region.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Find the regional DynamoDB prefix list
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Aws.GetRegion.Invoke();
+        /// 
+        ///     var example = Aws.Ec2.GetManagedPrefixList.Invoke(new()
+        ///     {
+        ///         Name = $"com.amazonaws.{current.Apply(getRegionResult =&gt; getRegionResult.Name)}.dynamodb",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Find a managed prefix list using filters
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ec2.GetManagedPrefixList.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetManagedPrefixListFilterInputArgs
+        ///             {
+        ///                 Name = "prefix-list-name",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "my-prefix-list",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetManagedPrefixListResult> Invoke(GetManagedPrefixListInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedPrefixListResult>("aws:ec2/getManagedPrefixList:getManagedPrefixList", args ?? new GetManagedPrefixListInvokeArgs(), options.WithDefaults());
     }
 
 

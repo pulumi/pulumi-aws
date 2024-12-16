@@ -94,6 +94,48 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         public static Output<GetAttachmentResult> Invoke(GetAttachmentInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttachmentResult>("aws:ec2transitgateway/getAttachment:getAttachment", args ?? new GetAttachmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get information on an EC2 Transit Gateway's attachment to a resource.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ec2TransitGateway.GetAttachment.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2TransitGateway.Inputs.GetAttachmentFilterInputArgs
+        ///             {
+        ///                 Name = "transit-gateway-id",
+        ///                 Values = new[]
+        ///                 {
+        ///                     exampleAwsEc2TransitGateway.Id,
+        ///                 },
+        ///             },
+        ///             new Aws.Ec2TransitGateway.Inputs.GetAttachmentFilterInputArgs
+        ///             {
+        ///                 Name = "resource-type",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "peering",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetAttachmentResult> Invoke(GetAttachmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAttachmentResult>("aws:ec2transitgateway/getAttachment:getAttachment", args ?? new GetAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 

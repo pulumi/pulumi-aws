@@ -58,6 +58,30 @@ namespace Pulumi.Aws.Signer
         /// </summary>
         public static Output<GetSigningJobResult> Invoke(GetSigningJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSigningJobResult>("aws:signer/getSigningJob:getSigningJob", args ?? new GetSigningJobInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides information about a Signer Signing Job.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var buildSigningJob = Aws.Signer.GetSigningJob.Invoke(new()
+        ///     {
+        ///         JobId = "9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSigningJobResult> Invoke(GetSigningJobInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSigningJobResult>("aws:signer/getSigningJob:getSigningJob", args ?? new GetSigningJobInvokeArgs(), options.WithDefaults());
     }
 
 

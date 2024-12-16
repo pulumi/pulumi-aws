@@ -60,6 +60,31 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         public static Output<GetJobQueueResult> Invoke(GetJobQueueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobQueueResult>("aws:batch/getJobQueue:getJobQueue", args ?? new GetJobQueueInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The Batch Job Queue data source allows access to details of a specific
+        /// job queue within AWS Batch.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test_queue = Aws.Batch.GetJobQueue.Invoke(new()
+        ///     {
+        ///         Name = "tf-test-batch-job-queue",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetJobQueueResult> Invoke(GetJobQueueInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetJobQueueResult>("aws:batch/getJobQueue:getJobQueue", args ?? new GetJobQueueInvokeArgs(), options.WithDefaults());
     }
 
 

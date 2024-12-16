@@ -62,6 +62,32 @@ namespace Pulumi.Aws.ServiceCatalog
         /// </summary>
         public static Output<GetProvisioningArtifactsResult> Invoke(GetProvisioningArtifactsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProvisioningArtifactsResult>("aws:servicecatalog/getProvisioningArtifacts:getProvisioningArtifacts", args ?? new GetProvisioningArtifactsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists the provisioning artifacts for the specified product.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.ServiceCatalog.GetProvisioningArtifacts.Invoke(new()
+        ///     {
+        ///         ProductId = "prod-yakog5pdriver",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetProvisioningArtifactsResult> Invoke(GetProvisioningArtifactsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProvisioningArtifactsResult>("aws:servicecatalog/getProvisioningArtifacts:getProvisioningArtifacts", args ?? new GetProvisioningArtifactsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -58,6 +58,30 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public static Output<GetClusterParameterGroupResult> Invoke(GetClusterParameterGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterParameterGroupResult>("aws:rds/getClusterParameterGroup:getClusterParameterGroup", args ?? new GetClusterParameterGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Information about an RDS cluster parameter group.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Rds.GetClusterParameterGroup.Invoke(new()
+        ///     {
+        ///         Name = "default.postgres15",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetClusterParameterGroupResult> Invoke(GetClusterParameterGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetClusterParameterGroupResult>("aws:rds/getClusterParameterGroup:getClusterParameterGroup", args ?? new GetClusterParameterGroupInvokeArgs(), options.WithDefaults());
     }
 
 

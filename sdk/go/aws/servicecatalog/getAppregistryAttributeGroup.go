@@ -74,21 +74,11 @@ type LookupAppregistryAttributeGroupResult struct {
 }
 
 func LookupAppregistryAttributeGroupOutput(ctx *pulumi.Context, args LookupAppregistryAttributeGroupOutputArgs, opts ...pulumi.InvokeOption) LookupAppregistryAttributeGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAppregistryAttributeGroupResultOutput, error) {
 			args := v.(LookupAppregistryAttributeGroupArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupAppregistryAttributeGroupResult
-			secret, err := ctx.InvokePackageRaw("aws:servicecatalog/getAppregistryAttributeGroup:getAppregistryAttributeGroup", args, &rv, "", opts...)
-			if err != nil {
-				return LookupAppregistryAttributeGroupResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupAppregistryAttributeGroupResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupAppregistryAttributeGroupResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:servicecatalog/getAppregistryAttributeGroup:getAppregistryAttributeGroup", args, LookupAppregistryAttributeGroupResultOutput{}, options).(LookupAppregistryAttributeGroupResultOutput), nil
 		}).(LookupAppregistryAttributeGroupResultOutput)
 }
 

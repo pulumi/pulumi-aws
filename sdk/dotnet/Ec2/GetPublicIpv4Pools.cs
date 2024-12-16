@@ -114,6 +114,58 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Output<GetPublicIpv4PoolsResult> Invoke(GetPublicIpv4PoolsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicIpv4PoolsResult>("aws:ec2/getPublicIpv4Pools:getPublicIpv4Pools", args ?? new GetPublicIpv4PoolsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for getting information about AWS EC2 Public IPv4 Pools.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Returns all public IPv4 pools.
+        ///     var example = Aws.Ec2.GetPublicIpv4Pools.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Usage with Filter
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ec2.GetPublicIpv4Pools.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetPublicIpv4PoolsFilterInputArgs
+        ///             {
+        ///                 Name = "tag-key",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "ExampleTagKey",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetPublicIpv4PoolsResult> Invoke(GetPublicIpv4PoolsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPublicIpv4PoolsResult>("aws:ec2/getPublicIpv4Pools:getPublicIpv4Pools", args ?? new GetPublicIpv4PoolsInvokeArgs(), options.WithDefaults());
     }
 
 

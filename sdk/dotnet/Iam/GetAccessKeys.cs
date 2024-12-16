@@ -60,6 +60,31 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public static Output<GetAccessKeysResult> Invoke(GetAccessKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessKeysResult>("aws:iam/getAccessKeys:getAccessKeys", args ?? new GetAccessKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This data source can be used to fetch information about IAM access keys of a
+        /// specific IAM user.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Iam.GetAccessKeys.Invoke(new()
+        ///     {
+        ///         User = "an_example_user_name",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetAccessKeysResult> Invoke(GetAccessKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccessKeysResult>("aws:iam/getAccessKeys:getAccessKeys", args ?? new GetAccessKeysInvokeArgs(), options.WithDefaults());
     }
 
 

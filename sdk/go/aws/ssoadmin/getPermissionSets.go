@@ -69,21 +69,11 @@ type GetPermissionSetsResult struct {
 }
 
 func GetPermissionSetsOutput(ctx *pulumi.Context, args GetPermissionSetsOutputArgs, opts ...pulumi.InvokeOption) GetPermissionSetsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetPermissionSetsResultOutput, error) {
 			args := v.(GetPermissionSetsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetPermissionSetsResult
-			secret, err := ctx.InvokePackageRaw("aws:ssoadmin/getPermissionSets:getPermissionSets", args, &rv, "", opts...)
-			if err != nil {
-				return GetPermissionSetsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetPermissionSetsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetPermissionSetsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:ssoadmin/getPermissionSets:getPermissionSets", args, GetPermissionSetsResultOutput{}, options).(GetPermissionSetsResultOutput), nil
 		}).(GetPermissionSetsResultOutput)
 }
 

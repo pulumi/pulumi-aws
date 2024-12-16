@@ -52,6 +52,27 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public static Output<GetFunctionsResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFunctionsResult>("aws:lambda/getFunctions:getFunctions", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Data resource to get a list of Lambda Functions.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var all = Aws.Lambda.GetFunctions.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFunctionsResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFunctionsResult>("aws:lambda/getFunctions:getFunctions", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

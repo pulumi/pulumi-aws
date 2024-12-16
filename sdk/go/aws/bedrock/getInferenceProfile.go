@@ -84,21 +84,11 @@ type LookupInferenceProfileResult struct {
 }
 
 func LookupInferenceProfileOutput(ctx *pulumi.Context, args LookupInferenceProfileOutputArgs, opts ...pulumi.InvokeOption) LookupInferenceProfileResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupInferenceProfileResultOutput, error) {
 			args := v.(LookupInferenceProfileArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupInferenceProfileResult
-			secret, err := ctx.InvokePackageRaw("aws:bedrock/getInferenceProfile:getInferenceProfile", args, &rv, "", opts...)
-			if err != nil {
-				return LookupInferenceProfileResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupInferenceProfileResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupInferenceProfileResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:bedrock/getInferenceProfile:getInferenceProfile", args, LookupInferenceProfileResultOutput{}, options).(LookupInferenceProfileResultOutput), nil
 		}).(LookupInferenceProfileResultOutput)
 }
 

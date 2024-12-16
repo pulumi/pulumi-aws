@@ -118,6 +118,60 @@ namespace Pulumi.Aws.Ram
         /// </summary>
         public static Output<GetResourceShareResult> Invoke(GetResourceShareInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceShareResult>("aws:ram/getResourceShare:getResourceShare", args ?? new GetResourceShareInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// `aws.ram.ResourceShare` Retrieve information about a RAM Resource Share.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ram.GetResourceShare.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///         ResourceOwner = "SELF",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ## Search by filters
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var tagFilter = Aws.Ram.GetResourceShare.Invoke(new()
+        ///     {
+        ///         ResourceOwner = "SELF",
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ram.Inputs.GetResourceShareFilterInputArgs
+        ///             {
+        ///                 Name = "NameOfTag",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "exampleNameTagValue",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetResourceShareResult> Invoke(GetResourceShareInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceShareResult>("aws:ram/getResourceShare:getResourceShare", args ?? new GetResourceShareInvokeArgs(), options.WithDefaults());
     }
 
 

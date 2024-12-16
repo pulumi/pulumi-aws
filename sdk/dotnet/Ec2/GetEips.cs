@@ -78,6 +78,40 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Output<GetEipsResult> Invoke(GetEipsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEipsResult>("aws:ec2/getEips:getEips", args ?? new GetEipsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides a list of Elastic IPs in a region.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// The following shows outputting all Elastic IPs with the a specific tag value.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ec2.GetEips.Invoke(new()
+        ///     {
+        ///         Tags = 
+        ///         {
+        ///             { "Env", "dev" },
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["allocationIds"] = example.Apply(getEipsResult =&gt; getEipsResult.AllocationIds),
+        ///         ["publicIps"] = example.Apply(getEipsResult =&gt; getEipsResult.PublicIps),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetEipsResult> Invoke(GetEipsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEipsResult>("aws:ec2/getEips:getEips", args ?? new GetEipsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -30,6 +30,16 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Output<GetCoipPoolResult> Invoke(GetCoipPoolInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCoipPoolResult>("aws:ec2/getCoipPool:getCoipPool", args ?? new GetCoipPoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about a specific EC2 Customer-Owned IP Pool.
+        /// 
+        /// This data source can prove useful when a module accepts a coip pool id as
+        /// an input variable and needs to, for example, determine the CIDR block of that
+        /// COIP Pool.
+        /// </summary>
+        public static Output<GetCoipPoolResult> Invoke(GetCoipPoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCoipPoolResult>("aws:ec2/getCoipPool:getCoipPool", args ?? new GetCoipPoolInvokeArgs(), options.WithDefaults());
     }
 
 

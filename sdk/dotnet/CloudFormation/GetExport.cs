@@ -78,6 +78,40 @@ namespace Pulumi.Aws.CloudFormation
         /// </summary>
         public static Output<GetExportResult> Invoke(GetExportInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExportResult>("aws:cloudformation/getExport:getExport", args ?? new GetExportInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The CloudFormation Export data source allows access to stack
+        /// exports specified in the [Output](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html) section of the Cloudformation Template using the optional Export Property.
+        /// 
+        ///  &gt; Note: If you are trying to use a value from a Cloudformation Stack in the same deployment please use normal interpolation or Cloudformation Outputs.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var subnetId = Aws.CloudFormation.GetExport.Invoke(new()
+        ///     {
+        ///         Name = "mySubnetIdExportName",
+        ///     });
+        /// 
+        ///     var web = new Aws.Ec2.Instance("web", new()
+        ///     {
+        ///         Ami = "ami-abb07bcb",
+        ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
+        ///         SubnetId = subnetId.Apply(getExportResult =&gt; getExportResult.Value),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetExportResult> Invoke(GetExportInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetExportResult>("aws:cloudformation/getExport:getExport", args ?? new GetExportInvokeArgs(), options.WithDefaults());
     }
 
 

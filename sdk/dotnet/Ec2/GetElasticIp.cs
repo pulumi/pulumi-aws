@@ -196,6 +196,99 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Output<GetElasticIpResult> Invoke(GetElasticIpInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetElasticIpResult>("aws:ec2/getElasticIp:getElasticIp", args ?? new GetElasticIpInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// `aws.ec2.Eip` provides details about a specific Elastic IP.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Search By Allocation ID (VPC only)
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var byAllocationId = Aws.Ec2.GetElasticIp.Invoke(new()
+        ///     {
+        ///         Id = "eipalloc-12345678",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Search By Filters (EC2-Classic or VPC)
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var byFilter = Aws.Ec2.GetElasticIp.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetElasticIpFilterInputArgs
+        ///             {
+        ///                 Name = "tag:Name",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "exampleNameTagValue",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Search By Public IP (EC2-Classic or VPC)
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var byPublicIp = Aws.Ec2.GetElasticIp.Invoke(new()
+        ///     {
+        ///         PublicIp = "1.2.3.4",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Search By Tags (EC2-Classic or VPC)
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var byTags = Aws.Ec2.GetElasticIp.Invoke(new()
+        ///     {
+        ///         Tags = 
+        ///         {
+        ///             { "Name", "exampleNameTagValue" },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetElasticIpResult> Invoke(GetElasticIpInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetElasticIpResult>("aws:ec2/getElasticIp:getElasticIp", args ?? new GetElasticIpInvokeArgs(), options.WithDefaults());
     }
 
 

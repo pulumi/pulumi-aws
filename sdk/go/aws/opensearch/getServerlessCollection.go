@@ -88,21 +88,11 @@ type LookupServerlessCollectionResult struct {
 }
 
 func LookupServerlessCollectionOutput(ctx *pulumi.Context, args LookupServerlessCollectionOutputArgs, opts ...pulumi.InvokeOption) LookupServerlessCollectionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupServerlessCollectionResultOutput, error) {
 			args := v.(LookupServerlessCollectionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupServerlessCollectionResult
-			secret, err := ctx.InvokePackageRaw("aws:opensearch/getServerlessCollection:getServerlessCollection", args, &rv, "", opts...)
-			if err != nil {
-				return LookupServerlessCollectionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupServerlessCollectionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupServerlessCollectionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:opensearch/getServerlessCollection:getServerlessCollection", args, LookupServerlessCollectionResultOutput{}, options).(LookupServerlessCollectionResultOutput), nil
 		}).(LookupServerlessCollectionResultOutput)
 }
 

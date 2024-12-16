@@ -128,6 +128,65 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         public static Output<GetPatchBaselinesResult> Invoke(GetPatchBaselinesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPatchBaselinesResult>("aws:ssm/getPatchBaselines:getPatchBaselines", args ?? new GetPatchBaselinesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for retrieving AWS SSM (Systems Manager) Patch Baselines.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ssm.GetPatchBaselines.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### With Filters
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ssm.GetPatchBaselines.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ssm.Inputs.GetPatchBaselinesFilterInputArgs
+        ///             {
+        ///                 Key = "OWNER",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "AWS",
+        ///                 },
+        ///             },
+        ///             new Aws.Ssm.Inputs.GetPatchBaselinesFilterInputArgs
+        ///             {
+        ///                 Key = "OPERATING_SYSTEM",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "WINDOWS",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetPatchBaselinesResult> Invoke(GetPatchBaselinesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPatchBaselinesResult>("aws:ssm/getPatchBaselines:getPatchBaselines", args ?? new GetPatchBaselinesInvokeArgs(), options.WithDefaults());
     }
 
 

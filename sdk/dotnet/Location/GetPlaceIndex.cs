@@ -58,6 +58,30 @@ namespace Pulumi.Aws.Location
         /// </summary>
         public static Output<GetPlaceIndexResult> Invoke(GetPlaceIndexInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlaceIndexResult>("aws:location/getPlaceIndex:getPlaceIndex", args ?? new GetPlaceIndexInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve information about a Location Service Place Index.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Location.GetPlaceIndex.Invoke(new()
+        ///     {
+        ///         IndexName = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetPlaceIndexResult> Invoke(GetPlaceIndexInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPlaceIndexResult>("aws:location/getPlaceIndex:getPlaceIndex", args ?? new GetPlaceIndexInvokeArgs(), options.WithDefaults());
     }
 
 

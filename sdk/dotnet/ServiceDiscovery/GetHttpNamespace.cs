@@ -54,6 +54,28 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// </summary>
         public static Output<GetHttpNamespaceResult> Invoke(GetHttpNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHttpNamespaceResult>("aws:servicediscovery/getHttpNamespace:getHttpNamespace", args ?? new GetHttpNamespaceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.ServiceDiscovery.GetHttpNamespace.Invoke(new()
+        ///     {
+        ///         Name = "development",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetHttpNamespaceResult> Invoke(GetHttpNamespaceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetHttpNamespaceResult>("aws:servicediscovery/getHttpNamespace:getHttpNamespace", args ?? new GetHttpNamespaceInvokeArgs(), options.WithDefaults());
     }
 
 

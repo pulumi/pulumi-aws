@@ -64,21 +64,11 @@ type GetAuthorizersResult struct {
 }
 
 func GetAuthorizersOutput(ctx *pulumi.Context, args GetAuthorizersOutputArgs, opts ...pulumi.InvokeOption) GetAuthorizersResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAuthorizersResultOutput, error) {
 			args := v.(GetAuthorizersArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetAuthorizersResult
-			secret, err := ctx.InvokePackageRaw("aws:apigateway/getAuthorizers:getAuthorizers", args, &rv, "", opts...)
-			if err != nil {
-				return GetAuthorizersResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetAuthorizersResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetAuthorizersResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:apigateway/getAuthorizers:getAuthorizers", args, GetAuthorizersResultOutput{}, options).(GetAuthorizersResultOutput), nil
 		}).(GetAuthorizersResultOutput)
 }
 

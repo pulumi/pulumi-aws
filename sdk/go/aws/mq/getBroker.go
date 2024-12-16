@@ -101,21 +101,11 @@ type LookupBrokerResult struct {
 }
 
 func LookupBrokerOutput(ctx *pulumi.Context, args LookupBrokerOutputArgs, opts ...pulumi.InvokeOption) LookupBrokerResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupBrokerResultOutput, error) {
 			args := v.(LookupBrokerArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupBrokerResult
-			secret, err := ctx.InvokePackageRaw("aws:mq/getBroker:getBroker", args, &rv, "", opts...)
-			if err != nil {
-				return LookupBrokerResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupBrokerResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupBrokerResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:mq/getBroker:getBroker", args, LookupBrokerResultOutput{}, options).(LookupBrokerResultOutput), nil
 		}).(LookupBrokerResultOutput)
 }
 

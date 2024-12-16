@@ -58,6 +58,30 @@ namespace Pulumi.Aws.AppIntegrations
         /// </summary>
         public static Output<GetEventIntegrationResult> Invoke(GetEventIntegrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventIntegrationResult>("aws:appintegrations/getEventIntegration:getEventIntegration", args ?? new GetEventIntegrationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information on an existing AppIntegrations Event Integration.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.AppIntegrations.GetEventIntegration.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetEventIntegrationResult> Invoke(GetEventIntegrationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventIntegrationResult>("aws:appintegrations/getEventIntegration:getEventIntegration", args ?? new GetEventIntegrationInvokeArgs(), options.WithDefaults());
     }
 
 

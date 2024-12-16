@@ -168,6 +168,85 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public static Output<GetBucketResult> Invoke(GetBucketInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBucketResult>("aws:s3/getBucket:getBucket", args ?? new GetBucketInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about a specific S3 bucket.
+        /// 
+        /// This resource may prove useful when setting up a Route53 record, or an origin for a CloudFront
+        /// Distribution.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Route53 Record
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var selected = Aws.S3.GetBucket.Invoke(new()
+        ///     {
+        ///         Bucket = "bucket.test.com",
+        ///     });
+        /// 
+        ///     var testZone = Aws.Route53.GetZone.Invoke(new()
+        ///     {
+        ///         Name = "test.com.",
+        ///     });
+        /// 
+        ///     var example = new Aws.Route53.Record("example", new()
+        ///     {
+        ///         ZoneId = testZone.Apply(getZoneResult =&gt; getZoneResult.Id),
+        ///         Name = "bucket",
+        ///         Type = Aws.Route53.RecordType.A,
+        ///         Aliases = new[]
+        ///         {
+        ///             new Aws.Route53.Inputs.RecordAliasArgs
+        ///             {
+        ///                 Name = selected.Apply(getBucketResult =&gt; getBucketResult.WebsiteDomain),
+        ///                 ZoneId = selected.Apply(getBucketResult =&gt; getBucketResult.HostedZoneId),
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### CloudFront Origin
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var selected = Aws.S3.GetBucket.Invoke(new()
+        ///     {
+        ///         Bucket = "a-test-bucket",
+        ///     });
+        /// 
+        ///     var test = new Aws.CloudFront.Distribution("test", new()
+        ///     {
+        ///         Origins = new[]
+        ///         {
+        ///             new Aws.CloudFront.Inputs.DistributionOriginArgs
+        ///             {
+        ///                 DomainName = selected.Apply(getBucketResult =&gt; getBucketResult.BucketDomainName),
+        ///                 OriginId = "s3-selected-bucket",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetBucketResult> Invoke(GetBucketInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBucketResult>("aws:s3/getBucket:getBucket", args ?? new GetBucketInvokeArgs(), options.WithDefaults());
     }
 
 

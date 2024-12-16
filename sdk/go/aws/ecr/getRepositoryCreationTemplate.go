@@ -82,21 +82,11 @@ type LookupRepositoryCreationTemplateResult struct {
 }
 
 func LookupRepositoryCreationTemplateOutput(ctx *pulumi.Context, args LookupRepositoryCreationTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupRepositoryCreationTemplateResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRepositoryCreationTemplateResultOutput, error) {
 			args := v.(LookupRepositoryCreationTemplateArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupRepositoryCreationTemplateResult
-			secret, err := ctx.InvokePackageRaw("aws:ecr/getRepositoryCreationTemplate:getRepositoryCreationTemplate", args, &rv, "", opts...)
-			if err != nil {
-				return LookupRepositoryCreationTemplateResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupRepositoryCreationTemplateResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupRepositoryCreationTemplateResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:ecr/getRepositoryCreationTemplate:getRepositoryCreationTemplate", args, LookupRepositoryCreationTemplateResultOutput{}, options).(LookupRepositoryCreationTemplateResultOutput), nil
 		}).(LookupRepositoryCreationTemplateResultOutput)
 }
 

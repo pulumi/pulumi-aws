@@ -104,21 +104,11 @@ type GetPublicIpv4PoolsResult struct {
 }
 
 func GetPublicIpv4PoolsOutput(ctx *pulumi.Context, args GetPublicIpv4PoolsOutputArgs, opts ...pulumi.InvokeOption) GetPublicIpv4PoolsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetPublicIpv4PoolsResultOutput, error) {
 			args := v.(GetPublicIpv4PoolsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetPublicIpv4PoolsResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getPublicIpv4Pools:getPublicIpv4Pools", args, &rv, "", opts...)
-			if err != nil {
-				return GetPublicIpv4PoolsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetPublicIpv4PoolsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetPublicIpv4PoolsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:ec2/getPublicIpv4Pools:getPublicIpv4Pools", args, GetPublicIpv4PoolsResultOutput{}, options).(GetPublicIpv4PoolsResultOutput), nil
 		}).(GetPublicIpv4PoolsResultOutput)
 }
 

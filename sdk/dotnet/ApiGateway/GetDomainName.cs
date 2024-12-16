@@ -58,6 +58,30 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         public static Output<GetDomainNameResult> Invoke(GetDomainNameInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainNameResult>("aws:apigateway/getDomainName:getDomainName", args ?? new GetDomainNameInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get the custom domain name for use with AWS API Gateway.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.ApiGateway.GetDomainName.Invoke(new()
+        ///     {
+        ///         DomainName = "api.example.com",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetDomainNameResult> Invoke(GetDomainNameInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainNameResult>("aws:apigateway/getDomainName:getDomainName", args ?? new GetDomainNameInvokeArgs(), options.WithDefaults());
     }
 
 

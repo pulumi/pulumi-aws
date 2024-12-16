@@ -62,6 +62,32 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         public static Output<GetOntapFileSystemResult> Invoke(GetOntapFileSystemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOntapFileSystemResult>("aws:fsx/getOntapFileSystem:getOntapFileSystem", args ?? new GetOntapFileSystemInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve information on FSx ONTAP File System.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Fsx.GetOntapFileSystem.Invoke(new()
+        ///     {
+        ///         Id = "fs-12345678",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetOntapFileSystemResult> Invoke(GetOntapFileSystemInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOntapFileSystemResult>("aws:fsx/getOntapFileSystem:getOntapFileSystem", args ?? new GetOntapFileSystemInvokeArgs(), options.WithDefaults());
     }
 
 

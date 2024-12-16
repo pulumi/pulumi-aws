@@ -56,6 +56,29 @@ namespace Pulumi.Aws.EcrPublic
         /// </summary>
         public static Output<GetAuthorizationTokenResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationTokenResult>("aws:ecrpublic/getAuthorizationToken:getAuthorizationToken", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// The Public ECR Authorization Token data source allows the authorization token, token expiration date, user name, and password to be retrieved for a Public ECR repository.
+        /// 
+        /// &gt; **NOTE:** This data source can only be used in the `us-east-1` region.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var token = Aws.EcrPublic.GetAuthorizationToken.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetAuthorizationTokenResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationTokenResult>("aws:ecrpublic/getAuthorizationToken:getAuthorizationToken", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

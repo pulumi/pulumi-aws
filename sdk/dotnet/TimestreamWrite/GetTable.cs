@@ -64,6 +64,33 @@ namespace Pulumi.Aws.TimestreamWrite
         /// </summary>
         public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("aws:timestreamwrite/getTable:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS Timestream Write Table.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.TimestreamWrite.GetTable.Invoke(new()
+        ///     {
+        ///         DatabaseName = testAwsTimestreamwriteDatabase.DatabaseName,
+        ///         Name = testAwsTimestreamwriteTable.TableName,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("aws:timestreamwrite/getTable:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
     }
 
 

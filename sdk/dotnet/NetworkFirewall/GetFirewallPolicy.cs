@@ -144,6 +144,73 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         public static Output<GetFirewallPolicyResult> Invoke(GetFirewallPolicyInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallPolicyResult>("aws:networkfirewall/getFirewallPolicy:getFirewallPolicy", args ?? new GetFirewallPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve information about a firewall policy.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Find firewall policy by name
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.NetworkFirewall.GetFirewallPolicy.Invoke(new()
+        ///     {
+        ///         Name = firewallPolicyName,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Find firewall policy by ARN
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.NetworkFirewall.GetFirewallPolicy.Invoke(new()
+        ///     {
+        ///         Arn = firewallPolicyArn,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Find firewall policy by name and ARN
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.NetworkFirewall.GetFirewallPolicy.Invoke(new()
+        ///     {
+        ///         Arn = firewallPolicyArn,
+        ///         Name = firewallPolicyName,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `name` values but distinct `arn` values, e.g. firewall policies shared via a [Resource Access Manager (RAM) share][1]. In that case specifying `arn`, or `name` and `arn`, is recommended.
+        /// 
+        /// &gt; **Note:** If there are multiple firewall policies in an account with the same `name`, and `arn` is not specified, the default behavior will return the firewall policy with `name` that was created in the account.
+        /// </summary>
+        public static Output<GetFirewallPolicyResult> Invoke(GetFirewallPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFirewallPolicyResult>("aws:networkfirewall/getFirewallPolicy:getFirewallPolicy", args ?? new GetFirewallPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

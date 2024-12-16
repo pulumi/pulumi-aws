@@ -62,6 +62,32 @@ namespace Pulumi.Aws.Quicksight
         /// </summary>
         public static Output<GetDataSetResult> Invoke(GetDataSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataSetResult>("aws:quicksight/getDataSet:getDataSet", args ?? new GetDataSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing a QuickSight Data Set.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Quicksight.GetDataSet.Invoke(new()
+        ///     {
+        ///         DataSetId = "example-id",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetDataSetResult> Invoke(GetDataSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataSetResult>("aws:quicksight/getDataSet:getDataSet", args ?? new GetDataSetInvokeArgs(), options.WithDefaults());
     }
 
 

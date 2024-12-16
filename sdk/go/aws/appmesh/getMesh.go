@@ -109,21 +109,11 @@ type LookupMeshResult struct {
 }
 
 func LookupMeshOutput(ctx *pulumi.Context, args LookupMeshOutputArgs, opts ...pulumi.InvokeOption) LookupMeshResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupMeshResultOutput, error) {
 			args := v.(LookupMeshArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupMeshResult
-			secret, err := ctx.InvokePackageRaw("aws:appmesh/getMesh:getMesh", args, &rv, "", opts...)
-			if err != nil {
-				return LookupMeshResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupMeshResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupMeshResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:appmesh/getMesh:getMesh", args, LookupMeshResultOutput{}, options).(LookupMeshResultOutput), nil
 		}).(LookupMeshResultOutput)
 }
 

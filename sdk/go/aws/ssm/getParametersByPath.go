@@ -49,21 +49,11 @@ type GetParametersByPathResult struct {
 }
 
 func GetParametersByPathOutput(ctx *pulumi.Context, args GetParametersByPathOutputArgs, opts ...pulumi.InvokeOption) GetParametersByPathResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetParametersByPathResultOutput, error) {
 			args := v.(GetParametersByPathArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetParametersByPathResult
-			secret, err := ctx.InvokePackageRaw("aws:ssm/getParametersByPath:getParametersByPath", args, &rv, "", opts...)
-			if err != nil {
-				return GetParametersByPathResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetParametersByPathResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetParametersByPathResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:ssm/getParametersByPath:getParametersByPath", args, GetParametersByPathResultOutput{}, options).(GetParametersByPathResultOutput), nil
 		}).(GetParametersByPathResultOutput)
 }
 

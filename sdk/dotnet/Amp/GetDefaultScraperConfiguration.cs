@@ -52,6 +52,27 @@ namespace Pulumi.Aws.Amp
         /// </summary>
         public static Output<GetDefaultScraperConfigurationResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDefaultScraperConfigurationResult>("aws:amp/getDefaultScraperConfiguration:getDefaultScraperConfiguration", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Returns the default scraper configuration used when Amazon EKS creates a scraper for you.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Amp.GetDefaultScraperConfiguration.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetDefaultScraperConfigurationResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDefaultScraperConfigurationResult>("aws:amp/getDefaultScraperConfiguration:getDefaultScraperConfiguration", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

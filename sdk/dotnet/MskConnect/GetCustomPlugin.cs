@@ -58,6 +58,30 @@ namespace Pulumi.Aws.MskConnect
         /// </summary>
         public static Output<GetCustomPluginResult> Invoke(GetCustomPluginInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomPluginResult>("aws:mskconnect/getCustomPlugin:getCustomPlugin", args ?? new GetCustomPluginInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get information on an Amazon MSK Connect custom plugin.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.MskConnect.GetCustomPlugin.Invoke(new()
+        ///     {
+        ///         Name = "example-debezium-1",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetCustomPluginResult> Invoke(GetCustomPluginInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomPluginResult>("aws:mskconnect/getCustomPlugin:getCustomPlugin", args ?? new GetCustomPluginInvokeArgs(), options.WithDefaults());
     }
 
 

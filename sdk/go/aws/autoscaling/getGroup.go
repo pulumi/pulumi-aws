@@ -119,21 +119,11 @@ type LookupGroupResult struct {
 }
 
 func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...pulumi.InvokeOption) LookupGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupGroupResultOutput, error) {
 			args := v.(LookupGroupArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupGroupResult
-			secret, err := ctx.InvokePackageRaw("aws:autoscaling/getGroup:getGroup", args, &rv, "", opts...)
-			if err != nil {
-				return LookupGroupResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupGroupResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupGroupResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:autoscaling/getGroup:getGroup", args, LookupGroupResultOutput{}, options).(LookupGroupResultOutput), nil
 		}).(LookupGroupResultOutput)
 }
 

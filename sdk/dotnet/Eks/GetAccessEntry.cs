@@ -68,6 +68,35 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         public static Output<GetAccessEntryResult> Invoke(GetAccessEntryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessEntryResult>("aws:eks/getAccessEntry:getAccessEntry", args ?? new GetAccessEntryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Access Entry Configurations for an EKS Cluster.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Eks.GetAccessEntry.Invoke(new()
+        ///     {
+        ///         ClusterName = exampleAwsEksCluster.Name,
+        ///         PrincipalArn = exampleAwsIamRole.Arn,
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["eksAccessEntryOutputs"] = exampleAwsEksAccessEntry,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetAccessEntryResult> Invoke(GetAccessEntryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccessEntryResult>("aws:eks/getAccessEntry:getAccessEntry", args ?? new GetAccessEntryInvokeArgs(), options.WithDefaults());
     }
 
 

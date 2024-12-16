@@ -87,21 +87,11 @@ type LookupDataSetResult struct {
 }
 
 func LookupDataSetOutput(ctx *pulumi.Context, args LookupDataSetOutputArgs, opts ...pulumi.InvokeOption) LookupDataSetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDataSetResultOutput, error) {
 			args := v.(LookupDataSetArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDataSetResult
-			secret, err := ctx.InvokePackageRaw("aws:quicksight/getDataSet:getDataSet", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDataSetResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDataSetResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDataSetResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:quicksight/getDataSet:getDataSet", args, LookupDataSetResultOutput{}, options).(LookupDataSetResultOutput), nil
 		}).(LookupDataSetResultOutput)
 }
 

@@ -122,21 +122,11 @@ type LookupListenerRuleResult struct {
 }
 
 func LookupListenerRuleOutput(ctx *pulumi.Context, args LookupListenerRuleOutputArgs, opts ...pulumi.InvokeOption) LookupListenerRuleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupListenerRuleResultOutput, error) {
 			args := v.(LookupListenerRuleArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupListenerRuleResult
-			secret, err := ctx.InvokePackageRaw("aws:lb/getListenerRule:getListenerRule", args, &rv, "", opts...)
-			if err != nil {
-				return LookupListenerRuleResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupListenerRuleResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupListenerRuleResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:lb/getListenerRule:getListenerRule", args, LookupListenerRuleResultOutput{}, options).(LookupListenerRuleResultOutput), nil
 		}).(LookupListenerRuleResultOutput)
 }
 

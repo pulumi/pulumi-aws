@@ -64,6 +64,33 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public static Output<GetReservedCacheNodeOfferingResult> Invoke(GetReservedCacheNodeOfferingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReservedCacheNodeOfferingResult>("aws:elasticache/getReservedCacheNodeOffering:getReservedCacheNodeOffering", args ?? new GetReservedCacheNodeOfferingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Information about a single ElastiCache Reserved Cache Node Offering.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.ElastiCache.GetReservedCacheNodeOffering.Invoke(new()
+        ///     {
+        ///         CacheNodeType = "cache.t4g.small",
+        ///         Duration = "P1Y",
+        ///         OfferingType = "No Upfront",
+        ///         ProductDescription = "redis",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetReservedCacheNodeOfferingResult> Invoke(GetReservedCacheNodeOfferingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetReservedCacheNodeOfferingResult>("aws:elasticache/getReservedCacheNodeOffering:getReservedCacheNodeOffering", args ?? new GetReservedCacheNodeOfferingInvokeArgs(), options.WithDefaults());
     }
 
 

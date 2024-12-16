@@ -120,21 +120,11 @@ type LookupConnectPeerResult struct {
 }
 
 func LookupConnectPeerOutput(ctx *pulumi.Context, args LookupConnectPeerOutputArgs, opts ...pulumi.InvokeOption) LookupConnectPeerResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupConnectPeerResultOutput, error) {
 			args := v.(LookupConnectPeerArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupConnectPeerResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2transitgateway/getConnectPeer:getConnectPeer", args, &rv, "", opts...)
-			if err != nil {
-				return LookupConnectPeerResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupConnectPeerResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupConnectPeerResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:ec2transitgateway/getConnectPeer:getConnectPeer", args, LookupConnectPeerResultOutput{}, options).(LookupConnectPeerResultOutput), nil
 		}).(LookupConnectPeerResultOutput)
 }
 

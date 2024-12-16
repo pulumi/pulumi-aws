@@ -100,21 +100,11 @@ type GetRouteTablesResult struct {
 }
 
 func GetRouteTablesOutput(ctx *pulumi.Context, args GetRouteTablesOutputArgs, opts ...pulumi.InvokeOption) GetRouteTablesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetRouteTablesResultOutput, error) {
 			args := v.(GetRouteTablesArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetRouteTablesResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getRouteTables:getRouteTables", args, &rv, "", opts...)
-			if err != nil {
-				return GetRouteTablesResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetRouteTablesResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetRouteTablesResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:ec2/getRouteTables:getRouteTables", args, GetRouteTablesResultOutput{}, options).(GetRouteTablesResultOutput), nil
 		}).(GetRouteTablesResultOutput)
 }
 

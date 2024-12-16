@@ -68,6 +68,35 @@ namespace Pulumi.Aws
         /// </summary>
         public static Output<GetRegionResult> Invoke(GetRegionInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegionResult>("aws:index/getRegion:getRegion", args ?? new GetRegionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// `aws.getRegion` provides details about a specific AWS region.
+        /// 
+        /// As well as validating a given region name this resource can be used to
+        /// discover the name of the region configured within the provider. The latter
+        /// can be useful in a child module which is inheriting an AWS provider
+        /// configuration from its parent module.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// The following example shows how the resource might be used to obtain
+        /// the name of the AWS region configured on the provider.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Aws.GetRegion.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRegionResult> Invoke(GetRegionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRegionResult>("aws:index/getRegion:getRegion", args ?? new GetRegionInvokeArgs(), options.WithDefaults());
     }
 
 

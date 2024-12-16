@@ -62,6 +62,32 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAliasResult>("aws:kms/getAlias:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get the ARN of a KMS key alias.
+        /// By using this data source, you can reference key alias
+        /// without having to hard code the ARN as input.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var s3 = Aws.Kms.GetAlias.Invoke(new()
+        ///     {
+        ///         Name = "alias/aws/s3",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAliasResult>("aws:kms/getAlias:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());
     }
 
 

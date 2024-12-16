@@ -52,6 +52,27 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         public static Output<GetCustomModelsResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomModelsResult>("aws:bedrock/getCustomModels:getCustomModels", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Returns a list of Amazon Bedrock custom models.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Bedrock.GetCustomModels.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetCustomModelsResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomModelsResult>("aws:bedrock/getCustomModels:getCustomModels", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

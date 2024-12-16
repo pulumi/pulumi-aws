@@ -97,21 +97,11 @@ type LookupIndexResult struct {
 }
 
 func LookupIndexOutput(ctx *pulumi.Context, args LookupIndexOutputArgs, opts ...pulumi.InvokeOption) LookupIndexResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupIndexResultOutput, error) {
 			args := v.(LookupIndexArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupIndexResult
-			secret, err := ctx.InvokePackageRaw("aws:kendra/getIndex:getIndex", args, &rv, "", opts...)
-			if err != nil {
-				return LookupIndexResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupIndexResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupIndexResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:kendra/getIndex:getIndex", args, LookupIndexResultOutput{}, options).(LookupIndexResultOutput), nil
 		}).(LookupIndexResultOutput)
 }
 

@@ -70,6 +70,36 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public static Output<GetBucketPolicyResult> Invoke(GetBucketPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBucketPolicyResult>("aws:s3/getBucketPolicy:getBucketPolicy", args ?? new GetBucketPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The bucket policy data source returns IAM policy of an S3 bucket.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// The following example retrieves IAM policy of a specified S3 bucket.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.S3.GetBucketPolicy.Invoke(new()
+        ///     {
+        ///         Bucket = "example-bucket-name",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["foo"] = example.Apply(getBucketPolicyResult =&gt; getBucketPolicyResult.Policy),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetBucketPolicyResult> Invoke(GetBucketPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBucketPolicyResult>("aws:s3/getBucketPolicy:getBucketPolicy", args ?? new GetBucketPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

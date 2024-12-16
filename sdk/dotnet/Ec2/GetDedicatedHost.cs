@@ -126,6 +126,64 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Output<GetDedicatedHostResult> Invoke(GetDedicatedHostInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDedicatedHostResult>("aws:ec2/getDedicatedHost:getDedicatedHost", args ?? new GetDedicatedHostInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information about an EC2 Dedicated Host.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var testDedicatedHost = new Aws.Ec2.DedicatedHost("test", new()
+        ///     {
+        ///         InstanceType = "c5.18xlarge",
+        ///         AvailabilityZone = "us-west-2a",
+        ///     });
+        /// 
+        ///     var test = Aws.Ec2.GetDedicatedHost.Invoke(new()
+        ///     {
+        ///         HostId = testDedicatedHost.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Filter Example
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Ec2.GetDedicatedHost.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetDedicatedHostFilterInputArgs
+        ///             {
+        ///                 Name = "instance-type",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "c5.18xlarge",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetDedicatedHostResult> Invoke(GetDedicatedHostInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDedicatedHostResult>("aws:ec2/getDedicatedHost:getDedicatedHost", args ?? new GetDedicatedHostInvokeArgs(), options.WithDefaults());
     }
 
 

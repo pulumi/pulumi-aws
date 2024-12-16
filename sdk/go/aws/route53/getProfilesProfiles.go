@@ -58,18 +58,8 @@ type GetProfilesProfilesResult struct {
 
 func GetProfilesProfilesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetProfilesProfilesResultOutput {
 	return pulumi.ToOutput(0).ApplyT(func(int) (GetProfilesProfilesResultOutput, error) {
-		opts = internal.PkgInvokeDefaultOpts(opts)
-		var rv GetProfilesProfilesResult
-		secret, err := ctx.InvokePackageRaw("aws:route53/getProfilesProfiles:getProfilesProfiles", nil, &rv, "", opts...)
-		if err != nil {
-			return GetProfilesProfilesResultOutput{}, err
-		}
-
-		output := pulumi.ToOutput(rv).(GetProfilesProfilesResultOutput)
-		if secret {
-			return pulumi.ToSecret(output).(GetProfilesProfilesResultOutput), nil
-		}
-		return output, nil
+		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+		return ctx.InvokeOutput("aws:route53/getProfilesProfiles:getProfilesProfiles", nil, GetProfilesProfilesResultOutput{}, options).(GetProfilesProfilesResultOutput), nil
 	}).(GetProfilesProfilesResultOutput)
 }
 

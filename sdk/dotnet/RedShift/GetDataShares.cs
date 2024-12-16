@@ -56,6 +56,29 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         public static Output<GetDataSharesResult> Invoke(GetDataSharesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataSharesResult>("aws:redshift/getDataShares:getDataShares", args ?? new GetDataSharesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing AWS Redshift Data Shares.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.RedShift.GetDataShares.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetDataSharesResult> Invoke(GetDataSharesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataSharesResult>("aws:redshift/getDataShares:getDataShares", args ?? new GetDataSharesInvokeArgs(), options.WithDefaults());
     }
 
 

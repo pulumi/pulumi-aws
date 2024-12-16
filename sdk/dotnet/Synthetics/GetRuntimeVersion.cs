@@ -102,6 +102,52 @@ namespace Pulumi.Aws.Synthetics
         /// </summary>
         public static Output<GetRuntimeVersionResult> Invoke(GetRuntimeVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRuntimeVersionResult>("aws:synthetics/getRuntimeVersion:getRuntimeVersion", args ?? new GetRuntimeVersionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS CloudWatch Synthetics Runtime Version.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Latest Runtime Version
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Synthetics.GetRuntimeVersion.Invoke(new()
+        ///     {
+        ///         Prefix = "syn-nodejs-puppeteer",
+        ///         Latest = true,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Specific Runtime Version
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Synthetics.GetRuntimeVersion.Invoke(new()
+        ///     {
+        ///         Prefix = "syn-nodejs-puppeteer",
+        ///         Version = "9.0",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRuntimeVersionResult> Invoke(GetRuntimeVersionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRuntimeVersionResult>("aws:synthetics/getRuntimeVersion:getRuntimeVersion", args ?? new GetRuntimeVersionInvokeArgs(), options.WithDefaults());
     }
 
 

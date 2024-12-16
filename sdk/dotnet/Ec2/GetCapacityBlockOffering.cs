@@ -66,6 +66,34 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Output<GetCapacityBlockOfferingResult> Invoke(GetCapacityBlockOfferingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCapacityBlockOfferingResult>("aws:ec2/getCapacityBlockOffering:getCapacityBlockOffering", args ?? new GetCapacityBlockOfferingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Information about a single EC2 Capacity Block Offering.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ec2.GetCapacityBlockOffering.Invoke(new()
+        ///     {
+        ///         CapacityDurationHours = 24,
+        ///         EndDateRange = "2024-05-30T15:04:05Z",
+        ///         InstanceCount = 1,
+        ///         InstanceType = "p4d.24xlarge",
+        ///         StartDateRange = "2024-04-28T15:04:05Z",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetCapacityBlockOfferingResult> Invoke(GetCapacityBlockOfferingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCapacityBlockOfferingResult>("aws:ec2/getCapacityBlockOffering:getCapacityBlockOffering", args ?? new GetCapacityBlockOfferingInvokeArgs(), options.WithDefaults());
     }
 
 

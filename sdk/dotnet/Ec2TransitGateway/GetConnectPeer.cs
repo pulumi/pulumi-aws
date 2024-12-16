@@ -118,6 +118,60 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         public static Output<GetConnectPeerResult> Invoke(GetConnectPeerInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectPeerResult>("aws:ec2transitgateway/getConnectPeer:getConnectPeer", args ?? new GetConnectPeerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get information on an EC2 Transit Gateway Connect Peer.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### By Filter
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ec2TransitGateway.GetConnectPeer.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2TransitGateway.Inputs.GetConnectPeerFilterInputArgs
+        ///             {
+        ///                 Name = "transit-gateway-attachment-id",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "tgw-attach-12345678",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### By Identifier
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ec2TransitGateway.GetConnectPeer.Invoke(new()
+        ///     {
+        ///         TransitGatewayConnectPeerId = "tgw-connect-peer-12345678",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetConnectPeerResult> Invoke(GetConnectPeerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectPeerResult>("aws:ec2transitgateway/getConnectPeer:getConnectPeer", args ?? new GetConnectPeerInvokeArgs(), options.WithDefaults());
     }
 
 

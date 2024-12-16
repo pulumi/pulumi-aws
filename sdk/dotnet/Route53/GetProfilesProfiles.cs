@@ -56,6 +56,29 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         public static Output<GetProfilesProfilesResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProfilesProfilesResult>("aws:route53/getProfilesProfiles:getProfilesProfiles", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS Route 53 Profiles.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Route53.GetProfilesProfiles.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetProfilesProfilesResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProfilesProfilesResult>("aws:route53/getProfilesProfiles:getProfilesProfiles", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

@@ -73,21 +73,11 @@ type GetDistributionConfigurationsResult struct {
 }
 
 func GetDistributionConfigurationsOutput(ctx *pulumi.Context, args GetDistributionConfigurationsOutputArgs, opts ...pulumi.InvokeOption) GetDistributionConfigurationsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetDistributionConfigurationsResultOutput, error) {
 			args := v.(GetDistributionConfigurationsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetDistributionConfigurationsResult
-			secret, err := ctx.InvokePackageRaw("aws:imagebuilder/getDistributionConfigurations:getDistributionConfigurations", args, &rv, "", opts...)
-			if err != nil {
-				return GetDistributionConfigurationsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetDistributionConfigurationsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetDistributionConfigurationsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:imagebuilder/getDistributionConfigurations:getDistributionConfigurations", args, GetDistributionConfigurationsResultOutput{}, options).(GetDistributionConfigurationsResultOutput), nil
 		}).(GetDistributionConfigurationsResultOutput)
 }
 

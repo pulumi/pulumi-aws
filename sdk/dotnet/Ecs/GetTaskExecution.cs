@@ -90,6 +90,46 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public static Output<GetTaskExecutionResult> Invoke(GetTaskExecutionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTaskExecutionResult>("aws:ecs/getTaskExecution:getTaskExecution", args ?? new GetTaskExecutionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS ECS (Elastic Container) Task Execution. This data source calls the [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) API, allowing execution of one-time tasks that don't fit a standard resource lifecycle. See the feature request issue for additional context.
+        /// 
+        /// &gt; **NOTE on preview operations:** This data source calls the `RunTask` API on every read operation, which means new task(s) may be created from a `pulumi preview` command if all attributes are known. Placing this functionality behind a data source is an intentional trade off to enable use cases requiring a one-time task execution without relying on provisioners. Caution should be taken to ensure the data source is only executed once, or that the resulting tasks can safely run in parallel.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ecs.GetTaskExecution.Invoke(new()
+        ///     {
+        ///         Cluster = exampleAwsEcsCluster.Id,
+        ///         TaskDefinition = exampleAwsEcsTaskDefinition.Arn,
+        ///         DesiredCount = 1,
+        ///         LaunchType = "FARGATE",
+        ///         NetworkConfiguration = new Aws.Ecs.Inputs.GetTaskExecutionNetworkConfigurationInputArgs
+        ///         {
+        ///             Subnets = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
+        ///             SecurityGroups = new[]
+        ///             {
+        ///                 exampleAwsSecurityGroup.Id,
+        ///             },
+        ///             AssignPublicIp = false,
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetTaskExecutionResult> Invoke(GetTaskExecutionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTaskExecutionResult>("aws:ecs/getTaskExecution:getTaskExecution", args ?? new GetTaskExecutionInvokeArgs(), options.WithDefaults());
     }
 
 

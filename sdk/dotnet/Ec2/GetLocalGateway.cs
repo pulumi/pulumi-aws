@@ -66,6 +66,34 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Output<GetLocalGatewayResult> Invoke(GetLocalGatewayInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewayResult>("aws:ec2/getLocalGateway:getLocalGateway", args ?? new GetLocalGatewayInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about an EC2 Local Gateway.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// The following example shows how one might accept a local gateway id as a variable.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var config = new Config();
+        ///     var localGatewayId = config.RequireObject&lt;dynamic&gt;("localGatewayId");
+        ///     var selected = Aws.Ec2.GetLocalGateway.Invoke(new()
+        ///     {
+        ///         Id = localGatewayId,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocalGatewayResult> Invoke(GetLocalGatewayInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewayResult>("aws:ec2/getLocalGateway:getLocalGateway", args ?? new GetLocalGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

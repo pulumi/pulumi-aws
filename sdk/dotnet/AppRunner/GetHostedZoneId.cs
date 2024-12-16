@@ -86,6 +86,44 @@ namespace Pulumi.Aws.AppRunner
         /// </summary>
         public static Output<GetHostedZoneIdResult> Invoke(GetHostedZoneIdInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHostedZoneIdResult>("aws:apprunner/getHostedZoneId:getHostedZoneId", args ?? new GetHostedZoneIdInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get the HostedZoneId of an AWS App Runner service deployed
+        /// in a given region for the purpose of using it in an AWS Route53 Alias record.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = Aws.AppRunner.GetHostedZoneId.Invoke();
+        /// 
+        ///     var www = new Aws.Route53.Record("www", new()
+        ///     {
+        ///         ZoneId = primary.ZoneId,
+        ///         Name = "example.com",
+        ///         Type = Aws.Route53.RecordType.A,
+        ///         Aliases = new[]
+        ///         {
+        ///             new Aws.Route53.Inputs.RecordAliasArgs
+        ///             {
+        ///                 Name = mainAwsApprunnerCustomDomainAssociation.DnsTarget,
+        ///                 ZoneId = main.Apply(getHostedZoneIdResult =&gt; getHostedZoneIdResult.Id),
+        ///                 EvaluateTargetHealth = true,
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetHostedZoneIdResult> Invoke(GetHostedZoneIdInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetHostedZoneIdResult>("aws:apprunner/getHostedZoneId:getHostedZoneId", args ?? new GetHostedZoneIdInvokeArgs(), options.WithDefaults());
     }
 
 

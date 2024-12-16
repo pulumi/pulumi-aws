@@ -66,6 +66,34 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// </summary>
         public static Output<GetAcceleratorResult> Invoke(GetAcceleratorInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAcceleratorResult>("aws:globalaccelerator/getAccelerator:getAccelerator", args ?? new GetAcceleratorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides information about a Global Accelerator accelerator.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var config = new Config();
+        ///     var acceleratorArn = config.Get("acceleratorArn") ?? "";
+        ///     var acceleratorName = config.Get("acceleratorName") ?? "";
+        ///     var example = Aws.GlobalAccelerator.GetAccelerator.Invoke(new()
+        ///     {
+        ///         Arn = acceleratorArn,
+        ///         Name = acceleratorName,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetAcceleratorResult> Invoke(GetAcceleratorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAcceleratorResult>("aws:globalaccelerator/getAccelerator:getAccelerator", args ?? new GetAcceleratorInvokeArgs(), options.WithDefaults());
     }
 
 

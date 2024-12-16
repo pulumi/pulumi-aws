@@ -62,6 +62,32 @@ namespace Pulumi.Aws.Oam
         /// </summary>
         public static Output<GetLinkResult> Invoke(GetLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkResult>("aws:oam/getLink:getLink", args ?? new GetLinkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS CloudWatch Observability Access Manager Link.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Oam.GetLink.Invoke(new()
+        ///     {
+        ///         LinkIdentifier = "arn:aws:oam:us-west-1:111111111111:link/abcd1234-a123-456a-a12b-a123b456c789",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLinkResult> Invoke(GetLinkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLinkResult>("aws:oam/getLink:getLink", args ?? new GetLinkInvokeArgs(), options.WithDefaults());
     }
 
 

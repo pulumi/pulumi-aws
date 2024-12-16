@@ -128,6 +128,65 @@ namespace Pulumi.Aws.Emr
         /// </summary>
         public static Output<GetSupportedInstanceTypesResult> Invoke(GetSupportedInstanceTypesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSupportedInstanceTypesResult>("aws:emr/getSupportedInstanceTypes:getSupportedInstanceTypes", args ?? new GetSupportedInstanceTypesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing AWS EMR Supported Instance Types.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Emr.GetSupportedInstanceTypes.Invoke(new()
+        ///     {
+        ///         ReleaseLabel = "ebs-6.15.0",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### With a Lifecycle Pre-Condition
+        /// 
+        /// This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var instanceType = "r7g.large";
+        /// 
+        ///     var releaseLabel = "emr-6.15.0";
+        /// 
+        ///     var test = Aws.Emr.GetSupportedInstanceTypes.Invoke(new()
+        ///     {
+        ///         ReleaseLabel = releaseLabel,
+        ///     });
+        /// 
+        ///     var testCluster = new Aws.Emr.Cluster("test", new()
+        ///     {
+        ///         ReleaseLabel = releaseLabel,
+        ///         MasterInstanceGroup = new Aws.Emr.Inputs.ClusterMasterInstanceGroupArgs
+        ///         {
+        ///             InstanceType = instanceType,
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSupportedInstanceTypesResult> Invoke(GetSupportedInstanceTypesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSupportedInstanceTypesResult>("aws:emr/getSupportedInstanceTypes:getSupportedInstanceTypes", args ?? new GetSupportedInstanceTypesInvokeArgs(), options.WithDefaults());
     }
 
 

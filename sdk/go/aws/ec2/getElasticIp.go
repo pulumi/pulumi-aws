@@ -190,21 +190,11 @@ type GetElasticIpResult struct {
 }
 
 func GetElasticIpOutput(ctx *pulumi.Context, args GetElasticIpOutputArgs, opts ...pulumi.InvokeOption) GetElasticIpResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetElasticIpResultOutput, error) {
 			args := v.(GetElasticIpArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetElasticIpResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getElasticIp:getElasticIp", args, &rv, "", opts...)
-			if err != nil {
-				return GetElasticIpResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetElasticIpResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetElasticIpResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:ec2/getElasticIp:getElasticIp", args, GetElasticIpResultOutput{}, options).(GetElasticIpResultOutput), nil
 		}).(GetElasticIpResultOutput)
 }
 

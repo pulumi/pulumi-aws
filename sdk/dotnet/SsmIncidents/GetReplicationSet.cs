@@ -60,6 +60,31 @@ namespace Pulumi.Aws.SsmIncidents
         /// </summary>
         public static Output<GetReplicationSetResult> Invoke(GetReplicationSetInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationSetResult>("aws:ssmincidents/getReplicationSet:getReplicationSet", args ?? new GetReplicationSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// &gt; **NOTE:** The AWS Region specified by a provider must always be one of the Regions specified for the replication set.
+        /// 
+        /// Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.SsmIncidents.GetReplicationSet.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetReplicationSetResult> Invoke(GetReplicationSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetReplicationSetResult>("aws:ssmincidents/getReplicationSet:getReplicationSet", args ?? new GetReplicationSetInvokeArgs(), options.WithDefaults());
     }
 
 

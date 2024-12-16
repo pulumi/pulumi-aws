@@ -112,21 +112,11 @@ type GetOrderableDbInstanceResult struct {
 }
 
 func GetOrderableDbInstanceOutput(ctx *pulumi.Context, args GetOrderableDbInstanceOutputArgs, opts ...pulumi.InvokeOption) GetOrderableDbInstanceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetOrderableDbInstanceResultOutput, error) {
 			args := v.(GetOrderableDbInstanceArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetOrderableDbInstanceResult
-			secret, err := ctx.InvokePackageRaw("aws:neptune/getOrderableDbInstance:getOrderableDbInstance", args, &rv, "", opts...)
-			if err != nil {
-				return GetOrderableDbInstanceResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetOrderableDbInstanceResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetOrderableDbInstanceResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:neptune/getOrderableDbInstance:getOrderableDbInstance", args, GetOrderableDbInstanceResultOutput{}, options).(GetOrderableDbInstanceResultOutput), nil
 		}).(GetOrderableDbInstanceResultOutput)
 }
 

@@ -56,6 +56,29 @@ namespace Pulumi.Aws.SsoAdmin
         /// </summary>
         public static Output<GetApplicationProvidersResult> Invoke(GetApplicationProvidersInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationProvidersResult>("aws:ssoadmin/getApplicationProviders:getApplicationProviders", args ?? new GetApplicationProvidersInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing AWS SSO Admin Application Providers.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.SsoAdmin.GetApplicationProviders.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetApplicationProvidersResult> Invoke(GetApplicationProvidersInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationProvidersResult>("aws:ssoadmin/getApplicationProviders:getApplicationProviders", args ?? new GetApplicationProvidersInvokeArgs(), options.WithDefaults());
     }
 
 

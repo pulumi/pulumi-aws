@@ -104,6 +104,53 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public static Output<GetEventCategoriesResult> Invoke(GetEventCategoriesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventCategoriesResult>("aws:rds/getEventCategories:getEventCategories", args ?? new GetEventCategoriesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// List the event categories of all the RDS resources.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Rds.GetEventCategories.Invoke();
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["example"] = example.Apply(getEventCategoriesResult =&gt; getEventCategoriesResult.EventCategories),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// List the event categories specific to the RDS resource `db-snapshot`.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Rds.GetEventCategories.Invoke(new()
+        ///     {
+        ///         SourceType = "db-snapshot",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["example"] = example.Apply(getEventCategoriesResult =&gt; getEventCategoriesResult.EventCategories),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetEventCategoriesResult> Invoke(GetEventCategoriesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventCategoriesResult>("aws:rds/getEventCategories:getEventCategories", args ?? new GetEventCategoriesInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -69,21 +69,11 @@ type LookupSchedulingPolicyResult struct {
 }
 
 func LookupSchedulingPolicyOutput(ctx *pulumi.Context, args LookupSchedulingPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupSchedulingPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSchedulingPolicyResultOutput, error) {
 			args := v.(LookupSchedulingPolicyArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupSchedulingPolicyResult
-			secret, err := ctx.InvokePackageRaw("aws:batch/getSchedulingPolicy:getSchedulingPolicy", args, &rv, "", opts...)
-			if err != nil {
-				return LookupSchedulingPolicyResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupSchedulingPolicyResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupSchedulingPolicyResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:batch/getSchedulingPolicy:getSchedulingPolicy", args, LookupSchedulingPolicyResultOutput{}, options).(LookupSchedulingPolicyResultOutput), nil
 		}).(LookupSchedulingPolicyResultOutput)
 }
 

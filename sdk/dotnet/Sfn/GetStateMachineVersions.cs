@@ -62,6 +62,32 @@ namespace Pulumi.Aws.Sfn
         /// </summary>
         public static Output<GetStateMachineVersionsResult> Invoke(GetStateMachineVersionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStateMachineVersionsResult>("aws:sfn/getStateMachineVersions:getStateMachineVersions", args ?? new GetStateMachineVersionsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS SFN (Step Functions) State Machine Versions.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Sfn.GetStateMachineVersions.Invoke(new()
+        ///     {
+        ///         StatemachineArn = testAwsSfnStateMachine.Arn,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetStateMachineVersionsResult> Invoke(GetStateMachineVersionsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStateMachineVersionsResult>("aws:sfn/getStateMachineVersions:getStateMachineVersions", args ?? new GetStateMachineVersionsInvokeArgs(), options.WithDefaults());
     }
 
 

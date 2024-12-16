@@ -62,6 +62,32 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         public static Output<GetWindowsFileSystemResult> Invoke(GetWindowsFileSystemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWindowsFileSystemResult>("aws:fsx/getWindowsFileSystem:getWindowsFileSystem", args ?? new GetWindowsFileSystemInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve information on FSx Windows File System.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Root volume Example
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Fsx.GetWindowsFileSystem.Invoke(new()
+        ///     {
+        ///         Id = "fs-12345678",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetWindowsFileSystemResult> Invoke(GetWindowsFileSystemInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWindowsFileSystemResult>("aws:fsx/getWindowsFileSystem:getWindowsFileSystem", args ?? new GetWindowsFileSystemInvokeArgs(), options.WithDefaults());
     }
 
 

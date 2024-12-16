@@ -87,21 +87,11 @@ type LookupRestApiResult struct {
 }
 
 func LookupRestApiOutput(ctx *pulumi.Context, args LookupRestApiOutputArgs, opts ...pulumi.InvokeOption) LookupRestApiResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRestApiResultOutput, error) {
 			args := v.(LookupRestApiArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupRestApiResult
-			secret, err := ctx.InvokePackageRaw("aws:apigateway/getRestApi:getRestApi", args, &rv, "", opts...)
-			if err != nil {
-				return LookupRestApiResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupRestApiResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupRestApiResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:apigateway/getRestApi:getRestApi", args, LookupRestApiResultOutput{}, options).(LookupRestApiResultOutput), nil
 		}).(LookupRestApiResultOutput)
 }
 

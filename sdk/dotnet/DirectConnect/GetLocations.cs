@@ -58,6 +58,30 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         public static Output<GetLocationsResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocationsResult>("aws:directconnect/getLocations:getLocations", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve information about the AWS Direct Connect locations in the current AWS Region.
+        /// These are the locations that can be specified when configuring `aws.directconnect.Connection` or `aws.directconnect.LinkAggregationGroup` resources.
+        /// 
+        /// &gt; **Note:** This data source is different from the `aws.directconnect.getLocation` data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var available = Aws.DirectConnect.GetLocations.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocationsResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocationsResult>("aws:directconnect/getLocations:getLocations", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

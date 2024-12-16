@@ -64,6 +64,33 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         public static Output<GetServerlessLifecyclePolicyResult> Invoke(GetServerlessLifecyclePolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerlessLifecyclePolicyResult>("aws:opensearch/getServerlessLifecyclePolicy:getServerlessLifecyclePolicy", args ?? new GetServerlessLifecyclePolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS OpenSearch Serverless Lifecycle Policy.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.OpenSearch.GetServerlessLifecyclePolicy.Invoke(new()
+        ///     {
+        ///         Name = "example-lifecycle-policy",
+        ///         Type = "retention",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetServerlessLifecyclePolicyResult> Invoke(GetServerlessLifecyclePolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerlessLifecyclePolicyResult>("aws:opensearch/getServerlessLifecyclePolicy:getServerlessLifecyclePolicy", args ?? new GetServerlessLifecyclePolicyInvokeArgs(), options.WithDefaults());
     }
 
 
