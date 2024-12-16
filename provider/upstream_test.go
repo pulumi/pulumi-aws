@@ -4,30 +4,36 @@
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
-//     http://www.apache.org/licenses/LICENSE-2.0
+//	http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
 package provider
 
 import (
-	"context"
+	"os"
+	"os/exec"
 	"testing"
 
-	shim "github.com/hashicorp/terraform-provider-aws/shim"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
-// This checks that any runtime checks in the underlying provider (with patches) are passed.
-func TestProviderShim(t *testing.T) {
+func TestUpstreamLint(t *testing.T) {
 	t.Parallel()
 
-	ctx := context.Background()
-	_, err := shim.NewUpstreamProvider(ctx)
-	if err != nil {
-		t.Fatal(err)
-	}
+	cmd := exec.Command("make", "provider-lint")
+	cmd.Dir = "../upstream"
+
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+
+	err := cmd.Start()
+	require.NoError(t, err)
+
+	err = cmd.Wait()
+	assert.NoError(t, err)
 }

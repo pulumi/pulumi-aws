@@ -11,6 +11,8 @@ import (
 )
 
 func TestComputeEnvironmentTransformFromState(t *testing.T) {
+	t.Parallel()
+
 	ctx := context.Background()
 	pm := resource.PropertyMap{
 		"computeResources": resource.NewObjectProperty(resource.PropertyMap{

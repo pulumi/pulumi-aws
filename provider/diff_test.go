@@ -27,6 +27,8 @@ import (
 //
 // See also pulumi/pulumi-aws#3650.
 func TestRegressLandingZoneDiff(t *testing.T) {
+	t.Parallel()
+
 	event := `
 	[{
 	  "method": "/pulumirpc.ResourceProvider/Diff",
@@ -66,6 +68,8 @@ func TestRegressLandingZoneDiff(t *testing.T) {
 }
 
 func TestRegress1738(t *testing.T) {
+	t.Parallel()
+
 	containerDefinitionsOld := `
 	[
 	  {

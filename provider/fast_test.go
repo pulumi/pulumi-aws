@@ -10,7 +10,9 @@ func init() {
 	version.Version = "1.2.4"
 }
 
-func TestProvider(_ *testing.T) {
+func TestProvider(t *testing.T) {
+	t.Parallel()
+
 	Provider()
 }
 

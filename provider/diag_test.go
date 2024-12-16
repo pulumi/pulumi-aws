@@ -10,6 +10,8 @@ import (
 )
 
 func TestFormatDiags(t *testing.T) {
+	t.Parallel()
+
 	type testCase struct {
 		name   string
 		config diag.Diagnostics
