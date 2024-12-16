@@ -32,7 +32,9 @@ runs:
         cache-dependency-path: |
           provider/*.sum
           upstream/*.sum
+          sdk/go/*.sum
           sdk/*.sum
+          *.sum
         # TODO(https://github.com/actions/setup-go/issues/316): Restore but don't save the cache.
         cache: ${{ inputs.cache-go }}
 

@@ -15,7 +15,6 @@ jobs:
     env:
       PROVIDER_VERSION: ${{ inputs.version }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      AZURE_SIGNING_CONFIGURED: ${{ secrets.AZURE_SIGNING_CLIENT_ID != '' && secrets.AZURE_SIGNING_CLIENT_SECRET != '' && secrets.AZURE_SIGNING_TENANT_ID != '' && secrets.AZURE_SIGNING_KEY_VAULT_URI != '' }}
     strategy:
       fail-fast: true
       matrix:
@@ -63,24 +62,12 @@ jobs:
 
       - name: Build provider
         run: make "provider-${{ matrix.platform.os }}-${{ matrix.platform.arch }}"
-
-      - name: Sign windows provider
-        if: matrix.platform.os == 'windows' && env.AZURE_SIGNING_CONFIGURED == 'true'
-        run: |
-          az login --service-principal \
-            -u ${{ secrets.AZURE_SIGNING_CLIENT_ID }} \
-            -p ${{ secrets.AZURE_SIGNING_CLIENT_SECRET }} \
-            -t ${{ secrets.AZURE_SIGNING_TENANT_ID }} \
-            -o none;
-
-          wget https://github.com/ebourg/jsign/releases/download/6.0/jsign-6.0.jar;
-
-          java -jar jsign-6.0.jar \
-             --storetype AZUREKEYVAULT \
-             --keystore "PulumiCodeSigning" \
-             --url ${{ secrets.AZURE_SIGNING_KEY_VAULT_URI }} \
-             --storepass "$(az account get-access-token --resource "https://vault.azure.net" | jq -r .accessToken)" \
-             bin/windows-amd64/pulumi-resource-aws.exe;
+        env:
+          AZURE_SIGNING_CLIENT_ID: ${{ secrets.AZURE_SIGNING_CLIENT_ID }}
+          AZURE_SIGNING_CLIENT_SECRET: ${{ secrets.AZURE_SIGNING_CLIENT_SECRET }}
+          AZURE_SIGNING_TENANT_ID: ${{ secrets.AZURE_SIGNING_TENANT_ID }}
+          AZURE_SIGNING_KEY_VAULT_URI: ${{ secrets.AZURE_SIGNING_KEY_VAULT_URI }}
+          SKIP_SIGNING: ${{ secrets.AZURE_SIGNING_CLIENT_ID == '' && secrets.AZURE_SIGNING_CLIENT_SECRET == '' && secrets.AZURE_SIGNING_TENANT_ID == '' && secrets.AZURE_SIGNING_KEY_VAULT_URI == '' }}
 
       - name: Package provider
         run: make provider_dist-${{ matrix.platform.os }}-${{ matrix.platform.arch }}
