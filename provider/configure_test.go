@@ -88,8 +88,6 @@ func TestCheckConfigRunsUpstreamValidators(t *testing.T) {
 }
 
 func TestCheckConfigFastWithCustomEndpoints(t *testing.T) {
-	t.Parallel()
-
 	time0 := time.Now()
 	replaySequence(t, `
 	[{
