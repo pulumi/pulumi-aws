@@ -41,7 +41,6 @@ jobs:
         with:
           tools: go
           cache-go: false
-      - run: make upstream
       - uses: pulumi/license-check-action@main
         with:
           module-path: provider
