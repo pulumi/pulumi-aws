@@ -48,9 +48,9 @@ jobs:
       continue-on-error: true # this fails if there are no go:embed directives
       run: |
         git grep -l 'go:embed' -- provider | xargs sed -i 's/go:embed/ goembed/g'
-    - name: prepare upstream
+    - name: prepare workspace
       continue-on-error: true
-      run: make upstream
+      run: make prepare_local_workspace
     - name: golangci-lint
       uses: golangci/golangci-lint-action@971e284b6050e8a5849b72094c50ab08da042db8 # v6
       with:

@@ -97,8 +97,6 @@ jobs:
         role-duration-seconds: 7200
         role-session-name: aws@githubActions
         role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
-    - name: Make upstream
-      run: make upstream
     - name: Run tests
       if: matrix.testTarget == 'local'
       run: cd examples && go test -v -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -skip TestPulumiExamples -parallel 4 .
