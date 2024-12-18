@@ -459,7 +459,7 @@ func TestIMDSAuth(t *testing.T) {
 		t.Logf("Cross-compiling provider-resource-aws under test to %q", expected)
 		localProviderBuild = filepath.Join(os.TempDir(), "pulumi-resource-aws")
 		ldFlags := []string{
-			"-X", "github.com/pulumi/pulumi-aws/provider/v6/pkg/version.Version=6.0.0-alpha.0+dev",
+			"-X", "github.com/pulumi/pulumi-aws/v6/provider/pkg/version.Version=6.0.0-alpha.0+dev",
 			"-X", "github.com/hashicorp/terraform-provider-aws/version.ProviderVersion=6.0.0-alpha.0+dev",
 		}
 		args := []string{
@@ -967,7 +967,7 @@ outputs:
 		}, step.properties))
 
 	t.Logf("template for %s: \n%s", step.name, body)
-	require.NoError(t, os.WriteFile(testPath, []byte(body), 0600))
+	require.NoError(t, os.WriteFile(testPath, []byte(body), 0o600))
 }
 
 func loadAwsDefaultConfig() aws.Config {
@@ -1367,7 +1367,6 @@ outputs:
 		return expandMap(2, map[string]interface{}{
 			"properties": a,
 		})
-
 	}
 
 	for _, typ := range types {
@@ -1389,8 +1388,8 @@ outputs:
 
 			fpath := filepath.Join(path, "Pulumi.yaml")
 			if os.Getenv("PULUMI_ACCEPT") == "true" {
-				require.NoError(t, os.MkdirAll(path, 0700))
-				require.NoError(t, os.WriteFile(fpath, []byte(body), 0600))
+				require.NoError(t, os.MkdirAll(path, 0o700))
+				require.NoError(t, os.WriteFile(fpath, []byte(body), 0o600))
 			} else {
 				existing, err := os.ReadFile(fpath)
 				if assert.NoError(t, err) {

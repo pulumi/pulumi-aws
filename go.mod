@@ -1,36 +1,47 @@
-module github.com/pulumi/pulumi-aws/examples/v6
+module github.com/pulumi/pulumi-aws/v6
 
 go 1.23.3
+
+// Disable experimental post-quantum key exchange mechanism X25519Kyber768Draft00
+// This was causing errors with AWS Network Firewall
+// https://github.com/pulumi/pulumi-aws/issues/4582
+godebug tlskyber=0
 
 require (
 	github.com/aws/aws-sdk-go v1.55.5
 	github.com/aws/aws-sdk-go-v2 v1.32.6
 	github.com/aws/aws-sdk-go-v2/config v1.28.6
 	github.com/aws/aws-sdk-go-v2/credentials v1.17.47
+	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.16.21
 	github.com/aws/aws-sdk-go-v2/service/appconfig v1.36.1
+	github.com/aws/aws-sdk-go-v2/service/elasticloadbalancingv2 v1.43.1
 	github.com/aws/aws-sdk-go-v2/service/iam v1.38.2
 	github.com/aws/aws-sdk-go-v2/service/resourcegroupstaggingapi v1.25.7
 	github.com/aws/aws-sdk-go-v2/service/s3 v1.71.0
+	github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.59
+	github.com/hashicorp/terraform-plugin-sdk/v2 v2.35.0
+	github.com/hashicorp/terraform-provider-aws v1.60.1-0.20220923175450-ca71523cdc36
+	github.com/mitchellh/go-homedir v1.1.0
 	github.com/pulumi/providertest v0.1.3
-	github.com/pulumi/pulumi-aws/provider/v6 v6.0.0-00010101000000-000000000000
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.98.0
 	github.com/pulumi/pulumi/pkg/v3 v3.143.0
 	github.com/pulumi/pulumi/sdk/v3 v3.143.0
 	github.com/stretchr/testify v1.9.0
+	pgregory.net/rapid v0.6.1
 )
 
-// Replace to allow for correctly linking the aws provider.
+// This replace is copied from upstream/go.mod, and should be maintained only as long as
+// upstream maintains the same replace.
 //
-// We use this for gRPC based testing.
+// There is an equivalent replace in examples/go.mod. It should be updated/removed inline
+// with this replace.
+replace github.com/hashicorp/terraform-plugin-log => github.com/gdavison/terraform-plugin-log v0.0.0-20230928191232-6c653d8ef8fb
+
 replace (
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240520223432-0c0bf0d65f10
-
-	github.com/hashicorp/terraform-provider-aws => ../upstream
-	github.com/pulumi/pulumi-aws/provider/v6 => ../provider
+	github.com/hashicorp/terraform-provider-aws => ./upstream
+	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
 )
-
-// This replace is copied from upstream/go.mod, and should be maintained only as long as upstream maintains the same replace.
-replace github.com/hashicorp/terraform-plugin-log => github.com/gdavison/terraform-plugin-log v0.0.0-20230928191232-6c653d8ef8fb
 
 require (
 	cloud.google.com/go v0.112.1 // indirect
@@ -63,7 +74,6 @@ require (
 	github.com/armon/go-radix v1.0.0 // indirect
 	github.com/atotto/clipboard v0.1.4 // indirect
 	github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream v1.6.7 // indirect
-	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.16.21 // indirect
 	github.com/aws/aws-sdk-go-v2/feature/s3/manager v1.17.43 // indirect
 	github.com/aws/aws-sdk-go-v2/internal/configsources v1.3.25 // indirect
 	github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.6.25 // indirect
@@ -161,7 +171,6 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/elasticache v1.44.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/elasticbeanstalk v1.28.7 // indirect
 	github.com/aws/aws-sdk-go-v2/service/elasticloadbalancing v1.28.6 // indirect
-	github.com/aws/aws-sdk-go-v2/service/elasticloadbalancingv2 v1.43.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/elasticsearchservice v1.32.7 // indirect
 	github.com/aws/aws-sdk-go-v2/service/elastictranscoder v1.27.7 // indirect
 	github.com/aws/aws-sdk-go-v2/service/emr v1.47.1 // indirect
@@ -364,7 +373,6 @@ require (
 	github.com/gorilla/mux v1.8.0 // indirect
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645 // indirect
 	github.com/hashicorp/aws-cloudformation-resource-schema-sdk-go v0.23.0 // indirect
-	github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.59 // indirect
 	github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2 v2.0.0-beta.60 // indirect
 	github.com/hashicorp/awspolicyequivalence v1.6.0 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
@@ -398,9 +406,7 @@ require (
 	github.com/hashicorp/terraform-plugin-go v0.25.0 // indirect
 	github.com/hashicorp/terraform-plugin-log v0.9.0 // indirect
 	github.com/hashicorp/terraform-plugin-mux v0.17.0 // indirect
-	github.com/hashicorp/terraform-plugin-sdk/v2 v2.35.0 // indirect
 	github.com/hashicorp/terraform-plugin-testing v1.11.0 // indirect
-	github.com/hashicorp/terraform-provider-aws v1.60.1-0.20220923175450-ca71523cdc36 // indirect
 	github.com/hashicorp/terraform-registry-address v0.2.3 // indirect
 	github.com/hashicorp/terraform-svchost v0.1.1 // indirect
 	github.com/hashicorp/vault/api v1.12.0 // indirect
@@ -422,7 +428,6 @@ require (
 	github.com/mattn/go-runewidth v0.0.15 // indirect
 	github.com/mitchellh/cli v1.1.5 // indirect
 	github.com/mitchellh/copystructure v1.2.0 // indirect
-	github.com/mitchellh/go-homedir v1.1.0 // indirect
 	github.com/mitchellh/go-ps v1.0.0 // indirect
 	github.com/mitchellh/go-testing-interface v1.14.1 // indirect
 	github.com/mitchellh/go-wordwrap v1.0.1 // indirect

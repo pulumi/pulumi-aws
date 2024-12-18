@@ -21,8 +21,8 @@ import (
 	"os"
 
 	awsShim "github.com/hashicorp/terraform-provider-aws/shim"
-	"github.com/pulumi/pulumi-aws/provider/v6/pkg/iam"
-	"github.com/pulumi/pulumi-aws/provider/v6/pkg/rds"
+	"github.com/pulumi/pulumi-aws/v6/provider/pkg/iam"
+	"github.com/pulumi/pulumi-aws/v6/provider/pkg/rds"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
