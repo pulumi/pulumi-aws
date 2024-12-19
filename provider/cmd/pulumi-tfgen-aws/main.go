@@ -19,7 +19,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	aws "github.com/pulumi/pulumi-aws/provider/v6"
+	aws "github.com/pulumi/pulumi-aws/v6/provider"
 	pftfgen "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfgen"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"

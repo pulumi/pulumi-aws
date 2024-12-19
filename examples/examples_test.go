@@ -17,8 +17,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	aws "github.com/pulumi/pulumi-aws/provider/v6"
-	version "github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
+	aws "github.com/pulumi/pulumi-aws/v6/provider"
+	version "github.com/pulumi/pulumi-aws/v6/provider/pkg/version"
 )
 
 func createEditDir(dir string) integration.EditDir {
