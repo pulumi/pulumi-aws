@@ -23,7 +23,7 @@ class ReplicationGroupArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[str],
                  apply_immediately: Optional[pulumi.Input[bool]] = None,
-                 at_rest_encryption_enabled: Optional[pulumi.Input[str]] = None,
+                 at_rest_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  auth_token: Optional[pulumi.Input[str]] = None,
                  auth_token_update_strategy: Optional[pulumi.Input[str]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
@@ -64,7 +64,7 @@ class ReplicationGroupArgs:
         The set of arguments for constructing a ReplicationGroup resource.
         :param pulumi.Input[str] description: User-created description for the replication group. Must not be empty.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
-        :param pulumi.Input[str] at_rest_encryption_enabled: Whether to enable encryption at rest.
+        :param pulumi.Input[bool] at_rest_encryption_enabled: Whether to enable encryption at rest.
                When `engine` is `redis`, default is `false`.
                When `engine` is `valkey`, default is `true`.
         :param pulumi.Input[str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
@@ -239,7 +239,7 @@ class ReplicationGroupArgs:
 
     @property
     @pulumi.getter(name="atRestEncryptionEnabled")
-    def at_rest_encryption_enabled(self) -> Optional[pulumi.Input[str]]:
+    def at_rest_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether to enable encryption at rest.
         When `engine` is `redis`, default is `false`.
@@ -248,7 +248,7 @@ class ReplicationGroupArgs:
         return pulumi.get(self, "at_rest_encryption_enabled")
 
     @at_rest_encryption_enabled.setter
-    def at_rest_encryption_enabled(self, value: Optional[pulumi.Input[str]]):
+    def at_rest_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "at_rest_encryption_enabled", value)
 
     @property
@@ -720,7 +720,7 @@ class _ReplicationGroupState:
     def __init__(__self__, *,
                  apply_immediately: Optional[pulumi.Input[bool]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
-                 at_rest_encryption_enabled: Optional[pulumi.Input[str]] = None,
+                 at_rest_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  auth_token: Optional[pulumi.Input[str]] = None,
                  auth_token_update_strategy: Optional[pulumi.Input[str]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
@@ -769,7 +769,7 @@ class _ReplicationGroupState:
         Input properties used for looking up and filtering ReplicationGroup resources.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
         :param pulumi.Input[str] arn: ARN of the created ElastiCache Replication Group.
-        :param pulumi.Input[str] at_rest_encryption_enabled: Whether to enable encryption at rest.
+        :param pulumi.Input[bool] at_rest_encryption_enabled: Whether to enable encryption at rest.
                When `engine` is `redis`, default is `false`.
                When `engine` is `valkey`, default is `true`.
         :param pulumi.Input[str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
@@ -972,7 +972,7 @@ class _ReplicationGroupState:
 
     @property
     @pulumi.getter(name="atRestEncryptionEnabled")
-    def at_rest_encryption_enabled(self) -> Optional[pulumi.Input[str]]:
+    def at_rest_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether to enable encryption at rest.
         When `engine` is `redis`, default is `false`.
@@ -981,7 +981,7 @@ class _ReplicationGroupState:
         return pulumi.get(self, "at_rest_encryption_enabled")
 
     @at_rest_encryption_enabled.setter
-    def at_rest_encryption_enabled(self, value: Optional[pulumi.Input[str]]):
+    def at_rest_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "at_rest_encryption_enabled", value)
 
     @property
@@ -1551,7 +1551,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  apply_immediately: Optional[pulumi.Input[bool]] = None,
-                 at_rest_encryption_enabled: Optional[pulumi.Input[str]] = None,
+                 at_rest_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  auth_token: Optional[pulumi.Input[str]] = None,
                  auth_token_update_strategy: Optional[pulumi.Input[str]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
@@ -1779,7 +1779,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
-        :param pulumi.Input[str] at_rest_encryption_enabled: Whether to enable encryption at rest.
+        :param pulumi.Input[bool] at_rest_encryption_enabled: Whether to enable encryption at rest.
                When `engine` is `redis`, default is `false`.
                When `engine` is `valkey`, default is `true`.
         :param pulumi.Input[str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
@@ -2059,7 +2059,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  apply_immediately: Optional[pulumi.Input[bool]] = None,
-                 at_rest_encryption_enabled: Optional[pulumi.Input[str]] = None,
+                 at_rest_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  auth_token: Optional[pulumi.Input[str]] = None,
                  auth_token_update_strategy: Optional[pulumi.Input[str]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
@@ -2169,7 +2169,7 @@ class ReplicationGroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             apply_immediately: Optional[pulumi.Input[bool]] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            at_rest_encryption_enabled: Optional[pulumi.Input[str]] = None,
+            at_rest_encryption_enabled: Optional[pulumi.Input[bool]] = None,
             auth_token: Optional[pulumi.Input[str]] = None,
             auth_token_update_strategy: Optional[pulumi.Input[str]] = None,
             auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
@@ -2223,7 +2223,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
         :param pulumi.Input[str] arn: ARN of the created ElastiCache Replication Group.
-        :param pulumi.Input[str] at_rest_encryption_enabled: Whether to enable encryption at rest.
+        :param pulumi.Input[bool] at_rest_encryption_enabled: Whether to enable encryption at rest.
                When `engine` is `redis`, default is `false`.
                When `engine` is `valkey`, default is `true`.
         :param pulumi.Input[str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
@@ -2373,7 +2373,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="atRestEncryptionEnabled")
-    def at_rest_encryption_enabled(self) -> pulumi.Output[str]:
+    def at_rest_encryption_enabled(self) -> pulumi.Output[bool]:
         """
         Whether to enable encryption at rest.
         When `engine` is `redis`, default is `false`.

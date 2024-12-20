@@ -402,8 +402,8 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * When `engine` is `valkey`, default is `true`.
      * 
      */
-    @Export(name="atRestEncryptionEnabled", refs={String.class}, tree="[0]")
-    private Output<String> atRestEncryptionEnabled;
+    @Export(name="atRestEncryptionEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> atRestEncryptionEnabled;
 
     /**
      * @return Whether to enable encryption at rest.
@@ -411,7 +411,7 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * When `engine` is `valkey`, default is `true`.
      * 
      */
-    public Output<String> atRestEncryptionEnabled() {
+    public Output<Boolean> atRestEncryptionEnabled() {
         return this.atRestEncryptionEnabled;
     }
     /**

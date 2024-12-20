@@ -43,7 +43,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
      * 
      */
     @Import(name="atRestEncryptionEnabled")
-    private @Nullable Output<String> atRestEncryptionEnabled;
+    private @Nullable Output<Boolean> atRestEncryptionEnabled;
 
     /**
      * @return Whether to enable encryption at rest.
@@ -51,7 +51,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
      * When `engine` is `valkey`, default is `true`.
      * 
      */
-    public Optional<Output<String>> atRestEncryptionEnabled() {
+    public Optional<Output<Boolean>> atRestEncryptionEnabled() {
         return Optional.ofNullable(this.atRestEncryptionEnabled);
     }
 
@@ -763,7 +763,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder atRestEncryptionEnabled(@Nullable Output<String> atRestEncryptionEnabled) {
+        public Builder atRestEncryptionEnabled(@Nullable Output<Boolean> atRestEncryptionEnabled) {
             $.atRestEncryptionEnabled = atRestEncryptionEnabled;
             return this;
         }
@@ -776,7 +776,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder atRestEncryptionEnabled(String atRestEncryptionEnabled) {
+        public Builder atRestEncryptionEnabled(Boolean atRestEncryptionEnabled) {
             return atRestEncryptionEnabled(Output.of(atRestEncryptionEnabled));
         }
 

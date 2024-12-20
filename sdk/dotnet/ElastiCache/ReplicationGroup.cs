@@ -283,7 +283,7 @@ namespace Pulumi.Aws.ElastiCache
         /// When `engine` is `valkey`, default is `true`.
         /// </summary>
         [Output("atRestEncryptionEnabled")]
-        public Output<string> AtRestEncryptionEnabled { get; private set; } = null!;
+        public Output<bool> AtRestEncryptionEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
@@ -642,7 +642,7 @@ namespace Pulumi.Aws.ElastiCache
         /// When `engine` is `valkey`, default is `true`.
         /// </summary>
         [Input("atRestEncryptionEnabled")]
-        public Input<string>? AtRestEncryptionEnabled { get; set; }
+        public Input<bool>? AtRestEncryptionEnabled { get; set; }
 
         [Input("authToken")]
         private Input<string>? _authToken;
@@ -975,7 +975,7 @@ namespace Pulumi.Aws.ElastiCache
         /// When `engine` is `valkey`, default is `true`.
         /// </summary>
         [Input("atRestEncryptionEnabled")]
-        public Input<string>? AtRestEncryptionEnabled { get; set; }
+        public Input<bool>? AtRestEncryptionEnabled { get; set; }
 
         [Input("authToken")]
         private Input<string>? _authToken;

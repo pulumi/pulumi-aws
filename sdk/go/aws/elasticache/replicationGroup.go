@@ -322,7 +322,7 @@ type ReplicationGroup struct {
 	// Whether to enable encryption at rest.
 	// When `engine` is `redis`, default is `false`.
 	// When `engine` is `valkey`, default is `true`.
-	AtRestEncryptionEnabled pulumi.StringOutput `pulumi:"atRestEncryptionEnabled"`
+	AtRestEncryptionEnabled pulumi.BoolOutput `pulumi:"atRestEncryptionEnabled"`
 	// Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
 	AuthToken pulumi.StringPtrOutput `pulumi:"authToken"`
 	// Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
@@ -493,7 +493,7 @@ type replicationGroupState struct {
 	// Whether to enable encryption at rest.
 	// When `engine` is `redis`, default is `false`.
 	// When `engine` is `valkey`, default is `true`.
-	AtRestEncryptionEnabled *string `pulumi:"atRestEncryptionEnabled"`
+	AtRestEncryptionEnabled *bool `pulumi:"atRestEncryptionEnabled"`
 	// Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
 	AuthToken *string `pulumi:"authToken"`
 	// Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
@@ -625,7 +625,7 @@ type ReplicationGroupState struct {
 	// Whether to enable encryption at rest.
 	// When `engine` is `redis`, default is `false`.
 	// When `engine` is `valkey`, default is `true`.
-	AtRestEncryptionEnabled pulumi.StringPtrInput
+	AtRestEncryptionEnabled pulumi.BoolPtrInput
 	// Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
 	AuthToken pulumi.StringPtrInput
 	// Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
@@ -759,7 +759,7 @@ type replicationGroupArgs struct {
 	// Whether to enable encryption at rest.
 	// When `engine` is `redis`, default is `false`.
 	// When `engine` is `valkey`, default is `true`.
-	AtRestEncryptionEnabled *string `pulumi:"atRestEncryptionEnabled"`
+	AtRestEncryptionEnabled *bool `pulumi:"atRestEncryptionEnabled"`
 	// Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
 	AuthToken *string `pulumi:"authToken"`
 	// Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
@@ -874,7 +874,7 @@ type ReplicationGroupArgs struct {
 	// Whether to enable encryption at rest.
 	// When `engine` is `redis`, default is `false`.
 	// When `engine` is `valkey`, default is `true`.
-	AtRestEncryptionEnabled pulumi.StringPtrInput
+	AtRestEncryptionEnabled pulumi.BoolPtrInput
 	// Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
 	AuthToken pulumi.StringPtrInput
 	// Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
@@ -1082,8 +1082,8 @@ func (o ReplicationGroupOutput) Arn() pulumi.StringOutput {
 // Whether to enable encryption at rest.
 // When `engine` is `redis`, default is `false`.
 // When `engine` is `valkey`, default is `true`.
-func (o ReplicationGroupOutput) AtRestEncryptionEnabled() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.AtRestEncryptionEnabled }).(pulumi.StringOutput)
+func (o ReplicationGroupOutput) AtRestEncryptionEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolOutput { return v.AtRestEncryptionEnabled }).(pulumi.BoolOutput)
 }
 
 // Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.

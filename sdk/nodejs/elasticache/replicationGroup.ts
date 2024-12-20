@@ -244,7 +244,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      * When `engine` is `redis`, default is `false`.
      * When `engine` is `valkey`, default is `true`.
      */
-    public readonly atRestEncryptionEnabled!: pulumi.Output<string>;
+    public readonly atRestEncryptionEnabled!: pulumi.Output<boolean>;
     /**
      * Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
      */
@@ -592,7 +592,7 @@ export interface ReplicationGroupState {
      * When `engine` is `redis`, default is `false`.
      * When `engine` is `valkey`, default is `true`.
      */
-    atRestEncryptionEnabled?: pulumi.Input<string>;
+    atRestEncryptionEnabled?: pulumi.Input<boolean>;
     /**
      * Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
      */
@@ -817,7 +817,7 @@ export interface ReplicationGroupArgs {
      * When `engine` is `redis`, default is `false`.
      * When `engine` is `valkey`, default is `true`.
      */
-    atRestEncryptionEnabled?: pulumi.Input<string>;
+    atRestEncryptionEnabled?: pulumi.Input<boolean>;
     /**
      * Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
      */
