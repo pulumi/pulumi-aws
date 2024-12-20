@@ -45,6 +45,11 @@ export type ClusterSnapshot = import("./clusterSnapshot").ClusterSnapshot;
 export const ClusterSnapshot: typeof import("./clusterSnapshot").ClusterSnapshot = null as any;
 utilities.lazyLoad(exports, ["ClusterSnapshot"], () => require("./clusterSnapshot"));
 
+export { ClusterSnapshotCopyArgs, ClusterSnapshotCopyState } from "./clusterSnapshotCopy";
+export type ClusterSnapshotCopy = import("./clusterSnapshotCopy").ClusterSnapshotCopy;
+export const ClusterSnapshotCopy: typeof import("./clusterSnapshotCopy").ClusterSnapshotCopy = null as any;
+utilities.lazyLoad(exports, ["ClusterSnapshotCopy"], () => require("./clusterSnapshotCopy"));
+
 export { CustomDbEngineVersionArgs, CustomDbEngineVersionState } from "./customDbEngineVersion";
 export type CustomDbEngineVersion = import("./customDbEngineVersion").CustomDbEngineVersion;
 export const CustomDbEngineVersion: typeof import("./customDbEngineVersion").CustomDbEngineVersion = null as any;
@@ -243,6 +248,8 @@ const _module = {
                 return new ClusterRoleAssociation(name, <any>undefined, { urn })
             case "aws:rds/clusterSnapshot:ClusterSnapshot":
                 return new ClusterSnapshot(name, <any>undefined, { urn })
+            case "aws:rds/clusterSnapshotCopy:ClusterSnapshotCopy":
+                return new ClusterSnapshotCopy(name, <any>undefined, { urn })
             case "aws:rds/customDbEngineVersion:CustomDbEngineVersion":
                 return new CustomDbEngineVersion(name, <any>undefined, { urn })
             case "aws:rds/eventSubscription:EventSubscription":
@@ -294,6 +301,7 @@ pulumi.runtime.registerResourceModule("aws", "rds/clusterInstance", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/clusterParameterGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/clusterRoleAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/clusterSnapshot", _module)
+pulumi.runtime.registerResourceModule("aws", "rds/clusterSnapshotCopy", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/customDbEngineVersion", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/eventSubscription", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/exportTask", _module)

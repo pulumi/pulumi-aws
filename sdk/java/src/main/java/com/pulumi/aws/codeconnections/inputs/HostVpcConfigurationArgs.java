@@ -9,6 +9,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class HostVpcConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -49,15 +51,15 @@ public final class HostVpcConfigurationArgs extends com.pulumi.resources.Resourc
      * The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
      * 
      */
-    @Import(name="tlsCertificate", required=true)
-    private Output<String> tlsCertificate;
+    @Import(name="tlsCertificate")
+    private @Nullable Output<String> tlsCertificate;
 
     /**
      * @return The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
      * 
      */
-    public Output<String> tlsCertificate() {
-        return this.tlsCertificate;
+    public Optional<Output<String>> tlsCertificate() {
+        return Optional.ofNullable(this.tlsCertificate);
     }
 
     /**
@@ -170,7 +172,7 @@ public final class HostVpcConfigurationArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder tlsCertificate(Output<String> tlsCertificate) {
+        public Builder tlsCertificate(@Nullable Output<String> tlsCertificate) {
             $.tlsCertificate = tlsCertificate;
             return this;
         }
@@ -212,9 +214,6 @@ public final class HostVpcConfigurationArgs extends com.pulumi.resources.Resourc
             }
             if ($.subnetIds == null) {
                 throw new MissingRequiredPropertyException("HostVpcConfigurationArgs", "subnetIds");
-            }
-            if ($.tlsCertificate == null) {
-                throw new MissingRequiredPropertyException("HostVpcConfigurationArgs", "tlsCertificate");
             }
             if ($.vpcId == null) {
                 throw new MissingRequiredPropertyException("HostVpcConfigurationArgs", "vpcId");

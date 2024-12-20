@@ -103,6 +103,10 @@ export class LustreFileSystem extends pulumi.CustomResource {
      */
     public readonly driveCacheType!: pulumi.Output<string | undefined>;
     /**
+     * Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `perUnitStorageThroughput`. This is only supported when deploymentType is set to `PERSISTENT_2`, `metadataConfiguration` is used, and an EFA-enabled security group is attached.
+     */
+    public readonly efaEnabled!: pulumi.Output<boolean>;
+    /**
      * S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `importPath` argument and the path must use the same Amazon S3 bucket as specified in `importPath`. Set equal to `importPath` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
      */
     public readonly exportPath!: pulumi.Output<string>;
@@ -222,6 +226,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
             resourceInputs["deploymentType"] = state ? state.deploymentType : undefined;
             resourceInputs["dnsName"] = state ? state.dnsName : undefined;
             resourceInputs["driveCacheType"] = state ? state.driveCacheType : undefined;
+            resourceInputs["efaEnabled"] = state ? state.efaEnabled : undefined;
             resourceInputs["exportPath"] = state ? state.exportPath : undefined;
             resourceInputs["fileSystemTypeVersion"] = state ? state.fileSystemTypeVersion : undefined;
             resourceInputs["finalBackupTags"] = state ? state.finalBackupTags : undefined;
@@ -257,6 +262,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
             resourceInputs["dataCompressionType"] = args ? args.dataCompressionType : undefined;
             resourceInputs["deploymentType"] = args ? args.deploymentType : undefined;
             resourceInputs["driveCacheType"] = args ? args.driveCacheType : undefined;
+            resourceInputs["efaEnabled"] = args ? args.efaEnabled : undefined;
             resourceInputs["exportPath"] = args ? args.exportPath : undefined;
             resourceInputs["fileSystemTypeVersion"] = args ? args.fileSystemTypeVersion : undefined;
             resourceInputs["finalBackupTags"] = args ? args.finalBackupTags : undefined;
@@ -331,6 +337,10 @@ export interface LustreFileSystemState {
      * The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
      */
     driveCacheType?: pulumi.Input<string>;
+    /**
+     * Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `perUnitStorageThroughput`. This is only supported when deploymentType is set to `PERSISTENT_2`, `metadataConfiguration` is used, and an EFA-enabled security group is attached.
+     */
+    efaEnabled?: pulumi.Input<boolean>;
     /**
      * S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `importPath` argument and the path must use the same Amazon S3 bucket as specified in `importPath`. Set equal to `importPath` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
      */
@@ -465,6 +475,10 @@ export interface LustreFileSystemArgs {
      * The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
      */
     driveCacheType?: pulumi.Input<string>;
+    /**
+     * Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `perUnitStorageThroughput`. This is only supported when deploymentType is set to `PERSISTENT_2`, `metadataConfiguration` is used, and an EFA-enabled security group is attached.
+     */
+    efaEnabled?: pulumi.Input<boolean>;
     /**
      * S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `importPath` argument and the path must use the same Amazon S3 bucket as specified in `importPath`. Set equal to `importPath` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
      */

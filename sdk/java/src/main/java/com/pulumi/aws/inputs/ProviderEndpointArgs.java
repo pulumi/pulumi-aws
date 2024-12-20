@@ -2824,6 +2824,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="mgn")
+    private @Nullable Output<String> mgn;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> mgn() {
+        return Optional.ofNullable(this.mgn);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="mq")
     private @Nullable Output<String> mq;
 
@@ -4219,6 +4234,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="timestreamquery")
+    private @Nullable Output<String> timestreamquery;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> timestreamquery() {
+        return Optional.ofNullable(this.timestreamquery);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="timestreamwrite")
     private @Nullable Output<String> timestreamwrite;
 
@@ -4615,6 +4645,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.mediapackagev2 = $.mediapackagev2;
         this.mediastore = $.mediastore;
         this.memorydb = $.memorydb;
+        this.mgn = $.mgn;
         this.mq = $.mq;
         this.msk = $.msk;
         this.mwaa = $.mwaa;
@@ -4708,6 +4739,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.synthetics = $.synthetics;
         this.taxsettings = $.taxsettings;
         this.timestreaminfluxdb = $.timestreaminfluxdb;
+        this.timestreamquery = $.timestreamquery;
         this.timestreamwrite = $.timestreamwrite;
         this.transcribe = $.transcribe;
         this.transcribeservice = $.transcribeservice;
@@ -8670,6 +8702,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param mgn Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mgn(@Nullable Output<String> mgn) {
+            $.mgn = mgn;
+            return this;
+        }
+
+        /**
+         * @param mgn Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mgn(String mgn) {
+            return mgn(Output.of(mgn));
+        }
+
+        /**
          * @param mq Use this to override the default service endpoint URL
          * 
          * @return builder
@@ -10620,6 +10673,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder timestreaminfluxdb(String timestreaminfluxdb) {
             return timestreaminfluxdb(Output.of(timestreaminfluxdb));
+        }
+
+        /**
+         * @param timestreamquery Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder timestreamquery(@Nullable Output<String> timestreamquery) {
+            $.timestreamquery = timestreamquery;
+            return this;
+        }
+
+        /**
+         * @param timestreamquery Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder timestreamquery(String timestreamquery) {
+            return timestreamquery(Output.of(timestreamquery));
         }
 
         /**

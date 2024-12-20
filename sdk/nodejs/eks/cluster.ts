@@ -59,7 +59,7 @@ import * as utilities from "../utilities";
  *
  * ### EKS Cluster with EKS Auto Mode
  *
- * > **NOTE:** When using EKS Auto Mode `compute_config.enabled`, `kubernetes_network_config.elastic_load_balancing.enabled`, and `storage_config.block_storage.enabled` must *ALL be set to `true`. Likewise for disabling EKS Auto Mode, all three arguments must be set to `false`.
+ * > **NOTE:** When using EKS Auto Mode `compute_config.enabled`, `kubernetes_network_config.elastic_load_balancing.enabled`, and `storage_config.block_storage.enabled` must *ALL be set to `true`. Likewise for disabling EKS Auto Mode, all three arguments must be set to `false`. Enabling EKS Auto Mode also requires that `bootstrapSelfManagedAddons` is set to `false`.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -121,6 +121,7 @@ import * as utilities from "../utilities";
  *     },
  *     roleArn: cluster.arn,
  *     version: "1.31",
+ *     bootstrapSelfManagedAddons: false,
  *     computeConfig: {
  *         enabled: true,
  *         nodePools: ["general-purpose"],

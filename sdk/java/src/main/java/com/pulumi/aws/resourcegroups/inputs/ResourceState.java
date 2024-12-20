@@ -16,18 +16,14 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
     public static final ResourceState Empty = new ResourceState();
 
     /**
-     * The name or the ARN of the resource group to add resources to.
-     * 
-     * The following arguments are optional:
+     * Name or ARN of the resource group to add resources to.
      * 
      */
     @Import(name="groupArn")
     private @Nullable Output<String> groupArn;
 
     /**
-     * @return The name or the ARN of the resource group to add resources to.
-     * 
-     * The following arguments are optional:
+     * @return Name or ARN of the resource group to add resources to.
      * 
      */
     public Optional<Output<String>> groupArn() {
@@ -35,14 +31,14 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the resource to be added to the group.
+     * ARN of the resource to be added to the group.
      * 
      */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
     /**
-     * @return The ARN of the resource to be added to the group.
+     * @return ARN of the resource to be added to the group.
      * 
      */
     public Optional<Output<String>> resourceArn() {
@@ -91,9 +87,7 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupArn The name or the ARN of the resource group to add resources to.
-         * 
-         * The following arguments are optional:
+         * @param groupArn Name or ARN of the resource group to add resources to.
          * 
          * @return builder
          * 
@@ -104,9 +98,7 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groupArn The name or the ARN of the resource group to add resources to.
-         * 
-         * The following arguments are optional:
+         * @param groupArn Name or ARN of the resource group to add resources to.
          * 
          * @return builder
          * 
@@ -116,7 +108,7 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceArn The ARN of the resource to be added to the group.
+         * @param resourceArn ARN of the resource to be added to the group.
          * 
          * @return builder
          * 
@@ -127,7 +119,7 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceArn The ARN of the resource to be added to the group.
+         * @param resourceArn ARN of the resource to be added to the group.
          * 
          * @return builder
          * 

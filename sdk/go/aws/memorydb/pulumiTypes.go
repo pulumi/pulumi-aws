@@ -470,6 +470,181 @@ func (o ClusterShardNodeEndpointArrayOutput) Index(i pulumi.IntInput) ClusterSha
 	}).(ClusterShardNodeEndpointOutput)
 }
 
+type MultiRegionClusterTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// MultiRegionClusterTimeoutsInput is an input type that accepts MultiRegionClusterTimeoutsArgs and MultiRegionClusterTimeoutsOutput values.
+// You can construct a concrete instance of `MultiRegionClusterTimeoutsInput` via:
+//
+//	MultiRegionClusterTimeoutsArgs{...}
+type MultiRegionClusterTimeoutsInput interface {
+	pulumi.Input
+
+	ToMultiRegionClusterTimeoutsOutput() MultiRegionClusterTimeoutsOutput
+	ToMultiRegionClusterTimeoutsOutputWithContext(context.Context) MultiRegionClusterTimeoutsOutput
+}
+
+type MultiRegionClusterTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (MultiRegionClusterTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiRegionClusterTimeouts)(nil)).Elem()
+}
+
+func (i MultiRegionClusterTimeoutsArgs) ToMultiRegionClusterTimeoutsOutput() MultiRegionClusterTimeoutsOutput {
+	return i.ToMultiRegionClusterTimeoutsOutputWithContext(context.Background())
+}
+
+func (i MultiRegionClusterTimeoutsArgs) ToMultiRegionClusterTimeoutsOutputWithContext(ctx context.Context) MultiRegionClusterTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionClusterTimeoutsOutput)
+}
+
+func (i MultiRegionClusterTimeoutsArgs) ToMultiRegionClusterTimeoutsPtrOutput() MultiRegionClusterTimeoutsPtrOutput {
+	return i.ToMultiRegionClusterTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i MultiRegionClusterTimeoutsArgs) ToMultiRegionClusterTimeoutsPtrOutputWithContext(ctx context.Context) MultiRegionClusterTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionClusterTimeoutsOutput).ToMultiRegionClusterTimeoutsPtrOutputWithContext(ctx)
+}
+
+// MultiRegionClusterTimeoutsPtrInput is an input type that accepts MultiRegionClusterTimeoutsArgs, MultiRegionClusterTimeoutsPtr and MultiRegionClusterTimeoutsPtrOutput values.
+// You can construct a concrete instance of `MultiRegionClusterTimeoutsPtrInput` via:
+//
+//	        MultiRegionClusterTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type MultiRegionClusterTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToMultiRegionClusterTimeoutsPtrOutput() MultiRegionClusterTimeoutsPtrOutput
+	ToMultiRegionClusterTimeoutsPtrOutputWithContext(context.Context) MultiRegionClusterTimeoutsPtrOutput
+}
+
+type multiRegionClusterTimeoutsPtrType MultiRegionClusterTimeoutsArgs
+
+func MultiRegionClusterTimeoutsPtr(v *MultiRegionClusterTimeoutsArgs) MultiRegionClusterTimeoutsPtrInput {
+	return (*multiRegionClusterTimeoutsPtrType)(v)
+}
+
+func (*multiRegionClusterTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiRegionClusterTimeouts)(nil)).Elem()
+}
+
+func (i *multiRegionClusterTimeoutsPtrType) ToMultiRegionClusterTimeoutsPtrOutput() MultiRegionClusterTimeoutsPtrOutput {
+	return i.ToMultiRegionClusterTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *multiRegionClusterTimeoutsPtrType) ToMultiRegionClusterTimeoutsPtrOutputWithContext(ctx context.Context) MultiRegionClusterTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionClusterTimeoutsPtrOutput)
+}
+
+type MultiRegionClusterTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (MultiRegionClusterTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiRegionClusterTimeouts)(nil)).Elem()
+}
+
+func (o MultiRegionClusterTimeoutsOutput) ToMultiRegionClusterTimeoutsOutput() MultiRegionClusterTimeoutsOutput {
+	return o
+}
+
+func (o MultiRegionClusterTimeoutsOutput) ToMultiRegionClusterTimeoutsOutputWithContext(ctx context.Context) MultiRegionClusterTimeoutsOutput {
+	return o
+}
+
+func (o MultiRegionClusterTimeoutsOutput) ToMultiRegionClusterTimeoutsPtrOutput() MultiRegionClusterTimeoutsPtrOutput {
+	return o.ToMultiRegionClusterTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o MultiRegionClusterTimeoutsOutput) ToMultiRegionClusterTimeoutsPtrOutputWithContext(ctx context.Context) MultiRegionClusterTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultiRegionClusterTimeouts) *MultiRegionClusterTimeouts {
+		return &v
+	}).(MultiRegionClusterTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o MultiRegionClusterTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultiRegionClusterTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o MultiRegionClusterTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultiRegionClusterTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o MultiRegionClusterTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MultiRegionClusterTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type MultiRegionClusterTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (MultiRegionClusterTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiRegionClusterTimeouts)(nil)).Elem()
+}
+
+func (o MultiRegionClusterTimeoutsPtrOutput) ToMultiRegionClusterTimeoutsPtrOutput() MultiRegionClusterTimeoutsPtrOutput {
+	return o
+}
+
+func (o MultiRegionClusterTimeoutsPtrOutput) ToMultiRegionClusterTimeoutsPtrOutputWithContext(ctx context.Context) MultiRegionClusterTimeoutsPtrOutput {
+	return o
+}
+
+func (o MultiRegionClusterTimeoutsPtrOutput) Elem() MultiRegionClusterTimeoutsOutput {
+	return o.ApplyT(func(v *MultiRegionClusterTimeouts) MultiRegionClusterTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret MultiRegionClusterTimeouts
+		return ret
+	}).(MultiRegionClusterTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o MultiRegionClusterTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultiRegionClusterTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o MultiRegionClusterTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultiRegionClusterTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o MultiRegionClusterTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultiRegionClusterTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type ParameterGroupParameter struct {
 	// The name of the parameter.
 	Name string `pulumi:"name"`
@@ -1857,6 +2032,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterShardNodeArrayInput)(nil)).Elem(), ClusterShardNodeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterShardNodeEndpointInput)(nil)).Elem(), ClusterShardNodeEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterShardNodeEndpointArrayInput)(nil)).Elem(), ClusterShardNodeEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionClusterTimeoutsInput)(nil)).Elem(), MultiRegionClusterTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionClusterTimeoutsPtrInput)(nil)).Elem(), MultiRegionClusterTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupParameterInput)(nil)).Elem(), ParameterGroupParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupParameterArrayInput)(nil)).Elem(), ParameterGroupParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotClusterConfigurationInput)(nil)).Elem(), SnapshotClusterConfigurationArgs{})
@@ -1885,6 +2062,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterShardNodeArrayOutput{})
 	pulumi.RegisterOutputType(ClusterShardNodeEndpointOutput{})
 	pulumi.RegisterOutputType(ClusterShardNodeEndpointArrayOutput{})
+	pulumi.RegisterOutputType(MultiRegionClusterTimeoutsOutput{})
+	pulumi.RegisterOutputType(MultiRegionClusterTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ParameterGroupParameterOutput{})
 	pulumi.RegisterOutputType(ParameterGroupParameterArrayOutput{})
 	pulumi.RegisterOutputType(SnapshotClusterConfigurationOutput{})

@@ -13,6 +13,7 @@ from .core_network import *
 from .core_network_policy_attachment import *
 from .customer_gateway_association import *
 from .device import *
+from .dx_gateway_attachment import *
 from .get_connection import *
 from .get_connections import *
 from .get_core_network_policy_document import *

@@ -4,6 +4,7 @@
 package com.pulumi.aws.autoscaling;
 
 import com.pulumi.aws.autoscaling.enums.MetricsGranularity;
+import com.pulumi.aws.autoscaling.inputs.GroupAvailabilityZoneDistributionArgs;
 import com.pulumi.aws.autoscaling.inputs.GroupInitialLifecycleHookArgs;
 import com.pulumi.aws.autoscaling.inputs.GroupInstanceMaintenancePolicyArgs;
 import com.pulumi.aws.autoscaling.inputs.GroupInstanceRefreshArgs;
@@ -28,6 +29,21 @@ import javax.annotation.Nullable;
 public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GroupArgs Empty = new GroupArgs();
+
+    /**
+     * The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+     * 
+     */
+    @Import(name="availabilityZoneDistribution")
+    private @Nullable Output<GroupAvailabilityZoneDistributionArgs> availabilityZoneDistribution;
+
+    /**
+     * @return The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+     * 
+     */
+    public Optional<Output<GroupAvailabilityZoneDistributionArgs>> availabilityZoneDistribution() {
+        return Optional.ofNullable(this.availabilityZoneDistribution);
+    }
 
     /**
      * A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
@@ -685,6 +701,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     private GroupArgs() {}
 
     private GroupArgs(GroupArgs $) {
+        this.availabilityZoneDistribution = $.availabilityZoneDistribution;
         this.availabilityZones = $.availabilityZones;
         this.capacityRebalance = $.capacityRebalance;
         this.context = $.context;
@@ -742,6 +759,27 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(GroupArgs defaults) {
             $ = new GroupArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param availabilityZoneDistribution The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder availabilityZoneDistribution(@Nullable Output<GroupAvailabilityZoneDistributionArgs> availabilityZoneDistribution) {
+            $.availabilityZoneDistribution = availabilityZoneDistribution;
+            return this;
+        }
+
+        /**
+         * @param availabilityZoneDistribution The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder availabilityZoneDistribution(GroupAvailabilityZoneDistributionArgs availabilityZoneDistribution) {
+            return availabilityZoneDistribution(Output.of(availabilityZoneDistribution));
         }
 
         /**

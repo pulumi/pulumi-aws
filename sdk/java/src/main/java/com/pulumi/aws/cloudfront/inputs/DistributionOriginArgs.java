@@ -7,6 +7,7 @@ import com.pulumi.aws.cloudfront.inputs.DistributionOriginCustomHeaderArgs;
 import com.pulumi.aws.cloudfront.inputs.DistributionOriginCustomOriginConfigArgs;
 import com.pulumi.aws.cloudfront.inputs.DistributionOriginOriginShieldArgs;
 import com.pulumi.aws.cloudfront.inputs.DistributionOriginS3OriginConfigArgs;
+import com.pulumi.aws.cloudfront.inputs.DistributionOriginVpcOriginConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -164,6 +165,21 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.s3OriginConfig);
     }
 
+    /**
+     * The VPC origin configuration.
+     * 
+     */
+    @Import(name="vpcOriginConfig")
+    private @Nullable Output<DistributionOriginVpcOriginConfigArgs> vpcOriginConfig;
+
+    /**
+     * @return The VPC origin configuration.
+     * 
+     */
+    public Optional<Output<DistributionOriginVpcOriginConfigArgs>> vpcOriginConfig() {
+        return Optional.ofNullable(this.vpcOriginConfig);
+    }
+
     private DistributionOriginArgs() {}
 
     private DistributionOriginArgs(DistributionOriginArgs $) {
@@ -177,6 +193,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         this.originPath = $.originPath;
         this.originShield = $.originShield;
         this.s3OriginConfig = $.s3OriginConfig;
+        this.vpcOriginConfig = $.vpcOriginConfig;
     }
 
     public static Builder builder() {
@@ -403,6 +420,27 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
          */
         public Builder s3OriginConfig(DistributionOriginS3OriginConfigArgs s3OriginConfig) {
             return s3OriginConfig(Output.of(s3OriginConfig));
+        }
+
+        /**
+         * @param vpcOriginConfig The VPC origin configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vpcOriginConfig(@Nullable Output<DistributionOriginVpcOriginConfigArgs> vpcOriginConfig) {
+            $.vpcOriginConfig = vpcOriginConfig;
+            return this;
+        }
+
+        /**
+         * @param vpcOriginConfig The VPC origin configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vpcOriginConfig(DistributionOriginVpcOriginConfigArgs vpcOriginConfig) {
+            return vpcOriginConfig(Output.of(vpcOriginConfig));
         }
 
         public DistributionOriginArgs build() {

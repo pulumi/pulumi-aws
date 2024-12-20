@@ -13,6 +13,12 @@ namespace Pulumi.Aws.Alb.Inputs
     public sealed class ListenerMutualAuthenticationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Valid values are `off` and `on`.
+        /// </summary>
+        [Input("advertiseTrustStoreCaNames")]
+        public Input<string>? AdvertiseTrustStoreCaNames { get; set; }
+
+        /// <summary>
         /// Whether client certificate expiry is ignored. Default is `false`.
         /// </summary>
         [Input("ignoreClientCertificateExpiry")]

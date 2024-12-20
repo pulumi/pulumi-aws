@@ -83,6 +83,21 @@ import * as utilities from "../utilities";
  * | ---- | ---- |
  * | `SELECT` column wildcard (i.e., all columns) | `SELECT` on `"event"` (as expected) |
  *
+ * ## `ALLIAMPrincipals` group
+ *
+ * AllIAMPrincipals is a pseudo-entity group that acts like a Lake Formation principal. The group includes all IAMs in the account that is defined.
+ *
+ * resource "aws.lakeformation.Permissions" "example" {
+ *   permissions = ["SELECT"]
+ *   principal   = "123456789012:IAMPrincipals"
+ *
+ *   tableWithColumns {
+ *     databaseName = aws_glue_catalog_table.example.database_name
+ *     name          = aws_glue_catalog_table.example.name
+ *     columnNames  = ["event"]
+ *   }
+ * }
+ *
  * ## Using Lake Formation Permissions
  *
  * Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. These implicit permissions cannot be revoked _per se_. If this resource reads implicit permissions, it will attempt to revoke them, which causes an error when the resource is destroyed.

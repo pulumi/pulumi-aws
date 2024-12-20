@@ -1103,6 +1103,181 @@ func (o DeviceLocationPtrOutput) Longitude() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type DxGatewayAttachmentTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// DxGatewayAttachmentTimeoutsInput is an input type that accepts DxGatewayAttachmentTimeoutsArgs and DxGatewayAttachmentTimeoutsOutput values.
+// You can construct a concrete instance of `DxGatewayAttachmentTimeoutsInput` via:
+//
+//	DxGatewayAttachmentTimeoutsArgs{...}
+type DxGatewayAttachmentTimeoutsInput interface {
+	pulumi.Input
+
+	ToDxGatewayAttachmentTimeoutsOutput() DxGatewayAttachmentTimeoutsOutput
+	ToDxGatewayAttachmentTimeoutsOutputWithContext(context.Context) DxGatewayAttachmentTimeoutsOutput
+}
+
+type DxGatewayAttachmentTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (DxGatewayAttachmentTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DxGatewayAttachmentTimeouts)(nil)).Elem()
+}
+
+func (i DxGatewayAttachmentTimeoutsArgs) ToDxGatewayAttachmentTimeoutsOutput() DxGatewayAttachmentTimeoutsOutput {
+	return i.ToDxGatewayAttachmentTimeoutsOutputWithContext(context.Background())
+}
+
+func (i DxGatewayAttachmentTimeoutsArgs) ToDxGatewayAttachmentTimeoutsOutputWithContext(ctx context.Context) DxGatewayAttachmentTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DxGatewayAttachmentTimeoutsOutput)
+}
+
+func (i DxGatewayAttachmentTimeoutsArgs) ToDxGatewayAttachmentTimeoutsPtrOutput() DxGatewayAttachmentTimeoutsPtrOutput {
+	return i.ToDxGatewayAttachmentTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i DxGatewayAttachmentTimeoutsArgs) ToDxGatewayAttachmentTimeoutsPtrOutputWithContext(ctx context.Context) DxGatewayAttachmentTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DxGatewayAttachmentTimeoutsOutput).ToDxGatewayAttachmentTimeoutsPtrOutputWithContext(ctx)
+}
+
+// DxGatewayAttachmentTimeoutsPtrInput is an input type that accepts DxGatewayAttachmentTimeoutsArgs, DxGatewayAttachmentTimeoutsPtr and DxGatewayAttachmentTimeoutsPtrOutput values.
+// You can construct a concrete instance of `DxGatewayAttachmentTimeoutsPtrInput` via:
+//
+//	        DxGatewayAttachmentTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DxGatewayAttachmentTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToDxGatewayAttachmentTimeoutsPtrOutput() DxGatewayAttachmentTimeoutsPtrOutput
+	ToDxGatewayAttachmentTimeoutsPtrOutputWithContext(context.Context) DxGatewayAttachmentTimeoutsPtrOutput
+}
+
+type dxGatewayAttachmentTimeoutsPtrType DxGatewayAttachmentTimeoutsArgs
+
+func DxGatewayAttachmentTimeoutsPtr(v *DxGatewayAttachmentTimeoutsArgs) DxGatewayAttachmentTimeoutsPtrInput {
+	return (*dxGatewayAttachmentTimeoutsPtrType)(v)
+}
+
+func (*dxGatewayAttachmentTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DxGatewayAttachmentTimeouts)(nil)).Elem()
+}
+
+func (i *dxGatewayAttachmentTimeoutsPtrType) ToDxGatewayAttachmentTimeoutsPtrOutput() DxGatewayAttachmentTimeoutsPtrOutput {
+	return i.ToDxGatewayAttachmentTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *dxGatewayAttachmentTimeoutsPtrType) ToDxGatewayAttachmentTimeoutsPtrOutputWithContext(ctx context.Context) DxGatewayAttachmentTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DxGatewayAttachmentTimeoutsPtrOutput)
+}
+
+type DxGatewayAttachmentTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (DxGatewayAttachmentTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DxGatewayAttachmentTimeouts)(nil)).Elem()
+}
+
+func (o DxGatewayAttachmentTimeoutsOutput) ToDxGatewayAttachmentTimeoutsOutput() DxGatewayAttachmentTimeoutsOutput {
+	return o
+}
+
+func (o DxGatewayAttachmentTimeoutsOutput) ToDxGatewayAttachmentTimeoutsOutputWithContext(ctx context.Context) DxGatewayAttachmentTimeoutsOutput {
+	return o
+}
+
+func (o DxGatewayAttachmentTimeoutsOutput) ToDxGatewayAttachmentTimeoutsPtrOutput() DxGatewayAttachmentTimeoutsPtrOutput {
+	return o.ToDxGatewayAttachmentTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o DxGatewayAttachmentTimeoutsOutput) ToDxGatewayAttachmentTimeoutsPtrOutputWithContext(ctx context.Context) DxGatewayAttachmentTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DxGatewayAttachmentTimeouts) *DxGatewayAttachmentTimeouts {
+		return &v
+	}).(DxGatewayAttachmentTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DxGatewayAttachmentTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DxGatewayAttachmentTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o DxGatewayAttachmentTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DxGatewayAttachmentTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DxGatewayAttachmentTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DxGatewayAttachmentTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type DxGatewayAttachmentTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (DxGatewayAttachmentTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DxGatewayAttachmentTimeouts)(nil)).Elem()
+}
+
+func (o DxGatewayAttachmentTimeoutsPtrOutput) ToDxGatewayAttachmentTimeoutsPtrOutput() DxGatewayAttachmentTimeoutsPtrOutput {
+	return o
+}
+
+func (o DxGatewayAttachmentTimeoutsPtrOutput) ToDxGatewayAttachmentTimeoutsPtrOutputWithContext(ctx context.Context) DxGatewayAttachmentTimeoutsPtrOutput {
+	return o
+}
+
+func (o DxGatewayAttachmentTimeoutsPtrOutput) Elem() DxGatewayAttachmentTimeoutsOutput {
+	return o.ApplyT(func(v *DxGatewayAttachmentTimeouts) DxGatewayAttachmentTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret DxGatewayAttachmentTimeouts
+		return ret
+	}).(DxGatewayAttachmentTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DxGatewayAttachmentTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DxGatewayAttachmentTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o DxGatewayAttachmentTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DxGatewayAttachmentTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o DxGatewayAttachmentTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DxGatewayAttachmentTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type LinkBandwidth struct {
 	// Download speed in Mbps.
 	DownloadSpeed *int `pulumi:"downloadSpeed"`
@@ -3514,6 +3689,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceAwsLocationPtrInput)(nil)).Elem(), DeviceAwsLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceLocationInput)(nil)).Elem(), DeviceLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceLocationPtrInput)(nil)).Elem(), DeviceLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DxGatewayAttachmentTimeoutsInput)(nil)).Elem(), DxGatewayAttachmentTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DxGatewayAttachmentTimeoutsPtrInput)(nil)).Elem(), DxGatewayAttachmentTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkBandwidthInput)(nil)).Elem(), LinkBandwidthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkBandwidthPtrInput)(nil)).Elem(), LinkBandwidthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteLocationInput)(nil)).Elem(), SiteLocationArgs{})
@@ -3565,6 +3742,8 @@ func init() {
 	pulumi.RegisterOutputType(DeviceAwsLocationPtrOutput{})
 	pulumi.RegisterOutputType(DeviceLocationOutput{})
 	pulumi.RegisterOutputType(DeviceLocationPtrOutput{})
+	pulumi.RegisterOutputType(DxGatewayAttachmentTimeoutsOutput{})
+	pulumi.RegisterOutputType(DxGatewayAttachmentTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(LinkBandwidthOutput{})
 	pulumi.RegisterOutputType(LinkBandwidthPtrOutput{})
 	pulumi.RegisterOutputType(SiteLocationOutput{})

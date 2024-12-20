@@ -542,6 +542,8 @@ type GetReceivedLicenseEntitlement struct {
 	MaxCount int `pulumi:"maxCount"`
 	// The key name.
 	Name string `pulumi:"name"`
+	// Indicates whether overages are allowed.
+	Overage bool `pulumi:"overage"`
 	// Entitlement unit.
 	Unit string `pulumi:"unit"`
 	// The value.
@@ -566,6 +568,8 @@ type GetReceivedLicenseEntitlementArgs struct {
 	MaxCount pulumi.IntInput `pulumi:"maxCount"`
 	// The key name.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Indicates whether overages are allowed.
+	Overage pulumi.BoolInput `pulumi:"overage"`
 	// Entitlement unit.
 	Unit pulumi.StringInput `pulumi:"unit"`
 	// The value.
@@ -636,6 +640,11 @@ func (o GetReceivedLicenseEntitlementOutput) MaxCount() pulumi.IntOutput {
 // The key name.
 func (o GetReceivedLicenseEntitlementOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReceivedLicenseEntitlement) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Indicates whether overages are allowed.
+func (o GetReceivedLicenseEntitlementOutput) Overage() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetReceivedLicenseEntitlement) bool { return v.Overage }).(pulumi.BoolOutput)
 }
 
 // Entitlement unit.

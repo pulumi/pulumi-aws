@@ -117,6 +117,46 @@ import (
 //
 // ```
 //
+// ### Field Index Policy
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Fields": []string{
+//					"field1",
+//					"field2",
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = cloudwatch.NewLogAccountPolicy(ctx, "field_index", &cloudwatch.LogAccountPolicyArgs{
+//				PolicyName:     pulumi.String("field-index"),
+//				PolicyType:     pulumi.String("FIELD_INDEX_POLICY"),
+//				PolicyDocument: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import this resource using the `policy_name` and `policy_type` separated by `:`. For example:
@@ -131,7 +171,7 @@ type LogAccountPolicy struct {
 	PolicyDocument pulumi.StringOutput `pulumi:"policyDocument"`
 	// Name of the account policy.
 	PolicyName pulumi.StringOutput `pulumi:"policyName"`
-	// Type of account policy. Either `DATA_PROTECTION_POLICY` or `SUBSCRIPTION_FILTER_POLICY`. You can have one account policy per type in an account.
+	// Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
 	PolicyType pulumi.StringOutput `pulumi:"policyType"`
 	// Currently defaults to and only accepts the value: `ALL`.
 	Scope pulumi.StringPtrOutput `pulumi:"scope"`
@@ -182,7 +222,7 @@ type logAccountPolicyState struct {
 	PolicyDocument *string `pulumi:"policyDocument"`
 	// Name of the account policy.
 	PolicyName *string `pulumi:"policyName"`
-	// Type of account policy. Either `DATA_PROTECTION_POLICY` or `SUBSCRIPTION_FILTER_POLICY`. You can have one account policy per type in an account.
+	// Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
 	PolicyType *string `pulumi:"policyType"`
 	// Currently defaults to and only accepts the value: `ALL`.
 	Scope *string `pulumi:"scope"`
@@ -195,7 +235,7 @@ type LogAccountPolicyState struct {
 	PolicyDocument pulumi.StringPtrInput
 	// Name of the account policy.
 	PolicyName pulumi.StringPtrInput
-	// Type of account policy. Either `DATA_PROTECTION_POLICY` or `SUBSCRIPTION_FILTER_POLICY`. You can have one account policy per type in an account.
+	// Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
 	PolicyType pulumi.StringPtrInput
 	// Currently defaults to and only accepts the value: `ALL`.
 	Scope pulumi.StringPtrInput
@@ -212,7 +252,7 @@ type logAccountPolicyArgs struct {
 	PolicyDocument string `pulumi:"policyDocument"`
 	// Name of the account policy.
 	PolicyName string `pulumi:"policyName"`
-	// Type of account policy. Either `DATA_PROTECTION_POLICY` or `SUBSCRIPTION_FILTER_POLICY`. You can have one account policy per type in an account.
+	// Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
 	PolicyType string `pulumi:"policyType"`
 	// Currently defaults to and only accepts the value: `ALL`.
 	Scope *string `pulumi:"scope"`
@@ -226,7 +266,7 @@ type LogAccountPolicyArgs struct {
 	PolicyDocument pulumi.StringInput
 	// Name of the account policy.
 	PolicyName pulumi.StringInput
-	// Type of account policy. Either `DATA_PROTECTION_POLICY` or `SUBSCRIPTION_FILTER_POLICY`. You can have one account policy per type in an account.
+	// Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
 	PolicyType pulumi.StringInput
 	// Currently defaults to and only accepts the value: `ALL`.
 	Scope pulumi.StringPtrInput
@@ -331,7 +371,7 @@ func (o LogAccountPolicyOutput) PolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogAccountPolicy) pulumi.StringOutput { return v.PolicyName }).(pulumi.StringOutput)
 }
 
-// Type of account policy. Either `DATA_PROTECTION_POLICY` or `SUBSCRIPTION_FILTER_POLICY`. You can have one account policy per type in an account.
+// Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
 func (o LogAccountPolicyOutput) PolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogAccountPolicy) pulumi.StringOutput { return v.PolicyType }).(pulumi.StringOutput)
 }

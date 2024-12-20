@@ -8,6 +8,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class HostVpcConfiguration {
@@ -25,7 +27,7 @@ public final class HostVpcConfiguration {
      * @return The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
      * 
      */
-    private String tlsCertificate;
+    private @Nullable String tlsCertificate;
     /**
      * @return The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
      * 
@@ -51,8 +53,8 @@ public final class HostVpcConfiguration {
      * @return The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
      * 
      */
-    public String tlsCertificate() {
-        return this.tlsCertificate;
+    public Optional<String> tlsCertificate() {
+        return Optional.ofNullable(this.tlsCertificate);
     }
     /**
      * @return The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
@@ -73,7 +75,7 @@ public final class HostVpcConfiguration {
     public static final class Builder {
         private List<String> securityGroupIds;
         private List<String> subnetIds;
-        private String tlsCertificate;
+        private @Nullable String tlsCertificate;
         private String vpcId;
         public Builder() {}
         public Builder(HostVpcConfiguration defaults) {
@@ -107,10 +109,8 @@ public final class HostVpcConfiguration {
             return subnetIds(List.of(subnetIds));
         }
         @CustomType.Setter
-        public Builder tlsCertificate(String tlsCertificate) {
-            if (tlsCertificate == null) {
-              throw new MissingRequiredPropertyException("HostVpcConfiguration", "tlsCertificate");
-            }
+        public Builder tlsCertificate(@Nullable String tlsCertificate) {
+
             this.tlsCertificate = tlsCertificate;
             return this;
         }

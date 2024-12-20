@@ -65,6 +65,8 @@ class ReplicationGroupArgs:
         :param pulumi.Input[str] description: User-created description for the replication group. Must not be empty.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
         :param pulumi.Input[bool] at_rest_encryption_enabled: Whether to enable encryption at rest.
+               When `engine` is `redis`, default is `false`.
+               When `engine` is `valkey`, default is `true`.
         :param pulumi.Input[str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
         :param pulumi.Input[str] auth_token_update_strategy: Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
@@ -73,7 +75,9 @@ class ReplicationGroupArgs:
         :param pulumi.Input[bool] automatic_failover_enabled: Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
         :param pulumi.Input[str] cluster_mode: Specifies whether cluster mode is enabled or disabled. Valid values are `enabled` or `disabled` or `compatible`
         :param pulumi.Input[bool] data_tiering_enabled: Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
-        :param pulumi.Input[str] engine: Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
+        :param pulumi.Input[str] engine: Name of the cache engine to be used for the clusters in this replication group.
+               Valid values are `redis` or `valkey`.
+               Default is `redis`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used for the cache clusters in this replication group.
                If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
                If the version is 6, the major and minor version can be set, e.g., `6.2`,
@@ -238,6 +242,8 @@ class ReplicationGroupArgs:
     def at_rest_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether to enable encryption at rest.
+        When `engine` is `redis`, default is `false`.
+        When `engine` is `valkey`, default is `true`.
         """
         return pulumi.get(self, "at_rest_encryption_enabled")
 
@@ -323,7 +329,9 @@ class ReplicationGroupArgs:
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
+        Name of the cache engine to be used for the clusters in this replication group.
+        Valid values are `redis` or `valkey`.
+        Default is `redis`.
         """
         return pulumi.get(self, "engine")
 
@@ -762,6 +770,8 @@ class _ReplicationGroupState:
         :param pulumi.Input[bool] apply_immediately: Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
         :param pulumi.Input[str] arn: ARN of the created ElastiCache Replication Group.
         :param pulumi.Input[bool] at_rest_encryption_enabled: Whether to enable encryption at rest.
+               When `engine` is `redis`, default is `false`.
+               When `engine` is `valkey`, default is `true`.
         :param pulumi.Input[str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
         :param pulumi.Input[str] auth_token_update_strategy: Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
@@ -773,7 +783,9 @@ class _ReplicationGroupState:
         :param pulumi.Input[str] configuration_endpoint_address: Address of the replication group configuration endpoint when cluster mode is enabled.
         :param pulumi.Input[bool] data_tiering_enabled: Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
         :param pulumi.Input[str] description: User-created description for the replication group. Must not be empty.
-        :param pulumi.Input[str] engine: Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
+        :param pulumi.Input[str] engine: Name of the cache engine to be used for the clusters in this replication group.
+               Valid values are `redis` or `valkey`.
+               Default is `redis`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used for the cache clusters in this replication group.
                If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
                If the version is 6, the major and minor version can be set, e.g., `6.2`,
@@ -963,6 +975,8 @@ class _ReplicationGroupState:
     def at_rest_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether to enable encryption at rest.
+        When `engine` is `redis`, default is `false`.
+        When `engine` is `valkey`, default is `true`.
         """
         return pulumi.get(self, "at_rest_encryption_enabled")
 
@@ -1084,7 +1098,9 @@ class _ReplicationGroupState:
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
+        Name of the cache engine to be used for the clusters in this replication group.
+        Valid values are `redis` or `valkey`.
+        Default is `redis`.
         """
         return pulumi.get(self, "engine")
 
@@ -1764,6 +1780,8 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
         :param pulumi.Input[bool] at_rest_encryption_enabled: Whether to enable encryption at rest.
+               When `engine` is `redis`, default is `false`.
+               When `engine` is `valkey`, default is `true`.
         :param pulumi.Input[str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
         :param pulumi.Input[str] auth_token_update_strategy: Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
@@ -1773,7 +1791,9 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_mode: Specifies whether cluster mode is enabled or disabled. Valid values are `enabled` or `disabled` or `compatible`
         :param pulumi.Input[bool] data_tiering_enabled: Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
         :param pulumi.Input[str] description: User-created description for the replication group. Must not be empty.
-        :param pulumi.Input[str] engine: Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
+        :param pulumi.Input[str] engine: Name of the cache engine to be used for the clusters in this replication group.
+               Valid values are `redis` or `valkey`.
+               Default is `redis`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used for the cache clusters in this replication group.
                If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
                If the version is 6, the major and minor version can be set, e.g., `6.2`,
@@ -2204,6 +2224,8 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[bool] apply_immediately: Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
         :param pulumi.Input[str] arn: ARN of the created ElastiCache Replication Group.
         :param pulumi.Input[bool] at_rest_encryption_enabled: Whether to enable encryption at rest.
+               When `engine` is `redis`, default is `false`.
+               When `engine` is `valkey`, default is `true`.
         :param pulumi.Input[str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
         :param pulumi.Input[str] auth_token_update_strategy: Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
@@ -2215,7 +2237,9 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] configuration_endpoint_address: Address of the replication group configuration endpoint when cluster mode is enabled.
         :param pulumi.Input[bool] data_tiering_enabled: Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
         :param pulumi.Input[str] description: User-created description for the replication group. Must not be empty.
-        :param pulumi.Input[str] engine: Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
+        :param pulumi.Input[str] engine: Name of the cache engine to be used for the clusters in this replication group.
+               Valid values are `redis` or `valkey`.
+               Default is `redis`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used for the cache clusters in this replication group.
                If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
                If the version is 6, the major and minor version can be set, e.g., `6.2`,
@@ -2352,6 +2376,8 @@ class ReplicationGroup(pulumi.CustomResource):
     def at_rest_encryption_enabled(self) -> pulumi.Output[bool]:
         """
         Whether to enable encryption at rest.
+        When `engine` is `redis`, default is `false`.
+        When `engine` is `valkey`, default is `true`.
         """
         return pulumi.get(self, "at_rest_encryption_enabled")
 
@@ -2433,7 +2459,9 @@ class ReplicationGroup(pulumi.CustomResource):
     @pulumi.getter
     def engine(self) -> pulumi.Output[Optional[str]]:
         """
-        Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
+        Name of the cache engine to be used for the clusters in this replication group.
+        Valid values are `redis` or `valkey`.
+        Default is `redis`.
         """
         return pulumi.get(self, "engine")
 

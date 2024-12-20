@@ -13,6 +13,143 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type GroupAvailabilityZoneDistribution struct {
+	// The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
+	CapacityDistributionStrategy *string `pulumi:"capacityDistributionStrategy"`
+}
+
+// GroupAvailabilityZoneDistributionInput is an input type that accepts GroupAvailabilityZoneDistributionArgs and GroupAvailabilityZoneDistributionOutput values.
+// You can construct a concrete instance of `GroupAvailabilityZoneDistributionInput` via:
+//
+//	GroupAvailabilityZoneDistributionArgs{...}
+type GroupAvailabilityZoneDistributionInput interface {
+	pulumi.Input
+
+	ToGroupAvailabilityZoneDistributionOutput() GroupAvailabilityZoneDistributionOutput
+	ToGroupAvailabilityZoneDistributionOutputWithContext(context.Context) GroupAvailabilityZoneDistributionOutput
+}
+
+type GroupAvailabilityZoneDistributionArgs struct {
+	// The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
+	CapacityDistributionStrategy pulumi.StringPtrInput `pulumi:"capacityDistributionStrategy"`
+}
+
+func (GroupAvailabilityZoneDistributionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupAvailabilityZoneDistribution)(nil)).Elem()
+}
+
+func (i GroupAvailabilityZoneDistributionArgs) ToGroupAvailabilityZoneDistributionOutput() GroupAvailabilityZoneDistributionOutput {
+	return i.ToGroupAvailabilityZoneDistributionOutputWithContext(context.Background())
+}
+
+func (i GroupAvailabilityZoneDistributionArgs) ToGroupAvailabilityZoneDistributionOutputWithContext(ctx context.Context) GroupAvailabilityZoneDistributionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupAvailabilityZoneDistributionOutput)
+}
+
+func (i GroupAvailabilityZoneDistributionArgs) ToGroupAvailabilityZoneDistributionPtrOutput() GroupAvailabilityZoneDistributionPtrOutput {
+	return i.ToGroupAvailabilityZoneDistributionPtrOutputWithContext(context.Background())
+}
+
+func (i GroupAvailabilityZoneDistributionArgs) ToGroupAvailabilityZoneDistributionPtrOutputWithContext(ctx context.Context) GroupAvailabilityZoneDistributionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupAvailabilityZoneDistributionOutput).ToGroupAvailabilityZoneDistributionPtrOutputWithContext(ctx)
+}
+
+// GroupAvailabilityZoneDistributionPtrInput is an input type that accepts GroupAvailabilityZoneDistributionArgs, GroupAvailabilityZoneDistributionPtr and GroupAvailabilityZoneDistributionPtrOutput values.
+// You can construct a concrete instance of `GroupAvailabilityZoneDistributionPtrInput` via:
+//
+//	        GroupAvailabilityZoneDistributionArgs{...}
+//
+//	or:
+//
+//	        nil
+type GroupAvailabilityZoneDistributionPtrInput interface {
+	pulumi.Input
+
+	ToGroupAvailabilityZoneDistributionPtrOutput() GroupAvailabilityZoneDistributionPtrOutput
+	ToGroupAvailabilityZoneDistributionPtrOutputWithContext(context.Context) GroupAvailabilityZoneDistributionPtrOutput
+}
+
+type groupAvailabilityZoneDistributionPtrType GroupAvailabilityZoneDistributionArgs
+
+func GroupAvailabilityZoneDistributionPtr(v *GroupAvailabilityZoneDistributionArgs) GroupAvailabilityZoneDistributionPtrInput {
+	return (*groupAvailabilityZoneDistributionPtrType)(v)
+}
+
+func (*groupAvailabilityZoneDistributionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupAvailabilityZoneDistribution)(nil)).Elem()
+}
+
+func (i *groupAvailabilityZoneDistributionPtrType) ToGroupAvailabilityZoneDistributionPtrOutput() GroupAvailabilityZoneDistributionPtrOutput {
+	return i.ToGroupAvailabilityZoneDistributionPtrOutputWithContext(context.Background())
+}
+
+func (i *groupAvailabilityZoneDistributionPtrType) ToGroupAvailabilityZoneDistributionPtrOutputWithContext(ctx context.Context) GroupAvailabilityZoneDistributionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupAvailabilityZoneDistributionPtrOutput)
+}
+
+type GroupAvailabilityZoneDistributionOutput struct{ *pulumi.OutputState }
+
+func (GroupAvailabilityZoneDistributionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupAvailabilityZoneDistribution)(nil)).Elem()
+}
+
+func (o GroupAvailabilityZoneDistributionOutput) ToGroupAvailabilityZoneDistributionOutput() GroupAvailabilityZoneDistributionOutput {
+	return o
+}
+
+func (o GroupAvailabilityZoneDistributionOutput) ToGroupAvailabilityZoneDistributionOutputWithContext(ctx context.Context) GroupAvailabilityZoneDistributionOutput {
+	return o
+}
+
+func (o GroupAvailabilityZoneDistributionOutput) ToGroupAvailabilityZoneDistributionPtrOutput() GroupAvailabilityZoneDistributionPtrOutput {
+	return o.ToGroupAvailabilityZoneDistributionPtrOutputWithContext(context.Background())
+}
+
+func (o GroupAvailabilityZoneDistributionOutput) ToGroupAvailabilityZoneDistributionPtrOutputWithContext(ctx context.Context) GroupAvailabilityZoneDistributionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupAvailabilityZoneDistribution) *GroupAvailabilityZoneDistribution {
+		return &v
+	}).(GroupAvailabilityZoneDistributionPtrOutput)
+}
+
+// The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
+func (o GroupAvailabilityZoneDistributionOutput) CapacityDistributionStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupAvailabilityZoneDistribution) *string { return v.CapacityDistributionStrategy }).(pulumi.StringPtrOutput)
+}
+
+type GroupAvailabilityZoneDistributionPtrOutput struct{ *pulumi.OutputState }
+
+func (GroupAvailabilityZoneDistributionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupAvailabilityZoneDistribution)(nil)).Elem()
+}
+
+func (o GroupAvailabilityZoneDistributionPtrOutput) ToGroupAvailabilityZoneDistributionPtrOutput() GroupAvailabilityZoneDistributionPtrOutput {
+	return o
+}
+
+func (o GroupAvailabilityZoneDistributionPtrOutput) ToGroupAvailabilityZoneDistributionPtrOutputWithContext(ctx context.Context) GroupAvailabilityZoneDistributionPtrOutput {
+	return o
+}
+
+func (o GroupAvailabilityZoneDistributionPtrOutput) Elem() GroupAvailabilityZoneDistributionOutput {
+	return o.ApplyT(func(v *GroupAvailabilityZoneDistribution) GroupAvailabilityZoneDistribution {
+		if v != nil {
+			return *v
+		}
+		var ret GroupAvailabilityZoneDistribution
+		return ret
+	}).(GroupAvailabilityZoneDistributionOutput)
+}
+
+// The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
+func (o GroupAvailabilityZoneDistributionPtrOutput) CapacityDistributionStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupAvailabilityZoneDistribution) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityDistributionStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
 type GroupInitialLifecycleHook struct {
 	DefaultResult       *string `pulumi:"defaultResult"`
 	HeartbeatTimeout    *int    `pulumi:"heartbeatTimeout"`
@@ -12638,6 +12775,8 @@ func (o GetGroupWarmPoolInstanceReusePolicyArrayOutput) Index(i pulumi.IntInput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupAvailabilityZoneDistributionInput)(nil)).Elem(), GroupAvailabilityZoneDistributionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupAvailabilityZoneDistributionPtrInput)(nil)).Elem(), GroupAvailabilityZoneDistributionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInitialLifecycleHookInput)(nil)).Elem(), GroupInitialLifecycleHookArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInitialLifecycleHookArrayInput)(nil)).Elem(), GroupInitialLifecycleHookArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInstanceMaintenancePolicyInput)(nil)).Elem(), GroupInstanceMaintenancePolicyArgs{})
@@ -12798,6 +12937,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupWarmPoolArrayInput)(nil)).Elem(), GetGroupWarmPoolArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupWarmPoolInstanceReusePolicyInput)(nil)).Elem(), GetGroupWarmPoolInstanceReusePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupWarmPoolInstanceReusePolicyArrayInput)(nil)).Elem(), GetGroupWarmPoolInstanceReusePolicyArray{})
+	pulumi.RegisterOutputType(GroupAvailabilityZoneDistributionOutput{})
+	pulumi.RegisterOutputType(GroupAvailabilityZoneDistributionPtrOutput{})
 	pulumi.RegisterOutputType(GroupInitialLifecycleHookOutput{})
 	pulumi.RegisterOutputType(GroupInitialLifecycleHookArrayOutput{})
 	pulumi.RegisterOutputType(GroupInstanceMaintenancePolicyOutput{})

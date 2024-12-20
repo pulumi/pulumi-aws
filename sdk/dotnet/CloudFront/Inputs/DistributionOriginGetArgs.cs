@@ -75,6 +75,12 @@ namespace Pulumi.Aws.CloudFront.Inputs
         [Input("s3OriginConfig")]
         public Input<Inputs.DistributionOriginS3OriginConfigGetArgs>? S3OriginConfig { get; set; }
 
+        /// <summary>
+        /// The VPC origin configuration.
+        /// </summary>
+        [Input("vpcOriginConfig")]
+        public Input<Inputs.DistributionOriginVpcOriginConfigGetArgs>? VpcOriginConfig { get; set; }
+
         public DistributionOriginGetArgs()
         {
         }

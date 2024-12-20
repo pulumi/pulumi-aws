@@ -1094,6 +1094,143 @@ func (o ClusterServerlessv2ScalingConfigurationPtrOutput) SecondsUntilAutoPause(
 	}).(pulumi.IntPtrOutput)
 }
 
+type ClusterSnapshotCopyTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+}
+
+// ClusterSnapshotCopyTimeoutsInput is an input type that accepts ClusterSnapshotCopyTimeoutsArgs and ClusterSnapshotCopyTimeoutsOutput values.
+// You can construct a concrete instance of `ClusterSnapshotCopyTimeoutsInput` via:
+//
+//	ClusterSnapshotCopyTimeoutsArgs{...}
+type ClusterSnapshotCopyTimeoutsInput interface {
+	pulumi.Input
+
+	ToClusterSnapshotCopyTimeoutsOutput() ClusterSnapshotCopyTimeoutsOutput
+	ToClusterSnapshotCopyTimeoutsOutputWithContext(context.Context) ClusterSnapshotCopyTimeoutsOutput
+}
+
+type ClusterSnapshotCopyTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+}
+
+func (ClusterSnapshotCopyTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSnapshotCopyTimeouts)(nil)).Elem()
+}
+
+func (i ClusterSnapshotCopyTimeoutsArgs) ToClusterSnapshotCopyTimeoutsOutput() ClusterSnapshotCopyTimeoutsOutput {
+	return i.ToClusterSnapshotCopyTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ClusterSnapshotCopyTimeoutsArgs) ToClusterSnapshotCopyTimeoutsOutputWithContext(ctx context.Context) ClusterSnapshotCopyTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSnapshotCopyTimeoutsOutput)
+}
+
+func (i ClusterSnapshotCopyTimeoutsArgs) ToClusterSnapshotCopyTimeoutsPtrOutput() ClusterSnapshotCopyTimeoutsPtrOutput {
+	return i.ToClusterSnapshotCopyTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterSnapshotCopyTimeoutsArgs) ToClusterSnapshotCopyTimeoutsPtrOutputWithContext(ctx context.Context) ClusterSnapshotCopyTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSnapshotCopyTimeoutsOutput).ToClusterSnapshotCopyTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ClusterSnapshotCopyTimeoutsPtrInput is an input type that accepts ClusterSnapshotCopyTimeoutsArgs, ClusterSnapshotCopyTimeoutsPtr and ClusterSnapshotCopyTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ClusterSnapshotCopyTimeoutsPtrInput` via:
+//
+//	        ClusterSnapshotCopyTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterSnapshotCopyTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToClusterSnapshotCopyTimeoutsPtrOutput() ClusterSnapshotCopyTimeoutsPtrOutput
+	ToClusterSnapshotCopyTimeoutsPtrOutputWithContext(context.Context) ClusterSnapshotCopyTimeoutsPtrOutput
+}
+
+type clusterSnapshotCopyTimeoutsPtrType ClusterSnapshotCopyTimeoutsArgs
+
+func ClusterSnapshotCopyTimeoutsPtr(v *ClusterSnapshotCopyTimeoutsArgs) ClusterSnapshotCopyTimeoutsPtrInput {
+	return (*clusterSnapshotCopyTimeoutsPtrType)(v)
+}
+
+func (*clusterSnapshotCopyTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSnapshotCopyTimeouts)(nil)).Elem()
+}
+
+func (i *clusterSnapshotCopyTimeoutsPtrType) ToClusterSnapshotCopyTimeoutsPtrOutput() ClusterSnapshotCopyTimeoutsPtrOutput {
+	return i.ToClusterSnapshotCopyTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterSnapshotCopyTimeoutsPtrType) ToClusterSnapshotCopyTimeoutsPtrOutputWithContext(ctx context.Context) ClusterSnapshotCopyTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSnapshotCopyTimeoutsPtrOutput)
+}
+
+type ClusterSnapshotCopyTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ClusterSnapshotCopyTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSnapshotCopyTimeouts)(nil)).Elem()
+}
+
+func (o ClusterSnapshotCopyTimeoutsOutput) ToClusterSnapshotCopyTimeoutsOutput() ClusterSnapshotCopyTimeoutsOutput {
+	return o
+}
+
+func (o ClusterSnapshotCopyTimeoutsOutput) ToClusterSnapshotCopyTimeoutsOutputWithContext(ctx context.Context) ClusterSnapshotCopyTimeoutsOutput {
+	return o
+}
+
+func (o ClusterSnapshotCopyTimeoutsOutput) ToClusterSnapshotCopyTimeoutsPtrOutput() ClusterSnapshotCopyTimeoutsPtrOutput {
+	return o.ToClusterSnapshotCopyTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSnapshotCopyTimeoutsOutput) ToClusterSnapshotCopyTimeoutsPtrOutputWithContext(ctx context.Context) ClusterSnapshotCopyTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSnapshotCopyTimeouts) *ClusterSnapshotCopyTimeouts {
+		return &v
+	}).(ClusterSnapshotCopyTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ClusterSnapshotCopyTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterSnapshotCopyTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+type ClusterSnapshotCopyTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterSnapshotCopyTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSnapshotCopyTimeouts)(nil)).Elem()
+}
+
+func (o ClusterSnapshotCopyTimeoutsPtrOutput) ToClusterSnapshotCopyTimeoutsPtrOutput() ClusterSnapshotCopyTimeoutsPtrOutput {
+	return o
+}
+
+func (o ClusterSnapshotCopyTimeoutsPtrOutput) ToClusterSnapshotCopyTimeoutsPtrOutputWithContext(ctx context.Context) ClusterSnapshotCopyTimeoutsPtrOutput {
+	return o
+}
+
+func (o ClusterSnapshotCopyTimeoutsPtrOutput) Elem() ClusterSnapshotCopyTimeoutsOutput {
+	return o.ApplyT(func(v *ClusterSnapshotCopyTimeouts) ClusterSnapshotCopyTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterSnapshotCopyTimeouts
+		return ret
+	}).(ClusterSnapshotCopyTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ClusterSnapshotCopyTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSnapshotCopyTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
 type ExportTaskTimeouts struct {
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
@@ -4022,6 +4159,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScalingConfigurationPtrInput)(nil)).Elem(), ClusterScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServerlessv2ScalingConfigurationInput)(nil)).Elem(), ClusterServerlessv2ScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServerlessv2ScalingConfigurationPtrInput)(nil)).Elem(), ClusterServerlessv2ScalingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSnapshotCopyTimeoutsInput)(nil)).Elem(), ClusterSnapshotCopyTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSnapshotCopyTimeoutsPtrInput)(nil)).Elem(), ClusterSnapshotCopyTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExportTaskTimeoutsInput)(nil)).Elem(), ExportTaskTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExportTaskTimeoutsPtrInput)(nil)).Elem(), ExportTaskTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterGlobalClusterMemberInput)(nil)).Elem(), GlobalClusterGlobalClusterMemberArgs{})
@@ -4076,6 +4215,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterScalingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ClusterServerlessv2ScalingConfigurationOutput{})
 	pulumi.RegisterOutputType(ClusterServerlessv2ScalingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ClusterSnapshotCopyTimeoutsOutput{})
+	pulumi.RegisterOutputType(ClusterSnapshotCopyTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ExportTaskTimeoutsOutput{})
 	pulumi.RegisterOutputType(ExportTaskTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(GlobalClusterGlobalClusterMemberOutput{})

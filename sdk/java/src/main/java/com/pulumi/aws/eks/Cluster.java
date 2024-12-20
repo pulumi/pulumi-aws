@@ -115,7 +115,7 @@ import javax.annotation.Nullable;
  * 
  * ### EKS Cluster with EKS Auto Mode
  * 
- * &gt; **NOTE:** When using EKS Auto Mode `compute_config.enabled`, `kubernetes_network_config.elastic_load_balancing.enabled`, and `storage_config.block_storage.enabled` must *ALL be set to `true`. Likewise for disabling EKS Auto Mode, all three arguments must be set to `false`.
+ * &gt; **NOTE:** When using EKS Auto Mode `compute_config.enabled`, `kubernetes_network_config.elastic_load_balancing.enabled`, and `storage_config.block_storage.enabled` must *ALL be set to `true`. Likewise for disabling EKS Auto Mode, all three arguments must be set to `false`. Enabling EKS Auto Mode also requires that `bootstrap_self_managed_addons` is set to `false`.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -218,6 +218,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .roleArn(cluster.arn())
  *             .version("1.31")
+ *             .bootstrapSelfManagedAddons(false)
  *             .computeConfig(ClusterComputeConfigArgs.builder()
  *                 .enabled(true)
  *                 .nodePools("general-purpose")

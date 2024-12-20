@@ -1854,6 +1854,9 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(elasticacheMod, "ReplicationGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"replication_group_id": tfbridge.AutoNameTransform("replicationGroupId", 40, strings.ToLower),
+					"at_rest_encryption_enabled": {
+						Type: "boolean",
+					},
 					"auto_minor_version_upgrade": {
 						Type: "boolean",
 					},
@@ -6012,5 +6015,11 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		ctx context.Context, state resource.PropertyMap,
 	) (resource.ID, error) {
 		return attr(state, "arn"), nil
+	}
+
+	prov.Resources["aws_memorydb_multi_region_cluster"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attr(state, "multiRegionClusterName"), nil
 	}
 }

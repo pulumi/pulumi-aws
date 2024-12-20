@@ -30,6 +30,7 @@ class LustreFileSystemArgs:
                  data_compression_type: Optional[pulumi.Input[str]] = None,
                  deployment_type: Optional[pulumi.Input[str]] = None,
                  drive_cache_type: Optional[pulumi.Input[str]] = None,
+                 efa_enabled: Optional[pulumi.Input[bool]] = None,
                  export_path: Optional[pulumi.Input[str]] = None,
                  file_system_type_version: Optional[pulumi.Input[str]] = None,
                  final_backup_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -59,6 +60,7 @@ class LustreFileSystemArgs:
         :param pulumi.Input[str] data_compression_type: Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
         :param pulumi.Input[str] deployment_type: The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
         :param pulumi.Input[str] drive_cache_type: The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
+        :param pulumi.Input[bool] efa_enabled: Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `per_unit_storage_throughput`. This is only supported when deployment_type is set to `PERSISTENT_2`, `metadata_configuration` is used, and an EFA-enabled security group is attached.
         :param pulumi.Input[str] export_path: S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
         :param pulumi.Input[str] file_system_type_version: Sets the Lustre version for the file system that you're creating. Valid values are 2.10 for `SCRATCH_1`, `SCRATCH_2` and `PERSISTENT_1` deployment types. Valid values for 2.12 include all deployment types.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] final_backup_tags: A map of tags to apply to the file system's final backup.
@@ -97,6 +99,8 @@ class LustreFileSystemArgs:
             pulumi.set(__self__, "deployment_type", deployment_type)
         if drive_cache_type is not None:
             pulumi.set(__self__, "drive_cache_type", drive_cache_type)
+        if efa_enabled is not None:
+            pulumi.set(__self__, "efa_enabled", efa_enabled)
         if export_path is not None:
             pulumi.set(__self__, "export_path", export_path)
         if file_system_type_version is not None:
@@ -239,6 +243,18 @@ class LustreFileSystemArgs:
     @drive_cache_type.setter
     def drive_cache_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "drive_cache_type", value)
+
+    @property
+    @pulumi.getter(name="efaEnabled")
+    def efa_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `per_unit_storage_throughput`. This is only supported when deployment_type is set to `PERSISTENT_2`, `metadata_configuration` is used, and an EFA-enabled security group is attached.
+        """
+        return pulumi.get(self, "efa_enabled")
+
+    @efa_enabled.setter
+    def efa_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "efa_enabled", value)
 
     @property
     @pulumi.getter(name="exportPath")
@@ -450,6 +466,7 @@ class _LustreFileSystemState:
                  deployment_type: Optional[pulumi.Input[str]] = None,
                  dns_name: Optional[pulumi.Input[str]] = None,
                  drive_cache_type: Optional[pulumi.Input[str]] = None,
+                 efa_enabled: Optional[pulumi.Input[bool]] = None,
                  export_path: Optional[pulumi.Input[str]] = None,
                  file_system_type_version: Optional[pulumi.Input[str]] = None,
                  final_backup_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -484,6 +501,7 @@ class _LustreFileSystemState:
         :param pulumi.Input[str] deployment_type: The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
         :param pulumi.Input[str] dns_name: DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
         :param pulumi.Input[str] drive_cache_type: The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
+        :param pulumi.Input[bool] efa_enabled: Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `per_unit_storage_throughput`. This is only supported when deployment_type is set to `PERSISTENT_2`, `metadata_configuration` is used, and an EFA-enabled security group is attached.
         :param pulumi.Input[str] export_path: S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
         :param pulumi.Input[str] file_system_type_version: Sets the Lustre version for the file system that you're creating. Valid values are 2.10 for `SCRATCH_1`, `SCRATCH_2` and `PERSISTENT_1` deployment types. Valid values for 2.12 include all deployment types.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] final_backup_tags: A map of tags to apply to the file system's final backup.
@@ -533,6 +551,8 @@ class _LustreFileSystemState:
             pulumi.set(__self__, "dns_name", dns_name)
         if drive_cache_type is not None:
             pulumi.set(__self__, "drive_cache_type", drive_cache_type)
+        if efa_enabled is not None:
+            pulumi.set(__self__, "efa_enabled", efa_enabled)
         if export_path is not None:
             pulumi.set(__self__, "export_path", export_path)
         if file_system_type_version is not None:
@@ -700,6 +720,18 @@ class _LustreFileSystemState:
     @drive_cache_type.setter
     def drive_cache_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "drive_cache_type", value)
+
+    @property
+    @pulumi.getter(name="efaEnabled")
+    def efa_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `per_unit_storage_throughput`. This is only supported when deployment_type is set to `PERSISTENT_2`, `metadata_configuration` is used, and an EFA-enabled security group is attached.
+        """
+        return pulumi.get(self, "efa_enabled")
+
+    @efa_enabled.setter
+    def efa_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "efa_enabled", value)
 
     @property
     @pulumi.getter(name="exportPath")
@@ -986,6 +1018,7 @@ class LustreFileSystem(pulumi.CustomResource):
                  data_compression_type: Optional[pulumi.Input[str]] = None,
                  deployment_type: Optional[pulumi.Input[str]] = None,
                  drive_cache_type: Optional[pulumi.Input[str]] = None,
+                 efa_enabled: Optional[pulumi.Input[bool]] = None,
                  export_path: Optional[pulumi.Input[str]] = None,
                  file_system_type_version: Optional[pulumi.Input[str]] = None,
                  final_backup_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1040,6 +1073,7 @@ class LustreFileSystem(pulumi.CustomResource):
         :param pulumi.Input[str] data_compression_type: Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
         :param pulumi.Input[str] deployment_type: The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
         :param pulumi.Input[str] drive_cache_type: The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
+        :param pulumi.Input[bool] efa_enabled: Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `per_unit_storage_throughput`. This is only supported when deployment_type is set to `PERSISTENT_2`, `metadata_configuration` is used, and an EFA-enabled security group is attached.
         :param pulumi.Input[str] export_path: S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
         :param pulumi.Input[str] file_system_type_version: Sets the Lustre version for the file system that you're creating. Valid values are 2.10 for `SCRATCH_1`, `SCRATCH_2` and `PERSISTENT_1` deployment types. Valid values for 2.12 include all deployment types.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] final_backup_tags: A map of tags to apply to the file system's final backup.
@@ -1119,6 +1153,7 @@ class LustreFileSystem(pulumi.CustomResource):
                  data_compression_type: Optional[pulumi.Input[str]] = None,
                  deployment_type: Optional[pulumi.Input[str]] = None,
                  drive_cache_type: Optional[pulumi.Input[str]] = None,
+                 efa_enabled: Optional[pulumi.Input[bool]] = None,
                  export_path: Optional[pulumi.Input[str]] = None,
                  file_system_type_version: Optional[pulumi.Input[str]] = None,
                  final_backup_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1153,6 +1188,7 @@ class LustreFileSystem(pulumi.CustomResource):
             __props__.__dict__["data_compression_type"] = data_compression_type
             __props__.__dict__["deployment_type"] = deployment_type
             __props__.__dict__["drive_cache_type"] = drive_cache_type
+            __props__.__dict__["efa_enabled"] = efa_enabled
             __props__.__dict__["export_path"] = export_path
             __props__.__dict__["file_system_type_version"] = file_system_type_version
             __props__.__dict__["final_backup_tags"] = final_backup_tags
@@ -1199,6 +1235,7 @@ class LustreFileSystem(pulumi.CustomResource):
             deployment_type: Optional[pulumi.Input[str]] = None,
             dns_name: Optional[pulumi.Input[str]] = None,
             drive_cache_type: Optional[pulumi.Input[str]] = None,
+            efa_enabled: Optional[pulumi.Input[bool]] = None,
             export_path: Optional[pulumi.Input[str]] = None,
             file_system_type_version: Optional[pulumi.Input[str]] = None,
             final_backup_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1238,6 +1275,7 @@ class LustreFileSystem(pulumi.CustomResource):
         :param pulumi.Input[str] deployment_type: The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
         :param pulumi.Input[str] dns_name: DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
         :param pulumi.Input[str] drive_cache_type: The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
+        :param pulumi.Input[bool] efa_enabled: Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `per_unit_storage_throughput`. This is only supported when deployment_type is set to `PERSISTENT_2`, `metadata_configuration` is used, and an EFA-enabled security group is attached.
         :param pulumi.Input[str] export_path: S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
         :param pulumi.Input[str] file_system_type_version: Sets the Lustre version for the file system that you're creating. Valid values are 2.10 for `SCRATCH_1`, `SCRATCH_2` and `PERSISTENT_1` deployment types. Valid values for 2.12 include all deployment types.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] final_backup_tags: A map of tags to apply to the file system's final backup.
@@ -1281,6 +1319,7 @@ class LustreFileSystem(pulumi.CustomResource):
         __props__.__dict__["deployment_type"] = deployment_type
         __props__.__dict__["dns_name"] = dns_name
         __props__.__dict__["drive_cache_type"] = drive_cache_type
+        __props__.__dict__["efa_enabled"] = efa_enabled
         __props__.__dict__["export_path"] = export_path
         __props__.__dict__["file_system_type_version"] = file_system_type_version
         __props__.__dict__["final_backup_tags"] = final_backup_tags
@@ -1384,6 +1423,14 @@ class LustreFileSystem(pulumi.CustomResource):
         The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
         """
         return pulumi.get(self, "drive_cache_type")
+
+    @property
+    @pulumi.getter(name="efaEnabled")
+    def efa_enabled(self) -> pulumi.Output[bool]:
+        """
+        Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `per_unit_storage_throughput`. This is only supported when deployment_type is set to `PERSISTENT_2`, `metadata_configuration` is used, and an EFA-enabled security group is attached.
+        """
+        return pulumi.get(self, "efa_enabled")
 
     @property
     @pulumi.getter(name="exportPath")

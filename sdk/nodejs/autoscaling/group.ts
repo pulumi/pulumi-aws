@@ -491,6 +491,10 @@ export class Group extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+     */
+    public readonly availabilityZoneDistribution!: pulumi.Output<outputs.autoscaling.GroupAvailabilityZoneDistribution>;
+    /**
      * A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpcZoneIdentifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpcZoneIdentifier`.
      */
     public readonly availabilityZones!: pulumi.Output<string[]>;
@@ -703,6 +707,7 @@ export class Group extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as GroupState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["availabilityZoneDistribution"] = state ? state.availabilityZoneDistribution : undefined;
             resourceInputs["availabilityZones"] = state ? state.availabilityZones : undefined;
             resourceInputs["capacityRebalance"] = state ? state.capacityRebalance : undefined;
             resourceInputs["context"] = state ? state.context : undefined;
@@ -752,6 +757,7 @@ export class Group extends pulumi.CustomResource {
             if ((!args || args.minSize === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'minSize'");
             }
+            resourceInputs["availabilityZoneDistribution"] = args ? args.availabilityZoneDistribution : undefined;
             resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
             resourceInputs["capacityRebalance"] = args ? args.capacityRebalance : undefined;
             resourceInputs["context"] = args ? args.context : undefined;
@@ -808,6 +814,10 @@ export interface GroupState {
      * ARN for this Auto Scaling Group
      */
     arn?: pulumi.Input<string>;
+    /**
+     * The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+     */
+    availabilityZoneDistribution?: pulumi.Input<inputs.autoscaling.GroupAvailabilityZoneDistribution>;
     /**
      * A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpcZoneIdentifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpcZoneIdentifier`.
      */
@@ -1012,6 +1022,10 @@ export interface GroupState {
  * The set of arguments for constructing a Group resource.
  */
 export interface GroupArgs {
+    /**
+     * The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+     */
+    availabilityZoneDistribution?: pulumi.Input<inputs.autoscaling.GroupAvailabilityZoneDistribution>;
     /**
      * A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpcZoneIdentifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpcZoneIdentifier`.
      */

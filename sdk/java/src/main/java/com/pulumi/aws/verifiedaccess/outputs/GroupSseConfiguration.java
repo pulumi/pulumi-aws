@@ -12,6 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GroupSseConfiguration {
+    /**
+     * @return Boolean flag to indicate that the CMK should be used.
+     * 
+     */
     private @Nullable Boolean customerManagedKeyEnabled;
     /**
      * @return ARN of the KMS key to use.
@@ -20,6 +24,10 @@ public final class GroupSseConfiguration {
     private @Nullable String kmsKeyArn;
 
     private GroupSseConfiguration() {}
+    /**
+     * @return Boolean flag to indicate that the CMK should be used.
+     * 
+     */
     public Optional<Boolean> customerManagedKeyEnabled() {
         return Optional.ofNullable(this.customerManagedKeyEnabled);
     }

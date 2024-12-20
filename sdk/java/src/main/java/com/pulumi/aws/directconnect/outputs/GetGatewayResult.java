@@ -16,6 +16,11 @@ public final class GetGatewayResult {
      */
     private String amazonSideAsn;
     /**
+     * @return ARN of the gateway.
+     * 
+     */
+    private String arn;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -34,6 +39,13 @@ public final class GetGatewayResult {
      */
     public String amazonSideAsn() {
         return this.amazonSideAsn;
+    }
+    /**
+     * @return ARN of the gateway.
+     * 
+     */
+    public String arn() {
+        return this.arn;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -63,6 +75,7 @@ public final class GetGatewayResult {
     @CustomType.Builder
     public static final class Builder {
         private String amazonSideAsn;
+        private String arn;
         private String id;
         private String name;
         private String ownerAccountId;
@@ -70,6 +83,7 @@ public final class GetGatewayResult {
         public Builder(GetGatewayResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.amazonSideAsn = defaults.amazonSideAsn;
+    	      this.arn = defaults.arn;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.ownerAccountId = defaults.ownerAccountId;
@@ -81,6 +95,14 @@ public final class GetGatewayResult {
               throw new MissingRequiredPropertyException("GetGatewayResult", "amazonSideAsn");
             }
             this.amazonSideAsn = amazonSideAsn;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder arn(String arn) {
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetGatewayResult", "arn");
+            }
+            this.arn = arn;
             return this;
         }
         @CustomType.Setter
@@ -110,6 +132,7 @@ public final class GetGatewayResult {
         public GetGatewayResult build() {
             final var _resultValue = new GetGatewayResult();
             _resultValue.amazonSideAsn = amazonSideAsn;
+            _resultValue.arn = arn;
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.ownerAccountId = ownerAccountId;

@@ -471,6 +471,20 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
         return this.serviceName;
     }
     /**
+     * The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
+     * 
+     */
+    @Export(name="serviceRegion", refs={String.class}, tree="[0]")
+    private Output<String> serviceRegion;
+
+    /**
+     * @return The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
+     * 
+     */
+    public Output<String> serviceRegion() {
+        return this.serviceRegion;
+    }
+    /**
      * The state of the VPC endpoint.
      * 
      */

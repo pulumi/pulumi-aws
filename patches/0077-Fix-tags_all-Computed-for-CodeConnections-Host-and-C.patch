@@ -18,7 +18,7 @@ index 1beba6fd2c..0b8e5597e5 100644
  		Blocks: map[string]schema.Block{
  			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/service/codeconnections/host.go b/internal/service/codeconnections/host.go
-index bcaee2c2d9..88bdbf102c 100644
+index 2f086c0465..d4adfd7f28 100644
 --- a/internal/service/codeconnections/host.go
 +++ b/internal/service/codeconnections/host.go
 @@ -87,7 +87,7 @@ func (r *hostResource) Schema(ctx context.Context, req resource.SchemaRequest, r

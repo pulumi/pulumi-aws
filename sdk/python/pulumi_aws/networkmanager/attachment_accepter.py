@@ -63,6 +63,7 @@ class _AttachmentAccepterState:
                  core_network_arn: Optional[pulumi.Input[str]] = None,
                  core_network_id: Optional[pulumi.Input[str]] = None,
                  edge_location: Optional[pulumi.Input[str]] = None,
+                 edge_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  owner_account_id: Optional[pulumi.Input[str]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  segment_name: Optional[pulumi.Input[str]] = None,
@@ -74,7 +75,8 @@ class _AttachmentAccepterState:
         :param pulumi.Input[str] attachment_type: The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
         :param pulumi.Input[str] core_network_arn: The ARN of a core network.
         :param pulumi.Input[str] core_network_id: The id of a core network.
-        :param pulumi.Input[str] edge_location: The Region where the edge is located.
+        :param pulumi.Input[str] edge_location: The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns `edge_locations`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] edge_locations: The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`
         :param pulumi.Input[str] owner_account_id: The ID of the attachment account owner.
         :param pulumi.Input[str] resource_arn: The attachment resource ARN.
         :param pulumi.Input[str] segment_name: The name of the segment attachment.
@@ -92,6 +94,8 @@ class _AttachmentAccepterState:
             pulumi.set(__self__, "core_network_id", core_network_id)
         if edge_location is not None:
             pulumi.set(__self__, "edge_location", edge_location)
+        if edge_locations is not None:
+            pulumi.set(__self__, "edge_locations", edge_locations)
         if owner_account_id is not None:
             pulumi.set(__self__, "owner_account_id", owner_account_id)
         if resource_arn is not None:
@@ -165,13 +169,25 @@ class _AttachmentAccepterState:
     @pulumi.getter(name="edgeLocation")
     def edge_location(self) -> Optional[pulumi.Input[str]]:
         """
-        The Region where the edge is located.
+        The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns `edge_locations`.
         """
         return pulumi.get(self, "edge_location")
 
     @edge_location.setter
     def edge_location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "edge_location", value)
+
+    @property
+    @pulumi.getter(name="edgeLocations")
+    def edge_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`
+        """
+        return pulumi.get(self, "edge_locations")
+
+    @edge_locations.setter
+    def edge_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "edge_locations", value)
 
     @property
     @pulumi.getter(name="ownerAccountId")
@@ -331,6 +347,7 @@ class AttachmentAccepter(pulumi.CustomResource):
             __props__.__dict__["core_network_arn"] = None
             __props__.__dict__["core_network_id"] = None
             __props__.__dict__["edge_location"] = None
+            __props__.__dict__["edge_locations"] = None
             __props__.__dict__["owner_account_id"] = None
             __props__.__dict__["resource_arn"] = None
             __props__.__dict__["segment_name"] = None
@@ -351,6 +368,7 @@ class AttachmentAccepter(pulumi.CustomResource):
             core_network_arn: Optional[pulumi.Input[str]] = None,
             core_network_id: Optional[pulumi.Input[str]] = None,
             edge_location: Optional[pulumi.Input[str]] = None,
+            edge_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             owner_account_id: Optional[pulumi.Input[str]] = None,
             resource_arn: Optional[pulumi.Input[str]] = None,
             segment_name: Optional[pulumi.Input[str]] = None,
@@ -367,7 +385,8 @@ class AttachmentAccepter(pulumi.CustomResource):
         :param pulumi.Input[str] attachment_type: The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
         :param pulumi.Input[str] core_network_arn: The ARN of a core network.
         :param pulumi.Input[str] core_network_id: The id of a core network.
-        :param pulumi.Input[str] edge_location: The Region where the edge is located.
+        :param pulumi.Input[str] edge_location: The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns `edge_locations`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] edge_locations: The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`
         :param pulumi.Input[str] owner_account_id: The ID of the attachment account owner.
         :param pulumi.Input[str] resource_arn: The attachment resource ARN.
         :param pulumi.Input[str] segment_name: The name of the segment attachment.
@@ -383,6 +402,7 @@ class AttachmentAccepter(pulumi.CustomResource):
         __props__.__dict__["core_network_arn"] = core_network_arn
         __props__.__dict__["core_network_id"] = core_network_id
         __props__.__dict__["edge_location"] = edge_location
+        __props__.__dict__["edge_locations"] = edge_locations
         __props__.__dict__["owner_account_id"] = owner_account_id
         __props__.__dict__["resource_arn"] = resource_arn
         __props__.__dict__["segment_name"] = segment_name
@@ -433,9 +453,17 @@ class AttachmentAccepter(pulumi.CustomResource):
     @pulumi.getter(name="edgeLocation")
     def edge_location(self) -> pulumi.Output[str]:
         """
-        The Region where the edge is located.
+        The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns `edge_locations`.
         """
         return pulumi.get(self, "edge_location")
+
+    @property
+    @pulumi.getter(name="edgeLocations")
+    def edge_locations(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`
+        """
+        return pulumi.get(self, "edge_locations")
 
     @property
     @pulumi.getter(name="ownerAccountId")

@@ -1148,6 +1148,10 @@ if not MYPY:
         """
         Use this to override the default service endpoint URL
         """
+        mgn: NotRequired[pulumi.Input[str]]
+        """
+        Use this to override the default service endpoint URL
+        """
         mq: NotRequired[pulumi.Input[str]]
         """
         Use this to override the default service endpoint URL
@@ -1520,6 +1524,10 @@ if not MYPY:
         """
         Use this to override the default service endpoint URL
         """
+        timestreamquery: NotRequired[pulumi.Input[str]]
+        """
+        Use this to override the default service endpoint URL
+        """
         timestreamwrite: NotRequired[pulumi.Input[str]]
         """
         Use this to override the default service endpoint URL
@@ -1769,6 +1777,7 @@ class ProviderEndpointArgs:
                  mediapackagev2: Optional[pulumi.Input[str]] = None,
                  mediastore: Optional[pulumi.Input[str]] = None,
                  memorydb: Optional[pulumi.Input[str]] = None,
+                 mgn: Optional[pulumi.Input[str]] = None,
                  mq: Optional[pulumi.Input[str]] = None,
                  msk: Optional[pulumi.Input[str]] = None,
                  mwaa: Optional[pulumi.Input[str]] = None,
@@ -1862,6 +1871,7 @@ class ProviderEndpointArgs:
                  synthetics: Optional[pulumi.Input[str]] = None,
                  taxsettings: Optional[pulumi.Input[str]] = None,
                  timestreaminfluxdb: Optional[pulumi.Input[str]] = None,
+                 timestreamquery: Optional[pulumi.Input[str]] = None,
                  timestreamwrite: Optional[pulumi.Input[str]] = None,
                  transcribe: Optional[pulumi.Input[str]] = None,
                  transcribeservice: Optional[pulumi.Input[str]] = None,
@@ -2064,6 +2074,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[str] mediapackagev2: Use this to override the default service endpoint URL
         :param pulumi.Input[str] mediastore: Use this to override the default service endpoint URL
         :param pulumi.Input[str] memorydb: Use this to override the default service endpoint URL
+        :param pulumi.Input[str] mgn: Use this to override the default service endpoint URL
         :param pulumi.Input[str] mq: Use this to override the default service endpoint URL
         :param pulumi.Input[str] msk: Use this to override the default service endpoint URL
         :param pulumi.Input[str] mwaa: Use this to override the default service endpoint URL
@@ -2157,6 +2168,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[str] synthetics: Use this to override the default service endpoint URL
         :param pulumi.Input[str] taxsettings: Use this to override the default service endpoint URL
         :param pulumi.Input[str] timestreaminfluxdb: Use this to override the default service endpoint URL
+        :param pulumi.Input[str] timestreamquery: Use this to override the default service endpoint URL
         :param pulumi.Input[str] timestreamwrite: Use this to override the default service endpoint URL
         :param pulumi.Input[str] transcribe: Use this to override the default service endpoint URL
         :param pulumi.Input[str] transcribeservice: Use this to override the default service endpoint URL
@@ -2546,6 +2558,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "mediastore", mediastore)
         if memorydb is not None:
             pulumi.set(__self__, "memorydb", memorydb)
+        if mgn is not None:
+            pulumi.set(__self__, "mgn", mgn)
         if mq is not None:
             pulumi.set(__self__, "mq", mq)
         if msk is not None:
@@ -2732,6 +2746,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "taxsettings", taxsettings)
         if timestreaminfluxdb is not None:
             pulumi.set(__self__, "timestreaminfluxdb", timestreaminfluxdb)
+        if timestreamquery is not None:
+            pulumi.set(__self__, "timestreamquery", timestreamquery)
         if timestreamwrite is not None:
             pulumi.set(__self__, "timestreamwrite", timestreamwrite)
         if transcribe is not None:
@@ -5007,6 +5023,18 @@ class ProviderEndpointArgs:
 
     @property
     @pulumi.getter
+    def mgn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "mgn")
+
+    @mgn.setter
+    def mgn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mgn", value)
+
+    @property
+    @pulumi.getter
     def mq(self) -> Optional[pulumi.Input[str]]:
         """
         Use this to override the default service endpoint URL
@@ -6120,6 +6148,18 @@ class ProviderEndpointArgs:
     @timestreaminfluxdb.setter
     def timestreaminfluxdb(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "timestreaminfluxdb", value)
+
+    @property
+    @pulumi.getter
+    def timestreamquery(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "timestreamquery")
+
+    @timestreamquery.setter
+    def timestreamquery(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timestreamquery", value)
 
     @property
     @pulumi.getter

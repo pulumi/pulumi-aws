@@ -320,6 +320,8 @@ type ReplicationGroup struct {
 	// ARN of the created ElastiCache Replication Group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Whether to enable encryption at rest.
+	// When `engine` is `redis`, default is `false`.
+	// When `engine` is `valkey`, default is `true`.
 	AtRestEncryptionEnabled pulumi.BoolOutput `pulumi:"atRestEncryptionEnabled"`
 	// Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
 	AuthToken pulumi.StringPtrOutput `pulumi:"authToken"`
@@ -341,7 +343,9 @@ type ReplicationGroup struct {
 	DataTieringEnabled pulumi.BoolOutput `pulumi:"dataTieringEnabled"`
 	// User-created description for the replication group. Must not be empty.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
+	// Name of the cache engine to be used for the clusters in this replication group.
+	// Valid values are `redis` or `valkey`.
+	// Default is `redis`.
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// Version number of the cache engine to be used for the cache clusters in this replication group.
 	// If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
@@ -487,6 +491,8 @@ type replicationGroupState struct {
 	// ARN of the created ElastiCache Replication Group.
 	Arn *string `pulumi:"arn"`
 	// Whether to enable encryption at rest.
+	// When `engine` is `redis`, default is `false`.
+	// When `engine` is `valkey`, default is `true`.
 	AtRestEncryptionEnabled *bool `pulumi:"atRestEncryptionEnabled"`
 	// Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
 	AuthToken *string `pulumi:"authToken"`
@@ -508,7 +514,9 @@ type replicationGroupState struct {
 	DataTieringEnabled *bool `pulumi:"dataTieringEnabled"`
 	// User-created description for the replication group. Must not be empty.
 	Description *string `pulumi:"description"`
-	// Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
+	// Name of the cache engine to be used for the clusters in this replication group.
+	// Valid values are `redis` or `valkey`.
+	// Default is `redis`.
 	Engine *string `pulumi:"engine"`
 	// Version number of the cache engine to be used for the cache clusters in this replication group.
 	// If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
@@ -615,6 +623,8 @@ type ReplicationGroupState struct {
 	// ARN of the created ElastiCache Replication Group.
 	Arn pulumi.StringPtrInput
 	// Whether to enable encryption at rest.
+	// When `engine` is `redis`, default is `false`.
+	// When `engine` is `valkey`, default is `true`.
 	AtRestEncryptionEnabled pulumi.BoolPtrInput
 	// Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
 	AuthToken pulumi.StringPtrInput
@@ -636,7 +646,9 @@ type ReplicationGroupState struct {
 	DataTieringEnabled pulumi.BoolPtrInput
 	// User-created description for the replication group. Must not be empty.
 	Description pulumi.StringPtrInput
-	// Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
+	// Name of the cache engine to be used for the clusters in this replication group.
+	// Valid values are `redis` or `valkey`.
+	// Default is `redis`.
 	Engine pulumi.StringPtrInput
 	// Version number of the cache engine to be used for the cache clusters in this replication group.
 	// If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
@@ -745,6 +757,8 @@ type replicationGroupArgs struct {
 	// Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
 	ApplyImmediately *bool `pulumi:"applyImmediately"`
 	// Whether to enable encryption at rest.
+	// When `engine` is `redis`, default is `false`.
+	// When `engine` is `valkey`, default is `true`.
 	AtRestEncryptionEnabled *bool `pulumi:"atRestEncryptionEnabled"`
 	// Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
 	AuthToken *string `pulumi:"authToken"`
@@ -762,7 +776,9 @@ type replicationGroupArgs struct {
 	DataTieringEnabled *bool `pulumi:"dataTieringEnabled"`
 	// User-created description for the replication group. Must not be empty.
 	Description string `pulumi:"description"`
-	// Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
+	// Name of the cache engine to be used for the clusters in this replication group.
+	// Valid values are `redis` or `valkey`.
+	// Default is `redis`.
 	Engine *string `pulumi:"engine"`
 	// Version number of the cache engine to be used for the cache clusters in this replication group.
 	// If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
@@ -856,6 +872,8 @@ type ReplicationGroupArgs struct {
 	// Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
 	ApplyImmediately pulumi.BoolPtrInput
 	// Whether to enable encryption at rest.
+	// When `engine` is `redis`, default is `false`.
+	// When `engine` is `valkey`, default is `true`.
 	AtRestEncryptionEnabled pulumi.BoolPtrInput
 	// Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
 	AuthToken pulumi.StringPtrInput
@@ -873,7 +891,9 @@ type ReplicationGroupArgs struct {
 	DataTieringEnabled pulumi.BoolPtrInput
 	// User-created description for the replication group. Must not be empty.
 	Description pulumi.StringInput
-	// Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
+	// Name of the cache engine to be used for the clusters in this replication group.
+	// Valid values are `redis` or `valkey`.
+	// Default is `redis`.
 	Engine pulumi.StringPtrInput
 	// Version number of the cache engine to be used for the cache clusters in this replication group.
 	// If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
@@ -1060,6 +1080,8 @@ func (o ReplicationGroupOutput) Arn() pulumi.StringOutput {
 }
 
 // Whether to enable encryption at rest.
+// When `engine` is `redis`, default is `false`.
+// When `engine` is `valkey`, default is `true`.
 func (o ReplicationGroupOutput) AtRestEncryptionEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolOutput { return v.AtRestEncryptionEnabled }).(pulumi.BoolOutput)
 }
@@ -1111,7 +1133,9 @@ func (o ReplicationGroupOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
+// Name of the cache engine to be used for the clusters in this replication group.
+// Valid values are `redis` or `valkey`.
+// Default is `redis`.
 func (o ReplicationGroupOutput) Engine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.Engine }).(pulumi.StringPtrOutput)
 }

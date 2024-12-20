@@ -808,7 +808,7 @@ class Cluster(pulumi.CustomResource):
 
         ### EKS Cluster with EKS Auto Mode
 
-        > **NOTE:** When using EKS Auto Mode `compute_config.enabled`, `kubernetes_network_config.elastic_load_balancing.enabled`, and `storage_config.block_storage.enabled` must *ALL be set to `true`. Likewise for disabling EKS Auto Mode, all three arguments must be set to `false`.
+        > **NOTE:** When using EKS Auto Mode `compute_config.enabled`, `kubernetes_network_config.elastic_load_balancing.enabled`, and `storage_config.block_storage.enabled` must *ALL be set to `true`. Likewise for disabling EKS Auto Mode, all three arguments must be set to `false`. Enabling EKS Auto Mode also requires that `bootstrap_self_managed_addons` is set to `false`.
 
         ```python
         import pulumi
@@ -864,6 +864,7 @@ class Cluster(pulumi.CustomResource):
             },
             role_arn=cluster.arn,
             version="1.31",
+            bootstrap_self_managed_addons=False,
             compute_config={
                 "enabled": True,
                 "node_pools": ["general-purpose"],
@@ -1041,7 +1042,7 @@ class Cluster(pulumi.CustomResource):
 
         ### EKS Cluster with EKS Auto Mode
 
-        > **NOTE:** When using EKS Auto Mode `compute_config.enabled`, `kubernetes_network_config.elastic_load_balancing.enabled`, and `storage_config.block_storage.enabled` must *ALL be set to `true`. Likewise for disabling EKS Auto Mode, all three arguments must be set to `false`.
+        > **NOTE:** When using EKS Auto Mode `compute_config.enabled`, `kubernetes_network_config.elastic_load_balancing.enabled`, and `storage_config.block_storage.enabled` must *ALL be set to `true`. Likewise for disabling EKS Auto Mode, all three arguments must be set to `false`. Enabling EKS Auto Mode also requires that `bootstrap_self_managed_addons` is set to `false`.
 
         ```python
         import pulumi
@@ -1097,6 +1098,7 @@ class Cluster(pulumi.CustomResource):
             },
             role_arn=cluster.arn,
             version="1.31",
+            bootstrap_self_managed_addons=False,
             compute_config={
                 "enabled": True,
                 "node_pools": ["general-purpose"],

@@ -398,6 +398,8 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
     }
     /**
      * Whether to enable encryption at rest.
+     * When `engine` is `redis`, default is `false`.
+     * When `engine` is `valkey`, default is `true`.
      * 
      */
     @Export(name="atRestEncryptionEnabled", refs={Boolean.class}, tree="[0]")
@@ -405,6 +407,8 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Whether to enable encryption at rest.
+     * When `engine` is `redis`, default is `false`.
+     * When `engine` is `valkey`, default is `true`.
      * 
      */
     public Output<Boolean> atRestEncryptionEnabled() {
@@ -541,14 +545,18 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
         return this.description;
     }
     /**
-     * Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
+     * Name of the cache engine to be used for the clusters in this replication group.
+     * Valid values are `redis` or `valkey`.
+     * Default is `redis`.
      * 
      */
     @Export(name="engine", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> engine;
 
     /**
-     * @return Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
+     * @return Name of the cache engine to be used for the clusters in this replication group.
+     * Valid values are `redis` or `valkey`.
+     * Default is `redis`.
      * 
      */
     public Output<Optional<String>> engine() {

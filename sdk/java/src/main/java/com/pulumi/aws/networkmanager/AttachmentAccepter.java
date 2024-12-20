@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import javax.annotation.Nullable;
 
 /**
@@ -165,18 +166,32 @@ public class AttachmentAccepter extends com.pulumi.resources.CustomResource {
         return this.coreNetworkId;
     }
     /**
-     * The Region where the edge is located.
+     * The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns `edge_locations`.
      * 
      */
     @Export(name="edgeLocation", refs={String.class}, tree="[0]")
     private Output<String> edgeLocation;
 
     /**
-     * @return The Region where the edge is located.
+     * @return The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns `edge_locations`.
      * 
      */
     public Output<String> edgeLocation() {
         return this.edgeLocation;
+    }
+    /**
+     * The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`
+     * 
+     */
+    @Export(name="edgeLocations", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> edgeLocations;
+
+    /**
+     * @return The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`
+     * 
+     */
+    public Output<List<String>> edgeLocations() {
+        return this.edgeLocations;
     }
     /**
      * The ID of the attachment account owner.

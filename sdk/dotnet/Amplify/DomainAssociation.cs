@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Amplify
         /// The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
         /// </summary>
         [Output("certificateSettings")]
-        public Output<Outputs.DomainAssociationCertificateSettings?> CertificateSettings { get; private set; } = null!;
+        public Output<Outputs.DomainAssociationCertificateSettings> CertificateSettings { get; private set; } = null!;
 
         /// <summary>
         /// DNS records for certificate verification in a space-delimited format (`&lt;record&gt; CNAME &lt;target&gt;`).

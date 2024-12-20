@@ -19,11 +19,13 @@ public final class DomainAssociationCertificateSettings {
     private @Nullable String certificateVerificationDnsRecord;
     /**
      * @return The Amazon resource name (ARN) for the custom certificate.
+     * Required when `type` is `CUSTOM`.
      * 
      */
     private @Nullable String customCertificateArn;
     /**
-     * @return The certificate type. Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
+     * @return The certificate type.
+     * Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
      * 
      */
     private String type;
@@ -38,13 +40,15 @@ public final class DomainAssociationCertificateSettings {
     }
     /**
      * @return The Amazon resource name (ARN) for the custom certificate.
+     * Required when `type` is `CUSTOM`.
      * 
      */
     public Optional<String> customCertificateArn() {
         return Optional.ofNullable(this.customCertificateArn);
     }
     /**
-     * @return The certificate type. Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
+     * @return The certificate type.
+     * Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
      * 
      */
     public String type() {

@@ -241,6 +241,8 @@ export class ReplicationGroup extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Whether to enable encryption at rest.
+     * When `engine` is `redis`, default is `false`.
+     * When `engine` is `valkey`, default is `true`.
      */
     public readonly atRestEncryptionEnabled!: pulumi.Output<boolean>;
     /**
@@ -282,7 +284,9 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
+     * Name of the cache engine to be used for the clusters in this replication group.
+     * Valid values are `redis` or `valkey`.
+     * Default is `redis`.
      */
     public readonly engine!: pulumi.Output<string | undefined>;
     /**
@@ -585,6 +589,8 @@ export interface ReplicationGroupState {
     arn?: pulumi.Input<string>;
     /**
      * Whether to enable encryption at rest.
+     * When `engine` is `redis`, default is `false`.
+     * When `engine` is `valkey`, default is `true`.
      */
     atRestEncryptionEnabled?: pulumi.Input<boolean>;
     /**
@@ -626,7 +632,9 @@ export interface ReplicationGroupState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
+     * Name of the cache engine to be used for the clusters in this replication group.
+     * Valid values are `redis` or `valkey`.
+     * Default is `redis`.
      */
     engine?: pulumi.Input<string>;
     /**
@@ -806,6 +814,8 @@ export interface ReplicationGroupArgs {
     applyImmediately?: pulumi.Input<boolean>;
     /**
      * Whether to enable encryption at rest.
+     * When `engine` is `redis`, default is `false`.
+     * When `engine` is `valkey`, default is `true`.
      */
     atRestEncryptionEnabled?: pulumi.Input<boolean>;
     /**
@@ -839,7 +849,9 @@ export interface ReplicationGroupArgs {
      */
     description: pulumi.Input<string>;
     /**
-     * Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
+     * Name of the cache engine to be used for the clusters in this replication group.
+     * Valid values are `redis` or `valkey`.
+     * Default is `redis`.
      */
     engine?: pulumi.Input<string>;
     /**

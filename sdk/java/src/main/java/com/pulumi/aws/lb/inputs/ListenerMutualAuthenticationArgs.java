@@ -18,6 +18,21 @@ public final class ListenerMutualAuthenticationArgs extends com.pulumi.resources
     public static final ListenerMutualAuthenticationArgs Empty = new ListenerMutualAuthenticationArgs();
 
     /**
+     * Valid values are `off` and `on`.
+     * 
+     */
+    @Import(name="advertiseTrustStoreCaNames")
+    private @Nullable Output<String> advertiseTrustStoreCaNames;
+
+    /**
+     * @return Valid values are `off` and `on`.
+     * 
+     */
+    public Optional<Output<String>> advertiseTrustStoreCaNames() {
+        return Optional.ofNullable(this.advertiseTrustStoreCaNames);
+    }
+
+    /**
      * Whether client certificate expiry is ignored. Default is `false`.
      * 
      */
@@ -65,6 +80,7 @@ public final class ListenerMutualAuthenticationArgs extends com.pulumi.resources
     private ListenerMutualAuthenticationArgs() {}
 
     private ListenerMutualAuthenticationArgs(ListenerMutualAuthenticationArgs $) {
+        this.advertiseTrustStoreCaNames = $.advertiseTrustStoreCaNames;
         this.ignoreClientCertificateExpiry = $.ignoreClientCertificateExpiry;
         this.mode = $.mode;
         this.trustStoreArn = $.trustStoreArn;
@@ -86,6 +102,27 @@ public final class ListenerMutualAuthenticationArgs extends com.pulumi.resources
 
         public Builder(ListenerMutualAuthenticationArgs defaults) {
             $ = new ListenerMutualAuthenticationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param advertiseTrustStoreCaNames Valid values are `off` and `on`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder advertiseTrustStoreCaNames(@Nullable Output<String> advertiseTrustStoreCaNames) {
+            $.advertiseTrustStoreCaNames = advertiseTrustStoreCaNames;
+            return this;
+        }
+
+        /**
+         * @param advertiseTrustStoreCaNames Valid values are `off` and `on`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder advertiseTrustStoreCaNames(String advertiseTrustStoreCaNames) {
+            return advertiseTrustStoreCaNames(Output.of(advertiseTrustStoreCaNames));
         }
 
         /**

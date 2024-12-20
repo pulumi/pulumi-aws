@@ -7,6 +7,8 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.servicecatalog.inputs.GetAppregistryApplicationArgs;
 import com.pulumi.aws.servicecatalog.inputs.GetAppregistryApplicationPlainArgs;
 import com.pulumi.aws.servicecatalog.inputs.GetAppregistryAttributeGroupArgs;
+import com.pulumi.aws.servicecatalog.inputs.GetAppregistryAttributeGroupAssociationsArgs;
+import com.pulumi.aws.servicecatalog.inputs.GetAppregistryAttributeGroupAssociationsPlainArgs;
 import com.pulumi.aws.servicecatalog.inputs.GetAppregistryAttributeGroupPlainArgs;
 import com.pulumi.aws.servicecatalog.inputs.GetConstraintArgs;
 import com.pulumi.aws.servicecatalog.inputs.GetConstraintPlainArgs;
@@ -21,6 +23,7 @@ import com.pulumi.aws.servicecatalog.inputs.GetProductPlainArgs;
 import com.pulumi.aws.servicecatalog.inputs.GetProvisioningArtifactsArgs;
 import com.pulumi.aws.servicecatalog.inputs.GetProvisioningArtifactsPlainArgs;
 import com.pulumi.aws.servicecatalog.outputs.GetAppregistryApplicationResult;
+import com.pulumi.aws.servicecatalog.outputs.GetAppregistryAttributeGroupAssociationsResult;
 import com.pulumi.aws.servicecatalog.outputs.GetAppregistryAttributeGroupResult;
 import com.pulumi.aws.servicecatalog.outputs.GetConstraintResult;
 import com.pulumi.aws.servicecatalog.outputs.GetLaunchPathsResult;
@@ -563,6 +566,314 @@ public final class ServicecatalogFunctions {
      */
     public static CompletableFuture<GetAppregistryAttributeGroupResult> getAppregistryAttributeGroupPlain(GetAppregistryAttributeGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:servicecatalog/getAppregistryAttributeGroup:getAppregistryAttributeGroup", TypeShape.of(GetAppregistryAttributeGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing AWS Service Catalog AppRegistry Attribute Group Associations.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetAppregistryAttributeGroupAssociationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicecatalogFunctions.getAppregistryAttributeGroupAssociations(GetAppregistryAttributeGroupAssociationsArgs.builder()
+     *             .id("12456778723424sdffsdfsdq34,12234t3564dsfsdf34asff4ww3")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAppregistryAttributeGroupAssociationsResult> getAppregistryAttributeGroupAssociations() {
+        return getAppregistryAttributeGroupAssociations(GetAppregistryAttributeGroupAssociationsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing AWS Service Catalog AppRegistry Attribute Group Associations.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetAppregistryAttributeGroupAssociationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicecatalogFunctions.getAppregistryAttributeGroupAssociations(GetAppregistryAttributeGroupAssociationsArgs.builder()
+     *             .id("12456778723424sdffsdfsdq34,12234t3564dsfsdf34asff4ww3")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetAppregistryAttributeGroupAssociationsResult> getAppregistryAttributeGroupAssociationsPlain() {
+        return getAppregistryAttributeGroupAssociationsPlain(GetAppregistryAttributeGroupAssociationsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing AWS Service Catalog AppRegistry Attribute Group Associations.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetAppregistryAttributeGroupAssociationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicecatalogFunctions.getAppregistryAttributeGroupAssociations(GetAppregistryAttributeGroupAssociationsArgs.builder()
+     *             .id("12456778723424sdffsdfsdq34,12234t3564dsfsdf34asff4ww3")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAppregistryAttributeGroupAssociationsResult> getAppregistryAttributeGroupAssociations(GetAppregistryAttributeGroupAssociationsArgs args) {
+        return getAppregistryAttributeGroupAssociations(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing AWS Service Catalog AppRegistry Attribute Group Associations.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetAppregistryAttributeGroupAssociationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicecatalogFunctions.getAppregistryAttributeGroupAssociations(GetAppregistryAttributeGroupAssociationsArgs.builder()
+     *             .id("12456778723424sdffsdfsdq34,12234t3564dsfsdf34asff4ww3")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetAppregistryAttributeGroupAssociationsResult> getAppregistryAttributeGroupAssociationsPlain(GetAppregistryAttributeGroupAssociationsPlainArgs args) {
+        return getAppregistryAttributeGroupAssociationsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing AWS Service Catalog AppRegistry Attribute Group Associations.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetAppregistryAttributeGroupAssociationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicecatalogFunctions.getAppregistryAttributeGroupAssociations(GetAppregistryAttributeGroupAssociationsArgs.builder()
+     *             .id("12456778723424sdffsdfsdq34,12234t3564dsfsdf34asff4ww3")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAppregistryAttributeGroupAssociationsResult> getAppregistryAttributeGroupAssociations(GetAppregistryAttributeGroupAssociationsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:servicecatalog/getAppregistryAttributeGroupAssociations:getAppregistryAttributeGroupAssociations", TypeShape.of(GetAppregistryAttributeGroupAssociationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing AWS Service Catalog AppRegistry Attribute Group Associations.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetAppregistryAttributeGroupAssociationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicecatalogFunctions.getAppregistryAttributeGroupAssociations(GetAppregistryAttributeGroupAssociationsArgs.builder()
+     *             .id("12456778723424sdffsdfsdq34,12234t3564dsfsdf34asff4ww3")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetAppregistryAttributeGroupAssociationsResult> getAppregistryAttributeGroupAssociations(GetAppregistryAttributeGroupAssociationsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:servicecatalog/getAppregistryAttributeGroupAssociations:getAppregistryAttributeGroupAssociations", TypeShape.of(GetAppregistryAttributeGroupAssociationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing AWS Service Catalog AppRegistry Attribute Group Associations.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetAppregistryAttributeGroupAssociationsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ServicecatalogFunctions.getAppregistryAttributeGroupAssociations(GetAppregistryAttributeGroupAssociationsArgs.builder()
+     *             .id("12456778723424sdffsdfsdq34,12234t3564dsfsdf34asff4ww3")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetAppregistryAttributeGroupAssociationsResult> getAppregistryAttributeGroupAssociationsPlain(GetAppregistryAttributeGroupAssociationsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:servicecatalog/getAppregistryAttributeGroupAssociations:getAppregistryAttributeGroupAssociations", TypeShape.of(GetAppregistryAttributeGroupAssociationsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides information on a Service Catalog Constraint.

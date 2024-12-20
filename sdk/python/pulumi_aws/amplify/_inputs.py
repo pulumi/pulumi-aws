@@ -460,7 +460,8 @@ if not MYPY:
     class DomainAssociationCertificateSettingsArgsDict(TypedDict):
         type: pulumi.Input[str]
         """
-        The certificate type. Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
+        The certificate type.
+        Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
         """
         certificate_verification_dns_record: NotRequired[pulumi.Input[str]]
         """
@@ -469,6 +470,7 @@ if not MYPY:
         custom_certificate_arn: NotRequired[pulumi.Input[str]]
         """
         The Amazon resource name (ARN) for the custom certificate.
+        Required when `type` is `CUSTOM`.
         """
 elif False:
     DomainAssociationCertificateSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -480,9 +482,11 @@ class DomainAssociationCertificateSettingsArgs:
                  certificate_verification_dns_record: Optional[pulumi.Input[str]] = None,
                  custom_certificate_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The certificate type. Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
+        :param pulumi.Input[str] type: The certificate type.
+               Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
         :param pulumi.Input[str] certificate_verification_dns_record: DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
         :param pulumi.Input[str] custom_certificate_arn: The Amazon resource name (ARN) for the custom certificate.
+               Required when `type` is `CUSTOM`.
         """
         pulumi.set(__self__, "type", type)
         if certificate_verification_dns_record is not None:
@@ -494,7 +498,8 @@ class DomainAssociationCertificateSettingsArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The certificate type. Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
+        The certificate type.
+        Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
         """
         return pulumi.get(self, "type")
 
@@ -519,6 +524,7 @@ class DomainAssociationCertificateSettingsArgs:
     def custom_certificate_arn(self) -> Optional[pulumi.Input[str]]:
         """
         The Amazon resource name (ARN) for the custom certificate.
+        Required when `type` is `CUSTOM`.
         """
         return pulumi.get(self, "custom_certificate_arn")
 

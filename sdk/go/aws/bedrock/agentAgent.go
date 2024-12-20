@@ -139,6 +139,8 @@ type AgentAgent struct {
 
 	// ARN of the agent.
 	AgentArn pulumi.StringOutput `pulumi:"agentArn"`
+	// Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
+	AgentCollaboration pulumi.StringOutput `pulumi:"agentCollaboration"`
 	// Unique identifier of the agent.
 	AgentId pulumi.StringOutput `pulumi:"agentId"`
 	// Name of the agent.
@@ -217,6 +219,8 @@ func GetAgentAgent(ctx *pulumi.Context,
 type agentAgentState struct {
 	// ARN of the agent.
 	AgentArn *string `pulumi:"agentArn"`
+	// Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
+	AgentCollaboration *string `pulumi:"agentCollaboration"`
 	// Unique identifier of the agent.
 	AgentId *string `pulumi:"agentId"`
 	// Name of the agent.
@@ -257,6 +261,8 @@ type agentAgentState struct {
 type AgentAgentState struct {
 	// ARN of the agent.
 	AgentArn pulumi.StringPtrInput
+	// Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
+	AgentCollaboration pulumi.StringPtrInput
 	// Unique identifier of the agent.
 	AgentId pulumi.StringPtrInput
 	// Name of the agent.
@@ -299,6 +305,8 @@ func (AgentAgentState) ElementType() reflect.Type {
 }
 
 type agentAgentArgs struct {
+	// Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
+	AgentCollaboration *string `pulumi:"agentCollaboration"`
 	// Name of the agent.
 	AgentName string `pulumi:"agentName"`
 	// ARN of the IAM role with permissions to invoke API operations on the agent.
@@ -330,6 +338,8 @@ type agentAgentArgs struct {
 
 // The set of arguments for constructing a AgentAgent resource.
 type AgentAgentArgs struct {
+	// Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
+	AgentCollaboration pulumi.StringPtrInput
 	// Name of the agent.
 	AgentName pulumi.StringInput
 	// ARN of the IAM role with permissions to invoke API operations on the agent.
@@ -449,6 +459,11 @@ func (o AgentAgentOutput) ToAgentAgentOutputWithContext(ctx context.Context) Age
 // ARN of the agent.
 func (o AgentAgentOutput) AgentArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentAgent) pulumi.StringOutput { return v.AgentArn }).(pulumi.StringOutput)
+}
+
+// Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
+func (o AgentAgentOutput) AgentCollaboration() pulumi.StringOutput {
+	return o.ApplyT(func(v *AgentAgent) pulumi.StringOutput { return v.AgentCollaboration }).(pulumi.StringOutput)
 }
 
 // Unique identifier of the agent.

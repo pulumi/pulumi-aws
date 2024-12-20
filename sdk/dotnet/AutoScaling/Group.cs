@@ -651,6 +651,12 @@ namespace Pulumi.Aws.AutoScaling
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+        /// </summary>
+        [Output("availabilityZoneDistribution")]
+        public Output<Outputs.GroupAvailabilityZoneDistribution> AvailabilityZoneDistribution { get; private set; } = null!;
+
+        /// <summary>
         /// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
         /// </summary>
         [Output("availabilityZones")]
@@ -976,6 +982,12 @@ namespace Pulumi.Aws.AutoScaling
 
     public sealed class GroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+        /// </summary>
+        [Input("availabilityZoneDistribution")]
+        public Input<Inputs.GroupAvailabilityZoneDistributionArgs>? AvailabilityZoneDistribution { get; set; }
+
         [Input("availabilityZones")]
         private InputList<string>? _availabilityZones;
 
@@ -1317,6 +1329,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+        /// </summary>
+        [Input("availabilityZoneDistribution")]
+        public Input<Inputs.GroupAvailabilityZoneDistributionGetArgs>? AvailabilityZoneDistribution { get; set; }
 
         [Input("availabilityZones")]
         private InputList<string>? _availabilityZones;

@@ -122,7 +122,7 @@ index 961d1f0438..710fd0b998 100644
  			"hls_ingest": {
  				Type:     schema.TypeList,
 diff --git a/internal/service/memorydb/cluster.go b/internal/service/memorydb/cluster.go
-index ec8b06cf70..2be5b88de3 100644
+index f3a35c84e5..1e3027048a 100644
 --- a/internal/service/memorydb/cluster.go
 +++ b/internal/service/memorydb/cluster.go
 @@ -79,7 +79,7 @@ func resourceCluster() *schema.Resource {
@@ -226,7 +226,7 @@ index d19358fa76..b13859ab8e 100644
  			names.AttrSkipDestroy: {
  				Type:     schema.TypeBool,
 diff --git a/internal/service/rds/parameter_group.go b/internal/service/rds/parameter_group.go
-index 8c49d1133c..17c729d305 100644
+index 0e4ca3f870..c1e331f54f 100644
 --- a/internal/service/rds/parameter_group.go
 +++ b/internal/service/rds/parameter_group.go
 @@ -53,7 +53,7 @@ func resourceParameterGroup() *schema.Resource {

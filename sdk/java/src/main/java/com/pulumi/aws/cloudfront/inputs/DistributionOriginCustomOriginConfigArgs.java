@@ -48,17 +48,9 @@ public final class DistributionOriginCustomOriginConfigArgs extends com.pulumi.r
         return this.httpsPort;
     }
 
-    /**
-     * The Custom KeepAlive timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `5`.
-     * 
-     */
     @Import(name="originKeepaliveTimeout")
     private @Nullable Output<Integer> originKeepaliveTimeout;
 
-    /**
-     * @return The Custom KeepAlive timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `5`.
-     * 
-     */
     public Optional<Output<Integer>> originKeepaliveTimeout() {
         return Optional.ofNullable(this.originKeepaliveTimeout);
     }
@@ -78,17 +70,9 @@ public final class DistributionOriginCustomOriginConfigArgs extends com.pulumi.r
         return this.originProtocolPolicy;
     }
 
-    /**
-     * The Custom Read timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `30`.
-     * 
-     */
     @Import(name="originReadTimeout")
     private @Nullable Output<Integer> originReadTimeout;
 
-    /**
-     * @return The Custom Read timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `30`.
-     * 
-     */
     public Optional<Output<Integer>> originReadTimeout() {
         return Optional.ofNullable(this.originReadTimeout);
     }
@@ -179,23 +163,11 @@ public final class DistributionOriginCustomOriginConfigArgs extends com.pulumi.r
             return httpsPort(Output.of(httpsPort));
         }
 
-        /**
-         * @param originKeepaliveTimeout The Custom KeepAlive timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `5`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originKeepaliveTimeout(@Nullable Output<Integer> originKeepaliveTimeout) {
             $.originKeepaliveTimeout = originKeepaliveTimeout;
             return this;
         }
 
-        /**
-         * @param originKeepaliveTimeout The Custom KeepAlive timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `5`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originKeepaliveTimeout(Integer originKeepaliveTimeout) {
             return originKeepaliveTimeout(Output.of(originKeepaliveTimeout));
         }
@@ -221,23 +193,11 @@ public final class DistributionOriginCustomOriginConfigArgs extends com.pulumi.r
             return originProtocolPolicy(Output.of(originProtocolPolicy));
         }
 
-        /**
-         * @param originReadTimeout The Custom Read timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `30`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originReadTimeout(@Nullable Output<Integer> originReadTimeout) {
             $.originReadTimeout = originReadTimeout;
             return this;
         }
 
-        /**
-         * @param originReadTimeout The Custom Read timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `30`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder originReadTimeout(Integer originReadTimeout) {
             return originReadTimeout(Output.of(originReadTimeout));
         }
