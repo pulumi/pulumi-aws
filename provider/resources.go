@@ -1854,6 +1854,9 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(elasticacheMod, "ReplicationGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"replication_group_id": tfbridge.AutoNameTransform("replicationGroupId", 40, strings.ToLower),
+					"at_rest_encryption_enabled": {
+						Type: "boolean",
+					},
 					"auto_minor_version_upgrade": {
 						Type: "boolean",
 					},
