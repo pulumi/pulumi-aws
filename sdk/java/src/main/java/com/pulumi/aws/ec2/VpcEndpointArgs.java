@@ -146,6 +146,21 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
+     * 
+     */
+    @Import(name="serviceRegion")
+    private @Nullable Output<String> serviceRegion;
+
+    /**
+     * @return The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
+     * 
+     */
+    public Optional<Output<String>> serviceRegion() {
+        return Optional.ofNullable(this.serviceRegion);
+    }
+
+    /**
      * Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
      * 
      */
@@ -231,6 +246,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         this.routeTableIds = $.routeTableIds;
         this.securityGroupIds = $.securityGroupIds;
         this.serviceName = $.serviceName;
+        this.serviceRegion = $.serviceRegion;
         this.subnetConfigurations = $.subnetConfigurations;
         this.subnetIds = $.subnetIds;
         this.tags = $.tags;
@@ -447,6 +463,27 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder serviceName(String serviceName) {
             return serviceName(Output.of(serviceName));
+        }
+
+        /**
+         * @param serviceRegion The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceRegion(@Nullable Output<String> serviceRegion) {
+            $.serviceRegion = serviceRegion;
+            return this;
+        }
+
+        /**
+         * @param serviceRegion The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceRegion(String serviceRegion) {
+            return serviceRegion(Output.of(serviceRegion));
         }
 
         /**

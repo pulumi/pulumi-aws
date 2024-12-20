@@ -49,6 +49,12 @@ namespace Pulumi.Aws.DirectConnect
         public Output<string> AmazonSideAsn { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN of the gateway.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the connection.
         /// </summary>
         [Output("name")]
@@ -131,6 +137,12 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         [Input("amazonSideAsn")]
         public Input<string>? AmazonSideAsn { get; set; }
+
+        /// <summary>
+        /// The ARN of the gateway.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
 
         /// <summary>
         /// The name of the connection.

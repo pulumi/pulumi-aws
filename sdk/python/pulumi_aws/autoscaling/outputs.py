@@ -17,6 +17,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'GroupAvailabilityZoneDistribution',
     'GroupInitialLifecycleHook',
     'GroupInstanceMaintenancePolicy',
     'GroupInstanceRefresh',
@@ -98,6 +99,42 @@ __all__ = [
     'GetGroupWarmPoolResult',
     'GetGroupWarmPoolInstanceReusePolicyResult',
 ]
+
+@pulumi.output_type
+class GroupAvailabilityZoneDistribution(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityDistributionStrategy":
+            suggest = "capacity_distribution_strategy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupAvailabilityZoneDistribution. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupAvailabilityZoneDistribution.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupAvailabilityZoneDistribution.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_distribution_strategy: Optional[str] = None):
+        """
+        :param str capacity_distribution_strategy: The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
+        """
+        if capacity_distribution_strategy is not None:
+            pulumi.set(__self__, "capacity_distribution_strategy", capacity_distribution_strategy)
+
+    @property
+    @pulumi.getter(name="capacityDistributionStrategy")
+    def capacity_distribution_strategy(self) -> Optional[str]:
+        """
+        The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
+        """
+        return pulumi.get(self, "capacity_distribution_strategy")
+
 
 @pulumi.output_type
 class GroupInitialLifecycleHook(dict):

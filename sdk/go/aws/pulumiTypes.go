@@ -1058,6 +1058,8 @@ type ProviderEndpoint struct {
 	// Use this to override the default service endpoint URL
 	Memorydb *string `pulumi:"memorydb"`
 	// Use this to override the default service endpoint URL
+	Mgn *string `pulumi:"mgn"`
+	// Use this to override the default service endpoint URL
 	Mq *string `pulumi:"mq"`
 	// Use this to override the default service endpoint URL
 	Msk *string `pulumi:"msk"`
@@ -1243,6 +1245,8 @@ type ProviderEndpoint struct {
 	Taxsettings *string `pulumi:"taxsettings"`
 	// Use this to override the default service endpoint URL
 	Timestreaminfluxdb *string `pulumi:"timestreaminfluxdb"`
+	// Use this to override the default service endpoint URL
+	Timestreamquery *string `pulumi:"timestreamquery"`
 	// Use this to override the default service endpoint URL
 	Timestreamwrite *string `pulumi:"timestreamwrite"`
 	// Use this to override the default service endpoint URL
@@ -1660,6 +1664,8 @@ type ProviderEndpointArgs struct {
 	// Use this to override the default service endpoint URL
 	Memorydb pulumi.StringPtrInput `pulumi:"memorydb"`
 	// Use this to override the default service endpoint URL
+	Mgn pulumi.StringPtrInput `pulumi:"mgn"`
+	// Use this to override the default service endpoint URL
 	Mq pulumi.StringPtrInput `pulumi:"mq"`
 	// Use this to override the default service endpoint URL
 	Msk pulumi.StringPtrInput `pulumi:"msk"`
@@ -1845,6 +1851,8 @@ type ProviderEndpointArgs struct {
 	Taxsettings pulumi.StringPtrInput `pulumi:"taxsettings"`
 	// Use this to override the default service endpoint URL
 	Timestreaminfluxdb pulumi.StringPtrInput `pulumi:"timestreaminfluxdb"`
+	// Use this to override the default service endpoint URL
+	Timestreamquery pulumi.StringPtrInput `pulumi:"timestreamquery"`
 	// Use this to override the default service endpoint URL
 	Timestreamwrite pulumi.StringPtrInput `pulumi:"timestreamwrite"`
 	// Use this to override the default service endpoint URL
@@ -2862,6 +2870,11 @@ func (o ProviderEndpointOutput) Memorydb() pulumi.StringPtrOutput {
 }
 
 // Use this to override the default service endpoint URL
+func (o ProviderEndpointOutput) Mgn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Mgn }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Mq() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Mq }).(pulumi.StringPtrOutput)
 }
@@ -3324,6 +3337,11 @@ func (o ProviderEndpointOutput) Taxsettings() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Timestreaminfluxdb() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Timestreaminfluxdb }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o ProviderEndpointOutput) Timestreamquery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Timestreamquery }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

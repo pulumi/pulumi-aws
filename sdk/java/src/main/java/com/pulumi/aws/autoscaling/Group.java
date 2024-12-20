@@ -6,6 +6,7 @@ package com.pulumi.aws.autoscaling;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.autoscaling.GroupArgs;
 import com.pulumi.aws.autoscaling.inputs.GroupState;
+import com.pulumi.aws.autoscaling.outputs.GroupAvailabilityZoneDistribution;
 import com.pulumi.aws.autoscaling.outputs.GroupInitialLifecycleHook;
 import com.pulumi.aws.autoscaling.outputs.GroupInstanceMaintenancePolicy;
 import com.pulumi.aws.autoscaling.outputs.GroupInstanceRefresh;
@@ -729,6 +730,20 @@ public class Group extends com.pulumi.resources.CustomResource {
      */
     public Output<String> arn() {
         return this.arn;
+    }
+    /**
+     * The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+     * 
+     */
+    @Export(name="availabilityZoneDistribution", refs={GroupAvailabilityZoneDistribution.class}, tree="[0]")
+    private Output<GroupAvailabilityZoneDistribution> availabilityZoneDistribution;
+
+    /**
+     * @return The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+     * 
+     */
+    public Output<GroupAvailabilityZoneDistribution> availabilityZoneDistribution() {
+        return this.availabilityZoneDistribution;
     }
     /**
      * A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.

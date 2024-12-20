@@ -1094,6 +1094,10 @@ if not MYPY:
         """
         Valid values are `off`, `verify` and `passthrough`.
         """
+        advertise_trust_store_ca_names: NotRequired[pulumi.Input[str]]
+        """
+        Valid values are `off` and `on`.
+        """
         ignore_client_certificate_expiry: NotRequired[pulumi.Input[bool]]
         """
         Whether client certificate expiry is ignored. Default is `false`.
@@ -1109,14 +1113,18 @@ elif False:
 class ListenerMutualAuthenticationArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str],
+                 advertise_trust_store_ca_names: Optional[pulumi.Input[str]] = None,
                  ignore_client_certificate_expiry: Optional[pulumi.Input[bool]] = None,
                  trust_store_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] mode: Valid values are `off`, `verify` and `passthrough`.
+        :param pulumi.Input[str] advertise_trust_store_ca_names: Valid values are `off` and `on`.
         :param pulumi.Input[bool] ignore_client_certificate_expiry: Whether client certificate expiry is ignored. Default is `false`.
         :param pulumi.Input[str] trust_store_arn: ARN of the elbv2 Trust Store.
         """
         pulumi.set(__self__, "mode", mode)
+        if advertise_trust_store_ca_names is not None:
+            pulumi.set(__self__, "advertise_trust_store_ca_names", advertise_trust_store_ca_names)
         if ignore_client_certificate_expiry is not None:
             pulumi.set(__self__, "ignore_client_certificate_expiry", ignore_client_certificate_expiry)
         if trust_store_arn is not None:
@@ -1133,6 +1141,18 @@ class ListenerMutualAuthenticationArgs:
     @mode.setter
     def mode(self, value: pulumi.Input[str]):
         pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="advertiseTrustStoreCaNames")
+    def advertise_trust_store_ca_names(self) -> Optional[pulumi.Input[str]]:
+        """
+        Valid values are `off` and `on`.
+        """
+        return pulumi.get(self, "advertise_trust_store_ca_names")
+
+    @advertise_trust_store_ca_names.setter
+    def advertise_trust_store_ca_names(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "advertise_trust_store_ca_names", value)
 
     @property
     @pulumi.getter(name="ignoreClientCertificateExpiry")

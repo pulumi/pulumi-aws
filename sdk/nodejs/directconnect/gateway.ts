@@ -60,6 +60,10 @@ export class Gateway extends pulumi.CustomResource {
      */
     public readonly amazonSideAsn!: pulumi.Output<string>;
     /**
+     * The ARN of the gateway.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The name of the connection.
      */
     public readonly name!: pulumi.Output<string>;
@@ -82,6 +86,7 @@ export class Gateway extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as GatewayState | undefined;
             resourceInputs["amazonSideAsn"] = state ? state.amazonSideAsn : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
         } else {
@@ -91,6 +96,7 @@ export class Gateway extends pulumi.CustomResource {
             }
             resourceInputs["amazonSideAsn"] = args ? args.amazonSideAsn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -106,6 +112,10 @@ export interface GatewayState {
      * The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
      */
     amazonSideAsn?: pulumi.Input<string>;
+    /**
+     * The ARN of the gateway.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * The name of the connection.
      */

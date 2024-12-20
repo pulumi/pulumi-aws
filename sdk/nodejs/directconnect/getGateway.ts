@@ -44,6 +44,10 @@ export interface GetGatewayResult {
      */
     readonly amazonSideAsn: string;
     /**
+     * ARN of the gateway.
+     */
+    readonly arn: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

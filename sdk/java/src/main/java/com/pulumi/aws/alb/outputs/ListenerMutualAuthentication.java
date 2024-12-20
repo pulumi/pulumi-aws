@@ -14,6 +14,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ListenerMutualAuthentication {
     /**
+     * @return Valid values are `off` and `on`.
+     * 
+     */
+    private @Nullable String advertiseTrustStoreCaNames;
+    /**
      * @return Whether client certificate expiry is ignored. Default is `false`.
      * 
      */
@@ -30,6 +35,13 @@ public final class ListenerMutualAuthentication {
     private @Nullable String trustStoreArn;
 
     private ListenerMutualAuthentication() {}
+    /**
+     * @return Valid values are `off` and `on`.
+     * 
+     */
+    public Optional<String> advertiseTrustStoreCaNames() {
+        return Optional.ofNullable(this.advertiseTrustStoreCaNames);
+    }
     /**
      * @return Whether client certificate expiry is ignored. Default is `false`.
      * 
@@ -61,17 +73,25 @@ public final class ListenerMutualAuthentication {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String advertiseTrustStoreCaNames;
         private @Nullable Boolean ignoreClientCertificateExpiry;
         private String mode;
         private @Nullable String trustStoreArn;
         public Builder() {}
         public Builder(ListenerMutualAuthentication defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.advertiseTrustStoreCaNames = defaults.advertiseTrustStoreCaNames;
     	      this.ignoreClientCertificateExpiry = defaults.ignoreClientCertificateExpiry;
     	      this.mode = defaults.mode;
     	      this.trustStoreArn = defaults.trustStoreArn;
         }
 
+        @CustomType.Setter
+        public Builder advertiseTrustStoreCaNames(@Nullable String advertiseTrustStoreCaNames) {
+
+            this.advertiseTrustStoreCaNames = advertiseTrustStoreCaNames;
+            return this;
+        }
         @CustomType.Setter
         public Builder ignoreClientCertificateExpiry(@Nullable Boolean ignoreClientCertificateExpiry) {
 
@@ -94,6 +114,7 @@ public final class ListenerMutualAuthentication {
         }
         public ListenerMutualAuthentication build() {
             final var _resultValue = new ListenerMutualAuthentication();
+            _resultValue.advertiseTrustStoreCaNames = advertiseTrustStoreCaNames;
             _resultValue.ignoreClientCertificateExpiry = ignoreClientCertificateExpiry;
             _resultValue.mode = mode;
             _resultValue.trustStoreArn = trustStoreArn;

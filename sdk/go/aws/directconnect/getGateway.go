@@ -58,6 +58,8 @@ type LookupGatewayArgs struct {
 type LookupGatewayResult struct {
 	// ASN on the Amazon side of the connection.
 	AmazonSideAsn string `pulumi:"amazonSideAsn"`
+	// ARN of the gateway.
+	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
@@ -102,6 +104,11 @@ func (o LookupGatewayResultOutput) ToLookupGatewayResultOutputWithContext(ctx co
 // ASN on the Amazon side of the connection.
 func (o LookupGatewayResultOutput) AmazonSideAsn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGatewayResult) string { return v.AmazonSideAsn }).(pulumi.StringOutput)
+}
+
+// ARN of the gateway.
+func (o LookupGatewayResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGatewayResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

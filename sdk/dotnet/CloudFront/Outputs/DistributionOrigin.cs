@@ -50,6 +50,10 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
         /// </summary>
         public readonly Outputs.DistributionOriginS3OriginConfig? S3OriginConfig;
+        /// <summary>
+        /// The VPC origin configuration.
+        /// </summary>
+        public readonly Outputs.DistributionOriginVpcOriginConfig? VpcOriginConfig;
 
         [OutputConstructor]
         private DistributionOrigin(
@@ -71,7 +75,9 @@ namespace Pulumi.Aws.CloudFront.Outputs
 
             Outputs.DistributionOriginOriginShield? originShield,
 
-            Outputs.DistributionOriginS3OriginConfig? s3OriginConfig)
+            Outputs.DistributionOriginS3OriginConfig? s3OriginConfig,
+
+            Outputs.DistributionOriginVpcOriginConfig? vpcOriginConfig)
         {
             ConnectionAttempts = connectionAttempts;
             ConnectionTimeout = connectionTimeout;
@@ -83,6 +89,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
             OriginPath = originPath;
             OriginShield = originShield;
             S3OriginConfig = s3OriginConfig;
+            VpcOriginConfig = vpcOriginConfig;
         }
     }
 }

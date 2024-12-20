@@ -26,10 +26,13 @@ class GetGatewayResult:
     """
     A collection of values returned by getGateway.
     """
-    def __init__(__self__, amazon_side_asn=None, id=None, name=None, owner_account_id=None):
+    def __init__(__self__, amazon_side_asn=None, arn=None, id=None, name=None, owner_account_id=None):
         if amazon_side_asn and not isinstance(amazon_side_asn, str):
             raise TypeError("Expected argument 'amazon_side_asn' to be a str")
         pulumi.set(__self__, "amazon_side_asn", amazon_side_asn)
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -47,6 +50,14 @@ class GetGatewayResult:
         ASN on the Amazon side of the connection.
         """
         return pulumi.get(self, "amazon_side_asn")
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        ARN of the gateway.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
@@ -77,6 +88,7 @@ class AwaitableGetGatewayResult(GetGatewayResult):
             yield self
         return GetGatewayResult(
             amazon_side_asn=self.amazon_side_asn,
+            arn=self.arn,
             id=self.id,
             name=self.name,
             owner_account_id=self.owner_account_id)
@@ -106,6 +118,7 @@ def get_gateway(name: Optional[str] = None,
 
     return AwaitableGetGatewayResult(
         amazon_side_asn=pulumi.get(__ret__, 'amazon_side_asn'),
+        arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         owner_account_id=pulumi.get(__ret__, 'owner_account_id'))
@@ -132,6 +145,7 @@ def get_gateway_output(name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws:directconnect/getGateway:getGateway', __args__, opts=opts, typ=GetGatewayResult)
     return __ret__.apply(lambda __response__: GetGatewayResult(
         amazon_side_asn=pulumi.get(__response__, 'amazon_side_asn'),
+        arn=pulumi.get(__response__, 'arn'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         owner_account_id=pulumi.get(__response__, 'owner_account_id')))

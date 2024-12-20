@@ -122,6 +122,10 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         public readonly string AmazonSideAsn;
         /// <summary>
+        /// ARN of the gateway.
+        /// </summary>
+        public readonly string Arn;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -135,6 +139,8 @@ namespace Pulumi.Aws.DirectConnect
         private GetGatewayResult(
             string amazonSideAsn,
 
+            string arn,
+
             string id,
 
             string name,
@@ -142,6 +148,7 @@ namespace Pulumi.Aws.DirectConnect
             string ownerAccountId)
         {
             AmazonSideAsn = amazonSideAsn;
+            Arn = arn;
             Id = id;
             Name = name;
             OwnerAccountId = ownerAccountId;

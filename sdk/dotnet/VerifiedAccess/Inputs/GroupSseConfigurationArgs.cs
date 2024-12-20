@@ -12,6 +12,9 @@ namespace Pulumi.Aws.VerifiedAccess.Inputs
 
     public sealed class GroupSseConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Boolean flag to indicate that the CMK should be used.
+        /// </summary>
         [Input("customerManagedKeyEnabled")]
         public Input<bool>? CustomerManagedKeyEnabled { get; set; }
 

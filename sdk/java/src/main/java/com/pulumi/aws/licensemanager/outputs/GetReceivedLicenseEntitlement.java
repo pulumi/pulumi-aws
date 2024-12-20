@@ -28,6 +28,11 @@ public final class GetReceivedLicenseEntitlement {
      */
     private String name;
     /**
+     * @return Indicates whether overages are allowed.
+     * 
+     */
+    private Boolean overage;
+    /**
      * @return Entitlement unit.
      * 
      */
@@ -61,6 +66,13 @@ public final class GetReceivedLicenseEntitlement {
         return this.name;
     }
     /**
+     * @return Indicates whether overages are allowed.
+     * 
+     */
+    public Boolean overage() {
+        return this.overage;
+    }
+    /**
      * @return Entitlement unit.
      * 
      */
@@ -87,6 +99,7 @@ public final class GetReceivedLicenseEntitlement {
         private Boolean allowCheckIn;
         private Integer maxCount;
         private String name;
+        private Boolean overage;
         private String unit;
         private String value;
         public Builder() {}
@@ -95,6 +108,7 @@ public final class GetReceivedLicenseEntitlement {
     	      this.allowCheckIn = defaults.allowCheckIn;
     	      this.maxCount = defaults.maxCount;
     	      this.name = defaults.name;
+    	      this.overage = defaults.overage;
     	      this.unit = defaults.unit;
     	      this.value = defaults.value;
         }
@@ -124,6 +138,14 @@ public final class GetReceivedLicenseEntitlement {
             return this;
         }
         @CustomType.Setter
+        public Builder overage(Boolean overage) {
+            if (overage == null) {
+              throw new MissingRequiredPropertyException("GetReceivedLicenseEntitlement", "overage");
+            }
+            this.overage = overage;
+            return this;
+        }
+        @CustomType.Setter
         public Builder unit(String unit) {
             if (unit == null) {
               throw new MissingRequiredPropertyException("GetReceivedLicenseEntitlement", "unit");
@@ -144,6 +166,7 @@ public final class GetReceivedLicenseEntitlement {
             _resultValue.allowCheckIn = allowCheckIn;
             _resultValue.maxCount = maxCount;
             _resultValue.name = name;
+            _resultValue.overage = overage;
             _resultValue.unit = unit;
             _resultValue.value = value;
             return _resultValue;

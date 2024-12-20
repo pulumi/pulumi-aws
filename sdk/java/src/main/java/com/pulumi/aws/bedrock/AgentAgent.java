@@ -144,6 +144,20 @@ public class AgentAgent extends com.pulumi.resources.CustomResource {
         return this.agentArn;
     }
     /**
+     * Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
+     * 
+     */
+    @Export(name="agentCollaboration", refs={String.class}, tree="[0]")
+    private Output<String> agentCollaboration;
+
+    /**
+     * @return Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
+     * 
+     */
+    public Output<String> agentCollaboration() {
+        return this.agentCollaboration;
+    }
+    /**
      * Unique identifier of the agent.
      * 
      */

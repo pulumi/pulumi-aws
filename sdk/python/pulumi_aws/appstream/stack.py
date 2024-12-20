@@ -532,6 +532,10 @@ class Stack(pulumi.CustomResource):
             }],
             user_settings=[
                 {
+                    "action": "AUTO_TIME_ZONE_REDIRECTION",
+                    "permission": "DISABLED",
+                },
+                {
                     "action": "CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
                     "permission": "ENABLED",
                 },
@@ -624,6 +628,10 @@ class Stack(pulumi.CustomResource):
                 "connector_type": "HOMEFOLDERS",
             }],
             user_settings=[
+                {
+                    "action": "AUTO_TIME_ZONE_REDIRECTION",
+                    "permission": "DISABLED",
+                },
                 {
                     "action": "CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
                     "permission": "ENABLED",

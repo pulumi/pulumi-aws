@@ -45,6 +45,11 @@ export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
 utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
 
+export { MultiRegionClusterArgs, MultiRegionClusterState } from "./multiRegionCluster";
+export type MultiRegionCluster = import("./multiRegionCluster").MultiRegionCluster;
+export const MultiRegionCluster: typeof import("./multiRegionCluster").MultiRegionCluster = null as any;
+utilities.lazyLoad(exports, ["MultiRegionCluster"], () => require("./multiRegionCluster"));
+
 export { ParameterGroupArgs, ParameterGroupState } from "./parameterGroup";
 export type ParameterGroup = import("./parameterGroup").ParameterGroup;
 export const ParameterGroup: typeof import("./parameterGroup").ParameterGroup = null as any;
@@ -74,6 +79,8 @@ const _module = {
                 return new Acl(name, <any>undefined, { urn })
             case "aws:memorydb/cluster:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
+            case "aws:memorydb/multiRegionCluster:MultiRegionCluster":
+                return new MultiRegionCluster(name, <any>undefined, { urn })
             case "aws:memorydb/parameterGroup:ParameterGroup":
                 return new ParameterGroup(name, <any>undefined, { urn })
             case "aws:memorydb/snapshot:Snapshot":
@@ -89,6 +96,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "memorydb/acl", _module)
 pulumi.runtime.registerResourceModule("aws", "memorydb/cluster", _module)
+pulumi.runtime.registerResourceModule("aws", "memorydb/multiRegionCluster", _module)
 pulumi.runtime.registerResourceModule("aws", "memorydb/parameterGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "memorydb/snapshot", _module)
 pulumi.runtime.registerResourceModule("aws", "memorydb/subnetGroup", _module)

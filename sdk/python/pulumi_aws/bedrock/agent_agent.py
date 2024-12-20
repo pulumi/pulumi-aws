@@ -24,6 +24,7 @@ class AgentAgentArgs:
                  agent_name: pulumi.Input[str],
                  agent_resource_role_arn: pulumi.Input[str],
                  foundation_model: pulumi.Input[str],
+                 agent_collaboration: Optional[pulumi.Input[str]] = None,
                  customer_encryption_key_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  guardrail_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentGuardrailConfigurationArgs']]]] = None,
@@ -41,6 +42,7 @@ class AgentAgentArgs:
         :param pulumi.Input[str] foundation_model: Foundation model used for orchestration by the agent.
                
                The following arguments are optional:
+        :param pulumi.Input[str] agent_collaboration: Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
         :param pulumi.Input[str] customer_encryption_key_arn: ARN of the AWS KMS key that encrypts the agent.
         :param pulumi.Input[str] description: Description of the agent.
         :param pulumi.Input[Sequence[pulumi.Input['AgentAgentGuardrailConfigurationArgs']]] guardrail_configurations: Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
@@ -54,6 +56,8 @@ class AgentAgentArgs:
         pulumi.set(__self__, "agent_name", agent_name)
         pulumi.set(__self__, "agent_resource_role_arn", agent_resource_role_arn)
         pulumi.set(__self__, "foundation_model", foundation_model)
+        if agent_collaboration is not None:
+            pulumi.set(__self__, "agent_collaboration", agent_collaboration)
         if customer_encryption_key_arn is not None:
             pulumi.set(__self__, "customer_encryption_key_arn", customer_encryption_key_arn)
         if description is not None:
@@ -112,6 +116,18 @@ class AgentAgentArgs:
     @foundation_model.setter
     def foundation_model(self, value: pulumi.Input[str]):
         pulumi.set(self, "foundation_model", value)
+
+    @property
+    @pulumi.getter(name="agentCollaboration")
+    def agent_collaboration(self) -> Optional[pulumi.Input[str]]:
+        """
+        Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
+        """
+        return pulumi.get(self, "agent_collaboration")
+
+    @agent_collaboration.setter
+    def agent_collaboration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "agent_collaboration", value)
 
     @property
     @pulumi.getter(name="customerEncryptionKeyArn")
@@ -235,6 +251,7 @@ class AgentAgentArgs:
 class _AgentAgentState:
     def __init__(__self__, *,
                  agent_arn: Optional[pulumi.Input[str]] = None,
+                 agent_collaboration: Optional[pulumi.Input[str]] = None,
                  agent_id: Optional[pulumi.Input[str]] = None,
                  agent_name: Optional[pulumi.Input[str]] = None,
                  agent_resource_role_arn: Optional[pulumi.Input[str]] = None,
@@ -254,6 +271,7 @@ class _AgentAgentState:
         """
         Input properties used for looking up and filtering AgentAgent resources.
         :param pulumi.Input[str] agent_arn: ARN of the agent.
+        :param pulumi.Input[str] agent_collaboration: Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
         :param pulumi.Input[str] agent_id: Unique identifier of the agent.
         :param pulumi.Input[str] agent_name: Name of the agent.
         :param pulumi.Input[str] agent_resource_role_arn: ARN of the IAM role with permissions to invoke API operations on the agent.
@@ -274,6 +292,8 @@ class _AgentAgentState:
         """
         if agent_arn is not None:
             pulumi.set(__self__, "agent_arn", agent_arn)
+        if agent_collaboration is not None:
+            pulumi.set(__self__, "agent_collaboration", agent_collaboration)
         if agent_id is not None:
             pulumi.set(__self__, "agent_id", agent_id)
         if agent_name is not None:
@@ -321,6 +341,18 @@ class _AgentAgentState:
     @agent_arn.setter
     def agent_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "agent_arn", value)
+
+    @property
+    @pulumi.getter(name="agentCollaboration")
+    def agent_collaboration(self) -> Optional[pulumi.Input[str]]:
+        """
+        Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
+        """
+        return pulumi.get(self, "agent_collaboration")
+
+    @agent_collaboration.setter
+    def agent_collaboration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "agent_collaboration", value)
 
     @property
     @pulumi.getter(name="agentId")
@@ -520,6 +552,7 @@ class AgentAgent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 agent_collaboration: Optional[pulumi.Input[str]] = None,
                  agent_name: Optional[pulumi.Input[str]] = None,
                  agent_resource_role_arn: Optional[pulumi.Input[str]] = None,
                  customer_encryption_key_arn: Optional[pulumi.Input[str]] = None,
@@ -594,6 +627,7 @@ class AgentAgent(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] agent_collaboration: Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
         :param pulumi.Input[str] agent_name: Name of the agent.
         :param pulumi.Input[str] agent_resource_role_arn: ARN of the IAM role with permissions to invoke API operations on the agent.
         :param pulumi.Input[str] customer_encryption_key_arn: ARN of the AWS KMS key that encrypts the agent.
@@ -688,6 +722,7 @@ class AgentAgent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 agent_collaboration: Optional[pulumi.Input[str]] = None,
                  agent_name: Optional[pulumi.Input[str]] = None,
                  agent_resource_role_arn: Optional[pulumi.Input[str]] = None,
                  customer_encryption_key_arn: Optional[pulumi.Input[str]] = None,
@@ -710,6 +745,7 @@ class AgentAgent(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AgentAgentArgs.__new__(AgentAgentArgs)
 
+            __props__.__dict__["agent_collaboration"] = agent_collaboration
             if agent_name is None and not opts.urn:
                 raise TypeError("Missing required property 'agent_name'")
             __props__.__dict__["agent_name"] = agent_name
@@ -744,6 +780,7 @@ class AgentAgent(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             agent_arn: Optional[pulumi.Input[str]] = None,
+            agent_collaboration: Optional[pulumi.Input[str]] = None,
             agent_id: Optional[pulumi.Input[str]] = None,
             agent_name: Optional[pulumi.Input[str]] = None,
             agent_resource_role_arn: Optional[pulumi.Input[str]] = None,
@@ -768,6 +805,7 @@ class AgentAgent(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_arn: ARN of the agent.
+        :param pulumi.Input[str] agent_collaboration: Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
         :param pulumi.Input[str] agent_id: Unique identifier of the agent.
         :param pulumi.Input[str] agent_name: Name of the agent.
         :param pulumi.Input[str] agent_resource_role_arn: ARN of the IAM role with permissions to invoke API operations on the agent.
@@ -791,6 +829,7 @@ class AgentAgent(pulumi.CustomResource):
         __props__ = _AgentAgentState.__new__(_AgentAgentState)
 
         __props__.__dict__["agent_arn"] = agent_arn
+        __props__.__dict__["agent_collaboration"] = agent_collaboration
         __props__.__dict__["agent_id"] = agent_id
         __props__.__dict__["agent_name"] = agent_name
         __props__.__dict__["agent_resource_role_arn"] = agent_resource_role_arn
@@ -816,6 +855,14 @@ class AgentAgent(pulumi.CustomResource):
         ARN of the agent.
         """
         return pulumi.get(self, "agent_arn")
+
+    @property
+    @pulumi.getter(name="agentCollaboration")
+    def agent_collaboration(self) -> pulumi.Output[str]:
+        """
+        Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
+        """
+        return pulumi.get(self, "agent_collaboration")
 
     @property
     @pulumi.getter(name="agentId")

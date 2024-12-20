@@ -4,6 +4,7 @@
 package com.pulumi.aws.autoscaling.inputs;
 
 import com.pulumi.aws.autoscaling.enums.MetricsGranularity;
+import com.pulumi.aws.autoscaling.inputs.GroupAvailabilityZoneDistributionArgs;
 import com.pulumi.aws.autoscaling.inputs.GroupInitialLifecycleHookArgs;
 import com.pulumi.aws.autoscaling.inputs.GroupInstanceMaintenancePolicyArgs;
 import com.pulumi.aws.autoscaling.inputs.GroupInstanceRefreshArgs;
@@ -41,6 +42,21 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
+    }
+
+    /**
+     * The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+     * 
+     */
+    @Import(name="availabilityZoneDistribution")
+    private @Nullable Output<GroupAvailabilityZoneDistributionArgs> availabilityZoneDistribution;
+
+    /**
+     * @return The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+     * 
+     */
+    public Optional<Output<GroupAvailabilityZoneDistributionArgs>> availabilityZoneDistribution() {
+        return Optional.ofNullable(this.availabilityZoneDistribution);
     }
 
     /**
@@ -730,6 +746,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
 
     private GroupState(GroupState $) {
         this.arn = $.arn;
+        this.availabilityZoneDistribution = $.availabilityZoneDistribution;
         this.availabilityZones = $.availabilityZones;
         this.capacityRebalance = $.capacityRebalance;
         this.context = $.context;
@@ -810,6 +827,27 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param availabilityZoneDistribution The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder availabilityZoneDistribution(@Nullable Output<GroupAvailabilityZoneDistributionArgs> availabilityZoneDistribution) {
+            $.availabilityZoneDistribution = availabilityZoneDistribution;
+            return this;
+        }
+
+        /**
+         * @param availabilityZoneDistribution The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder availabilityZoneDistribution(GroupAvailabilityZoneDistributionArgs availabilityZoneDistribution) {
+            return availabilityZoneDistribution(Output.of(availabilityZoneDistribution));
         }
 
         /**

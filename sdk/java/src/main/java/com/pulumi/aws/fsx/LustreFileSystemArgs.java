@@ -144,6 +144,21 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `per_unit_storage_throughput`. This is only supported when deployment_type is set to `PERSISTENT_2`, `metadata_configuration` is used, and an EFA-enabled security group is attached.
+     * 
+     */
+    @Import(name="efaEnabled")
+    private @Nullable Output<Boolean> efaEnabled;
+
+    /**
+     * @return Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `per_unit_storage_throughput`. This is only supported when deployment_type is set to `PERSISTENT_2`, `metadata_configuration` is used, and an EFA-enabled security group is attached.
+     * 
+     */
+    public Optional<Output<Boolean>> efaEnabled() {
+        return Optional.ofNullable(this.efaEnabled);
+    }
+
+    /**
      * S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
      * 
      */
@@ -421,6 +436,7 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
         this.dataCompressionType = $.dataCompressionType;
         this.deploymentType = $.deploymentType;
         this.driveCacheType = $.driveCacheType;
+        this.efaEnabled = $.efaEnabled;
         this.exportPath = $.exportPath;
         this.fileSystemTypeVersion = $.fileSystemTypeVersion;
         this.finalBackupTags = $.finalBackupTags;
@@ -624,6 +640,27 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder driveCacheType(String driveCacheType) {
             return driveCacheType(Output.of(driveCacheType));
+        }
+
+        /**
+         * @param efaEnabled Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `per_unit_storage_throughput`. This is only supported when deployment_type is set to `PERSISTENT_2`, `metadata_configuration` is used, and an EFA-enabled security group is attached.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder efaEnabled(@Nullable Output<Boolean> efaEnabled) {
+            $.efaEnabled = efaEnabled;
+            return this;
+        }
+
+        /**
+         * @param efaEnabled Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `per_unit_storage_throughput`. This is only supported when deployment_type is set to `PERSISTENT_2`, `metadata_configuration` is used, and an EFA-enabled security group is attached.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder efaEnabled(Boolean efaEnabled) {
+            return efaEnabled(Output.of(efaEnabled));
         }
 
         /**

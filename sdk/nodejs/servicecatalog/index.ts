@@ -40,6 +40,11 @@ export const getAppregistryAttributeGroup: typeof import("./getAppregistryAttrib
 export const getAppregistryAttributeGroupOutput: typeof import("./getAppregistryAttributeGroup").getAppregistryAttributeGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getAppregistryAttributeGroup","getAppregistryAttributeGroupOutput"], () => require("./getAppregistryAttributeGroup"));
 
+export { GetAppregistryAttributeGroupAssociationsArgs, GetAppregistryAttributeGroupAssociationsResult, GetAppregistryAttributeGroupAssociationsOutputArgs } from "./getAppregistryAttributeGroupAssociations";
+export const getAppregistryAttributeGroupAssociations: typeof import("./getAppregistryAttributeGroupAssociations").getAppregistryAttributeGroupAssociations = null as any;
+export const getAppregistryAttributeGroupAssociationsOutput: typeof import("./getAppregistryAttributeGroupAssociations").getAppregistryAttributeGroupAssociationsOutput = null as any;
+utilities.lazyLoad(exports, ["getAppregistryAttributeGroupAssociations","getAppregistryAttributeGroupAssociationsOutput"], () => require("./getAppregistryAttributeGroupAssociations"));
+
 export { GetConstraintArgs, GetConstraintResult, GetConstraintOutputArgs } from "./getConstraint";
 export const getConstraint: typeof import("./getConstraint").getConstraint = null as any;
 export const getConstraintOutput: typeof import("./getConstraint").getConstraintOutput = null as any;

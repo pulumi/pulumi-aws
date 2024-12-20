@@ -135,6 +135,12 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> AgentArn { get; private set; } = null!;
 
         /// <summary>
+        /// Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
+        /// </summary>
+        [Output("agentCollaboration")]
+        public Output<string> AgentCollaboration { get; private set; } = null!;
+
+        /// <summary>
         /// Unique identifier of the agent.
         /// </summary>
         [Output("agentId")]
@@ -276,6 +282,12 @@ namespace Pulumi.Aws.Bedrock
     public sealed class AgentAgentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
+        /// </summary>
+        [Input("agentCollaboration")]
+        public Input<string>? AgentCollaboration { get; set; }
+
+        /// <summary>
         /// Name of the agent.
         /// </summary>
         [Input("agentName", required: true)]
@@ -383,6 +395,12 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         [Input("agentArn")]
         public Input<string>? AgentArn { get; set; }
+
+        /// <summary>
+        /// Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
+        /// </summary>
+        [Input("agentCollaboration")]
+        public Input<string>? AgentCollaboration { get; set; }
 
         /// <summary>
         /// Unique identifier of the agent.

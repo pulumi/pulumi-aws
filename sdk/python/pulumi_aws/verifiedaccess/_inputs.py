@@ -191,6 +191,9 @@ class EndpointSseSpecificationArgs:
 if not MYPY:
     class GroupSseConfigurationArgsDict(TypedDict):
         customer_managed_key_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Boolean flag to indicate that the CMK should be used.
+        """
         kms_key_arn: NotRequired[pulumi.Input[str]]
         """
         ARN of the KMS key to use.
@@ -204,6 +207,7 @@ class GroupSseConfigurationArgs:
                  customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[bool] customer_managed_key_enabled: Boolean flag to indicate that the CMK should be used.
         :param pulumi.Input[str] kms_key_arn: ARN of the KMS key to use.
         """
         if customer_managed_key_enabled is not None:
@@ -214,6 +218,9 @@ class GroupSseConfigurationArgs:
     @property
     @pulumi.getter(name="customerManagedKeyEnabled")
     def customer_managed_key_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag to indicate that the CMK should be used.
+        """
         return pulumi.get(self, "customer_managed_key_enabled")
 
     @customer_managed_key_enabled.setter

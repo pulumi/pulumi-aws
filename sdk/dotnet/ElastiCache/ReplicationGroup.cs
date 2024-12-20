@@ -279,9 +279,11 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// Whether to enable encryption at rest.
+        /// When `engine` is `redis`, default is `false`.
+        /// When `engine` is `valkey`, default is `true`.
         /// </summary>
         [Output("atRestEncryptionEnabled")]
-        public Output<bool> AtRestEncryptionEnabled { get; private set; } = null!;
+        public Output<string> AtRestEncryptionEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
@@ -340,7 +342,9 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
+        /// Name of the cache engine to be used for the clusters in this replication group.
+        /// Valid values are `redis` or `valkey`.
+        /// Default is `redis`.
         /// </summary>
         [Output("engine")]
         public Output<string?> Engine { get; private set; } = null!;
@@ -634,9 +638,11 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// Whether to enable encryption at rest.
+        /// When `engine` is `redis`, default is `false`.
+        /// When `engine` is `valkey`, default is `true`.
         /// </summary>
         [Input("atRestEncryptionEnabled")]
-        public Input<bool>? AtRestEncryptionEnabled { get; set; }
+        public Input<string>? AtRestEncryptionEnabled { get; set; }
 
         [Input("authToken")]
         private Input<string>? _authToken;
@@ -693,7 +699,9 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string> Description { get; set; } = null!;
 
         /// <summary>
-        /// Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
+        /// Name of the cache engine to be used for the clusters in this replication group.
+        /// Valid values are `redis` or `valkey`.
+        /// Default is `redis`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
@@ -963,9 +971,11 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// Whether to enable encryption at rest.
+        /// When `engine` is `redis`, default is `false`.
+        /// When `engine` is `valkey`, default is `true`.
         /// </summary>
         [Input("atRestEncryptionEnabled")]
-        public Input<bool>? AtRestEncryptionEnabled { get; set; }
+        public Input<string>? AtRestEncryptionEnabled { get; set; }
 
         [Input("authToken")]
         private Input<string>? _authToken;
@@ -1034,7 +1044,9 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
+        /// Name of the cache engine to be used for the clusters in this replication group.
+        /// Valid values are `redis` or `valkey`.
+        /// Default is `redis`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }

@@ -594,6 +594,8 @@ type Group struct {
 
 	// ARN for this Auto Scaling Group
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+	AvailabilityZoneDistribution GroupAvailabilityZoneDistributionOutput `pulumi:"availabilityZoneDistribution"`
 	// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpcZoneIdentifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpcZoneIdentifier`.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
@@ -750,6 +752,8 @@ func GetGroup(ctx *pulumi.Context,
 type groupState struct {
 	// ARN for this Auto Scaling Group
 	Arn *string `pulumi:"arn"`
+	// The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+	AvailabilityZoneDistribution *GroupAvailabilityZoneDistribution `pulumi:"availabilityZoneDistribution"`
 	// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpcZoneIdentifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpcZoneIdentifier`.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
@@ -871,6 +875,8 @@ type groupState struct {
 type GroupState struct {
 	// ARN for this Auto Scaling Group
 	Arn pulumi.StringPtrInput
+	// The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+	AvailabilityZoneDistribution GroupAvailabilityZoneDistributionPtrInput
 	// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpcZoneIdentifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpcZoneIdentifier`.
 	AvailabilityZones pulumi.StringArrayInput
 	// Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
@@ -994,6 +1000,8 @@ func (GroupState) ElementType() reflect.Type {
 }
 
 type groupArgs struct {
+	// The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+	AvailabilityZoneDistribution *GroupAvailabilityZoneDistribution `pulumi:"availabilityZoneDistribution"`
 	// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpcZoneIdentifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpcZoneIdentifier`.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
@@ -1110,6 +1118,8 @@ type groupArgs struct {
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
+	// The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+	AvailabilityZoneDistribution GroupAvailabilityZoneDistributionPtrInput
 	// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpcZoneIdentifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpcZoneIdentifier`.
 	AvailabilityZones pulumi.StringArrayInput
 	// Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
@@ -1314,6 +1324,11 @@ func (o GroupOutput) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 // ARN for this Auto Scaling Group
 func (o GroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+func (o GroupOutput) AvailabilityZoneDistribution() GroupAvailabilityZoneDistributionOutput {
+	return o.ApplyT(func(v *Group) GroupAvailabilityZoneDistributionOutput { return v.AvailabilityZoneDistribution }).(GroupAvailabilityZoneDistributionOutput)
 }
 
 // A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpcZoneIdentifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpcZoneIdentifier`.

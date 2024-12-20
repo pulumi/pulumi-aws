@@ -52,16 +52,20 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
 
     /**
      * Whether to enable encryption at rest.
+     * When `engine` is `redis`, default is `false`.
+     * When `engine` is `valkey`, default is `true`.
      * 
      */
     @Import(name="atRestEncryptionEnabled")
-    private @Nullable Output<Boolean> atRestEncryptionEnabled;
+    private @Nullable Output<String> atRestEncryptionEnabled;
 
     /**
      * @return Whether to enable encryption at rest.
+     * When `engine` is `redis`, default is `false`.
+     * When `engine` is `valkey`, default is `true`.
      * 
      */
-    public Optional<Output<Boolean>> atRestEncryptionEnabled() {
+    public Optional<Output<String>> atRestEncryptionEnabled() {
         return Optional.ofNullable(this.atRestEncryptionEnabled);
     }
 
@@ -205,14 +209,18 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
+     * Name of the cache engine to be used for the clusters in this replication group.
+     * Valid values are `redis` or `valkey`.
+     * Default is `redis`.
      * 
      */
     @Import(name="engine")
     private @Nullable Output<String> engine;
 
     /**
-     * @return Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
+     * @return Name of the cache engine to be used for the clusters in this replication group.
+     * Valid values are `redis` or `valkey`.
+     * Default is `redis`.
      * 
      */
     public Optional<Output<String>> engine() {
@@ -905,22 +913,26 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param atRestEncryptionEnabled Whether to enable encryption at rest.
+         * When `engine` is `redis`, default is `false`.
+         * When `engine` is `valkey`, default is `true`.
          * 
          * @return builder
          * 
          */
-        public Builder atRestEncryptionEnabled(@Nullable Output<Boolean> atRestEncryptionEnabled) {
+        public Builder atRestEncryptionEnabled(@Nullable Output<String> atRestEncryptionEnabled) {
             $.atRestEncryptionEnabled = atRestEncryptionEnabled;
             return this;
         }
 
         /**
          * @param atRestEncryptionEnabled Whether to enable encryption at rest.
+         * When `engine` is `redis`, default is `false`.
+         * When `engine` is `valkey`, default is `true`.
          * 
          * @return builder
          * 
          */
-        public Builder atRestEncryptionEnabled(Boolean atRestEncryptionEnabled) {
+        public Builder atRestEncryptionEnabled(String atRestEncryptionEnabled) {
             return atRestEncryptionEnabled(Output.of(atRestEncryptionEnabled));
         }
 
@@ -1118,7 +1130,9 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param engine Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
+         * @param engine Name of the cache engine to be used for the clusters in this replication group.
+         * Valid values are `redis` or `valkey`.
+         * Default is `redis`.
          * 
          * @return builder
          * 
@@ -1129,7 +1143,9 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param engine Name of the cache engine to be used for the clusters in this replication group. Valid values are `redis` or `valkey`.
+         * @param engine Name of the cache engine to be used for the clusters in this replication group.
+         * Valid values are `redis` or `valkey`.
+         * Default is `redis`.
          * 
          * @return builder
          * 

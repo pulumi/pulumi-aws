@@ -40,6 +40,11 @@ namespace Pulumi.Aws.AppStream
     ///         {
     ///             new Aws.AppStream.Inputs.StackUserSettingArgs
     ///             {
+    ///                 Action = "AUTO_TIME_ZONE_REDIRECTION",
+    ///                 Permission = "DISABLED",
+    ///             },
+    ///             new Aws.AppStream.Inputs.StackUserSettingArgs
+    ///             {
     ///                 Action = "CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
     ///                 Permission = "ENABLED",
     ///             },

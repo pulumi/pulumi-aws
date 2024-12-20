@@ -53,6 +53,8 @@ type Gateway struct {
 
 	// The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
 	AmazonSideAsn pulumi.StringOutput `pulumi:"amazonSideAsn"`
+	// The ARN of the gateway.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the connection.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// AWS Account ID of the gateway.
@@ -94,6 +96,8 @@ func GetGateway(ctx *pulumi.Context,
 type gatewayState struct {
 	// The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
 	AmazonSideAsn *string `pulumi:"amazonSideAsn"`
+	// The ARN of the gateway.
+	Arn *string `pulumi:"arn"`
 	// The name of the connection.
 	Name *string `pulumi:"name"`
 	// AWS Account ID of the gateway.
@@ -103,6 +107,8 @@ type gatewayState struct {
 type GatewayState struct {
 	// The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
 	AmazonSideAsn pulumi.StringPtrInput
+	// The ARN of the gateway.
+	Arn pulumi.StringPtrInput
 	// The name of the connection.
 	Name pulumi.StringPtrInput
 	// AWS Account ID of the gateway.
@@ -218,6 +224,11 @@ func (o GatewayOutput) ToGatewayOutputWithContext(ctx context.Context) GatewayOu
 // The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
 func (o GatewayOutput) AmazonSideAsn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.AmazonSideAsn }).(pulumi.StringOutput)
+}
+
+// The ARN of the gateway.
+func (o GatewayOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // The name of the connection.

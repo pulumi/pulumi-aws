@@ -503,6 +503,7 @@ func (o EndpointSseSpecificationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 }
 
 type GroupSseConfiguration struct {
+	// Boolean flag to indicate that the CMK should be used.
 	CustomerManagedKeyEnabled *bool `pulumi:"customerManagedKeyEnabled"`
 	// ARN of the KMS key to use.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
@@ -520,6 +521,7 @@ type GroupSseConfigurationInput interface {
 }
 
 type GroupSseConfigurationArgs struct {
+	// Boolean flag to indicate that the CMK should be used.
 	CustomerManagedKeyEnabled pulumi.BoolPtrInput `pulumi:"customerManagedKeyEnabled"`
 	// ARN of the KMS key to use.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
@@ -602,6 +604,7 @@ func (o GroupSseConfigurationOutput) ToGroupSseConfigurationPtrOutputWithContext
 	}).(GroupSseConfigurationPtrOutput)
 }
 
+// Boolean flag to indicate that the CMK should be used.
 func (o GroupSseConfigurationOutput) CustomerManagedKeyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GroupSseConfiguration) *bool { return v.CustomerManagedKeyEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -635,6 +638,7 @@ func (o GroupSseConfigurationPtrOutput) Elem() GroupSseConfigurationOutput {
 	}).(GroupSseConfigurationOutput)
 }
 
+// Boolean flag to indicate that the CMK should be used.
 func (o GroupSseConfigurationPtrOutput) CustomerManagedKeyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GroupSseConfiguration) *bool {
 		if v == nil {

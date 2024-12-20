@@ -27,6 +27,10 @@ import * as utilities from "../utilities";
  *     }],
  *     userSettings: [
  *         {
+ *             action: "AUTO_TIME_ZONE_REDIRECTION",
+ *             permission: "DISABLED",
+ *         },
+ *         {
  *             action: "CLIPBOARD_COPY_FROM_LOCAL_DEVICE",
  *             permission: "ENABLED",
  *         },

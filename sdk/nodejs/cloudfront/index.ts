@@ -135,6 +135,11 @@ export type ResponseHeadersPolicy = import("./responseHeadersPolicy").ResponseHe
 export const ResponseHeadersPolicy: typeof import("./responseHeadersPolicy").ResponseHeadersPolicy = null as any;
 utilities.lazyLoad(exports, ["ResponseHeadersPolicy"], () => require("./responseHeadersPolicy"));
 
+export { VpcOriginArgs, VpcOriginState } from "./vpcOrigin";
+export type VpcOrigin = import("./vpcOrigin").VpcOrigin;
+export const VpcOrigin: typeof import("./vpcOrigin").VpcOrigin = null as any;
+utilities.lazyLoad(exports, ["VpcOrigin"], () => require("./vpcOrigin"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -172,6 +177,8 @@ const _module = {
                 return new RealtimeLogConfig(name, <any>undefined, { urn })
             case "aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy":
                 return new ResponseHeadersPolicy(name, <any>undefined, { urn })
+            case "aws:cloudfront/vpcOrigin:VpcOrigin":
+                return new VpcOrigin(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -193,3 +200,4 @@ pulumi.runtime.registerResourceModule("aws", "cloudfront/originRequestPolicy", _
 pulumi.runtime.registerResourceModule("aws", "cloudfront/publicKey", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/realtimeLogConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/responseHeadersPolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudfront/vpcOrigin", _module)

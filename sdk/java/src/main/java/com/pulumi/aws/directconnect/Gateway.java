@@ -78,6 +78,20 @@ public class Gateway extends com.pulumi.resources.CustomResource {
         return this.amazonSideAsn;
     }
     /**
+     * The ARN of the gateway.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return The ARN of the gateway.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
+    /**
      * The name of the connection.
      * 
      */

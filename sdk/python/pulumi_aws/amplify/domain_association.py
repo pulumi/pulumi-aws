@@ -476,7 +476,7 @@ class DomainAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateSettings")
-    def certificate_settings(self) -> pulumi.Output[Optional['outputs.DomainAssociationCertificateSettings']]:
+    def certificate_settings(self) -> pulumi.Output['outputs.DomainAssociationCertificateSettings']:
         """
         The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
         """

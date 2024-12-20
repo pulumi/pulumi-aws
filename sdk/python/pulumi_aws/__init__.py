@@ -970,6 +970,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "apigateway/domainNameAccessAssociation",
+  "fqn": "pulumi_aws.apigateway",
+  "classes": {
+   "aws:apigateway/domainNameAccessAssociation:DomainNameAccessAssociation": "DomainNameAccessAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "apigateway/integration",
   "fqn": "pulumi_aws.apigateway",
   "classes": {
@@ -2470,6 +2478,14 @@ _utilities.register(
   "fqn": "pulumi_aws.cloudfront",
   "classes": {
    "aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy": "ResponseHeadersPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudfront/vpcOrigin",
+  "fqn": "pulumi_aws.cloudfront",
+  "classes": {
+   "aws:cloudfront/vpcOrigin:VpcOrigin": "VpcOrigin"
   }
  },
  {
@@ -7970,6 +7986,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "memorydb/multiRegionCluster",
+  "fqn": "pulumi_aws.memorydb",
+  "classes": {
+   "aws:memorydb/multiRegionCluster:MultiRegionCluster": "MultiRegionCluster"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "memorydb/parameterGroup",
   "fqn": "pulumi_aws.memorydb",
   "classes": {
@@ -8294,6 +8318,14 @@ _utilities.register(
   "fqn": "pulumi_aws.networkmanager",
   "classes": {
    "aws:networkmanager/device:Device": "Device"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "networkmanager/dxGatewayAttachment",
+  "fqn": "pulumi_aws.networkmanager",
+  "classes": {
+   "aws:networkmanager/dxGatewayAttachment:DxGatewayAttachment": "DxGatewayAttachment"
   }
  },
  {
@@ -9150,6 +9182,14 @@ _utilities.register(
   "fqn": "pulumi_aws.rds",
   "classes": {
    "aws:rds/clusterSnapshot:ClusterSnapshot": "ClusterSnapshot"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "rds/clusterSnapshotCopy",
+  "fqn": "pulumi_aws.rds",
+  "classes": {
+   "aws:rds/clusterSnapshotCopy:ClusterSnapshotCopy": "ClusterSnapshotCopy"
   }
  },
  {

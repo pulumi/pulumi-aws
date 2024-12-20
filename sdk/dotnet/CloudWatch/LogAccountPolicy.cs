@@ -102,6 +102,34 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// 
+    /// ### Field Index Policy
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fieldIndex = new Aws.CloudWatch.LogAccountPolicy("field_index", new()
+    ///     {
+    ///         PolicyName = "field-index",
+    ///         PolicyType = "FIELD_INDEX_POLICY",
+    ///         PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Fields"] = new[]
+    ///             {
+    ///                 "field1",
+    ///                 "field2",
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import this resource using the `policy_name` and `policy_type` separated by `:`. For example:
@@ -126,7 +154,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> PolicyName { get; private set; } = null!;
 
         /// <summary>
-        /// Type of account policy. Either `DATA_PROTECTION_POLICY` or `SUBSCRIPTION_FILTER_POLICY`. You can have one account policy per type in an account.
+        /// Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
         /// </summary>
         [Output("policyType")]
         public Output<string> PolicyType { get; private set; } = null!;
@@ -202,7 +230,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string> PolicyName { get; set; } = null!;
 
         /// <summary>
-        /// Type of account policy. Either `DATA_PROTECTION_POLICY` or `SUBSCRIPTION_FILTER_POLICY`. You can have one account policy per type in an account.
+        /// Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
         /// </summary>
         [Input("policyType", required: true)]
         public Input<string> PolicyType { get; set; } = null!;
@@ -240,7 +268,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? PolicyName { get; set; }
 
         /// <summary>
-        /// Type of account policy. Either `DATA_PROTECTION_POLICY` or `SUBSCRIPTION_FILTER_POLICY`. You can have one account policy per type in an account.
+        /// Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
         /// </summary>
         [Input("policyType")]
         public Input<string>? PolicyType { get; set; }

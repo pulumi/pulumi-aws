@@ -82,9 +82,13 @@ export class AttachmentAccepter extends pulumi.CustomResource {
      */
     public /*out*/ readonly coreNetworkId!: pulumi.Output<string>;
     /**
-     * The Region where the edge is located.
+     * The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns `edgeLocations`.
      */
     public /*out*/ readonly edgeLocation!: pulumi.Output<string>;
+    /**
+     * The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edgeLocation`
+     */
+    public /*out*/ readonly edgeLocations!: pulumi.Output<string[]>;
     /**
      * The ID of the attachment account owner.
      */
@@ -121,6 +125,7 @@ export class AttachmentAccepter extends pulumi.CustomResource {
             resourceInputs["coreNetworkArn"] = state ? state.coreNetworkArn : undefined;
             resourceInputs["coreNetworkId"] = state ? state.coreNetworkId : undefined;
             resourceInputs["edgeLocation"] = state ? state.edgeLocation : undefined;
+            resourceInputs["edgeLocations"] = state ? state.edgeLocations : undefined;
             resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
             resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
             resourceInputs["segmentName"] = state ? state.segmentName : undefined;
@@ -139,6 +144,7 @@ export class AttachmentAccepter extends pulumi.CustomResource {
             resourceInputs["coreNetworkArn"] = undefined /*out*/;
             resourceInputs["coreNetworkId"] = undefined /*out*/;
             resourceInputs["edgeLocation"] = undefined /*out*/;
+            resourceInputs["edgeLocations"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["segmentName"] = undefined /*out*/;
@@ -174,9 +180,13 @@ export interface AttachmentAccepterState {
      */
     coreNetworkId?: pulumi.Input<string>;
     /**
-     * The Region where the edge is located.
+     * The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns `edgeLocations`.
      */
     edgeLocation?: pulumi.Input<string>;
+    /**
+     * The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edgeLocation`
+     */
+    edgeLocations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the attachment account owner.
      */

@@ -26,6 +26,10 @@ namespace Pulumi.Aws.LicenseManager.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Indicates whether overages are allowed.
+        /// </summary>
+        public readonly bool Overage;
+        /// <summary>
         /// Entitlement unit.
         /// </summary>
         public readonly string Unit;
@@ -42,6 +46,8 @@ namespace Pulumi.Aws.LicenseManager.Outputs
 
             string name,
 
+            bool overage,
+
             string unit,
 
             string value)
@@ -49,6 +55,7 @@ namespace Pulumi.Aws.LicenseManager.Outputs
             AllowCheckIn = allowCheckIn;
             MaxCount = maxCount;
             Name = name;
+            Overage = overage;
             Unit = unit;
             Value = value;
         }

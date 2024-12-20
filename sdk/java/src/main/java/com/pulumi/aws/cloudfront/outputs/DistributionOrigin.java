@@ -7,6 +7,7 @@ import com.pulumi.aws.cloudfront.outputs.DistributionOriginCustomHeader;
 import com.pulumi.aws.cloudfront.outputs.DistributionOriginCustomOriginConfig;
 import com.pulumi.aws.cloudfront.outputs.DistributionOriginOriginShield;
 import com.pulumi.aws.cloudfront.outputs.DistributionOriginS3OriginConfig;
+import com.pulumi.aws.cloudfront.outputs.DistributionOriginVpcOriginConfig;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
@@ -64,6 +65,11 @@ public final class DistributionOrigin {
      * 
      */
     private @Nullable DistributionOriginS3OriginConfig s3OriginConfig;
+    /**
+     * @return The VPC origin configuration.
+     * 
+     */
+    private @Nullable DistributionOriginVpcOriginConfig vpcOriginConfig;
 
     private DistributionOrigin() {}
     /**
@@ -132,6 +138,13 @@ public final class DistributionOrigin {
     public Optional<DistributionOriginS3OriginConfig> s3OriginConfig() {
         return Optional.ofNullable(this.s3OriginConfig);
     }
+    /**
+     * @return The VPC origin configuration.
+     * 
+     */
+    public Optional<DistributionOriginVpcOriginConfig> vpcOriginConfig() {
+        return Optional.ofNullable(this.vpcOriginConfig);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -152,6 +165,7 @@ public final class DistributionOrigin {
         private @Nullable String originPath;
         private @Nullable DistributionOriginOriginShield originShield;
         private @Nullable DistributionOriginS3OriginConfig s3OriginConfig;
+        private @Nullable DistributionOriginVpcOriginConfig vpcOriginConfig;
         public Builder() {}
         public Builder(DistributionOrigin defaults) {
     	      Objects.requireNonNull(defaults);
@@ -165,6 +179,7 @@ public final class DistributionOrigin {
     	      this.originPath = defaults.originPath;
     	      this.originShield = defaults.originShield;
     	      this.s3OriginConfig = defaults.s3OriginConfig;
+    	      this.vpcOriginConfig = defaults.vpcOriginConfig;
         }
 
         @CustomType.Setter
@@ -234,6 +249,12 @@ public final class DistributionOrigin {
             this.s3OriginConfig = s3OriginConfig;
             return this;
         }
+        @CustomType.Setter
+        public Builder vpcOriginConfig(@Nullable DistributionOriginVpcOriginConfig vpcOriginConfig) {
+
+            this.vpcOriginConfig = vpcOriginConfig;
+            return this;
+        }
         public DistributionOrigin build() {
             final var _resultValue = new DistributionOrigin();
             _resultValue.connectionAttempts = connectionAttempts;
@@ -246,6 +267,7 @@ public final class DistributionOrigin {
             _resultValue.originPath = originPath;
             _resultValue.originShield = originShield;
             _resultValue.s3OriginConfig = s3OriginConfig;
+            _resultValue.vpcOriginConfig = vpcOriginConfig;
             return _resultValue;
         }
     }

@@ -33,6 +33,7 @@ public final class DomainAssociationCertificateSettingsArgs extends com.pulumi.r
 
     /**
      * The Amazon resource name (ARN) for the custom certificate.
+     * Required when `type` is `CUSTOM`.
      * 
      */
     @Import(name="customCertificateArn")
@@ -40,6 +41,7 @@ public final class DomainAssociationCertificateSettingsArgs extends com.pulumi.r
 
     /**
      * @return The Amazon resource name (ARN) for the custom certificate.
+     * Required when `type` is `CUSTOM`.
      * 
      */
     public Optional<Output<String>> customCertificateArn() {
@@ -47,14 +49,16 @@ public final class DomainAssociationCertificateSettingsArgs extends com.pulumi.r
     }
 
     /**
-     * The certificate type. Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
+     * The certificate type.
+     * Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The certificate type. Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
+     * @return The certificate type.
+     * Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
      * 
      */
     public Output<String> type() {
@@ -110,6 +114,7 @@ public final class DomainAssociationCertificateSettingsArgs extends com.pulumi.r
 
         /**
          * @param customCertificateArn The Amazon resource name (ARN) for the custom certificate.
+         * Required when `type` is `CUSTOM`.
          * 
          * @return builder
          * 
@@ -121,6 +126,7 @@ public final class DomainAssociationCertificateSettingsArgs extends com.pulumi.r
 
         /**
          * @param customCertificateArn The Amazon resource name (ARN) for the custom certificate.
+         * Required when `type` is `CUSTOM`.
          * 
          * @return builder
          * 
@@ -130,7 +136,8 @@ public final class DomainAssociationCertificateSettingsArgs extends com.pulumi.r
         }
 
         /**
-         * @param type The certificate type. Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
+         * @param type The certificate type.
+         * Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
          * 
          * @return builder
          * 
@@ -141,7 +148,8 @@ public final class DomainAssociationCertificateSettingsArgs extends com.pulumi.r
         }
 
         /**
-         * @param type The certificate type. Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
+         * @param type The certificate type.
+         * Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
          * 
          * @return builder
          * 

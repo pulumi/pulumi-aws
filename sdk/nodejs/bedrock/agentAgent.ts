@@ -105,6 +105,10 @@ export class AgentAgent extends pulumi.CustomResource {
      */
     public /*out*/ readonly agentArn!: pulumi.Output<string>;
     /**
+     * Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
+     */
+    public readonly agentCollaboration!: pulumi.Output<string>;
+    /**
      * Unique identifier of the agent.
      */
     public /*out*/ readonly agentId!: pulumi.Output<string>;
@@ -184,6 +188,7 @@ export class AgentAgent extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as AgentAgentState | undefined;
             resourceInputs["agentArn"] = state ? state.agentArn : undefined;
+            resourceInputs["agentCollaboration"] = state ? state.agentCollaboration : undefined;
             resourceInputs["agentId"] = state ? state.agentId : undefined;
             resourceInputs["agentName"] = state ? state.agentName : undefined;
             resourceInputs["agentResourceRoleArn"] = state ? state.agentResourceRoleArn : undefined;
@@ -211,6 +216,7 @@ export class AgentAgent extends pulumi.CustomResource {
             if ((!args || args.foundationModel === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'foundationModel'");
             }
+            resourceInputs["agentCollaboration"] = args ? args.agentCollaboration : undefined;
             resourceInputs["agentName"] = args ? args.agentName : undefined;
             resourceInputs["agentResourceRoleArn"] = args ? args.agentResourceRoleArn : undefined;
             resourceInputs["customerEncryptionKeyArn"] = args ? args.customerEncryptionKeyArn : undefined;
@@ -242,6 +248,10 @@ export interface AgentAgentState {
      * ARN of the agent.
      */
     agentArn?: pulumi.Input<string>;
+    /**
+     * Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
+     */
+    agentCollaboration?: pulumi.Input<string>;
     /**
      * Unique identifier of the agent.
      */
@@ -313,6 +323,10 @@ export interface AgentAgentState {
  * The set of arguments for constructing a AgentAgent resource.
  */
 export interface AgentAgentArgs {
+    /**
+     * Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
+     */
+    agentCollaboration?: pulumi.Input<string>;
     /**
      * Name of the agent.
      */

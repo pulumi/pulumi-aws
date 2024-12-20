@@ -62,6 +62,24 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Field Index Policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const fieldIndex = new aws.cloudwatch.LogAccountPolicy("field_index", {
+ *     policyName: "field-index",
+ *     policyType: "FIELD_INDEX_POLICY",
+ *     policyDocument: JSON.stringify({
+ *         Fields: [
+ *             "field1",
+ *             "field2",
+ *         ],
+ *     }),
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import this resource using the `policy_name` and `policy_type` separated by `:`. For example:
@@ -107,7 +125,7 @@ export class LogAccountPolicy extends pulumi.CustomResource {
      */
     public readonly policyName!: pulumi.Output<string>;
     /**
-     * Type of account policy. Either `DATA_PROTECTION_POLICY` or `SUBSCRIPTION_FILTER_POLICY`. You can have one account policy per type in an account.
+     * Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
      */
     public readonly policyType!: pulumi.Output<string>;
     /**
@@ -172,7 +190,7 @@ export interface LogAccountPolicyState {
      */
     policyName?: pulumi.Input<string>;
     /**
-     * Type of account policy. Either `DATA_PROTECTION_POLICY` or `SUBSCRIPTION_FILTER_POLICY`. You can have one account policy per type in an account.
+     * Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
      */
     policyType?: pulumi.Input<string>;
     /**
@@ -198,7 +216,7 @@ export interface LogAccountPolicyArgs {
      */
     policyName: pulumi.Input<string>;
     /**
-     * Type of account policy. Either `DATA_PROTECTION_POLICY` or `SUBSCRIPTION_FILTER_POLICY`. You can have one account policy per type in an account.
+     * Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
      */
     policyType: pulumi.Input<string>;
     /**

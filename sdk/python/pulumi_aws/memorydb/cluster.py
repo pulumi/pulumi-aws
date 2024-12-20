@@ -31,6 +31,7 @@ class ClusterArgs:
                  final_snapshot_name: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
+                 multi_region_cluster_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  num_replicas_per_shard: Optional[pulumi.Input[int]] = None,
@@ -60,6 +61,7 @@ class ClusterArgs:
         :param pulumi.Input[str] final_snapshot_name: Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] kms_key_arn: ARN of the KMS key used to encrypt the cluster at rest.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+        :param pulumi.Input[str] multi_region_cluster_name: The multi region cluster identifier specified on `memorydb.MultiRegionCluster`.
         :param pulumi.Input[str] name: Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[int] num_replicas_per_shard: The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
@@ -94,6 +96,8 @@ class ClusterArgs:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if maintenance_window is not None:
             pulumi.set(__self__, "maintenance_window", maintenance_window)
+        if multi_region_cluster_name is not None:
+            pulumi.set(__self__, "multi_region_cluster_name", multi_region_cluster_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if name_prefix is not None:
@@ -246,6 +250,18 @@ class ClusterArgs:
     @maintenance_window.setter
     def maintenance_window(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "maintenance_window", value)
+
+    @property
+    @pulumi.getter(name="multiRegionClusterName")
+    def multi_region_cluster_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The multi region cluster identifier specified on `memorydb.MultiRegionCluster`.
+        """
+        return pulumi.get(self, "multi_region_cluster_name")
+
+    @multi_region_cluster_name.setter
+    def multi_region_cluster_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "multi_region_cluster_name", value)
 
     @property
     @pulumi.getter
@@ -443,6 +459,7 @@ class _ClusterState:
                  final_snapshot_name: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
+                 multi_region_cluster_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
@@ -474,6 +491,7 @@ class _ClusterState:
         :param pulumi.Input[str] final_snapshot_name: Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] kms_key_arn: ARN of the KMS key used to encrypt the cluster at rest.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+        :param pulumi.Input[str] multi_region_cluster_name: The multi region cluster identifier specified on `memorydb.MultiRegionCluster`.
         :param pulumi.Input[str] name: Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] node_type: The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
@@ -519,6 +537,8 @@ class _ClusterState:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if maintenance_window is not None:
             pulumi.set(__self__, "maintenance_window", maintenance_window)
+        if multi_region_cluster_name is not None:
+            pulumi.set(__self__, "multi_region_cluster_name", multi_region_cluster_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if name_prefix is not None:
@@ -699,6 +719,18 @@ class _ClusterState:
     @maintenance_window.setter
     def maintenance_window(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "maintenance_window", value)
+
+    @property
+    @pulumi.getter(name="multiRegionClusterName")
+    def multi_region_cluster_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The multi region cluster identifier specified on `memorydb.MultiRegionCluster`.
+        """
+        return pulumi.get(self, "multi_region_cluster_name")
+
+    @multi_region_cluster_name.setter
+    def multi_region_cluster_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "multi_region_cluster_name", value)
 
     @property
     @pulumi.getter
@@ -934,6 +966,7 @@ class Cluster(pulumi.CustomResource):
                  final_snapshot_name: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
+                 multi_region_cluster_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
@@ -993,6 +1026,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] final_snapshot_name: Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] kms_key_arn: ARN of the KMS key used to encrypt the cluster at rest.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+        :param pulumi.Input[str] multi_region_cluster_name: The multi region cluster identifier specified on `memorydb.MultiRegionCluster`.
         :param pulumi.Input[str] name: Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] node_type: The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
@@ -1073,6 +1107,7 @@ class Cluster(pulumi.CustomResource):
                  final_snapshot_name: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
+                 multi_region_cluster_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
@@ -1109,6 +1144,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["final_snapshot_name"] = final_snapshot_name
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["maintenance_window"] = maintenance_window
+            __props__.__dict__["multi_region_cluster_name"] = multi_region_cluster_name
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix
             if node_type is None and not opts.urn:
@@ -1154,6 +1190,7 @@ class Cluster(pulumi.CustomResource):
             final_snapshot_name: Optional[pulumi.Input[str]] = None,
             kms_key_arn: Optional[pulumi.Input[str]] = None,
             maintenance_window: Optional[pulumi.Input[str]] = None,
+            multi_region_cluster_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             name_prefix: Optional[pulumi.Input[str]] = None,
             node_type: Optional[pulumi.Input[str]] = None,
@@ -1190,6 +1227,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] final_snapshot_name: Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] kms_key_arn: ARN of the KMS key used to encrypt the cluster at rest.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+        :param pulumi.Input[str] multi_region_cluster_name: The multi region cluster identifier specified on `memorydb.MultiRegionCluster`.
         :param pulumi.Input[str] name: Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] node_type: The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
@@ -1227,6 +1265,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["final_snapshot_name"] = final_snapshot_name
         __props__.__dict__["kms_key_arn"] = kms_key_arn
         __props__.__dict__["maintenance_window"] = maintenance_window
+        __props__.__dict__["multi_region_cluster_name"] = multi_region_cluster_name
         __props__.__dict__["name"] = name
         __props__.__dict__["name_prefix"] = name_prefix
         __props__.__dict__["node_type"] = node_type
@@ -1339,6 +1378,14 @@ class Cluster(pulumi.CustomResource):
         Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
         """
         return pulumi.get(self, "maintenance_window")
+
+    @property
+    @pulumi.getter(name="multiRegionClusterName")
+    def multi_region_cluster_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The multi region cluster identifier specified on `memorydb.MultiRegionCluster`.
+        """
+        return pulumi.get(self, "multi_region_cluster_name")
 
     @property
     @pulumi.getter

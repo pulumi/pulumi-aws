@@ -69,36 +69,40 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## Import
+ * 
+ * Using `pulumi import`, import an AWS Resource Groups Resource using `group_arn` and `resource_arn`, separated by a comma (`,`). For example:
+ * 
+ * ```sh
+ * $ pulumi import aws:resourcegroups/resource:Resource example arn:aws:resource-groups:us-west-2:012345678901:group/example,arn:aws:lambda:us-west-2:012345678901:function:example
+ * ```
+ * 
  */
 @ResourceType(type="aws:resourcegroups/resource:Resource")
 public class Resource extends com.pulumi.resources.CustomResource {
     /**
-     * The name or the ARN of the resource group to add resources to.
-     * 
-     * The following arguments are optional:
+     * Name or ARN of the resource group to add resources to.
      * 
      */
     @Export(name="groupArn", refs={String.class}, tree="[0]")
     private Output<String> groupArn;
 
     /**
-     * @return The name or the ARN of the resource group to add resources to.
-     * 
-     * The following arguments are optional:
+     * @return Name or ARN of the resource group to add resources to.
      * 
      */
     public Output<String> groupArn() {
         return this.groupArn;
     }
     /**
-     * The ARN of the resource to be added to the group.
+     * ARN of the resource to be added to the group.
      * 
      */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
-     * @return The ARN of the resource to be added to the group.
+     * @return ARN of the resource to be added to the group.
      * 
      */
     public Output<String> resourceArn() {
