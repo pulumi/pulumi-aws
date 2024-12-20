@@ -179,7 +179,7 @@ func TestRegress2534(t *testing.T) {
 }
 
 func TestRegress4457(t *testing.T) {
-	t.Skipf("TODO[pulumi/pulumi-aws#4957]")
+	t.Skipf("TODO[pulumi/pulumi-aws#4958]")
 	ptest := pulumiTest(t, filepath.Join("test-programs", "regress-4457"))
 	upResult := ptest.Up(t)
 	autoGroupArn := upResult.Outputs["autoGroupArn"].Value.(string)
