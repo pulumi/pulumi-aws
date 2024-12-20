@@ -183,6 +183,10 @@ func TestSecretVersionUpgrade(t *testing.T) {
 	testProviderUpgrade(t, filepath.Join("test-programs", "secretversion"), nil)
 }
 
+func TestElasticacheReplicationGroupUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("test-programs", "elasticache-replication-group"), nil)
+}
+
 func TestRdsParameterGroupUnclearDiff(t *testing.T) {
 	t.Parallel()
 	if testing.Short() {
@@ -1929,4 +1933,13 @@ func TestSourceCodeHashImportedLambdaChecksCleanly(t *testing.T) {
         "name": "aws"
     }
 }]`)
+}
+
+func TestElasticacheReplicationGroup(t *testing.T) {
+	t.Parallel()
+
+	ptest := pulumiTest(t, filepath.Join("test-programs", "elasticache-replication-group"), opttest.SkipInstall())
+	upResult := ptest.Up(t)
+	replicationGroupArn := upResult.Outputs["replicationGroupArn"].Value.(string)
+	assert.NotEmpty(t, replicationGroupArn)
 }

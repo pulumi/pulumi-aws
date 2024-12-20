@@ -4,6 +4,7 @@ package examples
 import (
 	"bytes"
 	"context"
+	_ "embed"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -13,15 +14,21 @@ import (
 
 	"github.com/pulumi/providertest"
 	"github.com/pulumi/providertest/optproviderupgrade"
+	"github.com/pulumi/providertest/providers"
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/providertest/pulumitest/assertpreview"
 	"github.com/pulumi/providertest/pulumitest/optnewstack"
 	"github.com/pulumi/providertest/pulumitest/opttest"
+	pfbridge "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optpreview"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optup"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/apitype"
+	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
+	aws "github.com/pulumi/pulumi-aws/provider/v6"
+	"github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
 )
 
 func TestUpgradeCoverage(t *testing.T) {
@@ -316,4 +323,33 @@ func planEqual(t *testing.T, firstPlan, secondPlan string) bool {
 	secondPlanData := readPlan(t, secondPlan)
 
 	return assert.Equal(t, firstPlanData, secondPlanData)
+}
+
+func inPlacePulumiTest(t *testing.T, dir string, opts ...opttest.Option) *pulumitest.PulumiTest {
+	t.Helper()
+	if testing.Short() {
+		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without AWS creds")
+		return nil
+	}
+	rpFactory := providers.ResourceProviderFactory(providerServer)
+
+	opts = append(opts, opttest.AttachProvider("aws", rpFactory))
+	return pulumitest.NewPulumiTest(t, dir, opts...)
+}
+
+func providerServer(_ providers.PulumiTest) (pulumirpc.ResourceProviderServer, error) {
+	ctx := context.Background()
+	// This is necessary for gRPC testing. It doesn't effect integration tests, since
+	// they use their own binary.
+	version.Version = "6.0.0"
+	info := *aws.Provider()
+
+	return pfbridge.MakeMuxedServer(ctx, info.Name, info,
+		/*
+		 * We leave the schema blank. This will result in incorrect calls to
+		 * GetSchema, but otherwise does not effect the provider. It reduces the
+		 * time to test start by minutes.
+		 */
+		[]byte("{}"),
+	)(nil)
 }
