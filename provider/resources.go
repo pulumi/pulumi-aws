@@ -6013,4 +6013,10 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	) (resource.ID, error) {
 		return attr(state, "arn"), nil
 	}
+
+	prov.Resources["aws_memorydb_multi_region_cluster"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attr(state, "multiRegionClusterName"), nil
+	}
 }
