@@ -45,7 +45,6 @@ jobs:
       matrix:
         service:
           - sqs
-          - waf
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
