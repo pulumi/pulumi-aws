@@ -11,11 +11,15 @@ import java.util.Objects;
 
 @CustomType
 public final class GetListenerMutualAuthentication {
+    private String advertiseTrustStoreCaNames;
     private Boolean ignoreClientCertificateExpiry;
     private String mode;
     private String trustStoreArn;
 
     private GetListenerMutualAuthentication() {}
+    public String advertiseTrustStoreCaNames() {
+        return this.advertiseTrustStoreCaNames;
+    }
     public Boolean ignoreClientCertificateExpiry() {
         return this.ignoreClientCertificateExpiry;
     }
@@ -35,17 +39,27 @@ public final class GetListenerMutualAuthentication {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String advertiseTrustStoreCaNames;
         private Boolean ignoreClientCertificateExpiry;
         private String mode;
         private String trustStoreArn;
         public Builder() {}
         public Builder(GetListenerMutualAuthentication defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.advertiseTrustStoreCaNames = defaults.advertiseTrustStoreCaNames;
     	      this.ignoreClientCertificateExpiry = defaults.ignoreClientCertificateExpiry;
     	      this.mode = defaults.mode;
     	      this.trustStoreArn = defaults.trustStoreArn;
         }
 
+        @CustomType.Setter
+        public Builder advertiseTrustStoreCaNames(String advertiseTrustStoreCaNames) {
+            if (advertiseTrustStoreCaNames == null) {
+              throw new MissingRequiredPropertyException("GetListenerMutualAuthentication", "advertiseTrustStoreCaNames");
+            }
+            this.advertiseTrustStoreCaNames = advertiseTrustStoreCaNames;
+            return this;
+        }
         @CustomType.Setter
         public Builder ignoreClientCertificateExpiry(Boolean ignoreClientCertificateExpiry) {
             if (ignoreClientCertificateExpiry == null) {
@@ -72,6 +86,7 @@ public final class GetListenerMutualAuthentication {
         }
         public GetListenerMutualAuthentication build() {
             final var _resultValue = new GetListenerMutualAuthentication();
+            _resultValue.advertiseTrustStoreCaNames = advertiseTrustStoreCaNames;
             _resultValue.ignoreClientCertificateExpiry = ignoreClientCertificateExpiry;
             _resultValue.mode = mode;
             _resultValue.trustStoreArn = trustStoreArn;

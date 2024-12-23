@@ -2811,12 +2811,19 @@ class GetListenerDefaultActionRedirectResult(dict):
 @pulumi.output_type
 class GetListenerMutualAuthenticationResult(dict):
     def __init__(__self__, *,
+                 advertise_trust_store_ca_names: str,
                  ignore_client_certificate_expiry: bool,
                  mode: str,
                  trust_store_arn: str):
+        pulumi.set(__self__, "advertise_trust_store_ca_names", advertise_trust_store_ca_names)
         pulumi.set(__self__, "ignore_client_certificate_expiry", ignore_client_certificate_expiry)
         pulumi.set(__self__, "mode", mode)
         pulumi.set(__self__, "trust_store_arn", trust_store_arn)
+
+    @property
+    @pulumi.getter(name="advertiseTrustStoreCaNames")
+    def advertise_trust_store_ca_names(self) -> str:
+        return pulumi.get(self, "advertise_trust_store_ca_names")
 
     @property
     @pulumi.getter(name="ignoreClientCertificateExpiry")

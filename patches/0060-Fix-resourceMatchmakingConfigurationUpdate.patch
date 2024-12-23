@@ -5,7 +5,7 @@ Subject: [PATCH] Fix resourceMatchmakingConfigurationUpdate
 
 
 diff --git a/internal/service/gamelift/matchmaking_configuration.go b/internal/service/gamelift/matchmaking_configuration.go
-index 72f7d31d85..89ecad9db0 100644
+index 72f7d31d857..89ecad9db08 100644
 --- a/internal/service/gamelift/matchmaking_configuration.go
 +++ b/internal/service/gamelift/matchmaking_configuration.go
 @@ -309,7 +309,7 @@ func resourceMatchmakingConfigurationUpdate(ctx context.Context, d *schema.Resou

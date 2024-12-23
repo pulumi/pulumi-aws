@@ -6,7 +6,7 @@ Subject: [PATCH] remove required elements from schema and fix tests (#77)
 Co-authored-by: Lee Briggs <lee@leebriggs.co.uk>
 
 diff --git a/internal/service/gamelift/matchmaking_configuration.go b/internal/service/gamelift/matchmaking_configuration.go
-index e17f71e6b6..4a0ccf149d 100644
+index e17f71e6b66..4a0ccf149dc 100644
 --- a/internal/service/gamelift/matchmaking_configuration.go
 +++ b/internal/service/gamelift/matchmaking_configuration.go
 @@ -29,7 +29,7 @@ func ResourceMatchMakingConfiguration() *schema.Resource {
@@ -42,7 +42,7 @@ index e17f71e6b6..4a0ccf149d 100644
  
  	return nil
 diff --git a/internal/service/gamelift/matchmaking_configuration_test.go b/internal/service/gamelift/matchmaking_configuration_test.go
-index 94c9a8c29b..339f9dd6df 100644
+index 94c9a8c29bd..339f9dd6dfa 100644
 --- a/internal/service/gamelift/matchmaking_configuration_test.go
 +++ b/internal/service/gamelift/matchmaking_configuration_test.go
 @@ -1,6 +1,7 @@
@@ -169,7 +169,7 @@ index 94c9a8c29b..339f9dd6df 100644
  		})
  
 diff --git a/internal/service/gamelift/matchmaking_rule_set.go b/internal/service/gamelift/matchmaking_rule_set.go
-index 254c96efc6..54b86a0426 100644
+index 254c96efc6e..54b86a0426a 100644
 --- a/internal/service/gamelift/matchmaking_rule_set.go
 +++ b/internal/service/gamelift/matchmaking_rule_set.go
 @@ -119,11 +119,11 @@ func resourceMatchmakingRuleSetRead(ctx context.Context, d *schema.ResourceData,
@@ -187,7 +187,7 @@ index 254c96efc6..54b86a0426 100644
  
  	return nil
 diff --git a/internal/service/gamelift/matchmaking_rule_set_test.go b/internal/service/gamelift/matchmaking_rule_set_test.go
-index 9dbf039588..061e93f186 100644
+index 9dbf0395884..061e93f186b 100644
 --- a/internal/service/gamelift/matchmaking_rule_set_test.go
 +++ b/internal/service/gamelift/matchmaking_rule_set_test.go
 @@ -1,6 +1,7 @@
