@@ -5,7 +5,7 @@ Subject: [PATCH] Allow creating lambdas without code related properties
 
 
 diff --git a/internal/service/lambda/function.go b/internal/service/lambda/function.go
-index 5126ae9dd5..6f372e18a6 100644
+index 5126ae9dd51..6f372e18a6d 100644
 --- a/internal/service/lambda/function.go
 +++ b/internal/service/lambda/function.go
 @@ -172,9 +172,9 @@ func resourceFunction() *schema.Resource {

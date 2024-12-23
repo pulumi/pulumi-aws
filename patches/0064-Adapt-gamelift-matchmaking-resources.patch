@@ -7,7 +7,7 @@ Upstream has made changes that do not allow a resource to use both sdkv1
 & sdkv2 resources. This updates the gamelift resources to v2.
 
 diff --git a/internal/service/gamelift/matchmaking_configuration.go b/internal/service/gamelift/matchmaking_configuration.go
-index 89ecad9db0..5811f1f884 100644
+index 89ecad9db08..5811f1f8849 100644
 --- a/internal/service/gamelift/matchmaking_configuration.go
 +++ b/internal/service/gamelift/matchmaking_configuration.go
 @@ -5,17 +5,20 @@ import (
@@ -255,7 +255,7 @@ index 89ecad9db0..5811f1f884 100644
  	for _, awsProperty := range awsProperties {
  		property := map[string]string{
 diff --git a/internal/service/gamelift/matchmaking_configuration_test.go b/internal/service/gamelift/matchmaking_configuration_test.go
-index 6453fa75a0..a5394fb536 100644
+index 6453fa75a0c..a5394fb536b 100644
 --- a/internal/service/gamelift/matchmaking_configuration_test.go
 +++ b/internal/service/gamelift/matchmaking_configuration_test.go
 @@ -6,8 +6,8 @@ import (
@@ -428,7 +428,7 @@ index 6453fa75a0..a5394fb536 100644
  resource "aws_gamelift_game_session_queue" "test" {
  	name         = %[2]q
 diff --git a/internal/service/gamelift/matchmaking_rule_set.go b/internal/service/gamelift/matchmaking_rule_set.go
-index d9f2424b7a..5b34ab8669 100644
+index d9f2424b7a3..5b34ab8669b 100644
 --- a/internal/service/gamelift/matchmaking_rule_set.go
 +++ b/internal/service/gamelift/matchmaking_rule_set.go
 @@ -4,18 +4,20 @@ import (
@@ -539,7 +539,7 @@ index d9f2424b7a..5b34ab8669 100644
  	}
  	if err != nil {
 diff --git a/internal/service/gamelift/matchmaking_rule_set_test.go b/internal/service/gamelift/matchmaking_rule_set_test.go
-index 4295987ae6..7554a3029c 100644
+index 4295987ae67..7554a3029ca 100644
 --- a/internal/service/gamelift/matchmaking_rule_set_test.go
 +++ b/internal/service/gamelift/matchmaking_rule_set_test.go
 @@ -6,20 +6,21 @@ import (
@@ -645,7 +645,7 @@ index 4295987ae6..7554a3029c 100644
  		return nil
  	}
 diff --git a/names/data/names_data.hcl b/names/data/names_data.hcl
-index f1c599be53..79517f2f61 100644
+index f1c599be532..79517f2f617 100644
 --- a/names/data/names_data.hcl
 +++ b/names/data/names_data.hcl
 @@ -3882,7 +3882,8 @@ service "fsx" {
