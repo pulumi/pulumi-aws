@@ -46,6 +46,7 @@ jobs:
         service:
           - sqs
           - waf
+          - wafv2
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
