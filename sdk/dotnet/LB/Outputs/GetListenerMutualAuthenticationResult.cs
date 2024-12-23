@@ -13,18 +13,22 @@ namespace Pulumi.Aws.LB.Outputs
     [OutputType]
     public sealed class GetListenerMutualAuthenticationResult
     {
+        public readonly string AdvertiseTrustStoreCaNames;
         public readonly bool IgnoreClientCertificateExpiry;
         public readonly string Mode;
         public readonly string TrustStoreArn;
 
         [OutputConstructor]
         private GetListenerMutualAuthenticationResult(
+            string advertiseTrustStoreCaNames,
+
             bool ignoreClientCertificateExpiry,
 
             string mode,
 
             string trustStoreArn)
         {
+            AdvertiseTrustStoreCaNames = advertiseTrustStoreCaNames;
             IgnoreClientCertificateExpiry = ignoreClientCertificateExpiry;
             Mode = mode;
             TrustStoreArn = trustStoreArn;

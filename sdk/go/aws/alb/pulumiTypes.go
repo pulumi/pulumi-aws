@@ -7083,6 +7083,7 @@ func (o GetListenerDefaultActionRedirectArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetListenerMutualAuthentication struct {
+	AdvertiseTrustStoreCaNames    string `pulumi:"advertiseTrustStoreCaNames"`
 	IgnoreClientCertificateExpiry bool   `pulumi:"ignoreClientCertificateExpiry"`
 	Mode                          string `pulumi:"mode"`
 	TrustStoreArn                 string `pulumi:"trustStoreArn"`
@@ -7100,6 +7101,7 @@ type GetListenerMutualAuthenticationInput interface {
 }
 
 type GetListenerMutualAuthenticationArgs struct {
+	AdvertiseTrustStoreCaNames    pulumi.StringInput `pulumi:"advertiseTrustStoreCaNames"`
 	IgnoreClientCertificateExpiry pulumi.BoolInput   `pulumi:"ignoreClientCertificateExpiry"`
 	Mode                          pulumi.StringInput `pulumi:"mode"`
 	TrustStoreArn                 pulumi.StringInput `pulumi:"trustStoreArn"`
@@ -7154,6 +7156,10 @@ func (o GetListenerMutualAuthenticationOutput) ToGetListenerMutualAuthentication
 
 func (o GetListenerMutualAuthenticationOutput) ToGetListenerMutualAuthenticationOutputWithContext(ctx context.Context) GetListenerMutualAuthenticationOutput {
 	return o
+}
+
+func (o GetListenerMutualAuthenticationOutput) AdvertiseTrustStoreCaNames() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerMutualAuthentication) string { return v.AdvertiseTrustStoreCaNames }).(pulumi.StringOutput)
 }
 
 func (o GetListenerMutualAuthenticationOutput) IgnoreClientCertificateExpiry() pulumi.BoolOutput {
