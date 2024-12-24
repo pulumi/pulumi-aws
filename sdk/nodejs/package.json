@@ -14,9 +14,7 @@
     },
     "dependencies": {
         "@pulumi/pulumi": "^3.142.0",
-        "builtin-modules": "3.0.0",
-        "mime": "^2.0.0",
-        "resolve": "^1.7.1"
+        "mime": "^2.0.0"
     },
     "devDependencies": {
         "@types/mime": "^2.0.0",

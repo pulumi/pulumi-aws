@@ -5275,9 +5275,7 @@ compatibility shim in favor of the new "name" field.`)
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
-				"mime":            "^2.0.0",
-				"builtin-modules": "3.0.0",
-				"resolve":         "^1.7.1",
+				"mime": "^2.0.0",
 			},
 			DevDependencies: map[string]string{
 				"@types/node": "^10.0.0", // so we can access strongly typed node definitions.
