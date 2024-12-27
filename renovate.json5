@@ -1,0 +1,22 @@
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: ["github>pulumi/renovate-config//default.json5"],
+  packageRules: [
+    {
+      // These dependencies are special and are pulled in when the bridge dependency updates:
+      //
+      //     github.com/pulumi/pulumi-terraform-bridge/v3
+      //
+      // This makes sure that the changes are tested through the bridge testing process before rolling out.
+      matchManagers: ["gomod"],
+      matchPackageNames: ["github.com/pulumi/pulumi/pkg/v3", "github.com/pulumi/pulumi/sdk/v3"],
+      enabled: false
+    },
+    {
+      // Currently the bridge dependency is managed by pulumi/upgrade-provider
+      matchManagers: ["gomod"],
+      matchPackageNames: ["github.com/pulumi/pulumi-terraform-bridge/v3"],
+      enabled: false
+    }
+  ]
+}
