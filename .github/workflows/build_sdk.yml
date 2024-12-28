@@ -94,9 +94,11 @@ jobs:
         # If the worktree is dirty and this is a Renovate PR to bump
         # dependencies, commit the updated SDK and push it back to the PR. The
         # job will still be marked as a failure.
-        if: failure() && steps.worktreeClean.outcome == 'failure' && contains(github.actor, 'renovate')
+        if: failure() && steps.worktreeClean.outcome == 'failure' && contains(github.actor, 'renovate') && github.event_name == 'pull_request'
         shell: bash
         run: |
+          git diff --quiet -- sdk && echo "no changes to sdk" && exit
+
           git config --global user.email "bot@pulumi.com"
           git config --global user.name "pulumi-bot"
 
@@ -111,10 +113,12 @@ jobs:
           git add sdk
           git reset \
               sdk/python/*/pulumi-plugin.json \
+              sdk/python/pyproject.toml \
+              sdk/dotnet/pulumi-plugin.json \
               sdk/dotnet/Pulumi.*.csproj \
+              sdk/go/*/pulumi-plugin.json \
               sdk/go/*/internal/pulumiUtilities.go \
-              sdk/nodejs/package.json \
-              sdk/python/pyproject.toml
+              sdk/nodejs/package.json
           git commit -m 'Commit ${{ matrix.language }} SDK for Renovate'
 
           # Push with pulumi-bot credentials to trigger a re-run of the
