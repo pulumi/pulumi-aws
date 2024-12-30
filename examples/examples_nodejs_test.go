@@ -379,8 +379,7 @@ func TestAccLambdaLayer(t *testing.T) {
 func TestAccLambdaContainerImages(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			RunUpdateTest: false, // new feature!
-			Dir:           filepath.Join(getCwd(t), "lambda-container-image"),
+			Dir: filepath.Join(getCwd(t), "lambda-container-image"),
 		})
 	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
