@@ -58,6 +58,30 @@ namespace Pulumi.Aws.Ecr
         /// </summary>
         public static Output<GetRepositoryCreationTemplateResult> Invoke(GetRepositoryCreationTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryCreationTemplateResult>("aws:ecr/getRepositoryCreationTemplate:getRepositoryCreationTemplate", args ?? new GetRepositoryCreationTemplateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The ECR Repository Creation Template data source allows the template details to be retrieved for a Repository Creation Template.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ecr.GetRepositoryCreationTemplate.Invoke(new()
+        ///     {
+        ///         Prefix = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRepositoryCreationTemplateResult> Invoke(GetRepositoryCreationTemplateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryCreationTemplateResult>("aws:ecr/getRepositoryCreationTemplate:getRepositoryCreationTemplate", args ?? new GetRepositoryCreationTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

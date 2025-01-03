@@ -45,20 +45,26 @@ namespace Pulumi.Aws.ResourceGroups
     /// 
     /// });
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Using `pulumi import`, import an AWS Resource Groups Resource using `group_arn` and `resource_arn`, separated by a comma (`,`). For example:
+    /// 
+    /// ```sh
+    /// $ pulumi import aws:resourcegroups/resource:Resource example arn:aws:resource-groups:us-west-2:012345678901:group/example,arn:aws:lambda:us-west-2:012345678901:function:example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:resourcegroups/resource:Resource")]
     public partial class Resource : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name or the ARN of the resource group to add resources to.
-        /// 
-        /// The following arguments are optional:
+        /// Name or ARN of the resource group to add resources to.
         /// </summary>
         [Output("groupArn")]
         public Output<string> GroupArn { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the resource to be added to the group.
+        /// ARN of the resource to be added to the group.
         /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
@@ -116,15 +122,13 @@ namespace Pulumi.Aws.ResourceGroups
     public sealed class ResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name or the ARN of the resource group to add resources to.
-        /// 
-        /// The following arguments are optional:
+        /// Name or ARN of the resource group to add resources to.
         /// </summary>
         [Input("groupArn", required: true)]
         public Input<string> GroupArn { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the resource to be added to the group.
+        /// ARN of the resource to be added to the group.
         /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
@@ -138,15 +142,13 @@ namespace Pulumi.Aws.ResourceGroups
     public sealed class ResourceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name or the ARN of the resource group to add resources to.
-        /// 
-        /// The following arguments are optional:
+        /// Name or ARN of the resource group to add resources to.
         /// </summary>
         [Input("groupArn")]
         public Input<string>? GroupArn { get; set; }
 
         /// <summary>
-        /// The ARN of the resource to be added to the group.
+        /// ARN of the resource to be added to the group.
         /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }

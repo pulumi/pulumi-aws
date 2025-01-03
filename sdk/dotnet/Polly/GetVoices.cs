@@ -92,6 +92,47 @@ namespace Pulumi.Aws.Polly
         /// </summary>
         public static Output<GetVoicesResult> Invoke(GetVoicesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVoicesResult>("aws:polly/getVoices:getVoices", args ?? new GetVoicesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS Polly Voices.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Polly.GetVoices.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### With Language Code
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Polly.GetVoices.Invoke(new()
+        ///     {
+        ///         LanguageCode = "en-GB",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVoicesResult> Invoke(GetVoicesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVoicesResult>("aws:polly/getVoices:getVoices", args ?? new GetVoicesInvokeArgs(), options.WithDefaults());
     }
 
 

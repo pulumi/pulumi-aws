@@ -31,6 +31,21 @@ public final class GatewayState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ARN of the gateway.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return The ARN of the gateway.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
+
+    /**
      * The name of the connection.
      * 
      */
@@ -64,6 +79,7 @@ public final class GatewayState extends com.pulumi.resources.ResourceArgs {
 
     private GatewayState(GatewayState $) {
         this.amazonSideAsn = $.amazonSideAsn;
+        this.arn = $.arn;
         this.name = $.name;
         this.ownerAccountId = $.ownerAccountId;
     }
@@ -105,6 +121,27 @@ public final class GatewayState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder amazonSideAsn(String amazonSideAsn) {
             return amazonSideAsn(Output.of(amazonSideAsn));
+        }
+
+        /**
+         * @param arn The ARN of the gateway.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn The ARN of the gateway.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**

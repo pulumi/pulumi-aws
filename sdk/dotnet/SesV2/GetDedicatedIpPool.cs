@@ -62,6 +62,32 @@ namespace Pulumi.Aws.SesV2
         /// </summary>
         public static Output<GetDedicatedIpPoolResult> Invoke(GetDedicatedIpPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDedicatedIpPoolResult>("aws:sesv2/getDedicatedIpPool:getDedicatedIpPool", args ?? new GetDedicatedIpPoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.SesV2.GetDedicatedIpPool.Invoke(new()
+        ///     {
+        ///         PoolName = "my-pool",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetDedicatedIpPoolResult> Invoke(GetDedicatedIpPoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDedicatedIpPoolResult>("aws:sesv2/getDedicatedIpPool:getDedicatedIpPool", args ?? new GetDedicatedIpPoolInvokeArgs(), options.WithDefaults());
     }
 
 

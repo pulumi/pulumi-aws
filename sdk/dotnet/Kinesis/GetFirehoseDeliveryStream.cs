@@ -62,6 +62,32 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         public static Output<GetFirehoseDeliveryStreamResult> Invoke(GetFirehoseDeliveryStreamInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirehoseDeliveryStreamResult>("aws:kinesis/getFirehoseDeliveryStream:getFirehoseDeliveryStream", args ?? new GetFirehoseDeliveryStreamInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information about a Kinesis Firehose Delivery Stream for use in other resources.
+        /// 
+        /// For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var stream = Aws.Kinesis.GetFirehoseDeliveryStream.Invoke(new()
+        ///     {
+        ///         Name = "stream-name",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFirehoseDeliveryStreamResult> Invoke(GetFirehoseDeliveryStreamInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFirehoseDeliveryStreamResult>("aws:kinesis/getFirehoseDeliveryStream:getFirehoseDeliveryStream", args ?? new GetFirehoseDeliveryStreamInvokeArgs(), options.WithDefaults());
     }
 
 

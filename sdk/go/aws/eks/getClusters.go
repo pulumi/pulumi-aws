@@ -32,18 +32,8 @@ type GetClustersResult struct {
 
 func GetClustersOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetClustersResultOutput {
 	return pulumi.ToOutput(0).ApplyT(func(int) (GetClustersResultOutput, error) {
-		opts = internal.PkgInvokeDefaultOpts(opts)
-		var rv GetClustersResult
-		secret, err := ctx.InvokePackageRaw("aws:eks/getClusters:getClusters", nil, &rv, "", opts...)
-		if err != nil {
-			return GetClustersResultOutput{}, err
-		}
-
-		output := pulumi.ToOutput(rv).(GetClustersResultOutput)
-		if secret {
-			return pulumi.ToSecret(output).(GetClustersResultOutput), nil
-		}
-		return output, nil
+		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+		return ctx.InvokeOutput("aws:eks/getClusters:getClusters", nil, GetClustersResultOutput{}, options).(GetClustersResultOutput), nil
 	}).(GetClustersResultOutput)
 }
 

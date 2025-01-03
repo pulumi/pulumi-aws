@@ -98,21 +98,11 @@ type GetAttachmentResult struct {
 }
 
 func GetAttachmentOutput(ctx *pulumi.Context, args GetAttachmentOutputArgs, opts ...pulumi.InvokeOption) GetAttachmentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetAttachmentResultOutput, error) {
 			args := v.(GetAttachmentArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetAttachmentResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2transitgateway/getAttachment:getAttachment", args, &rv, "", opts...)
-			if err != nil {
-				return GetAttachmentResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetAttachmentResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetAttachmentResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:ec2transitgateway/getAttachment:getAttachment", args, GetAttachmentResultOutput{}, options).(GetAttachmentResultOutput), nil
 		}).(GetAttachmentResultOutput)
 }
 

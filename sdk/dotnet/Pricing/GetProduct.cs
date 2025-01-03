@@ -194,6 +194,98 @@ namespace Pulumi.Aws.Pricing
         /// </summary>
         public static Output<GetProductResult> Invoke(GetProductInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProductResult>("aws:pricing/getProduct:getProduct", args ?? new GetProductInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get the pricing information of all products in AWS.
+        /// This data source is only available in a us-east-1 or ap-south-1 provider.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Pricing.GetProduct.Invoke(new()
+        ///     {
+        ///         ServiceCode = "AmazonEC2",
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "instanceType",
+        ///                 Value = "c5.xlarge",
+        ///             },
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "operatingSystem",
+        ///                 Value = "Linux",
+        ///             },
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "location",
+        ///                 Value = "US East (N. Virginia)",
+        ///             },
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "preInstalledSw",
+        ///                 Value = "NA",
+        ///             },
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "licenseModel",
+        ///                 Value = "No License required",
+        ///             },
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "tenancy",
+        ///                 Value = "Shared",
+        ///             },
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "capacitystatus",
+        ///                 Value = "Used",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Pricing.GetProduct.Invoke(new()
+        ///     {
+        ///         ServiceCode = "AmazonRedshift",
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "instanceType",
+        ///                 Value = "ds1.xlarge",
+        ///             },
+        ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
+        ///             {
+        ///                 Field = "location",
+        ///                 Value = "US East (N. Virginia)",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetProductResult> Invoke(GetProductInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProductResult>("aws:pricing/getProduct:getProduct", args ?? new GetProductInvokeArgs(), options.WithDefaults());
     }
 
 

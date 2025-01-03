@@ -76,21 +76,11 @@ type LookupSiteResult struct {
 }
 
 func LookupSiteOutput(ctx *pulumi.Context, args LookupSiteOutputArgs, opts ...pulumi.InvokeOption) LookupSiteResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSiteResultOutput, error) {
 			args := v.(LookupSiteArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupSiteResult
-			secret, err := ctx.InvokePackageRaw("aws:networkmanager/getSite:getSite", args, &rv, "", opts...)
-			if err != nil {
-				return LookupSiteResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupSiteResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupSiteResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:networkmanager/getSite:getSite", args, LookupSiteResultOutput{}, options).(LookupSiteResultOutput), nil
 		}).(LookupSiteResultOutput)
 }
 

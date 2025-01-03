@@ -58,6 +58,30 @@ namespace Pulumi.Aws.RedshiftServerless
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("aws:redshiftserverless/getNamespace:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS Redshift Serverless Namespace.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.RedshiftServerless.GetNamespace.Invoke(new()
+        ///     {
+        ///         NamespaceName = "example-namespace",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("aws:redshiftserverless/getNamespace:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
     }
 
 

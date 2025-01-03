@@ -56,18 +56,8 @@ type GetSitesResult struct {
 
 func GetSitesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetSitesResultOutput {
 	return pulumi.ToOutput(0).ApplyT(func(int) (GetSitesResultOutput, error) {
-		opts = internal.PkgInvokeDefaultOpts(opts)
-		var rv GetSitesResult
-		secret, err := ctx.InvokePackageRaw("aws:outposts/getSites:getSites", nil, &rv, "", opts...)
-		if err != nil {
-			return GetSitesResultOutput{}, err
-		}
-
-		output := pulumi.ToOutput(rv).(GetSitesResultOutput)
-		if secret {
-			return pulumi.ToSecret(output).(GetSitesResultOutput), nil
-		}
-		return output, nil
+		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+		return ctx.InvokeOutput("aws:outposts/getSites:getSites", nil, GetSitesResultOutput{}, options).(GetSitesResultOutput), nil
 	}).(GetSitesResultOutput)
 }
 

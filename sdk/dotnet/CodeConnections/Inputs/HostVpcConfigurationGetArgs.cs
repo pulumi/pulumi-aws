@@ -39,8 +39,8 @@ namespace Pulumi.Aws.CodeConnections.Inputs
         /// <summary>
         /// The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
         /// </summary>
-        [Input("tlsCertificate", required: true)]
-        public Input<string> TlsCertificate { get; set; } = null!;
+        [Input("tlsCertificate")]
+        public Input<string>? TlsCertificate { get; set; }
 
         /// <summary>
         /// The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.

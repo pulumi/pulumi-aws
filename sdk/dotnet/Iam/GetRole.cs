@@ -62,6 +62,32 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public static Output<GetRoleResult> Invoke(GetRoleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleResult>("aws:iam/getRole:getRole", args ?? new GetRoleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This data source can be used to fetch information about a specific
+        /// IAM role. By using this data source, you can reference IAM role
+        /// properties without having to hard code ARNs as input.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Iam.GetRole.Invoke(new()
+        ///     {
+        ///         Name = "an_example_role_name",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRoleResult> Invoke(GetRoleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRoleResult>("aws:iam/getRole:getRole", args ?? new GetRoleInvokeArgs(), options.WithDefaults());
     }
 
 

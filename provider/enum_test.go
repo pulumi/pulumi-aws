@@ -9,6 +9,8 @@ import (
 )
 
 func TestInstanceTypeName(t *testing.T) {
+	t.Parallel()
+
 	type testCase struct {
 		Value string
 		Name  string
@@ -34,6 +36,8 @@ func TestInstanceTypeName(t *testing.T) {
 }
 
 func TestInstanceTypeNameErr(t *testing.T) {
+	t.Parallel()
+
 	testCases := []string{
 		"a1.metal.pc",
 	}

@@ -58,6 +58,8 @@ type LookupGatewayArgs struct {
 type LookupGatewayResult struct {
 	// ASN on the Amazon side of the connection.
 	AmazonSideAsn string `pulumi:"amazonSideAsn"`
+	// ARN of the gateway.
+	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
@@ -66,21 +68,11 @@ type LookupGatewayResult struct {
 }
 
 func LookupGatewayOutput(ctx *pulumi.Context, args LookupGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupGatewayResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupGatewayResultOutput, error) {
 			args := v.(LookupGatewayArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupGatewayResult
-			secret, err := ctx.InvokePackageRaw("aws:directconnect/getGateway:getGateway", args, &rv, "", opts...)
-			if err != nil {
-				return LookupGatewayResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupGatewayResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupGatewayResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:directconnect/getGateway:getGateway", args, LookupGatewayResultOutput{}, options).(LookupGatewayResultOutput), nil
 		}).(LookupGatewayResultOutput)
 }
 
@@ -112,6 +104,11 @@ func (o LookupGatewayResultOutput) ToLookupGatewayResultOutputWithContext(ctx co
 // ASN on the Amazon side of the connection.
 func (o LookupGatewayResultOutput) AmazonSideAsn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGatewayResult) string { return v.AmazonSideAsn }).(pulumi.StringOutput)
+}
+
+// ARN of the gateway.
+func (o LookupGatewayResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGatewayResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

@@ -24,6 +24,21 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
     public static final AgentAgentArgs Empty = new AgentAgentArgs();
 
     /**
+     * Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
+     * 
+     */
+    @Import(name="agentCollaboration")
+    private @Nullable Output<String> agentCollaboration;
+
+    /**
+     * @return Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
+     * 
+     */
+    public Optional<Output<String>> agentCollaboration() {
+        return Optional.ofNullable(this.agentCollaboration);
+    }
+
+    /**
      * Name of the agent.
      * 
      */
@@ -217,6 +232,7 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
     private AgentAgentArgs() {}
 
     private AgentAgentArgs(AgentAgentArgs $) {
+        this.agentCollaboration = $.agentCollaboration;
         this.agentName = $.agentName;
         this.agentResourceRoleArn = $.agentResourceRoleArn;
         this.customerEncryptionKeyArn = $.customerEncryptionKeyArn;
@@ -248,6 +264,27 @@ public final class AgentAgentArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(AgentAgentArgs defaults) {
             $ = new AgentAgentArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param agentCollaboration Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder agentCollaboration(@Nullable Output<String> agentCollaboration) {
+            $.agentCollaboration = agentCollaboration;
+            return this;
+        }
+
+        /**
+         * @param agentCollaboration Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder agentCollaboration(String agentCollaboration) {
+            return agentCollaboration(Output.of(agentCollaboration));
         }
 
         /**

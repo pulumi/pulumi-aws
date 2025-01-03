@@ -79,21 +79,11 @@ type LookupFrameworkResult struct {
 }
 
 func LookupFrameworkOutput(ctx *pulumi.Context, args LookupFrameworkOutputArgs, opts ...pulumi.InvokeOption) LookupFrameworkResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFrameworkResultOutput, error) {
 			args := v.(LookupFrameworkArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFrameworkResult
-			secret, err := ctx.InvokePackageRaw("aws:backup/getFramework:getFramework", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFrameworkResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFrameworkResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFrameworkResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:backup/getFramework:getFramework", args, LookupFrameworkResultOutput{}, options).(LookupFrameworkResultOutput), nil
 		}).(LookupFrameworkResultOutput)
 }
 

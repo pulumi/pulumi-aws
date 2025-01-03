@@ -950,6 +950,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String mgn;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String mq;
     /**
      * @return Use this to override the default service endpoint URL
@@ -1411,6 +1416,11 @@ public final class Endpoints {
      * 
      */
     private @Nullable String timestreaminfluxdb;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    private @Nullable String timestreamquery;
     /**
      * @return Use this to override the default service endpoint URL
      * 
@@ -2796,6 +2806,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> mgn() {
+        return Optional.ofNullable(this.mgn);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> mq() {
         return Optional.ofNullable(this.mq);
     }
@@ -3447,6 +3464,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> timestreamquery() {
+        return Optional.ofNullable(this.timestreamquery);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> timestreamwrite() {
         return Optional.ofNullable(this.timestreamwrite);
     }
@@ -3738,6 +3762,7 @@ public final class Endpoints {
         private @Nullable String mediapackagev2;
         private @Nullable String mediastore;
         private @Nullable String memorydb;
+        private @Nullable String mgn;
         private @Nullable String mq;
         private @Nullable String msk;
         private @Nullable String mwaa;
@@ -3831,6 +3856,7 @@ public final class Endpoints {
         private @Nullable String synthetics;
         private @Nullable String taxsettings;
         private @Nullable String timestreaminfluxdb;
+        private @Nullable String timestreamquery;
         private @Nullable String timestreamwrite;
         private @Nullable String transcribe;
         private @Nullable String transcribeservice;
@@ -4035,6 +4061,7 @@ public final class Endpoints {
     	      this.mediapackagev2 = defaults.mediapackagev2;
     	      this.mediastore = defaults.mediastore;
     	      this.memorydb = defaults.memorydb;
+    	      this.mgn = defaults.mgn;
     	      this.mq = defaults.mq;
     	      this.msk = defaults.msk;
     	      this.mwaa = defaults.mwaa;
@@ -4128,6 +4155,7 @@ public final class Endpoints {
     	      this.synthetics = defaults.synthetics;
     	      this.taxsettings = defaults.taxsettings;
     	      this.timestreaminfluxdb = defaults.timestreaminfluxdb;
+    	      this.timestreamquery = defaults.timestreamquery;
     	      this.timestreamwrite = defaults.timestreamwrite;
     	      this.transcribe = defaults.transcribe;
     	      this.transcribeservice = defaults.transcribeservice;
@@ -5267,6 +5295,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder mgn(@Nullable String mgn) {
+
+            this.mgn = mgn;
+            return this;
+        }
+        @CustomType.Setter
         public Builder mq(@Nullable String mq) {
 
             this.mq = mq;
@@ -5825,6 +5859,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder timestreamquery(@Nullable String timestreamquery) {
+
+            this.timestreamquery = timestreamquery;
+            return this;
+        }
+        @CustomType.Setter
         public Builder timestreamwrite(@Nullable String timestreamwrite) {
 
             this.timestreamwrite = timestreamwrite;
@@ -6097,6 +6137,7 @@ public final class Endpoints {
             _resultValue.mediapackagev2 = mediapackagev2;
             _resultValue.mediastore = mediastore;
             _resultValue.memorydb = memorydb;
+            _resultValue.mgn = mgn;
             _resultValue.mq = mq;
             _resultValue.msk = msk;
             _resultValue.mwaa = mwaa;
@@ -6190,6 +6231,7 @@ public final class Endpoints {
             _resultValue.synthetics = synthetics;
             _resultValue.taxsettings = taxsettings;
             _resultValue.timestreaminfluxdb = timestreaminfluxdb;
+            _resultValue.timestreamquery = timestreamquery;
             _resultValue.timestreamwrite = timestreamwrite;
             _resultValue.transcribe = transcribe;
             _resultValue.transcribeservice = transcribeservice;

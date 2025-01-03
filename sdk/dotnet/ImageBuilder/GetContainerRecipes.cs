@@ -80,6 +80,41 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public static Output<GetContainerRecipesResult> Invoke(GetContainerRecipesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerRecipesResult>("aws:imagebuilder/getContainerRecipes:getContainerRecipes", args ?? new GetContainerRecipesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get the ARNs and names of Image Builder Container Recipes matching the specified criteria.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.ImageBuilder.GetContainerRecipes.Invoke(new()
+        ///     {
+        ///         Owner = "Self",
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.ImageBuilder.Inputs.GetContainerRecipesFilterInputArgs
+        ///             {
+        ///                 Name = "platform",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "Linux",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetContainerRecipesResult> Invoke(GetContainerRecipesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetContainerRecipesResult>("aws:imagebuilder/getContainerRecipes:getContainerRecipes", args ?? new GetContainerRecipesInvokeArgs(), options.WithDefaults());
     }
 
 

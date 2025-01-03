@@ -101,21 +101,11 @@ type LookupBudgetResult struct {
 }
 
 func LookupBudgetOutput(ctx *pulumi.Context, args LookupBudgetOutputArgs, opts ...pulumi.InvokeOption) LookupBudgetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupBudgetResultOutput, error) {
 			args := v.(LookupBudgetArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupBudgetResult
-			secret, err := ctx.InvokePackageRaw("aws:budgets/getBudget:getBudget", args, &rv, "", opts...)
-			if err != nil {
-				return LookupBudgetResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupBudgetResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupBudgetResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:budgets/getBudget:getBudget", args, LookupBudgetResultOutput{}, options).(LookupBudgetResultOutput), nil
 		}).(LookupBudgetResultOutput)
 }
 

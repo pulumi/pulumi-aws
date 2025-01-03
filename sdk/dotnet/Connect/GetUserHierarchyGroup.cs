@@ -102,6 +102,52 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         public static Output<GetUserHierarchyGroupResult> Invoke(GetUserHierarchyGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserHierarchyGroupResult>("aws:connect/getUserHierarchyGroup:getUserHierarchyGroup", args ?? new GetUserHierarchyGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about a specific Amazon Connect User Hierarchy Group.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// By `name`
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Connect.GetUserHierarchyGroup.Invoke(new()
+        ///     {
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         Name = "Example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// By `hierarchy_group_id`
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Connect.GetUserHierarchyGroup.Invoke(new()
+        ///     {
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         HierarchyGroupId = "cccccccc-bbbb-cccc-dddd-111111111111",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetUserHierarchyGroupResult> Invoke(GetUserHierarchyGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserHierarchyGroupResult>("aws:connect/getUserHierarchyGroup:getUserHierarchyGroup", args ?? new GetUserHierarchyGroupInvokeArgs(), options.WithDefaults());
     }
 
 

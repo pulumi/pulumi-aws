@@ -110,6 +110,56 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public static Output<GetSessionContextResult> Invoke(GetSessionContextInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSessionContextResult>("aws:iam/getSessionContext:getSessionContext", args ?? new GetSessionContextInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This data source provides information on the IAM source role of an STS assumed role. For non-role ARNs, this data source simply passes the ARN through in `issuer_arn`.
+        /// 
+        /// For some AWS resources, multiple types of principals are allowed in the same argument (e.g., IAM users and IAM roles). However, these arguments often do not allow assumed-role (i.e., STS, temporary credential) principals. Given an STS ARN, this data source provides the ARN for the source IAM role.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Example
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Iam.GetSessionContext.Invoke(new()
+        ///     {
+        ///         Arn = "arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Find the Runner's Source Role
+        /// 
+        /// Combined with `aws.getCallerIdentity`, you can get the current user's source IAM role ARN (`issuer_arn`) if you're using an assumed role. If you're not using an assumed role, the caller's (e.g., an IAM user's) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Aws.GetCallerIdentity.Invoke();
+        /// 
+        ///     var example = Aws.Iam.GetSessionContext.Invoke(new()
+        ///     {
+        ///         Arn = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.Arn),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSessionContextResult> Invoke(GetSessionContextInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSessionContextResult>("aws:iam/getSessionContext:getSessionContext", args ?? new GetSessionContextInvokeArgs(), options.WithDefaults());
     }
 
 

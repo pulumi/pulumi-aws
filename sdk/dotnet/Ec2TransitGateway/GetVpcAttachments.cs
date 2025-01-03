@@ -86,6 +86,44 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         public static Output<GetVpcAttachmentsResult> Invoke(GetVpcAttachmentsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcAttachmentsResult>("aws:ec2transitgateway/getVpcAttachments:getVpcAttachments", args ?? new GetVpcAttachmentsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get information on EC2 Transit Gateway VPC Attachments.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### By Filter
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var filtered = Aws.Ec2TransitGateway.GetVpcAttachments.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2TransitGateway.Inputs.GetVpcAttachmentsFilterInputArgs
+        ///             {
+        ///                 Name = "state",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "pendingAcceptance",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var unit = ;
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVpcAttachmentsResult> Invoke(GetVpcAttachmentsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVpcAttachmentsResult>("aws:ec2transitgateway/getVpcAttachments:getVpcAttachments", args ?? new GetVpcAttachmentsInvokeArgs(), options.WithDefaults());
     }
 
 

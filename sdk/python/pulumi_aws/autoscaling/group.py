@@ -24,6 +24,7 @@ class GroupArgs:
     def __init__(__self__, *,
                  max_size: pulumi.Input[int],
                  min_size: pulumi.Input[int],
+                 availability_zone_distribution: Optional[pulumi.Input['GroupAvailabilityZoneDistributionArgs']] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  capacity_rebalance: Optional[pulumi.Input[bool]] = None,
                  context: Optional[pulumi.Input[str]] = None,
@@ -66,6 +67,7 @@ class GroupArgs:
         :param pulumi.Input[int] max_size: Maximum size of the Auto Scaling Group.
         :param pulumi.Input[int] min_size: Minimum size of the Auto Scaling Group.
                (See also Waiting for Capacity below.)
+        :param pulumi.Input['GroupAvailabilityZoneDistributionArgs'] availability_zone_distribution: The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
         :param pulumi.Input[bool] capacity_rebalance: Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
         :param pulumi.Input[str] context: Reserved.
@@ -139,6 +141,8 @@ class GroupArgs:
         """
         pulumi.set(__self__, "max_size", max_size)
         pulumi.set(__self__, "min_size", min_size)
+        if availability_zone_distribution is not None:
+            pulumi.set(__self__, "availability_zone_distribution", availability_zone_distribution)
         if availability_zones is not None:
             pulumi.set(__self__, "availability_zones", availability_zones)
         if capacity_rebalance is not None:
@@ -238,6 +242,18 @@ class GroupArgs:
     @min_size.setter
     def min_size(self, value: pulumi.Input[int]):
         pulumi.set(self, "min_size", value)
+
+    @property
+    @pulumi.getter(name="availabilityZoneDistribution")
+    def availability_zone_distribution(self) -> Optional[pulumi.Input['GroupAvailabilityZoneDistributionArgs']]:
+        """
+        The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+        """
+        return pulumi.get(self, "availability_zone_distribution")
+
+    @availability_zone_distribution.setter
+    def availability_zone_distribution(self, value: Optional[pulumi.Input['GroupAvailabilityZoneDistributionArgs']]):
+        pulumi.set(self, "availability_zone_distribution", value)
 
     @property
     @pulumi.getter(name="availabilityZones")
@@ -721,6 +737,7 @@ class GroupArgs:
 class _GroupState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
+                 availability_zone_distribution: Optional[pulumi.Input['GroupAvailabilityZoneDistributionArgs']] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  capacity_rebalance: Optional[pulumi.Input[bool]] = None,
                  context: Optional[pulumi.Input[str]] = None,
@@ -765,6 +782,7 @@ class _GroupState:
         """
         Input properties used for looking up and filtering Group resources.
         :param pulumi.Input[str] arn: ARN for this Auto Scaling Group
+        :param pulumi.Input['GroupAvailabilityZoneDistributionArgs'] availability_zone_distribution: The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
         :param pulumi.Input[bool] capacity_rebalance: Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
         :param pulumi.Input[str] context: Reserved.
@@ -843,6 +861,8 @@ class _GroupState:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if availability_zone_distribution is not None:
+            pulumi.set(__self__, "availability_zone_distribution", availability_zone_distribution)
         if availability_zones is not None:
             pulumi.set(__self__, "availability_zones", availability_zones)
         if capacity_rebalance is not None:
@@ -937,6 +957,18 @@ class _GroupState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="availabilityZoneDistribution")
+    def availability_zone_distribution(self) -> Optional[pulumi.Input['GroupAvailabilityZoneDistributionArgs']]:
+        """
+        The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+        """
+        return pulumi.get(self, "availability_zone_distribution")
+
+    @availability_zone_distribution.setter
+    def availability_zone_distribution(self, value: Optional[pulumi.Input['GroupAvailabilityZoneDistributionArgs']]):
+        pulumi.set(self, "availability_zone_distribution", value)
 
     @property
     @pulumi.getter(name="availabilityZones")
@@ -1470,6 +1502,7 @@ class Group(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 availability_zone_distribution: Optional[pulumi.Input[Union['GroupAvailabilityZoneDistributionArgs', 'GroupAvailabilityZoneDistributionArgsDict']]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  capacity_rebalance: Optional[pulumi.Input[bool]] = None,
                  context: Optional[pulumi.Input[str]] = None,
@@ -1942,6 +1975,7 @@ class Group(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['GroupAvailabilityZoneDistributionArgs', 'GroupAvailabilityZoneDistributionArgsDict']] availability_zone_distribution: The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
         :param pulumi.Input[bool] capacity_rebalance: Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
         :param pulumi.Input[str] context: Reserved.
@@ -2467,6 +2501,7 @@ class Group(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 availability_zone_distribution: Optional[pulumi.Input[Union['GroupAvailabilityZoneDistributionArgs', 'GroupAvailabilityZoneDistributionArgsDict']]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  capacity_rebalance: Optional[pulumi.Input[bool]] = None,
                  context: Optional[pulumi.Input[str]] = None,
@@ -2515,6 +2550,7 @@ class Group(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GroupArgs.__new__(GroupArgs)
 
+            __props__.__dict__["availability_zone_distribution"] = availability_zone_distribution
             __props__.__dict__["availability_zones"] = availability_zones
             __props__.__dict__["capacity_rebalance"] = capacity_rebalance
             __props__.__dict__["context"] = context
@@ -2572,6 +2608,7 @@ class Group(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            availability_zone_distribution: Optional[pulumi.Input[Union['GroupAvailabilityZoneDistributionArgs', 'GroupAvailabilityZoneDistributionArgsDict']]] = None,
             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             capacity_rebalance: Optional[pulumi.Input[bool]] = None,
             context: Optional[pulumi.Input[str]] = None,
@@ -2621,6 +2658,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN for this Auto Scaling Group
+        :param pulumi.Input[Union['GroupAvailabilityZoneDistributionArgs', 'GroupAvailabilityZoneDistributionArgsDict']] availability_zone_distribution: The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
         :param pulumi.Input[bool] capacity_rebalance: Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
         :param pulumi.Input[str] context: Reserved.
@@ -2702,6 +2740,7 @@ class Group(pulumi.CustomResource):
         __props__ = _GroupState.__new__(_GroupState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["availability_zone_distribution"] = availability_zone_distribution
         __props__.__dict__["availability_zones"] = availability_zones
         __props__.__dict__["capacity_rebalance"] = capacity_rebalance
         __props__.__dict__["context"] = context
@@ -2752,6 +2791,14 @@ class Group(pulumi.CustomResource):
         ARN for this Auto Scaling Group
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="availabilityZoneDistribution")
+    def availability_zone_distribution(self) -> pulumi.Output['outputs.GroupAvailabilityZoneDistribution']:
+        """
+        The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+        """
+        return pulumi.get(self, "availability_zone_distribution")
 
     @property
     @pulumi.getter(name="availabilityZones")

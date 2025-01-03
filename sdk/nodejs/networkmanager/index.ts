@@ -45,6 +45,11 @@ export type Device = import("./device").Device;
 export const Device: typeof import("./device").Device = null as any;
 utilities.lazyLoad(exports, ["Device"], () => require("./device"));
 
+export { DxGatewayAttachmentArgs, DxGatewayAttachmentState } from "./dxGatewayAttachment";
+export type DxGatewayAttachment = import("./dxGatewayAttachment").DxGatewayAttachment;
+export const DxGatewayAttachment: typeof import("./dxGatewayAttachment").DxGatewayAttachment = null as any;
+utilities.lazyLoad(exports, ["DxGatewayAttachment"], () => require("./dxGatewayAttachment"));
+
 export { GetConnectionArgs, GetConnectionResult, GetConnectionOutputArgs } from "./getConnection";
 export const getConnection: typeof import("./getConnection").getConnection = null as any;
 export const getConnectionOutput: typeof import("./getConnection").getConnectionOutput = null as any;
@@ -171,6 +176,8 @@ const _module = {
                 return new CustomerGatewayAssociation(name, <any>undefined, { urn })
             case "aws:networkmanager/device:Device":
                 return new Device(name, <any>undefined, { urn })
+            case "aws:networkmanager/dxGatewayAttachment:DxGatewayAttachment":
+                return new DxGatewayAttachment(name, <any>undefined, { urn })
             case "aws:networkmanager/globalNetwork:GlobalNetwork":
                 return new GlobalNetwork(name, <any>undefined, { urn })
             case "aws:networkmanager/link:Link":
@@ -204,6 +211,7 @@ pulumi.runtime.registerResourceModule("aws", "networkmanager/coreNetwork", _modu
 pulumi.runtime.registerResourceModule("aws", "networkmanager/coreNetworkPolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/customerGatewayAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/device", _module)
+pulumi.runtime.registerResourceModule("aws", "networkmanager/dxGatewayAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/globalNetwork", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/link", _module)
 pulumi.runtime.registerResourceModule("aws", "networkmanager/linkAssociation", _module)

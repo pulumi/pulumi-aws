@@ -58,18 +58,8 @@ type GetLinksResult struct {
 
 func GetLinksOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetLinksResultOutput {
 	return pulumi.ToOutput(0).ApplyT(func(int) (GetLinksResultOutput, error) {
-		opts = internal.PkgInvokeDefaultOpts(opts)
-		var rv GetLinksResult
-		secret, err := ctx.InvokePackageRaw("aws:oam/getLinks:getLinks", nil, &rv, "", opts...)
-		if err != nil {
-			return GetLinksResultOutput{}, err
-		}
-
-		output := pulumi.ToOutput(rv).(GetLinksResultOutput)
-		if secret {
-			return pulumi.ToSecret(output).(GetLinksResultOutput), nil
-		}
-		return output, nil
+		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+		return ctx.InvokeOutput("aws:oam/getLinks:getLinks", nil, GetLinksResultOutput{}, options).(GetLinksResultOutput), nil
 	}).(GetLinksResultOutput)
 }
 

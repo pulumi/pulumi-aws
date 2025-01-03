@@ -62,6 +62,32 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public static Output<GetImageResult> Invoke(GetImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImageResult>("aws:imagebuilder/getImage:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about an Image Builder Image.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Latest
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.ImageBuilder.GetImage.Invoke(new()
+        ///     {
+        ///         Arn = "arn:aws:imagebuilder:us-west-2:aws:image/amazon-linux-2-x86/x.x.x",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetImageResult> Invoke(GetImageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetImageResult>("aws:imagebuilder/getImage:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());
     }
 
 

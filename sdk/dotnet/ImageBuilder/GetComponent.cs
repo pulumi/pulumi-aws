@@ -58,6 +58,30 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public static Output<GetComponentResult> Invoke(GetComponentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetComponentResult>("aws:imagebuilder/getComponent:getComponent", args ?? new GetComponentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about an Image Builder Component.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.ImageBuilder.GetComponent.Invoke(new()
+        ///     {
+        ///         Arn = "arn:aws:imagebuilder:us-west-2:aws:component/amazon-cloudwatch-agent-linux/1.0.0",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetComponentResult> Invoke(GetComponentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetComponentResult>("aws:imagebuilder/getComponent:getComponent", args ?? new GetComponentInvokeArgs(), options.WithDefaults());
     }
 
 

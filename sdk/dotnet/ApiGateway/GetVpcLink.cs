@@ -64,6 +64,33 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         public static Output<GetVpcLinkResult> Invoke(GetVpcLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcLinkResult>("aws:apigateway/getVpcLink:getVpcLink", args ?? new GetVpcLinkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get the id of a VPC Link in
+        /// API Gateway. To fetch the VPC Link you must provide a name to match against.
+        /// As there is no unique name constraint on API Gateway VPC Links this data source will
+        /// error if there is more than one match.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var myApiGatewayVpcLink = Aws.ApiGateway.GetVpcLink.Invoke(new()
+        ///     {
+        ///         Name = "my-vpc-link",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVpcLinkResult> Invoke(GetVpcLinkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVpcLinkResult>("aws:apigateway/getVpcLink:getVpcLink", args ?? new GetVpcLinkInvokeArgs(), options.WithDefaults());
     }
 
 

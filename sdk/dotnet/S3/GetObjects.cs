@@ -26,6 +26,14 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public static Output<GetObjectsResult> Invoke(GetObjectsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetObjectsResult>("aws:s3/getObjects:getObjects", args ?? new GetObjectsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// &gt; **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect the provider's performance.
+        /// 
+        /// The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
+        /// </summary>
+        public static Output<GetObjectsResult> Invoke(GetObjectsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetObjectsResult>("aws:s3/getObjects:getObjects", args ?? new GetObjectsInvokeArgs(), options.WithDefaults());
     }
 
 

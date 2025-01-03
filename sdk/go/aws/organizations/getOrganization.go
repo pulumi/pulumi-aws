@@ -151,18 +151,8 @@ type LookupOrganizationResult struct {
 
 func LookupOrganizationOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupOrganizationResultOutput {
 	return pulumi.ToOutput(0).ApplyT(func(int) (LookupOrganizationResultOutput, error) {
-		opts = internal.PkgInvokeDefaultOpts(opts)
-		var rv LookupOrganizationResult
-		secret, err := ctx.InvokePackageRaw("aws:organizations/getOrganization:getOrganization", nil, &rv, "", opts...)
-		if err != nil {
-			return LookupOrganizationResultOutput{}, err
-		}
-
-		output := pulumi.ToOutput(rv).(LookupOrganizationResultOutput)
-		if secret {
-			return pulumi.ToSecret(output).(LookupOrganizationResultOutput), nil
-		}
-		return output, nil
+		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+		return ctx.InvokeOutput("aws:organizations/getOrganization:getOrganization", nil, LookupOrganizationResultOutput{}, options).(LookupOrganizationResultOutput), nil
 	}).(LookupOrganizationResultOutput)
 }
 

@@ -79,6 +79,8 @@ __all__ = [
     'DistributionOriginOriginShieldArgsDict',
     'DistributionOriginS3OriginConfigArgs',
     'DistributionOriginS3OriginConfigArgsDict',
+    'DistributionOriginVpcOriginConfigArgs',
+    'DistributionOriginVpcOriginConfigArgsDict',
     'DistributionRestrictionsArgs',
     'DistributionRestrictionsArgsDict',
     'DistributionRestrictionsGeoRestrictionArgs',
@@ -167,6 +169,12 @@ __all__ = [
     'ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgsDict',
     'ResponseHeadersPolicyServerTimingHeadersConfigArgs',
     'ResponseHeadersPolicyServerTimingHeadersConfigArgsDict',
+    'VpcOriginTimeoutsArgs',
+    'VpcOriginTimeoutsArgsDict',
+    'VpcOriginVpcOriginEndpointConfigArgs',
+    'VpcOriginVpcOriginEndpointConfigArgsDict',
+    'VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs',
+    'VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgsDict',
 ]
 
 MYPY = False
@@ -2321,6 +2329,10 @@ if not MYPY:
         """
         CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
         """
+        vpc_origin_config: NotRequired[pulumi.Input['DistributionOriginVpcOriginConfigArgsDict']]
+        """
+        The VPC origin configuration.
+        """
 elif False:
     DistributionOriginArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2336,7 +2348,8 @@ class DistributionOriginArgs:
                  origin_access_control_id: Optional[pulumi.Input[str]] = None,
                  origin_path: Optional[pulumi.Input[str]] = None,
                  origin_shield: Optional[pulumi.Input['DistributionOriginOriginShieldArgs']] = None,
-                 s3_origin_config: Optional[pulumi.Input['DistributionOriginS3OriginConfigArgs']] = None):
+                 s3_origin_config: Optional[pulumi.Input['DistributionOriginS3OriginConfigArgs']] = None,
+                 vpc_origin_config: Optional[pulumi.Input['DistributionOriginVpcOriginConfigArgs']] = None):
         """
         :param pulumi.Input[str] domain_name: Domain name corresponding to the distribution. For example: `d604721fxaaqy9.cloudfront.net`.
         :param pulumi.Input[int] connection_attempts: Number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.
@@ -2347,6 +2360,7 @@ class DistributionOriginArgs:
         :param pulumi.Input[str] origin_path: Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
         :param pulumi.Input['DistributionOriginOriginShieldArgs'] origin_shield: CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
         :param pulumi.Input['DistributionOriginS3OriginConfigArgs'] s3_origin_config: CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
+        :param pulumi.Input['DistributionOriginVpcOriginConfigArgs'] vpc_origin_config: The VPC origin configuration.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "origin_id", origin_id)
@@ -2366,6 +2380,8 @@ class DistributionOriginArgs:
             pulumi.set(__self__, "origin_shield", origin_shield)
         if s3_origin_config is not None:
             pulumi.set(__self__, "s3_origin_config", s3_origin_config)
+        if vpc_origin_config is not None:
+            pulumi.set(__self__, "vpc_origin_config", vpc_origin_config)
 
     @property
     @pulumi.getter(name="domainName")
@@ -2484,6 +2500,18 @@ class DistributionOriginArgs:
     def s3_origin_config(self, value: Optional[pulumi.Input['DistributionOriginS3OriginConfigArgs']]):
         pulumi.set(self, "s3_origin_config", value)
 
+    @property
+    @pulumi.getter(name="vpcOriginConfig")
+    def vpc_origin_config(self) -> Optional[pulumi.Input['DistributionOriginVpcOriginConfigArgs']]:
+        """
+        The VPC origin configuration.
+        """
+        return pulumi.get(self, "vpc_origin_config")
+
+    @vpc_origin_config.setter
+    def vpc_origin_config(self, value: Optional[pulumi.Input['DistributionOriginVpcOriginConfigArgs']]):
+        pulumi.set(self, "vpc_origin_config", value)
+
 
 if not MYPY:
     class DistributionOriginCustomHeaderArgsDict(TypedDict):
@@ -2538,13 +2566,7 @@ if not MYPY:
         List of SSL/TLS protocols that CloudFront can use when connecting to your origin over HTTPS. Valid values: `SSLv3`, `TLSv1`, `TLSv1.1`, `TLSv1.2`. For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the Amazon CloudFront Developer Guide.
         """
         origin_keepalive_timeout: NotRequired[pulumi.Input[int]]
-        """
-        The Custom KeepAlive timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `5`.
-        """
         origin_read_timeout: NotRequired[pulumi.Input[int]]
-        """
-        The Custom Read timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `30`.
-        """
 elif False:
     DistributionOriginCustomOriginConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2562,8 +2584,6 @@ class DistributionOriginCustomOriginConfigArgs:
         :param pulumi.Input[int] https_port: HTTPS port the custom origin listens on.
         :param pulumi.Input[str] origin_protocol_policy: Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] origin_ssl_protocols: List of SSL/TLS protocols that CloudFront can use when connecting to your origin over HTTPS. Valid values: `SSLv3`, `TLSv1`, `TLSv1.1`, `TLSv1.2`. For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the Amazon CloudFront Developer Guide.
-        :param pulumi.Input[int] origin_keepalive_timeout: The Custom KeepAlive timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `5`.
-        :param pulumi.Input[int] origin_read_timeout: The Custom Read timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `30`.
         """
         pulumi.set(__self__, "http_port", http_port)
         pulumi.set(__self__, "https_port", https_port)
@@ -2625,9 +2645,6 @@ class DistributionOriginCustomOriginConfigArgs:
     @property
     @pulumi.getter(name="originKeepaliveTimeout")
     def origin_keepalive_timeout(self) -> Optional[pulumi.Input[int]]:
-        """
-        The Custom KeepAlive timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `5`.
-        """
         return pulumi.get(self, "origin_keepalive_timeout")
 
     @origin_keepalive_timeout.setter
@@ -2637,9 +2654,6 @@ class DistributionOriginCustomOriginConfigArgs:
     @property
     @pulumi.getter(name="originReadTimeout")
     def origin_read_timeout(self) -> Optional[pulumi.Input[int]]:
-        """
-        The Custom Read timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `30`.
-        """
         return pulumi.get(self, "origin_read_timeout")
 
     @origin_read_timeout.setter
@@ -2842,6 +2856,63 @@ class DistributionOriginS3OriginConfigArgs:
     @origin_access_identity.setter
     def origin_access_identity(self, value: pulumi.Input[str]):
         pulumi.set(self, "origin_access_identity", value)
+
+
+if not MYPY:
+    class DistributionOriginVpcOriginConfigArgsDict(TypedDict):
+        vpc_origin_id: pulumi.Input[str]
+        """
+        The VPC origin ID.
+        """
+        origin_keepalive_timeout: NotRequired[pulumi.Input[int]]
+        origin_read_timeout: NotRequired[pulumi.Input[int]]
+elif False:
+    DistributionOriginVpcOriginConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DistributionOriginVpcOriginConfigArgs:
+    def __init__(__self__, *,
+                 vpc_origin_id: pulumi.Input[str],
+                 origin_keepalive_timeout: Optional[pulumi.Input[int]] = None,
+                 origin_read_timeout: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] vpc_origin_id: The VPC origin ID.
+        """
+        pulumi.set(__self__, "vpc_origin_id", vpc_origin_id)
+        if origin_keepalive_timeout is not None:
+            pulumi.set(__self__, "origin_keepalive_timeout", origin_keepalive_timeout)
+        if origin_read_timeout is not None:
+            pulumi.set(__self__, "origin_read_timeout", origin_read_timeout)
+
+    @property
+    @pulumi.getter(name="vpcOriginId")
+    def vpc_origin_id(self) -> pulumi.Input[str]:
+        """
+        The VPC origin ID.
+        """
+        return pulumi.get(self, "vpc_origin_id")
+
+    @vpc_origin_id.setter
+    def vpc_origin_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vpc_origin_id", value)
+
+    @property
+    @pulumi.getter(name="originKeepaliveTimeout")
+    def origin_keepalive_timeout(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "origin_keepalive_timeout")
+
+    @origin_keepalive_timeout.setter
+    def origin_keepalive_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "origin_keepalive_timeout", value)
+
+    @property
+    @pulumi.getter(name="originReadTimeout")
+    def origin_read_timeout(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "origin_read_timeout")
+
+    @origin_read_timeout.setter
+    def origin_read_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "origin_read_timeout", value)
 
 
 if not MYPY:
@@ -4879,5 +4950,238 @@ class ResponseHeadersPolicyServerTimingHeadersConfigArgs:
     @sampling_rate.setter
     def sampling_rate(self, value: pulumi.Input[float]):
         pulumi.set(self, "sampling_rate", value)
+
+
+if not MYPY:
+    class VpcOriginTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    VpcOriginTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VpcOriginTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 delete: Optional[pulumi.Input[str]] = None,
+                 update: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete", value)
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update", value)
+
+
+if not MYPY:
+    class VpcOriginVpcOriginEndpointConfigArgsDict(TypedDict):
+        arn: pulumi.Input[str]
+        """
+        The VPC origin ARN.
+        """
+        http_port: pulumi.Input[int]
+        """
+        The HTTP port for the CloudFront VPC origin endpoint configuration.
+        """
+        https_port: pulumi.Input[int]
+        """
+        The HTTPS port for the CloudFront VPC origin endpoint configuration.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the CloudFront VPC origin endpoint configuration.
+        """
+        origin_protocol_policy: pulumi.Input[str]
+        """
+        The origin protocol policy for the CloudFront VPC origin endpoint configuration.
+        """
+        origin_ssl_protocols: NotRequired[pulumi.Input['VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgsDict']]
+        """
+        A complex type that contains information about the SSL/TLS protocols that CloudFront can use when establishing an HTTPS connection with your origin.
+        """
+elif False:
+    VpcOriginVpcOriginEndpointConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VpcOriginVpcOriginEndpointConfigArgs:
+    def __init__(__self__, *,
+                 arn: pulumi.Input[str],
+                 http_port: pulumi.Input[int],
+                 https_port: pulumi.Input[int],
+                 name: pulumi.Input[str],
+                 origin_protocol_policy: pulumi.Input[str],
+                 origin_ssl_protocols: Optional[pulumi.Input['VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs']] = None):
+        """
+        :param pulumi.Input[str] arn: The VPC origin ARN.
+        :param pulumi.Input[int] http_port: The HTTP port for the CloudFront VPC origin endpoint configuration.
+        :param pulumi.Input[int] https_port: The HTTPS port for the CloudFront VPC origin endpoint configuration.
+        :param pulumi.Input[str] name: The name of the CloudFront VPC origin endpoint configuration.
+        :param pulumi.Input[str] origin_protocol_policy: The origin protocol policy for the CloudFront VPC origin endpoint configuration.
+        :param pulumi.Input['VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs'] origin_ssl_protocols: A complex type that contains information about the SSL/TLS protocols that CloudFront can use when establishing an HTTPS connection with your origin.
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "http_port", http_port)
+        pulumi.set(__self__, "https_port", https_port)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "origin_protocol_policy", origin_protocol_policy)
+        if origin_ssl_protocols is not None:
+            pulumi.set(__self__, "origin_ssl_protocols", origin_ssl_protocols)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[str]:
+        """
+        The VPC origin ARN.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="httpPort")
+    def http_port(self) -> pulumi.Input[int]:
+        """
+        The HTTP port for the CloudFront VPC origin endpoint configuration.
+        """
+        return pulumi.get(self, "http_port")
+
+    @http_port.setter
+    def http_port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "http_port", value)
+
+    @property
+    @pulumi.getter(name="httpsPort")
+    def https_port(self) -> pulumi.Input[int]:
+        """
+        The HTTPS port for the CloudFront VPC origin endpoint configuration.
+        """
+        return pulumi.get(self, "https_port")
+
+    @https_port.setter
+    def https_port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "https_port", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the CloudFront VPC origin endpoint configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="originProtocolPolicy")
+    def origin_protocol_policy(self) -> pulumi.Input[str]:
+        """
+        The origin protocol policy for the CloudFront VPC origin endpoint configuration.
+        """
+        return pulumi.get(self, "origin_protocol_policy")
+
+    @origin_protocol_policy.setter
+    def origin_protocol_policy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "origin_protocol_policy", value)
+
+    @property
+    @pulumi.getter(name="originSslProtocols")
+    def origin_ssl_protocols(self) -> Optional[pulumi.Input['VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs']]:
+        """
+        A complex type that contains information about the SSL/TLS protocols that CloudFront can use when establishing an HTTPS connection with your origin.
+        """
+        return pulumi.get(self, "origin_ssl_protocols")
+
+    @origin_ssl_protocols.setter
+    def origin_ssl_protocols(self, value: Optional[pulumi.Input['VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs']]):
+        pulumi.set(self, "origin_ssl_protocols", value)
+
+
+if not MYPY:
+    class VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgsDict(TypedDict):
+        items: pulumi.Input[Sequence[pulumi.Input[str]]]
+        quantity: pulumi.Input[int]
+elif False:
+    VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs:
+    def __init__(__self__, *,
+                 items: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 quantity: pulumi.Input[int]):
+        pulumi.set(__self__, "items", items)
+        pulumi.set(__self__, "quantity", quantity)
+
+    @property
+    @pulumi.getter
+    def items(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "items")
+
+    @items.setter
+    def items(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "items", value)
+
+    @property
+    @pulumi.getter
+    def quantity(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "quantity")
+
+    @quantity.setter
+    def quantity(self, value: pulumi.Input[int]):
+        pulumi.set(self, "quantity", value)
 
 

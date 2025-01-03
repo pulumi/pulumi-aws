@@ -58,14 +58,20 @@ import (
 //	}
 //
 // ```
+//
+// ## Import
+//
+// Using `pulumi import`, import an AWS Resource Groups Resource using `group_arn` and `resource_arn`, separated by a comma (`,`). For example:
+//
+// ```sh
+// $ pulumi import aws:resourcegroups/resource:Resource example arn:aws:resource-groups:us-west-2:012345678901:group/example,arn:aws:lambda:us-west-2:012345678901:function:example
+// ```
 type Resource struct {
 	pulumi.CustomResourceState
 
-	// The name or the ARN of the resource group to add resources to.
-	//
-	// The following arguments are optional:
+	// Name or ARN of the resource group to add resources to.
 	GroupArn pulumi.StringOutput `pulumi:"groupArn"`
-	// The ARN of the resource to be added to the group.
+	// ARN of the resource to be added to the group.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// The resource type of a resource, such as `AWS::EC2::Instance`.
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
@@ -107,22 +113,18 @@ func GetResource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Resource resources.
 type resourceState struct {
-	// The name or the ARN of the resource group to add resources to.
-	//
-	// The following arguments are optional:
+	// Name or ARN of the resource group to add resources to.
 	GroupArn *string `pulumi:"groupArn"`
-	// The ARN of the resource to be added to the group.
+	// ARN of the resource to be added to the group.
 	ResourceArn *string `pulumi:"resourceArn"`
 	// The resource type of a resource, such as `AWS::EC2::Instance`.
 	ResourceType *string `pulumi:"resourceType"`
 }
 
 type ResourceState struct {
-	// The name or the ARN of the resource group to add resources to.
-	//
-	// The following arguments are optional:
+	// Name or ARN of the resource group to add resources to.
 	GroupArn pulumi.StringPtrInput
-	// The ARN of the resource to be added to the group.
+	// ARN of the resource to be added to the group.
 	ResourceArn pulumi.StringPtrInput
 	// The resource type of a resource, such as `AWS::EC2::Instance`.
 	ResourceType pulumi.StringPtrInput
@@ -133,21 +135,17 @@ func (ResourceState) ElementType() reflect.Type {
 }
 
 type resourceArgs struct {
-	// The name or the ARN of the resource group to add resources to.
-	//
-	// The following arguments are optional:
+	// Name or ARN of the resource group to add resources to.
 	GroupArn string `pulumi:"groupArn"`
-	// The ARN of the resource to be added to the group.
+	// ARN of the resource to be added to the group.
 	ResourceArn string `pulumi:"resourceArn"`
 }
 
 // The set of arguments for constructing a Resource resource.
 type ResourceArgs struct {
-	// The name or the ARN of the resource group to add resources to.
-	//
-	// The following arguments are optional:
+	// Name or ARN of the resource group to add resources to.
 	GroupArn pulumi.StringInput
-	// The ARN of the resource to be added to the group.
+	// ARN of the resource to be added to the group.
 	ResourceArn pulumi.StringInput
 }
 
@@ -238,14 +236,12 @@ func (o ResourceOutput) ToResourceOutputWithContext(ctx context.Context) Resourc
 	return o
 }
 
-// The name or the ARN of the resource group to add resources to.
-//
-// The following arguments are optional:
+// Name or ARN of the resource group to add resources to.
 func (o ResourceOutput) GroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.GroupArn }).(pulumi.StringOutput)
 }
 
-// The ARN of the resource to be added to the group.
+// ARN of the resource to be added to the group.
 func (o ResourceOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }

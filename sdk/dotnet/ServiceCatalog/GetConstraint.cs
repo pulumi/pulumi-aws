@@ -64,6 +64,33 @@ namespace Pulumi.Aws.ServiceCatalog
         /// </summary>
         public static Output<GetConstraintResult> Invoke(GetConstraintInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConstraintResult>("aws:servicecatalog/getConstraint:getConstraint", args ?? new GetConstraintInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides information on a Service Catalog Constraint.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.ServiceCatalog.GetConstraint.Invoke(new()
+        ///     {
+        ///         AcceptLanguage = "en",
+        ///         Id = "cons-hrvy0335",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetConstraintResult> Invoke(GetConstraintInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConstraintResult>("aws:servicecatalog/getConstraint:getConstraint", args ?? new GetConstraintInvokeArgs(), options.WithDefaults());
     }
 
 

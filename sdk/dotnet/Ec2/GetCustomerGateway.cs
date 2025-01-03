@@ -106,6 +106,54 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Output<GetCustomerGatewayResult> Invoke(GetCustomerGatewayInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomerGatewayResult>("aws:ec2/getCustomerGateway:getCustomerGateway", args ?? new GetCustomerGatewayInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get an existing AWS Customer Gateway.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var foo = Aws.Ec2.GetCustomerGateway.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetCustomerGatewayFilterInputArgs
+        ///             {
+        ///                 Name = "tag:Name",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "foo-prod",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var main = new Aws.Ec2.VpnGateway("main", new()
+        ///     {
+        ///         VpcId = mainAwsVpc.Id,
+        ///         AmazonSideAsn = "7224",
+        ///     });
+        /// 
+        ///     var transit = new Aws.Ec2.VpnConnection("transit", new()
+        ///     {
+        ///         VpnGatewayId = main.Id,
+        ///         CustomerGatewayId = foo.Apply(getCustomerGatewayResult =&gt; getCustomerGatewayResult.Id),
+        ///         Type = foo.Apply(getCustomerGatewayResult =&gt; getCustomerGatewayResult.Type),
+        ///         StaticRoutesOnly = false,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetCustomerGatewayResult> Invoke(GetCustomerGatewayInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomerGatewayResult>("aws:ec2/getCustomerGateway:getCustomerGateway", args ?? new GetCustomerGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

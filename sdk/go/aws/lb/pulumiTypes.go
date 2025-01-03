@@ -1660,6 +1660,8 @@ func (o ListenerDefaultActionRedirectPtrOutput) StatusCode() pulumi.StringPtrOut
 }
 
 type ListenerMutualAuthentication struct {
+	// Valid values are `off` and `on`.
+	AdvertiseTrustStoreCaNames *string `pulumi:"advertiseTrustStoreCaNames"`
 	// Whether client certificate expiry is ignored. Default is `false`.
 	IgnoreClientCertificateExpiry *bool `pulumi:"ignoreClientCertificateExpiry"`
 	// Valid values are `off`, `verify` and `passthrough`.
@@ -1680,6 +1682,8 @@ type ListenerMutualAuthenticationInput interface {
 }
 
 type ListenerMutualAuthenticationArgs struct {
+	// Valid values are `off` and `on`.
+	AdvertiseTrustStoreCaNames pulumi.StringPtrInput `pulumi:"advertiseTrustStoreCaNames"`
 	// Whether client certificate expiry is ignored. Default is `false`.
 	IgnoreClientCertificateExpiry pulumi.BoolPtrInput `pulumi:"ignoreClientCertificateExpiry"`
 	// Valid values are `off`, `verify` and `passthrough`.
@@ -1765,6 +1769,11 @@ func (o ListenerMutualAuthenticationOutput) ToListenerMutualAuthenticationPtrOut
 	}).(ListenerMutualAuthenticationPtrOutput)
 }
 
+// Valid values are `off` and `on`.
+func (o ListenerMutualAuthenticationOutput) AdvertiseTrustStoreCaNames() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerMutualAuthentication) *string { return v.AdvertiseTrustStoreCaNames }).(pulumi.StringPtrOutput)
+}
+
 // Whether client certificate expiry is ignored. Default is `false`.
 func (o ListenerMutualAuthenticationOutput) IgnoreClientCertificateExpiry() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ListenerMutualAuthentication) *bool { return v.IgnoreClientCertificateExpiry }).(pulumi.BoolPtrOutput)
@@ -1802,6 +1811,16 @@ func (o ListenerMutualAuthenticationPtrOutput) Elem() ListenerMutualAuthenticati
 		var ret ListenerMutualAuthentication
 		return ret
 	}).(ListenerMutualAuthenticationOutput)
+}
+
+// Valid values are `off` and `on`.
+func (o ListenerMutualAuthenticationPtrOutput) AdvertiseTrustStoreCaNames() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerMutualAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdvertiseTrustStoreCaNames
+	}).(pulumi.StringPtrOutput)
 }
 
 // Whether client certificate expiry is ignored. Default is `false`.
@@ -7064,6 +7083,7 @@ func (o GetListenerDefaultActionRedirectArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetListenerMutualAuthentication struct {
+	AdvertiseTrustStoreCaNames    string `pulumi:"advertiseTrustStoreCaNames"`
 	IgnoreClientCertificateExpiry bool   `pulumi:"ignoreClientCertificateExpiry"`
 	Mode                          string `pulumi:"mode"`
 	TrustStoreArn                 string `pulumi:"trustStoreArn"`
@@ -7081,6 +7101,7 @@ type GetListenerMutualAuthenticationInput interface {
 }
 
 type GetListenerMutualAuthenticationArgs struct {
+	AdvertiseTrustStoreCaNames    pulumi.StringInput `pulumi:"advertiseTrustStoreCaNames"`
 	IgnoreClientCertificateExpiry pulumi.BoolInput   `pulumi:"ignoreClientCertificateExpiry"`
 	Mode                          pulumi.StringInput `pulumi:"mode"`
 	TrustStoreArn                 pulumi.StringInput `pulumi:"trustStoreArn"`
@@ -7135,6 +7156,10 @@ func (o GetListenerMutualAuthenticationOutput) ToGetListenerMutualAuthentication
 
 func (o GetListenerMutualAuthenticationOutput) ToGetListenerMutualAuthenticationOutputWithContext(ctx context.Context) GetListenerMutualAuthenticationOutput {
 	return o
+}
+
+func (o GetListenerMutualAuthenticationOutput) AdvertiseTrustStoreCaNames() pulumi.StringOutput {
+	return o.ApplyT(func(v GetListenerMutualAuthentication) string { return v.AdvertiseTrustStoreCaNames }).(pulumi.StringOutput)
 }
 
 func (o GetListenerMutualAuthenticationOutput) IgnoreClientCertificateExpiry() pulumi.BoolOutput {

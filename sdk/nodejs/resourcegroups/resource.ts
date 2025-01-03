@@ -27,6 +27,14 @@ import * as utilities from "../utilities";
  *     resourceArn: example.arn,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Using `pulumi import`, import an AWS Resource Groups Resource using `group_arn` and `resource_arn`, separated by a comma (`,`). For example:
+ *
+ * ```sh
+ * $ pulumi import aws:resourcegroups/resource:Resource example arn:aws:resource-groups:us-west-2:012345678901:group/example,arn:aws:lambda:us-west-2:012345678901:function:example
+ * ```
  */
 export class Resource extends pulumi.CustomResource {
     /**
@@ -57,13 +65,11 @@ export class Resource extends pulumi.CustomResource {
     }
 
     /**
-     * The name or the ARN of the resource group to add resources to.
-     *
-     * The following arguments are optional:
+     * Name or ARN of the resource group to add resources to.
      */
     public readonly groupArn!: pulumi.Output<string>;
     /**
-     * The ARN of the resource to be added to the group.
+     * ARN of the resource to be added to the group.
      */
     public readonly resourceArn!: pulumi.Output<string>;
     /**
@@ -109,13 +115,11 @@ export class Resource extends pulumi.CustomResource {
  */
 export interface ResourceState {
     /**
-     * The name or the ARN of the resource group to add resources to.
-     *
-     * The following arguments are optional:
+     * Name or ARN of the resource group to add resources to.
      */
     groupArn?: pulumi.Input<string>;
     /**
-     * The ARN of the resource to be added to the group.
+     * ARN of the resource to be added to the group.
      */
     resourceArn?: pulumi.Input<string>;
     /**
@@ -129,13 +133,11 @@ export interface ResourceState {
  */
 export interface ResourceArgs {
     /**
-     * The name or the ARN of the resource group to add resources to.
-     *
-     * The following arguments are optional:
+     * Name or ARN of the resource group to add resources to.
      */
     groupArn: pulumi.Input<string>;
     /**
-     * The ARN of the resource to be added to the group.
+     * ARN of the resource to be added to the group.
      */
     resourceArn: pulumi.Input<string>;
 }

@@ -62,6 +62,32 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         public static Output<GetServerlessSecurityConfigResult> Invoke(GetServerlessSecurityConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerlessSecurityConfigResult>("aws:opensearch/getServerlessSecurityConfig:getServerlessSecurityConfig", args ?? new GetServerlessSecurityConfigInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS OpenSearch Serverless Security Config.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.OpenSearch.GetServerlessSecurityConfig.Invoke(new()
+        ///     {
+        ///         Id = "saml/12345678912/example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetServerlessSecurityConfigResult> Invoke(GetServerlessSecurityConfigInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerlessSecurityConfigResult>("aws:opensearch/getServerlessSecurityConfig:getServerlessSecurityConfig", args ?? new GetServerlessSecurityConfigInvokeArgs(), options.WithDefaults());
     }
 
 

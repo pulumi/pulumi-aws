@@ -58,6 +58,30 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public static Output<GetInfrastructureConfigurationResult> Invoke(GetInfrastructureConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInfrastructureConfigurationResult>("aws:imagebuilder/getInfrastructureConfiguration:getInfrastructureConfiguration", args ?? new GetInfrastructureConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about an Image Builder Infrastructure Configuration.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.ImageBuilder.GetInfrastructureConfiguration.Invoke(new()
+        ///     {
+        ///         Arn = "arn:aws:imagebuilder:us-west-2:aws:infrastructure-configuration/example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetInfrastructureConfigurationResult> Invoke(GetInfrastructureConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInfrastructureConfigurationResult>("aws:imagebuilder/getInfrastructureConfiguration:getInfrastructureConfiguration", args ?? new GetInfrastructureConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

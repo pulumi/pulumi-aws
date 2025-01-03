@@ -200,6 +200,101 @@ namespace Pulumi.Aws.Elb
         /// </summary>
         public static Output<GetServiceAccountResult> Invoke(GetServiceAccountInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceAccountResult>("aws:elb/getServiceAccount:getServiceAccount", args ?? new GetServiceAccountInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get the Account ID of the [AWS Elastic Load Balancing Service Account](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy)
+        /// in a given region for the purpose of permitting in S3 bucket policy.
+        /// 
+        /// &gt; **Note:** For AWS Regions opened since Jakarta (`ap-southeast-3`) in December 2021, AWS [documents that](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = Aws.Elb.GetServiceAccount.Invoke();
+        /// 
+        ///     var elbLogs = new Aws.S3.BucketV2("elb_logs", new()
+        ///     {
+        ///         Bucket = "my-elb-tf-test-bucket",
+        ///     });
+        /// 
+        ///     var elbLogsAcl = new Aws.S3.BucketAclV2("elb_logs_acl", new()
+        ///     {
+        ///         Bucket = elbLogs.Id,
+        ///         Acl = "private",
+        ///     });
+        /// 
+        ///     var allowElbLogging = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     {
+        ///         Statements = new[]
+        ///         {
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Effect = "Allow",
+        ///                 Principals = new[]
+        ///                 {
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+        ///                     {
+        ///                         Type = "AWS",
+        ///                         Identifiers = new[]
+        ///                         {
+        ///                             main.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Arn),
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "s3:PutObject",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     $"{elbLogs.Arn}/AWSLogs/*",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var allowElbLoggingBucketPolicy = new Aws.S3.BucketPolicy("allow_elb_logging", new()
+        ///     {
+        ///         Bucket = elbLogs.Id,
+        ///         Policy = allowElbLogging.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///     });
+        /// 
+        ///     var bar = new Aws.Elb.LoadBalancer("bar", new()
+        ///     {
+        ///         Name = "my-foobar-elb",
+        ///         AvailabilityZones = new[]
+        ///         {
+        ///             "us-west-2a",
+        ///         },
+        ///         AccessLogs = new Aws.Elb.Inputs.LoadBalancerAccessLogsArgs
+        ///         {
+        ///             Bucket = elbLogs.Id,
+        ///             Interval = 5,
+        ///         },
+        ///         Listeners = new[]
+        ///         {
+        ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
+        ///             {
+        ///                 InstancePort = 8000,
+        ///                 InstanceProtocol = "http",
+        ///                 LbPort = 80,
+        ///                 LbProtocol = "http",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetServiceAccountResult> Invoke(GetServiceAccountInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceAccountResult>("aws:elb/getServiceAccount:getServiceAccount", args ?? new GetServiceAccountInvokeArgs(), options.WithDefaults());
     }
 
 

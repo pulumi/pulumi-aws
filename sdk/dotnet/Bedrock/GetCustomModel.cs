@@ -58,6 +58,30 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         public static Output<GetCustomModelResult> Invoke(GetCustomModelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomModelResult>("aws:bedrock/getCustomModel:getCustomModel", args ?? new GetCustomModelInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns properties of a specific Amazon Bedrock custom model.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Bedrock.GetCustomModel.Invoke(new()
+        ///     {
+        ///         ModelId = "arn:aws:bedrock:us-west-2:123456789012:custom-model/amazon.titan-text-express-v1:0:8k/ly16hhi765j4 ",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetCustomModelResult> Invoke(GetCustomModelInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomModelResult>("aws:bedrock/getCustomModel:getCustomModel", args ?? new GetCustomModelInvokeArgs(), options.WithDefaults());
     }
 
 

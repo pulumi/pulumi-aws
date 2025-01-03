@@ -72,6 +72,37 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         public static Output<GetResourceResult> Invoke(GetResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceResult>("aws:apigateway/getResource:getResource", args ?? new GetResourceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get the id of a Resource in API Gateway.
+        /// To fetch the Resource, you must provide the REST API id as well as the full path.  
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var myRestApi = Aws.ApiGateway.GetRestApi.Invoke(new()
+        ///     {
+        ///         Name = "my-rest-api",
+        ///     });
+        /// 
+        ///     var myResource = Aws.ApiGateway.GetResource.Invoke(new()
+        ///     {
+        ///         RestApiId = myRestApi.Apply(getRestApiResult =&gt; getRestApiResult.Id),
+        ///         Path = "/endpoint/path",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetResourceResult> Invoke(GetResourceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceResult>("aws:apigateway/getResource:getResource", args ?? new GetResourceInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -104,6 +104,53 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         public static Output<GetSnapshotResult> Invoke(GetSnapshotInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("aws:ebs/getSnapshot:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var ebsVolume = Aws.Ebs.GetSnapshot.Invoke(new()
+        ///     {
+        ///         MostRecent = true,
+        ///         Owners = new[]
+        ///         {
+        ///             "self",
+        ///         },
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ebs.Inputs.GetSnapshotFilterInputArgs
+        ///             {
+        ///                 Name = "volume-size",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "40",
+        ///                 },
+        ///             },
+        ///             new Aws.Ebs.Inputs.GetSnapshotFilterInputArgs
+        ///             {
+        ///                 Name = "tag:Name",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "Example",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSnapshotResult> Invoke(GetSnapshotInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("aws:ebs/getSnapshot:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithDefaults());
     }
 
 

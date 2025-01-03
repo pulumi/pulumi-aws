@@ -91,21 +91,11 @@ type LookupCustomModelResult struct {
 }
 
 func LookupCustomModelOutput(ctx *pulumi.Context, args LookupCustomModelOutputArgs, opts ...pulumi.InvokeOption) LookupCustomModelResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCustomModelResultOutput, error) {
 			args := v.(LookupCustomModelArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupCustomModelResult
-			secret, err := ctx.InvokePackageRaw("aws:bedrock/getCustomModel:getCustomModel", args, &rv, "", opts...)
-			if err != nil {
-				return LookupCustomModelResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupCustomModelResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupCustomModelResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:bedrock/getCustomModel:getCustomModel", args, LookupCustomModelResultOutput{}, options).(LookupCustomModelResultOutput), nil
 		}).(LookupCustomModelResultOutput)
 }
 

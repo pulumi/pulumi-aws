@@ -170,18 +170,21 @@ class GetReceivedLicenseEntitlementResult(dict):
                  allow_check_in: bool,
                  max_count: int,
                  name: str,
+                 overage: bool,
                  unit: str,
                  value: str):
         """
         :param bool allow_check_in: Indicates whether check-ins are allowed.
         :param int max_count: Maximum entitlement count. Use if the unit is not None.
         :param str name: The key name.
+        :param bool overage: Indicates whether overages are allowed.
         :param str unit: Entitlement unit.
         :param str value: The value.
         """
         pulumi.set(__self__, "allow_check_in", allow_check_in)
         pulumi.set(__self__, "max_count", max_count)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "overage", overage)
         pulumi.set(__self__, "unit", unit)
         pulumi.set(__self__, "value", value)
 
@@ -208,6 +211,14 @@ class GetReceivedLicenseEntitlementResult(dict):
         The key name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def overage(self) -> bool:
+        """
+        Indicates whether overages are allowed.
+        """
+        return pulumi.get(self, "overage")
 
     @property
     @pulumi.getter

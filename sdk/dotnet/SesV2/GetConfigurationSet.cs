@@ -62,6 +62,32 @@ namespace Pulumi.Aws.SesV2
         /// </summary>
         public static Output<GetConfigurationSetResult> Invoke(GetConfigurationSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationSetResult>("aws:sesv2/getConfigurationSet:getConfigurationSet", args ?? new GetConfigurationSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS SESv2 (Simple Email V2) Configuration Set.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.SesV2.GetConfigurationSet.Invoke(new()
+        ///     {
+        ///         ConfigurationSetName = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetConfigurationSetResult> Invoke(GetConfigurationSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationSetResult>("aws:sesv2/getConfigurationSet:getConfigurationSet", args ?? new GetConfigurationSetInvokeArgs(), options.WithDefaults());
     }
 
 

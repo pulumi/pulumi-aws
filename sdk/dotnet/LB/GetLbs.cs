@@ -70,6 +70,36 @@ namespace Pulumi.Aws.LB
         /// </summary>
         public static Output<GetLbsResult> Invoke(GetLbsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLbsResult>("aws:lb/getLbs:getLbs", args ?? new GetLbsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get a list of Load Balancer ARNs matching the specified criteria. Useful for passing to other
+        /// resources.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.LB.GetLbs.Invoke(new()
+        ///     {
+        ///         Tags = 
+        ///         {
+        ///             { "elbv2.k8s.aws/cluster", "my-cluster" },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLbsResult> Invoke(GetLbsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLbsResult>("aws:lb/getLbs:getLbs", args ?? new GetLbsInvokeArgs(), options.WithDefaults());
     }
 
 

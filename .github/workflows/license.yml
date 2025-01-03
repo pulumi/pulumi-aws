@@ -41,7 +41,8 @@ jobs:
         with:
           tools: go
           cache-go: false
-      - run: make upstream
+      - run: make prepare_local_workspace
+        continue-on-error: true
       - uses: pulumi/license-check-action@main
         with:
           module-path: provider

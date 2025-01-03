@@ -62,6 +62,32 @@ namespace Pulumi.Aws.Quicksight
         /// </summary>
         public static Output<GetThemeResult> Invoke(GetThemeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetThemeResult>("aws:quicksight/getTheme:getTheme", args ?? new GetThemeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS QuickSight Theme.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Quicksight.GetTheme.Invoke(new()
+        ///     {
+        ///         ThemeId = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetThemeResult> Invoke(GetThemeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetThemeResult>("aws:quicksight/getTheme:getTheme", args ?? new GetThemeInvokeArgs(), options.WithDefaults());
     }
 
 

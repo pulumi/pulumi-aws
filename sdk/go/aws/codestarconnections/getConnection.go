@@ -106,21 +106,11 @@ type LookupConnectionResult struct {
 }
 
 func LookupConnectionOutput(ctx *pulumi.Context, args LookupConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupConnectionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupConnectionResultOutput, error) {
 			args := v.(LookupConnectionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupConnectionResult
-			secret, err := ctx.InvokePackageRaw("aws:codestarconnections/getConnection:getConnection", args, &rv, "", opts...)
-			if err != nil {
-				return LookupConnectionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupConnectionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupConnectionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:codestarconnections/getConnection:getConnection", args, LookupConnectionResultOutput{}, options).(LookupConnectionResultOutput), nil
 		}).(LookupConnectionResultOutput)
 }
 

@@ -92,6 +92,47 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteResult>("aws:ec2/getRoute:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// `aws.ec2.Route` provides details about a specific Route.
+        /// 
+        /// This resource can prove useful when finding the resource associated with a CIDR. For example, finding the peering connection associated with a CIDR value.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var config = new Config();
+        ///     var subnetId = config.RequireObject&lt;dynamic&gt;("subnetId");
+        ///     var selected = Aws.Ec2.GetRouteTable.Invoke(new()
+        ///     {
+        ///         SubnetId = subnetId,
+        ///     });
+        /// 
+        ///     var route = Aws.Ec2.GetRoute.Invoke(new()
+        ///     {
+        ///         RouteTableId = selectedAwsRouteTable.Id,
+        ///         DestinationCidrBlock = "10.0.1.0/24",
+        ///     });
+        /// 
+        ///     var @interface = Aws.Ec2.GetNetworkInterface.Invoke(new()
+        ///     {
+        ///         Id = route.Apply(getRouteResult =&gt; getRouteResult.NetworkInterfaceId),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRouteResult>("aws:ec2/getRoute:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());
     }
 
 

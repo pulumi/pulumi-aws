@@ -62,6 +62,32 @@ namespace Pulumi.Aws.ServiceCatalog
         /// </summary>
         public static Output<GetAppregistryApplicationResult> Invoke(GetAppregistryApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppregistryApplicationResult>("aws:servicecatalog/getAppregistryApplication:getAppregistryApplication", args ?? new GetAppregistryApplicationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS Service Catalog AppRegistry Application.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.ServiceCatalog.GetAppregistryApplication.Invoke(new()
+        ///     {
+        ///         Id = "application-1234",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetAppregistryApplicationResult> Invoke(GetAppregistryApplicationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAppregistryApplicationResult>("aws:servicecatalog/getAppregistryApplication:getAppregistryApplication", args ?? new GetAppregistryApplicationInvokeArgs(), options.WithDefaults());
     }
 
 

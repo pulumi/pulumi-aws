@@ -429,6 +429,7 @@ class Endpoints(dict):
                  mediapackagev2: Optional[str] = None,
                  mediastore: Optional[str] = None,
                  memorydb: Optional[str] = None,
+                 mgn: Optional[str] = None,
                  mq: Optional[str] = None,
                  msk: Optional[str] = None,
                  mwaa: Optional[str] = None,
@@ -522,6 +523,7 @@ class Endpoints(dict):
                  synthetics: Optional[str] = None,
                  taxsettings: Optional[str] = None,
                  timestreaminfluxdb: Optional[str] = None,
+                 timestreamquery: Optional[str] = None,
                  timestreamwrite: Optional[str] = None,
                  transcribe: Optional[str] = None,
                  transcribeservice: Optional[str] = None,
@@ -724,6 +726,7 @@ class Endpoints(dict):
         :param str mediapackagev2: Use this to override the default service endpoint URL
         :param str mediastore: Use this to override the default service endpoint URL
         :param str memorydb: Use this to override the default service endpoint URL
+        :param str mgn: Use this to override the default service endpoint URL
         :param str mq: Use this to override the default service endpoint URL
         :param str msk: Use this to override the default service endpoint URL
         :param str mwaa: Use this to override the default service endpoint URL
@@ -817,6 +820,7 @@ class Endpoints(dict):
         :param str synthetics: Use this to override the default service endpoint URL
         :param str taxsettings: Use this to override the default service endpoint URL
         :param str timestreaminfluxdb: Use this to override the default service endpoint URL
+        :param str timestreamquery: Use this to override the default service endpoint URL
         :param str timestreamwrite: Use this to override the default service endpoint URL
         :param str transcribe: Use this to override the default service endpoint URL
         :param str transcribeservice: Use this to override the default service endpoint URL
@@ -1206,6 +1210,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "mediastore", mediastore)
         if memorydb is not None:
             pulumi.set(__self__, "memorydb", memorydb)
+        if mgn is not None:
+            pulumi.set(__self__, "mgn", mgn)
         if mq is not None:
             pulumi.set(__self__, "mq", mq)
         if msk is not None:
@@ -1392,6 +1398,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "taxsettings", taxsettings)
         if timestreaminfluxdb is not None:
             pulumi.set(__self__, "timestreaminfluxdb", timestreaminfluxdb)
+        if timestreamquery is not None:
+            pulumi.set(__self__, "timestreamquery", timestreamquery)
         if timestreamwrite is not None:
             pulumi.set(__self__, "timestreamwrite", timestreamwrite)
         if transcribe is not None:
@@ -2919,6 +2927,14 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def mgn(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "mgn")
+
+    @property
+    @pulumi.getter
     def mq(self) -> Optional[str]:
         """
         Use this to override the default service endpoint URL
@@ -3660,6 +3676,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "timestreaminfluxdb")
+
+    @property
+    @pulumi.getter
+    def timestreamquery(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "timestreamquery")
 
     @property
     @pulumi.getter

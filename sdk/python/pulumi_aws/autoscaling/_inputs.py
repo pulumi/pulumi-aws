@@ -16,6 +16,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'GroupAvailabilityZoneDistributionArgs',
+    'GroupAvailabilityZoneDistributionArgsDict',
     'GroupInitialLifecycleHookArgs',
     'GroupInitialLifecycleHookArgsDict',
     'GroupInstanceMaintenancePolicyArgs',
@@ -135,6 +137,38 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class GroupAvailabilityZoneDistributionArgsDict(TypedDict):
+        capacity_distribution_strategy: NotRequired[pulumi.Input[str]]
+        """
+        The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
+        """
+elif False:
+    GroupAvailabilityZoneDistributionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GroupAvailabilityZoneDistributionArgs:
+    def __init__(__self__, *,
+                 capacity_distribution_strategy: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] capacity_distribution_strategy: The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
+        """
+        if capacity_distribution_strategy is not None:
+            pulumi.set(__self__, "capacity_distribution_strategy", capacity_distribution_strategy)
+
+    @property
+    @pulumi.getter(name="capacityDistributionStrategy")
+    def capacity_distribution_strategy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
+        """
+        return pulumi.get(self, "capacity_distribution_strategy")
+
+    @capacity_distribution_strategy.setter
+    def capacity_distribution_strategy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "capacity_distribution_strategy", value)
+
 
 if not MYPY:
     class GroupInitialLifecycleHookArgsDict(TypedDict):

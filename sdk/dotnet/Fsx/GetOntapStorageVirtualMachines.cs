@@ -82,6 +82,42 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         public static Output<GetOntapStorageVirtualMachinesResult> Invoke(GetOntapStorageVirtualMachinesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOntapStorageVirtualMachinesResult>("aws:fsx/getOntapStorageVirtualMachines:getOntapStorageVirtualMachines", args ?? new GetOntapStorageVirtualMachinesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This resource can be useful for getting back a set of FSx ONTAP Storage Virtual Machine (SVM) IDs.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// The following shows outputting all SVM IDs for a given FSx ONTAP File System.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Fsx.GetOntapStorageVirtualMachines.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Fsx.Inputs.GetOntapStorageVirtualMachinesFilterInputArgs
+        ///             {
+        ///                 Name = "file-system-id",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "fs-12345678",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetOntapStorageVirtualMachinesResult> Invoke(GetOntapStorageVirtualMachinesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOntapStorageVirtualMachinesResult>("aws:fsx/getOntapStorageVirtualMachines:getOntapStorageVirtualMachines", args ?? new GetOntapStorageVirtualMachinesInvokeArgs(), options.WithDefaults());
     }
 
 

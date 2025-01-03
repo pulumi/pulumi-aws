@@ -20,12 +20,14 @@ namespace Pulumi.Aws.Amplify.Inputs
 
         /// <summary>
         /// The Amazon resource name (ARN) for the custom certificate.
+        /// Required when `type` is `CUSTOM`.
         /// </summary>
         [Input("customCertificateArn")]
         public Input<string>? CustomCertificateArn { get; set; }
 
         /// <summary>
-        /// The certificate type. Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
+        /// The certificate type.
+        /// Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

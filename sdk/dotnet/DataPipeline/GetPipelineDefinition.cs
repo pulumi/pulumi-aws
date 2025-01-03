@@ -58,6 +58,30 @@ namespace Pulumi.Aws.DataPipeline
         /// </summary>
         public static Output<GetPipelineDefinitionResult> Invoke(GetPipelineDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPipelineDefinitionResult>("aws:datapipeline/getPipelineDefinition:getPipelineDefinition", args ?? new GetPipelineDefinitionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about a specific DataPipeline Pipeline Definition.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.DataPipeline.GetPipelineDefinition.Invoke(new()
+        ///     {
+        ///         PipelineId = "pipelineID",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetPipelineDefinitionResult> Invoke(GetPipelineDefinitionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPipelineDefinitionResult>("aws:datapipeline/getPipelineDefinition:getPipelineDefinition", args ?? new GetPipelineDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

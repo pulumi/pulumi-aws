@@ -62,6 +62,32 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("aws:iam/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This data source can be used to fetch information about a specific
+        /// IAM user. By using this data source, you can reference IAM user
+        /// properties without having to hard code ARNs or unique IDs as input.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Iam.GetUser.Invoke(new()
+        ///     {
+        ///         UserName = "an_example_user_name",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("aws:iam/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
     }
 
 

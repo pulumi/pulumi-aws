@@ -60,6 +60,31 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// </summary>
         public static Output<GetDnsNamespaceResult> Invoke(GetDnsNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDnsNamespaceResult>("aws:servicediscovery/getDnsNamespace:getDnsNamespace", args ?? new GetDnsNamespaceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves information about a Service Discovery private or public DNS namespace.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.ServiceDiscovery.GetDnsNamespace.Invoke(new()
+        ///     {
+        ///         Name = "example.service.local",
+        ///         Type = "DNS_PRIVATE",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetDnsNamespaceResult> Invoke(GetDnsNamespaceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDnsNamespaceResult>("aws:servicediscovery/getDnsNamespace:getDnsNamespace", args ?? new GetDnsNamespaceInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -58,6 +58,30 @@ namespace Pulumi.Aws.Location
         /// </summary>
         public static Output<GetMapResult> Invoke(GetMapInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMapResult>("aws:location/getMap:getMap", args ?? new GetMapInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve information about a Location Service Map.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Location.GetMap.Invoke(new()
+        ///     {
+        ///         MapName = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetMapResult> Invoke(GetMapInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMapResult>("aws:location/getMap:getMap", args ?? new GetMapInvokeArgs(), options.WithDefaults());
     }
 
 

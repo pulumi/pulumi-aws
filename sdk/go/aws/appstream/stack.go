@@ -40,6 +40,10 @@ import (
 //				},
 //				UserSettings: appstream.StackUserSettingArray{
 //					&appstream.StackUserSettingArgs{
+//						Action:     pulumi.String("AUTO_TIME_ZONE_REDIRECTION"),
+//						Permission: pulumi.String("DISABLED"),
+//					},
+//					&appstream.StackUserSettingArgs{
 //						Action:     pulumi.String("CLIPBOARD_COPY_FROM_LOCAL_DEVICE"),
 //						Permission: pulumi.String("ENABLED"),
 //					},

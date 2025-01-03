@@ -134,6 +134,68 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Output<GetVpcDhcpOptionsResult> Invoke(GetVpcDhcpOptionsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcDhcpOptionsResult>("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", args ?? new GetVpcDhcpOptionsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve information about an EC2 DHCP Options configuration.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Lookup by DHCP Options ID
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ec2.GetVpcDhcpOptions.Invoke(new()
+        ///     {
+        ///         DhcpOptionsId = "dopts-12345678",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Lookup by Filter
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ec2.GetVpcDhcpOptions.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetVpcDhcpOptionsFilterInputArgs
+        ///             {
+        ///                 Name = "key",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "domain-name",
+        ///                 },
+        ///             },
+        ///             new Aws.Ec2.Inputs.GetVpcDhcpOptionsFilterInputArgs
+        ///             {
+        ///                 Name = "value",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "example.com",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVpcDhcpOptionsResult> Invoke(GetVpcDhcpOptionsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVpcDhcpOptionsResult>("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", args ?? new GetVpcDhcpOptionsInvokeArgs(), options.WithDefaults());
     }
 
 

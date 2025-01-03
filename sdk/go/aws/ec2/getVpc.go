@@ -134,21 +134,11 @@ type LookupVpcResult struct {
 }
 
 func LookupVpcOutput(ctx *pulumi.Context, args LookupVpcOutputArgs, opts ...pulumi.InvokeOption) LookupVpcResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVpcResultOutput, error) {
 			args := v.(LookupVpcArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupVpcResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getVpc:getVpc", args, &rv, "", opts...)
-			if err != nil {
-				return LookupVpcResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupVpcResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupVpcResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:ec2/getVpc:getVpc", args, LookupVpcResultOutput{}, options).(LookupVpcResultOutput), nil
 		}).(LookupVpcResultOutput)
 }
 

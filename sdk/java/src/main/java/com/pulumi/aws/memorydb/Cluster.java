@@ -240,6 +240,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.maintenanceWindow;
     }
     /**
+     * The multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
+     * 
+     */
+    @Export(name="multiRegionClusterName", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> multiRegionClusterName;
+
+    /**
+     * @return The multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
+     * 
+     */
+    public Output<Optional<String>> multiRegionClusterName() {
+        return Codegen.optional(this.multiRegionClusterName);
+    }
+    /**
      * Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */

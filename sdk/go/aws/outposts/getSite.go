@@ -67,21 +67,11 @@ type GetSiteResult struct {
 }
 
 func GetSiteOutput(ctx *pulumi.Context, args GetSiteOutputArgs, opts ...pulumi.InvokeOption) GetSiteResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetSiteResultOutput, error) {
 			args := v.(GetSiteArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetSiteResult
-			secret, err := ctx.InvokePackageRaw("aws:outposts/getSite:getSite", args, &rv, "", opts...)
-			if err != nil {
-				return GetSiteResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetSiteResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetSiteResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:outposts/getSite:getSite", args, GetSiteResultOutput{}, options).(GetSiteResultOutput), nil
 		}).(GetSiteResultOutput)
 }
 

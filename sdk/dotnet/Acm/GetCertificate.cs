@@ -112,6 +112,57 @@ namespace Pulumi.Aws.Acm
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("aws:acm/getCertificate:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get the ARN of a certificate in AWS Certificate Manager (ACM).
+        /// You can reference the certificate by domain or tags without having to hard code the ARNs as input.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Find a certificate that is issued
+        ///     var issued = Aws.Acm.GetCertificate.Invoke(new()
+        ///     {
+        ///         Domain = "tf.example.com",
+        ///         Statuses = new[]
+        ///         {
+        ///             "ISSUED",
+        ///         },
+        ///     });
+        /// 
+        ///     // Find a certificate issued by (not imported into) ACM
+        ///     var amazonIssued = Aws.Acm.GetCertificate.Invoke(new()
+        ///     {
+        ///         Domain = "tf.example.com",
+        ///         Types = new[]
+        ///         {
+        ///             "AMAZON_ISSUED",
+        ///         },
+        ///         MostRecent = true,
+        ///     });
+        /// 
+        ///     // Find a RSA 4096 bit certificate
+        ///     var rsa4096 = Aws.Acm.GetCertificate.Invoke(new()
+        ///     {
+        ///         Domain = "tf.example.com",
+        ///         KeyTypes = new[]
+        ///         {
+        ///             "RSA_4096",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("aws:acm/getCertificate:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
     }
 
 

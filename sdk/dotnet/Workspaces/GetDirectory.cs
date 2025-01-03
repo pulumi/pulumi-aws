@@ -58,6 +58,30 @@ namespace Pulumi.Aws.Workspaces
         /// </summary>
         public static Output<GetDirectoryResult> Invoke(GetDirectoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDirectoryResult>("aws:workspaces/getDirectory:getDirectory", args ?? new GetDirectoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve information about an AWS WorkSpaces directory.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Workspaces.GetDirectory.Invoke(new()
+        ///     {
+        ///         DirectoryId = "d-9067783251",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetDirectoryResult> Invoke(GetDirectoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDirectoryResult>("aws:workspaces/getDirectory:getDirectory", args ?? new GetDirectoryInvokeArgs(), options.WithDefaults());
     }
 
 

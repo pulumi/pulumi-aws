@@ -70,21 +70,11 @@ type LookupResolverFirewallConfigResult struct {
 }
 
 func LookupResolverFirewallConfigOutput(ctx *pulumi.Context, args LookupResolverFirewallConfigOutputArgs, opts ...pulumi.InvokeOption) LookupResolverFirewallConfigResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupResolverFirewallConfigResultOutput, error) {
 			args := v.(LookupResolverFirewallConfigArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupResolverFirewallConfigResult
-			secret, err := ctx.InvokePackageRaw("aws:route53/getResolverFirewallConfig:getResolverFirewallConfig", args, &rv, "", opts...)
-			if err != nil {
-				return LookupResolverFirewallConfigResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupResolverFirewallConfigResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupResolverFirewallConfigResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:route53/getResolverFirewallConfig:getResolverFirewallConfig", args, LookupResolverFirewallConfigResultOutput{}, options).(LookupResolverFirewallConfigResultOutput), nil
 		}).(LookupResolverFirewallConfigResultOutput)
 }
 

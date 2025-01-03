@@ -28,7 +28,7 @@ class LogAccountPolicyArgs:
         The set of arguments for constructing a LogAccountPolicy resource.
         :param pulumi.Input[str] policy_document: Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
         :param pulumi.Input[str] policy_name: Name of the account policy.
-        :param pulumi.Input[str] policy_type: Type of account policy. Either `DATA_PROTECTION_POLICY` or `SUBSCRIPTION_FILTER_POLICY`. You can have one account policy per type in an account.
+        :param pulumi.Input[str] policy_type: Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
         :param pulumi.Input[str] scope: Currently defaults to and only accepts the value: `ALL`.
         :param pulumi.Input[str] selection_criteria: Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
         """
@@ -68,7 +68,7 @@ class LogAccountPolicyArgs:
     @pulumi.getter(name="policyType")
     def policy_type(self) -> pulumi.Input[str]:
         """
-        Type of account policy. Either `DATA_PROTECTION_POLICY` or `SUBSCRIPTION_FILTER_POLICY`. You can have one account policy per type in an account.
+        Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
         """
         return pulumi.get(self, "policy_type")
 
@@ -113,7 +113,7 @@ class _LogAccountPolicyState:
         Input properties used for looking up and filtering LogAccountPolicy resources.
         :param pulumi.Input[str] policy_document: Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
         :param pulumi.Input[str] policy_name: Name of the account policy.
-        :param pulumi.Input[str] policy_type: Type of account policy. Either `DATA_PROTECTION_POLICY` or `SUBSCRIPTION_FILTER_POLICY`. You can have one account policy per type in an account.
+        :param pulumi.Input[str] policy_type: Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
         :param pulumi.Input[str] scope: Currently defaults to and only accepts the value: `ALL`.
         :param pulumi.Input[str] selection_criteria: Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
         """
@@ -156,7 +156,7 @@ class _LogAccountPolicyState:
     @pulumi.getter(name="policyType")
     def policy_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of account policy. Either `DATA_PROTECTION_POLICY` or `SUBSCRIPTION_FILTER_POLICY`. You can have one account policy per type in an account.
+        Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
         """
         return pulumi.get(self, "policy_type")
 
@@ -258,6 +258,24 @@ class LogAccountPolicy(pulumi.CustomResource):
             selection_criteria="LogGroupName NOT IN [\\"excluded_log_group_name\\"]")
         ```
 
+        ### Field Index Policy
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        field_index = aws.cloudwatch.LogAccountPolicy("field_index",
+            policy_name="field-index",
+            policy_type="FIELD_INDEX_POLICY",
+            policy_document=json.dumps({
+                "Fields": [
+                    "field1",
+                    "field2",
+                ],
+            }))
+        ```
+
         ## Import
 
         Using `pulumi import`, import this resource using the `policy_name` and `policy_type` separated by `:`. For example:
@@ -270,7 +288,7 @@ class LogAccountPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy_document: Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
         :param pulumi.Input[str] policy_name: Name of the account policy.
-        :param pulumi.Input[str] policy_type: Type of account policy. Either `DATA_PROTECTION_POLICY` or `SUBSCRIPTION_FILTER_POLICY`. You can have one account policy per type in an account.
+        :param pulumi.Input[str] policy_type: Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
         :param pulumi.Input[str] scope: Currently defaults to and only accepts the value: `ALL`.
         :param pulumi.Input[str] selection_criteria: Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
         """
@@ -336,6 +354,24 @@ class LogAccountPolicy(pulumi.CustomResource):
                 "FilterPattern": "test",
             }),
             selection_criteria="LogGroupName NOT IN [\\"excluded_log_group_name\\"]")
+        ```
+
+        ### Field Index Policy
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        field_index = aws.cloudwatch.LogAccountPolicy("field_index",
+            policy_name="field-index",
+            policy_type="FIELD_INDEX_POLICY",
+            policy_document=json.dumps({
+                "Fields": [
+                    "field1",
+                    "field2",
+                ],
+            }))
         ```
 
         ## Import
@@ -410,7 +446,7 @@ class LogAccountPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy_document: Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
         :param pulumi.Input[str] policy_name: Name of the account policy.
-        :param pulumi.Input[str] policy_type: Type of account policy. Either `DATA_PROTECTION_POLICY` or `SUBSCRIPTION_FILTER_POLICY`. You can have one account policy per type in an account.
+        :param pulumi.Input[str] policy_type: Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
         :param pulumi.Input[str] scope: Currently defaults to and only accepts the value: `ALL`.
         :param pulumi.Input[str] selection_criteria: Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
         """
@@ -445,7 +481,7 @@ class LogAccountPolicy(pulumi.CustomResource):
     @pulumi.getter(name="policyType")
     def policy_type(self) -> pulumi.Output[str]:
         """
-        Type of account policy. Either `DATA_PROTECTION_POLICY` or `SUBSCRIPTION_FILTER_POLICY`. You can have one account policy per type in an account.
+        Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
         """
         return pulumi.get(self, "policy_type")
 

@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -92,18 +93,33 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The Region where the edge is located.
+     * The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns `edge_locations`.
      * 
      */
     @Import(name="edgeLocation")
     private @Nullable Output<String> edgeLocation;
 
     /**
-     * @return The Region where the edge is located.
+     * @return The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns `edge_locations`.
      * 
      */
     public Optional<Output<String>> edgeLocation() {
         return Optional.ofNullable(this.edgeLocation);
+    }
+
+    /**
+     * The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`
+     * 
+     */
+    @Import(name="edgeLocations")
+    private @Nullable Output<List<String>> edgeLocations;
+
+    /**
+     * @return The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`
+     * 
+     */
+    public Optional<Output<List<String>>> edgeLocations() {
+        return Optional.ofNullable(this.edgeLocations);
     }
 
     /**
@@ -175,6 +191,7 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
         this.coreNetworkArn = $.coreNetworkArn;
         this.coreNetworkId = $.coreNetworkId;
         this.edgeLocation = $.edgeLocation;
+        this.edgeLocations = $.edgeLocations;
         this.ownerAccountId = $.ownerAccountId;
         this.resourceArn = $.resourceArn;
         this.segmentName = $.segmentName;
@@ -305,7 +322,7 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param edgeLocation The Region where the edge is located.
+         * @param edgeLocation The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns `edge_locations`.
          * 
          * @return builder
          * 
@@ -316,13 +333,44 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param edgeLocation The Region where the edge is located.
+         * @param edgeLocation The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns `edge_locations`.
          * 
          * @return builder
          * 
          */
         public Builder edgeLocation(String edgeLocation) {
             return edgeLocation(Output.of(edgeLocation));
+        }
+
+        /**
+         * @param edgeLocations The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder edgeLocations(@Nullable Output<List<String>> edgeLocations) {
+            $.edgeLocations = edgeLocations;
+            return this;
+        }
+
+        /**
+         * @param edgeLocations The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder edgeLocations(List<String> edgeLocations) {
+            return edgeLocations(Output.of(edgeLocations));
+        }
+
+        /**
+         * @param edgeLocations The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder edgeLocations(String... edgeLocations) {
+            return edgeLocations(List.of(edgeLocations));
         }
 
         /**

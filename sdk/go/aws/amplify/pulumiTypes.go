@@ -710,8 +710,10 @@ type DomainAssociationCertificateSettings struct {
 	// DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
 	CertificateVerificationDnsRecord *string `pulumi:"certificateVerificationDnsRecord"`
 	// The Amazon resource name (ARN) for the custom certificate.
+	// Required when `type` is `CUSTOM`.
 	CustomCertificateArn *string `pulumi:"customCertificateArn"`
-	// The certificate type. Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
+	// The certificate type.
+	// Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
 	Type string `pulumi:"type"`
 }
 
@@ -730,8 +732,10 @@ type DomainAssociationCertificateSettingsArgs struct {
 	// DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
 	CertificateVerificationDnsRecord pulumi.StringPtrInput `pulumi:"certificateVerificationDnsRecord"`
 	// The Amazon resource name (ARN) for the custom certificate.
+	// Required when `type` is `CUSTOM`.
 	CustomCertificateArn pulumi.StringPtrInput `pulumi:"customCertificateArn"`
-	// The certificate type. Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
+	// The certificate type.
+	// Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -818,11 +822,13 @@ func (o DomainAssociationCertificateSettingsOutput) CertificateVerificationDnsRe
 }
 
 // The Amazon resource name (ARN) for the custom certificate.
+// Required when `type` is `CUSTOM`.
 func (o DomainAssociationCertificateSettingsOutput) CustomCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainAssociationCertificateSettings) *string { return v.CustomCertificateArn }).(pulumi.StringPtrOutput)
 }
 
-// The certificate type. Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
+// The certificate type.
+// Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
 func (o DomainAssociationCertificateSettingsOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainAssociationCertificateSettings) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -862,6 +868,7 @@ func (o DomainAssociationCertificateSettingsPtrOutput) CertificateVerificationDn
 }
 
 // The Amazon resource name (ARN) for the custom certificate.
+// Required when `type` is `CUSTOM`.
 func (o DomainAssociationCertificateSettingsPtrOutput) CustomCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainAssociationCertificateSettings) *string {
 		if v == nil {
@@ -871,7 +878,8 @@ func (o DomainAssociationCertificateSettingsPtrOutput) CustomCertificateArn() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The certificate type. Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
+// The certificate type.
+// Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
 func (o DomainAssociationCertificateSettingsPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainAssociationCertificateSettings) *string {
 		if v == nil {

@@ -166,6 +166,84 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Output<GetSubnetResult> Invoke(GetSubnetInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubnetResult>("aws:ec2/getSubnet:getSubnet", args ?? new GetSubnetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// `aws.ec2.Subnet` provides details about a specific VPC subnet.
+        /// 
+        /// This resource can prove useful when a module accepts a subnet ID as an input variable and needs to, for example, determine the ID of the VPC that the subnet belongs to.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// The following example shows how one might accept a subnet ID as a variable and use this data source to obtain the data necessary to create a security group that allows connections from hosts in that subnet.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var config = new Config();
+        ///     var subnetId = config.RequireObject&lt;dynamic&gt;("subnetId");
+        ///     var selected = Aws.Ec2.GetSubnet.Invoke(new()
+        ///     {
+        ///         Id = subnetId,
+        ///     });
+        /// 
+        ///     var subnetSecurityGroup = new Aws.Ec2.SecurityGroup("subnet_security_group", new()
+        ///     {
+        ///         VpcId = selected.Apply(getSubnetResult =&gt; getSubnetResult.VpcId),
+        ///         Ingress = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.SecurityGroupIngressArgs
+        ///             {
+        ///                 CidrBlocks = new[]
+        ///                 {
+        ///                     selected.Apply(getSubnetResult =&gt; getSubnetResult.CidrBlock),
+        ///                 },
+        ///                 FromPort = 80,
+        ///                 ToPort = 80,
+        ///                 Protocol = "tcp",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Filter Example
+        /// 
+        /// If you want to match against tag `Name`, use:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var selected = Aws.Ec2.GetSubnet.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2.Inputs.GetSubnetFilterInputArgs
+        ///             {
+        ///                 Name = "tag:Name",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "yakdriver",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSubnetResult> Invoke(GetSubnetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubnetResult>("aws:ec2/getSubnet:getSubnet", args ?? new GetSubnetInvokeArgs(), options.WithDefaults());
     }
 
 

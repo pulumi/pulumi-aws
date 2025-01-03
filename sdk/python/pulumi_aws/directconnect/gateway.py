@@ -59,16 +59,20 @@ class GatewayArgs:
 class _GatewayState:
     def __init__(__self__, *,
                  amazon_side_asn: Optional[pulumi.Input[str]] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner_account_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Gateway resources.
         :param pulumi.Input[str] amazon_side_asn: The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
+        :param pulumi.Input[str] arn: The ARN of the gateway.
         :param pulumi.Input[str] name: The name of the connection.
         :param pulumi.Input[str] owner_account_id: AWS Account ID of the gateway.
         """
         if amazon_side_asn is not None:
             pulumi.set(__self__, "amazon_side_asn", amazon_side_asn)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if owner_account_id is not None:
@@ -85,6 +89,18 @@ class _GatewayState:
     @amazon_side_asn.setter
     def amazon_side_asn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "amazon_side_asn", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the gateway.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter
@@ -204,6 +220,7 @@ class Gateway(pulumi.CustomResource):
                 raise TypeError("Missing required property 'amazon_side_asn'")
             __props__.__dict__["amazon_side_asn"] = amazon_side_asn
             __props__.__dict__["name"] = name
+            __props__.__dict__["arn"] = None
             __props__.__dict__["owner_account_id"] = None
         super(Gateway, __self__).__init__(
             'aws:directconnect/gateway:Gateway',
@@ -216,6 +233,7 @@ class Gateway(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             amazon_side_asn: Optional[pulumi.Input[str]] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             owner_account_id: Optional[pulumi.Input[str]] = None) -> 'Gateway':
         """
@@ -226,6 +244,7 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] amazon_side_asn: The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
+        :param pulumi.Input[str] arn: The ARN of the gateway.
         :param pulumi.Input[str] name: The name of the connection.
         :param pulumi.Input[str] owner_account_id: AWS Account ID of the gateway.
         """
@@ -234,6 +253,7 @@ class Gateway(pulumi.CustomResource):
         __props__ = _GatewayState.__new__(_GatewayState)
 
         __props__.__dict__["amazon_side_asn"] = amazon_side_asn
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["name"] = name
         __props__.__dict__["owner_account_id"] = owner_account_id
         return Gateway(resource_name, opts=opts, __props__=__props__)
@@ -245,6 +265,14 @@ class Gateway(pulumi.CustomResource):
         The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
         """
         return pulumi.get(self, "amazon_side_asn")
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the gateway.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter

@@ -66,6 +66,34 @@ namespace Pulumi.Aws.Quicksight
         /// </summary>
         public static Output<GetQuicksightGroupResult> Invoke(GetQuicksightGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQuicksightGroupResult>("aws:quicksight/getQuicksightGroup:getQuicksightGroup", args ?? new GetQuicksightGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This data source can be used to fetch information about a specific
+        /// QuickSight group. By using this data source, you can reference QuickSight group
+        /// properties without having to hard code ARNs or unique IDs as input.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Quicksight.GetQuicksightGroup.Invoke(new()
+        ///     {
+        ///         GroupName = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetQuicksightGroupResult> Invoke(GetQuicksightGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetQuicksightGroupResult>("aws:quicksight/getQuicksightGroup:getQuicksightGroup", args ?? new GetQuicksightGroupInvokeArgs(), options.WithDefaults());
     }
 
 

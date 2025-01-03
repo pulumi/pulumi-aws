@@ -62,6 +62,32 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public static Output<GetUserSshKeyResult> Invoke(GetUserSshKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserSshKeyResult>("aws:iam/getUserSshKey:getUserSshKey", args ?? new GetUserSshKeyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information about a SSH public key associated with the specified IAM user.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Iam.GetUserSshKey.Invoke(new()
+        ///     {
+        ///         Encoding = "SSH",
+        ///         SshPublicKeyId = "APKARUZ32GUTKIGARLXE",
+        ///         Username = "test-user",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetUserSshKeyResult> Invoke(GetUserSshKeyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserSshKeyResult>("aws:iam/getUserSshKey:getUserSshKey", args ?? new GetUserSshKeyInvokeArgs(), options.WithDefaults());
     }
 
 

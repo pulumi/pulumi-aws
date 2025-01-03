@@ -464,11 +464,11 @@ type Cluster struct {
 	MasterUsername pulumi.StringOutput `pulumi:"masterUsername"`
 	// Network type of the cluster. Valid values: `IPV4`, `DUAL`.
 	NetworkType pulumi.StringOutput `pulumi:"networkType"`
-	// Valid only for Non-Aurora Multi-AZ DB Clusters. Enables Performance Insights for the RDS Cluster
+	// Enables Performance Insights for the RDS Cluster
 	PerformanceInsightsEnabled pulumi.BoolPtrOutput `pulumi:"performanceInsightsEnabled"`
-	// Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+	// Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
 	PerformanceInsightsKmsKeyId pulumi.StringOutput `pulumi:"performanceInsightsKmsKeyId"`
-	// Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+	// Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
 	PerformanceInsightsRetentionPeriod pulumi.IntOutput `pulumi:"performanceInsightsRetentionPeriod"`
 	// Port on which the DB accepts connections.
 	Port pulumi.IntOutput `pulumi:"port"`
@@ -648,11 +648,11 @@ type clusterState struct {
 	MasterUsername *string `pulumi:"masterUsername"`
 	// Network type of the cluster. Valid values: `IPV4`, `DUAL`.
 	NetworkType *string `pulumi:"networkType"`
-	// Valid only for Non-Aurora Multi-AZ DB Clusters. Enables Performance Insights for the RDS Cluster
+	// Enables Performance Insights for the RDS Cluster
 	PerformanceInsightsEnabled *bool `pulumi:"performanceInsightsEnabled"`
-	// Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+	// Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
 	PerformanceInsightsKmsKeyId *string `pulumi:"performanceInsightsKmsKeyId"`
-	// Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+	// Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
 	PerformanceInsightsRetentionPeriod *int `pulumi:"performanceInsightsRetentionPeriod"`
 	// Port on which the DB accepts connections.
 	Port *int `pulumi:"port"`
@@ -793,11 +793,11 @@ type ClusterState struct {
 	MasterUsername pulumi.StringPtrInput
 	// Network type of the cluster. Valid values: `IPV4`, `DUAL`.
 	NetworkType pulumi.StringPtrInput
-	// Valid only for Non-Aurora Multi-AZ DB Clusters. Enables Performance Insights for the RDS Cluster
+	// Enables Performance Insights for the RDS Cluster
 	PerformanceInsightsEnabled pulumi.BoolPtrInput
-	// Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+	// Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
 	PerformanceInsightsKmsKeyId pulumi.StringPtrInput
-	// Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+	// Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
 	PerformanceInsightsRetentionPeriod pulumi.IntPtrInput
 	// Port on which the DB accepts connections.
 	Port pulumi.IntPtrInput
@@ -928,11 +928,11 @@ type clusterArgs struct {
 	MasterUsername *string `pulumi:"masterUsername"`
 	// Network type of the cluster. Valid values: `IPV4`, `DUAL`.
 	NetworkType *string `pulumi:"networkType"`
-	// Valid only for Non-Aurora Multi-AZ DB Clusters. Enables Performance Insights for the RDS Cluster
+	// Enables Performance Insights for the RDS Cluster
 	PerformanceInsightsEnabled *bool `pulumi:"performanceInsightsEnabled"`
-	// Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+	// Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
 	PerformanceInsightsKmsKeyId *string `pulumi:"performanceInsightsKmsKeyId"`
-	// Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+	// Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
 	PerformanceInsightsRetentionPeriod *int `pulumi:"performanceInsightsRetentionPeriod"`
 	// Port on which the DB accepts connections.
 	Port *int `pulumi:"port"`
@@ -1053,11 +1053,11 @@ type ClusterArgs struct {
 	MasterUsername pulumi.StringPtrInput
 	// Network type of the cluster. Valid values: `IPV4`, `DUAL`.
 	NetworkType pulumi.StringPtrInput
-	// Valid only for Non-Aurora Multi-AZ DB Clusters. Enables Performance Insights for the RDS Cluster
+	// Enables Performance Insights for the RDS Cluster
 	PerformanceInsightsEnabled pulumi.BoolPtrInput
-	// Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+	// Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
 	PerformanceInsightsKmsKeyId pulumi.StringPtrInput
-	// Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+	// Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
 	PerformanceInsightsRetentionPeriod pulumi.IntPtrInput
 	// Port on which the DB accepts connections.
 	Port pulumi.IntPtrInput
@@ -1418,17 +1418,17 @@ func (o ClusterOutput) NetworkType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.NetworkType }).(pulumi.StringOutput)
 }
 
-// Valid only for Non-Aurora Multi-AZ DB Clusters. Enables Performance Insights for the RDS Cluster
+// Enables Performance Insights for the RDS Cluster
 func (o ClusterOutput) PerformanceInsightsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.PerformanceInsightsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+// Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
 func (o ClusterOutput) PerformanceInsightsKmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.PerformanceInsightsKmsKeyId }).(pulumi.StringOutput)
 }
 
-// Valid only for Non-Aurora Multi-AZ DB Clusters. Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+// Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
 func (o ClusterOutput) PerformanceInsightsRetentionPeriod() pulumi.IntOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.IntOutput { return v.PerformanceInsightsRetentionPeriod }).(pulumi.IntOutput)
 }

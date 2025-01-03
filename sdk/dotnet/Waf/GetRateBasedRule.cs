@@ -58,6 +58,30 @@ namespace Pulumi.Aws.Waf
         /// </summary>
         public static Output<GetRateBasedRuleResult> Invoke(GetRateBasedRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRateBasedRuleResult>("aws:waf/getRateBasedRule:getRateBasedRule", args ?? new GetRateBasedRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Waf.GetRateBasedRule.Invoke(new()
+        ///     {
+        ///         Name = "tfWAFRateBasedRule",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetRateBasedRuleResult> Invoke(GetRateBasedRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRateBasedRuleResult>("aws:waf/getRateBasedRule:getRateBasedRule", args ?? new GetRateBasedRuleInvokeArgs(), options.WithDefaults());
     }
 
 

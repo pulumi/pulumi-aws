@@ -68,6 +68,35 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         public static Output<GetAddonResult> Invoke(GetAddonInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAddonResult>("aws:eks/getAddon:getAddon", args ?? new GetAddonInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve information about an EKS add-on.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Eks.GetAddon.Invoke(new()
+        ///     {
+        ///         AddonName = "vpc-cni",
+        ///         ClusterName = exampleAwsEksCluster.Name,
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["eksAddonOutputs"] = exampleAwsEksAddon,
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetAddonResult> Invoke(GetAddonInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAddonResult>("aws:eks/getAddon:getAddon", args ?? new GetAddonInvokeArgs(), options.WithDefaults());
     }
 
 

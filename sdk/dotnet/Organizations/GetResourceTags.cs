@@ -58,6 +58,30 @@ namespace Pulumi.Aws.Organizations
         /// </summary>
         public static Output<GetResourceTagsResult> Invoke(GetResourceTagsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceTagsResult>("aws:organizations/getResourceTags:getResourceTags", args ?? new GetResourceTagsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get tags attached to the specified AWS Organizations resource.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var account = Aws.Organizations.GetResourceTags.Invoke(new()
+        ///     {
+        ///         ResourceId = "123456123846",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetResourceTagsResult> Invoke(GetResourceTagsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceTagsResult>("aws:organizations/getResourceTags:getResourceTags", args ?? new GetResourceTagsInvokeArgs(), options.WithDefaults());
     }
 
 

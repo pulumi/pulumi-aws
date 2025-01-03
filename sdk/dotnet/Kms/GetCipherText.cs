@@ -86,6 +86,44 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         public static Output<GetCipherTextResult> Invoke(GetCipherTextInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCipherTextResult>("aws:kms/getCipherText:getCipherText", args ?? new GetCipherTextInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The KMS ciphertext data source allows you to encrypt plaintext into ciphertext
+        /// by using an AWS KMS customer master key. The value returned by this data source
+        /// changes every apply. For a stable ciphertext value, see the `aws.kms.Ciphertext`
+        /// resource.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var oauthConfig = new Aws.Kms.Key("oauth_config", new()
+        ///     {
+        ///         Description = "oauth config",
+        ///         IsEnabled = true,
+        ///     });
+        /// 
+        ///     var oauth = Aws.Kms.GetCipherText.Invoke(new()
+        ///     {
+        ///         KeyId = oauthConfig.KeyId,
+        ///         Plaintext = @"{
+        ///   ""client_id"": ""e587dbae22222f55da22"",
+        ///   ""client_secret"": ""8289575d00000ace55e1815ec13673955721b8a5""
+        /// }
+        /// ",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetCipherTextResult> Invoke(GetCipherTextInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCipherTextResult>("aws:kms/getCipherText:getCipherText", args ?? new GetCipherTextInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -66,6 +66,34 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         public static Output<GetResolverFirewallConfigResult> Invoke(GetResolverFirewallConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverFirewallConfigResult>("aws:route53/getResolverFirewallConfig:getResolverFirewallConfig", args ?? new GetResolverFirewallConfigInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// `aws.route53.ResolverFirewallConfig` provides details about a specific a Route 53 Resolver DNS Firewall config.
+        /// 
+        /// This data source allows to find a details about a specific a Route 53 Resolver DNS Firewall config.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// The following example shows how to get a firewall config using the VPC ID.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Route53.GetResolverFirewallConfig.Invoke(new()
+        ///     {
+        ///         ResourceId = "vpc-exampleid",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetResolverFirewallConfigResult> Invoke(GetResolverFirewallConfigInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResolverFirewallConfigResult>("aws:route53/getResolverFirewallConfig:getResolverFirewallConfig", args ?? new GetResolverFirewallConfigInvokeArgs(), options.WithDefaults());
     }
 
 

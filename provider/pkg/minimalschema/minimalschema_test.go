@@ -17,6 +17,8 @@ const (
 )
 
 func TestNoDanglingReferencesInLightSchema(t *testing.T) {
+	t.Parallel()
+
 	// Check that minimal schema has no dangling references.
 	bytes, err := os.ReadFile(minimalSchemaFile)
 	require.NoError(t, err)

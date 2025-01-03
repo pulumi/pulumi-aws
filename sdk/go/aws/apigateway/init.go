@@ -39,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DocumentationVersion{}
 	case "aws:apigateway/domainName:DomainName":
 		r = &DomainName{}
+	case "aws:apigateway/domainNameAccessAssociation:DomainNameAccessAssociation":
+		r = &DomainNameAccessAssociation{}
 	case "aws:apigateway/integration:Integration":
 		r = &Integration{}
 	case "aws:apigateway/integrationResponse:IntegrationResponse":
@@ -125,6 +127,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"apigateway/domainName",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"apigateway/domainNameAccessAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

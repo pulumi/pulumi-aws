@@ -80,21 +80,11 @@ type GetPrebuiltEcrImageResult struct {
 }
 
 func GetPrebuiltEcrImageOutput(ctx *pulumi.Context, args GetPrebuiltEcrImageOutputArgs, opts ...pulumi.InvokeOption) GetPrebuiltEcrImageResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetPrebuiltEcrImageResultOutput, error) {
 			args := v.(GetPrebuiltEcrImageArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetPrebuiltEcrImageResult
-			secret, err := ctx.InvokePackageRaw("aws:sagemaker/getPrebuiltEcrImage:getPrebuiltEcrImage", args, &rv, "", opts...)
-			if err != nil {
-				return GetPrebuiltEcrImageResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetPrebuiltEcrImageResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetPrebuiltEcrImageResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:sagemaker/getPrebuiltEcrImage:getPrebuiltEcrImage", args, GetPrebuiltEcrImageResultOutput{}, options).(GetPrebuiltEcrImageResultOutput), nil
 		}).(GetPrebuiltEcrImageResultOutput)
 }
 

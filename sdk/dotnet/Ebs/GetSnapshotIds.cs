@@ -104,6 +104,53 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         public static Output<GetSnapshotIdsResult> Invoke(GetSnapshotIdsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotIdsResult>("aws:ebs/getSnapshotIds:getSnapshotIds", args ?? new GetSnapshotIdsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get a list of EBS Snapshot IDs matching the specified
+        /// criteria.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var ebsVolumes = Aws.Ebs.GetSnapshotIds.Invoke(new()
+        ///     {
+        ///         Owners = new[]
+        ///         {
+        ///             "self",
+        ///         },
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ebs.Inputs.GetSnapshotIdsFilterInputArgs
+        ///             {
+        ///                 Name = "volume-size",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "40",
+        ///                 },
+        ///             },
+        ///             new Aws.Ebs.Inputs.GetSnapshotIdsFilterInputArgs
+        ///             {
+        ///                 Name = "tag:Name",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "Example",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSnapshotIdsResult> Invoke(GetSnapshotIdsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotIdsResult>("aws:ebs/getSnapshotIds:getSnapshotIds", args ?? new GetSnapshotIdsInvokeArgs(), options.WithDefaults());
     }
 
 

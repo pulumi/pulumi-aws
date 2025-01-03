@@ -58,6 +58,30 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         public static Output<GetGatewayResult> Invoke(GetGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGatewayResult>("aws:directconnect/getGateway:getGateway", args ?? new GetGatewayInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve information about a Direct Connect Gateway.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.DirectConnect.GetGateway.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetGatewayResult> Invoke(GetGatewayInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGatewayResult>("aws:directconnect/getGateway:getGateway", args ?? new GetGatewayInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -98,6 +122,10 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         public readonly string AmazonSideAsn;
         /// <summary>
+        /// ARN of the gateway.
+        /// </summary>
+        public readonly string Arn;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -111,6 +139,8 @@ namespace Pulumi.Aws.DirectConnect
         private GetGatewayResult(
             string amazonSideAsn,
 
+            string arn,
+
             string id,
 
             string name,
@@ -118,6 +148,7 @@ namespace Pulumi.Aws.DirectConnect
             string ownerAccountId)
         {
             AmazonSideAsn = amazonSideAsn;
+            Arn = arn;
             Id = id;
             Name = name;
             OwnerAccountId = ownerAccountId;

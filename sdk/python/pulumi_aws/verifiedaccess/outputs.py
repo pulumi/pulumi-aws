@@ -196,6 +196,7 @@ class GroupSseConfiguration(dict):
                  customer_managed_key_enabled: Optional[bool] = None,
                  kms_key_arn: Optional[str] = None):
         """
+        :param bool customer_managed_key_enabled: Boolean flag to indicate that the CMK should be used.
         :param str kms_key_arn: ARN of the KMS key to use.
         """
         if customer_managed_key_enabled is not None:
@@ -206,6 +207,9 @@ class GroupSseConfiguration(dict):
     @property
     @pulumi.getter(name="customerManagedKeyEnabled")
     def customer_managed_key_enabled(self) -> Optional[bool]:
+        """
+        Boolean flag to indicate that the CMK should be used.
+        """
         return pulumi.get(self, "customer_managed_key_enabled")
 
     @property

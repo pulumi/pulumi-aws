@@ -192,6 +192,97 @@ namespace Pulumi.Aws.CloudTrail
         /// </summary>
         public static Output<GetServiceAccountResult> Invoke(GetServiceAccountInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceAccountResult>("aws:cloudtrail/getServiceAccount:getServiceAccount", args ?? new GetServiceAccountInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get the Account ID of the [AWS CloudTrail Service Account](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-supported-regions.html)
+        /// in a given region for the purpose of allowing CloudTrail to store trail data in S3.
+        /// 
+        /// &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html#troubleshooting-s3-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var main = Aws.CloudTrail.GetServiceAccount.Invoke();
+        /// 
+        ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+        ///     {
+        ///         Bucket = "tf-cloudtrail-logging-test-bucket",
+        ///         ForceDestroy = true,
+        ///     });
+        /// 
+        ///     var allowCloudtrailLogging = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     {
+        ///         Statements = new[]
+        ///         {
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Sid = "Put bucket policy needed for trails",
+        ///                 Effect = "Allow",
+        ///                 Principals = new[]
+        ///                 {
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+        ///                     {
+        ///                         Type = "AWS",
+        ///                         Identifiers = new[]
+        ///                         {
+        ///                             main.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Arn),
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "s3:PutObject",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     $"{bucket.Arn}/*",
+        ///                 },
+        ///             },
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Sid = "Get bucket policy needed for trails",
+        ///                 Effect = "Allow",
+        ///                 Principals = new[]
+        ///                 {
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+        ///                     {
+        ///                         Type = "AWS",
+        ///                         Identifiers = new[]
+        ///                         {
+        ///                             main.Apply(getServiceAccountResult =&gt; getServiceAccountResult.Arn),
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "s3:GetBucketAcl",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     bucket.Arn,
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var allowCloudtrailLoggingBucketPolicy = new Aws.S3.BucketPolicy("allow_cloudtrail_logging", new()
+        ///     {
+        ///         Bucket = bucket.Id,
+        ///         Policy = allowCloudtrailLogging.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetServiceAccountResult> Invoke(GetServiceAccountInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceAccountResult>("aws:cloudtrail/getServiceAccount:getServiceAccount", args ?? new GetServiceAccountInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -74,21 +74,11 @@ type LookupPlanResult struct {
 }
 
 func LookupPlanOutput(ctx *pulumi.Context, args LookupPlanOutputArgs, opts ...pulumi.InvokeOption) LookupPlanResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPlanResultOutput, error) {
 			args := v.(LookupPlanArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupPlanResult
-			secret, err := ctx.InvokePackageRaw("aws:backup/getPlan:getPlan", args, &rv, "", opts...)
-			if err != nil {
-				return LookupPlanResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupPlanResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupPlanResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:backup/getPlan:getPlan", args, LookupPlanResultOutput{}, options).(LookupPlanResultOutput), nil
 		}).(LookupPlanResultOutput)
 }
 

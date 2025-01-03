@@ -60,6 +60,31 @@ namespace Pulumi.Aws.CloudFormation
         /// </summary>
         public static Output<GetCloudFormationTypeResult> Invoke(GetCloudFormationTypeInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudFormationTypeResult>("aws:cloudformation/getCloudFormationType:getCloudFormationType", args ?? new GetCloudFormationTypeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about a CloudFormation Type.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.CloudFormation.GetCloudFormationType.Invoke(new()
+        ///     {
+        ///         Type = "RESOURCE",
+        ///         TypeName = "AWS::Athena::WorkGroup",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetCloudFormationTypeResult> Invoke(GetCloudFormationTypeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCloudFormationTypeResult>("aws:cloudformation/getCloudFormationType:getCloudFormationType", args ?? new GetCloudFormationTypeInvokeArgs(), options.WithDefaults());
     }
 
 

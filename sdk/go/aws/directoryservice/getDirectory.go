@@ -91,21 +91,11 @@ type LookupDirectoryResult struct {
 }
 
 func LookupDirectoryOutput(ctx *pulumi.Context, args LookupDirectoryOutputArgs, opts ...pulumi.InvokeOption) LookupDirectoryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDirectoryResultOutput, error) {
 			args := v.(LookupDirectoryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDirectoryResult
-			secret, err := ctx.InvokePackageRaw("aws:directoryservice/getDirectory:getDirectory", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDirectoryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDirectoryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDirectoryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:directoryservice/getDirectory:getDirectory", args, LookupDirectoryResultOutput{}, options).(LookupDirectoryResultOutput), nil
 		}).(LookupDirectoryResultOutput)
 }
 

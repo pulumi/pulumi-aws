@@ -86,10 +86,16 @@ namespace Pulumi.Aws.NetworkManager
         public Output<string> CoreNetworkId { get; private set; } = null!;
 
         /// <summary>
-        /// The Region where the edge is located.
+        /// The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns `edge_locations`.
         /// </summary>
         [Output("edgeLocation")]
         public Output<string> EdgeLocation { get; private set; } = null!;
+
+        /// <summary>
+        /// The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`
+        /// </summary>
+        [Output("edgeLocations")]
+        public Output<ImmutableArray<string>> EdgeLocations { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the attachment account owner.
@@ -212,10 +218,22 @@ namespace Pulumi.Aws.NetworkManager
         public Input<string>? CoreNetworkId { get; set; }
 
         /// <summary>
-        /// The Region where the edge is located.
+        /// The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns `edge_locations`.
         /// </summary>
         [Input("edgeLocation")]
         public Input<string>? EdgeLocation { get; set; }
+
+        [Input("edgeLocations")]
+        private InputList<string>? _edgeLocations;
+
+        /// <summary>
+        /// The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`
+        /// </summary>
+        public InputList<string> EdgeLocations
+        {
+            get => _edgeLocations ?? (_edgeLocations = new InputList<string>());
+            set => _edgeLocations = value;
+        }
 
         /// <summary>
         /// The ID of the attachment account owner.

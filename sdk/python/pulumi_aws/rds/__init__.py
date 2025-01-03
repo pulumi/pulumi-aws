@@ -14,6 +14,7 @@ from .cluster_instance import *
 from .cluster_parameter_group import *
 from .cluster_role_association import *
 from .cluster_snapshot import *
+from .cluster_snapshot_copy import *
 from .custom_db_engine_version import *
 from .event_subscription import *
 from .export_task import *

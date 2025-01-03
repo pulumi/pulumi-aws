@@ -68,6 +68,35 @@ namespace Pulumi.Aws.AppConfig
         /// </summary>
         public static Output<GetConfigurationProfilesResult> Invoke(GetConfigurationProfilesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationProfilesResult>("aws:appconfig/getConfigurationProfiles:getConfigurationProfiles", args ?? new GetConfigurationProfilesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides access to all Configuration Properties for an AppConfig Application. This will allow you to pass Configuration
+        /// Profile IDs to another resource.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.AppConfig.GetConfigurationProfiles.Invoke(new()
+        ///     {
+        ///         ApplicationId = "a1d3rpe",
+        ///     });
+        /// 
+        ///     var exampleGetConfigurationProfile = ;
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetConfigurationProfilesResult> Invoke(GetConfigurationProfilesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationProfilesResult>("aws:appconfig/getConfigurationProfiles:getConfigurationProfiles", args ?? new GetConfigurationProfilesInvokeArgs(), options.WithDefaults());
     }
 
 

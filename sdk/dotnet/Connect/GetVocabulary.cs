@@ -102,6 +102,52 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         public static Output<GetVocabularyResult> Invoke(GetVocabularyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVocabularyResult>("aws:connect/getVocabulary:getVocabulary", args ?? new GetVocabularyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about a specific Amazon Connect Vocabulary.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// By `name`
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Connect.GetVocabulary.Invoke(new()
+        ///     {
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         Name = "Example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// By `vocabulary_id`
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Connect.GetVocabulary.Invoke(new()
+        ///     {
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         VocabularyId = "cccccccc-bbbb-cccc-dddd-111111111111",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVocabularyResult> Invoke(GetVocabularyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVocabularyResult>("aws:connect/getVocabulary:getVocabulary", args ?? new GetVocabularyInvokeArgs(), options.WithDefaults());
     }
 
 

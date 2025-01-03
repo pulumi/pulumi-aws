@@ -67,21 +67,11 @@ type GetFindingIdsResult struct {
 }
 
 func GetFindingIdsOutput(ctx *pulumi.Context, args GetFindingIdsOutputArgs, opts ...pulumi.InvokeOption) GetFindingIdsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetFindingIdsResultOutput, error) {
 			args := v.(GetFindingIdsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetFindingIdsResult
-			secret, err := ctx.InvokePackageRaw("aws:guardduty/getFindingIds:getFindingIds", args, &rv, "", opts...)
-			if err != nil {
-				return GetFindingIdsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetFindingIdsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetFindingIdsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:guardduty/getFindingIds:getFindingIds", args, GetFindingIdsResultOutput{}, options).(GetFindingIdsResultOutput), nil
 		}).(GetFindingIdsResultOutput)
 }
 

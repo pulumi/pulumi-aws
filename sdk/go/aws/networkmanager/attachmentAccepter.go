@@ -82,8 +82,10 @@ type AttachmentAccepter struct {
 	CoreNetworkArn pulumi.StringOutput `pulumi:"coreNetworkArn"`
 	// The id of a core network.
 	CoreNetworkId pulumi.StringOutput `pulumi:"coreNetworkId"`
-	// The Region where the edge is located.
+	// The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns `edgeLocations`.
 	EdgeLocation pulumi.StringOutput `pulumi:"edgeLocation"`
+	// The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edgeLocation`
+	EdgeLocations pulumi.StringArrayOutput `pulumi:"edgeLocations"`
 	// The ID of the attachment account owner.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
 	// The attachment resource ARN.
@@ -140,8 +142,10 @@ type attachmentAccepterState struct {
 	CoreNetworkArn *string `pulumi:"coreNetworkArn"`
 	// The id of a core network.
 	CoreNetworkId *string `pulumi:"coreNetworkId"`
-	// The Region where the edge is located.
+	// The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns `edgeLocations`.
 	EdgeLocation *string `pulumi:"edgeLocation"`
+	// The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edgeLocation`
+	EdgeLocations []string `pulumi:"edgeLocations"`
 	// The ID of the attachment account owner.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
 	// The attachment resource ARN.
@@ -163,8 +167,10 @@ type AttachmentAccepterState struct {
 	CoreNetworkArn pulumi.StringPtrInput
 	// The id of a core network.
 	CoreNetworkId pulumi.StringPtrInput
-	// The Region where the edge is located.
+	// The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns `edgeLocations`.
 	EdgeLocation pulumi.StringPtrInput
+	// The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edgeLocation`
+	EdgeLocations pulumi.StringArrayInput
 	// The ID of the attachment account owner.
 	OwnerAccountId pulumi.StringPtrInput
 	// The attachment resource ARN.
@@ -306,9 +312,14 @@ func (o AttachmentAccepterOutput) CoreNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AttachmentAccepter) pulumi.StringOutput { return v.CoreNetworkId }).(pulumi.StringOutput)
 }
 
-// The Region where the edge is located.
+// The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns `edgeLocations`.
 func (o AttachmentAccepterOutput) EdgeLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v *AttachmentAccepter) pulumi.StringOutput { return v.EdgeLocation }).(pulumi.StringOutput)
+}
+
+// The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edgeLocation`
+func (o AttachmentAccepterOutput) EdgeLocations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AttachmentAccepter) pulumi.StringArrayOutput { return v.EdgeLocations }).(pulumi.StringArrayOutput)
 }
 
 // The ID of the attachment account owner.

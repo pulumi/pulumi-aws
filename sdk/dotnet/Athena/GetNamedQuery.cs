@@ -58,6 +58,30 @@ namespace Pulumi.Aws.Athena
         /// </summary>
         public static Output<GetNamedQueryResult> Invoke(GetNamedQueryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamedQueryResult>("aws:athena/getNamedQuery:getNamedQuery", args ?? new GetNamedQueryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides an Athena Named Query data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Athena.GetNamedQuery.Invoke(new()
+        ///     {
+        ///         Name = "athenaQueryName",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetNamedQueryResult> Invoke(GetNamedQueryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNamedQueryResult>("aws:athena/getNamedQuery:getNamedQuery", args ?? new GetNamedQueryInvokeArgs(), options.WithDefaults());
     }
 
 

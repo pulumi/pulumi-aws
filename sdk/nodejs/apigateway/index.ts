@@ -50,6 +50,11 @@ export type DomainName = import("./domainName").DomainName;
 export const DomainName: typeof import("./domainName").DomainName = null as any;
 utilities.lazyLoad(exports, ["DomainName"], () => require("./domainName"));
 
+export { DomainNameAccessAssociationArgs, DomainNameAccessAssociationState } from "./domainNameAccessAssociation";
+export type DomainNameAccessAssociation = import("./domainNameAccessAssociation").DomainNameAccessAssociation;
+export const DomainNameAccessAssociation: typeof import("./domainNameAccessAssociation").DomainNameAccessAssociation = null as any;
+utilities.lazyLoad(exports, ["DomainNameAccessAssociation"], () => require("./domainNameAccessAssociation"));
+
 export { GetAuthorizerArgs, GetAuthorizerResult, GetAuthorizerOutputArgs } from "./getAuthorizer";
 export const getAuthorizer: typeof import("./getAuthorizer").getAuthorizer = null as any;
 export const getAuthorizerOutput: typeof import("./getAuthorizer").getAuthorizerOutput = null as any;
@@ -193,6 +198,8 @@ const _module = {
                 return new DocumentationVersion(name, <any>undefined, { urn })
             case "aws:apigateway/domainName:DomainName":
                 return new DomainName(name, <any>undefined, { urn })
+            case "aws:apigateway/domainNameAccessAssociation:DomainNameAccessAssociation":
+                return new DomainNameAccessAssociation(name, <any>undefined, { urn })
             case "aws:apigateway/integration:Integration":
                 return new Integration(name, <any>undefined, { urn })
             case "aws:apigateway/integrationResponse:IntegrationResponse":
@@ -237,6 +244,7 @@ pulumi.runtime.registerResourceModule("aws", "apigateway/deployment", _module)
 pulumi.runtime.registerResourceModule("aws", "apigateway/documentationPart", _module)
 pulumi.runtime.registerResourceModule("aws", "apigateway/documentationVersion", _module)
 pulumi.runtime.registerResourceModule("aws", "apigateway/domainName", _module)
+pulumi.runtime.registerResourceModule("aws", "apigateway/domainNameAccessAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "apigateway/integration", _module)
 pulumi.runtime.registerResourceModule("aws", "apigateway/integrationResponse", _module)
 pulumi.runtime.registerResourceModule("aws", "apigateway/method", _module)

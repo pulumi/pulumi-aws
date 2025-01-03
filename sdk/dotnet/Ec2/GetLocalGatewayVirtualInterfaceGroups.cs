@@ -52,6 +52,27 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Output<GetLocalGatewayVirtualInterfaceGroupsResult> Invoke(GetLocalGatewayVirtualInterfaceGroupsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewayVirtualInterfaceGroupsResult>("aws:ec2/getLocalGatewayVirtualInterfaceGroups:getLocalGatewayVirtualInterfaceGroups", args ?? new GetLocalGatewayVirtualInterfaceGroupsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about multiple EC2 Local Gateway Virtual Interface Groups, such as identifiers. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var all = Aws.Ec2.GetLocalGatewayVirtualInterfaceGroups.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLocalGatewayVirtualInterfaceGroupsResult> Invoke(GetLocalGatewayVirtualInterfaceGroupsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewayVirtualInterfaceGroupsResult>("aws:ec2/getLocalGatewayVirtualInterfaceGroups:getLocalGatewayVirtualInterfaceGroups", args ?? new GetLocalGatewayVirtualInterfaceGroupsInvokeArgs(), options.WithDefaults());
     }
 
 

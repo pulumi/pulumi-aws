@@ -58,6 +58,30 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public static Output<GetImagePipelineResult> Invoke(GetImagePipelineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImagePipelineResult>("aws:imagebuilder/getImagePipeline:getImagePipeline", args ?? new GetImagePipelineInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about an Image Builder Image Pipeline.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.ImageBuilder.GetImagePipeline.Invoke(new()
+        ///     {
+        ///         Arn = "arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetImagePipelineResult> Invoke(GetImagePipelineInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetImagePipelineResult>("aws:imagebuilder/getImagePipeline:getImagePipeline", args ?? new GetImagePipelineInvokeArgs(), options.WithDefaults());
     }
 
 

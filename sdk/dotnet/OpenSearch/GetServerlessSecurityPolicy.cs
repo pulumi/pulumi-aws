@@ -60,6 +60,31 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         public static Output<GetServerlessSecurityPolicyResult> Invoke(GetServerlessSecurityPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerlessSecurityPolicyResult>("aws:opensearch/getServerlessSecurityPolicy:getServerlessSecurityPolicy", args ?? new GetServerlessSecurityPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information about an AWS OpenSearch Serverless Security Policy.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.OpenSearch.GetServerlessSecurityPolicy.Invoke(new()
+        ///     {
+        ///         Name = "example-security-policy",
+        ///         Type = "encryption",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetServerlessSecurityPolicyResult> Invoke(GetServerlessSecurityPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerlessSecurityPolicyResult>("aws:opensearch/getServerlessSecurityPolicy:getServerlessSecurityPolicy", args ?? new GetServerlessSecurityPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -38,21 +38,11 @@ type GetControlsResult struct {
 }
 
 func GetControlsOutput(ctx *pulumi.Context, args GetControlsOutputArgs, opts ...pulumi.InvokeOption) GetControlsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetControlsResultOutput, error) {
 			args := v.(GetControlsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetControlsResult
-			secret, err := ctx.InvokePackageRaw("aws:controltower/getControls:getControls", args, &rv, "", opts...)
-			if err != nil {
-				return GetControlsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetControlsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetControlsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:controltower/getControls:getControls", args, GetControlsResultOutput{}, options).(GetControlsResultOutput), nil
 		}).(GetControlsResultOutput)
 }
 

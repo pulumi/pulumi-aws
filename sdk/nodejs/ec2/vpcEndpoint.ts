@@ -208,6 +208,10 @@ export class VpcEndpoint extends pulumi.CustomResource {
      */
     public readonly serviceName!: pulumi.Output<string>;
     /**
+     * The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
+     */
+    public readonly serviceRegion!: pulumi.Output<string>;
+    /**
      * The state of the VPC endpoint.
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
@@ -266,6 +270,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
             resourceInputs["routeTableIds"] = state ? state.routeTableIds : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["serviceName"] = state ? state.serviceName : undefined;
+            resourceInputs["serviceRegion"] = state ? state.serviceRegion : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["subnetConfigurations"] = state ? state.subnetConfigurations : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
@@ -289,6 +294,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
             resourceInputs["routeTableIds"] = args ? args.routeTableIds : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["serviceRegion"] = args ? args.serviceRegion : undefined;
             resourceInputs["subnetConfigurations"] = args ? args.subnetConfigurations : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -376,6 +382,10 @@ export interface VpcEndpointState {
      */
     serviceName?: pulumi.Input<string>;
     /**
+     * The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
+     */
+    serviceRegion?: pulumi.Input<string>;
+    /**
      * The state of the VPC endpoint.
      */
     state?: pulumi.Input<string>;
@@ -445,6 +455,10 @@ export interface VpcEndpointArgs {
      * The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
      */
     serviceName: pulumi.Input<string>;
+    /**
+     * The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
+     */
+    serviceRegion?: pulumi.Input<string>;
     /**
      * Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnetConfiguration below.
      */

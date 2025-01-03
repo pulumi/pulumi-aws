@@ -63,6 +63,10 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .userSettings(            
  *                 StackUserSettingArgs.builder()
+ *                     .action("AUTO_TIME_ZONE_REDIRECTION")
+ *                     .permission("DISABLED")
+ *                     .build(),
+ *                 StackUserSettingArgs.builder()
  *                     .action("CLIPBOARD_COPY_FROM_LOCAL_DEVICE")
  *                     .permission("ENABLED")
  *                     .build(),

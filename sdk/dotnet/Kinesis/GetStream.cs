@@ -64,6 +64,33 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         public static Output<GetStreamResult> Invoke(GetStreamInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStreamResult>("aws:kinesis/getStream:getStream", args ?? new GetStreamInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information about a Kinesis Stream for use in other
+        /// resources.
+        /// 
+        /// For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var stream = Aws.Kinesis.GetStream.Invoke(new()
+        ///     {
+        ///         Name = "stream-name",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetStreamResult> Invoke(GetStreamInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStreamResult>("aws:kinesis/getStream:getStream", args ?? new GetStreamInvokeArgs(), options.WithDefaults());
     }
 
 

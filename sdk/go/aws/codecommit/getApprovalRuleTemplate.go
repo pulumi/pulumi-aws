@@ -76,21 +76,11 @@ type LookupApprovalRuleTemplateResult struct {
 }
 
 func LookupApprovalRuleTemplateOutput(ctx *pulumi.Context, args LookupApprovalRuleTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupApprovalRuleTemplateResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupApprovalRuleTemplateResultOutput, error) {
 			args := v.(LookupApprovalRuleTemplateArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupApprovalRuleTemplateResult
-			secret, err := ctx.InvokePackageRaw("aws:codecommit/getApprovalRuleTemplate:getApprovalRuleTemplate", args, &rv, "", opts...)
-			if err != nil {
-				return LookupApprovalRuleTemplateResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupApprovalRuleTemplateResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupApprovalRuleTemplateResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:codecommit/getApprovalRuleTemplate:getApprovalRuleTemplate", args, LookupApprovalRuleTemplateResultOutput{}, options).(LookupApprovalRuleTemplateResultOutput), nil
 		}).(LookupApprovalRuleTemplateResultOutput)
 }
 

@@ -85,6 +85,8 @@ type Cluster struct {
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
 	MaintenanceWindow pulumi.StringOutput `pulumi:"maintenanceWindow"`
+	// The multi region cluster identifier specified on `memorydb.MultiRegionCluster`.
+	MultiRegionClusterName pulumi.StringPtrOutput `pulumi:"multiRegionClusterName"`
 	// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -186,6 +188,8 @@ type clusterState struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
+	// The multi region cluster identifier specified on `memorydb.MultiRegionCluster`.
+	MultiRegionClusterName *string `pulumi:"multiRegionClusterName"`
 	// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -252,6 +256,8 @@ type ClusterState struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
 	MaintenanceWindow pulumi.StringPtrInput
+	// The multi region cluster identifier specified on `memorydb.MultiRegionCluster`.
+	MultiRegionClusterName pulumi.StringPtrInput
 	// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -317,6 +323,8 @@ type clusterArgs struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
+	// The multi region cluster identifier specified on `memorydb.MultiRegionCluster`.
+	MultiRegionClusterName *string `pulumi:"multiRegionClusterName"`
 	// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -373,6 +381,8 @@ type ClusterArgs struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
 	MaintenanceWindow pulumi.StringPtrInput
+	// The multi region cluster identifier specified on `memorydb.MultiRegionCluster`.
+	MultiRegionClusterName pulumi.StringPtrInput
 	// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -553,6 +563,11 @@ func (o ClusterOutput) KmsKeyArn() pulumi.StringPtrOutput {
 // Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
 func (o ClusterOutput) MaintenanceWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.MaintenanceWindow }).(pulumi.StringOutput)
+}
+
+// The multi region cluster identifier specified on `memorydb.MultiRegionCluster`.
+func (o ClusterOutput) MultiRegionClusterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.MultiRegionClusterName }).(pulumi.StringPtrOutput)
 }
 
 // Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.

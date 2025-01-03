@@ -78,21 +78,11 @@ type LookupPlaceIndexResult struct {
 }
 
 func LookupPlaceIndexOutput(ctx *pulumi.Context, args LookupPlaceIndexOutputArgs, opts ...pulumi.InvokeOption) LookupPlaceIndexResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPlaceIndexResultOutput, error) {
 			args := v.(LookupPlaceIndexArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupPlaceIndexResult
-			secret, err := ctx.InvokePackageRaw("aws:location/getPlaceIndex:getPlaceIndex", args, &rv, "", opts...)
-			if err != nil {
-				return LookupPlaceIndexResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupPlaceIndexResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupPlaceIndexResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:location/getPlaceIndex:getPlaceIndex", args, LookupPlaceIndexResultOutput{}, options).(LookupPlaceIndexResultOutput), nil
 		}).(LookupPlaceIndexResultOutput)
 }
 

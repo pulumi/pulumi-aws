@@ -72,21 +72,11 @@ type LookupVaultResult struct {
 }
 
 func LookupVaultOutput(ctx *pulumi.Context, args LookupVaultOutputArgs, opts ...pulumi.InvokeOption) LookupVaultResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVaultResultOutput, error) {
 			args := v.(LookupVaultArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupVaultResult
-			secret, err := ctx.InvokePackageRaw("aws:backup/getVault:getVault", args, &rv, "", opts...)
-			if err != nil {
-				return LookupVaultResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupVaultResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupVaultResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:backup/getVault:getVault", args, LookupVaultResultOutput{}, options).(LookupVaultResultOutput), nil
 		}).(LookupVaultResultOutput)
 }
 

@@ -88,21 +88,11 @@ type GetLocalGatewayRouteTableResult struct {
 }
 
 func GetLocalGatewayRouteTableOutput(ctx *pulumi.Context, args GetLocalGatewayRouteTableOutputArgs, opts ...pulumi.InvokeOption) GetLocalGatewayRouteTableResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetLocalGatewayRouteTableResultOutput, error) {
 			args := v.(GetLocalGatewayRouteTableArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetLocalGatewayRouteTableResult
-			secret, err := ctx.InvokePackageRaw("aws:ec2/getLocalGatewayRouteTable:getLocalGatewayRouteTable", args, &rv, "", opts...)
-			if err != nil {
-				return GetLocalGatewayRouteTableResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetLocalGatewayRouteTableResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetLocalGatewayRouteTableResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:ec2/getLocalGatewayRouteTable:getLocalGatewayRouteTable", args, GetLocalGatewayRouteTableResultOutput{}, options).(GetLocalGatewayRouteTableResultOutput), nil
 		}).(GetLocalGatewayRouteTableResultOutput)
 }
 

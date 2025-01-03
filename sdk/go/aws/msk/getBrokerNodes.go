@@ -63,21 +63,11 @@ type GetBrokerNodesResult struct {
 }
 
 func GetBrokerNodesOutput(ctx *pulumi.Context, args GetBrokerNodesOutputArgs, opts ...pulumi.InvokeOption) GetBrokerNodesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetBrokerNodesResultOutput, error) {
 			args := v.(GetBrokerNodesArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetBrokerNodesResult
-			secret, err := ctx.InvokePackageRaw("aws:msk/getBrokerNodes:getBrokerNodes", args, &rv, "", opts...)
-			if err != nil {
-				return GetBrokerNodesResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetBrokerNodesResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetBrokerNodesResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:msk/getBrokerNodes:getBrokerNodes", args, GetBrokerNodesResultOutput{}, options).(GetBrokerNodesResultOutput), nil
 		}).(GetBrokerNodesResultOutput)
 }
 

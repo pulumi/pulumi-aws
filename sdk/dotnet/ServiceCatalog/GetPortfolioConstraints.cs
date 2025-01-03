@@ -62,6 +62,32 @@ namespace Pulumi.Aws.ServiceCatalog
         /// </summary>
         public static Output<GetPortfolioConstraintsResult> Invoke(GetPortfolioConstraintsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPortfolioConstraintsResult>("aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints", args ?? new GetPortfolioConstraintsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides information on Service Catalog Portfolio Constraints.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.ServiceCatalog.GetPortfolioConstraints.Invoke(new()
+        ///     {
+        ///         PortfolioId = "port-3lli3b3an",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetPortfolioConstraintsResult> Invoke(GetPortfolioConstraintsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPortfolioConstraintsResult>("aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints", args ?? new GetPortfolioConstraintsInvokeArgs(), options.WithDefaults());
     }
 
 

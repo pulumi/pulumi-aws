@@ -78,6 +78,40 @@ namespace Pulumi.Aws.DataZone
         /// </summary>
         public static Output<GetEnvironmentBlueprintResult> Invoke(GetEnvironmentBlueprintInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentBlueprintResult>("aws:datazone/getEnvironmentBlueprint:getEnvironmentBlueprint", args ?? new GetEnvironmentBlueprintInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS DataZone Environment Blueprint.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleDomain = new Aws.DataZone.Domain("example", new()
+        ///     {
+        ///         Name = "example_domain",
+        ///         DomainExecutionRole = domainExecutionRole.Arn,
+        ///     });
+        /// 
+        ///     var example = Aws.DataZone.GetEnvironmentBlueprint.Invoke(new()
+        ///     {
+        ///         DomainId = exampleDomain.Id,
+        ///         Name = "DefaultDataLake",
+        ///         Managed = true,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetEnvironmentBlueprintResult> Invoke(GetEnvironmentBlueprintInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentBlueprintResult>("aws:datazone/getEnvironmentBlueprint:getEnvironmentBlueprint", args ?? new GetEnvironmentBlueprintInvokeArgs(), options.WithDefaults());
     }
 
 

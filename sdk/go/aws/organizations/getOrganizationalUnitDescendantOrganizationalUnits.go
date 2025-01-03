@@ -68,21 +68,11 @@ type GetOrganizationalUnitDescendantOrganizationalUnitsResult struct {
 }
 
 func GetOrganizationalUnitDescendantOrganizationalUnitsOutput(ctx *pulumi.Context, args GetOrganizationalUnitDescendantOrganizationalUnitsOutputArgs, opts ...pulumi.InvokeOption) GetOrganizationalUnitDescendantOrganizationalUnitsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetOrganizationalUnitDescendantOrganizationalUnitsResultOutput, error) {
 			args := v.(GetOrganizationalUnitDescendantOrganizationalUnitsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetOrganizationalUnitDescendantOrganizationalUnitsResult
-			secret, err := ctx.InvokePackageRaw("aws:organizations/getOrganizationalUnitDescendantOrganizationalUnits:getOrganizationalUnitDescendantOrganizationalUnits", args, &rv, "", opts...)
-			if err != nil {
-				return GetOrganizationalUnitDescendantOrganizationalUnitsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetOrganizationalUnitDescendantOrganizationalUnitsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetOrganizationalUnitDescendantOrganizationalUnitsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:organizations/getOrganizationalUnitDescendantOrganizationalUnits:getOrganizationalUnitDescendantOrganizationalUnits", args, GetOrganizationalUnitDescendantOrganizationalUnitsResultOutput{}, options).(GetOrganizationalUnitDescendantOrganizationalUnitsResultOutput), nil
 		}).(GetOrganizationalUnitDescendantOrganizationalUnitsResultOutput)
 }
 

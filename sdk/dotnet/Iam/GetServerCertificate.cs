@@ -92,6 +92,47 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public static Output<GetServerCertificateResult> Invoke(GetServerCertificateInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerCertificateResult>("aws:iam/getServerCertificate:getServerCertificate", args ?? new GetServerCertificateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to lookup information about IAM Server Certificates.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var my_domain = Aws.Iam.GetServerCertificate.Invoke(new()
+        ///     {
+        ///         NamePrefix = "my-domain.org",
+        ///         Latest = true,
+        ///     });
+        /// 
+        ///     var elb = new Aws.Elb.LoadBalancer("elb", new()
+        ///     {
+        ///         Name = "my-domain-elb",
+        ///         Listeners = new[]
+        ///         {
+        ///             new Aws.Elb.Inputs.LoadBalancerListenerArgs
+        ///             {
+        ///                 InstancePort = 8000,
+        ///                 InstanceProtocol = "https",
+        ///                 LbPort = 443,
+        ///                 LbProtocol = "https",
+        ///                 SslCertificateId = my_domain.Apply(my_domain =&gt; my_domain.Apply(getServerCertificateResult =&gt; getServerCertificateResult.Arn)),
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetServerCertificateResult> Invoke(GetServerCertificateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerCertificateResult>("aws:iam/getServerCertificate:getServerCertificate", args ?? new GetServerCertificateInvokeArgs(), options.WithDefaults());
     }
 
 

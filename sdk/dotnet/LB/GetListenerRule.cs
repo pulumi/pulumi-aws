@@ -110,6 +110,56 @@ namespace Pulumi.Aws.LB
         /// </summary>
         public static Output<GetListenerRuleResult> Invoke(GetListenerRuleInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetListenerRuleResult>("aws:lb/getListenerRule:getListenerRule", args ?? new GetListenerRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides information about an AWS Elastic Load Balancing Listener Rule.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Match by Rule ARN
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var config = new Config();
+        ///     var lbRuleArn = config.Require("lbRuleArn");
+        ///     var example = Aws.LB.GetListenerRule.Invoke(new()
+        ///     {
+        ///         Arn = lbRuleArn,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Match by Listener ARN and Priority
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var config = new Config();
+        ///     var lbListenerArn = config.Require("lbListenerArn");
+        ///     var lbRulePriority = config.RequireDouble("lbRulePriority");
+        ///     var example = Aws.LB.GetListenerRule.Invoke(new()
+        ///     {
+        ///         ListenerArn = lbListenerArn,
+        ///         Priority = lbRulePriority,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetListenerRuleResult> Invoke(GetListenerRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetListenerRuleResult>("aws:lb/getListenerRule:getListenerRule", args ?? new GetListenerRuleInvokeArgs(), options.WithDefaults());
     }
 
 

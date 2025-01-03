@@ -62,6 +62,32 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// </summary>
         public static Output<GetExportResult> Invoke(GetExportInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExportResult>("aws:apigatewayv2/getExport:getExport", args ?? new GetExportInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Exports a definition of an API in a particular output format and specification.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.ApiGatewayV2.GetExport.Invoke(new()
+        ///     {
+        ///         ApiId = testAwsApigatewayv2Route.ApiId,
+        ///         Specification = "OAS30",
+        ///         OutputType = "JSON",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetExportResult> Invoke(GetExportInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetExportResult>("aws:apigatewayv2/getExport:getExport", args ?? new GetExportInvokeArgs(), options.WithDefaults());
     }
 
 

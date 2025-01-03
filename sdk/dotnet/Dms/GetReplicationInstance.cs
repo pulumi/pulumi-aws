@@ -58,6 +58,30 @@ namespace Pulumi.Aws.Dms
         /// </summary>
         public static Output<GetReplicationInstanceResult> Invoke(GetReplicationInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationInstanceResult>("aws:dms/getReplicationInstance:getReplicationInstance", args ?? new GetReplicationInstanceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS DMS (Database Migration) Replication Instance.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Dms.GetReplicationInstance.Invoke(new()
+        ///     {
+        ///         ReplicationInstanceId = testAwsDmsReplicationInstance.ReplicationInstanceId,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetReplicationInstanceResult> Invoke(GetReplicationInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetReplicationInstanceResult>("aws:dms/getReplicationInstance:getReplicationInstance", args ?? new GetReplicationInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

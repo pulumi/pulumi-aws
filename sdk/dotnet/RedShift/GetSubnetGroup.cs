@@ -58,6 +58,30 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         public static Output<GetSubnetGroupResult> Invoke(GetSubnetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubnetGroupResult>("aws:redshift/getSubnetGroup:getSubnetGroup", args ?? new GetSubnetGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about a specific redshift subnet group.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.RedShift.GetSubnetGroup.Invoke(new()
+        ///     {
+        ///         Name = exampleAwsRedshiftSubnetGroup.Name,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSubnetGroupResult> Invoke(GetSubnetGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubnetGroupResult>("aws:redshift/getSubnetGroup:getSubnetGroup", args ?? new GetSubnetGroupInvokeArgs(), options.WithDefaults());
     }
 
 

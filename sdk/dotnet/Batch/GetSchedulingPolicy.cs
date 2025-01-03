@@ -58,6 +58,30 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         public static Output<GetSchedulingPolicyResult> Invoke(GetSchedulingPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchedulingPolicyResult>("aws:batch/getSchedulingPolicy:getSchedulingPolicy", args ?? new GetSchedulingPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The Batch Scheduling Policy data source allows access to details of a specific Scheduling Policy within AWS Batch.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Batch.GetSchedulingPolicy.Invoke(new()
+        ///     {
+        ///         Arn = "arn:aws:batch:us-east-1:012345678910:scheduling-policy/example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSchedulingPolicyResult> Invoke(GetSchedulingPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSchedulingPolicyResult>("aws:batch/getSchedulingPolicy:getSchedulingPolicy", args ?? new GetSchedulingPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

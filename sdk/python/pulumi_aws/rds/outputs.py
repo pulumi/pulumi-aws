@@ -23,6 +23,7 @@ __all__ = [
     'ClusterS3Import',
     'ClusterScalingConfiguration',
     'ClusterServerlessv2ScalingConfiguration',
+    'ClusterSnapshotCopyTimeouts',
     'ExportTaskTimeouts',
     'GlobalClusterGlobalClusterMember',
     'InstanceBlueGreenUpdate',
@@ -524,6 +525,25 @@ class ClusterServerlessv2ScalingConfiguration(dict):
         Time, in seconds, before an Aurora DB cluster in `provisioned` DB engine mode is paused. Valid values are `300` through `86400`.
         """
         return pulumi.get(self, "seconds_until_auto_pause")
+
+
+@pulumi.output_type
+class ClusterSnapshotCopyTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
 
 
 @pulumi.output_type

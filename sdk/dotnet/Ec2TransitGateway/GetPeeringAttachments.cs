@@ -116,6 +116,59 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         public static Output<GetPeeringAttachmentsResult> Invoke(GetPeeringAttachmentsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPeeringAttachmentsResult>("aws:ec2transitgateway/getPeeringAttachments:getPeeringAttachments", args ?? new GetPeeringAttachmentsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get information on EC2 Transit Gateway Peering Attachments.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### All Resources
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Ec2TransitGateway.GetPeeringAttachments.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### By Filter
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var filtered = Aws.Ec2TransitGateway.GetPeeringAttachments.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2TransitGateway.Inputs.GetPeeringAttachmentsFilterInputArgs
+        ///             {
+        ///                 Name = "state",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "pendingAcceptance",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var unit = ;
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetPeeringAttachmentsResult> Invoke(GetPeeringAttachmentsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPeeringAttachmentsResult>("aws:ec2transitgateway/getPeeringAttachments:getPeeringAttachments", args ?? new GetPeeringAttachmentsInvokeArgs(), options.WithDefaults());
     }
 
 

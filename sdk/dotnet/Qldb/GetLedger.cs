@@ -58,6 +58,30 @@ namespace Pulumi.Aws.Qldb
         /// </summary>
         public static Output<GetLedgerResult> Invoke(GetLedgerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLedgerResult>("aws:qldb/getLedger:getLedger", args ?? new GetLedgerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to fetch information about a Quantum Ledger Database.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Qldb.GetLedger.Invoke(new()
+        ///     {
+        ///         Name = "an_example_ledger",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLedgerResult> Invoke(GetLedgerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLedgerResult>("aws:qldb/getLedger:getLedger", args ?? new GetLedgerInvokeArgs(), options.WithDefaults());
     }
 
 

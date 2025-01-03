@@ -64,6 +64,33 @@ namespace Pulumi.Aws.ResourceExplorer
         /// </summary>
         public static Output<SearchResult> Invoke(SearchInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<SearchResult>("aws:resourceexplorer/search:Search", args ?? new SearchInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS Resource Explorer Search.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.ResourceExplorer.Search.Invoke(new()
+        ///     {
+        ///         QueryString = "region:us-west-2",
+        ///         ViewArn = test.Arn,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<SearchResult> Invoke(SearchInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<SearchResult>("aws:resourceexplorer/search:Search", args ?? new SearchInvokeArgs(), options.WithDefaults());
     }
 
 

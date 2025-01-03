@@ -58,6 +58,30 @@ namespace Pulumi.Aws.DirectoryService
         /// </summary>
         public static Output<GetDirectoryResult> Invoke(GetDirectoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDirectoryResult>("aws:directoryservice/getDirectory:getDirectory", args ?? new GetDirectoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get attributes of AWS Directory Service directory (SimpleAD, Managed AD, AD Connector). It's especially useful to refer AWS Managed AD or on-premise AD in AD Connector configuration.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.DirectoryService.GetDirectory.Invoke(new()
+        ///     {
+        ///         DirectoryId = main.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetDirectoryResult> Invoke(GetDirectoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDirectoryResult>("aws:directoryservice/getDirectory:getDirectory", args ?? new GetDirectoryInvokeArgs(), options.WithDefaults());
     }
 
 

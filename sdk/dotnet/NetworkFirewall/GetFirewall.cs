@@ -136,6 +136,69 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         public static Output<GetFirewallResult> Invoke(GetFirewallInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallResult>("aws:networkfirewall/getFirewall:getFirewall", args ?? new GetFirewallInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve information about a firewall.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Find firewall policy by ARN
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.NetworkFirewall.GetFirewall.Invoke(new()
+        ///     {
+        ///         Arn = arn,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Find firewall policy by Name
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.NetworkFirewall.GetFirewall.Invoke(new()
+        ///     {
+        ///         Name = "Test",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Find firewall policy by ARN and Name
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.NetworkFirewall.GetFirewall.Invoke(new()
+        ///     {
+        ///         Arn = arn,
+        ///         Name = "Test",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetFirewallResult> Invoke(GetFirewallInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFirewallResult>("aws:networkfirewall/getFirewall:getFirewall", args ?? new GetFirewallInvokeArgs(), options.WithDefaults());
     }
 
 

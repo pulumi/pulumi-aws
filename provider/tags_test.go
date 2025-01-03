@@ -27,6 +27,8 @@ import (
 )
 
 func TestApplyTags(t *testing.T) {
+	t.Parallel()
+
 	ctx := context.Background()
 
 	type gen = *rapid.Generator[resource.PropertyValue]
@@ -221,6 +223,8 @@ func TestApplyTags(t *testing.T) {
 }
 
 func TestApplyTagsOutputs(t *testing.T) {
+	t.Parallel()
+
 	ctx := context.Background()
 
 	type gen = *rapid.Generator[resource.PropertyValue]
@@ -402,6 +406,8 @@ func TestApplyTagsOutputs(t *testing.T) {
 }
 
 func TestAddingEmptyTagProducesChangeDiff(t *testing.T) {
+	t.Parallel()
+
 	replayEvent := `
 	[
 	  {
@@ -498,6 +504,8 @@ func TestAddingEmptyTagProducesChangeDiff(t *testing.T) {
 }
 
 func TestTagsAllNoLongerComputed(t *testing.T) {
+	t.Parallel()
+
 	p := Provider().P
 	p.ResourcesMap().Range(func(key string, res tfshim.Resource) bool {
 		tagsAll, ok := res.Schema().GetOk("tags_all")

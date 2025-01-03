@@ -70,6 +70,36 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         public static Output<GetBotAssociationResult> Invoke(GetBotAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBotAssociationResult>("aws:connect/getBotAssociation:getBotAssociation", args ?? new GetBotAssociationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about a specific Lex (V1) Bot associated with an Amazon Connect instance.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### By name
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Connect.GetBotAssociation.Invoke(new()
+        ///     {
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         LexBot = new Aws.Connect.Inputs.GetBotAssociationLexBotInputArgs
+        ///         {
+        ///             Name = "Test",
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetBotAssociationResult> Invoke(GetBotAssociationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBotAssociationResult>("aws:connect/getBotAssociation:getBotAssociation", args ?? new GetBotAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

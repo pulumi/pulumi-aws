@@ -52,6 +52,27 @@ namespace Pulumi.Aws.Outposts
         /// </summary>
         public static Output<GetSitesResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSitesResult>("aws:outposts/getSites:getSites", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about multiple Outposts Sites.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var all = Aws.Outposts.GetSites.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSitesResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSitesResult>("aws:outposts/getSites:getSites", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

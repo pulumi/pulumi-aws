@@ -62,6 +62,32 @@ namespace Pulumi.Aws.Amp
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("aws:amp/getWorkspace:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides an Amazon Managed Prometheus workspace data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic configuration
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Amp.GetWorkspace.Invoke(new()
+        ///     {
+        ///         WorkspaceId = "ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("aws:amp/getWorkspace:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
     }
 
 

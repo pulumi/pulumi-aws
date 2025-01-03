@@ -118,6 +118,60 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         public static Output<GetMulticastDomainResult> Invoke(GetMulticastDomainInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMulticastDomainResult>("aws:ec2transitgateway/getMulticastDomain:getMulticastDomain", args ?? new GetMulticastDomainInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get information on an EC2 Transit Gateway Multicast Domain.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### By Filter
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ec2TransitGateway.GetMulticastDomain.Invoke(new()
+        ///     {
+        ///         Filters = new[]
+        ///         {
+        ///             new Aws.Ec2TransitGateway.Inputs.GetMulticastDomainFilterInputArgs
+        ///             {
+        ///                 Name = "transit-gateway-multicast-domain-id",
+        ///                 Values = new[]
+        ///                 {
+        ///                     "tgw-mcast-domain-12345678",
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### By Identifier
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ec2TransitGateway.GetMulticastDomain.Invoke(new()
+        ///     {
+        ///         TransitGatewayMulticastDomainId = "tgw-mcast-domain-12345678",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetMulticastDomainResult> Invoke(GetMulticastDomainInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMulticastDomainResult>("aws:ec2transitgateway/getMulticastDomain:getMulticastDomain", args ?? new GetMulticastDomainInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -94,7 +94,7 @@ import (
 //
 // ### EKS Cluster with EKS Auto Mode
 //
-// > **NOTE:** When using EKS Auto Mode `compute_config.enabled`, `kubernetes_network_config.elastic_load_balancing.enabled`, and `storage_config.block_storage.enabled` must *ALL be set to `true`. Likewise for disabling EKS Auto Mode, all three arguments must be set to `false`.
+// > **NOTE:** When using EKS Auto Mode `compute_config.enabled`, `kubernetes_network_config.elastic_load_balancing.enabled`, and `storage_config.block_storage.enabled` must *ALL be set to `true`. Likewise for disabling EKS Auto Mode, all three arguments must be set to `false`. Enabling EKS Auto Mode also requires that `bootstrapSelfManagedAddons` is set to `false`.
 //
 // ```go
 // package main
@@ -202,8 +202,9 @@ import (
 //				AccessConfig: &eks.ClusterAccessConfigArgs{
 //					AuthenticationMode: pulumi.String("API"),
 //				},
-//				RoleArn: cluster.Arn,
-//				Version: pulumi.String("1.31"),
+//				RoleArn:                    cluster.Arn,
+//				Version:                    pulumi.String("1.31"),
+//				BootstrapSelfManagedAddons: pulumi.Bool(false),
 //				ComputeConfig: &eks.ClusterComputeConfigArgs{
 //					Enabled: pulumi.Bool(true),
 //					NodePools: pulumi.StringArray{

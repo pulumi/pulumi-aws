@@ -43,21 +43,11 @@ type GetEndpointResult struct {
 }
 
 func GetEndpointOutput(ctx *pulumi.Context, args GetEndpointOutputArgs, opts ...pulumi.InvokeOption) GetEndpointResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetEndpointResultOutput, error) {
 			args := v.(GetEndpointArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetEndpointResult
-			secret, err := ctx.InvokePackageRaw("aws:iot/getEndpoint:getEndpoint", args, &rv, "", opts...)
-			if err != nil {
-				return GetEndpointResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetEndpointResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetEndpointResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:iot/getEndpoint:getEndpoint", args, GetEndpointResultOutput{}, options).(GetEndpointResultOutput), nil
 		}).(GetEndpointResultOutput)
 }
 

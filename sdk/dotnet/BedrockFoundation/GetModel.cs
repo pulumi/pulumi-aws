@@ -66,6 +66,34 @@ namespace Pulumi.Aws.BedrockFoundation
         /// </summary>
         public static Output<GetModelResult> Invoke(GetModelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetModelResult>("aws:bedrockfoundation/getModel:getModel", args ?? new GetModelInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS Bedrock Foundation Model.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.BedrockFoundation.GetModels.Invoke();
+        /// 
+        ///     var testGetModel = Aws.BedrockFoundation.GetModel.Invoke(new()
+        ///     {
+        ///         ModelId = test.Apply(getModelsResult =&gt; getModelsResult.ModelSummaries[0]?.ModelId),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetModelResult> Invoke(GetModelInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetModelResult>("aws:bedrockfoundation/getModel:getModel", args ?? new GetModelInvokeArgs(), options.WithDefaults());
     }
 
 

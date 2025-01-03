@@ -62,6 +62,32 @@ namespace Pulumi.Aws.VpcLattice
         /// </summary>
         public static Output<GetAuthPolicyResult> Invoke(GetAuthPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthPolicyResult>("aws:vpclattice/getAuthPolicy:getAuthPolicy", args ?? new GetAuthPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS VPC Lattice Auth Policy.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.VpcLattice.GetAuthPolicy.Invoke(new()
+        ///     {
+        ///         ResourceIdentifier = testAwsVpclatticeAuthPolicy.ResourceIdentifier,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetAuthPolicyResult> Invoke(GetAuthPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAuthPolicyResult>("aws:vpclattice/getAuthPolicy:getAuthPolicy", args ?? new GetAuthPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

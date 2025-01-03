@@ -108,6 +108,55 @@ namespace Pulumi.Aws.Ecr
         /// </summary>
         public static Output<GetLifecyclePolicyDocumentResult> Invoke(GetLifecyclePolicyDocumentInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLifecyclePolicyDocumentResult>("aws:ecr/getLifecyclePolicyDocument:getLifecyclePolicyDocument", args ?? new GetLifecyclePolicyDocumentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Generates an ECR lifecycle policy document in JSON format. Can be used with resources such as the `aws.ecr.LifecyclePolicy` resource.
+        /// 
+        /// &gt; For more information about building AWS ECR lifecycle policy documents, see the [AWS ECR Lifecycle Policy Document Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ecr.GetLifecyclePolicyDocument.Invoke(new()
+        ///     {
+        ///         Rules = new[]
+        ///         {
+        ///             new Aws.Ecr.Inputs.GetLifecyclePolicyDocumentRuleInputArgs
+        ///             {
+        ///                 Priority = 1,
+        ///                 Description = "This is a test.",
+        ///                 Selection = new Aws.Ecr.Inputs.GetLifecyclePolicyDocumentRuleSelectionInputArgs
+        ///                 {
+        ///                     TagStatus = "tagged",
+        ///                     TagPrefixLists = new[]
+        ///                     {
+        ///                         "prod",
+        ///                     },
+        ///                     CountType = "imageCountMoreThan",
+        ///                     CountNumber = 100,
+        ///                 },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var exampleLifecyclePolicy = new Aws.Ecr.LifecyclePolicy("example", new()
+        ///     {
+        ///         Repository = exampleAwsEcrRepository.Name,
+        ///         Policy = example.Apply(getLifecyclePolicyDocumentResult =&gt; getLifecyclePolicyDocumentResult.Json),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetLifecyclePolicyDocumentResult> Invoke(GetLifecyclePolicyDocumentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLifecyclePolicyDocumentResult>("aws:ecr/getLifecyclePolicyDocument:getLifecyclePolicyDocument", args ?? new GetLifecyclePolicyDocumentInvokeArgs(), options.WithDefaults());
     }
 
 

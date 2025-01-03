@@ -38,6 +38,21 @@ public final class AgentAgentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
+     * 
+     */
+    @Import(name="agentCollaboration")
+    private @Nullable Output<String> agentCollaboration;
+
+    /**
+     * @return Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
+     * 
+     */
+    public Optional<Output<String>> agentCollaboration() {
+        return Optional.ofNullable(this.agentCollaboration);
+    }
+
+    /**
      * Unique identifier of the agent.
      * 
      */
@@ -285,6 +300,7 @@ public final class AgentAgentState extends com.pulumi.resources.ResourceArgs {
 
     private AgentAgentState(AgentAgentState $) {
         this.agentArn = $.agentArn;
+        this.agentCollaboration = $.agentCollaboration;
         this.agentId = $.agentId;
         this.agentName = $.agentName;
         this.agentResourceRoleArn = $.agentResourceRoleArn;
@@ -340,6 +356,27 @@ public final class AgentAgentState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder agentArn(String agentArn) {
             return agentArn(Output.of(agentArn));
+        }
+
+        /**
+         * @param agentCollaboration Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder agentCollaboration(@Nullable Output<String> agentCollaboration) {
+            $.agentCollaboration = agentCollaboration;
+            return this;
+        }
+
+        /**
+         * @param agentCollaboration Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder agentCollaboration(String agentCollaboration) {
+            return agentCollaboration(Output.of(agentCollaboration));
         }
 
         /**

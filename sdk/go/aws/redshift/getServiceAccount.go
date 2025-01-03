@@ -126,21 +126,11 @@ type GetServiceAccountResult struct {
 }
 
 func GetServiceAccountOutput(ctx *pulumi.Context, args GetServiceAccountOutputArgs, opts ...pulumi.InvokeOption) GetServiceAccountResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetServiceAccountResultOutput, error) {
 			args := v.(GetServiceAccountArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetServiceAccountResult
-			secret, err := ctx.InvokePackageRaw("aws:redshift/getServiceAccount:getServiceAccount", args, &rv, "", opts...)
-			if err != nil {
-				return GetServiceAccountResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetServiceAccountResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetServiceAccountResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:redshift/getServiceAccount:getServiceAccount", args, GetServiceAccountResultOutput{}, options).(GetServiceAccountResultOutput), nil
 		}).(GetServiceAccountResultOutput)
 }
 

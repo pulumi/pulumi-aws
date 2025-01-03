@@ -78,6 +78,40 @@ namespace Pulumi.Aws.LB
         /// </summary>
         public static Output<GetTargetGroupResult> Invoke(GetTargetGroupInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTargetGroupResult>("aws:lb/getTargetGroup:getTargetGroup", args ?? new GetTargetGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// &gt; **Note:** `aws.alb.TargetGroup` is known as `aws.lb.TargetGroup`. The functionality is identical.
+        /// 
+        /// Provides information about a Load Balancer Target Group.
+        /// 
+        /// This data source can prove useful when a module accepts an LB Target Group as an
+        /// input variable and needs to know its attributes. It can also be used to get the ARN of
+        /// an LB Target Group for use in other resources, given LB Target Group name.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var config = new Config();
+        ///     var lbTgArn = config.Get("lbTgArn") ?? "";
+        ///     var lbTgName = config.Get("lbTgName") ?? "";
+        ///     var test = Aws.LB.GetTargetGroup.Invoke(new()
+        ///     {
+        ///         Arn = lbTgArn,
+        ///         Name = lbTgName,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetTargetGroupResult> Invoke(GetTargetGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTargetGroupResult>("aws:lb/getTargetGroup:getTargetGroup", args ?? new GetTargetGroupInvokeArgs(), options.WithDefaults());
     }
 
 

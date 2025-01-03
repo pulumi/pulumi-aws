@@ -23,6 +23,7 @@ import (
 	"path/filepath"
 	"strconv"
 	"strings"
+	"sync"
 	"sync/atomic"
 	"time"
 	"unicode"
@@ -493,9 +494,13 @@ var namespaceMap = map[string]string{
 	"aws": "Aws",
 }
 
+var _nslock = sync.Mutex{}
+
 // awsMember manufactures a type token for the AWS package and the given module, file name, and type.
 func awsMember(moduleTitle string, fn string, mem string) tokens.ModuleMember {
 	moduleName := strings.ToLower(moduleTitle)
+	_nslock.Lock()
+	defer _nslock.Unlock()
 	namespaceMap[moduleName] = moduleTitle
 	if fn != "" {
 		moduleName += "/" + fn
@@ -1849,6 +1854,9 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(elasticacheMod, "ReplicationGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"replication_group_id": tfbridge.AutoNameTransform("replicationGroupId", 40, strings.ToLower),
+					"at_rest_encryption_enabled": {
+						Type: "boolean",
+					},
 					"auto_minor_version_upgrade": {
 						Type: "boolean",
 					},
@@ -5267,9 +5275,7 @@ compatibility shim in favor of the new "name" field.`)
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
-				"mime":            "^2.0.0",
-				"builtin-modules": "3.0.0",
-				"resolve":         "^1.7.1",
+				"mime": "^2.0.0",
 			},
 			DevDependencies: map[string]string{
 				"@types/node": "^10.0.0", // so we can access strongly typed node definitions.
@@ -6007,5 +6013,11 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 		ctx context.Context, state resource.PropertyMap,
 	) (resource.ID, error) {
 		return attr(state, "arn"), nil
+	}
+
+	prov.Resources["aws_memorydb_multi_region_cluster"].ComputeID = func(
+		ctx context.Context, state resource.PropertyMap,
+	) (resource.ID, error) {
+		return attr(state, "multiRegionClusterName"), nil
 	}
 }

@@ -62,6 +62,32 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         public static Output<GetInstanceStorageConfigResult> Invoke(GetInstanceStorageConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceStorageConfigResult>("aws:connect/getInstanceStorageConfig:getInstanceStorageConfig", args ?? new GetInstanceStorageConfigInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about a specific Amazon Connect Instance Storage Config.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Connect.GetInstanceStorageConfig.Invoke(new()
+        ///     {
+        ///         AssociationId = "1234567891234567890122345678912345678901223456789123456789012234",
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         ResourceType = "CONTACT_TRACE_RECORDS",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetInstanceStorageConfigResult> Invoke(GetInstanceStorageConfigInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInstanceStorageConfigResult>("aws:connect/getInstanceStorageConfig:getInstanceStorageConfig", args ?? new GetInstanceStorageConfigInvokeArgs(), options.WithDefaults());
     }
 
 

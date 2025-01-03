@@ -66,21 +66,11 @@ type GetGlobalNetworksResult struct {
 }
 
 func GetGlobalNetworksOutput(ctx *pulumi.Context, args GetGlobalNetworksOutputArgs, opts ...pulumi.InvokeOption) GetGlobalNetworksResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetGlobalNetworksResultOutput, error) {
 			args := v.(GetGlobalNetworksArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetGlobalNetworksResult
-			secret, err := ctx.InvokePackageRaw("aws:networkmanager/getGlobalNetworks:getGlobalNetworks", args, &rv, "", opts...)
-			if err != nil {
-				return GetGlobalNetworksResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetGlobalNetworksResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetGlobalNetworksResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:networkmanager/getGlobalNetworks:getGlobalNetworks", args, GetGlobalNetworksResultOutput{}, options).(GetGlobalNetworksResultOutput), nil
 		}).(GetGlobalNetworksResultOutput)
 }
 

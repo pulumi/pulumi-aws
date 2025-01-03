@@ -124,6 +124,12 @@ namespace Pulumi.Aws.MemoryDb
         public Output<string> MaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
+        /// The multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
+        /// </summary>
+        [Output("multiRegionClusterName")]
+        public Output<string?> MultiRegionClusterName { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Output("name")]
@@ -334,6 +340,12 @@ namespace Pulumi.Aws.MemoryDb
         public Input<string>? MaintenanceWindow { get; set; }
 
         /// <summary>
+        /// The multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
+        /// </summary>
+        [Input("multiRegionClusterName")]
+        public Input<string>? MultiRegionClusterName { get; set; }
+
+        /// <summary>
         /// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
@@ -530,6 +542,12 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         [Input("maintenanceWindow")]
         public Input<string>? MaintenanceWindow { get; set; }
+
+        /// <summary>
+        /// The multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
+        /// </summary>
+        [Input("multiRegionClusterName")]
+        public Input<string>? MultiRegionClusterName { get; set; }
 
         /// <summary>
         /// Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.

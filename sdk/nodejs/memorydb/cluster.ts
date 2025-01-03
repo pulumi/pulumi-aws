@@ -113,6 +113,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly maintenanceWindow!: pulumi.Output<string>;
     /**
+     * The multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
+     */
+    public readonly multiRegionClusterName!: pulumi.Output<string | undefined>;
+    /**
      * Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     public readonly name!: pulumi.Output<string>;
@@ -214,6 +218,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["finalSnapshotName"] = state ? state.finalSnapshotName : undefined;
             resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
             resourceInputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
+            resourceInputs["multiRegionClusterName"] = state ? state.multiRegionClusterName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["nodeType"] = state ? state.nodeType : undefined;
@@ -249,6 +254,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["finalSnapshotName"] = args ? args.finalSnapshotName : undefined;
             resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
+            resourceInputs["multiRegionClusterName"] = args ? args.multiRegionClusterName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["nodeType"] = args ? args.nodeType : undefined;
@@ -325,6 +331,10 @@ export interface ClusterState {
      * Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
      */
     maintenanceWindow?: pulumi.Input<string>;
+    /**
+     * The multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
+     */
+    multiRegionClusterName?: pulumi.Input<string>;
     /**
      * Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
@@ -443,6 +453,10 @@ export interface ClusterArgs {
      * Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
      */
     maintenanceWindow?: pulumi.Input<string>;
+    /**
+     * The multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
+     */
+    multiRegionClusterName?: pulumi.Input<string>;
     /**
      * Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */

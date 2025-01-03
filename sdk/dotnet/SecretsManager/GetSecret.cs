@@ -98,6 +98,50 @@ namespace Pulumi.Aws.SecretsManager
         /// </summary>
         public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretResult>("aws:secretsmanager/getSecret:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### ARN
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var by_arn = Aws.SecretsManager.GetSecret.Invoke(new()
+        ///     {
+        ///         Arn = "arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Name
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var by_name = Aws.SecretsManager.GetSecret.Invoke(new()
+        ///     {
+        ///         Name = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecretResult>("aws:secretsmanager/getSecret:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -94,6 +94,48 @@ namespace Pulumi.Aws.LB
         /// </summary>
         public static Output<GetListenerResult> Invoke(GetListenerInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetListenerResult>("aws:lb/getListener:getListener", args ?? new GetListenerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// &gt; **Note:** `aws.alb.Listener` is known as `aws.lb.Listener`. The functionality is identical.
+        /// 
+        /// Provides information about a Load Balancer Listener.
+        /// 
+        /// This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var config = new Config();
+        ///     var listenerArn = config.Require("listenerArn");
+        ///     var listener = Aws.LB.GetListener.Invoke(new()
+        ///     {
+        ///         Arn = listenerArn,
+        ///     });
+        /// 
+        ///     // get listener from load_balancer_arn and port
+        ///     var selected = Aws.LB.GetLoadBalancer.Invoke(new()
+        ///     {
+        ///         Name = "default-public",
+        ///     });
+        /// 
+        ///     var selected443 = Aws.LB.GetListener.Invoke(new()
+        ///     {
+        ///         LoadBalancerArn = selected.Apply(getLoadBalancerResult =&gt; getLoadBalancerResult.Arn),
+        ///         Port = 443,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetListenerResult> Invoke(GetListenerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetListenerResult>("aws:lb/getListener:getListener", args ?? new GetListenerInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -5,7 +5,7 @@ Subject: [PATCH] DisableTagSchemaCheck for PF provider
 
 
 diff --git a/internal/provider/fwprovider/provider.go b/internal/provider/fwprovider/provider.go
-index e57aa07e8f..a64bcd031d 100644
+index e57aa07e8f8..a64bcd031da 100644
 --- a/internal/provider/fwprovider/provider.go
 +++ b/internal/provider/fwprovider/provider.go
 @@ -422,8 +422,7 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
@@ -20,7 +20,7 @@ index e57aa07e8f..a64bcd031d 100644
  					if v.IsComputed() {
 diff --git a/internal/provider/fwprovider/provider_tagscheck.go b/internal/provider/fwprovider/provider_tagscheck.go
 new file mode 100644
-index 0000000000..f790acb4e2
+index 00000000000..f790acb4e25
 --- /dev/null
 +++ b/internal/provider/fwprovider/provider_tagscheck.go
 @@ -0,0 +1,43 @@
@@ -68,7 +68,7 @@ index 0000000000..f790acb4e2
 +	return &resp
 +}
 diff --git a/shim/shim.go b/shim/shim.go
-index 3378f955bb..b94f722d26 100644
+index 3378f955bb9..b94f722d26c 100644
 --- a/shim/shim.go
 +++ b/shim/shim.go
 @@ -17,6 +17,7 @@ type UpstreamProvider struct {

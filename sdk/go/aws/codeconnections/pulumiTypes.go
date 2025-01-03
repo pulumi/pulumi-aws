@@ -369,7 +369,7 @@ type HostVpcConfiguration struct {
 	// The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
-	TlsCertificate string `pulumi:"tlsCertificate"`
+	TlsCertificate *string `pulumi:"tlsCertificate"`
 	// The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
 	VpcId string `pulumi:"vpcId"`
 }
@@ -391,7 +391,7 @@ type HostVpcConfigurationArgs struct {
 	// The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 	// The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
-	TlsCertificate pulumi.StringInput `pulumi:"tlsCertificate"`
+	TlsCertificate pulumi.StringPtrInput `pulumi:"tlsCertificate"`
 	// The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
 	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
@@ -484,8 +484,8 @@ func (o HostVpcConfigurationOutput) SubnetIds() pulumi.StringArrayOutput {
 }
 
 // The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
-func (o HostVpcConfigurationOutput) TlsCertificate() pulumi.StringOutput {
-	return o.ApplyT(func(v HostVpcConfiguration) string { return v.TlsCertificate }).(pulumi.StringOutput)
+func (o HostVpcConfigurationOutput) TlsCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HostVpcConfiguration) *string { return v.TlsCertificate }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
@@ -543,7 +543,7 @@ func (o HostVpcConfigurationPtrOutput) TlsCertificate() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.TlsCertificate
+		return v.TlsCertificate
 	}).(pulumi.StringPtrOutput)
 }
 

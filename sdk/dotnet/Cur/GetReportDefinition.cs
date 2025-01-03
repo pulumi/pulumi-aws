@@ -66,6 +66,34 @@ namespace Pulumi.Aws.Cur
         /// </summary>
         public static Output<GetReportDefinitionResult> Invoke(GetReportDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReportDefinitionResult>("aws:cur/getReportDefinition:getReportDefinition", args ?? new GetReportDefinitionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get information on an AWS Cost and Usage Report Definition.
+        /// 
+        /// &gt; *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
+        /// 
+        /// &gt; *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var reportDefinition = Aws.Cur.GetReportDefinition.Invoke(new()
+        ///     {
+        ///         ReportName = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetReportDefinitionResult> Invoke(GetReportDefinitionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetReportDefinitionResult>("aws:cur/getReportDefinition:getReportDefinition", args ?? new GetReportDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

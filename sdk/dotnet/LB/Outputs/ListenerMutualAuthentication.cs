@@ -14,6 +14,10 @@ namespace Pulumi.Aws.LB.Outputs
     public sealed class ListenerMutualAuthentication
     {
         /// <summary>
+        /// Valid values are `off` and `on`.
+        /// </summary>
+        public readonly string? AdvertiseTrustStoreCaNames;
+        /// <summary>
         /// Whether client certificate expiry is ignored. Default is `false`.
         /// </summary>
         public readonly bool? IgnoreClientCertificateExpiry;
@@ -28,12 +32,15 @@ namespace Pulumi.Aws.LB.Outputs
 
         [OutputConstructor]
         private ListenerMutualAuthentication(
+            string? advertiseTrustStoreCaNames,
+
             bool? ignoreClientCertificateExpiry,
 
             string mode,
 
             string? trustStoreArn)
         {
+            AdvertiseTrustStoreCaNames = advertiseTrustStoreCaNames;
             IgnoreClientCertificateExpiry = ignoreClientCertificateExpiry;
             Mode = mode;
             TrustStoreArn = trustStoreArn;

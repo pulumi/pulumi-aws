@@ -30,6 +30,7 @@ class VpcEndpointArgs:
                  private_dns_enabled: Optional[pulumi.Input[bool]] = None,
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 service_region: Optional[pulumi.Input[str]] = None,
                  subnet_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['VpcEndpointSubnetConfigurationArgs']]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -47,6 +48,7 @@ class VpcEndpointArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] route_table_ids: One or more route table IDs. Applicable for endpoints of type `Gateway`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
                If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
+        :param pulumi.Input[str] service_region: The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
         :param pulumi.Input[Sequence[pulumi.Input['VpcEndpointSubnetConfigurationArgs']]] subnet_configurations: Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -68,6 +70,8 @@ class VpcEndpointArgs:
             pulumi.set(__self__, "route_table_ids", route_table_ids)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if service_region is not None:
+            pulumi.set(__self__, "service_region", service_region)
         if subnet_configurations is not None:
             pulumi.set(__self__, "subnet_configurations", subnet_configurations)
         if subnet_ids is not None:
@@ -188,6 +192,18 @@ class VpcEndpointArgs:
         pulumi.set(self, "security_group_ids", value)
 
     @property
+    @pulumi.getter(name="serviceRegion")
+    def service_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
+        """
+        return pulumi.get(self, "service_region")
+
+    @service_region.setter
+    def service_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_region", value)
+
+    @property
     @pulumi.getter(name="subnetConfigurations")
     def subnet_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpcEndpointSubnetConfigurationArgs']]]]:
         """
@@ -254,6 +270,7 @@ class _VpcEndpointState:
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
+                 service_region: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  subnet_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['VpcEndpointSubnetConfigurationArgs']]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -280,6 +297,7 @@ class _VpcEndpointState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
                If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
         :param pulumi.Input[str] service_name: The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+        :param pulumi.Input[str] service_region: The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
         :param pulumi.Input[str] state: The state of the VPC endpoint.
         :param pulumi.Input[Sequence[pulumi.Input['VpcEndpointSubnetConfigurationArgs']]] subnet_configurations: Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
@@ -318,6 +336,8 @@ class _VpcEndpointState:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if service_name is not None:
             pulumi.set(__self__, "service_name", service_name)
+        if service_region is not None:
+            pulumi.set(__self__, "service_region", service_region)
         if state is not None:
             pulumi.set(__self__, "state", state)
         if subnet_configurations is not None:
@@ -519,6 +539,18 @@ class _VpcEndpointState:
         pulumi.set(self, "service_name", value)
 
     @property
+    @pulumi.getter(name="serviceRegion")
+    def service_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
+        """
+        return pulumi.get(self, "service_region")
+
+    @service_region.setter
+    def service_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_region", value)
+
+    @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
         """
@@ -617,6 +649,7 @@ class VpcEndpoint(pulumi.CustomResource):
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
+                 service_region: Optional[pulumi.Input[str]] = None,
                  subnet_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpcEndpointSubnetConfigurationArgs', 'VpcEndpointSubnetConfigurationArgsDict']]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -739,6 +772,7 @@ class VpcEndpoint(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
                If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
         :param pulumi.Input[str] service_name: The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+        :param pulumi.Input[str] service_region: The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VpcEndpointSubnetConfigurationArgs', 'VpcEndpointSubnetConfigurationArgsDict']]]] subnet_configurations: Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -878,6 +912,7 @@ class VpcEndpoint(pulumi.CustomResource):
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
+                 service_region: Optional[pulumi.Input[str]] = None,
                  subnet_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpcEndpointSubnetConfigurationArgs', 'VpcEndpointSubnetConfigurationArgsDict']]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -902,6 +937,7 @@ class VpcEndpoint(pulumi.CustomResource):
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
+            __props__.__dict__["service_region"] = service_region
             __props__.__dict__["subnet_configurations"] = subnet_configurations
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
@@ -943,6 +979,7 @@ class VpcEndpoint(pulumi.CustomResource):
             route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             service_name: Optional[pulumi.Input[str]] = None,
+            service_region: Optional[pulumi.Input[str]] = None,
             state: Optional[pulumi.Input[str]] = None,
             subnet_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpcEndpointSubnetConfigurationArgs', 'VpcEndpointSubnetConfigurationArgsDict']]]]] = None,
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -974,6 +1011,7 @@ class VpcEndpoint(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
                If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
         :param pulumi.Input[str] service_name: The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+        :param pulumi.Input[str] service_region: The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
         :param pulumi.Input[str] state: The state of the VPC endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VpcEndpointSubnetConfigurationArgs', 'VpcEndpointSubnetConfigurationArgsDict']]]] subnet_configurations: Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
@@ -1001,6 +1039,7 @@ class VpcEndpoint(pulumi.CustomResource):
         __props__.__dict__["route_table_ids"] = route_table_ids
         __props__.__dict__["security_group_ids"] = security_group_ids
         __props__.__dict__["service_name"] = service_name
+        __props__.__dict__["service_region"] = service_region
         __props__.__dict__["state"] = state
         __props__.__dict__["subnet_configurations"] = subnet_configurations
         __props__.__dict__["subnet_ids"] = subnet_ids
@@ -1131,6 +1170,14 @@ class VpcEndpoint(pulumi.CustomResource):
         The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
         """
         return pulumi.get(self, "service_name")
+
+    @property
+    @pulumi.getter(name="serviceRegion")
+    def service_region(self) -> pulumi.Output[str]:
+        """
+        The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
+        """
+        return pulumi.get(self, "service_region")
 
     @property
     @pulumi.getter

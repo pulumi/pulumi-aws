@@ -102,6 +102,52 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         public static Output<GetHoursOfOperationResult> Invoke(GetHoursOfOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHoursOfOperationResult>("aws:connect/getHoursOfOperation:getHoursOfOperation", args ?? new GetHoursOfOperationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides details about a specific Amazon Connect Hours of Operation.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// By `name`
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Connect.GetHoursOfOperation.Invoke(new()
+        ///     {
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         Name = "Test",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// By `hours_of_operation_id`
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Connect.GetHoursOfOperation.Invoke(new()
+        ///     {
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         HoursOfOperationId = "cccccccc-bbbb-cccc-dddd-111111111111",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetHoursOfOperationResult> Invoke(GetHoursOfOperationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetHoursOfOperationResult>("aws:connect/getHoursOfOperation:getHoursOfOperation", args ?? new GetHoursOfOperationInvokeArgs(), options.WithDefaults());
     }
 
 

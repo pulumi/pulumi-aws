@@ -115,10 +115,10 @@ class HostVpcConfiguration(dict):
             suggest = "security_group_ids"
         elif key == "subnetIds":
             suggest = "subnet_ids"
-        elif key == "tlsCertificate":
-            suggest = "tls_certificate"
         elif key == "vpcId":
             suggest = "vpc_id"
+        elif key == "tlsCertificate":
+            suggest = "tls_certificate"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in HostVpcConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -134,18 +134,19 @@ class HostVpcConfiguration(dict):
     def __init__(__self__, *,
                  security_group_ids: Sequence[str],
                  subnet_ids: Sequence[str],
-                 tls_certificate: str,
-                 vpc_id: str):
+                 vpc_id: str,
+                 tls_certificate: Optional[str] = None):
         """
         :param Sequence[str] security_group_ids: ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
         :param Sequence[str] subnet_ids: The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
-        :param str tls_certificate: The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
         :param str vpc_id: The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
+        :param str tls_certificate: The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
         """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
-        pulumi.set(__self__, "tls_certificate", tls_certificate)
         pulumi.set(__self__, "vpc_id", vpc_id)
+        if tls_certificate is not None:
+            pulumi.set(__self__, "tls_certificate", tls_certificate)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -164,19 +165,19 @@ class HostVpcConfiguration(dict):
         return pulumi.get(self, "subnet_ids")
 
     @property
-    @pulumi.getter(name="tlsCertificate")
-    def tls_certificate(self) -> str:
-        """
-        The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
-        """
-        return pulumi.get(self, "tls_certificate")
-
-    @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> str:
         """
         The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
         """
         return pulumi.get(self, "vpc_id")
+
+    @property
+    @pulumi.getter(name="tlsCertificate")
+    def tls_certificate(self) -> Optional[str]:
+        """
+        The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
+        """
+        return pulumi.get(self, "tls_certificate")
 
 

@@ -62,6 +62,32 @@ namespace Pulumi.Aws.SsmContacts
         /// </summary>
         public static Output<GetContactChannelResult> Invoke(GetContactChannelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContactChannelResult>("aws:ssmcontacts/getContactChannel:getContactChannel", args ?? new GetContactChannelInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS SSM Contacts Contact Channel.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.SsmContacts.GetContactChannel.Invoke(new()
+        ///     {
+        ///         Arn = "arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetContactChannelResult> Invoke(GetContactChannelInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetContactChannelResult>("aws:ssmcontacts/getContactChannel:getContactChannel", args ?? new GetContactChannelInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -194,6 +194,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
+     * 
+     */
+    @Import(name="multiRegionClusterName")
+    private @Nullable Output<String> multiRegionClusterName;
+
+    /**
+     * @return The multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
+     * 
+     */
+    public Optional<Output<String>> multiRegionClusterName() {
+        return Optional.ofNullable(this.multiRegionClusterName);
+    }
+
+    /**
      * Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
@@ -490,6 +505,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.finalSnapshotName = $.finalSnapshotName;
         this.kmsKeyArn = $.kmsKeyArn;
         this.maintenanceWindow = $.maintenanceWindow;
+        this.multiRegionClusterName = $.multiRegionClusterName;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
         this.nodeType = $.nodeType;
@@ -770,6 +786,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder maintenanceWindow(String maintenanceWindow) {
             return maintenanceWindow(Output.of(maintenanceWindow));
+        }
+
+        /**
+         * @param multiRegionClusterName The multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder multiRegionClusterName(@Nullable Output<String> multiRegionClusterName) {
+            $.multiRegionClusterName = multiRegionClusterName;
+            return this;
+        }
+
+        /**
+         * @param multiRegionClusterName The multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder multiRegionClusterName(String multiRegionClusterName) {
+            return multiRegionClusterName(Output.of(multiRegionClusterName));
         }
 
         /**

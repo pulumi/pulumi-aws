@@ -60,6 +60,31 @@ namespace Pulumi.Aws.AppMesh
         /// </summary>
         public static Output<GetVirtualNodeResult> Invoke(GetVirtualNodeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNodeResult>("aws:appmesh/getVirtualNode:getVirtualNode", args ?? new GetVirtualNodeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS App Mesh Virtual Node.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.AppMesh.GetVirtualNode.Invoke(new()
+        ///     {
+        ///         Name = "serviceBv1",
+        ///         MeshName = "example-mesh",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetVirtualNodeResult> Invoke(GetVirtualNodeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNodeResult>("aws:appmesh/getVirtualNode:getVirtualNode", args ?? new GetVirtualNodeInvokeArgs(), options.WithDefaults());
     }
 
 

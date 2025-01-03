@@ -60,6 +60,31 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("aws:transfer/getServer:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get the ARN of an AWS Transfer Server for use in other
+        /// resources.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Transfer.GetServer.Invoke(new()
+        ///     {
+        ///         ServerId = "s-1234567",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("aws:transfer/getServer:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
     }
 
 

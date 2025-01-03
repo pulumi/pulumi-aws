@@ -270,6 +270,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> ServiceName { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
+        /// </summary>
+        [Output("serviceRegion")]
+        public Output<string> ServiceRegion { get; private set; } = null!;
+
+        /// <summary>
         /// The state of the VPC endpoint.
         /// </summary>
         [Output("state")]
@@ -418,6 +424,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
+        /// </summary>
+        [Input("serviceRegion")]
+        public Input<string>? ServiceRegion { get; set; }
 
         [Input("subnetConfigurations")]
         private InputList<Inputs.VpcEndpointSubnetConfigurationArgs>? _subnetConfigurations;
@@ -596,6 +608,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
+
+        /// <summary>
+        /// The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
+        /// </summary>
+        [Input("serviceRegion")]
+        public Input<string>? ServiceRegion { get; set; }
 
         /// <summary>
         /// The state of the VPC endpoint.

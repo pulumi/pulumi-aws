@@ -62,6 +62,32 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         public static Output<GetAgentAgentVersionsResult> Invoke(GetAgentAgentVersionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAgentAgentVersionsResult>("aws:bedrock/getAgentAgentVersions:getAgentAgentVersions", args ?? new GetAgentAgentVersionsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS Amazon BedrockAgent Agent Versions.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var test = Aws.Bedrock.GetAgentAgentVersions.Invoke(new()
+        ///     {
+        ///         AgentId = testAwsBedrockagentAgent.AgentId,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetAgentAgentVersionsResult> Invoke(GetAgentAgentVersionsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAgentAgentVersionsResult>("aws:bedrock/getAgentAgentVersions:getAgentAgentVersions", args ?? new GetAgentAgentVersionsInvokeArgs(), options.WithDefaults());
     }
 
 

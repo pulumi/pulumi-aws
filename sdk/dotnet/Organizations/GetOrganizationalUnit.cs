@@ -68,6 +68,35 @@ namespace Pulumi.Aws.Organizations
         /// </summary>
         public static Output<GetOrganizationalUnitResult> Invoke(GetOrganizationalUnitInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationalUnitResult>("aws:organizations/getOrganizationalUnit:getOrganizationalUnit", args ?? new GetOrganizationalUnitInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for getting an AWS Organizations Organizational Unit.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var org = Aws.Organizations.GetOrganization.Invoke();
+        /// 
+        ///     var ou = Aws.Organizations.GetOrganizationalUnit.Invoke(new()
+        ///     {
+        ///         ParentId = org.Apply(getOrganizationResult =&gt; getOrganizationResult.Roots[0]?.Id),
+        ///         Name = "dev",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetOrganizationalUnitResult> Invoke(GetOrganizationalUnitInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationalUnitResult>("aws:organizations/getOrganizationalUnit:getOrganizationalUnit", args ?? new GetOrganizationalUnitInvokeArgs(), options.WithDefaults());
     }
 
 

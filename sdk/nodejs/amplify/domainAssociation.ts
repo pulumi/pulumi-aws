@@ -91,7 +91,7 @@ export class DomainAssociation extends pulumi.CustomResource {
     /**
      * The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
      */
-    public readonly certificateSettings!: pulumi.Output<outputs.amplify.DomainAssociationCertificateSettings | undefined>;
+    public readonly certificateSettings!: pulumi.Output<outputs.amplify.DomainAssociationCertificateSettings>;
     /**
      * DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
      */

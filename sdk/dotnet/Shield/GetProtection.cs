@@ -98,6 +98,50 @@ namespace Pulumi.Aws.Shield
         /// </summary>
         public static Output<GetProtectionResult> Invoke(GetProtectionInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProtectionResult>("aws:shield/getProtection:getProtection", args ?? new GetProtectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS Shield Protection.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Shield.GetProtection.Invoke(new()
+        ///     {
+        ///         ProtectionId = "abc123",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### By Resource ARN
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Shield.GetProtection.Invoke(new()
+        ///     {
+        ///         ResourceArn = "arn:aws:globalaccelerator::123456789012:accelerator/1234abcd-abcd-1234-abcd-1234abcdefgh",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetProtectionResult> Invoke(GetProtectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProtectionResult>("aws:shield/getProtection:getProtection", args ?? new GetProtectionInvokeArgs(), options.WithDefaults());
     }
 
 

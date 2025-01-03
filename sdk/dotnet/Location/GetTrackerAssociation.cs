@@ -64,6 +64,33 @@ namespace Pulumi.Aws.Location
         /// </summary>
         public static Output<GetTrackerAssociationResult> Invoke(GetTrackerAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrackerAssociationResult>("aws:location/getTrackerAssociation:getTrackerAssociation", args ?? new GetTrackerAssociationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve information about a Location Service Tracker Association.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Location.GetTrackerAssociation.Invoke(new()
+        ///     {
+        ///         ConsumerArn = "arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer",
+        ///         TrackerName = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetTrackerAssociationResult> Invoke(GetTrackerAssociationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTrackerAssociationResult>("aws:location/getTrackerAssociation:getTrackerAssociation", args ?? new GetTrackerAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

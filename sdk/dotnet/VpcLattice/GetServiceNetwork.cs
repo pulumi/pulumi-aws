@@ -62,6 +62,32 @@ namespace Pulumi.Aws.VpcLattice
         /// </summary>
         public static Output<GetServiceNetworkResult> Invoke(GetServiceNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceNetworkResult>("aws:vpclattice/getServiceNetwork:getServiceNetwork", args ?? new GetServiceNetworkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS VPC Lattice Service Network.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.VpcLattice.GetServiceNetwork.Invoke(new()
+        ///     {
+        ///         ServiceNetworkIdentifier = "snsa-01112223334445556",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetServiceNetworkResult> Invoke(GetServiceNetworkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceNetworkResult>("aws:vpclattice/getServiceNetwork:getServiceNetwork", args ?? new GetServiceNetworkInvokeArgs(), options.WithDefaults());
     }
 
 

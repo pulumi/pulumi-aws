@@ -77,6 +77,8 @@ type LustreFileSystem struct {
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
 	// The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
 	DriveCacheType pulumi.StringPtrOutput `pulumi:"driveCacheType"`
+	// Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `perUnitStorageThroughput`. This is only supported when deploymentType is set to `PERSISTENT_2`, `metadataConfiguration` is used, and an EFA-enabled security group is attached.
+	EfaEnabled pulumi.BoolOutput `pulumi:"efaEnabled"`
 	// S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `importPath` argument and the path must use the same Amazon S3 bucket as specified in `importPath`. Set equal to `importPath` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
 	ExportPath pulumi.StringOutput `pulumi:"exportPath"`
 	// Sets the Lustre version for the file system that you're creating. Valid values are 2.10 for `SCRATCH_1`, `SCRATCH_2` and `PERSISTENT_1` deployment types. Valid values for 2.12 include all deployment types.
@@ -184,6 +186,8 @@ type lustreFileSystemState struct {
 	DnsName *string `pulumi:"dnsName"`
 	// The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
 	DriveCacheType *string `pulumi:"driveCacheType"`
+	// Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `perUnitStorageThroughput`. This is only supported when deploymentType is set to `PERSISTENT_2`, `metadataConfiguration` is used, and an EFA-enabled security group is attached.
+	EfaEnabled *bool `pulumi:"efaEnabled"`
 	// S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `importPath` argument and the path must use the same Amazon S3 bucket as specified in `importPath`. Set equal to `importPath` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
 	ExportPath *string `pulumi:"exportPath"`
 	// Sets the Lustre version for the file system that you're creating. Valid values are 2.10 for `SCRATCH_1`, `SCRATCH_2` and `PERSISTENT_1` deployment types. Valid values for 2.12 include all deployment types.
@@ -259,6 +263,8 @@ type LustreFileSystemState struct {
 	DnsName pulumi.StringPtrInput
 	// The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
 	DriveCacheType pulumi.StringPtrInput
+	// Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `perUnitStorageThroughput`. This is only supported when deploymentType is set to `PERSISTENT_2`, `metadataConfiguration` is used, and an EFA-enabled security group is attached.
+	EfaEnabled pulumi.BoolPtrInput
 	// S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `importPath` argument and the path must use the same Amazon S3 bucket as specified in `importPath`. Set equal to `importPath` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
 	ExportPath pulumi.StringPtrInput
 	// Sets the Lustre version for the file system that you're creating. Valid values are 2.10 for `SCRATCH_1`, `SCRATCH_2` and `PERSISTENT_1` deployment types. Valid values for 2.12 include all deployment types.
@@ -334,6 +340,8 @@ type lustreFileSystemArgs struct {
 	DeploymentType *string `pulumi:"deploymentType"`
 	// The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
 	DriveCacheType *string `pulumi:"driveCacheType"`
+	// Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `perUnitStorageThroughput`. This is only supported when deploymentType is set to `PERSISTENT_2`, `metadataConfiguration` is used, and an EFA-enabled security group is attached.
+	EfaEnabled *bool `pulumi:"efaEnabled"`
 	// S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `importPath` argument and the path must use the same Amazon S3 bucket as specified in `importPath`. Set equal to `importPath` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
 	ExportPath *string `pulumi:"exportPath"`
 	// Sets the Lustre version for the file system that you're creating. Valid values are 2.10 for `SCRATCH_1`, `SCRATCH_2` and `PERSISTENT_1` deployment types. Valid values for 2.12 include all deployment types.
@@ -394,6 +402,8 @@ type LustreFileSystemArgs struct {
 	DeploymentType pulumi.StringPtrInput
 	// The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
 	DriveCacheType pulumi.StringPtrInput
+	// Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `perUnitStorageThroughput`. This is only supported when deploymentType is set to `PERSISTENT_2`, `metadataConfiguration` is used, and an EFA-enabled security group is attached.
+	EfaEnabled pulumi.BoolPtrInput
 	// S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `importPath` argument and the path must use the same Amazon S3 bucket as specified in `importPath`. Set equal to `importPath` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
 	ExportPath pulumi.StringPtrInput
 	// Sets the Lustre version for the file system that you're creating. Valid values are 2.10 for `SCRATCH_1`, `SCRATCH_2` and `PERSISTENT_1` deployment types. Valid values for 2.12 include all deployment types.
@@ -571,6 +581,11 @@ func (o LustreFileSystemOutput) DnsName() pulumi.StringOutput {
 // The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
 func (o LustreFileSystemOutput) DriveCacheType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LustreFileSystem) pulumi.StringPtrOutput { return v.DriveCacheType }).(pulumi.StringPtrOutput)
+}
+
+// Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `perUnitStorageThroughput`. This is only supported when deploymentType is set to `PERSISTENT_2`, `metadataConfiguration` is used, and an EFA-enabled security group is attached.
+func (o LustreFileSystemOutput) EfaEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LustreFileSystem) pulumi.BoolOutput { return v.EfaEnabled }).(pulumi.BoolOutput)
 }
 
 // S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `importPath` argument and the path must use the same Amazon S3 bucket as specified in `importPath`. Set equal to `importPath` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.

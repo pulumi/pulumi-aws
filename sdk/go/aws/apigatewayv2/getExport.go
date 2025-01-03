@@ -81,21 +81,11 @@ type GetExportResult struct {
 }
 
 func GetExportOutput(ctx *pulumi.Context, args GetExportOutputArgs, opts ...pulumi.InvokeOption) GetExportResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetExportResultOutput, error) {
 			args := v.(GetExportArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetExportResult
-			secret, err := ctx.InvokePackageRaw("aws:apigatewayv2/getExport:getExport", args, &rv, "", opts...)
-			if err != nil {
-				return GetExportResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetExportResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetExportResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:apigatewayv2/getExport:getExport", args, GetExportResultOutput{}, options).(GetExportResultOutput), nil
 		}).(GetExportResultOutput)
 }
 
