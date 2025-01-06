@@ -61,3 +61,8 @@ actions:
         role-duration-seconds: 7200
         role-session-name: aws@githubActions
         role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
+releaseVerification:
+  nodejs: examples/bucket
+  python: examples/webserver-py
+  dotnet: examples/webserver-cs
+  go: examples/webserver-go
