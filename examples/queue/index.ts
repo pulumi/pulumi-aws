@@ -14,6 +14,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
+import { S3 } from "@aws-sdk/client-s3";
 
 const config = new pulumi.Config("aws");
 const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>config.require("envRegion") }) };
@@ -35,8 +36,7 @@ const queue = new aws.sqs.Queue("queue", {
 
 queue.onEvent("subscription", async (event) => {
     console.log("Received: " + JSON.stringify(event, null, 2));
-    const awssdk = await import("aws-sdk");
-    const s3 = new awssdk.S3();
+    const s3 = new S3();
 
     const recordFile = "lastEvent.json";
 
@@ -45,7 +45,7 @@ queue.onEvent("subscription", async (event) => {
         Bucket: bucket.id.get(),
         Key: recordFile,
         Body: JSON.stringify(event),
-    }).promise();
+    });
     console.log("Stored sqs message to S3.");
 }, { batchSize: 1 });
 

@@ -1,4 +1,4 @@
-// Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
+// Copyright 2016-2024, Pulumi Corporation.  All rights reserved.
 
 import * as aws from "@pulumi/aws";
 import * as awsx from "@pulumi/awsx";
@@ -11,9 +11,10 @@ const repository = new aws.ecr.Repository("repository", {
     forceDelete: true,
 }, providerOpts);
 
-const image = awsx.ecr.buildAndPushImage("basic-container", {
+const image = new awsx.ecr.Image("basic-container", {
+    repositoryUrl: repository.repositoryUrl,
     context: "./app",
-}, { repository }, providerOpts);
+}, providerOpts);
 
 const role = new aws.iam.Role("demo-role", {
     assumeRolePolicy: aws.iam.assumeRolePolicyForPrincipal({
@@ -25,6 +26,7 @@ const lambdaFullAccessCopyAttachment = new aws.iam.RolePolicyAttachment("lambdaF
     role: role,
     policyArn: aws.iam.ManagedPolicy.AWSLambdaExecute,
 }, providerOpts)
+
 const ecsFullAccess = new aws.iam.RolePolicyAttachment("ecsFullAccess", {
     role: role.name,
     policyArn: aws.iam.ManagedPolicy.AmazonECSFullAccess,
@@ -32,8 +34,12 @@ const ecsFullAccess = new aws.iam.RolePolicyAttachment("ecsFullAccess", {
 
 const func = new aws.lambda.Function("demo-func", {
     role: role.arn,
-    imageUri: image.imageValue,
+    imageUri: image.imageUri,
     packageType: "Image"
-}, providerOpts);
+}, {
+    provider: providerOpts.provider,
+    dependsOn: [ecsFullAccess, lambdaFullAccessCopyAttachment]
+});
 
-export const imageUri = image.imageValue;
+export const imageUri = image.imageUri;
+export const funcARN = func.arn;
