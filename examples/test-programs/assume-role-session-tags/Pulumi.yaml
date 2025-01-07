@@ -16,10 +16,9 @@ resources:
     type: pulumi:providers:aws
 
   iamRole:
-    type: aws:iam:Role
+    type: aws-native:iam:Role
     properties:
-      assumeRolePolicy:
-        fn::toJSON:
+      assumeRolePolicyDocument:
           Version: "2012-10-17"
           Statement:
             - Action:
@@ -32,10 +31,9 @@ resources:
                 StringEquals:
                   "aws:RequestTag/Repository":
                     - "my-org/my-repo"
-      inlinePolicies:
-        - name: "inline-policy"
-          policy:
-            fn::toJSON:
+      policies:
+        - policyName: "inline-policy"
+          policyDocument:
               Version: "2012-10-17"
               Statement:
                 - Action:
@@ -45,13 +43,6 @@ resources:
     options:
       provider: ${bootstrapProvider}
 
-  # IAM has a delay in propagating the new role, so we need to wait for it to be available
-  # AWS is aiming for P99 below 2s so 6s should be enough
-  wait6s:
-    type: time:Sleep
-    properties:
-      createDuration: 6s
-
   provider:
     type: pulumi:providers:aws
     properties:
@@ -60,9 +51,6 @@ resources:
         sessionName: "session-tagging-test"
         tags:
           Repository: "my-org/my-repo"
-    options:
-      dependsOn:
-        - ${wait6s}
 
   myTestBucket:
     type: aws:s3:Bucket
