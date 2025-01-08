@@ -95,7 +95,7 @@ jobs:
         uses: pulumi/verify-provider-release@v1
         with:
           runtime: nodejs
-          directory: examples/bucket
+          directory: examples/release-verification
           provider: aws
           providerVersion: ${{ inputs.providerVersion }}
       - name: Verify python release
