@@ -99,7 +99,7 @@ jobs:
           provider: aws
           providerVersion: ${{ inputs.providerVersion }}
       - name: Verify python release
-        uses: pulumi/verify-provider-release@v1
+        uses: pulumi/verify-provider-release@corymhall/debugging
         with:
           runtime: python
           directory: examples/release-verification-py
