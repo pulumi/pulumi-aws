@@ -62,7 +62,7 @@ actions:
         role-session-name: aws@githubActions
         role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
 releaseVerification:
-  nodejs: examples/bucket
+  nodejs: examples/release-verification
   python: examples/webserver-py
   dotnet: examples/webserver-cs
   go: examples/webserver-go
