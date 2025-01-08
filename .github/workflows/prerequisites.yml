@@ -94,7 +94,7 @@ jobs:
           schema-tools compare -r github://api.github.com/pulumi -p aws -o "${{ inputs.default_branch }}" -n --local-path=provider/cmd/pulumi-resource-aws/schema.json;
           echo "$EOF";
         } >> "$GITHUB_ENV"
-    - if: inputs.is_pr && inputs.is_automated == false
+    - if: inputs.is_pr && inputs.is_automated == false && github.actor != 'dependabot[bot]'
       name: Comment on PR with Details of Schema Check
       uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
       with:
