@@ -102,7 +102,7 @@ jobs:
         uses: pulumi/verify-provider-release@v1
         with:
           runtime: python
-          directory: examples/webserver-py
+          directory: examples/release-verification-py
           provider: aws
           providerVersion: ${{ inputs.providerVersion }}
           packageVersion: ${{ inputs.pythonVersion || inputs.providerVersion }}

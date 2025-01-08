@@ -63,6 +63,6 @@ actions:
         role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
 releaseVerification:
   nodejs: examples/release-verification
-  python: examples/webserver-py
+  python: examples/release-verification-py
   dotnet: examples/webserver-cs
   go: examples/webserver-go
