@@ -49,7 +49,7 @@ import {InstanceProfile} from "../iam";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const this = aws.ec2.getAmi({
+ * const _this = aws.ec2.getAmi({
  *     mostRecent: true,
  *     owners: ["amazon"],
  *     filters: [
@@ -138,7 +138,7 @@ import {InstanceProfile} from "../iam";
  *         Name: "tf-example",
  *     },
  * });
- * const amzn-linux-2023-ami = aws.ec2.getAmi({
+ * const amzn_linux_2023_ami = aws.ec2.getAmi({
  *     mostRecent: true,
  *     owners: ["amazon"],
  *     filters: [{
