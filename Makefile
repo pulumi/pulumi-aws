@@ -29,7 +29,7 @@ LDFLAGS=$(LDFLAGS_PROJ_VERSION) $(LDFLAGS_UPSTREAM_VERSION) $(LDFLAGS_EXTRAS) $(
 
 # Create a `.make` directory for tracking targets which don't generate a single file output. This should be ignored by git.
 # For targets which either don't generate a single file output, or the output file is committed, we use a "sentinel"
-# file within `.make/` to track the staleness of the target and only rebuild when needed. 
+# file within `.make/` to track the staleness of the target and only rebuild when needed.
 # For each phony target, we create an internal target with the same name, but prefixed with `.make/` where the work is performed.
 # At the end of each internal target we run `@touch $@` to update the file which is the name of the target.
 
@@ -265,7 +265,7 @@ bin/$(TFGEN): provider/*.go provider/go.* .make/upstream
 # Apply patches to the upstream submodule, if it exists
 upstream: .make/upstream
 # Re-run if the upstream commit or the patches change
-.make/upstream: $(wildcard patches/*) $(wildcard .git/modules/upstream/HEAD)
+.make/upstream: $(wildcard patches/*) $(shell ./upstream.sh file_target)
 ifneq ("$(wildcard upstream)","")
 	./upstream.sh init
 endif
@@ -330,22 +330,22 @@ bin/darwin-arm64/$(PROVIDER): TARGET := darwin-arm64
 bin/windows-amd64/$(PROVIDER).exe: TARGET := windows-amd64
 bin/%/$(PROVIDER) bin/%/$(PROVIDER).exe: bin/jsign-6.0.jar
 	@# check the TARGET is set
-	test $(TARGET)
-	cd provider && \
+	@test $(TARGET)
+	@cd provider && \
 		export GOOS=$$(echo "$(TARGET)" | cut -d "-" -f 1) && \
 		export GOARCH=$$(echo "$(TARGET)" | cut -d "-" -f 2) && \
 		export CGO_ENABLED=0 && \
 		go build -o "${WORKING_DIR}/$@" $(PULUMI_PROVIDER_BUILD_PARALLELISM) -ldflags "$(LDFLAGS)" "$(PROJECT)/$(PROVIDER_PATH)/cmd/$(PROVIDER)"
 
-	@# Only sign windows binary if fully configured. 
+	@# Only sign windows binary if fully configured.
 	@# Test variables set by joining with | between and looking for || showing at least one variable is empty.
 	@# Move the binary to a temporary location and sign it there to avoid the target being up-to-date if signing fails.
-	set -e; \
-	if [[ "${TARGET}" = "windows-amd64" && ${SKIP_SIGNING} != "true" ]]; then \
+	@set -e; \
+	if [[ "${TARGET}" = "windows-amd64" && "${SKIP_SIGNING}" != "true" ]]; then \
 		if [[ "|${AZURE_SIGNING_CLIENT_ID}|${AZURE_SIGNING_CLIENT_SECRET}|${AZURE_SIGNING_TENANT_ID}|${AZURE_SIGNING_KEY_VAULT_URI}|" == *"||"* ]]; then \
 			echo "Can't sign windows binaries as required configuration not set: AZURE_SIGNING_CLIENT_ID, AZURE_SIGNING_CLIENT_SECRET, AZURE_SIGNING_TENANT_ID, AZURE_SIGNING_KEY_VAULT_URI"; \
 			echo "To rebuild with signing delete the unsigned $@ and rebuild with the fixed configuration"; \
-			if [[ ${CI} == "true" ]]; then exit 1; fi; \
+			if [[ "${CI}" == "true" ]]; then exit 1; fi; \
 		else \
 			mv $@ $@.unsigned; \
 			az login --service-principal \
