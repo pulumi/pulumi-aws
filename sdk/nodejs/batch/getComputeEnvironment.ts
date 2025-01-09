@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const batch-mongo = aws.batch.getComputeEnvironment({
+ * const batch_mongo = aws.batch.getComputeEnvironment({
  *     computeEnvironmentName: "batch-mongo-production",
  * });
  * ```
@@ -100,7 +100,7 @@ export interface GetComputeEnvironmentResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const batch-mongo = aws.batch.getComputeEnvironment({
+ * const batch_mongo = aws.batch.getComputeEnvironment({
  *     computeEnvironmentName: "batch-mongo-production",
  * });
  * ```

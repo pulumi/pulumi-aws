@@ -153,7 +153,7 @@ import * as utilities from "../utilities";
  * import * as command from "@pulumi/command";
  * import * as std from "@pulumi/std";
  *
- * const default = aws.ec2.getSecurityGroup({
+ * const _default = aws.ec2.getSecurityGroup({
  *     name: "default",
  * });
  * const example = new aws.ec2.SecurityGroup("example", {
