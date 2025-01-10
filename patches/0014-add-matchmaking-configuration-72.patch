@@ -10,7 +10,7 @@ Subject: [PATCH] add matchmaking configuration (#72)
 * add resource docs
 
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index c7c3935b946..30ebfcf0f30 100644
+index c7c3935b94..30ebfcf0f3 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
 @@ -16,6 +16,7 @@ import (
@@ -33,7 +33,7 @@ index c7c3935b946..30ebfcf0f30 100644
  
 diff --git a/internal/service/gamelift/matchmaking_configuration.go b/internal/service/gamelift/matchmaking_configuration.go
 new file mode 100644
-index 00000000000..0a7c8ea635d
+index 0000000000..0a7c8ea635
 --- /dev/null
 +++ b/internal/service/gamelift/matchmaking_configuration.go
 @@ -0,0 +1,386 @@
@@ -425,7 +425,7 @@ index 00000000000..0a7c8ea635d
 +}
 diff --git a/internal/service/gamelift/matchmaking_configuration_test.go b/internal/service/gamelift/matchmaking_configuration_test.go
 new file mode 100644
-index 00000000000..94c9a8c29bd
+index 0000000000..94c9a8c29b
 --- /dev/null
 +++ b/internal/service/gamelift/matchmaking_configuration_test.go
 @@ -0,0 +1,267 @@
@@ -698,7 +698,7 @@ index 00000000000..94c9a8c29bd
 +}
 diff --git a/internal/service/gamelift/matchmaking_rule_set.go b/internal/service/gamelift/matchmaking_rule_set.go
 new file mode 100644
-index 00000000000..28d15ecf5ea
+index 0000000000..28d15ecf5e
 --- /dev/null
 +++ b/internal/service/gamelift/matchmaking_rule_set.go
 @@ -0,0 +1,163 @@
@@ -867,7 +867,7 @@ index 00000000000..28d15ecf5ea
 +}
 diff --git a/internal/service/gamelift/matchmaking_rule_set_test.go b/internal/service/gamelift/matchmaking_rule_set_test.go
 new file mode 100644
-index 00000000000..9dbf0395884
+index 0000000000..9dbf039588
 --- /dev/null
 +++ b/internal/service/gamelift/matchmaking_rule_set_test.go
 @@ -0,0 +1,138 @@
@@ -1011,7 +1011,7 @@ index 00000000000..9dbf0395884
 +}
 diff --git a/website/docs/r/gamelift_matchmaking_configuration.html.markdown b/website/docs/r/gamelift_matchmaking_configuration.html.markdown
 new file mode 100644
-index 00000000000..2d411ad301c
+index 0000000000..2d411ad301
 --- /dev/null
 +++ b/website/docs/r/gamelift_matchmaking_configuration.html.markdown
 @@ -0,0 +1,106 @@
@@ -1123,7 +1123,7 @@ index 00000000000..2d411ad301c
 +```
 diff --git a/website/docs/r/gamelift_matchmaking_rule_set.html.markdown b/website/docs/r/gamelift_matchmaking_rule_set.html.markdown
 new file mode 100644
-index 00000000000..28013532bf1
+index 0000000000..28013532bf
 --- /dev/null
 +++ b/website/docs/r/gamelift_matchmaking_rule_set.html.markdown
 @@ -0,0 +1,52 @@

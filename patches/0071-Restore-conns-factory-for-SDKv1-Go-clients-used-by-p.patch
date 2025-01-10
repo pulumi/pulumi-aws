@@ -5,7 +5,7 @@ Subject: [PATCH] Restore conns factory for SDKv1 Go clients used by patches
 
 
 diff --git a/internal/conns/awsclient_extra.go b/internal/conns/awsclient_extra.go
-index 57bf4c7c944..09b4279db3a 100644
+index 57bf4c7c94..09b4279db3 100644
 --- a/internal/conns/awsclient_extra.go
 +++ b/internal/conns/awsclient_extra.go
 @@ -5,9 +5,12 @@ package conns

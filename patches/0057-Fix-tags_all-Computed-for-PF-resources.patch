@@ -5,7 +5,7 @@ Subject: [PATCH] Fix tags_all Computed for PF resources
 
 
 diff --git a/internal/service/appfabric/app_authorization.go b/internal/service/appfabric/app_authorization.go
-index 4a13fe036e1..716e2c75a61 100644
+index 4a13fe036e..716e2c75a6 100644
 --- a/internal/service/appfabric/app_authorization.go
 +++ b/internal/service/appfabric/app_authorization.go
 @@ -109,7 +109,7 @@ func (r *appAuthorizationResource) Schema(ctx context.Context, request resource.
@@ -18,7 +18,7 @@ index 4a13fe036e1..716e2c75a61 100644
  				CustomType: timetypes.RFC3339Type{},
  				Computed:   true,
 diff --git a/internal/service/appfabric/app_bundle.go b/internal/service/appfabric/app_bundle.go
-index 3bca6523df8..aae9b30c5f4 100644
+index 3bca6523df..aae9b30c5f 100644
 --- a/internal/service/appfabric/app_bundle.go
 +++ b/internal/service/appfabric/app_bundle.go
 @@ -61,7 +61,7 @@ func (r *appBundleResource) Schema(ctx context.Context, request resource.SchemaR
@@ -31,7 +31,7 @@ index 3bca6523df8..aae9b30c5f4 100644
  	}
  }
 diff --git a/internal/service/ec2/ec2_capacity_block_reservation.go b/internal/service/ec2/ec2_capacity_block_reservation.go
-index d7698584344..2c255a5dcc0 100644
+index d769858434..2c255a5dcc 100644
 --- a/internal/service/ec2/ec2_capacity_block_reservation.go
 +++ b/internal/service/ec2/ec2_capacity_block_reservation.go
 @@ -146,7 +146,7 @@ func (r *capacityBlockReservationResource) Schema(ctx context.Context, _ resourc
@@ -44,7 +44,7 @@ index d7698584344..2c255a5dcc0 100644
  				Computed: true,
  				PlanModifiers: []planmodifier.String{
 diff --git a/internal/service/fms/resource_set.go b/internal/service/fms/resource_set.go
-index 3f27edc87fb..38b96593e82 100644
+index 3f27edc87f..38b96593e8 100644
 --- a/internal/service/fms/resource_set.go
 +++ b/internal/service/fms/resource_set.go
 @@ -105,7 +105,7 @@ func (r *resourceResourceSet) Schema(ctx context.Context, req resource.SchemaReq
@@ -57,7 +57,7 @@ index 3f27edc87fb..38b96593e82 100644
  		Blocks: map[string]schema.Block{
  			"resource_set": resourceSetLNB,
 diff --git a/internal/service/guardduty/malware_protection_plan.go b/internal/service/guardduty/malware_protection_plan.go
-index f7b9d00088a..eb1883c627a 100644
+index f7b9d00088..eb1883c627 100644
 --- a/internal/service/guardduty/malware_protection_plan.go
 +++ b/internal/service/guardduty/malware_protection_plan.go
 @@ -87,7 +87,7 @@ func (r *resourceMalwareProtectionPlan) Schema(ctx context.Context, req resource

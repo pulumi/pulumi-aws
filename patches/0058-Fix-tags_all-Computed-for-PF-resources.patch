@@ -5,7 +5,7 @@ Subject: [PATCH] Fix tags_all Computed for PF resources
 
 
 diff --git a/internal/service/drs/replication_configuration_template.go b/internal/service/drs/replication_configuration_template.go
-index 976dba4ac18..648f2b50030 100644
+index 976dba4ac1..648f2b5003 100644
 --- a/internal/service/drs/replication_configuration_template.go
 +++ b/internal/service/drs/replication_configuration_template.go
 @@ -103,7 +103,7 @@ func (r *replicationConfigurationTemplateResource) Schema(ctx context.Context, r
@@ -18,7 +18,7 @@ index 976dba4ac18..648f2b50030 100644
  			"use_dedicated_replication_server": schema.BoolAttribute{
  				Required: true,
 diff --git a/internal/service/elasticache/reserved_cache_node.go b/internal/service/elasticache/reserved_cache_node.go
-index c2ed403da01..794d9302caf 100644
+index c2ed403da0..794d9302ca 100644
 --- a/internal/service/elasticache/reserved_cache_node.go
 +++ b/internal/service/elasticache/reserved_cache_node.go
 @@ -113,7 +113,7 @@ func (r *resourceReservedCacheNode) Schema(ctx context.Context, request resource
@@ -31,7 +31,7 @@ index c2ed403da01..794d9302caf 100644
  				Computed: true,
  			},
 diff --git a/internal/service/pinpointsmsvoicev2/opt_out_list.go b/internal/service/pinpointsmsvoicev2/opt_out_list.go
-index 9ed0e93e62d..ba7a696501c 100644
+index 9ed0e93e62..ba7a696501 100644
 --- a/internal/service/pinpointsmsvoicev2/opt_out_list.go
 +++ b/internal/service/pinpointsmsvoicev2/opt_out_list.go
 @@ -62,7 +62,7 @@ func (r *optOutListResource) Schema(ctx context.Context, request resource.Schema
@@ -44,7 +44,7 @@ index 9ed0e93e62d..ba7a696501c 100644
  	}
  }
 diff --git a/internal/service/pinpointsmsvoicev2/phone_number.go b/internal/service/pinpointsmsvoicev2/phone_number.go
-index e68971a30d9..68d4fd34476 100644
+index e68971a30d..68d4fd3447 100644
 --- a/internal/service/pinpointsmsvoicev2/phone_number.go
 +++ b/internal/service/pinpointsmsvoicev2/phone_number.go
 @@ -124,7 +124,7 @@ func (r *phoneNumberResource) Schema(ctx context.Context, request resource.Schem
