@@ -258,6 +258,10 @@ __all__ = [
     'InventoryScheduleArgsDict',
     'ObjectCopyGrantArgs',
     'ObjectCopyGrantArgsDict',
+    'ObjectCopyOverrideProviderArgs',
+    'ObjectCopyOverrideProviderArgsDict',
+    'ObjectCopyOverrideProviderDefaultTagsArgs',
+    'ObjectCopyOverrideProviderDefaultTagsArgsDict',
 ]
 
 MYPY = False
@@ -8139,5 +8143,69 @@ class ObjectCopyGrantArgs:
     @uri.setter
     def uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "uri", value)
+
+
+if not MYPY:
+    class ObjectCopyOverrideProviderArgsDict(TypedDict):
+        default_tags: NotRequired[pulumi.Input['ObjectCopyOverrideProviderDefaultTagsArgsDict']]
+        """
+        Override the provider `default_tags` configuration block.
+        """
+elif False:
+    ObjectCopyOverrideProviderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ObjectCopyOverrideProviderArgs:
+    def __init__(__self__, *,
+                 default_tags: Optional[pulumi.Input['ObjectCopyOverrideProviderDefaultTagsArgs']] = None):
+        """
+        :param pulumi.Input['ObjectCopyOverrideProviderDefaultTagsArgs'] default_tags: Override the provider `default_tags` configuration block.
+        """
+        if default_tags is not None:
+            pulumi.set(__self__, "default_tags", default_tags)
+
+    @property
+    @pulumi.getter(name="defaultTags")
+    def default_tags(self) -> Optional[pulumi.Input['ObjectCopyOverrideProviderDefaultTagsArgs']]:
+        """
+        Override the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "default_tags")
+
+    @default_tags.setter
+    def default_tags(self, value: Optional[pulumi.Input['ObjectCopyOverrideProviderDefaultTagsArgs']]):
+        pulumi.set(self, "default_tags", value)
+
+
+if not MYPY:
+    class ObjectCopyOverrideProviderDefaultTagsArgsDict(TypedDict):
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+elif False:
+    ObjectCopyOverrideProviderDefaultTagsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ObjectCopyOverrideProviderDefaultTagsArgs:
+    def __init__(__self__, *,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 

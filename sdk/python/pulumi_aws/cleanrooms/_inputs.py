@@ -21,6 +21,16 @@ __all__ = [
     'CollaborationMemberArgsDict',
     'ConfiguredTableTableReferenceArgs',
     'ConfiguredTableTableReferenceArgsDict',
+    'MembershipDefaultResultConfigurationArgs',
+    'MembershipDefaultResultConfigurationArgsDict',
+    'MembershipDefaultResultConfigurationOutputConfigurationArgs',
+    'MembershipDefaultResultConfigurationOutputConfigurationArgsDict',
+    'MembershipDefaultResultConfigurationOutputConfigurationS3Args',
+    'MembershipDefaultResultConfigurationOutputConfigurationS3ArgsDict',
+    'MembershipPaymentConfigurationArgs',
+    'MembershipPaymentConfigurationArgsDict',
+    'MembershipPaymentConfigurationQueryComputeArgs',
+    'MembershipPaymentConfigurationQueryComputeArgsDict',
 ]
 
 MYPY = False
@@ -174,5 +184,183 @@ class ConfiguredTableTableReferenceArgs:
     @table_name.setter
     def table_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "table_name", value)
+
+
+if not MYPY:
+    class MembershipDefaultResultConfigurationArgsDict(TypedDict):
+        output_configuration: NotRequired[pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationArgsDict']]
+        role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the IAM role which will be used to create the membership.
+        - `output_configuration.s3.bucket` - (Required) - The name of the S3 bucket where the query results will be stored.
+        - `output_configuration.s3.result_format` - (Required) - The format of the query results. Valid values are `PARQUET` and `CSV`.
+        - `output_configuration.s3.key_prefix` - (Optional) - The prefix used for the query results.
+        """
+elif False:
+    MembershipDefaultResultConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MembershipDefaultResultConfigurationArgs:
+    def __init__(__self__, *,
+                 output_configuration: Optional[pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationArgs']] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] role_arn: The ARN of the IAM role which will be used to create the membership.
+               - `output_configuration.s3.bucket` - (Required) - The name of the S3 bucket where the query results will be stored.
+               - `output_configuration.s3.result_format` - (Required) - The format of the query results. Valid values are `PARQUET` and `CSV`.
+               - `output_configuration.s3.key_prefix` - (Optional) - The prefix used for the query results.
+        """
+        if output_configuration is not None:
+            pulumi.set(__self__, "output_configuration", output_configuration)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="outputConfiguration")
+    def output_configuration(self) -> Optional[pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationArgs']]:
+        return pulumi.get(self, "output_configuration")
+
+    @output_configuration.setter
+    def output_configuration(self, value: Optional[pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationArgs']]):
+        pulumi.set(self, "output_configuration", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the IAM role which will be used to create the membership.
+        - `output_configuration.s3.bucket` - (Required) - The name of the S3 bucket where the query results will be stored.
+        - `output_configuration.s3.result_format` - (Required) - The format of the query results. Valid values are `PARQUET` and `CSV`.
+        - `output_configuration.s3.key_prefix` - (Optional) - The prefix used for the query results.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+
+if not MYPY:
+    class MembershipDefaultResultConfigurationOutputConfigurationArgsDict(TypedDict):
+        s3: NotRequired[pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationS3ArgsDict']]
+elif False:
+    MembershipDefaultResultConfigurationOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MembershipDefaultResultConfigurationOutputConfigurationArgs:
+    def __init__(__self__, *,
+                 s3: Optional[pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationS3Args']] = None):
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @property
+    @pulumi.getter
+    def s3(self) -> Optional[pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationS3Args']]:
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: Optional[pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationS3Args']]):
+        pulumi.set(self, "s3", value)
+
+
+if not MYPY:
+    class MembershipDefaultResultConfigurationOutputConfigurationS3ArgsDict(TypedDict):
+        bucket: pulumi.Input[str]
+        result_format: pulumi.Input[str]
+        key_prefix: NotRequired[pulumi.Input[str]]
+elif False:
+    MembershipDefaultResultConfigurationOutputConfigurationS3ArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MembershipDefaultResultConfigurationOutputConfigurationS3Args:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[str],
+                 result_format: pulumi.Input[str],
+                 key_prefix: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "result_format", result_format)
+        if key_prefix is not None:
+            pulumi.set(__self__, "key_prefix", key_prefix)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter(name="resultFormat")
+    def result_format(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "result_format")
+
+    @result_format.setter
+    def result_format(self, value: pulumi.Input[str]):
+        pulumi.set(self, "result_format", value)
+
+    @property
+    @pulumi.getter(name="keyPrefix")
+    def key_prefix(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key_prefix")
+
+    @key_prefix.setter
+    def key_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_prefix", value)
+
+
+if not MYPY:
+    class MembershipPaymentConfigurationArgsDict(TypedDict):
+        query_compute: NotRequired[pulumi.Input['MembershipPaymentConfigurationQueryComputeArgsDict']]
+elif False:
+    MembershipPaymentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MembershipPaymentConfigurationArgs:
+    def __init__(__self__, *,
+                 query_compute: Optional[pulumi.Input['MembershipPaymentConfigurationQueryComputeArgs']] = None):
+        if query_compute is not None:
+            pulumi.set(__self__, "query_compute", query_compute)
+
+    @property
+    @pulumi.getter(name="queryCompute")
+    def query_compute(self) -> Optional[pulumi.Input['MembershipPaymentConfigurationQueryComputeArgs']]:
+        return pulumi.get(self, "query_compute")
+
+    @query_compute.setter
+    def query_compute(self, value: Optional[pulumi.Input['MembershipPaymentConfigurationQueryComputeArgs']]):
+        pulumi.set(self, "query_compute", value)
+
+
+if not MYPY:
+    class MembershipPaymentConfigurationQueryComputeArgsDict(TypedDict):
+        is_responsible: pulumi.Input[bool]
+        """
+        Indicates whether the collaboration member has accepted to pay for query compute costs.
+        """
+elif False:
+    MembershipPaymentConfigurationQueryComputeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MembershipPaymentConfigurationQueryComputeArgs:
+    def __init__(__self__, *,
+                 is_responsible: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[bool] is_responsible: Indicates whether the collaboration member has accepted to pay for query compute costs.
+        """
+        pulumi.set(__self__, "is_responsible", is_responsible)
+
+    @property
+    @pulumi.getter(name="isResponsible")
+    def is_responsible(self) -> pulumi.Input[bool]:
+        """
+        Indicates whether the collaboration member has accepted to pay for query compute costs.
+        """
+        return pulumi.get(self, "is_responsible")
+
+    @is_responsible.setter
+    def is_responsible(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "is_responsible", value)
 
 

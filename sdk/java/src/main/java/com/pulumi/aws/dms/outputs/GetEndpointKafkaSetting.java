@@ -22,6 +22,7 @@ public final class GetEndpointKafkaSetting {
     private Integer messageMaxBytes;
     private Boolean noHexPrefix;
     private Boolean partitionIncludeSchemaTable;
+    private String saslMechanism;
     private String saslPassword;
     private String saslUsername;
     private String securityProtocol;
@@ -61,6 +62,9 @@ public final class GetEndpointKafkaSetting {
     }
     public Boolean partitionIncludeSchemaTable() {
         return this.partitionIncludeSchemaTable;
+    }
+    public String saslMechanism() {
+        return this.saslMechanism;
     }
     public String saslPassword() {
         return this.saslPassword;
@@ -106,6 +110,7 @@ public final class GetEndpointKafkaSetting {
         private Integer messageMaxBytes;
         private Boolean noHexPrefix;
         private Boolean partitionIncludeSchemaTable;
+        private String saslMechanism;
         private String saslPassword;
         private String saslUsername;
         private String securityProtocol;
@@ -127,6 +132,7 @@ public final class GetEndpointKafkaSetting {
     	      this.messageMaxBytes = defaults.messageMaxBytes;
     	      this.noHexPrefix = defaults.noHexPrefix;
     	      this.partitionIncludeSchemaTable = defaults.partitionIncludeSchemaTable;
+    	      this.saslMechanism = defaults.saslMechanism;
     	      this.saslPassword = defaults.saslPassword;
     	      this.saslUsername = defaults.saslUsername;
     	      this.securityProtocol = defaults.securityProtocol;
@@ -218,6 +224,14 @@ public final class GetEndpointKafkaSetting {
             return this;
         }
         @CustomType.Setter
+        public Builder saslMechanism(String saslMechanism) {
+            if (saslMechanism == null) {
+              throw new MissingRequiredPropertyException("GetEndpointKafkaSetting", "saslMechanism");
+            }
+            this.saslMechanism = saslMechanism;
+            return this;
+        }
+        @CustomType.Setter
         public Builder saslPassword(String saslPassword) {
             if (saslPassword == null) {
               throw new MissingRequiredPropertyException("GetEndpointKafkaSetting", "saslPassword");
@@ -293,6 +307,7 @@ public final class GetEndpointKafkaSetting {
             _resultValue.messageMaxBytes = messageMaxBytes;
             _resultValue.noHexPrefix = noHexPrefix;
             _resultValue.partitionIncludeSchemaTable = partitionIncludeSchemaTable;
+            _resultValue.saslMechanism = saslMechanism;
             _resultValue.saslPassword = saslPassword;
             _resultValue.saslUsername = saslUsername;
             _resultValue.securityProtocol = securityProtocol;

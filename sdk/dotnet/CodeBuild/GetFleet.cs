@@ -270,6 +270,10 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         public readonly int BaseCapacity;
         /// <summary>
+        /// Compute configuration of the compute fleet.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetFleetComputeConfigurationResult> ComputeConfigurations;
+        /// <summary>
         /// Compute resources the compute fleet uses.
         /// </summary>
         public readonly string ComputeType;
@@ -325,6 +329,8 @@ namespace Pulumi.Aws.CodeBuild
 
             int baseCapacity,
 
+            ImmutableArray<Outputs.GetFleetComputeConfigurationResult> computeConfigurations,
+
             string computeType,
 
             string created,
@@ -353,6 +359,7 @@ namespace Pulumi.Aws.CodeBuild
         {
             Arn = arn;
             BaseCapacity = baseCapacity;
+            ComputeConfigurations = computeConfigurations;
             ComputeType = computeType;
             Created = created;
             EnvironmentType = environmentType;

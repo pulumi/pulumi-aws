@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.codebuild.outputs;
 
+import com.pulumi.aws.codebuild.outputs.GetFleetComputeConfiguration;
 import com.pulumi.aws.codebuild.outputs.GetFleetScalingConfiguration;
 import com.pulumi.aws.codebuild.outputs.GetFleetStatus;
 import com.pulumi.aws.codebuild.outputs.GetFleetVpcConfig;
@@ -26,6 +27,11 @@ public final class GetFleetResult {
      * 
      */
     private Integer baseCapacity;
+    /**
+     * @return Compute configuration of the compute fleet.
+     * 
+     */
+    private List<GetFleetComputeConfiguration> computeConfigurations;
     /**
      * @return Compute resources the compute fleet uses.
      * 
@@ -102,6 +108,13 @@ public final class GetFleetResult {
      */
     public Integer baseCapacity() {
         return this.baseCapacity;
+    }
+    /**
+     * @return Compute configuration of the compute fleet.
+     * 
+     */
+    public List<GetFleetComputeConfiguration> computeConfigurations() {
+        return this.computeConfigurations;
     }
     /**
      * @return Compute resources the compute fleet uses.
@@ -202,6 +215,7 @@ public final class GetFleetResult {
     public static final class Builder {
         private String arn;
         private Integer baseCapacity;
+        private List<GetFleetComputeConfiguration> computeConfigurations;
         private String computeType;
         private String created;
         private String environmentType;
@@ -220,6 +234,7 @@ public final class GetFleetResult {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.baseCapacity = defaults.baseCapacity;
+    	      this.computeConfigurations = defaults.computeConfigurations;
     	      this.computeType = defaults.computeType;
     	      this.created = defaults.created;
     	      this.environmentType = defaults.environmentType;
@@ -250,6 +265,17 @@ public final class GetFleetResult {
             }
             this.baseCapacity = baseCapacity;
             return this;
+        }
+        @CustomType.Setter
+        public Builder computeConfigurations(List<GetFleetComputeConfiguration> computeConfigurations) {
+            if (computeConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetFleetResult", "computeConfigurations");
+            }
+            this.computeConfigurations = computeConfigurations;
+            return this;
+        }
+        public Builder computeConfigurations(GetFleetComputeConfiguration... computeConfigurations) {
+            return computeConfigurations(List.of(computeConfigurations));
         }
         @CustomType.Setter
         public Builder computeType(String computeType) {
@@ -368,6 +394,7 @@ public final class GetFleetResult {
             final var _resultValue = new GetFleetResult();
             _resultValue.arn = arn;
             _resultValue.baseCapacity = baseCapacity;
+            _resultValue.computeConfigurations = computeConfigurations;
             _resultValue.computeType = computeType;
             _resultValue.created = created;
             _resultValue.environmentType = environmentType;

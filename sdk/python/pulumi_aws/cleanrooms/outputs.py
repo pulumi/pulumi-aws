@@ -13,11 +13,17 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'CollaborationDataEncryptionMetadata',
     'CollaborationMember',
     'ConfiguredTableTableReference',
+    'MembershipDefaultResultConfiguration',
+    'MembershipDefaultResultConfigurationOutputConfiguration',
+    'MembershipDefaultResultConfigurationOutputConfigurationS3',
+    'MembershipPaymentConfiguration',
+    'MembershipPaymentConfigurationQueryCompute',
 ]
 
 @pulumi.output_type
@@ -167,5 +173,181 @@ class ConfiguredTableTableReference(dict):
     @pulumi.getter(name="tableName")
     def table_name(self) -> str:
         return pulumi.get(self, "table_name")
+
+
+@pulumi.output_type
+class MembershipDefaultResultConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "outputConfiguration":
+            suggest = "output_configuration"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MembershipDefaultResultConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MembershipDefaultResultConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MembershipDefaultResultConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 output_configuration: Optional['outputs.MembershipDefaultResultConfigurationOutputConfiguration'] = None,
+                 role_arn: Optional[str] = None):
+        """
+        :param str role_arn: The ARN of the IAM role which will be used to create the membership.
+               - `output_configuration.s3.bucket` - (Required) - The name of the S3 bucket where the query results will be stored.
+               - `output_configuration.s3.result_format` - (Required) - The format of the query results. Valid values are `PARQUET` and `CSV`.
+               - `output_configuration.s3.key_prefix` - (Optional) - The prefix used for the query results.
+        """
+        if output_configuration is not None:
+            pulumi.set(__self__, "output_configuration", output_configuration)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="outputConfiguration")
+    def output_configuration(self) -> Optional['outputs.MembershipDefaultResultConfigurationOutputConfiguration']:
+        return pulumi.get(self, "output_configuration")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[str]:
+        """
+        The ARN of the IAM role which will be used to create the membership.
+        - `output_configuration.s3.bucket` - (Required) - The name of the S3 bucket where the query results will be stored.
+        - `output_configuration.s3.result_format` - (Required) - The format of the query results. Valid values are `PARQUET` and `CSV`.
+        - `output_configuration.s3.key_prefix` - (Optional) - The prefix used for the query results.
+        """
+        return pulumi.get(self, "role_arn")
+
+
+@pulumi.output_type
+class MembershipDefaultResultConfigurationOutputConfiguration(dict):
+    def __init__(__self__, *,
+                 s3: Optional['outputs.MembershipDefaultResultConfigurationOutputConfigurationS3'] = None):
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @property
+    @pulumi.getter
+    def s3(self) -> Optional['outputs.MembershipDefaultResultConfigurationOutputConfigurationS3']:
+        return pulumi.get(self, "s3")
+
+
+@pulumi.output_type
+class MembershipDefaultResultConfigurationOutputConfigurationS3(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resultFormat":
+            suggest = "result_format"
+        elif key == "keyPrefix":
+            suggest = "key_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MembershipDefaultResultConfigurationOutputConfigurationS3. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MembershipDefaultResultConfigurationOutputConfigurationS3.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MembershipDefaultResultConfigurationOutputConfigurationS3.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket: str,
+                 result_format: str,
+                 key_prefix: Optional[str] = None):
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "result_format", result_format)
+        if key_prefix is not None:
+            pulumi.set(__self__, "key_prefix", key_prefix)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> str:
+        return pulumi.get(self, "bucket")
+
+    @property
+    @pulumi.getter(name="resultFormat")
+    def result_format(self) -> str:
+        return pulumi.get(self, "result_format")
+
+    @property
+    @pulumi.getter(name="keyPrefix")
+    def key_prefix(self) -> Optional[str]:
+        return pulumi.get(self, "key_prefix")
+
+
+@pulumi.output_type
+class MembershipPaymentConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queryCompute":
+            suggest = "query_compute"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MembershipPaymentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MembershipPaymentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MembershipPaymentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 query_compute: Optional['outputs.MembershipPaymentConfigurationQueryCompute'] = None):
+        if query_compute is not None:
+            pulumi.set(__self__, "query_compute", query_compute)
+
+    @property
+    @pulumi.getter(name="queryCompute")
+    def query_compute(self) -> Optional['outputs.MembershipPaymentConfigurationQueryCompute']:
+        return pulumi.get(self, "query_compute")
+
+
+@pulumi.output_type
+class MembershipPaymentConfigurationQueryCompute(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isResponsible":
+            suggest = "is_responsible"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MembershipPaymentConfigurationQueryCompute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MembershipPaymentConfigurationQueryCompute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MembershipPaymentConfigurationQueryCompute.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_responsible: bool):
+        """
+        :param bool is_responsible: Indicates whether the collaboration member has accepted to pay for query compute costs.
+        """
+        pulumi.set(__self__, "is_responsible", is_responsible)
+
+    @property
+    @pulumi.getter(name="isResponsible")
+    def is_responsible(self) -> bool:
+        """
+        Indicates whether the collaboration member has accepted to pay for query compute costs.
+        """
+        return pulumi.get(self, "is_responsible")
 
 

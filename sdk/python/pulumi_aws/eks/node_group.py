@@ -34,6 +34,7 @@ class NodeGroupArgs:
                  launch_template: Optional[pulumi.Input['NodeGroupLaunchTemplateArgs']] = None,
                  node_group_name: Optional[pulumi.Input[str]] = None,
                  node_group_name_prefix: Optional[pulumi.Input[str]] = None,
+                 node_repair_config: Optional[pulumi.Input['NodeGroupNodeRepairConfigArgs']] = None,
                  release_version: Optional[pulumi.Input[str]] = None,
                  remote_access: Optional[pulumi.Input['NodeGroupRemoteAccessArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -57,6 +58,7 @@ class NodeGroupArgs:
         :param pulumi.Input['NodeGroupLaunchTemplateArgs'] launch_template: Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
         :param pulumi.Input[str] node_group_name: Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
         :param pulumi.Input[str] node_group_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
+        :param pulumi.Input['NodeGroupNodeRepairConfigArgs'] node_repair_config: The node auto repair configuration for the node group. See `node_repair_config` below for details.
         :param pulumi.Input[str] release_version: AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
         :param pulumi.Input['NodeGroupRemoteAccessArgs'] remote_access: Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -86,6 +88,8 @@ class NodeGroupArgs:
             pulumi.set(__self__, "node_group_name", node_group_name)
         if node_group_name_prefix is not None:
             pulumi.set(__self__, "node_group_name_prefix", node_group_name_prefix)
+        if node_repair_config is not None:
+            pulumi.set(__self__, "node_repair_config", node_repair_config)
         if release_version is not None:
             pulumi.set(__self__, "release_version", release_version)
         if remote_access is not None:
@@ -258,6 +262,18 @@ class NodeGroupArgs:
         pulumi.set(self, "node_group_name_prefix", value)
 
     @property
+    @pulumi.getter(name="nodeRepairConfig")
+    def node_repair_config(self) -> Optional[pulumi.Input['NodeGroupNodeRepairConfigArgs']]:
+        """
+        The node auto repair configuration for the node group. See `node_repair_config` below for details.
+        """
+        return pulumi.get(self, "node_repair_config")
+
+    @node_repair_config.setter
+    def node_repair_config(self, value: Optional[pulumi.Input['NodeGroupNodeRepairConfigArgs']]):
+        pulumi.set(self, "node_repair_config", value)
+
+    @property
     @pulumi.getter(name="releaseVersion")
     def release_version(self) -> Optional[pulumi.Input[str]]:
         """
@@ -344,6 +360,7 @@ class _NodeGroupState:
                  launch_template: Optional[pulumi.Input['NodeGroupLaunchTemplateArgs']] = None,
                  node_group_name: Optional[pulumi.Input[str]] = None,
                  node_group_name_prefix: Optional[pulumi.Input[str]] = None,
+                 node_repair_config: Optional[pulumi.Input['NodeGroupNodeRepairConfigArgs']] = None,
                  node_role_arn: Optional[pulumi.Input[str]] = None,
                  release_version: Optional[pulumi.Input[str]] = None,
                  remote_access: Optional[pulumi.Input['NodeGroupRemoteAccessArgs']] = None,
@@ -369,6 +386,7 @@ class _NodeGroupState:
         :param pulumi.Input['NodeGroupLaunchTemplateArgs'] launch_template: Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
         :param pulumi.Input[str] node_group_name: Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
         :param pulumi.Input[str] node_group_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
+        :param pulumi.Input['NodeGroupNodeRepairConfigArgs'] node_repair_config: The node auto repair configuration for the node group. See `node_repair_config` below for details.
         :param pulumi.Input[str] node_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
         :param pulumi.Input[str] release_version: AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
         :param pulumi.Input['NodeGroupRemoteAccessArgs'] remote_access: Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
@@ -406,6 +424,8 @@ class _NodeGroupState:
             pulumi.set(__self__, "node_group_name", node_group_name)
         if node_group_name_prefix is not None:
             pulumi.set(__self__, "node_group_name_prefix", node_group_name_prefix)
+        if node_repair_config is not None:
+            pulumi.set(__self__, "node_repair_config", node_repair_config)
         if node_role_arn is not None:
             pulumi.set(__self__, "node_role_arn", node_role_arn)
         if release_version is not None:
@@ -565,6 +585,18 @@ class _NodeGroupState:
     @node_group_name_prefix.setter
     def node_group_name_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "node_group_name_prefix", value)
+
+    @property
+    @pulumi.getter(name="nodeRepairConfig")
+    def node_repair_config(self) -> Optional[pulumi.Input['NodeGroupNodeRepairConfigArgs']]:
+        """
+        The node auto repair configuration for the node group. See `node_repair_config` below for details.
+        """
+        return pulumi.get(self, "node_repair_config")
+
+    @node_repair_config.setter
+    def node_repair_config(self, value: Optional[pulumi.Input['NodeGroupNodeRepairConfigArgs']]):
+        pulumi.set(self, "node_repair_config", value)
 
     @property
     @pulumi.getter(name="nodeRoleArn")
@@ -729,6 +761,7 @@ class NodeGroup(pulumi.CustomResource):
                  launch_template: Optional[pulumi.Input[Union['NodeGroupLaunchTemplateArgs', 'NodeGroupLaunchTemplateArgsDict']]] = None,
                  node_group_name: Optional[pulumi.Input[str]] = None,
                  node_group_name_prefix: Optional[pulumi.Input[str]] = None,
+                 node_repair_config: Optional[pulumi.Input[Union['NodeGroupNodeRepairConfigArgs', 'NodeGroupNodeRepairConfigArgsDict']]] = None,
                  node_role_arn: Optional[pulumi.Input[str]] = None,
                  release_version: Optional[pulumi.Input[str]] = None,
                  remote_access: Optional[pulumi.Input[Union['NodeGroupRemoteAccessArgs', 'NodeGroupRemoteAccessArgsDict']]] = None,
@@ -849,6 +882,7 @@ class NodeGroup(pulumi.CustomResource):
         :param pulumi.Input[Union['NodeGroupLaunchTemplateArgs', 'NodeGroupLaunchTemplateArgsDict']] launch_template: Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
         :param pulumi.Input[str] node_group_name: Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
         :param pulumi.Input[str] node_group_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
+        :param pulumi.Input[Union['NodeGroupNodeRepairConfigArgs', 'NodeGroupNodeRepairConfigArgsDict']] node_repair_config: The node auto repair configuration for the node group. See `node_repair_config` below for details.
         :param pulumi.Input[str] node_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
         :param pulumi.Input[str] release_version: AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
         :param pulumi.Input[Union['NodeGroupRemoteAccessArgs', 'NodeGroupRemoteAccessArgsDict']] remote_access: Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
@@ -990,6 +1024,7 @@ class NodeGroup(pulumi.CustomResource):
                  launch_template: Optional[pulumi.Input[Union['NodeGroupLaunchTemplateArgs', 'NodeGroupLaunchTemplateArgsDict']]] = None,
                  node_group_name: Optional[pulumi.Input[str]] = None,
                  node_group_name_prefix: Optional[pulumi.Input[str]] = None,
+                 node_repair_config: Optional[pulumi.Input[Union['NodeGroupNodeRepairConfigArgs', 'NodeGroupNodeRepairConfigArgsDict']]] = None,
                  node_role_arn: Optional[pulumi.Input[str]] = None,
                  release_version: Optional[pulumi.Input[str]] = None,
                  remote_access: Optional[pulumi.Input[Union['NodeGroupRemoteAccessArgs', 'NodeGroupRemoteAccessArgsDict']]] = None,
@@ -1020,6 +1055,7 @@ class NodeGroup(pulumi.CustomResource):
             __props__.__dict__["launch_template"] = launch_template
             __props__.__dict__["node_group_name"] = node_group_name
             __props__.__dict__["node_group_name_prefix"] = node_group_name_prefix
+            __props__.__dict__["node_repair_config"] = node_repair_config
             if node_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'node_role_arn'")
             __props__.__dict__["node_role_arn"] = node_role_arn
@@ -1060,6 +1096,7 @@ class NodeGroup(pulumi.CustomResource):
             launch_template: Optional[pulumi.Input[Union['NodeGroupLaunchTemplateArgs', 'NodeGroupLaunchTemplateArgsDict']]] = None,
             node_group_name: Optional[pulumi.Input[str]] = None,
             node_group_name_prefix: Optional[pulumi.Input[str]] = None,
+            node_repair_config: Optional[pulumi.Input[Union['NodeGroupNodeRepairConfigArgs', 'NodeGroupNodeRepairConfigArgsDict']]] = None,
             node_role_arn: Optional[pulumi.Input[str]] = None,
             release_version: Optional[pulumi.Input[str]] = None,
             remote_access: Optional[pulumi.Input[Union['NodeGroupRemoteAccessArgs', 'NodeGroupRemoteAccessArgsDict']]] = None,
@@ -1090,6 +1127,7 @@ class NodeGroup(pulumi.CustomResource):
         :param pulumi.Input[Union['NodeGroupLaunchTemplateArgs', 'NodeGroupLaunchTemplateArgsDict']] launch_template: Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
         :param pulumi.Input[str] node_group_name: Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
         :param pulumi.Input[str] node_group_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
+        :param pulumi.Input[Union['NodeGroupNodeRepairConfigArgs', 'NodeGroupNodeRepairConfigArgsDict']] node_repair_config: The node auto repair configuration for the node group. See `node_repair_config` below for details.
         :param pulumi.Input[str] node_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
         :param pulumi.Input[str] release_version: AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
         :param pulumi.Input[Union['NodeGroupRemoteAccessArgs', 'NodeGroupRemoteAccessArgsDict']] remote_access: Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
@@ -1120,6 +1158,7 @@ class NodeGroup(pulumi.CustomResource):
         __props__.__dict__["launch_template"] = launch_template
         __props__.__dict__["node_group_name"] = node_group_name
         __props__.__dict__["node_group_name_prefix"] = node_group_name_prefix
+        __props__.__dict__["node_repair_config"] = node_repair_config
         __props__.__dict__["node_role_arn"] = node_role_arn
         __props__.__dict__["release_version"] = release_version
         __props__.__dict__["remote_access"] = remote_access
@@ -1221,6 +1260,14 @@ class NodeGroup(pulumi.CustomResource):
         Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
         """
         return pulumi.get(self, "node_group_name_prefix")
+
+    @property
+    @pulumi.getter(name="nodeRepairConfig")
+    def node_repair_config(self) -> pulumi.Output['outputs.NodeGroupNodeRepairConfig']:
+        """
+        The node auto repair configuration for the node group. See `node_repair_config` below for details.
+        """
+        return pulumi.get(self, "node_repair_config")
 
     @property
     @pulumi.getter(name="nodeRoleArn")

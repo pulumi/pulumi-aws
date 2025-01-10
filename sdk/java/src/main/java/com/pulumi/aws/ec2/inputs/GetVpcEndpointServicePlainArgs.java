@@ -63,6 +63,21 @@ public final class GetVpcEndpointServicePlainArgs extends com.pulumi.resources.I
     }
 
     /**
+     * AWS regions in which to look for services.
+     * 
+     */
+    @Import(name="serviceRegions")
+    private @Nullable List<String> serviceRegions;
+
+    /**
+     * @return AWS regions in which to look for services.
+     * 
+     */
+    public Optional<List<String>> serviceRegions() {
+        return Optional.ofNullable(this.serviceRegions);
+    }
+
+    /**
      * Service type, `Gateway` or `Interface`.
      * 
      */
@@ -102,6 +117,7 @@ public final class GetVpcEndpointServicePlainArgs extends com.pulumi.resources.I
         this.filters = $.filters;
         this.service = $.service;
         this.serviceName = $.serviceName;
+        this.serviceRegions = $.serviceRegions;
         this.serviceType = $.serviceType;
         this.tags = $.tags;
     }
@@ -165,6 +181,27 @@ public final class GetVpcEndpointServicePlainArgs extends com.pulumi.resources.I
         public Builder serviceName(@Nullable String serviceName) {
             $.serviceName = serviceName;
             return this;
+        }
+
+        /**
+         * @param serviceRegions AWS regions in which to look for services.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceRegions(@Nullable List<String> serviceRegions) {
+            $.serviceRegions = serviceRegions;
+            return this;
+        }
+
+        /**
+         * @param serviceRegions AWS regions in which to look for services.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceRegions(String... serviceRegions) {
+            return serviceRegions(List.of(serviceRegions));
         }
 
         /**

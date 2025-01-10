@@ -17,6 +17,21 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetCertificateArgs Empty = new GetCertificateArgs();
 
     /**
+     * When enabled, returns the default certificate for new RDS instances.
+     * 
+     */
+    @Import(name="defaultForNewLaunches")
+    private @Nullable Output<Boolean> defaultForNewLaunches;
+
+    /**
+     * @return When enabled, returns the default certificate for new RDS instances.
+     * 
+     */
+    public Optional<Output<Boolean>> defaultForNewLaunches() {
+        return Optional.ofNullable(this.defaultForNewLaunches);
+    }
+
+    /**
      * Certificate identifier. For example, `rds-ca-2019`.
      * 
      */
@@ -49,6 +64,7 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
     private GetCertificateArgs() {}
 
     private GetCertificateArgs(GetCertificateArgs $) {
+        this.defaultForNewLaunches = $.defaultForNewLaunches;
         this.id = $.id;
         this.latestValidTill = $.latestValidTill;
     }
@@ -69,6 +85,27 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetCertificateArgs defaults) {
             $ = new GetCertificateArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param defaultForNewLaunches When enabled, returns the default certificate for new RDS instances.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultForNewLaunches(@Nullable Output<Boolean> defaultForNewLaunches) {
+            $.defaultForNewLaunches = defaultForNewLaunches;
+            return this;
+        }
+
+        /**
+         * @param defaultForNewLaunches When enabled, returns the default certificate for new RDS instances.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultForNewLaunches(Boolean defaultForNewLaunches) {
+            return defaultForNewLaunches(Output.of(defaultForNewLaunches));
         }
 
         /**

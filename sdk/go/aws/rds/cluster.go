@@ -464,7 +464,7 @@ type Cluster struct {
 	MasterUsername pulumi.StringOutput `pulumi:"masterUsername"`
 	// Network type of the cluster. Valid values: `IPV4`, `DUAL`.
 	NetworkType pulumi.StringOutput `pulumi:"networkType"`
-	// Enables Performance Insights for the RDS Cluster
+	// Enables Performance Insights.
 	PerformanceInsightsEnabled pulumi.BoolPtrOutput `pulumi:"performanceInsightsEnabled"`
 	// Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
 	PerformanceInsightsKmsKeyId pulumi.StringOutput `pulumi:"performanceInsightsKmsKeyId"`
@@ -648,7 +648,7 @@ type clusterState struct {
 	MasterUsername *string `pulumi:"masterUsername"`
 	// Network type of the cluster. Valid values: `IPV4`, `DUAL`.
 	NetworkType *string `pulumi:"networkType"`
-	// Enables Performance Insights for the RDS Cluster
+	// Enables Performance Insights.
 	PerformanceInsightsEnabled *bool `pulumi:"performanceInsightsEnabled"`
 	// Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
 	PerformanceInsightsKmsKeyId *string `pulumi:"performanceInsightsKmsKeyId"`
@@ -793,7 +793,7 @@ type ClusterState struct {
 	MasterUsername pulumi.StringPtrInput
 	// Network type of the cluster. Valid values: `IPV4`, `DUAL`.
 	NetworkType pulumi.StringPtrInput
-	// Enables Performance Insights for the RDS Cluster
+	// Enables Performance Insights.
 	PerformanceInsightsEnabled pulumi.BoolPtrInput
 	// Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
 	PerformanceInsightsKmsKeyId pulumi.StringPtrInput
@@ -928,7 +928,7 @@ type clusterArgs struct {
 	MasterUsername *string `pulumi:"masterUsername"`
 	// Network type of the cluster. Valid values: `IPV4`, `DUAL`.
 	NetworkType *string `pulumi:"networkType"`
-	// Enables Performance Insights for the RDS Cluster
+	// Enables Performance Insights.
 	PerformanceInsightsEnabled *bool `pulumi:"performanceInsightsEnabled"`
 	// Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
 	PerformanceInsightsKmsKeyId *string `pulumi:"performanceInsightsKmsKeyId"`
@@ -1053,7 +1053,7 @@ type ClusterArgs struct {
 	MasterUsername pulumi.StringPtrInput
 	// Network type of the cluster. Valid values: `IPV4`, `DUAL`.
 	NetworkType pulumi.StringPtrInput
-	// Enables Performance Insights for the RDS Cluster
+	// Enables Performance Insights.
 	PerformanceInsightsEnabled pulumi.BoolPtrInput
 	// Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
 	PerformanceInsightsKmsKeyId pulumi.StringPtrInput
@@ -1418,7 +1418,7 @@ func (o ClusterOutput) NetworkType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.NetworkType }).(pulumi.StringOutput)
 }
 
-// Enables Performance Insights for the RDS Cluster
+// Enables Performance Insights.
 func (o ClusterOutput) PerformanceInsightsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.PerformanceInsightsEnabled }).(pulumi.BoolPtrOutput)
 }

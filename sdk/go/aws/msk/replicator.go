@@ -16,6 +16,81 @@ import (
 //
 // ## Example Usage
 //
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/msk"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := msk.NewReplicator(ctx, "test", &msk.ReplicatorArgs{
+// ReplicatorName: pulumi.String("test-name"),
+// Description: pulumi.String("test-description"),
+// ServiceExecutionRoleArn: pulumi.Any(sourceAwsIamRole.Arn),
+// KafkaClusters: msk.ReplicatorKafkaClusterArray{
+// &msk.ReplicatorKafkaClusterArgs{
+// AmazonMskCluster: &msk.ReplicatorKafkaClusterAmazonMskClusterArgs{
+// MskClusterArn: pulumi.Any(source.Arn),
+// },
+// VpcConfig: &msk.ReplicatorKafkaClusterVpcConfigArgs{
+// SubnetIds: []pulumi.String(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:9,27-48)),
+// SecurityGroupsIds: pulumi.StringArray{
+// sourceAwsSecurityGroup.Id,
+// },
+// },
+// },
+// &msk.ReplicatorKafkaClusterArgs{
+// AmazonMskCluster: &msk.ReplicatorKafkaClusterAmazonMskClusterArgs{
+// MskClusterArn: pulumi.Any(target.Arn),
+// },
+// VpcConfig: &msk.ReplicatorKafkaClusterVpcConfigArgs{
+// SubnetIds: []pulumi.String(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:17,27-48)),
+// SecurityGroupsIds: pulumi.StringArray{
+// targetAwsSecurityGroup.Id,
+// },
+// },
+// },
+// },
+// ReplicationInfoList: &msk.ReplicatorReplicationInfoListArgs{
+// SourceKafkaClusterArn: pulumi.Any(source.Arn),
+// TargetKafkaClusterArn: pulumi.Any(target.Arn),
+// TargetCompressionType: pulumi.String("NONE"),
+// TopicReplications: msk.ReplicatorReplicationInfoListTopicReplicationArray{
+// &msk.ReplicatorReplicationInfoListTopicReplicationArgs{
+// TopicNameConfiguration: &msk.ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs{
+// Type: pulumi.String("PREFIXED_WITH_SOURCE_CLUSTER_ALIAS"),
+// },
+// TopicsToReplicates: pulumi.StringArray{
+// pulumi.String(".*"),
+// },
+// StartingPosition: &msk.ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs{
+// Type: pulumi.String("LATEST"),
+// },
+// },
+// },
+// ConsumerGroupReplications: msk.ReplicatorReplicationInfoListConsumerGroupReplicationArray{
+// &msk.ReplicatorReplicationInfoListConsumerGroupReplicationArgs{
+// ConsumerGroupsToReplicates: pulumi.StringArray{
+// pulumi.String(".*"),
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import MSK replicators using the replicator ARN. For example:

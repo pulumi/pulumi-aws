@@ -33,6 +33,7 @@ public final class GetCertificateResult {
      * 
      */
     private String customerOverrideValidTill;
+    private @Nullable Boolean defaultForNewLaunches;
     private String id;
     private @Nullable Boolean latestValidTill;
     /**
@@ -80,6 +81,9 @@ public final class GetCertificateResult {
     public String customerOverrideValidTill() {
         return this.customerOverrideValidTill;
     }
+    public Optional<Boolean> defaultForNewLaunches() {
+        return Optional.ofNullable(this.defaultForNewLaunches);
+    }
     public String id() {
         return this.id;
     }
@@ -121,6 +125,7 @@ public final class GetCertificateResult {
         private String certificateType;
         private Boolean customerOverride;
         private String customerOverrideValidTill;
+        private @Nullable Boolean defaultForNewLaunches;
         private String id;
         private @Nullable Boolean latestValidTill;
         private String thumbprint;
@@ -133,6 +138,7 @@ public final class GetCertificateResult {
     	      this.certificateType = defaults.certificateType;
     	      this.customerOverride = defaults.customerOverride;
     	      this.customerOverrideValidTill = defaults.customerOverrideValidTill;
+    	      this.defaultForNewLaunches = defaults.defaultForNewLaunches;
     	      this.id = defaults.id;
     	      this.latestValidTill = defaults.latestValidTill;
     	      this.thumbprint = defaults.thumbprint;
@@ -170,6 +176,12 @@ public final class GetCertificateResult {
               throw new MissingRequiredPropertyException("GetCertificateResult", "customerOverrideValidTill");
             }
             this.customerOverrideValidTill = customerOverrideValidTill;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder defaultForNewLaunches(@Nullable Boolean defaultForNewLaunches) {
+
+            this.defaultForNewLaunches = defaultForNewLaunches;
             return this;
         }
         @CustomType.Setter
@@ -216,6 +228,7 @@ public final class GetCertificateResult {
             _resultValue.certificateType = certificateType;
             _resultValue.customerOverride = customerOverride;
             _resultValue.customerOverrideValidTill = customerOverrideValidTill;
+            _resultValue.defaultForNewLaunches = defaultForNewLaunches;
             _resultValue.id = id;
             _resultValue.latestValidTill = latestValidTill;
             _resultValue.thumbprint = thumbprint;

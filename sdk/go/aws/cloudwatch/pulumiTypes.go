@@ -6239,6 +6239,249 @@ func (o InternetMonitorInternetMeasurementsLogDeliveryS3ConfigPtrOutput) LogDeli
 	}).(pulumi.StringPtrOutput)
 }
 
+type LogDeliveryDestinationDeliveryDestinationConfiguration struct {
+	// The ARN of the AWS destination that this delivery destination represents.
+	DestinationResourceArn string `pulumi:"destinationResourceArn"`
+}
+
+// LogDeliveryDestinationDeliveryDestinationConfigurationInput is an input type that accepts LogDeliveryDestinationDeliveryDestinationConfigurationArgs and LogDeliveryDestinationDeliveryDestinationConfigurationOutput values.
+// You can construct a concrete instance of `LogDeliveryDestinationDeliveryDestinationConfigurationInput` via:
+//
+//	LogDeliveryDestinationDeliveryDestinationConfigurationArgs{...}
+type LogDeliveryDestinationDeliveryDestinationConfigurationInput interface {
+	pulumi.Input
+
+	ToLogDeliveryDestinationDeliveryDestinationConfigurationOutput() LogDeliveryDestinationDeliveryDestinationConfigurationOutput
+	ToLogDeliveryDestinationDeliveryDestinationConfigurationOutputWithContext(context.Context) LogDeliveryDestinationDeliveryDestinationConfigurationOutput
+}
+
+type LogDeliveryDestinationDeliveryDestinationConfigurationArgs struct {
+	// The ARN of the AWS destination that this delivery destination represents.
+	DestinationResourceArn pulumi.StringInput `pulumi:"destinationResourceArn"`
+}
+
+func (LogDeliveryDestinationDeliveryDestinationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogDeliveryDestinationDeliveryDestinationConfiguration)(nil)).Elem()
+}
+
+func (i LogDeliveryDestinationDeliveryDestinationConfigurationArgs) ToLogDeliveryDestinationDeliveryDestinationConfigurationOutput() LogDeliveryDestinationDeliveryDestinationConfigurationOutput {
+	return i.ToLogDeliveryDestinationDeliveryDestinationConfigurationOutputWithContext(context.Background())
+}
+
+func (i LogDeliveryDestinationDeliveryDestinationConfigurationArgs) ToLogDeliveryDestinationDeliveryDestinationConfigurationOutputWithContext(ctx context.Context) LogDeliveryDestinationDeliveryDestinationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryDestinationDeliveryDestinationConfigurationOutput)
+}
+
+func (i LogDeliveryDestinationDeliveryDestinationConfigurationArgs) ToLogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput() LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput {
+	return i.ToLogDeliveryDestinationDeliveryDestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i LogDeliveryDestinationDeliveryDestinationConfigurationArgs) ToLogDeliveryDestinationDeliveryDestinationConfigurationPtrOutputWithContext(ctx context.Context) LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryDestinationDeliveryDestinationConfigurationOutput).ToLogDeliveryDestinationDeliveryDestinationConfigurationPtrOutputWithContext(ctx)
+}
+
+// LogDeliveryDestinationDeliveryDestinationConfigurationPtrInput is an input type that accepts LogDeliveryDestinationDeliveryDestinationConfigurationArgs, LogDeliveryDestinationDeliveryDestinationConfigurationPtr and LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput values.
+// You can construct a concrete instance of `LogDeliveryDestinationDeliveryDestinationConfigurationPtrInput` via:
+//
+//	        LogDeliveryDestinationDeliveryDestinationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogDeliveryDestinationDeliveryDestinationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToLogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput() LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput
+	ToLogDeliveryDestinationDeliveryDestinationConfigurationPtrOutputWithContext(context.Context) LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput
+}
+
+type logDeliveryDestinationDeliveryDestinationConfigurationPtrType LogDeliveryDestinationDeliveryDestinationConfigurationArgs
+
+func LogDeliveryDestinationDeliveryDestinationConfigurationPtr(v *LogDeliveryDestinationDeliveryDestinationConfigurationArgs) LogDeliveryDestinationDeliveryDestinationConfigurationPtrInput {
+	return (*logDeliveryDestinationDeliveryDestinationConfigurationPtrType)(v)
+}
+
+func (*logDeliveryDestinationDeliveryDestinationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogDeliveryDestinationDeliveryDestinationConfiguration)(nil)).Elem()
+}
+
+func (i *logDeliveryDestinationDeliveryDestinationConfigurationPtrType) ToLogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput() LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput {
+	return i.ToLogDeliveryDestinationDeliveryDestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *logDeliveryDestinationDeliveryDestinationConfigurationPtrType) ToLogDeliveryDestinationDeliveryDestinationConfigurationPtrOutputWithContext(ctx context.Context) LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput)
+}
+
+type LogDeliveryDestinationDeliveryDestinationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LogDeliveryDestinationDeliveryDestinationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogDeliveryDestinationDeliveryDestinationConfiguration)(nil)).Elem()
+}
+
+func (o LogDeliveryDestinationDeliveryDestinationConfigurationOutput) ToLogDeliveryDestinationDeliveryDestinationConfigurationOutput() LogDeliveryDestinationDeliveryDestinationConfigurationOutput {
+	return o
+}
+
+func (o LogDeliveryDestinationDeliveryDestinationConfigurationOutput) ToLogDeliveryDestinationDeliveryDestinationConfigurationOutputWithContext(ctx context.Context) LogDeliveryDestinationDeliveryDestinationConfigurationOutput {
+	return o
+}
+
+func (o LogDeliveryDestinationDeliveryDestinationConfigurationOutput) ToLogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput() LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput {
+	return o.ToLogDeliveryDestinationDeliveryDestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o LogDeliveryDestinationDeliveryDestinationConfigurationOutput) ToLogDeliveryDestinationDeliveryDestinationConfigurationPtrOutputWithContext(ctx context.Context) LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogDeliveryDestinationDeliveryDestinationConfiguration) *LogDeliveryDestinationDeliveryDestinationConfiguration {
+		return &v
+	}).(LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput)
+}
+
+// The ARN of the AWS destination that this delivery destination represents.
+func (o LogDeliveryDestinationDeliveryDestinationConfigurationOutput) DestinationResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LogDeliveryDestinationDeliveryDestinationConfiguration) string { return v.DestinationResourceArn }).(pulumi.StringOutput)
+}
+
+type LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogDeliveryDestinationDeliveryDestinationConfiguration)(nil)).Elem()
+}
+
+func (o LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput) ToLogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput() LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput {
+	return o
+}
+
+func (o LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput) ToLogDeliveryDestinationDeliveryDestinationConfigurationPtrOutputWithContext(ctx context.Context) LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput {
+	return o
+}
+
+func (o LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput) Elem() LogDeliveryDestinationDeliveryDestinationConfigurationOutput {
+	return o.ApplyT(func(v *LogDeliveryDestinationDeliveryDestinationConfiguration) LogDeliveryDestinationDeliveryDestinationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret LogDeliveryDestinationDeliveryDestinationConfiguration
+		return ret
+	}).(LogDeliveryDestinationDeliveryDestinationConfigurationOutput)
+}
+
+// The ARN of the AWS destination that this delivery destination represents.
+func (o LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput) DestinationResourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogDeliveryDestinationDeliveryDestinationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DestinationResourceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type LogDeliveryS3DeliveryConfiguration struct {
+	// This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
+	EnableHiveCompatiblePath bool `pulumi:"enableHiveCompatiblePath"`
+	// This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
+	SuffixPath string `pulumi:"suffixPath"`
+}
+
+// LogDeliveryS3DeliveryConfigurationInput is an input type that accepts LogDeliveryS3DeliveryConfigurationArgs and LogDeliveryS3DeliveryConfigurationOutput values.
+// You can construct a concrete instance of `LogDeliveryS3DeliveryConfigurationInput` via:
+//
+//	LogDeliveryS3DeliveryConfigurationArgs{...}
+type LogDeliveryS3DeliveryConfigurationInput interface {
+	pulumi.Input
+
+	ToLogDeliveryS3DeliveryConfigurationOutput() LogDeliveryS3DeliveryConfigurationOutput
+	ToLogDeliveryS3DeliveryConfigurationOutputWithContext(context.Context) LogDeliveryS3DeliveryConfigurationOutput
+}
+
+type LogDeliveryS3DeliveryConfigurationArgs struct {
+	// This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
+	EnableHiveCompatiblePath pulumi.BoolInput `pulumi:"enableHiveCompatiblePath"`
+	// This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
+	SuffixPath pulumi.StringInput `pulumi:"suffixPath"`
+}
+
+func (LogDeliveryS3DeliveryConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogDeliveryS3DeliveryConfiguration)(nil)).Elem()
+}
+
+func (i LogDeliveryS3DeliveryConfigurationArgs) ToLogDeliveryS3DeliveryConfigurationOutput() LogDeliveryS3DeliveryConfigurationOutput {
+	return i.ToLogDeliveryS3DeliveryConfigurationOutputWithContext(context.Background())
+}
+
+func (i LogDeliveryS3DeliveryConfigurationArgs) ToLogDeliveryS3DeliveryConfigurationOutputWithContext(ctx context.Context) LogDeliveryS3DeliveryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryS3DeliveryConfigurationOutput)
+}
+
+// LogDeliveryS3DeliveryConfigurationArrayInput is an input type that accepts LogDeliveryS3DeliveryConfigurationArray and LogDeliveryS3DeliveryConfigurationArrayOutput values.
+// You can construct a concrete instance of `LogDeliveryS3DeliveryConfigurationArrayInput` via:
+//
+//	LogDeliveryS3DeliveryConfigurationArray{ LogDeliveryS3DeliveryConfigurationArgs{...} }
+type LogDeliveryS3DeliveryConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToLogDeliveryS3DeliveryConfigurationArrayOutput() LogDeliveryS3DeliveryConfigurationArrayOutput
+	ToLogDeliveryS3DeliveryConfigurationArrayOutputWithContext(context.Context) LogDeliveryS3DeliveryConfigurationArrayOutput
+}
+
+type LogDeliveryS3DeliveryConfigurationArray []LogDeliveryS3DeliveryConfigurationInput
+
+func (LogDeliveryS3DeliveryConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogDeliveryS3DeliveryConfiguration)(nil)).Elem()
+}
+
+func (i LogDeliveryS3DeliveryConfigurationArray) ToLogDeliveryS3DeliveryConfigurationArrayOutput() LogDeliveryS3DeliveryConfigurationArrayOutput {
+	return i.ToLogDeliveryS3DeliveryConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i LogDeliveryS3DeliveryConfigurationArray) ToLogDeliveryS3DeliveryConfigurationArrayOutputWithContext(ctx context.Context) LogDeliveryS3DeliveryConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryS3DeliveryConfigurationArrayOutput)
+}
+
+type LogDeliveryS3DeliveryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LogDeliveryS3DeliveryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogDeliveryS3DeliveryConfiguration)(nil)).Elem()
+}
+
+func (o LogDeliveryS3DeliveryConfigurationOutput) ToLogDeliveryS3DeliveryConfigurationOutput() LogDeliveryS3DeliveryConfigurationOutput {
+	return o
+}
+
+func (o LogDeliveryS3DeliveryConfigurationOutput) ToLogDeliveryS3DeliveryConfigurationOutputWithContext(ctx context.Context) LogDeliveryS3DeliveryConfigurationOutput {
+	return o
+}
+
+// This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
+func (o LogDeliveryS3DeliveryConfigurationOutput) EnableHiveCompatiblePath() pulumi.BoolOutput {
+	return o.ApplyT(func(v LogDeliveryS3DeliveryConfiguration) bool { return v.EnableHiveCompatiblePath }).(pulumi.BoolOutput)
+}
+
+// This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
+func (o LogDeliveryS3DeliveryConfigurationOutput) SuffixPath() pulumi.StringOutput {
+	return o.ApplyT(func(v LogDeliveryS3DeliveryConfiguration) string { return v.SuffixPath }).(pulumi.StringOutput)
+}
+
+type LogDeliveryS3DeliveryConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (LogDeliveryS3DeliveryConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LogDeliveryS3DeliveryConfiguration)(nil)).Elem()
+}
+
+func (o LogDeliveryS3DeliveryConfigurationArrayOutput) ToLogDeliveryS3DeliveryConfigurationArrayOutput() LogDeliveryS3DeliveryConfigurationArrayOutput {
+	return o
+}
+
+func (o LogDeliveryS3DeliveryConfigurationArrayOutput) ToLogDeliveryS3DeliveryConfigurationArrayOutputWithContext(ctx context.Context) LogDeliveryS3DeliveryConfigurationArrayOutput {
+	return o
+}
+
+func (o LogDeliveryS3DeliveryConfigurationArrayOutput) Index(i pulumi.IntInput) LogDeliveryS3DeliveryConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LogDeliveryS3DeliveryConfiguration {
+		return vs[0].([]LogDeliveryS3DeliveryConfiguration)[vs[1].(int)]
+	}).(LogDeliveryS3DeliveryConfigurationOutput)
+}
+
 type LogMetricFilterMetricTransformation struct {
 	// The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
 	DefaultValue *string `pulumi:"defaultValue"`
@@ -7307,6 +7550,148 @@ func (o MetricStreamStatisticsConfigurationIncludeMetricArrayOutput) Index(i pul
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricStreamStatisticsConfigurationIncludeMetric {
 		return vs[0].([]MetricStreamStatisticsConfigurationIncludeMetric)[vs[1].(int)]
 	}).(MetricStreamStatisticsConfigurationIncludeMetricOutput)
+}
+
+type GetEventBusesEventBus struct {
+	// The ARN of the event bus.
+	Arn string `pulumi:"arn"`
+	// The time the event bus was created.
+	CreationTime string `pulumi:"creationTime"`
+	// The event bus description.
+	Description string `pulumi:"description"`
+	// The time the event bus was last modified.
+	LastModifiedTime string `pulumi:"lastModifiedTime"`
+	// The name of the event bus.
+	Name string `pulumi:"name"`
+	// The permissions policy of the event bus, describing which other AWS accounts can write events to this event bus.
+	Policy string `pulumi:"policy"`
+}
+
+// GetEventBusesEventBusInput is an input type that accepts GetEventBusesEventBusArgs and GetEventBusesEventBusOutput values.
+// You can construct a concrete instance of `GetEventBusesEventBusInput` via:
+//
+//	GetEventBusesEventBusArgs{...}
+type GetEventBusesEventBusInput interface {
+	pulumi.Input
+
+	ToGetEventBusesEventBusOutput() GetEventBusesEventBusOutput
+	ToGetEventBusesEventBusOutputWithContext(context.Context) GetEventBusesEventBusOutput
+}
+
+type GetEventBusesEventBusArgs struct {
+	// The ARN of the event bus.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// The time the event bus was created.
+	CreationTime pulumi.StringInput `pulumi:"creationTime"`
+	// The event bus description.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The time the event bus was last modified.
+	LastModifiedTime pulumi.StringInput `pulumi:"lastModifiedTime"`
+	// The name of the event bus.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The permissions policy of the event bus, describing which other AWS accounts can write events to this event bus.
+	Policy pulumi.StringInput `pulumi:"policy"`
+}
+
+func (GetEventBusesEventBusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEventBusesEventBus)(nil)).Elem()
+}
+
+func (i GetEventBusesEventBusArgs) ToGetEventBusesEventBusOutput() GetEventBusesEventBusOutput {
+	return i.ToGetEventBusesEventBusOutputWithContext(context.Background())
+}
+
+func (i GetEventBusesEventBusArgs) ToGetEventBusesEventBusOutputWithContext(ctx context.Context) GetEventBusesEventBusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEventBusesEventBusOutput)
+}
+
+// GetEventBusesEventBusArrayInput is an input type that accepts GetEventBusesEventBusArray and GetEventBusesEventBusArrayOutput values.
+// You can construct a concrete instance of `GetEventBusesEventBusArrayInput` via:
+//
+//	GetEventBusesEventBusArray{ GetEventBusesEventBusArgs{...} }
+type GetEventBusesEventBusArrayInput interface {
+	pulumi.Input
+
+	ToGetEventBusesEventBusArrayOutput() GetEventBusesEventBusArrayOutput
+	ToGetEventBusesEventBusArrayOutputWithContext(context.Context) GetEventBusesEventBusArrayOutput
+}
+
+type GetEventBusesEventBusArray []GetEventBusesEventBusInput
+
+func (GetEventBusesEventBusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEventBusesEventBus)(nil)).Elem()
+}
+
+func (i GetEventBusesEventBusArray) ToGetEventBusesEventBusArrayOutput() GetEventBusesEventBusArrayOutput {
+	return i.ToGetEventBusesEventBusArrayOutputWithContext(context.Background())
+}
+
+func (i GetEventBusesEventBusArray) ToGetEventBusesEventBusArrayOutputWithContext(ctx context.Context) GetEventBusesEventBusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEventBusesEventBusArrayOutput)
+}
+
+type GetEventBusesEventBusOutput struct{ *pulumi.OutputState }
+
+func (GetEventBusesEventBusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEventBusesEventBus)(nil)).Elem()
+}
+
+func (o GetEventBusesEventBusOutput) ToGetEventBusesEventBusOutput() GetEventBusesEventBusOutput {
+	return o
+}
+
+func (o GetEventBusesEventBusOutput) ToGetEventBusesEventBusOutputWithContext(ctx context.Context) GetEventBusesEventBusOutput {
+	return o
+}
+
+// The ARN of the event bus.
+func (o GetEventBusesEventBusOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventBusesEventBus) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The time the event bus was created.
+func (o GetEventBusesEventBusOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventBusesEventBus) string { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The event bus description.
+func (o GetEventBusesEventBusOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventBusesEventBus) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The time the event bus was last modified.
+func (o GetEventBusesEventBusOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventBusesEventBus) string { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+// The name of the event bus.
+func (o GetEventBusesEventBusOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventBusesEventBus) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The permissions policy of the event bus, describing which other AWS accounts can write events to this event bus.
+func (o GetEventBusesEventBusOutput) Policy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventBusesEventBus) string { return v.Policy }).(pulumi.StringOutput)
+}
+
+type GetEventBusesEventBusArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEventBusesEventBusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEventBusesEventBus)(nil)).Elem()
+}
+
+func (o GetEventBusesEventBusArrayOutput) ToGetEventBusesEventBusArrayOutput() GetEventBusesEventBusArrayOutput {
+	return o
+}
+
+func (o GetEventBusesEventBusArrayOutput) ToGetEventBusesEventBusArrayOutputWithContext(ctx context.Context) GetEventBusesEventBusArrayOutput {
+	return o
+}
+
+func (o GetEventBusesEventBusArrayOutput) Index(i pulumi.IntInput) GetEventBusesEventBusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEventBusesEventBus {
+		return vs[0].([]GetEventBusesEventBus)[vs[1].(int)]
+	}).(GetEventBusesEventBusOutput)
 }
 
 type GetLogDataProtectionPolicyDocumentStatement struct {
@@ -8574,6 +8959,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InternetMonitorInternetMeasurementsLogDeliveryPtrInput)(nil)).Elem(), InternetMonitorInternetMeasurementsLogDeliveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InternetMonitorInternetMeasurementsLogDeliveryS3ConfigInput)(nil)).Elem(), InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InternetMonitorInternetMeasurementsLogDeliveryS3ConfigPtrInput)(nil)).Elem(), InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryDestinationDeliveryDestinationConfigurationInput)(nil)).Elem(), LogDeliveryDestinationDeliveryDestinationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryDestinationDeliveryDestinationConfigurationPtrInput)(nil)).Elem(), LogDeliveryDestinationDeliveryDestinationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryS3DeliveryConfigurationInput)(nil)).Elem(), LogDeliveryS3DeliveryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryS3DeliveryConfigurationArrayInput)(nil)).Elem(), LogDeliveryS3DeliveryConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogMetricFilterMetricTransformationInput)(nil)).Elem(), LogMetricFilterMetricTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogMetricFilterMetricTransformationPtrInput)(nil)).Elem(), LogMetricFilterMetricTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmMetricQueryInput)(nil)).Elem(), MetricAlarmMetricQueryArgs{})
@@ -8588,6 +8977,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsConfigurationArrayInput)(nil)).Elem(), MetricStreamStatisticsConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsConfigurationIncludeMetricInput)(nil)).Elem(), MetricStreamStatisticsConfigurationIncludeMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamStatisticsConfigurationIncludeMetricArrayInput)(nil)).Elem(), MetricStreamStatisticsConfigurationIncludeMetricArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEventBusesEventBusInput)(nil)).Elem(), GetEventBusesEventBusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEventBusesEventBusArrayInput)(nil)).Elem(), GetEventBusesEventBusArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementArrayInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementOperationArgs{})
@@ -8687,6 +9078,10 @@ func init() {
 	pulumi.RegisterOutputType(InternetMonitorInternetMeasurementsLogDeliveryPtrOutput{})
 	pulumi.RegisterOutputType(InternetMonitorInternetMeasurementsLogDeliveryS3ConfigOutput{})
 	pulumi.RegisterOutputType(InternetMonitorInternetMeasurementsLogDeliveryS3ConfigPtrOutput{})
+	pulumi.RegisterOutputType(LogDeliveryDestinationDeliveryDestinationConfigurationOutput{})
+	pulumi.RegisterOutputType(LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(LogDeliveryS3DeliveryConfigurationOutput{})
+	pulumi.RegisterOutputType(LogDeliveryS3DeliveryConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(LogMetricFilterMetricTransformationOutput{})
 	pulumi.RegisterOutputType(LogMetricFilterMetricTransformationPtrOutput{})
 	pulumi.RegisterOutputType(MetricAlarmMetricQueryOutput{})
@@ -8701,6 +9096,8 @@ func init() {
 	pulumi.RegisterOutputType(MetricStreamStatisticsConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(MetricStreamStatisticsConfigurationIncludeMetricOutput{})
 	pulumi.RegisterOutputType(MetricStreamStatisticsConfigurationIncludeMetricArrayOutput{})
+	pulumi.RegisterOutputType(GetEventBusesEventBusOutput{})
+	pulumi.RegisterOutputType(GetEventBusesEventBusArrayOutput{})
 	pulumi.RegisterOutputType(GetLogDataProtectionPolicyDocumentStatementOutput{})
 	pulumi.RegisterOutputType(GetLogDataProtectionPolicyDocumentStatementArrayOutput{})
 	pulumi.RegisterOutputType(GetLogDataProtectionPolicyDocumentStatementOperationOutput{})

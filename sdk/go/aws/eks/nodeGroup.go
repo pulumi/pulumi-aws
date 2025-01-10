@@ -242,6 +242,8 @@ type NodeGroup struct {
 	NodeGroupName pulumi.StringOutput `pulumi:"nodeGroupName"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
 	NodeGroupNamePrefix pulumi.StringOutput `pulumi:"nodeGroupNamePrefix"`
+	// The node auto repair configuration for the node group. See `nodeRepairConfig` below for details.
+	NodeRepairConfig NodeGroupNodeRepairConfigOutput `pulumi:"nodeRepairConfig"`
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
 	NodeRoleArn pulumi.StringOutput `pulumi:"nodeRoleArn"`
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
@@ -336,6 +338,8 @@ type nodeGroupState struct {
 	NodeGroupName *string `pulumi:"nodeGroupName"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
 	NodeGroupNamePrefix *string `pulumi:"nodeGroupNamePrefix"`
+	// The node auto repair configuration for the node group. See `nodeRepairConfig` below for details.
+	NodeRepairConfig *NodeGroupNodeRepairConfig `pulumi:"nodeRepairConfig"`
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
 	NodeRoleArn *string `pulumi:"nodeRoleArn"`
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
@@ -389,6 +393,8 @@ type NodeGroupState struct {
 	NodeGroupName pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
 	NodeGroupNamePrefix pulumi.StringPtrInput
+	// The node auto repair configuration for the node group. See `nodeRepairConfig` below for details.
+	NodeRepairConfig NodeGroupNodeRepairConfigPtrInput
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
 	NodeRoleArn pulumi.StringPtrInput
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
@@ -444,6 +450,8 @@ type nodeGroupArgs struct {
 	NodeGroupName *string `pulumi:"nodeGroupName"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
 	NodeGroupNamePrefix *string `pulumi:"nodeGroupNamePrefix"`
+	// The node auto repair configuration for the node group. See `nodeRepairConfig` below for details.
+	NodeRepairConfig *NodeGroupNodeRepairConfig `pulumi:"nodeRepairConfig"`
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
 	NodeRoleArn string `pulumi:"nodeRoleArn"`
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
@@ -488,6 +496,8 @@ type NodeGroupArgs struct {
 	NodeGroupName pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
 	NodeGroupNamePrefix pulumi.StringPtrInput
+	// The node auto repair configuration for the node group. See `nodeRepairConfig` below for details.
+	NodeRepairConfig NodeGroupNodeRepairConfigPtrInput
 	// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
 	NodeRoleArn pulumi.StringInput
 	// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
@@ -650,6 +660,11 @@ func (o NodeGroupOutput) NodeGroupName() pulumi.StringOutput {
 // Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
 func (o NodeGroupOutput) NodeGroupNamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *NodeGroup) pulumi.StringOutput { return v.NodeGroupNamePrefix }).(pulumi.StringOutput)
+}
+
+// The node auto repair configuration for the node group. See `nodeRepairConfig` below for details.
+func (o NodeGroupOutput) NodeRepairConfig() NodeGroupNodeRepairConfigOutput {
+	return o.ApplyT(func(v *NodeGroup) NodeGroupNodeRepairConfigOutput { return v.NodeRepairConfig }).(NodeGroupNodeRepairConfigOutput)
 }
 
 // Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.

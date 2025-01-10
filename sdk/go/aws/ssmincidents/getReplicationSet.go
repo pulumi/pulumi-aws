@@ -58,7 +58,7 @@ type LookupReplicationSetArgs struct {
 
 // A collection of values returned by getReplicationSet.
 type LookupReplicationSetResult struct {
-	// The Amazon Resouce Name (ARN) of the replication set.
+	// The Amazon Resource Name (ARN) of the replication set.
 	Arn string `pulumi:"arn"`
 	// The ARN of the user who created the replication set.
 	CreatedBy string `pulumi:"createdBy"`
@@ -110,7 +110,7 @@ func (o LookupReplicationSetResultOutput) ToLookupReplicationSetResultOutputWith
 	return o
 }
 
-// The Amazon Resouce Name (ARN) of the replication set.
+// The Amazon Resource Name (ARN) of the replication set.
 func (o LookupReplicationSetResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationSetResult) string { return v.Arn }).(pulumi.StringOutput)
 }

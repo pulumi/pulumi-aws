@@ -240,6 +240,12 @@ namespace Pulumi.Aws.Eks
         public Output<string> NodeGroupNamePrefix { get; private set; } = null!;
 
         /// <summary>
+        /// The node auto repair configuration for the node group. See `node_repair_config` below for details.
+        /// </summary>
+        [Output("nodeRepairConfig")]
+        public Output<Outputs.NodeGroupNodeRepairConfig> NodeRepairConfig { get; private set; } = null!;
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
         /// </summary>
         [Output("nodeRoleArn")]
@@ -432,6 +438,12 @@ namespace Pulumi.Aws.Eks
         public Input<string>? NodeGroupNamePrefix { get; set; }
 
         /// <summary>
+        /// The node auto repair configuration for the node group. See `node_repair_config` below for details.
+        /// </summary>
+        [Input("nodeRepairConfig")]
+        public Input<Inputs.NodeGroupNodeRepairConfigArgs>? NodeRepairConfig { get; set; }
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
         /// </summary>
         [Input("nodeRoleArn", required: true)]
@@ -590,6 +602,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("nodeGroupNamePrefix")]
         public Input<string>? NodeGroupNamePrefix { get; set; }
+
+        /// <summary>
+        /// The node auto repair configuration for the node group. See `node_repair_config` below for details.
+        /// </summary>
+        [Input("nodeRepairConfig")]
+        public Input<Inputs.NodeGroupNodeRepairConfigGetArgs>? NodeRepairConfig { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.

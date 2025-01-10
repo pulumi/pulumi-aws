@@ -15,6 +15,11 @@ export type ConfiguredTable = import("./configuredTable").ConfiguredTable;
 export const ConfiguredTable: typeof import("./configuredTable").ConfiguredTable = null as any;
 utilities.lazyLoad(exports, ["ConfiguredTable"], () => require("./configuredTable"));
 
+export { MembershipArgs, MembershipState } from "./membership";
+export type Membership = import("./membership").Membership;
+export const Membership: typeof import("./membership").Membership = null as any;
+utilities.lazyLoad(exports, ["Membership"], () => require("./membership"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -24,6 +29,8 @@ const _module = {
                 return new Collaboration(name, <any>undefined, { urn })
             case "aws:cleanrooms/configuredTable:ConfiguredTable":
                 return new ConfiguredTable(name, <any>undefined, { urn })
+            case "aws:cleanrooms/membership:Membership":
+                return new Membership(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -31,3 +38,4 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "cleanrooms/collaboration", _module)
 pulumi.runtime.registerResourceModule("aws", "cleanrooms/configuredTable", _module)
+pulumi.runtime.registerResourceModule("aws", "cleanrooms/membership", _module)

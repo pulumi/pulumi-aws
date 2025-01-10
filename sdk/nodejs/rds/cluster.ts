@@ -446,7 +446,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly networkType!: pulumi.Output<string>;
     /**
-     * Enables Performance Insights for the RDS Cluster
+     * Enables Performance Insights.
      */
     public readonly performanceInsightsEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -885,7 +885,7 @@ export interface ClusterState {
      */
     networkType?: pulumi.Input<string>;
     /**
-     * Enables Performance Insights for the RDS Cluster
+     * Enables Performance Insights.
      */
     performanceInsightsEnabled?: pulumi.Input<boolean>;
     /**
@@ -1137,7 +1137,7 @@ export interface ClusterArgs {
      */
     networkType?: pulumi.Input<string>;
     /**
-     * Enables Performance Insights for the RDS Cluster
+     * Enables Performance Insights.
      */
     performanceInsightsEnabled?: pulumi.Input<boolean>;
     /**

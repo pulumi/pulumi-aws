@@ -14,6 +14,44 @@ namespace Pulumi.Aws.LB
     /// 
     /// ## Example Usage
     /// 
+    /// ### Trust Store Load Balancer Listener
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.LB.TrustStore("test", new()
+    ///     {
+    ///         Name = "tf-example-lb-ts",
+    ///         CaCertificatesBundleS3Bucket = "...",
+    ///         CaCertificatesBundleS3Key = "...",
+    ///     });
+    /// 
+    ///     var example = new Aws.LB.Listener("example", new()
+    ///     {
+    ///         LoadBalancerArn = exampleAwsLb.Id,
+    ///         DefaultActions = new[]
+    ///         {
+    ///             new Aws.LB.Inputs.ListenerDefaultActionArgs
+    ///             {
+    ///                 TargetGroupArn = exampleAwsLbTargetGroup.Id,
+    ///                 Type = "forward",
+    ///             },
+    ///         },
+    ///         MutualAuthentication = new Aws.LB.Inputs.ListenerMutualAuthenticationArgs
+    ///         {
+    ///             Mode = "verify",
+    ///             TrustStoreArn = test.Arn,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Target Groups using their ARN. For example:

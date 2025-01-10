@@ -16,6 +16,21 @@ public final class GetCertificatePlainArgs extends com.pulumi.resources.InvokeAr
     public static final GetCertificatePlainArgs Empty = new GetCertificatePlainArgs();
 
     /**
+     * When enabled, returns the default certificate for new RDS instances.
+     * 
+     */
+    @Import(name="defaultForNewLaunches")
+    private @Nullable Boolean defaultForNewLaunches;
+
+    /**
+     * @return When enabled, returns the default certificate for new RDS instances.
+     * 
+     */
+    public Optional<Boolean> defaultForNewLaunches() {
+        return Optional.ofNullable(this.defaultForNewLaunches);
+    }
+
+    /**
      * Certificate identifier. For example, `rds-ca-2019`.
      * 
      */
@@ -48,6 +63,7 @@ public final class GetCertificatePlainArgs extends com.pulumi.resources.InvokeAr
     private GetCertificatePlainArgs() {}
 
     private GetCertificatePlainArgs(GetCertificatePlainArgs $) {
+        this.defaultForNewLaunches = $.defaultForNewLaunches;
         this.id = $.id;
         this.latestValidTill = $.latestValidTill;
     }
@@ -68,6 +84,17 @@ public final class GetCertificatePlainArgs extends com.pulumi.resources.InvokeAr
 
         public Builder(GetCertificatePlainArgs defaults) {
             $ = new GetCertificatePlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param defaultForNewLaunches When enabled, returns the default certificate for new RDS instances.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultForNewLaunches(@Nullable Boolean defaultForNewLaunches) {
+            $.defaultForNewLaunches = defaultForNewLaunches;
+            return this;
         }
 
         /**

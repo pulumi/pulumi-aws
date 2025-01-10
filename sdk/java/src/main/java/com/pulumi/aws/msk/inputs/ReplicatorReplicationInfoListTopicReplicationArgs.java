@@ -80,9 +80,17 @@ public final class ReplicatorReplicationInfoListTopicReplicationArgs extends com
         return Optional.ofNullable(this.startingPosition);
     }
 
+    /**
+     * Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+     * 
+     */
     @Import(name="topicNameConfiguration")
     private @Nullable Output<ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs> topicNameConfiguration;
 
+    /**
+     * @return Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+     * 
+     */
     public Optional<Output<ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs>> topicNameConfiguration() {
         return Optional.ofNullable(this.topicNameConfiguration);
     }
@@ -231,11 +239,23 @@ public final class ReplicatorReplicationInfoListTopicReplicationArgs extends com
             return startingPosition(Output.of(startingPosition));
         }
 
+        /**
+         * @param topicNameConfiguration Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+         * 
+         * @return builder
+         * 
+         */
         public Builder topicNameConfiguration(@Nullable Output<ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs> topicNameConfiguration) {
             $.topicNameConfiguration = topicNameConfiguration;
             return this;
         }
 
+        /**
+         * @param topicNameConfiguration Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+         * 
+         * @return builder
+         * 
+         */
         public Builder topicNameConfiguration(ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs topicNameConfiguration) {
             return topicNameConfiguration(Output.of(topicNameConfiguration));
         }

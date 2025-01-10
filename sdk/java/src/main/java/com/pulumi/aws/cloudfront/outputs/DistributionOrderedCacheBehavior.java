@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.aws.cloudfront.outputs.DistributionOrderedCacheBehaviorForwardedValues;
 import com.pulumi.aws.cloudfront.outputs.DistributionOrderedCacheBehaviorFunctionAssociation;
+import com.pulumi.aws.cloudfront.outputs.DistributionOrderedCacheBehaviorGrpcConfig;
 import com.pulumi.aws.cloudfront.outputs.DistributionOrderedCacheBehaviorLambdaFunctionAssociation;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -39,7 +40,7 @@ public final class DistributionOrderedCacheBehavior {
      */
     private @Nullable Boolean compress;
     /**
-     * @return Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
+     * @return Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header. The TTL defined in Cache Policy overrides this configuration.
      * 
      */
     private @Nullable Integer defaultTtl;
@@ -59,17 +60,22 @@ public final class DistributionOrderedCacheBehavior {
      */
     private @Nullable List<DistributionOrderedCacheBehaviorFunctionAssociation> functionAssociations;
     /**
+     * @return A config block that sets the grpc config.
+     * 
+     */
+    private @Nullable DistributionOrderedCacheBehaviorGrpcConfig grpcConfig;
+    /**
      * @return A config block that triggers a lambda function with specific actions (maximum 4).
      * 
      */
     private @Nullable List<DistributionOrderedCacheBehaviorLambdaFunctionAssociation> lambdaFunctionAssociations;
     /**
-     * @return Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
+     * @return Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers. The TTL defined in Cache Policy overrides this configuration.
      * 
      */
     private @Nullable Integer maxTtl;
     /**
-     * @return Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
+     * @return Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds. The TTL defined in Cache Policy overrides this configuration.
      * 
      */
     private @Nullable Integer minTtl;
@@ -149,7 +155,7 @@ public final class DistributionOrderedCacheBehavior {
         return Optional.ofNullable(this.compress);
     }
     /**
-     * @return Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
+     * @return Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header. The TTL defined in Cache Policy overrides this configuration.
      * 
      */
     public Optional<Integer> defaultTtl() {
@@ -177,6 +183,13 @@ public final class DistributionOrderedCacheBehavior {
         return this.functionAssociations == null ? List.of() : this.functionAssociations;
     }
     /**
+     * @return A config block that sets the grpc config.
+     * 
+     */
+    public Optional<DistributionOrderedCacheBehaviorGrpcConfig> grpcConfig() {
+        return Optional.ofNullable(this.grpcConfig);
+    }
+    /**
      * @return A config block that triggers a lambda function with specific actions (maximum 4).
      * 
      */
@@ -184,14 +197,14 @@ public final class DistributionOrderedCacheBehavior {
         return this.lambdaFunctionAssociations == null ? List.of() : this.lambdaFunctionAssociations;
     }
     /**
-     * @return Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
+     * @return Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers. The TTL defined in Cache Policy overrides this configuration.
      * 
      */
     public Optional<Integer> maxTtl() {
         return Optional.ofNullable(this.maxTtl);
     }
     /**
-     * @return Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
+     * @return Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds. The TTL defined in Cache Policy overrides this configuration.
      * 
      */
     public Optional<Integer> minTtl() {
@@ -278,6 +291,7 @@ public final class DistributionOrderedCacheBehavior {
         private @Nullable String fieldLevelEncryptionId;
         private @Nullable DistributionOrderedCacheBehaviorForwardedValues forwardedValues;
         private @Nullable List<DistributionOrderedCacheBehaviorFunctionAssociation> functionAssociations;
+        private @Nullable DistributionOrderedCacheBehaviorGrpcConfig grpcConfig;
         private @Nullable List<DistributionOrderedCacheBehaviorLambdaFunctionAssociation> lambdaFunctionAssociations;
         private @Nullable Integer maxTtl;
         private @Nullable Integer minTtl;
@@ -301,6 +315,7 @@ public final class DistributionOrderedCacheBehavior {
     	      this.fieldLevelEncryptionId = defaults.fieldLevelEncryptionId;
     	      this.forwardedValues = defaults.forwardedValues;
     	      this.functionAssociations = defaults.functionAssociations;
+    	      this.grpcConfig = defaults.grpcConfig;
     	      this.lambdaFunctionAssociations = defaults.lambdaFunctionAssociations;
     	      this.maxTtl = defaults.maxTtl;
     	      this.minTtl = defaults.minTtl;
@@ -375,6 +390,12 @@ public final class DistributionOrderedCacheBehavior {
         }
         public Builder functionAssociations(DistributionOrderedCacheBehaviorFunctionAssociation... functionAssociations) {
             return functionAssociations(List.of(functionAssociations));
+        }
+        @CustomType.Setter
+        public Builder grpcConfig(@Nullable DistributionOrderedCacheBehaviorGrpcConfig grpcConfig) {
+
+            this.grpcConfig = grpcConfig;
+            return this;
         }
         @CustomType.Setter
         public Builder lambdaFunctionAssociations(@Nullable List<DistributionOrderedCacheBehaviorLambdaFunctionAssociation> lambdaFunctionAssociations) {
@@ -473,6 +494,7 @@ public final class DistributionOrderedCacheBehavior {
             _resultValue.fieldLevelEncryptionId = fieldLevelEncryptionId;
             _resultValue.forwardedValues = forwardedValues;
             _resultValue.functionAssociations = functionAssociations;
+            _resultValue.grpcConfig = grpcConfig;
             _resultValue.lambdaFunctionAssociations = lambdaFunctionAssociations;
             _resultValue.maxTtl = maxTtl;
             _resultValue.minTtl = minTtl;

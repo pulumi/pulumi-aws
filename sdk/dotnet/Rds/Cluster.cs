@@ -588,7 +588,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> NetworkType { get; private set; } = null!;
 
         /// <summary>
-        /// Enables Performance Insights for the RDS Cluster
+        /// Enables Performance Insights.
         /// </summary>
         [Output("performanceInsightsEnabled")]
         public Output<bool?> PerformanceInsightsEnabled { get; private set; } = null!;
@@ -1036,7 +1036,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? NetworkType { get; set; }
 
         /// <summary>
-        /// Enables Performance Insights for the RDS Cluster
+        /// Enables Performance Insights.
         /// </summary>
         [Input("performanceInsightsEnabled")]
         public Input<bool>? PerformanceInsightsEnabled { get; set; }
@@ -1489,7 +1489,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? NetworkType { get; set; }
 
         /// <summary>
-        /// Enables Performance Insights for the RDS Cluster
+        /// Enables Performance Insights.
         /// </summary>
         [Input("performanceInsightsEnabled")]
         public Input<bool>? PerformanceInsightsEnabled { get; set; }

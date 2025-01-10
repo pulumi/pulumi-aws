@@ -9,6 +9,30 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Trust Store Load Balancer Listener
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.lb.TrustStore("test", {
+ *     name: "tf-example-lb-ts",
+ *     caCertificatesBundleS3Bucket: "...",
+ *     caCertificatesBundleS3Key: "...",
+ * });
+ * const example = new aws.lb.Listener("example", {
+ *     loadBalancerArn: exampleAwsLb.id,
+ *     defaultActions: [{
+ *         targetGroupArn: exampleAwsLbTargetGroup.id,
+ *         type: "forward",
+ *     }],
+ *     mutualAuthentication: {
+ *         mode: "verify",
+ *         trustStoreArn: test.arn,
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Target Groups using their ARN. For example:

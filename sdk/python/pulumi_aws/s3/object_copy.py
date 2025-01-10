@@ -51,6 +51,7 @@ class ObjectCopyArgs:
                  object_lock_legal_hold_status: Optional[pulumi.Input[str]] = None,
                  object_lock_mode: Optional[pulumi.Input[str]] = None,
                  object_lock_retain_until_date: Optional[pulumi.Input[str]] = None,
+                 override_provider: Optional[pulumi.Input['ObjectCopyOverrideProviderArgs']] = None,
                  request_payer: Optional[pulumi.Input[str]] = None,
                  server_side_encryption: Optional[pulumi.Input[str]] = None,
                  source_customer_algorithm: Optional[pulumi.Input[str]] = None,
@@ -160,6 +161,8 @@ class ObjectCopyArgs:
             pulumi.set(__self__, "object_lock_mode", object_lock_mode)
         if object_lock_retain_until_date is not None:
             pulumi.set(__self__, "object_lock_retain_until_date", object_lock_retain_until_date)
+        if override_provider is not None:
+            pulumi.set(__self__, "override_provider", override_provider)
         if request_payer is not None:
             pulumi.set(__self__, "request_payer", request_payer)
         if server_side_encryption is not None:
@@ -539,6 +542,15 @@ class ObjectCopyArgs:
         pulumi.set(self, "object_lock_retain_until_date", value)
 
     @property
+    @pulumi.getter(name="overrideProvider")
+    def override_provider(self) -> Optional[pulumi.Input['ObjectCopyOverrideProviderArgs']]:
+        return pulumi.get(self, "override_provider")
+
+    @override_provider.setter
+    def override_provider(self, value: Optional[pulumi.Input['ObjectCopyOverrideProviderArgs']]):
+        pulumi.set(self, "override_provider", value)
+
+    @property
     @pulumi.getter(name="requestPayer")
     def request_payer(self) -> Optional[pulumi.Input[str]]:
         """
@@ -687,6 +699,7 @@ class _ObjectCopyState:
                  object_lock_legal_hold_status: Optional[pulumi.Input[str]] = None,
                  object_lock_mode: Optional[pulumi.Input[str]] = None,
                  object_lock_retain_until_date: Optional[pulumi.Input[str]] = None,
+                 override_provider: Optional[pulumi.Input['ObjectCopyOverrideProviderArgs']] = None,
                  request_charged: Optional[pulumi.Input[bool]] = None,
                  request_payer: Optional[pulumi.Input[str]] = None,
                  server_side_encryption: Optional[pulumi.Input[str]] = None,
@@ -830,6 +843,8 @@ class _ObjectCopyState:
             pulumi.set(__self__, "object_lock_mode", object_lock_mode)
         if object_lock_retain_until_date is not None:
             pulumi.set(__self__, "object_lock_retain_until_date", object_lock_retain_until_date)
+        if override_provider is not None:
+            pulumi.set(__self__, "override_provider", override_provider)
         if request_charged is not None:
             pulumi.set(__self__, "request_charged", request_charged)
         if request_payer is not None:
@@ -1304,6 +1319,15 @@ class _ObjectCopyState:
         pulumi.set(self, "object_lock_retain_until_date", value)
 
     @property
+    @pulumi.getter(name="overrideProvider")
+    def override_provider(self) -> Optional[pulumi.Input['ObjectCopyOverrideProviderArgs']]:
+        return pulumi.get(self, "override_provider")
+
+    @override_provider.setter
+    def override_provider(self, value: Optional[pulumi.Input['ObjectCopyOverrideProviderArgs']]):
+        pulumi.set(self, "override_provider", value)
+
+    @property
     @pulumi.getter(name="requestCharged")
     def request_charged(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -1509,6 +1533,7 @@ class ObjectCopy(pulumi.CustomResource):
                  object_lock_legal_hold_status: Optional[pulumi.Input[str]] = None,
                  object_lock_mode: Optional[pulumi.Input[str]] = None,
                  object_lock_retain_until_date: Optional[pulumi.Input[str]] = None,
+                 override_provider: Optional[pulumi.Input[Union['ObjectCopyOverrideProviderArgs', 'ObjectCopyOverrideProviderArgsDict']]] = None,
                  request_payer: Optional[pulumi.Input[str]] = None,
                  server_side_encryption: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
@@ -1538,6 +1563,26 @@ class ObjectCopy(pulumi.CustomResource):
                 "type": "Group",
                 "permissions": ["READ"],
             }])
+        ```
+
+        ### Ignoring Provider `default_tags`
+
+        S3 objects support a [maximum of 10 tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html).
+        If the resource's own `tags` and the provider-level `default_tags` would together lead to more than 10 tags on an S3 object copy, use the `override_provider` configuration block to suppress any provider-level `default_tags`.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.s3.ObjectCopy("test",
+            bucket="destination_bucket",
+            key="destination_key",
+            source="source_bucket/source_key",
+            override_provider={
+                "default_tags": {
+                    "tags": {},
+                },
+            })
         ```
 
         :param str resource_name: The name of the resource.
@@ -1609,6 +1654,26 @@ class ObjectCopy(pulumi.CustomResource):
             }])
         ```
 
+        ### Ignoring Provider `default_tags`
+
+        S3 objects support a [maximum of 10 tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html).
+        If the resource's own `tags` and the provider-level `default_tags` would together lead to more than 10 tags on an S3 object copy, use the `override_provider` configuration block to suppress any provider-level `default_tags`.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.s3.ObjectCopy("test",
+            bucket="destination_bucket",
+            key="destination_key",
+            source="source_bucket/source_key",
+            override_provider={
+                "default_tags": {
+                    "tags": {},
+                },
+            })
+        ```
+
         :param str resource_name: The name of the resource.
         :param ObjectCopyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1653,6 +1718,7 @@ class ObjectCopy(pulumi.CustomResource):
                  object_lock_legal_hold_status: Optional[pulumi.Input[str]] = None,
                  object_lock_mode: Optional[pulumi.Input[str]] = None,
                  object_lock_retain_until_date: Optional[pulumi.Input[str]] = None,
+                 override_provider: Optional[pulumi.Input[Union['ObjectCopyOverrideProviderArgs', 'ObjectCopyOverrideProviderArgsDict']]] = None,
                  request_payer: Optional[pulumi.Input[str]] = None,
                  server_side_encryption: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
@@ -1705,6 +1771,7 @@ class ObjectCopy(pulumi.CustomResource):
             __props__.__dict__["object_lock_legal_hold_status"] = object_lock_legal_hold_status
             __props__.__dict__["object_lock_mode"] = object_lock_mode
             __props__.__dict__["object_lock_retain_until_date"] = object_lock_retain_until_date
+            __props__.__dict__["override_provider"] = override_provider
             __props__.__dict__["request_payer"] = request_payer
             __props__.__dict__["server_side_encryption"] = server_side_encryption
             if source is None and not opts.urn:
@@ -1778,6 +1845,7 @@ class ObjectCopy(pulumi.CustomResource):
             object_lock_legal_hold_status: Optional[pulumi.Input[str]] = None,
             object_lock_mode: Optional[pulumi.Input[str]] = None,
             object_lock_retain_until_date: Optional[pulumi.Input[str]] = None,
+            override_provider: Optional[pulumi.Input[Union['ObjectCopyOverrideProviderArgs', 'ObjectCopyOverrideProviderArgsDict']]] = None,
             request_charged: Optional[pulumi.Input[bool]] = None,
             request_payer: Optional[pulumi.Input[str]] = None,
             server_side_encryption: Optional[pulumi.Input[str]] = None,
@@ -1893,6 +1961,7 @@ class ObjectCopy(pulumi.CustomResource):
         __props__.__dict__["object_lock_legal_hold_status"] = object_lock_legal_hold_status
         __props__.__dict__["object_lock_mode"] = object_lock_mode
         __props__.__dict__["object_lock_retain_until_date"] = object_lock_retain_until_date
+        __props__.__dict__["override_provider"] = override_provider
         __props__.__dict__["request_charged"] = request_charged
         __props__.__dict__["request_payer"] = request_payer
         __props__.__dict__["server_side_encryption"] = server_side_encryption
@@ -2201,6 +2270,11 @@ class ObjectCopy(pulumi.CustomResource):
         Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
         """
         return pulumi.get(self, "object_lock_retain_until_date")
+
+    @property
+    @pulumi.getter(name="overrideProvider")
+    def override_provider(self) -> pulumi.Output[Optional['outputs.ObjectCopyOverrideProvider']]:
+        return pulumi.get(self, "override_provider")
 
     @property
     @pulumi.getter(name="requestCharged")

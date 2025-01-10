@@ -33,6 +33,13 @@ __all__ = [
     'ZoneVpc',
     'GetProfilesProfilesProfileResult',
     'GetQueryLogConfigFilterResult',
+    'GetRecordsResourceRecordSetResult',
+    'GetRecordsResourceRecordSetAliasTargetResult',
+    'GetRecordsResourceRecordSetCidrRoutingConfigResult',
+    'GetRecordsResourceRecordSetGeolocationResult',
+    'GetRecordsResourceRecordSetGeoproximityLocationResult',
+    'GetRecordsResourceRecordSetGeoproximityLocationCoordinatesResult',
+    'GetRecordsResourceRecordSetResourceRecordResult',
     'GetResolverEndpointFilterResult',
     'GetResolverFirewallRulesFirewallRuleResult',
     'GetTrafficPolicyDocumentEndpointResult',
@@ -718,6 +725,385 @@ class GetQueryLogConfigFilterResult(dict):
     @pulumi.getter
     def values(self) -> Sequence[str]:
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetRecordsResourceRecordSetResult(dict):
+    def __init__(__self__, *,
+                 alias_target: 'outputs.GetRecordsResourceRecordSetAliasTargetResult',
+                 cidr_routing_config: 'outputs.GetRecordsResourceRecordSetCidrRoutingConfigResult',
+                 failover: str,
+                 geolocation: 'outputs.GetRecordsResourceRecordSetGeolocationResult',
+                 geoproximity_location: 'outputs.GetRecordsResourceRecordSetGeoproximityLocationResult',
+                 health_check_id: str,
+                 multi_value_answer: bool,
+                 name: str,
+                 region: str,
+                 resource_records: Sequence['outputs.GetRecordsResourceRecordSetResourceRecordResult'],
+                 set_identifier: str,
+                 traffic_policy_instance_id: str,
+                 ttl: int,
+                 type: str,
+                 weight: int):
+        """
+        :param 'GetRecordsResourceRecordSetAliasTargetArgs' alias_target: Information about the AWS resource traffic is routed to.
+        :param 'GetRecordsResourceRecordSetCidrRoutingConfigArgs' cidr_routing_config: Information about the CIDR location traffic is routed to.
+        :param str failover: `PRIMARY` or `SECONDARY`.
+        :param 'GetRecordsResourceRecordSetGeolocationArgs' geolocation: Information about how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
+        :param 'GetRecordsResourceRecordSetGeoproximityLocationArgs' geoproximity_location: Information about how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
+        :param str health_check_id: ID of any applicable health check.
+        :param bool multi_value_answer: Traffic is routed approximately randomly to multiple resources.
+        :param str name: The name of the record.
+        :param str region: The Amazon EC2 Region of the resource that this resource record set refers to.
+        :param Sequence['GetRecordsResourceRecordSetResourceRecordArgs'] resource_records: The resource records.
+        :param str set_identifier: An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
+        :param str traffic_policy_instance_id: The ID of any traffic policy instance that Route 53 created this resource record set for.
+        :param int ttl: The resource record cache time to live (TTL), in seconds.
+        :param str type: The DNS record type.
+        :param int weight: Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set.
+        """
+        pulumi.set(__self__, "alias_target", alias_target)
+        pulumi.set(__self__, "cidr_routing_config", cidr_routing_config)
+        pulumi.set(__self__, "failover", failover)
+        pulumi.set(__self__, "geolocation", geolocation)
+        pulumi.set(__self__, "geoproximity_location", geoproximity_location)
+        pulumi.set(__self__, "health_check_id", health_check_id)
+        pulumi.set(__self__, "multi_value_answer", multi_value_answer)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "resource_records", resource_records)
+        pulumi.set(__self__, "set_identifier", set_identifier)
+        pulumi.set(__self__, "traffic_policy_instance_id", traffic_policy_instance_id)
+        pulumi.set(__self__, "ttl", ttl)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="aliasTarget")
+    def alias_target(self) -> 'outputs.GetRecordsResourceRecordSetAliasTargetResult':
+        """
+        Information about the AWS resource traffic is routed to.
+        """
+        return pulumi.get(self, "alias_target")
+
+    @property
+    @pulumi.getter(name="cidrRoutingConfig")
+    def cidr_routing_config(self) -> 'outputs.GetRecordsResourceRecordSetCidrRoutingConfigResult':
+        """
+        Information about the CIDR location traffic is routed to.
+        """
+        return pulumi.get(self, "cidr_routing_config")
+
+    @property
+    @pulumi.getter
+    def failover(self) -> str:
+        """
+        `PRIMARY` or `SECONDARY`.
+        """
+        return pulumi.get(self, "failover")
+
+    @property
+    @pulumi.getter
+    def geolocation(self) -> 'outputs.GetRecordsResourceRecordSetGeolocationResult':
+        """
+        Information about how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
+        """
+        return pulumi.get(self, "geolocation")
+
+    @property
+    @pulumi.getter(name="geoproximityLocation")
+    def geoproximity_location(self) -> 'outputs.GetRecordsResourceRecordSetGeoproximityLocationResult':
+        """
+        Information about how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
+        """
+        return pulumi.get(self, "geoproximity_location")
+
+    @property
+    @pulumi.getter(name="healthCheckId")
+    def health_check_id(self) -> str:
+        """
+        ID of any applicable health check.
+        """
+        return pulumi.get(self, "health_check_id")
+
+    @property
+    @pulumi.getter(name="multiValueAnswer")
+    def multi_value_answer(self) -> bool:
+        """
+        Traffic is routed approximately randomly to multiple resources.
+        """
+        return pulumi.get(self, "multi_value_answer")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the record.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        """
+        The Amazon EC2 Region of the resource that this resource record set refers to.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="resourceRecords")
+    def resource_records(self) -> Sequence['outputs.GetRecordsResourceRecordSetResourceRecordResult']:
+        """
+        The resource records.
+        """
+        return pulumi.get(self, "resource_records")
+
+    @property
+    @pulumi.getter(name="setIdentifier")
+    def set_identifier(self) -> str:
+        """
+        An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
+        """
+        return pulumi.get(self, "set_identifier")
+
+    @property
+    @pulumi.getter(name="trafficPolicyInstanceId")
+    def traffic_policy_instance_id(self) -> str:
+        """
+        The ID of any traffic policy instance that Route 53 created this resource record set for.
+        """
+        return pulumi.get(self, "traffic_policy_instance_id")
+
+    @property
+    @pulumi.getter
+    def ttl(self) -> int:
+        """
+        The resource record cache time to live (TTL), in seconds.
+        """
+        return pulumi.get(self, "ttl")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The DNS record type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> int:
+        """
+        Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set.
+        """
+        return pulumi.get(self, "weight")
+
+
+@pulumi.output_type
+class GetRecordsResourceRecordSetAliasTargetResult(dict):
+    def __init__(__self__, *,
+                 dns_name: str,
+                 evaluate_target_health: bool,
+                 hosted_zone_id: str):
+        """
+        :param str dns_name: Target DNS name.
+        :param bool evaluate_target_health: Whether an alias resource record set inherits the health of the referenced AWS resource.
+        :param str hosted_zone_id: Target hosted zone ID.
+        """
+        pulumi.set(__self__, "dns_name", dns_name)
+        pulumi.set(__self__, "evaluate_target_health", evaluate_target_health)
+        pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> str:
+        """
+        Target DNS name.
+        """
+        return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="evaluateTargetHealth")
+    def evaluate_target_health(self) -> bool:
+        """
+        Whether an alias resource record set inherits the health of the referenced AWS resource.
+        """
+        return pulumi.get(self, "evaluate_target_health")
+
+    @property
+    @pulumi.getter(name="hostedZoneId")
+    def hosted_zone_id(self) -> str:
+        """
+        Target hosted zone ID.
+        """
+        return pulumi.get(self, "hosted_zone_id")
+
+
+@pulumi.output_type
+class GetRecordsResourceRecordSetCidrRoutingConfigResult(dict):
+    def __init__(__self__, *,
+                 collection_id: str,
+                 location_name: str):
+        """
+        :param str collection_id: The CIDR collection ID.
+        :param str location_name: The CIDR collection location name.
+        """
+        pulumi.set(__self__, "collection_id", collection_id)
+        pulumi.set(__self__, "location_name", location_name)
+
+    @property
+    @pulumi.getter(name="collectionId")
+    def collection_id(self) -> str:
+        """
+        The CIDR collection ID.
+        """
+        return pulumi.get(self, "collection_id")
+
+    @property
+    @pulumi.getter(name="locationName")
+    def location_name(self) -> str:
+        """
+        The CIDR collection location name.
+        """
+        return pulumi.get(self, "location_name")
+
+
+@pulumi.output_type
+class GetRecordsResourceRecordSetGeolocationResult(dict):
+    def __init__(__self__, *,
+                 continent_code: str,
+                 country_code: str,
+                 subdivision_code: str):
+        """
+        :param str continent_code: The two-letter code for the continent.
+        :param str country_code: The two-letter code for a country.
+        :param str subdivision_code: The two-letter code for a state of the United States.
+        """
+        pulumi.set(__self__, "continent_code", continent_code)
+        pulumi.set(__self__, "country_code", country_code)
+        pulumi.set(__self__, "subdivision_code", subdivision_code)
+
+    @property
+    @pulumi.getter(name="continentCode")
+    def continent_code(self) -> str:
+        """
+        The two-letter code for the continent.
+        """
+        return pulumi.get(self, "continent_code")
+
+    @property
+    @pulumi.getter(name="countryCode")
+    def country_code(self) -> str:
+        """
+        The two-letter code for a country.
+        """
+        return pulumi.get(self, "country_code")
+
+    @property
+    @pulumi.getter(name="subdivisionCode")
+    def subdivision_code(self) -> str:
+        """
+        The two-letter code for a state of the United States.
+        """
+        return pulumi.get(self, "subdivision_code")
+
+
+@pulumi.output_type
+class GetRecordsResourceRecordSetGeoproximityLocationResult(dict):
+    def __init__(__self__, *,
+                 aws_region: str,
+                 bias: int,
+                 coordinates: 'outputs.GetRecordsResourceRecordSetGeoproximityLocationCoordinatesResult',
+                 local_zone_group: str):
+        """
+        :param str aws_region: The AWS Region the resource you are directing DNS traffic to, is in.
+        :param int bias: The bias increases or decreases the size of the geographic region from which Route 53 routes traffic to a resource.
+        :param 'GetRecordsResourceRecordSetGeoproximityLocationCoordinatesArgs' coordinates: Contains the longitude and latitude for a geographic region.
+        :param str local_zone_group: An AWS Local Zone Group.
+        """
+        pulumi.set(__self__, "aws_region", aws_region)
+        pulumi.set(__self__, "bias", bias)
+        pulumi.set(__self__, "coordinates", coordinates)
+        pulumi.set(__self__, "local_zone_group", local_zone_group)
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> str:
+        """
+        The AWS Region the resource you are directing DNS traffic to, is in.
+        """
+        return pulumi.get(self, "aws_region")
+
+    @property
+    @pulumi.getter
+    def bias(self) -> int:
+        """
+        The bias increases or decreases the size of the geographic region from which Route 53 routes traffic to a resource.
+        """
+        return pulumi.get(self, "bias")
+
+    @property
+    @pulumi.getter
+    def coordinates(self) -> 'outputs.GetRecordsResourceRecordSetGeoproximityLocationCoordinatesResult':
+        """
+        Contains the longitude and latitude for a geographic region.
+        """
+        return pulumi.get(self, "coordinates")
+
+    @property
+    @pulumi.getter(name="localZoneGroup")
+    def local_zone_group(self) -> str:
+        """
+        An AWS Local Zone Group.
+        """
+        return pulumi.get(self, "local_zone_group")
+
+
+@pulumi.output_type
+class GetRecordsResourceRecordSetGeoproximityLocationCoordinatesResult(dict):
+    def __init__(__self__, *,
+                 latitude: str,
+                 longitude: str):
+        """
+        :param str latitude: Latitude.
+        :param str longitude: Longitude.
+        """
+        pulumi.set(__self__, "latitude", latitude)
+        pulumi.set(__self__, "longitude", longitude)
+
+    @property
+    @pulumi.getter
+    def latitude(self) -> str:
+        """
+        Latitude.
+        """
+        return pulumi.get(self, "latitude")
+
+    @property
+    @pulumi.getter
+    def longitude(self) -> str:
+        """
+        Longitude.
+        """
+        return pulumi.get(self, "longitude")
+
+
+@pulumi.output_type
+class GetRecordsResourceRecordSetResourceRecordResult(dict):
+    def __init__(__self__, *,
+                 value: str):
+        """
+        :param str value: The DNS record value.
+        """
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The DNS record value.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

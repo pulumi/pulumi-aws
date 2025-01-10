@@ -457,13 +457,25 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly ImmutableArray<string> SupportedTimezones;
         /// <summary>
+        /// Whether the certificates can be rotated without restarting the Aurora instance.
+        /// </summary>
+        public readonly bool SupportsCertificateRotationWithoutRestart;
+        /// <summary>
         /// Whether you can use Aurora global databases with the engine version.
         /// </summary>
         public readonly bool SupportsGlobalDatabases;
         /// <summary>
+        /// Whether the engine version supports integrations with other AWS services.
+        /// </summary>
+        public readonly bool SupportsIntegrations;
+        /// <summary>
         /// Whether the engine version supports Aurora Limitless Database.
         /// </summary>
         public readonly bool SupportsLimitlessDatabase;
+        /// <summary>
+        /// Whether the engine version supports local write forwarding or not.
+        /// </summary>
+        public readonly bool SupportsLocalWriteForwarding;
         /// <summary>
         /// Whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
         /// </summary>
@@ -540,9 +552,15 @@ namespace Pulumi.Aws.Rds
 
             ImmutableArray<string> supportedTimezones,
 
+            bool supportsCertificateRotationWithoutRestart,
+
             bool supportsGlobalDatabases,
 
+            bool supportsIntegrations,
+
             bool supportsLimitlessDatabase,
+
+            bool supportsLocalWriteForwarding,
 
             bool supportsLogExportsToCloudwatch,
 
@@ -582,8 +600,11 @@ namespace Pulumi.Aws.Rds
             SupportedFeatureNames = supportedFeatureNames;
             SupportedModes = supportedModes;
             SupportedTimezones = supportedTimezones;
+            SupportsCertificateRotationWithoutRestart = supportsCertificateRotationWithoutRestart;
             SupportsGlobalDatabases = supportsGlobalDatabases;
+            SupportsIntegrations = supportsIntegrations;
             SupportsLimitlessDatabase = supportsLimitlessDatabase;
+            SupportsLocalWriteForwarding = supportsLocalWriteForwarding;
             SupportsLogExportsToCloudwatch = supportsLogExportsToCloudwatch;
             SupportsParallelQuery = supportsParallelQuery;
             SupportsReadReplica = supportsReadReplica;

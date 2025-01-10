@@ -1970,6 +1970,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "bedrock/agentAgentCollaborator",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/agentAgentCollaborator:AgentAgentCollaborator": "AgentAgentCollaborator"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "bedrock/agentAgentKnowledgeBaseAssociation",
   "fqn": "pulumi_aws.bedrock",
   "classes": {
@@ -2286,6 +2294,14 @@ _utilities.register(
   "fqn": "pulumi_aws.cleanrooms",
   "classes": {
    "aws:cleanrooms/configuredTable:ConfiguredTable": "ConfiguredTable"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cleanrooms/membership",
+  "fqn": "pulumi_aws.cleanrooms",
+  "classes": {
+   "aws:cleanrooms/membership:Membership": "Membership"
   }
  },
  {
@@ -2666,6 +2682,38 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "cloudwatch/logDelivery",
+  "fqn": "pulumi_aws.cloudwatch",
+  "classes": {
+   "aws:cloudwatch/logDelivery:LogDelivery": "LogDelivery"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudwatch/logDeliveryDestination",
+  "fqn": "pulumi_aws.cloudwatch",
+  "classes": {
+   "aws:cloudwatch/logDeliveryDestination:LogDeliveryDestination": "LogDeliveryDestination"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudwatch/logDeliveryDestinationPolicy",
+  "fqn": "pulumi_aws.cloudwatch",
+  "classes": {
+   "aws:cloudwatch/logDeliveryDestinationPolicy:LogDeliveryDestinationPolicy": "LogDeliveryDestinationPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudwatch/logDeliverySource",
+  "fqn": "pulumi_aws.cloudwatch",
+  "classes": {
+   "aws:cloudwatch/logDeliverySource:LogDeliverySource": "LogDeliverySource"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cloudwatch/logDestination",
   "fqn": "pulumi_aws.cloudwatch",
   "classes": {
@@ -2686,6 +2734,14 @@ _utilities.register(
   "fqn": "pulumi_aws.cloudwatch",
   "classes": {
    "aws:cloudwatch/logGroup:LogGroup": "LogGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudwatch/logIndexPolicy",
+  "fqn": "pulumi_aws.cloudwatch",
+  "classes": {
+   "aws:cloudwatch/logIndexPolicy:LogIndexPolicy": "LogIndexPolicy"
   }
  },
  {
@@ -12086,6 +12142,14 @@ _utilities.register(
   "fqn": "pulumi_aws.vpclattice",
   "classes": {
    "aws:vpclattice/listenerRule:ListenerRule": "ListenerRule"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "vpclattice/resourceGateway",
+  "fqn": "pulumi_aws.vpclattice",
+  "classes": {
+   "aws:vpclattice/resourceGateway:ResourceGateway": "ResourceGateway"
   }
  },
  {

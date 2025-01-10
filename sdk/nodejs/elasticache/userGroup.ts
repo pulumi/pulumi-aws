@@ -68,7 +68,7 @@ export class UserGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The current supported value is `REDIS`.
+     * The current supported value are `REDIS`, `VALKEY`.
      */
     public readonly engine!: pulumi.Output<string>;
     /**
@@ -140,7 +140,7 @@ export interface UserGroupState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * The current supported value is `REDIS`.
+     * The current supported value are `REDIS`, `VALKEY`.
      */
     engine?: pulumi.Input<string>;
     /**
@@ -170,7 +170,7 @@ export interface UserGroupState {
  */
 export interface UserGroupArgs {
     /**
-     * The current supported value is `REDIS`.
+     * The current supported value are `REDIS`, `VALKEY`.
      */
     engine: pulumi.Input<string>;
     /**

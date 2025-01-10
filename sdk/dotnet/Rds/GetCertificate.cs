@@ -88,6 +88,12 @@ namespace Pulumi.Aws.Rds
     public sealed class GetCertificateArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// When enabled, returns the default certificate for new RDS instances.
+        /// </summary>
+        [Input("defaultForNewLaunches")]
+        public bool? DefaultForNewLaunches { get; set; }
+
+        /// <summary>
         /// Certificate identifier. For example, `rds-ca-2019`.
         /// </summary>
         [Input("id")]
@@ -107,6 +113,12 @@ namespace Pulumi.Aws.Rds
 
     public sealed class GetCertificateInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// When enabled, returns the default certificate for new RDS instances.
+        /// </summary>
+        [Input("defaultForNewLaunches")]
+        public Input<bool>? DefaultForNewLaunches { get; set; }
+
         /// <summary>
         /// Certificate identifier. For example, `rds-ca-2019`.
         /// </summary>
@@ -145,6 +157,7 @@ namespace Pulumi.Aws.Rds
         /// If there is an override for the default certificate identifier, when the override expires.
         /// </summary>
         public readonly string CustomerOverrideValidTill;
+        public readonly bool? DefaultForNewLaunches;
         public readonly string Id;
         public readonly bool? LatestValidTill;
         /// <summary>
@@ -170,6 +183,8 @@ namespace Pulumi.Aws.Rds
 
             string customerOverrideValidTill,
 
+            bool? defaultForNewLaunches,
+
             string id,
 
             bool? latestValidTill,
@@ -184,6 +199,7 @@ namespace Pulumi.Aws.Rds
             CertificateType = certificateType;
             CustomerOverride = customerOverride;
             CustomerOverrideValidTill = customerOverrideValidTill;
+            DefaultForNewLaunches = defaultForNewLaunches;
             Id = id;
             LatestValidTill = latestValidTill;
             Thumbprint = thumbprint;

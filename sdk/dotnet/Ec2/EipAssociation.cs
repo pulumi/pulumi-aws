@@ -10,13 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2
 {
     /// <summary>
-    /// Provides an AWS EIP Association as a top level resource, to associate and
-    /// disassociate Elastic IPs from AWS Instances and Network Interfaces.
+    /// Provides an AWS EIP Association as a top level resource, to associate and disassociate Elastic IPs from AWS Instances and Network Interfaces.
     /// 
     /// &gt; **NOTE:** Do not use this resource to associate an EIP to `aws.lb.LoadBalancer` or `aws.ec2.NatGateway` resources. Instead use the `allocation_id` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
     /// 
-    /// &gt; **NOTE:** `aws.ec2.EipAssociation` is useful in scenarios where EIPs are either
-    /// pre-existing or distributed to customers or users and therefore cannot be changed.
+    /// &gt; **NOTE:** `aws.ec2.EipAssociation` is useful in scenarios where EIPs are either pre-existing or distributed to customers or users and therefore cannot be changed.
     /// 
     /// ## Example Usage
     /// 
@@ -65,46 +63,44 @@ namespace Pulumi.Aws.Ec2
     public partial class EipAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The allocation ID. This is required for EC2-VPC.
+        /// ID of the associated Elastic IP.
+        /// This argument is required despite being optional at the resource level due to legacy support for EC2-Classic networking.
         /// </summary>
         [Output("allocationId")]
         public Output<string> AllocationId { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to allow an Elastic IP to
-        /// be re-associated. Defaults to `true` in VPC.
+        /// Whether to allow an Elastic IP address to be re-associated.
+        /// Defaults to `true`.
         /// </summary>
         [Output("allowReassociation")]
         public Output<bool?> AllowReassociation { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the instance. This is required for
-        /// EC2-Classic. For EC2-VPC, you can specify either the instance ID or the
-        /// network interface ID, but not both. The operation fails if you specify an
-        /// instance ID unless exactly one network interface is attached.
+        /// ID of the instance.
+        /// The instance must have exactly one attached network interface.
+        /// You can specify either the instance ID or the network interface ID, but not both.
         /// </summary>
         [Output("instanceId")]
         public Output<string> InstanceId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the network interface. If the
-        /// instance has more than one network interface, you must specify a network
-        /// interface ID.
+        /// ID of the network interface.
+        /// If the instance has more than one network interface, you must specify a network interface ID.
+        /// You can specify either the instance ID or the network interface ID, but not both.
         /// </summary>
         [Output("networkInterfaceId")]
         public Output<string> NetworkInterfaceId { get; private set; } = null!;
 
         /// <summary>
-        /// The primary or secondary private IP address
-        /// to associate with the Elastic IP address. If no private IP address is
-        /// specified, the Elastic IP address is associated with the primary private IP
-        /// address.
+        /// Primary or secondary private IP address to associate with the Elastic IP address.
+        /// If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
         /// </summary>
         [Output("privateIpAddress")]
         public Output<string> PrivateIpAddress { get; private set; } = null!;
 
         /// <summary>
-        /// The Elastic IP address. This is required for EC2-Classic.
+        /// ) Address of the associated Elastic IP.
         /// </summary>
         [Output("publicIp")]
         public Output<string> PublicIp { get; private set; } = null!;
@@ -156,46 +152,44 @@ namespace Pulumi.Aws.Ec2
     public sealed class EipAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The allocation ID. This is required for EC2-VPC.
+        /// ID of the associated Elastic IP.
+        /// This argument is required despite being optional at the resource level due to legacy support for EC2-Classic networking.
         /// </summary>
         [Input("allocationId")]
         public Input<string>? AllocationId { get; set; }
 
         /// <summary>
-        /// Whether to allow an Elastic IP to
-        /// be re-associated. Defaults to `true` in VPC.
+        /// Whether to allow an Elastic IP address to be re-associated.
+        /// Defaults to `true`.
         /// </summary>
         [Input("allowReassociation")]
         public Input<bool>? AllowReassociation { get; set; }
 
         /// <summary>
-        /// The ID of the instance. This is required for
-        /// EC2-Classic. For EC2-VPC, you can specify either the instance ID or the
-        /// network interface ID, but not both. The operation fails if you specify an
-        /// instance ID unless exactly one network interface is attached.
+        /// ID of the instance.
+        /// The instance must have exactly one attached network interface.
+        /// You can specify either the instance ID or the network interface ID, but not both.
         /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
 
         /// <summary>
-        /// The ID of the network interface. If the
-        /// instance has more than one network interface, you must specify a network
-        /// interface ID.
+        /// ID of the network interface.
+        /// If the instance has more than one network interface, you must specify a network interface ID.
+        /// You can specify either the instance ID or the network interface ID, but not both.
         /// </summary>
         [Input("networkInterfaceId")]
         public Input<string>? NetworkInterfaceId { get; set; }
 
         /// <summary>
-        /// The primary or secondary private IP address
-        /// to associate with the Elastic IP address. If no private IP address is
-        /// specified, the Elastic IP address is associated with the primary private IP
-        /// address.
+        /// Primary or secondary private IP address to associate with the Elastic IP address.
+        /// If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
         /// </summary>
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }
 
         /// <summary>
-        /// The Elastic IP address. This is required for EC2-Classic.
+        /// ) Address of the associated Elastic IP.
         /// </summary>
         [Input("publicIp")]
         public Input<string>? PublicIp { get; set; }
@@ -209,46 +203,44 @@ namespace Pulumi.Aws.Ec2
     public sealed class EipAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The allocation ID. This is required for EC2-VPC.
+        /// ID of the associated Elastic IP.
+        /// This argument is required despite being optional at the resource level due to legacy support for EC2-Classic networking.
         /// </summary>
         [Input("allocationId")]
         public Input<string>? AllocationId { get; set; }
 
         /// <summary>
-        /// Whether to allow an Elastic IP to
-        /// be re-associated. Defaults to `true` in VPC.
+        /// Whether to allow an Elastic IP address to be re-associated.
+        /// Defaults to `true`.
         /// </summary>
         [Input("allowReassociation")]
         public Input<bool>? AllowReassociation { get; set; }
 
         /// <summary>
-        /// The ID of the instance. This is required for
-        /// EC2-Classic. For EC2-VPC, you can specify either the instance ID or the
-        /// network interface ID, but not both. The operation fails if you specify an
-        /// instance ID unless exactly one network interface is attached.
+        /// ID of the instance.
+        /// The instance must have exactly one attached network interface.
+        /// You can specify either the instance ID or the network interface ID, but not both.
         /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
 
         /// <summary>
-        /// The ID of the network interface. If the
-        /// instance has more than one network interface, you must specify a network
-        /// interface ID.
+        /// ID of the network interface.
+        /// If the instance has more than one network interface, you must specify a network interface ID.
+        /// You can specify either the instance ID or the network interface ID, but not both.
         /// </summary>
         [Input("networkInterfaceId")]
         public Input<string>? NetworkInterfaceId { get; set; }
 
         /// <summary>
-        /// The primary or secondary private IP address
-        /// to associate with the Elastic IP address. If no private IP address is
-        /// specified, the Elastic IP address is associated with the primary private IP
-        /// address.
+        /// Primary or secondary private IP address to associate with the Elastic IP address.
+        /// If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
         /// </summary>
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }
 
         /// <summary>
-        /// The Elastic IP address. This is required for EC2-Classic.
+        /// ) Address of the associated Elastic IP.
         /// </summary>
         [Input("publicIp")]
         public Input<string>? PublicIp { get; set; }

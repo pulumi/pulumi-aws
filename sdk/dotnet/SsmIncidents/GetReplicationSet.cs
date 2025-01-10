@@ -133,7 +133,7 @@ namespace Pulumi.Aws.SsmIncidents
     public sealed class GetReplicationSetResult
     {
         /// <summary>
-        /// The Amazon Resouce Name (ARN) of the replication set.
+        /// The Amazon Resource Name (ARN) of the replication set.
         /// </summary>
         public readonly string Arn;
         /// <summary>

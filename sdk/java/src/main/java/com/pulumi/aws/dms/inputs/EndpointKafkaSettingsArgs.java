@@ -169,6 +169,21 @@ public final class EndpointKafkaSettingsArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * For SASL/SSL authentication, AWS DMS supports the `scram-sha-512` mechanism by default. AWS DMS versions 3.5.0 and later also support the PLAIN mechanism. To use the PLAIN mechanism, set this parameter to `plain`.
+     * 
+     */
+    @Import(name="saslMechanism")
+    private @Nullable Output<String> saslMechanism;
+
+    /**
+     * @return For SASL/SSL authentication, AWS DMS supports the `scram-sha-512` mechanism by default. AWS DMS versions 3.5.0 and later also support the PLAIN mechanism. To use the PLAIN mechanism, set this parameter to `plain`.
+     * 
+     */
+    public Optional<Output<String>> saslMechanism() {
+        return Optional.ofNullable(this.saslMechanism);
+    }
+
+    /**
      * Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
      * 
      */
@@ -301,6 +316,7 @@ public final class EndpointKafkaSettingsArgs extends com.pulumi.resources.Resour
         this.messageMaxBytes = $.messageMaxBytes;
         this.noHexPrefix = $.noHexPrefix;
         this.partitionIncludeSchemaTable = $.partitionIncludeSchemaTable;
+        this.saslMechanism = $.saslMechanism;
         this.saslPassword = $.saslPassword;
         this.saslUsername = $.saslUsername;
         this.securityProtocol = $.securityProtocol;
@@ -537,6 +553,27 @@ public final class EndpointKafkaSettingsArgs extends com.pulumi.resources.Resour
          */
         public Builder partitionIncludeSchemaTable(Boolean partitionIncludeSchemaTable) {
             return partitionIncludeSchemaTable(Output.of(partitionIncludeSchemaTable));
+        }
+
+        /**
+         * @param saslMechanism For SASL/SSL authentication, AWS DMS supports the `scram-sha-512` mechanism by default. AWS DMS versions 3.5.0 and later also support the PLAIN mechanism. To use the PLAIN mechanism, set this parameter to `plain`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder saslMechanism(@Nullable Output<String> saslMechanism) {
+            $.saslMechanism = saslMechanism;
+            return this;
+        }
+
+        /**
+         * @param saslMechanism For SASL/SSL authentication, AWS DMS supports the `scram-sha-512` mechanism by default. AWS DMS versions 3.5.0 and later also support the PLAIN mechanism. To use the PLAIN mechanism, set this parameter to `plain`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder saslMechanism(String saslMechanism) {
+            return saslMechanism(Output.of(saslMechanism));
         }
 
         /**

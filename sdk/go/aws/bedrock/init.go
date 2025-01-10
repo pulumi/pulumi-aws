@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AgentAgentActionGroup{}
 	case "aws:bedrock/agentAgentAlias:AgentAgentAlias":
 		r = &AgentAgentAlias{}
+	case "aws:bedrock/agentAgentCollaborator:AgentAgentCollaborator":
+		r = &AgentAgentCollaborator{}
 	case "aws:bedrock/agentAgentKnowledgeBaseAssociation:AgentAgentKnowledgeBaseAssociation":
 		r = &AgentAgentKnowledgeBaseAssociation{}
 	case "aws:bedrock/agentDataSource:AgentDataSource":
@@ -69,6 +71,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"bedrock/agentAgentAlias",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"bedrock/agentAgentCollaborator",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

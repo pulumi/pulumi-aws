@@ -5493,7 +5493,9 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSalesforce(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "enableDynamicFieldUpdate":
+        if key == "dataTransferApi":
+            suggest = "data_transfer_api"
+        elif key == "enableDynamicFieldUpdate":
             suggest = "enable_dynamic_field_update"
         elif key == "includeDeletedRecords":
             suggest = "include_deleted_records"
@@ -5511,13 +5513,17 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSalesforce(dict):
 
     def __init__(__self__, *,
                  object: str,
+                 data_transfer_api: Optional[str] = None,
                  enable_dynamic_field_update: Optional[bool] = None,
                  include_deleted_records: Optional[bool] = None):
         """
+        :param str data_transfer_api: Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
         :param bool enable_dynamic_field_update: Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
         :param bool include_deleted_records: Whether Amazon AppFlow includes deleted files in the flow run.
         """
         pulumi.set(__self__, "object", object)
+        if data_transfer_api is not None:
+            pulumi.set(__self__, "data_transfer_api", data_transfer_api)
         if enable_dynamic_field_update is not None:
             pulumi.set(__self__, "enable_dynamic_field_update", enable_dynamic_field_update)
         if include_deleted_records is not None:
@@ -5527,6 +5533,14 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSalesforce(dict):
     @pulumi.getter
     def object(self) -> str:
         return pulumi.get(self, "object")
+
+    @property
+    @pulumi.getter(name="dataTransferApi")
+    def data_transfer_api(self) -> Optional[str]:
+        """
+        Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
+        """
+        return pulumi.get(self, "data_transfer_api")
 
     @property
     @pulumi.getter(name="enableDynamicFieldUpdate")

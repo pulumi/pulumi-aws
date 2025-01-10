@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Msk.Inputs
 
     public sealed class ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

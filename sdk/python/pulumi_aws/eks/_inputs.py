@@ -63,6 +63,8 @@ __all__ = [
     'IdentityProviderConfigOidcArgsDict',
     'NodeGroupLaunchTemplateArgs',
     'NodeGroupLaunchTemplateArgsDict',
+    'NodeGroupNodeRepairConfigArgs',
+    'NodeGroupNodeRepairConfigArgsDict',
     'NodeGroupRemoteAccessArgs',
     'NodeGroupRemoteAccessArgsDict',
     'NodeGroupResourceArgs',
@@ -1422,6 +1424,38 @@ class NodeGroupLaunchTemplateArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class NodeGroupNodeRepairConfigArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default.
+        """
+elif False:
+    NodeGroupNodeRepairConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NodeGroupNodeRepairConfigArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 if not MYPY:

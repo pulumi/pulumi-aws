@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * });
  * const example = new aws.s3tables.Table("example", {
  *     name: "example-table",
- *     namespace: exampleNamespace,
+ *     namespace: exampleNamespace.namespace,
  *     tableBucketArn: exampleNamespace.tableBucketArn,
  *     format: "ICEBERG",
  * });

@@ -3764,6 +3764,143 @@ func (o NodeGroupLaunchTemplatePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type NodeGroupNodeRepairConfig struct {
+	// Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// NodeGroupNodeRepairConfigInput is an input type that accepts NodeGroupNodeRepairConfigArgs and NodeGroupNodeRepairConfigOutput values.
+// You can construct a concrete instance of `NodeGroupNodeRepairConfigInput` via:
+//
+//	NodeGroupNodeRepairConfigArgs{...}
+type NodeGroupNodeRepairConfigInput interface {
+	pulumi.Input
+
+	ToNodeGroupNodeRepairConfigOutput() NodeGroupNodeRepairConfigOutput
+	ToNodeGroupNodeRepairConfigOutputWithContext(context.Context) NodeGroupNodeRepairConfigOutput
+}
+
+type NodeGroupNodeRepairConfigArgs struct {
+	// Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (NodeGroupNodeRepairConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeGroupNodeRepairConfig)(nil)).Elem()
+}
+
+func (i NodeGroupNodeRepairConfigArgs) ToNodeGroupNodeRepairConfigOutput() NodeGroupNodeRepairConfigOutput {
+	return i.ToNodeGroupNodeRepairConfigOutputWithContext(context.Background())
+}
+
+func (i NodeGroupNodeRepairConfigArgs) ToNodeGroupNodeRepairConfigOutputWithContext(ctx context.Context) NodeGroupNodeRepairConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupNodeRepairConfigOutput)
+}
+
+func (i NodeGroupNodeRepairConfigArgs) ToNodeGroupNodeRepairConfigPtrOutput() NodeGroupNodeRepairConfigPtrOutput {
+	return i.ToNodeGroupNodeRepairConfigPtrOutputWithContext(context.Background())
+}
+
+func (i NodeGroupNodeRepairConfigArgs) ToNodeGroupNodeRepairConfigPtrOutputWithContext(ctx context.Context) NodeGroupNodeRepairConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupNodeRepairConfigOutput).ToNodeGroupNodeRepairConfigPtrOutputWithContext(ctx)
+}
+
+// NodeGroupNodeRepairConfigPtrInput is an input type that accepts NodeGroupNodeRepairConfigArgs, NodeGroupNodeRepairConfigPtr and NodeGroupNodeRepairConfigPtrOutput values.
+// You can construct a concrete instance of `NodeGroupNodeRepairConfigPtrInput` via:
+//
+//	        NodeGroupNodeRepairConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type NodeGroupNodeRepairConfigPtrInput interface {
+	pulumi.Input
+
+	ToNodeGroupNodeRepairConfigPtrOutput() NodeGroupNodeRepairConfigPtrOutput
+	ToNodeGroupNodeRepairConfigPtrOutputWithContext(context.Context) NodeGroupNodeRepairConfigPtrOutput
+}
+
+type nodeGroupNodeRepairConfigPtrType NodeGroupNodeRepairConfigArgs
+
+func NodeGroupNodeRepairConfigPtr(v *NodeGroupNodeRepairConfigArgs) NodeGroupNodeRepairConfigPtrInput {
+	return (*nodeGroupNodeRepairConfigPtrType)(v)
+}
+
+func (*nodeGroupNodeRepairConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodeGroupNodeRepairConfig)(nil)).Elem()
+}
+
+func (i *nodeGroupNodeRepairConfigPtrType) ToNodeGroupNodeRepairConfigPtrOutput() NodeGroupNodeRepairConfigPtrOutput {
+	return i.ToNodeGroupNodeRepairConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *nodeGroupNodeRepairConfigPtrType) ToNodeGroupNodeRepairConfigPtrOutputWithContext(ctx context.Context) NodeGroupNodeRepairConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupNodeRepairConfigPtrOutput)
+}
+
+type NodeGroupNodeRepairConfigOutput struct{ *pulumi.OutputState }
+
+func (NodeGroupNodeRepairConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeGroupNodeRepairConfig)(nil)).Elem()
+}
+
+func (o NodeGroupNodeRepairConfigOutput) ToNodeGroupNodeRepairConfigOutput() NodeGroupNodeRepairConfigOutput {
+	return o
+}
+
+func (o NodeGroupNodeRepairConfigOutput) ToNodeGroupNodeRepairConfigOutputWithContext(ctx context.Context) NodeGroupNodeRepairConfigOutput {
+	return o
+}
+
+func (o NodeGroupNodeRepairConfigOutput) ToNodeGroupNodeRepairConfigPtrOutput() NodeGroupNodeRepairConfigPtrOutput {
+	return o.ToNodeGroupNodeRepairConfigPtrOutputWithContext(context.Background())
+}
+
+func (o NodeGroupNodeRepairConfigOutput) ToNodeGroupNodeRepairConfigPtrOutputWithContext(ctx context.Context) NodeGroupNodeRepairConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodeGroupNodeRepairConfig) *NodeGroupNodeRepairConfig {
+		return &v
+	}).(NodeGroupNodeRepairConfigPtrOutput)
+}
+
+// Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default.
+func (o NodeGroupNodeRepairConfigOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NodeGroupNodeRepairConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type NodeGroupNodeRepairConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (NodeGroupNodeRepairConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodeGroupNodeRepairConfig)(nil)).Elem()
+}
+
+func (o NodeGroupNodeRepairConfigPtrOutput) ToNodeGroupNodeRepairConfigPtrOutput() NodeGroupNodeRepairConfigPtrOutput {
+	return o
+}
+
+func (o NodeGroupNodeRepairConfigPtrOutput) ToNodeGroupNodeRepairConfigPtrOutputWithContext(ctx context.Context) NodeGroupNodeRepairConfigPtrOutput {
+	return o
+}
+
+func (o NodeGroupNodeRepairConfigPtrOutput) Elem() NodeGroupNodeRepairConfigOutput {
+	return o.ApplyT(func(v *NodeGroupNodeRepairConfig) NodeGroupNodeRepairConfig {
+		if v != nil {
+			return *v
+		}
+		var ret NodeGroupNodeRepairConfig
+		return ret
+	}).(NodeGroupNodeRepairConfigOutput)
+}
+
+// Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default.
+func (o NodeGroupNodeRepairConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NodeGroupNodeRepairConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type NodeGroupRemoteAccess struct {
 	// EC2 Key Pair name that provides access for remote communication with the worker nodes in the EKS Node Group. If you specify this configuration, but do not specify `sourceSecurityGroupIds` when you create an EKS Node Group, either port 3389 for Windows, or port 22 for all other operating systems is opened on the worker nodes to the Internet (0.0.0.0/0). For Windows nodes, this will allow you to use RDP, for all others this allows you to SSH into the worker nodes.
 	Ec2SshKey *string `pulumi:"ec2SshKey"`
@@ -7126,6 +7263,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderConfigOidcPtrInput)(nil)).Elem(), IdentityProviderConfigOidcArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupLaunchTemplateInput)(nil)).Elem(), NodeGroupLaunchTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupLaunchTemplatePtrInput)(nil)).Elem(), NodeGroupLaunchTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupNodeRepairConfigInput)(nil)).Elem(), NodeGroupNodeRepairConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupNodeRepairConfigPtrInput)(nil)).Elem(), NodeGroupNodeRepairConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupRemoteAccessInput)(nil)).Elem(), NodeGroupRemoteAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupRemoteAccessPtrInput)(nil)).Elem(), NodeGroupRemoteAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupResourceInput)(nil)).Elem(), NodeGroupResourceArgs{})
@@ -7234,6 +7373,8 @@ func init() {
 	pulumi.RegisterOutputType(IdentityProviderConfigOidcPtrOutput{})
 	pulumi.RegisterOutputType(NodeGroupLaunchTemplateOutput{})
 	pulumi.RegisterOutputType(NodeGroupLaunchTemplatePtrOutput{})
+	pulumi.RegisterOutputType(NodeGroupNodeRepairConfigOutput{})
+	pulumi.RegisterOutputType(NodeGroupNodeRepairConfigPtrOutput{})
 	pulumi.RegisterOutputType(NodeGroupRemoteAccessOutput{})
 	pulumi.RegisterOutputType(NodeGroupRemoteAccessPtrOutput{})
 	pulumi.RegisterOutputType(NodeGroupResourceOutput{})

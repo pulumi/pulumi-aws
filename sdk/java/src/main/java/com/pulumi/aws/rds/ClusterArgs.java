@@ -640,14 +640,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enables Performance Insights for the RDS Cluster
+     * Enables Performance Insights.
      * 
      */
     @Import(name="performanceInsightsEnabled")
     private @Nullable Output<Boolean> performanceInsightsEnabled;
 
     /**
-     * @return Enables Performance Insights for the RDS Cluster
+     * @return Enables Performance Insights.
      * 
      */
     public Optional<Output<Boolean>> performanceInsightsEnabled() {
@@ -1918,7 +1918,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param performanceInsightsEnabled Enables Performance Insights for the RDS Cluster
+         * @param performanceInsightsEnabled Enables Performance Insights.
          * 
          * @return builder
          * 
@@ -1929,7 +1929,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param performanceInsightsEnabled Enables Performance Insights for the RDS Cluster
+         * @param performanceInsightsEnabled Enables Performance Insights.
          * 
          * @return builder
          * 

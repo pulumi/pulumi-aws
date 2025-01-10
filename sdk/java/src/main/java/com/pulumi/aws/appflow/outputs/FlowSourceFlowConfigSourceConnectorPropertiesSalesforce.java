@@ -14,6 +14,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforce {
     /**
+     * @return Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
+     * 
+     */
+    private @Nullable String dataTransferApi;
+    /**
      * @return Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
      * 
      */
@@ -26,6 +31,13 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforce {
     private String object;
 
     private FlowSourceFlowConfigSourceConnectorPropertiesSalesforce() {}
+    /**
+     * @return Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
+     * 
+     */
+    public Optional<String> dataTransferApi() {
+        return Optional.ofNullable(this.dataTransferApi);
+    }
     /**
      * @return Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
      * 
@@ -53,17 +65,25 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforce {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String dataTransferApi;
         private @Nullable Boolean enableDynamicFieldUpdate;
         private @Nullable Boolean includeDeletedRecords;
         private String object;
         public Builder() {}
         public Builder(FlowSourceFlowConfigSourceConnectorPropertiesSalesforce defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.dataTransferApi = defaults.dataTransferApi;
     	      this.enableDynamicFieldUpdate = defaults.enableDynamicFieldUpdate;
     	      this.includeDeletedRecords = defaults.includeDeletedRecords;
     	      this.object = defaults.object;
         }
 
+        @CustomType.Setter
+        public Builder dataTransferApi(@Nullable String dataTransferApi) {
+
+            this.dataTransferApi = dataTransferApi;
+            return this;
+        }
         @CustomType.Setter
         public Builder enableDynamicFieldUpdate(@Nullable Boolean enableDynamicFieldUpdate) {
 
@@ -86,6 +106,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforce {
         }
         public FlowSourceFlowConfigSourceConnectorPropertiesSalesforce build() {
             final var _resultValue = new FlowSourceFlowConfigSourceConnectorPropertiesSalesforce();
+            _resultValue.dataTransferApi = dataTransferApi;
             _resultValue.enableDynamicFieldUpdate = enableDynamicFieldUpdate;
             _resultValue.includeDeletedRecords = includeDeletedRecords;
             _resultValue.object = object;

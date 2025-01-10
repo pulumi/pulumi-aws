@@ -189,6 +189,10 @@ if not MYPY:
         """
         Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. Default is `false`.
         """
+        sasl_mechanism: NotRequired[pulumi.Input[str]]
+        """
+        For SASL/SSL authentication, AWS DMS supports the `scram-sha-512` mechanism by default. AWS DMS versions 3.5.0 and later also support the PLAIN mechanism. To use the PLAIN mechanism, set this parameter to `plain`.
+        """
         sasl_password: NotRequired[pulumi.Input[str]]
         """
         Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
@@ -237,6 +241,7 @@ class EndpointKafkaSettingsArgs:
                  message_max_bytes: Optional[pulumi.Input[int]] = None,
                  no_hex_prefix: Optional[pulumi.Input[bool]] = None,
                  partition_include_schema_table: Optional[pulumi.Input[bool]] = None,
+                 sasl_mechanism: Optional[pulumi.Input[str]] = None,
                  sasl_password: Optional[pulumi.Input[str]] = None,
                  sasl_username: Optional[pulumi.Input[str]] = None,
                  security_protocol: Optional[pulumi.Input[str]] = None,
@@ -256,6 +261,7 @@ class EndpointKafkaSettingsArgs:
         :param pulumi.Input[int] message_max_bytes: Maximum size in bytes for records created on the endpoint Default is `1,000,000`.
         :param pulumi.Input[bool] no_hex_prefix: Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `no_hex_prefix` endpoint setting to enable migration of RAW data type columns without adding the `'0x'` prefix.
         :param pulumi.Input[bool] partition_include_schema_table: Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. Default is `false`.
+        :param pulumi.Input[str] sasl_mechanism: For SASL/SSL authentication, AWS DMS supports the `scram-sha-512` mechanism by default. AWS DMS versions 3.5.0 and later also support the PLAIN mechanism. To use the PLAIN mechanism, set this parameter to `plain`.
         :param pulumi.Input[str] sasl_password: Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
         :param pulumi.Input[str] sasl_username: Secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
         :param pulumi.Input[str] security_protocol: Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `sasl_username` and `sasl_password`.
@@ -284,6 +290,8 @@ class EndpointKafkaSettingsArgs:
             pulumi.set(__self__, "no_hex_prefix", no_hex_prefix)
         if partition_include_schema_table is not None:
             pulumi.set(__self__, "partition_include_schema_table", partition_include_schema_table)
+        if sasl_mechanism is not None:
+            pulumi.set(__self__, "sasl_mechanism", sasl_mechanism)
         if sasl_password is not None:
             pulumi.set(__self__, "sasl_password", sasl_password)
         if sasl_username is not None:
@@ -420,6 +428,18 @@ class EndpointKafkaSettingsArgs:
     @partition_include_schema_table.setter
     def partition_include_schema_table(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "partition_include_schema_table", value)
+
+    @property
+    @pulumi.getter(name="saslMechanism")
+    def sasl_mechanism(self) -> Optional[pulumi.Input[str]]:
+        """
+        For SASL/SSL authentication, AWS DMS supports the `scram-sha-512` mechanism by default. AWS DMS versions 3.5.0 and later also support the PLAIN mechanism. To use the PLAIN mechanism, set this parameter to `plain`.
+        """
+        return pulumi.get(self, "sasl_mechanism")
+
+    @sasl_mechanism.setter
+    def sasl_mechanism(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sasl_mechanism", value)
 
     @property
     @pulumi.getter(name="saslPassword")

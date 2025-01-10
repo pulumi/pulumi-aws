@@ -3037,7 +3037,7 @@ func (o ParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ParameterGr
 type ProxyAuth struct {
 	// The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
 	AuthScheme *string `pulumi:"authScheme"`
-	// The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
+	// The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
 	ClientPasswordAuthType *string `pulumi:"clientPasswordAuthType"`
 	// A user-specified description about the authentication used by a proxy to log in as a specific database user.
 	Description *string `pulumi:"description"`
@@ -3063,7 +3063,7 @@ type ProxyAuthInput interface {
 type ProxyAuthArgs struct {
 	// The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
 	AuthScheme pulumi.StringPtrInput `pulumi:"authScheme"`
-	// The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
+	// The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
 	ClientPasswordAuthType pulumi.StringPtrInput `pulumi:"clientPasswordAuthType"`
 	// A user-specified description about the authentication used by a proxy to log in as a specific database user.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -3131,7 +3131,7 @@ func (o ProxyAuthOutput) AuthScheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProxyAuth) *string { return v.AuthScheme }).(pulumi.StringPtrOutput)
 }
 
-// The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
+// The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
 func (o ProxyAuthOutput) ClientPasswordAuthType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProxyAuth) *string { return v.ClientPasswordAuthType }).(pulumi.StringPtrOutput)
 }

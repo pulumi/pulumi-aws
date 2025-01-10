@@ -27,13 +27,16 @@ class GetFleetResult:
     """
     A collection of values returned by getFleet.
     """
-    def __init__(__self__, arn=None, base_capacity=None, compute_type=None, created=None, environment_type=None, fleet_service_role=None, id=None, image_id=None, last_modified=None, name=None, overflow_behavior=None, scaling_configurations=None, statuses=None, tags=None, vpc_configs=None):
+    def __init__(__self__, arn=None, base_capacity=None, compute_configurations=None, compute_type=None, created=None, environment_type=None, fleet_service_role=None, id=None, image_id=None, last_modified=None, name=None, overflow_behavior=None, scaling_configurations=None, statuses=None, tags=None, vpc_configs=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if base_capacity and not isinstance(base_capacity, int):
             raise TypeError("Expected argument 'base_capacity' to be a int")
         pulumi.set(__self__, "base_capacity", base_capacity)
+        if compute_configurations and not isinstance(compute_configurations, list):
+            raise TypeError("Expected argument 'compute_configurations' to be a list")
+        pulumi.set(__self__, "compute_configurations", compute_configurations)
         if compute_type and not isinstance(compute_type, str):
             raise TypeError("Expected argument 'compute_type' to be a str")
         pulumi.set(__self__, "compute_type", compute_type)
@@ -89,6 +92,14 @@ class GetFleetResult:
         Number of machines allocated to the ﬂeet.
         """
         return pulumi.get(self, "base_capacity")
+
+    @property
+    @pulumi.getter(name="computeConfigurations")
+    def compute_configurations(self) -> Sequence['outputs.GetFleetComputeConfigurationResult']:
+        """
+        Compute configuration of the compute fleet.
+        """
+        return pulumi.get(self, "compute_configurations")
 
     @property
     @pulumi.getter(name="computeType")
@@ -200,6 +211,7 @@ class AwaitableGetFleetResult(GetFleetResult):
         return GetFleetResult(
             arn=self.arn,
             base_capacity=self.base_capacity,
+            compute_configurations=self.compute_configurations,
             compute_type=self.compute_type,
             created=self.created,
             environment_type=self.environment_type,
@@ -266,6 +278,7 @@ def get_fleet(name: Optional[str] = None,
     return AwaitableGetFleetResult(
         arn=pulumi.get(__ret__, 'arn'),
         base_capacity=pulumi.get(__ret__, 'base_capacity'),
+        compute_configurations=pulumi.get(__ret__, 'compute_configurations'),
         compute_type=pulumi.get(__ret__, 'compute_type'),
         created=pulumi.get(__ret__, 'created'),
         environment_type=pulumi.get(__ret__, 'environment_type'),
@@ -329,6 +342,7 @@ def get_fleet_output(name: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetFleetResult(
         arn=pulumi.get(__response__, 'arn'),
         base_capacity=pulumi.get(__response__, 'base_capacity'),
+        compute_configurations=pulumi.get(__response__, 'compute_configurations'),
         compute_type=pulumi.get(__response__, 'compute_type'),
         created=pulumi.get(__response__, 'created'),
         environment_type=pulumi.get(__response__, 'environment_type'),

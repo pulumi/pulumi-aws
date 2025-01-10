@@ -275,6 +275,55 @@ class Replicator(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.msk.Replicator("test",
+            replicator_name="test-name",
+            description="test-description",
+            service_execution_role_arn=source_aws_iam_role["arn"],
+            kafka_clusters=[
+                {
+                    "amazon_msk_cluster": {
+                        "msk_cluster_arn": source["arn"],
+                    },
+                    "vpc_config": {
+                        "subnet_ids": [__item["id"] for __item in source_aws_subnet],
+                        "security_groups_ids": [source_aws_security_group["id"]],
+                    },
+                },
+                {
+                    "amazon_msk_cluster": {
+                        "msk_cluster_arn": target["arn"],
+                    },
+                    "vpc_config": {
+                        "subnet_ids": [__item["id"] for __item in target_aws_subnet],
+                        "security_groups_ids": [target_aws_security_group["id"]],
+                    },
+                },
+            ],
+            replication_info_list={
+                "source_kafka_cluster_arn": source["arn"],
+                "target_kafka_cluster_arn": target["arn"],
+                "target_compression_type": "NONE",
+                "topic_replications": [{
+                    "topic_name_configuration": {
+                        "type": "PREFIXED_WITH_SOURCE_CLUSTER_ALIAS",
+                    },
+                    "topics_to_replicates": [".*"],
+                    "starting_position": {
+                        "type": "LATEST",
+                    },
+                }],
+                "consumer_group_replications": [{
+                    "consumer_groups_to_replicates": [".*"],
+                }],
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import MSK replicators using the replicator ARN. For example:
@@ -301,6 +350,55 @@ class Replicator(pulumi.CustomResource):
         Resource for managing an AWS Managed Streaming for Kafka Replicator.
 
         ## Example Usage
+
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.msk.Replicator("test",
+            replicator_name="test-name",
+            description="test-description",
+            service_execution_role_arn=source_aws_iam_role["arn"],
+            kafka_clusters=[
+                {
+                    "amazon_msk_cluster": {
+                        "msk_cluster_arn": source["arn"],
+                    },
+                    "vpc_config": {
+                        "subnet_ids": [__item["id"] for __item in source_aws_subnet],
+                        "security_groups_ids": [source_aws_security_group["id"]],
+                    },
+                },
+                {
+                    "amazon_msk_cluster": {
+                        "msk_cluster_arn": target["arn"],
+                    },
+                    "vpc_config": {
+                        "subnet_ids": [__item["id"] for __item in target_aws_subnet],
+                        "security_groups_ids": [target_aws_security_group["id"]],
+                    },
+                },
+            ],
+            replication_info_list={
+                "source_kafka_cluster_arn": source["arn"],
+                "target_kafka_cluster_arn": target["arn"],
+                "target_compression_type": "NONE",
+                "topic_replications": [{
+                    "topic_name_configuration": {
+                        "type": "PREFIXED_WITH_SOURCE_CLUSTER_ALIAS",
+                    },
+                    "topics_to_replicates": [".*"],
+                    "starting_position": {
+                        "type": "LATEST",
+                    },
+                }],
+                "consumer_group_replications": [{
+                    "consumer_groups_to_replicates": [".*"],
+                }],
+            })
+        ```
 
         ## Import
 

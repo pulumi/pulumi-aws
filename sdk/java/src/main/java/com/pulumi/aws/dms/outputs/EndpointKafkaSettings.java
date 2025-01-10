@@ -65,6 +65,11 @@ public final class EndpointKafkaSettings {
      */
     private @Nullable Boolean partitionIncludeSchemaTable;
     /**
+     * @return For SASL/SSL authentication, AWS DMS supports the `scram-sha-512` mechanism by default. AWS DMS versions 3.5.0 and later also support the PLAIN mechanism. To use the PLAIN mechanism, set this parameter to `plain`.
+     * 
+     */
+    private @Nullable String saslMechanism;
+    /**
      * @return Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
      * 
      */
@@ -177,6 +182,13 @@ public final class EndpointKafkaSettings {
         return Optional.ofNullable(this.partitionIncludeSchemaTable);
     }
     /**
+     * @return For SASL/SSL authentication, AWS DMS supports the `scram-sha-512` mechanism by default. AWS DMS versions 3.5.0 and later also support the PLAIN mechanism. To use the PLAIN mechanism, set this parameter to `plain`.
+     * 
+     */
+    public Optional<String> saslMechanism() {
+        return Optional.ofNullable(this.saslMechanism);
+    }
+    /**
      * @return Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
      * 
      */
@@ -252,6 +264,7 @@ public final class EndpointKafkaSettings {
         private @Nullable Integer messageMaxBytes;
         private @Nullable Boolean noHexPrefix;
         private @Nullable Boolean partitionIncludeSchemaTable;
+        private @Nullable String saslMechanism;
         private @Nullable String saslPassword;
         private @Nullable String saslUsername;
         private @Nullable String securityProtocol;
@@ -273,6 +286,7 @@ public final class EndpointKafkaSettings {
     	      this.messageMaxBytes = defaults.messageMaxBytes;
     	      this.noHexPrefix = defaults.noHexPrefix;
     	      this.partitionIncludeSchemaTable = defaults.partitionIncludeSchemaTable;
+    	      this.saslMechanism = defaults.saslMechanism;
     	      this.saslPassword = defaults.saslPassword;
     	      this.saslUsername = defaults.saslUsername;
     	      this.securityProtocol = defaults.securityProtocol;
@@ -346,6 +360,12 @@ public final class EndpointKafkaSettings {
             return this;
         }
         @CustomType.Setter
+        public Builder saslMechanism(@Nullable String saslMechanism) {
+
+            this.saslMechanism = saslMechanism;
+            return this;
+        }
+        @CustomType.Setter
         public Builder saslPassword(@Nullable String saslPassword) {
 
             this.saslPassword = saslPassword;
@@ -405,6 +425,7 @@ public final class EndpointKafkaSettings {
             _resultValue.messageMaxBytes = messageMaxBytes;
             _resultValue.noHexPrefix = noHexPrefix;
             _resultValue.partitionIncludeSchemaTable = partitionIncludeSchemaTable;
+            _resultValue.saslMechanism = saslMechanism;
             _resultValue.saslPassword = saslPassword;
             _resultValue.saslUsername = saslUsername;
             _resultValue.securityProtocol = securityProtocol;

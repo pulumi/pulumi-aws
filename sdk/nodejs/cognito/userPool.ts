@@ -145,6 +145,10 @@ export class UserPool extends pulumi.CustomResource {
      */
     public readonly emailConfiguration!: pulumi.Output<outputs.cognito.UserPoolEmailConfiguration | undefined>;
     /**
+     * Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `accountRecoverySetting` entries; requires an `emailConfiguration` configuration block. Detailed below.
+     */
+    public readonly emailMfaConfiguration!: pulumi.Output<outputs.cognito.UserPoolEmailMfaConfiguration | undefined>;
+    /**
      * String representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
      */
     public readonly emailVerificationMessage!: pulumi.Output<string>;
@@ -187,6 +191,10 @@ export class UserPool extends pulumi.CustomResource {
      */
     public readonly schemas!: pulumi.Output<outputs.cognito.UserPoolSchema[] | undefined>;
     /**
+     * Configuration block for information about the user pool sign in policy. Detailed below.
+     */
+    public readonly signInPolicy!: pulumi.Output<outputs.cognito.UserPoolSignInPolicy>;
+    /**
      * String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
      */
     public readonly smsAuthenticationMessage!: pulumi.Output<string | undefined>;
@@ -221,6 +229,10 @@ export class UserPool extends pulumi.CustomResource {
      */
     public readonly userPoolAddOns!: pulumi.Output<outputs.cognito.UserPoolUserPoolAddOns | undefined>;
     /**
+     * The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html), or tier. Valid values: `LITE`, `ESSENTIALS`, `PLUS`.
+     */
+    public readonly userPoolTier!: pulumi.Output<string>;
+    /**
      * Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
      */
     public readonly usernameAttributes!: pulumi.Output<string[] | undefined>;
@@ -232,6 +244,10 @@ export class UserPool extends pulumi.CustomResource {
      * Configuration block for verification message templates. Detailed below.
      */
     public readonly verificationMessageTemplate!: pulumi.Output<outputs.cognito.UserPoolVerificationMessageTemplate>;
+    /**
+     * Configuration block for web authn configuration. Detailed below.
+     */
+    public readonly webAuthnConfiguration!: pulumi.Output<outputs.cognito.UserPoolWebAuthnConfiguration | undefined>;
 
     /**
      * Create a UserPool resource with the given unique name, arguments, and options.
@@ -257,6 +273,7 @@ export class UserPool extends pulumi.CustomResource {
             resourceInputs["deviceConfiguration"] = state ? state.deviceConfiguration : undefined;
             resourceInputs["domain"] = state ? state.domain : undefined;
             resourceInputs["emailConfiguration"] = state ? state.emailConfiguration : undefined;
+            resourceInputs["emailMfaConfiguration"] = state ? state.emailMfaConfiguration : undefined;
             resourceInputs["emailVerificationMessage"] = state ? state.emailVerificationMessage : undefined;
             resourceInputs["emailVerificationSubject"] = state ? state.emailVerificationSubject : undefined;
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
@@ -267,6 +284,7 @@ export class UserPool extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["passwordPolicy"] = state ? state.passwordPolicy : undefined;
             resourceInputs["schemas"] = state ? state.schemas : undefined;
+            resourceInputs["signInPolicy"] = state ? state.signInPolicy : undefined;
             resourceInputs["smsAuthenticationMessage"] = state ? state.smsAuthenticationMessage : undefined;
             resourceInputs["smsConfiguration"] = state ? state.smsConfiguration : undefined;
             resourceInputs["smsVerificationMessage"] = state ? state.smsVerificationMessage : undefined;
@@ -275,9 +293,11 @@ export class UserPool extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["userAttributeUpdateSettings"] = state ? state.userAttributeUpdateSettings : undefined;
             resourceInputs["userPoolAddOns"] = state ? state.userPoolAddOns : undefined;
+            resourceInputs["userPoolTier"] = state ? state.userPoolTier : undefined;
             resourceInputs["usernameAttributes"] = state ? state.usernameAttributes : undefined;
             resourceInputs["usernameConfiguration"] = state ? state.usernameConfiguration : undefined;
             resourceInputs["verificationMessageTemplate"] = state ? state.verificationMessageTemplate : undefined;
+            resourceInputs["webAuthnConfiguration"] = state ? state.webAuthnConfiguration : undefined;
         } else {
             const args = argsOrState as UserPoolArgs | undefined;
             resourceInputs["accountRecoverySetting"] = args ? args.accountRecoverySetting : undefined;
@@ -287,6 +307,7 @@ export class UserPool extends pulumi.CustomResource {
             resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
             resourceInputs["deviceConfiguration"] = args ? args.deviceConfiguration : undefined;
             resourceInputs["emailConfiguration"] = args ? args.emailConfiguration : undefined;
+            resourceInputs["emailMfaConfiguration"] = args ? args.emailMfaConfiguration : undefined;
             resourceInputs["emailVerificationMessage"] = args ? args.emailVerificationMessage : undefined;
             resourceInputs["emailVerificationSubject"] = args ? args.emailVerificationSubject : undefined;
             resourceInputs["lambdaConfig"] = args ? args.lambdaConfig : undefined;
@@ -294,6 +315,7 @@ export class UserPool extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["passwordPolicy"] = args ? args.passwordPolicy : undefined;
             resourceInputs["schemas"] = args ? args.schemas : undefined;
+            resourceInputs["signInPolicy"] = args ? args.signInPolicy : undefined;
             resourceInputs["smsAuthenticationMessage"] = args ? args.smsAuthenticationMessage : undefined;
             resourceInputs["smsConfiguration"] = args ? args.smsConfiguration : undefined;
             resourceInputs["smsVerificationMessage"] = args ? args.smsVerificationMessage : undefined;
@@ -301,9 +323,11 @@ export class UserPool extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userAttributeUpdateSettings"] = args ? args.userAttributeUpdateSettings : undefined;
             resourceInputs["userPoolAddOns"] = args ? args.userPoolAddOns : undefined;
+            resourceInputs["userPoolTier"] = args ? args.userPoolTier : undefined;
             resourceInputs["usernameAttributes"] = args ? args.usernameAttributes : undefined;
             resourceInputs["usernameConfiguration"] = args ? args.usernameConfiguration : undefined;
             resourceInputs["verificationMessageTemplate"] = args ? args.verificationMessageTemplate : undefined;
+            resourceInputs["webAuthnConfiguration"] = args ? args.webAuthnConfiguration : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["customDomain"] = undefined /*out*/;
@@ -367,6 +391,10 @@ export interface UserPoolState {
      */
     emailConfiguration?: pulumi.Input<inputs.cognito.UserPoolEmailConfiguration>;
     /**
+     * Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `accountRecoverySetting` entries; requires an `emailConfiguration` configuration block. Detailed below.
+     */
+    emailMfaConfiguration?: pulumi.Input<inputs.cognito.UserPoolEmailMfaConfiguration>;
+    /**
      * String representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
      */
     emailVerificationMessage?: pulumi.Input<string>;
@@ -409,6 +437,10 @@ export interface UserPoolState {
      */
     schemas?: pulumi.Input<pulumi.Input<inputs.cognito.UserPoolSchema>[]>;
     /**
+     * Configuration block for information about the user pool sign in policy. Detailed below.
+     */
+    signInPolicy?: pulumi.Input<inputs.cognito.UserPoolSignInPolicy>;
+    /**
      * String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
      */
     smsAuthenticationMessage?: pulumi.Input<string>;
@@ -443,6 +475,10 @@ export interface UserPoolState {
      */
     userPoolAddOns?: pulumi.Input<inputs.cognito.UserPoolUserPoolAddOns>;
     /**
+     * The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html), or tier. Valid values: `LITE`, `ESSENTIALS`, `PLUS`.
+     */
+    userPoolTier?: pulumi.Input<string>;
+    /**
      * Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
      */
     usernameAttributes?: pulumi.Input<pulumi.Input<string>[]>;
@@ -454,6 +490,10 @@ export interface UserPoolState {
      * Configuration block for verification message templates. Detailed below.
      */
     verificationMessageTemplate?: pulumi.Input<inputs.cognito.UserPoolVerificationMessageTemplate>;
+    /**
+     * Configuration block for web authn configuration. Detailed below.
+     */
+    webAuthnConfiguration?: pulumi.Input<inputs.cognito.UserPoolWebAuthnConfiguration>;
 }
 
 /**
@@ -489,6 +529,10 @@ export interface UserPoolArgs {
      */
     emailConfiguration?: pulumi.Input<inputs.cognito.UserPoolEmailConfiguration>;
     /**
+     * Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `accountRecoverySetting` entries; requires an `emailConfiguration` configuration block. Detailed below.
+     */
+    emailMfaConfiguration?: pulumi.Input<inputs.cognito.UserPoolEmailMfaConfiguration>;
+    /**
      * String representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
      */
     emailVerificationMessage?: pulumi.Input<string>;
@@ -519,6 +563,10 @@ export interface UserPoolArgs {
      */
     schemas?: pulumi.Input<pulumi.Input<inputs.cognito.UserPoolSchema>[]>;
     /**
+     * Configuration block for information about the user pool sign in policy. Detailed below.
+     */
+    signInPolicy?: pulumi.Input<inputs.cognito.UserPoolSignInPolicy>;
+    /**
      * String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
      */
     smsAuthenticationMessage?: pulumi.Input<string>;
@@ -547,6 +595,10 @@ export interface UserPoolArgs {
      */
     userPoolAddOns?: pulumi.Input<inputs.cognito.UserPoolUserPoolAddOns>;
     /**
+     * The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html), or tier. Valid values: `LITE`, `ESSENTIALS`, `PLUS`.
+     */
+    userPoolTier?: pulumi.Input<string>;
+    /**
      * Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `aliasAttributes`.
      */
     usernameAttributes?: pulumi.Input<pulumi.Input<string>[]>;
@@ -558,4 +610,8 @@ export interface UserPoolArgs {
      * Configuration block for verification message templates. Detailed below.
      */
     verificationMessageTemplate?: pulumi.Input<inputs.cognito.UserPoolVerificationMessageTemplate>;
+    /**
+     * Configuration block for web authn configuration. Detailed below.
+     */
+    webAuthnConfiguration?: pulumi.Input<inputs.cognito.UserPoolWebAuthnConfiguration>;
 }

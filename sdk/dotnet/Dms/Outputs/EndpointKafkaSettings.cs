@@ -54,6 +54,10 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly bool? PartitionIncludeSchemaTable;
         /// <summary>
+        /// For SASL/SSL authentication, AWS DMS supports the `scram-sha-512` mechanism by default. AWS DMS versions 3.5.0 and later also support the PLAIN mechanism. To use the PLAIN mechanism, set this parameter to `plain`.
+        /// </summary>
+        public readonly string? SaslMechanism;
+        /// <summary>
         /// Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
         /// </summary>
         public readonly string? SaslPassword;
@@ -108,6 +112,8 @@ namespace Pulumi.Aws.Dms.Outputs
 
             bool? partitionIncludeSchemaTable,
 
+            string? saslMechanism,
+
             string? saslPassword,
 
             string? saslUsername,
@@ -134,6 +140,7 @@ namespace Pulumi.Aws.Dms.Outputs
             MessageMaxBytes = messageMaxBytes;
             NoHexPrefix = noHexPrefix;
             PartitionIncludeSchemaTable = partitionIncludeSchemaTable;
+            SaslMechanism = saslMechanism;
             SaslPassword = saslPassword;
             SaslUsername = saslUsername;
             SecurityProtocol = securityProtocol;

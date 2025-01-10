@@ -157,7 +157,9 @@ namespace Pulumi.Aws.Rds
     public partial class Integration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context). You can only include this parameter if you specify the `kms_key_id` parameter.
+        /// Set of non-secret key–value pairs that contains additional contextual information about the data.
+        /// For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
+        /// You can only include this parameter if you specify the `kms_key_id` parameter.
         /// </summary>
         [Output("additionalEncryptionContext")]
         public Output<ImmutableDictionary<string, string>?> AdditionalEncryptionContext { get; private set; } = null!;
@@ -169,13 +171,25 @@ namespace Pulumi.Aws.Rds
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Data filters for the integration.
+        /// These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
+        /// The value should match the syntax from the AWS CLI which includes an `include:` or `exclude:` prefix before a filter expression.
+        /// Multiple expressions are separated by a comma.
+        /// See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
+        /// </summary>
+        [Output("dataFilter")]
+        public Output<string> DataFilter { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the integration.
         /// </summary>
         [Output("integrationName")]
         public Output<string> IntegrationName { get; private set; } = null!;
 
         /// <summary>
-        /// KMS key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, RDS uses a default AWS owned key. If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
+        /// KMS key identifier for the key to use to encrypt the integration.
+        /// If you don't specify an encryption key, RDS uses a default AWS owned key.
+        /// If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
@@ -259,7 +273,9 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _additionalEncryptionContext;
 
         /// <summary>
-        /// Set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context). You can only include this parameter if you specify the `kms_key_id` parameter.
+        /// Set of non-secret key–value pairs that contains additional contextual information about the data.
+        /// For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
+        /// You can only include this parameter if you specify the `kms_key_id` parameter.
         /// </summary>
         public InputMap<string> AdditionalEncryptionContext
         {
@@ -268,13 +284,25 @@ namespace Pulumi.Aws.Rds
         }
 
         /// <summary>
+        /// Data filters for the integration.
+        /// These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
+        /// The value should match the syntax from the AWS CLI which includes an `include:` or `exclude:` prefix before a filter expression.
+        /// Multiple expressions are separated by a comma.
+        /// See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
+        /// </summary>
+        [Input("dataFilter")]
+        public Input<string>? DataFilter { get; set; }
+
+        /// <summary>
         /// Name of the integration.
         /// </summary>
         [Input("integrationName", required: true)]
         public Input<string> IntegrationName { get; set; } = null!;
 
         /// <summary>
-        /// KMS key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, RDS uses a default AWS owned key. If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
+        /// KMS key identifier for the key to use to encrypt the integration.
+        /// If you don't specify an encryption key, RDS uses a default AWS owned key.
+        /// If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -320,7 +348,9 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _additionalEncryptionContext;
 
         /// <summary>
-        /// Set of non-secret key–value pairs that contains additional contextual information about the data. For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context). You can only include this parameter if you specify the `kms_key_id` parameter.
+        /// Set of non-secret key–value pairs that contains additional contextual information about the data.
+        /// For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
+        /// You can only include this parameter if you specify the `kms_key_id` parameter.
         /// </summary>
         public InputMap<string> AdditionalEncryptionContext
         {
@@ -335,13 +365,25 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Arn { get; set; }
 
         /// <summary>
+        /// Data filters for the integration.
+        /// These filters determine which tables from the source database are sent to the target Amazon Redshift data warehouse.
+        /// The value should match the syntax from the AWS CLI which includes an `include:` or `exclude:` prefix before a filter expression.
+        /// Multiple expressions are separated by a comma.
+        /// See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
+        /// </summary>
+        [Input("dataFilter")]
+        public Input<string>? DataFilter { get; set; }
+
+        /// <summary>
         /// Name of the integration.
         /// </summary>
         [Input("integrationName")]
         public Input<string>? IntegrationName { get; set; }
 
         /// <summary>
-        /// KMS key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, RDS uses a default AWS owned key. If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
+        /// KMS key identifier for the key to use to encrypt the integration.
+        /// If you don't specify an encryption key, RDS uses a default AWS owned key.
+        /// If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }

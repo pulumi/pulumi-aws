@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Create User With IAM Identity Type Using an IAM Role
+ * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
  * {@code
@@ -43,12 +45,88 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) }{{@code
  *         var example = new User("example", UserArgs.builder()
- *             .sessionName("an-author")
- *             .email("author}{@literal @}{@code example.com")
- *             .namespace("foo")
+ *             .email("author1}{@literal @}{@code example.com")
  *             .identityType("IAM")
- *             .iamArn("arn:aws:iam::123456789012:user/Example")
  *             .userRole("AUTHOR")
+ *             .iamArn("arn:aws:iam::123456789012:role/AuthorRole")
+ *             .sessionName("author1")
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Create User With IAM Identity Type Using an IAM User
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.quicksight.User;
+ * import com.pulumi.aws.quicksight.UserArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         var example = new User("example", UserArgs.builder()
+ *             .email("authorpro1}{@literal @}{@code example.com")
+ *             .identityType("IAM")
+ *             .userRole("AUTHOR_PRO")
+ *             .iamArn("arn:aws:iam::123456789012:user/authorpro1")
+ *             .build());
+ * 
+ *     }}{@code
+ * }}{@code
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Create User With QuickSight Identity Type in Non-Default Namespace
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.quicksight.User;
+ * import com.pulumi.aws.quicksight.UserArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
+ * 
+ *     public static void stack(Context ctx) }{{@code
+ *         var example = new User("example", UserArgs.builder()
+ *             .email("reader1}{@literal @}{@code example.com")
+ *             .identityType("QUICKSIGHT")
+ *             .userRole("READER")
+ *             .namespace("example")
+ *             .userName("reader1")
  *             .build());
  * 
  *     }}{@code
@@ -65,70 +143,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:quicksight/user:User")
 public class User extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the user
+     * Amazon Resource Name (ARN) for the user.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the user
+     * @return Amazon Resource Name (ARN) for the user.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+     * ID for the AWS account that the user is in. Use the ID for the AWS account that contains your Amazon QuickSight account.
      * 
      */
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
     private Output<String> awsAccountId;
 
     /**
-     * @return The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+     * @return ID for the AWS account that the user is in. Use the ID for the AWS account that contains your Amazon QuickSight account.
      * 
      */
     public Output<String> awsAccountId() {
         return this.awsAccountId;
     }
     /**
-     * The email address of the user that you want to register.
+     * Email address of the user that you want to register.
      * 
      */
     @Export(name="email", refs={String.class}, tree="[0]")
     private Output<String> email;
 
     /**
-     * @return The email address of the user that you want to register.
+     * @return Email address of the user that you want to register.
      * 
      */
     public Output<String> email() {
         return this.email;
     }
     /**
-     * The ARN of the IAM user or role that you are registering with Amazon QuickSight.
+     * ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
      * 
      */
     @Export(name="iamArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> iamArn;
 
     /**
-     * @return The ARN of the IAM user or role that you are registering with Amazon QuickSight.
+     * @return ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
      * 
      */
     public Output<Optional<String>> iamArn() {
         return Codegen.optional(this.iamArn);
     }
     /**
-     * Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`. If `IAM` is specified, the `iam_arn` must also be specified.
+     * Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`.
      * 
      */
     @Export(name="identityType", refs={String.class}, tree="[0]")
     private Output<String> identityType;
 
     /**
-     * @return Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`. If `IAM` is specified, the `iam_arn` must also be specified.
+     * @return Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`.
      * 
      */
     public Output<String> identityType() {
@@ -149,42 +227,60 @@ public class User extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.namespace);
     }
     /**
-     * The name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
+     * Name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
      * 
      */
     @Export(name="sessionName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sessionName;
 
     /**
-     * @return The name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
+     * @return Name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
      * 
      */
     public Output<Optional<String>> sessionName() {
         return Codegen.optional(this.sessionName);
     }
     /**
-     * The Amazon QuickSight user name that you want to create for the user you are registering. Only valid for registering a user with `identity_type` set to `QUICKSIGHT`.
+     * URL the user visits to complete registration and provide a password. Returned only for users with an identity type of `QUICKSIGHT`.
+     * 
+     */
+    @Export(name="userInvitationUrl", refs={String.class}, tree="[0]")
+    private Output<String> userInvitationUrl;
+
+    /**
+     * @return URL the user visits to complete registration and provide a password. Returned only for users with an identity type of `QUICKSIGHT`.
+     * 
+     */
+    public Output<String> userInvitationUrl() {
+        return this.userInvitationUrl;
+    }
+    /**
+     * Amazon QuickSight user name that you want to create for the user you are registering. Required only for users with an identity type of `QUICKSIGHT`.
      * 
      */
     @Export(name="userName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userName;
 
     /**
-     * @return The Amazon QuickSight user name that you want to create for the user you are registering. Only valid for registering a user with `identity_type` set to `QUICKSIGHT`.
+     * @return Amazon QuickSight user name that you want to create for the user you are registering. Required only for users with an identity type of `QUICKSIGHT`.
      * 
      */
     public Output<Optional<String>> userName() {
         return Codegen.optional(this.userName);
     }
     /**
-     * The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO` or `ADMIN_PRO`.
+     * Amazon QuickSight role for the user. Value values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="userRole", refs={String.class}, tree="[0]")
     private Output<String> userRole;
 
     /**
-     * @return The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO` or `ADMIN_PRO`.
+     * @return Amazon QuickSight role for the user. Value values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> userRole() {

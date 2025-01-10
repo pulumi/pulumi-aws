@@ -46,7 +46,7 @@ export interface GetReplicationSetArgs {
  */
 export interface GetReplicationSetResult {
     /**
-     * The Amazon Resouce Name (ARN) of the replication set.
+     * The Amazon Resource Name (ARN) of the replication set.
      */
     readonly arn: string;
     /**

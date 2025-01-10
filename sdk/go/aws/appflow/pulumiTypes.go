@@ -17355,6 +17355,8 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrOut
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesSalesforce struct {
+	// Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
+	DataTransferApi *string `pulumi:"dataTransferApi"`
 	// Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
 	EnableDynamicFieldUpdate *bool `pulumi:"enableDynamicFieldUpdate"`
 	// Whether Amazon AppFlow includes deleted files in the flow run.
@@ -17374,6 +17376,8 @@ type FlowSourceFlowConfigSourceConnectorPropertiesSalesforceInput interface {
 }
 
 type FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs struct {
+	// Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
+	DataTransferApi pulumi.StringPtrInput `pulumi:"dataTransferApi"`
 	// Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
 	EnableDynamicFieldUpdate pulumi.BoolPtrInput `pulumi:"enableDynamicFieldUpdate"`
 	// Whether Amazon AppFlow includes deleted files in the flow run.
@@ -17458,6 +17462,11 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutput) ToFlowSou
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput)
 }
 
+// Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
+func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutput) DataTransferApi() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesSalesforce) *string { return v.DataTransferApi }).(pulumi.StringPtrOutput)
+}
+
 // Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutput) EnableDynamicFieldUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesSalesforce) *bool {
@@ -17496,6 +17505,16 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput) Elem()
 		var ret FlowSourceFlowConfigSourceConnectorPropertiesSalesforce
 		return ret
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutput)
+}
+
+// Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
+func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput) DataTransferApi() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowSourceFlowConfigSourceConnectorPropertiesSalesforce) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataTransferApi
+	}).(pulumi.StringPtrOutput)
 }
 
 // Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.

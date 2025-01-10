@@ -22,6 +22,7 @@ export function getCertificate(args?: GetCertificateArgs, opts?: pulumi.InvokeOp
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getCertificate:getCertificate", {
+        "defaultForNewLaunches": args.defaultForNewLaunches,
         "id": args.id,
         "latestValidTill": args.latestValidTill,
     }, opts);
@@ -31,6 +32,10 @@ export function getCertificate(args?: GetCertificateArgs, opts?: pulumi.InvokeOp
  * A collection of arguments for invoking getCertificate.
  */
 export interface GetCertificateArgs {
+    /**
+     * When enabled, returns the default certificate for new RDS instances.
+     */
+    defaultForNewLaunches?: boolean;
     /**
      * Certificate identifier. For example, `rds-ca-2019`.
      */
@@ -61,6 +66,7 @@ export interface GetCertificateResult {
      * If there is an override for the default certificate identifier, when the override expires.
      */
     readonly customerOverrideValidTill: string;
+    readonly defaultForNewLaunches?: boolean;
     readonly id: string;
     readonly latestValidTill?: boolean;
     /**
@@ -94,6 +100,7 @@ export function getCertificateOutput(args?: GetCertificateOutputArgs, opts?: pul
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:rds/getCertificate:getCertificate", {
+        "defaultForNewLaunches": args.defaultForNewLaunches,
         "id": args.id,
         "latestValidTill": args.latestValidTill,
     }, opts);
@@ -103,6 +110,10 @@ export function getCertificateOutput(args?: GetCertificateOutputArgs, opts?: pul
  * A collection of arguments for invoking getCertificate.
  */
 export interface GetCertificateOutputArgs {
+    /**
+     * When enabled, returns the default certificate for new RDS instances.
+     */
+    defaultForNewLaunches?: pulumi.Input<boolean>;
     /**
      * Certificate identifier. For example, `rds-ca-2019`.
      */

@@ -16,6 +16,7 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'FleetComputeConfiguration',
     'FleetScalingConfiguration',
     'FleetScalingConfigurationTargetTrackingScalingConfig',
     'FleetStatus',
@@ -46,11 +47,84 @@ __all__ = [
     'WebhookFilterGroup',
     'WebhookFilterGroupFilter',
     'WebhookScopeConfiguration',
+    'GetFleetComputeConfigurationResult',
     'GetFleetScalingConfigurationResult',
     'GetFleetScalingConfigurationTargetTrackingScalingConfigResult',
     'GetFleetStatusResult',
     'GetFleetVpcConfigResult',
 ]
+
+@pulumi.output_type
+class FleetComputeConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "machineType":
+            suggest = "machine_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetComputeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetComputeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetComputeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 disk: Optional[int] = None,
+                 machine_type: Optional[str] = None,
+                 memory: Optional[int] = None,
+                 vcpu: Optional[int] = None):
+        """
+        :param int disk: Amount of disk space of the instance type included in the fleet.
+        :param str machine_type: Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`.
+        :param int memory: Amount of memory of the instance type included in the fleet.
+        :param int vcpu: Number of vCPUs of the instance type included in the fleet.
+        """
+        if disk is not None:
+            pulumi.set(__self__, "disk", disk)
+        if machine_type is not None:
+            pulumi.set(__self__, "machine_type", machine_type)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+        if vcpu is not None:
+            pulumi.set(__self__, "vcpu", vcpu)
+
+    @property
+    @pulumi.getter
+    def disk(self) -> Optional[int]:
+        """
+        Amount of disk space of the instance type included in the fleet.
+        """
+        return pulumi.get(self, "disk")
+
+    @property
+    @pulumi.getter(name="machineType")
+    def machine_type(self) -> Optional[str]:
+        """
+        Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`.
+        """
+        return pulumi.get(self, "machine_type")
+
+    @property
+    @pulumi.getter
+    def memory(self) -> Optional[int]:
+        """
+        Amount of memory of the instance type included in the fleet.
+        """
+        return pulumi.get(self, "memory")
+
+    @property
+    @pulumi.getter
+    def vcpu(self) -> Optional[int]:
+        """
+        Number of vCPUs of the instance type included in the fleet.
+        """
+        return pulumi.get(self, "vcpu")
+
 
 @pulumi.output_type
 class FleetScalingConfiguration(dict):
@@ -2085,6 +2159,57 @@ class WebhookScopeConfiguration(dict):
         The domain of the GitHub Enterprise organization. Required if your project's source type is GITHUB_ENTERPRISE.
         """
         return pulumi.get(self, "domain")
+
+
+@pulumi.output_type
+class GetFleetComputeConfigurationResult(dict):
+    def __init__(__self__, *,
+                 disk: int,
+                 machine_type: str,
+                 memory: int,
+                 vcpu: int):
+        """
+        :param int disk: Amount of disk space of the instance type included in the fleet.
+        :param str machine_type: Machine type of the instance type included in the fleet.
+        :param int memory: Amount of memory of the instance type included in the fleet.
+        :param int vcpu: Number of vCPUs of the instance type included in the fleet.
+        """
+        pulumi.set(__self__, "disk", disk)
+        pulumi.set(__self__, "machine_type", machine_type)
+        pulumi.set(__self__, "memory", memory)
+        pulumi.set(__self__, "vcpu", vcpu)
+
+    @property
+    @pulumi.getter
+    def disk(self) -> int:
+        """
+        Amount of disk space of the instance type included in the fleet.
+        """
+        return pulumi.get(self, "disk")
+
+    @property
+    @pulumi.getter(name="machineType")
+    def machine_type(self) -> str:
+        """
+        Machine type of the instance type included in the fleet.
+        """
+        return pulumi.get(self, "machine_type")
+
+    @property
+    @pulumi.getter
+    def memory(self) -> int:
+        """
+        Amount of memory of the instance type included in the fleet.
+        """
+        return pulumi.get(self, "memory")
+
+    @property
+    @pulumi.getter
+    def vcpu(self) -> int:
+        """
+        Number of vCPUs of the instance type included in the fleet.
+        """
+        return pulumi.get(self, "vcpu")
 
 
 @pulumi.output_type

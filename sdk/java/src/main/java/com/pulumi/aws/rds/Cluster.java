@@ -1116,14 +1116,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.networkType;
     }
     /**
-     * Enables Performance Insights for the RDS Cluster
+     * Enables Performance Insights.
      * 
      */
     @Export(name="performanceInsightsEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> performanceInsightsEnabled;
 
     /**
-     * @return Enables Performance Insights for the RDS Cluster
+     * @return Enables Performance Insights.
      * 
      */
     public Output<Optional<Boolean>> performanceInsightsEnabled() {

@@ -247,6 +247,8 @@ type EndpointKafkaSettings struct {
 	NoHexPrefix *bool `pulumi:"noHexPrefix"`
 	// Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. Default is `false`.
 	PartitionIncludeSchemaTable *bool `pulumi:"partitionIncludeSchemaTable"`
+	// For SASL/SSL authentication, AWS DMS supports the `scram-sha-512` mechanism by default. AWS DMS versions 3.5.0 and later also support the PLAIN mechanism. To use the PLAIN mechanism, set this parameter to `plain`.
+	SaslMechanism *string `pulumi:"saslMechanism"`
 	// Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
 	SaslPassword *string `pulumi:"saslPassword"`
 	// Secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
@@ -297,6 +299,8 @@ type EndpointKafkaSettingsArgs struct {
 	NoHexPrefix pulumi.BoolPtrInput `pulumi:"noHexPrefix"`
 	// Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. Default is `false`.
 	PartitionIncludeSchemaTable pulumi.BoolPtrInput `pulumi:"partitionIncludeSchemaTable"`
+	// For SASL/SSL authentication, AWS DMS supports the `scram-sha-512` mechanism by default. AWS DMS versions 3.5.0 and later also support the PLAIN mechanism. To use the PLAIN mechanism, set this parameter to `plain`.
+	SaslMechanism pulumi.StringPtrInput `pulumi:"saslMechanism"`
 	// Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
 	SaslPassword pulumi.StringPtrInput `pulumi:"saslPassword"`
 	// Secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
@@ -440,6 +444,11 @@ func (o EndpointKafkaSettingsOutput) NoHexPrefix() pulumi.BoolPtrOutput {
 // Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. Default is `false`.
 func (o EndpointKafkaSettingsOutput) PartitionIncludeSchemaTable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.PartitionIncludeSchemaTable }).(pulumi.BoolPtrOutput)
+}
+
+// For SASL/SSL authentication, AWS DMS supports the `scram-sha-512` mechanism by default. AWS DMS versions 3.5.0 and later also support the PLAIN mechanism. To use the PLAIN mechanism, set this parameter to `plain`.
+func (o EndpointKafkaSettingsOutput) SaslMechanism() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.SaslMechanism }).(pulumi.StringPtrOutput)
 }
 
 // Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
@@ -604,6 +613,16 @@ func (o EndpointKafkaSettingsPtrOutput) PartitionIncludeSchemaTable() pulumi.Boo
 		}
 		return v.PartitionIncludeSchemaTable
 	}).(pulumi.BoolPtrOutput)
+}
+
+// For SASL/SSL authentication, AWS DMS supports the `scram-sha-512` mechanism by default. AWS DMS versions 3.5.0 and later also support the PLAIN mechanism. To use the PLAIN mechanism, set this parameter to `plain`.
+func (o EndpointKafkaSettingsPtrOutput) SaslMechanism() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SaslMechanism
+	}).(pulumi.StringPtrOutput)
 }
 
 // Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
@@ -3365,6 +3384,7 @@ type GetEndpointKafkaSetting struct {
 	MessageMaxBytes             int    `pulumi:"messageMaxBytes"`
 	NoHexPrefix                 bool   `pulumi:"noHexPrefix"`
 	PartitionIncludeSchemaTable bool   `pulumi:"partitionIncludeSchemaTable"`
+	SaslMechanism               string `pulumi:"saslMechanism"`
 	SaslPassword                string `pulumi:"saslPassword"`
 	SaslUsername                string `pulumi:"saslUsername"`
 	SecurityProtocol            string `pulumi:"securityProtocol"`
@@ -3397,6 +3417,7 @@ type GetEndpointKafkaSettingArgs struct {
 	MessageMaxBytes             pulumi.IntInput    `pulumi:"messageMaxBytes"`
 	NoHexPrefix                 pulumi.BoolInput   `pulumi:"noHexPrefix"`
 	PartitionIncludeSchemaTable pulumi.BoolInput   `pulumi:"partitionIncludeSchemaTable"`
+	SaslMechanism               pulumi.StringInput `pulumi:"saslMechanism"`
 	SaslPassword                pulumi.StringInput `pulumi:"saslPassword"`
 	SaslUsername                pulumi.StringInput `pulumi:"saslUsername"`
 	SecurityProtocol            pulumi.StringInput `pulumi:"securityProtocol"`
@@ -3496,6 +3517,10 @@ func (o GetEndpointKafkaSettingOutput) NoHexPrefix() pulumi.BoolOutput {
 
 func (o GetEndpointKafkaSettingOutput) PartitionIncludeSchemaTable() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetEndpointKafkaSetting) bool { return v.PartitionIncludeSchemaTable }).(pulumi.BoolOutput)
+}
+
+func (o GetEndpointKafkaSettingOutput) SaslMechanism() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) string { return v.SaslMechanism }).(pulumi.StringOutput)
 }
 
 func (o GetEndpointKafkaSettingOutput) SaslPassword() pulumi.StringOutput {

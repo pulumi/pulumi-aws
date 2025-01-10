@@ -64,6 +64,21 @@ public final class GetVpcEndpointServiceArgs extends com.pulumi.resources.Invoke
     }
 
     /**
+     * AWS regions in which to look for services.
+     * 
+     */
+    @Import(name="serviceRegions")
+    private @Nullable Output<List<String>> serviceRegions;
+
+    /**
+     * @return AWS regions in which to look for services.
+     * 
+     */
+    public Optional<Output<List<String>>> serviceRegions() {
+        return Optional.ofNullable(this.serviceRegions);
+    }
+
+    /**
      * Service type, `Gateway` or `Interface`.
      * 
      */
@@ -103,6 +118,7 @@ public final class GetVpcEndpointServiceArgs extends com.pulumi.resources.Invoke
         this.filters = $.filters;
         this.service = $.service;
         this.serviceName = $.serviceName;
+        this.serviceRegions = $.serviceRegions;
         this.serviceType = $.serviceType;
         this.tags = $.tags;
     }
@@ -196,6 +212,37 @@ public final class GetVpcEndpointServiceArgs extends com.pulumi.resources.Invoke
          */
         public Builder serviceName(String serviceName) {
             return serviceName(Output.of(serviceName));
+        }
+
+        /**
+         * @param serviceRegions AWS regions in which to look for services.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceRegions(@Nullable Output<List<String>> serviceRegions) {
+            $.serviceRegions = serviceRegions;
+            return this;
+        }
+
+        /**
+         * @param serviceRegions AWS regions in which to look for services.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceRegions(List<String> serviceRegions) {
+            return serviceRegions(Output.of(serviceRegions));
+        }
+
+        /**
+         * @param serviceRegions AWS regions in which to look for services.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceRegions(String... serviceRegions) {
+            return serviceRegions(List.of(serviceRegions));
         }
 
         /**

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Transfer.Outputs
         /// </summary>
         public readonly ImmutableArray<string> TrustedHostKeys;
         /// <summary>
-        /// Identifer for the secret in AWS Secrets Manager that contains the SFTP user's private key, and/or password.
+        /// Identifier for the secret in AWS Secrets Manager that contains the SFTP user's private key, and/or password.
         /// </summary>
         public readonly string UserSecretId;
 

@@ -18,6 +18,21 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs e
     public static final FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs Empty = new FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs();
 
     /**
+     * Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
+     * 
+     */
+    @Import(name="dataTransferApi")
+    private @Nullable Output<String> dataTransferApi;
+
+    /**
+     * @return Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
+     * 
+     */
+    public Optional<Output<String>> dataTransferApi() {
+        return Optional.ofNullable(this.dataTransferApi);
+    }
+
+    /**
      * Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
      * 
      */
@@ -57,6 +72,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs e
     private FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs() {}
 
     private FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs(FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs $) {
+        this.dataTransferApi = $.dataTransferApi;
         this.enableDynamicFieldUpdate = $.enableDynamicFieldUpdate;
         this.includeDeletedRecords = $.includeDeletedRecords;
         this.object = $.object;
@@ -78,6 +94,27 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs e
 
         public Builder(FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs defaults) {
             $ = new FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param dataTransferApi Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataTransferApi(@Nullable Output<String> dataTransferApi) {
+            $.dataTransferApi = dataTransferApi;
+            return this;
+        }
+
+        /**
+         * @param dataTransferApi Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataTransferApi(String dataTransferApi) {
+            return dataTransferApi(Output.of(dataTransferApi));
         }
 
         /**

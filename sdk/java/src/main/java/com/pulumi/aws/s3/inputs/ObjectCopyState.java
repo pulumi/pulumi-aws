@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3.inputs;
 
 import com.pulumi.aws.s3.inputs.ObjectCopyGrantArgs;
+import com.pulumi.aws.s3.inputs.ObjectCopyOverrideProviderArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -566,6 +567,13 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.objectLockRetainUntilDate);
     }
 
+    @Import(name="overrideProvider")
+    private @Nullable Output<ObjectCopyOverrideProviderArgs> overrideProvider;
+
+    public Optional<Output<ObjectCopyOverrideProviderArgs>> overrideProvider() {
+        return Optional.ofNullable(this.overrideProvider);
+    }
+
     /**
      * If present, indicates that the requester was successfully charged for the request.
      * 
@@ -828,6 +836,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         this.objectLockLegalHoldStatus = $.objectLockLegalHoldStatus;
         this.objectLockMode = $.objectLockMode;
         this.objectLockRetainUntilDate = $.objectLockRetainUntilDate;
+        this.overrideProvider = $.overrideProvider;
         this.requestCharged = $.requestCharged;
         this.requestPayer = $.requestPayer;
         this.serverSideEncryption = $.serverSideEncryption;
@@ -1635,6 +1644,15 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder objectLockRetainUntilDate(String objectLockRetainUntilDate) {
             return objectLockRetainUntilDate(Output.of(objectLockRetainUntilDate));
+        }
+
+        public Builder overrideProvider(@Nullable Output<ObjectCopyOverrideProviderArgs> overrideProvider) {
+            $.overrideProvider = overrideProvider;
+            return this;
+        }
+
+        public Builder overrideProvider(ObjectCopyOverrideProviderArgs overrideProvider) {
+            return overrideProvider(Output.of(overrideProvider));
         }
 
         /**

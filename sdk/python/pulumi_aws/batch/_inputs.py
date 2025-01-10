@@ -2189,9 +2189,11 @@ if not MYPY:
         action: pulumi.Input[str]
         """
         The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `"CANCEL"`
-        * `job_state_time_limit_action.#.max_time_seconds` - The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
         """
         max_time_seconds: pulumi.Input[int]
+        """
+        The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
+        """
         reason: pulumi.Input[str]
         """
         The reason to log for the action being taken.
@@ -2212,7 +2214,7 @@ class JobQueueJobStateTimeLimitActionArgs:
                  state: pulumi.Input[str]):
         """
         :param pulumi.Input[str] action: The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `"CANCEL"`
-               * `job_state_time_limit_action.#.max_time_seconds` - The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
+        :param pulumi.Input[int] max_time_seconds: The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
         :param pulumi.Input[str] reason: The reason to log for the action being taken.
         :param pulumi.Input[str] state: The state of the job needed to trigger the action. Valid values include `"RUNNABLE"`.
         """
@@ -2226,7 +2228,6 @@ class JobQueueJobStateTimeLimitActionArgs:
     def action(self) -> pulumi.Input[str]:
         """
         The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `"CANCEL"`
-        * `job_state_time_limit_action.#.max_time_seconds` - The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
         """
         return pulumi.get(self, "action")
 
@@ -2237,6 +2238,9 @@ class JobQueueJobStateTimeLimitActionArgs:
     @property
     @pulumi.getter(name="maxTimeSeconds")
     def max_time_seconds(self) -> pulumi.Input[int]:
+        """
+        The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` & `86400`
+        """
         return pulumi.get(self, "max_time_seconds")
 
     @max_time_seconds.setter

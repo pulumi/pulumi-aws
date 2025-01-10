@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// ## Example Usage
     /// 
+    /// ### Configuring Basic Scanning
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -22,10 +24,29 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var foo = new Aws.Ecr.AccountSetting("foo", new()
+    ///     var basicScanTypeVersion = new Aws.Ecr.AccountSetting("basic_scan_type_version", new()
     ///     {
     ///         Name = "BASIC_SCAN_TYPE_VERSION",
-    ///         Value = "CLAIR",
+    ///         Value = "AWS_NATIVE",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Configuring Registry Policy Scope
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var registryPolicyScope = new Aws.Ecr.AccountSetting("registry_policy_scope", new()
+    ///     {
+    ///         Name = "REGISTRY_POLICY_SCOPE",
+    ///         Value = "V2",
     ///     });
     /// 
     /// });
@@ -33,7 +54,7 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import EMR Security Configurations using the `name`. For example:
+    /// Using `pulumi import`, import EMR Security Configurations using the account setting name. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ecr/accountSetting:AccountSetting foo BASIC_SCAN_TYPE_VERSION
@@ -43,13 +64,15 @@ namespace Pulumi.Aws.Ecr
     public partial class AccountSetting : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the ECR Scan Type. This should be `BASIC_SCAN_TYPE_VERSION`.
+        /// Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The value of the ECR Scan Type. This can be `AWS_NATIVE` or `CLAIR`.
+        /// Setting value that is specified. Valid values are:
+        /// * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+        /// * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
         /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
@@ -101,13 +124,15 @@ namespace Pulumi.Aws.Ecr
     public sealed class AccountSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the ECR Scan Type. This should be `BASIC_SCAN_TYPE_VERSION`.
+        /// Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The value of the ECR Scan Type. This can be `AWS_NATIVE` or `CLAIR`.
+        /// Setting value that is specified. Valid values are:
+        /// * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+        /// * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
@@ -121,13 +146,15 @@ namespace Pulumi.Aws.Ecr
     public sealed class AccountSettingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the ECR Scan Type. This should be `BASIC_SCAN_TYPE_VERSION`.
+        /// Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The value of the ECR Scan Type. This can be `AWS_NATIVE` or `CLAIR`.
+        /// Setting value that is specified. Valid values are:
+        /// * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+        /// * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

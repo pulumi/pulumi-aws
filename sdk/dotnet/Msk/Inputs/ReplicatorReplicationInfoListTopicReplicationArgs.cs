@@ -36,6 +36,9 @@ namespace Pulumi.Aws.Msk.Inputs
         [Input("startingPosition")]
         public Input<Inputs.ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs>? StartingPosition { get; set; }
 
+        /// <summary>
+        /// Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+        /// </summary>
         [Input("topicNameConfiguration")]
         public Input<Inputs.ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs>? TopicNameConfiguration { get; set; }
 

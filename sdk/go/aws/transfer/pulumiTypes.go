@@ -6464,7 +6464,7 @@ func (o GetConnectorAs2ConfigArrayOutput) Index(i pulumi.IntInput) GetConnectorA
 type GetConnectorSftpConfig struct {
 	// List of the public portions of the host keys that are used to identify the servers the connector is connected to.
 	TrustedHostKeys []string `pulumi:"trustedHostKeys"`
-	// Identifer for the secret in AWS Secrets Manager that contains the SFTP user's private key, and/or password.
+	// Identifier for the secret in AWS Secrets Manager that contains the SFTP user's private key, and/or password.
 	UserSecretId string `pulumi:"userSecretId"`
 }
 
@@ -6482,7 +6482,7 @@ type GetConnectorSftpConfigInput interface {
 type GetConnectorSftpConfigArgs struct {
 	// List of the public portions of the host keys that are used to identify the servers the connector is connected to.
 	TrustedHostKeys pulumi.StringArrayInput `pulumi:"trustedHostKeys"`
-	// Identifer for the secret in AWS Secrets Manager that contains the SFTP user's private key, and/or password.
+	// Identifier for the secret in AWS Secrets Manager that contains the SFTP user's private key, and/or password.
 	UserSecretId pulumi.StringInput `pulumi:"userSecretId"`
 }
 
@@ -6542,7 +6542,7 @@ func (o GetConnectorSftpConfigOutput) TrustedHostKeys() pulumi.StringArrayOutput
 	return o.ApplyT(func(v GetConnectorSftpConfig) []string { return v.TrustedHostKeys }).(pulumi.StringArrayOutput)
 }
 
-// Identifer for the secret in AWS Secrets Manager that contains the SFTP user's private key, and/or password.
+// Identifier for the secret in AWS Secrets Manager that contains the SFTP user's private key, and/or password.
 func (o GetConnectorSftpConfigOutput) UserSecretId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectorSftpConfig) string { return v.UserSecretId }).(pulumi.StringOutput)
 }

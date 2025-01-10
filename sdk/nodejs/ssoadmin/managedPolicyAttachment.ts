@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  *     displayName: "Admin",
  *     description: "Admin Group",
  * });
- * const accountAssignment = new aws.ssoadmin.AccountAssignment("account_assignment", {
+ * const exampleAccountAssignment = new aws.ssoadmin.AccountAssignment("example", {
  *     instanceArn: example.then(example => example.arns?.[0]),
  *     permissionSetArn: examplePermissionSet.arn,
  *     principalId: exampleGroup.groupId,
@@ -60,7 +60,7 @@ import * as utilities from "../utilities";
  *     managedPolicyArn: "arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup",
  *     permissionSetArn: examplePermissionSet.arn,
  * }, {
- *     dependsOn: [exampleAwsSsoadminAccountAssignment],
+ *     dependsOn: [exampleAccountAssignment],
  * });
  * ```
  *

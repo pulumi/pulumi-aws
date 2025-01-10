@@ -16,13 +16,11 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides an AWS EIP Association as a top level resource, to associate and
- * disassociate Elastic IPs from AWS Instances and Network Interfaces.
+ * Provides an AWS EIP Association as a top level resource, to associate and disassociate Elastic IPs from AWS Instances and Network Interfaces.
  * 
  * &gt; **NOTE:** Do not use this resource to associate an EIP to `aws.lb.LoadBalancer` or `aws.ec2.NatGateway` resources. Instead use the `allocation_id` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
  * 
- * &gt; **NOTE:** `aws.ec2.EipAssociation` is useful in scenarios where EIPs are either
- * pre-existing or distributed to customers or users and therefore cannot be changed.
+ * &gt; **NOTE:** `aws.ec2.EipAssociation` is useful in scenarios where EIPs are either pre-existing or distributed to customers or users and therefore cannot be changed.
  * 
  * ## Example Usage
  * 
@@ -87,102 +85,98 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/eipAssociation:EipAssociation")
 public class EipAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * The allocation ID. This is required for EC2-VPC.
+     * ID of the associated Elastic IP.
+     * This argument is required despite being optional at the resource level due to legacy support for EC2-Classic networking.
      * 
      */
     @Export(name="allocationId", refs={String.class}, tree="[0]")
     private Output<String> allocationId;
 
     /**
-     * @return The allocation ID. This is required for EC2-VPC.
+     * @return ID of the associated Elastic IP.
+     * This argument is required despite being optional at the resource level due to legacy support for EC2-Classic networking.
      * 
      */
     public Output<String> allocationId() {
         return this.allocationId;
     }
     /**
-     * Whether to allow an Elastic IP to
-     * be re-associated. Defaults to `true` in VPC.
+     * Whether to allow an Elastic IP address to be re-associated.
+     * Defaults to `true`.
      * 
      */
     @Export(name="allowReassociation", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowReassociation;
 
     /**
-     * @return Whether to allow an Elastic IP to
-     * be re-associated. Defaults to `true` in VPC.
+     * @return Whether to allow an Elastic IP address to be re-associated.
+     * Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> allowReassociation() {
         return Codegen.optional(this.allowReassociation);
     }
     /**
-     * The ID of the instance. This is required for
-     * EC2-Classic. For EC2-VPC, you can specify either the instance ID or the
-     * network interface ID, but not both. The operation fails if you specify an
-     * instance ID unless exactly one network interface is attached.
+     * ID of the instance.
+     * The instance must have exactly one attached network interface.
+     * You can specify either the instance ID or the network interface ID, but not both.
      * 
      */
     @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
     /**
-     * @return The ID of the instance. This is required for
-     * EC2-Classic. For EC2-VPC, you can specify either the instance ID or the
-     * network interface ID, but not both. The operation fails if you specify an
-     * instance ID unless exactly one network interface is attached.
+     * @return ID of the instance.
+     * The instance must have exactly one attached network interface.
+     * You can specify either the instance ID or the network interface ID, but not both.
      * 
      */
     public Output<String> instanceId() {
         return this.instanceId;
     }
     /**
-     * The ID of the network interface. If the
-     * instance has more than one network interface, you must specify a network
-     * interface ID.
+     * ID of the network interface.
+     * If the instance has more than one network interface, you must specify a network interface ID.
+     * You can specify either the instance ID or the network interface ID, but not both.
      * 
      */
     @Export(name="networkInterfaceId", refs={String.class}, tree="[0]")
     private Output<String> networkInterfaceId;
 
     /**
-     * @return The ID of the network interface. If the
-     * instance has more than one network interface, you must specify a network
-     * interface ID.
+     * @return ID of the network interface.
+     * If the instance has more than one network interface, you must specify a network interface ID.
+     * You can specify either the instance ID or the network interface ID, but not both.
      * 
      */
     public Output<String> networkInterfaceId() {
         return this.networkInterfaceId;
     }
     /**
-     * The primary or secondary private IP address
-     * to associate with the Elastic IP address. If no private IP address is
-     * specified, the Elastic IP address is associated with the primary private IP
-     * address.
+     * Primary or secondary private IP address to associate with the Elastic IP address.
+     * If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
      * 
      */
     @Export(name="privateIpAddress", refs={String.class}, tree="[0]")
     private Output<String> privateIpAddress;
 
     /**
-     * @return The primary or secondary private IP address
-     * to associate with the Elastic IP address. If no private IP address is
-     * specified, the Elastic IP address is associated with the primary private IP
-     * address.
+     * @return Primary or secondary private IP address to associate with the Elastic IP address.
+     * If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
      * 
      */
     public Output<String> privateIpAddress() {
         return this.privateIpAddress;
     }
     /**
-     * The Elastic IP address. This is required for EC2-Classic.
+     * ) Address of the associated Elastic IP.
      * 
      */
     @Export(name="publicIp", refs={String.class}, tree="[0]")
     private Output<String> publicIp;
 
     /**
-     * @return The Elastic IP address. This is required for EC2-Classic.
+     * @return ) Address of the associated Elastic IP.
      * 
      */
     public Output<String> publicIp() {

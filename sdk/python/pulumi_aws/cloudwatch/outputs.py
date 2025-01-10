@@ -57,6 +57,8 @@ __all__ = [
     'InternetMonitorHealthEventsConfig',
     'InternetMonitorInternetMeasurementsLogDelivery',
     'InternetMonitorInternetMeasurementsLogDeliveryS3Config',
+    'LogDeliveryDestinationDeliveryDestinationConfiguration',
+    'LogDeliveryS3DeliveryConfiguration',
     'LogMetricFilterMetricTransformation',
     'MetricAlarmMetricQuery',
     'MetricAlarmMetricQueryMetric',
@@ -64,6 +66,7 @@ __all__ = [
     'MetricStreamIncludeFilter',
     'MetricStreamStatisticsConfiguration',
     'MetricStreamStatisticsConfigurationIncludeMetric',
+    'GetEventBusesEventBusResult',
     'GetLogDataProtectionPolicyDocumentStatementResult',
     'GetLogDataProtectionPolicyDocumentStatementOperationResult',
     'GetLogDataProtectionPolicyDocumentStatementOperationAuditResult',
@@ -2162,6 +2165,89 @@ class InternetMonitorInternetMeasurementsLogDeliveryS3Config(dict):
 
 
 @pulumi.output_type
+class LogDeliveryDestinationDeliveryDestinationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationResourceArn":
+            suggest = "destination_resource_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogDeliveryDestinationDeliveryDestinationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogDeliveryDestinationDeliveryDestinationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogDeliveryDestinationDeliveryDestinationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_resource_arn: str):
+        """
+        :param str destination_resource_arn: The ARN of the AWS destination that this delivery destination represents.
+        """
+        pulumi.set(__self__, "destination_resource_arn", destination_resource_arn)
+
+    @property
+    @pulumi.getter(name="destinationResourceArn")
+    def destination_resource_arn(self) -> str:
+        """
+        The ARN of the AWS destination that this delivery destination represents.
+        """
+        return pulumi.get(self, "destination_resource_arn")
+
+
+@pulumi.output_type
+class LogDeliveryS3DeliveryConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableHiveCompatiblePath":
+            suggest = "enable_hive_compatible_path"
+        elif key == "suffixPath":
+            suggest = "suffix_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogDeliveryS3DeliveryConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogDeliveryS3DeliveryConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogDeliveryS3DeliveryConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_hive_compatible_path: bool,
+                 suffix_path: str):
+        """
+        :param bool enable_hive_compatible_path: This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
+        :param str suffix_path: This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
+        """
+        pulumi.set(__self__, "enable_hive_compatible_path", enable_hive_compatible_path)
+        pulumi.set(__self__, "suffix_path", suffix_path)
+
+    @property
+    @pulumi.getter(name="enableHiveCompatiblePath")
+    def enable_hive_compatible_path(self) -> bool:
+        """
+        This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
+        """
+        return pulumi.get(self, "enable_hive_compatible_path")
+
+    @property
+    @pulumi.getter(name="suffixPath")
+    def suffix_path(self) -> str:
+        """
+        This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
+        """
+        return pulumi.get(self, "suffix_path")
+
+
+@pulumi.output_type
 class LogMetricFilterMetricTransformation(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2656,6 +2742,79 @@ class MetricStreamStatisticsConfigurationIncludeMetric(dict):
     @pulumi.getter
     def namespace(self) -> str:
         return pulumi.get(self, "namespace")
+
+
+@pulumi.output_type
+class GetEventBusesEventBusResult(dict):
+    def __init__(__self__, *,
+                 arn: str,
+                 creation_time: str,
+                 description: str,
+                 last_modified_time: str,
+                 name: str,
+                 policy: str):
+        """
+        :param str arn: The ARN of the event bus.
+        :param str creation_time: The time the event bus was created.
+        :param str description: The event bus description.
+        :param str last_modified_time: The time the event bus was last modified.
+        :param str name: The name of the event bus.
+        :param str policy: The permissions policy of the event bus, describing which other AWS accounts can write events to this event bus.
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "creation_time", creation_time)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "last_modified_time", last_modified_time)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "policy", policy)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The ARN of the event bus.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> str:
+        """
+        The time the event bus was created.
+        """
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The event bus description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> str:
+        """
+        The time the event bus was last modified.
+        """
+        return pulumi.get(self, "last_modified_time")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the event bus.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> str:
+        """
+        The permissions policy of the event bus, describing which other AWS accounts can write events to this event bus.
+        """
+        return pulumi.get(self, "policy")
 
 
 @pulumi.output_type

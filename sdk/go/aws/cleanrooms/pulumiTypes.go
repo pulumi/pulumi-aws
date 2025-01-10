@@ -451,6 +451,742 @@ func (o ConfiguredTableTableReferencePtrOutput) TableName() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+type MembershipDefaultResultConfiguration struct {
+	OutputConfiguration *MembershipDefaultResultConfigurationOutputConfiguration `pulumi:"outputConfiguration"`
+	// The ARN of the IAM role which will be used to create the membership.
+	// - `output_configuration.s3.bucket` - (Required) - The name of the S3 bucket where the query results will be stored.
+	// - `output_configuration.s3.result_format` - (Required) - The format of the query results. Valid values are `PARQUET` and `CSV`.
+	// - `output_configuration.s3.key_prefix` - (Optional) - The prefix used for the query results.
+	RoleArn *string `pulumi:"roleArn"`
+}
+
+// MembershipDefaultResultConfigurationInput is an input type that accepts MembershipDefaultResultConfigurationArgs and MembershipDefaultResultConfigurationOutput values.
+// You can construct a concrete instance of `MembershipDefaultResultConfigurationInput` via:
+//
+//	MembershipDefaultResultConfigurationArgs{...}
+type MembershipDefaultResultConfigurationInput interface {
+	pulumi.Input
+
+	ToMembershipDefaultResultConfigurationOutput() MembershipDefaultResultConfigurationOutput
+	ToMembershipDefaultResultConfigurationOutputWithContext(context.Context) MembershipDefaultResultConfigurationOutput
+}
+
+type MembershipDefaultResultConfigurationArgs struct {
+	OutputConfiguration MembershipDefaultResultConfigurationOutputConfigurationPtrInput `pulumi:"outputConfiguration"`
+	// The ARN of the IAM role which will be used to create the membership.
+	// - `output_configuration.s3.bucket` - (Required) - The name of the S3 bucket where the query results will be stored.
+	// - `output_configuration.s3.result_format` - (Required) - The format of the query results. Valid values are `PARQUET` and `CSV`.
+	// - `output_configuration.s3.key_prefix` - (Optional) - The prefix used for the query results.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+}
+
+func (MembershipDefaultResultConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipDefaultResultConfiguration)(nil)).Elem()
+}
+
+func (i MembershipDefaultResultConfigurationArgs) ToMembershipDefaultResultConfigurationOutput() MembershipDefaultResultConfigurationOutput {
+	return i.ToMembershipDefaultResultConfigurationOutputWithContext(context.Background())
+}
+
+func (i MembershipDefaultResultConfigurationArgs) ToMembershipDefaultResultConfigurationOutputWithContext(ctx context.Context) MembershipDefaultResultConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipDefaultResultConfigurationOutput)
+}
+
+func (i MembershipDefaultResultConfigurationArgs) ToMembershipDefaultResultConfigurationPtrOutput() MembershipDefaultResultConfigurationPtrOutput {
+	return i.ToMembershipDefaultResultConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i MembershipDefaultResultConfigurationArgs) ToMembershipDefaultResultConfigurationPtrOutputWithContext(ctx context.Context) MembershipDefaultResultConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipDefaultResultConfigurationOutput).ToMembershipDefaultResultConfigurationPtrOutputWithContext(ctx)
+}
+
+// MembershipDefaultResultConfigurationPtrInput is an input type that accepts MembershipDefaultResultConfigurationArgs, MembershipDefaultResultConfigurationPtr and MembershipDefaultResultConfigurationPtrOutput values.
+// You can construct a concrete instance of `MembershipDefaultResultConfigurationPtrInput` via:
+//
+//	        MembershipDefaultResultConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type MembershipDefaultResultConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToMembershipDefaultResultConfigurationPtrOutput() MembershipDefaultResultConfigurationPtrOutput
+	ToMembershipDefaultResultConfigurationPtrOutputWithContext(context.Context) MembershipDefaultResultConfigurationPtrOutput
+}
+
+type membershipDefaultResultConfigurationPtrType MembershipDefaultResultConfigurationArgs
+
+func MembershipDefaultResultConfigurationPtr(v *MembershipDefaultResultConfigurationArgs) MembershipDefaultResultConfigurationPtrInput {
+	return (*membershipDefaultResultConfigurationPtrType)(v)
+}
+
+func (*membershipDefaultResultConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipDefaultResultConfiguration)(nil)).Elem()
+}
+
+func (i *membershipDefaultResultConfigurationPtrType) ToMembershipDefaultResultConfigurationPtrOutput() MembershipDefaultResultConfigurationPtrOutput {
+	return i.ToMembershipDefaultResultConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *membershipDefaultResultConfigurationPtrType) ToMembershipDefaultResultConfigurationPtrOutputWithContext(ctx context.Context) MembershipDefaultResultConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipDefaultResultConfigurationPtrOutput)
+}
+
+type MembershipDefaultResultConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MembershipDefaultResultConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipDefaultResultConfiguration)(nil)).Elem()
+}
+
+func (o MembershipDefaultResultConfigurationOutput) ToMembershipDefaultResultConfigurationOutput() MembershipDefaultResultConfigurationOutput {
+	return o
+}
+
+func (o MembershipDefaultResultConfigurationOutput) ToMembershipDefaultResultConfigurationOutputWithContext(ctx context.Context) MembershipDefaultResultConfigurationOutput {
+	return o
+}
+
+func (o MembershipDefaultResultConfigurationOutput) ToMembershipDefaultResultConfigurationPtrOutput() MembershipDefaultResultConfigurationPtrOutput {
+	return o.ToMembershipDefaultResultConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o MembershipDefaultResultConfigurationOutput) ToMembershipDefaultResultConfigurationPtrOutputWithContext(ctx context.Context) MembershipDefaultResultConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MembershipDefaultResultConfiguration) *MembershipDefaultResultConfiguration {
+		return &v
+	}).(MembershipDefaultResultConfigurationPtrOutput)
+}
+
+func (o MembershipDefaultResultConfigurationOutput) OutputConfiguration() MembershipDefaultResultConfigurationOutputConfigurationPtrOutput {
+	return o.ApplyT(func(v MembershipDefaultResultConfiguration) *MembershipDefaultResultConfigurationOutputConfiguration {
+		return v.OutputConfiguration
+	}).(MembershipDefaultResultConfigurationOutputConfigurationPtrOutput)
+}
+
+// The ARN of the IAM role which will be used to create the membership.
+// - `output_configuration.s3.bucket` - (Required) - The name of the S3 bucket where the query results will be stored.
+// - `output_configuration.s3.result_format` - (Required) - The format of the query results. Valid values are `PARQUET` and `CSV`.
+// - `output_configuration.s3.key_prefix` - (Optional) - The prefix used for the query results.
+func (o MembershipDefaultResultConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MembershipDefaultResultConfiguration) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+type MembershipDefaultResultConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (MembershipDefaultResultConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipDefaultResultConfiguration)(nil)).Elem()
+}
+
+func (o MembershipDefaultResultConfigurationPtrOutput) ToMembershipDefaultResultConfigurationPtrOutput() MembershipDefaultResultConfigurationPtrOutput {
+	return o
+}
+
+func (o MembershipDefaultResultConfigurationPtrOutput) ToMembershipDefaultResultConfigurationPtrOutputWithContext(ctx context.Context) MembershipDefaultResultConfigurationPtrOutput {
+	return o
+}
+
+func (o MembershipDefaultResultConfigurationPtrOutput) Elem() MembershipDefaultResultConfigurationOutput {
+	return o.ApplyT(func(v *MembershipDefaultResultConfiguration) MembershipDefaultResultConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret MembershipDefaultResultConfiguration
+		return ret
+	}).(MembershipDefaultResultConfigurationOutput)
+}
+
+func (o MembershipDefaultResultConfigurationPtrOutput) OutputConfiguration() MembershipDefaultResultConfigurationOutputConfigurationPtrOutput {
+	return o.ApplyT(func(v *MembershipDefaultResultConfiguration) *MembershipDefaultResultConfigurationOutputConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.OutputConfiguration
+	}).(MembershipDefaultResultConfigurationOutputConfigurationPtrOutput)
+}
+
+// The ARN of the IAM role which will be used to create the membership.
+// - `output_configuration.s3.bucket` - (Required) - The name of the S3 bucket where the query results will be stored.
+// - `output_configuration.s3.result_format` - (Required) - The format of the query results. Valid values are `PARQUET` and `CSV`.
+// - `output_configuration.s3.key_prefix` - (Optional) - The prefix used for the query results.
+func (o MembershipDefaultResultConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MembershipDefaultResultConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type MembershipDefaultResultConfigurationOutputConfiguration struct {
+	S3 *MembershipDefaultResultConfigurationOutputConfigurationS3 `pulumi:"s3"`
+}
+
+// MembershipDefaultResultConfigurationOutputConfigurationInput is an input type that accepts MembershipDefaultResultConfigurationOutputConfigurationArgs and MembershipDefaultResultConfigurationOutputConfigurationOutput values.
+// You can construct a concrete instance of `MembershipDefaultResultConfigurationOutputConfigurationInput` via:
+//
+//	MembershipDefaultResultConfigurationOutputConfigurationArgs{...}
+type MembershipDefaultResultConfigurationOutputConfigurationInput interface {
+	pulumi.Input
+
+	ToMembershipDefaultResultConfigurationOutputConfigurationOutput() MembershipDefaultResultConfigurationOutputConfigurationOutput
+	ToMembershipDefaultResultConfigurationOutputConfigurationOutputWithContext(context.Context) MembershipDefaultResultConfigurationOutputConfigurationOutput
+}
+
+type MembershipDefaultResultConfigurationOutputConfigurationArgs struct {
+	S3 MembershipDefaultResultConfigurationOutputConfigurationS3PtrInput `pulumi:"s3"`
+}
+
+func (MembershipDefaultResultConfigurationOutputConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipDefaultResultConfigurationOutputConfiguration)(nil)).Elem()
+}
+
+func (i MembershipDefaultResultConfigurationOutputConfigurationArgs) ToMembershipDefaultResultConfigurationOutputConfigurationOutput() MembershipDefaultResultConfigurationOutputConfigurationOutput {
+	return i.ToMembershipDefaultResultConfigurationOutputConfigurationOutputWithContext(context.Background())
+}
+
+func (i MembershipDefaultResultConfigurationOutputConfigurationArgs) ToMembershipDefaultResultConfigurationOutputConfigurationOutputWithContext(ctx context.Context) MembershipDefaultResultConfigurationOutputConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipDefaultResultConfigurationOutputConfigurationOutput)
+}
+
+func (i MembershipDefaultResultConfigurationOutputConfigurationArgs) ToMembershipDefaultResultConfigurationOutputConfigurationPtrOutput() MembershipDefaultResultConfigurationOutputConfigurationPtrOutput {
+	return i.ToMembershipDefaultResultConfigurationOutputConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i MembershipDefaultResultConfigurationOutputConfigurationArgs) ToMembershipDefaultResultConfigurationOutputConfigurationPtrOutputWithContext(ctx context.Context) MembershipDefaultResultConfigurationOutputConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipDefaultResultConfigurationOutputConfigurationOutput).ToMembershipDefaultResultConfigurationOutputConfigurationPtrOutputWithContext(ctx)
+}
+
+// MembershipDefaultResultConfigurationOutputConfigurationPtrInput is an input type that accepts MembershipDefaultResultConfigurationOutputConfigurationArgs, MembershipDefaultResultConfigurationOutputConfigurationPtr and MembershipDefaultResultConfigurationOutputConfigurationPtrOutput values.
+// You can construct a concrete instance of `MembershipDefaultResultConfigurationOutputConfigurationPtrInput` via:
+//
+//	        MembershipDefaultResultConfigurationOutputConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type MembershipDefaultResultConfigurationOutputConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToMembershipDefaultResultConfigurationOutputConfigurationPtrOutput() MembershipDefaultResultConfigurationOutputConfigurationPtrOutput
+	ToMembershipDefaultResultConfigurationOutputConfigurationPtrOutputWithContext(context.Context) MembershipDefaultResultConfigurationOutputConfigurationPtrOutput
+}
+
+type membershipDefaultResultConfigurationOutputConfigurationPtrType MembershipDefaultResultConfigurationOutputConfigurationArgs
+
+func MembershipDefaultResultConfigurationOutputConfigurationPtr(v *MembershipDefaultResultConfigurationOutputConfigurationArgs) MembershipDefaultResultConfigurationOutputConfigurationPtrInput {
+	return (*membershipDefaultResultConfigurationOutputConfigurationPtrType)(v)
+}
+
+func (*membershipDefaultResultConfigurationOutputConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipDefaultResultConfigurationOutputConfiguration)(nil)).Elem()
+}
+
+func (i *membershipDefaultResultConfigurationOutputConfigurationPtrType) ToMembershipDefaultResultConfigurationOutputConfigurationPtrOutput() MembershipDefaultResultConfigurationOutputConfigurationPtrOutput {
+	return i.ToMembershipDefaultResultConfigurationOutputConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *membershipDefaultResultConfigurationOutputConfigurationPtrType) ToMembershipDefaultResultConfigurationOutputConfigurationPtrOutputWithContext(ctx context.Context) MembershipDefaultResultConfigurationOutputConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipDefaultResultConfigurationOutputConfigurationPtrOutput)
+}
+
+type MembershipDefaultResultConfigurationOutputConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MembershipDefaultResultConfigurationOutputConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipDefaultResultConfigurationOutputConfiguration)(nil)).Elem()
+}
+
+func (o MembershipDefaultResultConfigurationOutputConfigurationOutput) ToMembershipDefaultResultConfigurationOutputConfigurationOutput() MembershipDefaultResultConfigurationOutputConfigurationOutput {
+	return o
+}
+
+func (o MembershipDefaultResultConfigurationOutputConfigurationOutput) ToMembershipDefaultResultConfigurationOutputConfigurationOutputWithContext(ctx context.Context) MembershipDefaultResultConfigurationOutputConfigurationOutput {
+	return o
+}
+
+func (o MembershipDefaultResultConfigurationOutputConfigurationOutput) ToMembershipDefaultResultConfigurationOutputConfigurationPtrOutput() MembershipDefaultResultConfigurationOutputConfigurationPtrOutput {
+	return o.ToMembershipDefaultResultConfigurationOutputConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o MembershipDefaultResultConfigurationOutputConfigurationOutput) ToMembershipDefaultResultConfigurationOutputConfigurationPtrOutputWithContext(ctx context.Context) MembershipDefaultResultConfigurationOutputConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MembershipDefaultResultConfigurationOutputConfiguration) *MembershipDefaultResultConfigurationOutputConfiguration {
+		return &v
+	}).(MembershipDefaultResultConfigurationOutputConfigurationPtrOutput)
+}
+
+func (o MembershipDefaultResultConfigurationOutputConfigurationOutput) S3() MembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput {
+	return o.ApplyT(func(v MembershipDefaultResultConfigurationOutputConfiguration) *MembershipDefaultResultConfigurationOutputConfigurationS3 {
+		return v.S3
+	}).(MembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput)
+}
+
+type MembershipDefaultResultConfigurationOutputConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (MembershipDefaultResultConfigurationOutputConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipDefaultResultConfigurationOutputConfiguration)(nil)).Elem()
+}
+
+func (o MembershipDefaultResultConfigurationOutputConfigurationPtrOutput) ToMembershipDefaultResultConfigurationOutputConfigurationPtrOutput() MembershipDefaultResultConfigurationOutputConfigurationPtrOutput {
+	return o
+}
+
+func (o MembershipDefaultResultConfigurationOutputConfigurationPtrOutput) ToMembershipDefaultResultConfigurationOutputConfigurationPtrOutputWithContext(ctx context.Context) MembershipDefaultResultConfigurationOutputConfigurationPtrOutput {
+	return o
+}
+
+func (o MembershipDefaultResultConfigurationOutputConfigurationPtrOutput) Elem() MembershipDefaultResultConfigurationOutputConfigurationOutput {
+	return o.ApplyT(func(v *MembershipDefaultResultConfigurationOutputConfiguration) MembershipDefaultResultConfigurationOutputConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret MembershipDefaultResultConfigurationOutputConfiguration
+		return ret
+	}).(MembershipDefaultResultConfigurationOutputConfigurationOutput)
+}
+
+func (o MembershipDefaultResultConfigurationOutputConfigurationPtrOutput) S3() MembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput {
+	return o.ApplyT(func(v *MembershipDefaultResultConfigurationOutputConfiguration) *MembershipDefaultResultConfigurationOutputConfigurationS3 {
+		if v == nil {
+			return nil
+		}
+		return v.S3
+	}).(MembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput)
+}
+
+type MembershipDefaultResultConfigurationOutputConfigurationS3 struct {
+	Bucket       string  `pulumi:"bucket"`
+	KeyPrefix    *string `pulumi:"keyPrefix"`
+	ResultFormat string  `pulumi:"resultFormat"`
+}
+
+// MembershipDefaultResultConfigurationOutputConfigurationS3Input is an input type that accepts MembershipDefaultResultConfigurationOutputConfigurationS3Args and MembershipDefaultResultConfigurationOutputConfigurationS3Output values.
+// You can construct a concrete instance of `MembershipDefaultResultConfigurationOutputConfigurationS3Input` via:
+//
+//	MembershipDefaultResultConfigurationOutputConfigurationS3Args{...}
+type MembershipDefaultResultConfigurationOutputConfigurationS3Input interface {
+	pulumi.Input
+
+	ToMembershipDefaultResultConfigurationOutputConfigurationS3Output() MembershipDefaultResultConfigurationOutputConfigurationS3Output
+	ToMembershipDefaultResultConfigurationOutputConfigurationS3OutputWithContext(context.Context) MembershipDefaultResultConfigurationOutputConfigurationS3Output
+}
+
+type MembershipDefaultResultConfigurationOutputConfigurationS3Args struct {
+	Bucket       pulumi.StringInput    `pulumi:"bucket"`
+	KeyPrefix    pulumi.StringPtrInput `pulumi:"keyPrefix"`
+	ResultFormat pulumi.StringInput    `pulumi:"resultFormat"`
+}
+
+func (MembershipDefaultResultConfigurationOutputConfigurationS3Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipDefaultResultConfigurationOutputConfigurationS3)(nil)).Elem()
+}
+
+func (i MembershipDefaultResultConfigurationOutputConfigurationS3Args) ToMembershipDefaultResultConfigurationOutputConfigurationS3Output() MembershipDefaultResultConfigurationOutputConfigurationS3Output {
+	return i.ToMembershipDefaultResultConfigurationOutputConfigurationS3OutputWithContext(context.Background())
+}
+
+func (i MembershipDefaultResultConfigurationOutputConfigurationS3Args) ToMembershipDefaultResultConfigurationOutputConfigurationS3OutputWithContext(ctx context.Context) MembershipDefaultResultConfigurationOutputConfigurationS3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipDefaultResultConfigurationOutputConfigurationS3Output)
+}
+
+func (i MembershipDefaultResultConfigurationOutputConfigurationS3Args) ToMembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput() MembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput {
+	return i.ToMembershipDefaultResultConfigurationOutputConfigurationS3PtrOutputWithContext(context.Background())
+}
+
+func (i MembershipDefaultResultConfigurationOutputConfigurationS3Args) ToMembershipDefaultResultConfigurationOutputConfigurationS3PtrOutputWithContext(ctx context.Context) MembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipDefaultResultConfigurationOutputConfigurationS3Output).ToMembershipDefaultResultConfigurationOutputConfigurationS3PtrOutputWithContext(ctx)
+}
+
+// MembershipDefaultResultConfigurationOutputConfigurationS3PtrInput is an input type that accepts MembershipDefaultResultConfigurationOutputConfigurationS3Args, MembershipDefaultResultConfigurationOutputConfigurationS3Ptr and MembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput values.
+// You can construct a concrete instance of `MembershipDefaultResultConfigurationOutputConfigurationS3PtrInput` via:
+//
+//	        MembershipDefaultResultConfigurationOutputConfigurationS3Args{...}
+//
+//	or:
+//
+//	        nil
+type MembershipDefaultResultConfigurationOutputConfigurationS3PtrInput interface {
+	pulumi.Input
+
+	ToMembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput() MembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput
+	ToMembershipDefaultResultConfigurationOutputConfigurationS3PtrOutputWithContext(context.Context) MembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput
+}
+
+type membershipDefaultResultConfigurationOutputConfigurationS3PtrType MembershipDefaultResultConfigurationOutputConfigurationS3Args
+
+func MembershipDefaultResultConfigurationOutputConfigurationS3Ptr(v *MembershipDefaultResultConfigurationOutputConfigurationS3Args) MembershipDefaultResultConfigurationOutputConfigurationS3PtrInput {
+	return (*membershipDefaultResultConfigurationOutputConfigurationS3PtrType)(v)
+}
+
+func (*membershipDefaultResultConfigurationOutputConfigurationS3PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipDefaultResultConfigurationOutputConfigurationS3)(nil)).Elem()
+}
+
+func (i *membershipDefaultResultConfigurationOutputConfigurationS3PtrType) ToMembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput() MembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput {
+	return i.ToMembershipDefaultResultConfigurationOutputConfigurationS3PtrOutputWithContext(context.Background())
+}
+
+func (i *membershipDefaultResultConfigurationOutputConfigurationS3PtrType) ToMembershipDefaultResultConfigurationOutputConfigurationS3PtrOutputWithContext(ctx context.Context) MembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput)
+}
+
+type MembershipDefaultResultConfigurationOutputConfigurationS3Output struct{ *pulumi.OutputState }
+
+func (MembershipDefaultResultConfigurationOutputConfigurationS3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipDefaultResultConfigurationOutputConfigurationS3)(nil)).Elem()
+}
+
+func (o MembershipDefaultResultConfigurationOutputConfigurationS3Output) ToMembershipDefaultResultConfigurationOutputConfigurationS3Output() MembershipDefaultResultConfigurationOutputConfigurationS3Output {
+	return o
+}
+
+func (o MembershipDefaultResultConfigurationOutputConfigurationS3Output) ToMembershipDefaultResultConfigurationOutputConfigurationS3OutputWithContext(ctx context.Context) MembershipDefaultResultConfigurationOutputConfigurationS3Output {
+	return o
+}
+
+func (o MembershipDefaultResultConfigurationOutputConfigurationS3Output) ToMembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput() MembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput {
+	return o.ToMembershipDefaultResultConfigurationOutputConfigurationS3PtrOutputWithContext(context.Background())
+}
+
+func (o MembershipDefaultResultConfigurationOutputConfigurationS3Output) ToMembershipDefaultResultConfigurationOutputConfigurationS3PtrOutputWithContext(ctx context.Context) MembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MembershipDefaultResultConfigurationOutputConfigurationS3) *MembershipDefaultResultConfigurationOutputConfigurationS3 {
+		return &v
+	}).(MembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput)
+}
+
+func (o MembershipDefaultResultConfigurationOutputConfigurationS3Output) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v MembershipDefaultResultConfigurationOutputConfigurationS3) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+func (o MembershipDefaultResultConfigurationOutputConfigurationS3Output) KeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MembershipDefaultResultConfigurationOutputConfigurationS3) *string { return v.KeyPrefix }).(pulumi.StringPtrOutput)
+}
+
+func (o MembershipDefaultResultConfigurationOutputConfigurationS3Output) ResultFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v MembershipDefaultResultConfigurationOutputConfigurationS3) string { return v.ResultFormat }).(pulumi.StringOutput)
+}
+
+type MembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput struct{ *pulumi.OutputState }
+
+func (MembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipDefaultResultConfigurationOutputConfigurationS3)(nil)).Elem()
+}
+
+func (o MembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput) ToMembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput() MembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput {
+	return o
+}
+
+func (o MembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput) ToMembershipDefaultResultConfigurationOutputConfigurationS3PtrOutputWithContext(ctx context.Context) MembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput {
+	return o
+}
+
+func (o MembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput) Elem() MembershipDefaultResultConfigurationOutputConfigurationS3Output {
+	return o.ApplyT(func(v *MembershipDefaultResultConfigurationOutputConfigurationS3) MembershipDefaultResultConfigurationOutputConfigurationS3 {
+		if v != nil {
+			return *v
+		}
+		var ret MembershipDefaultResultConfigurationOutputConfigurationS3
+		return ret
+	}).(MembershipDefaultResultConfigurationOutputConfigurationS3Output)
+}
+
+func (o MembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MembershipDefaultResultConfigurationOutputConfigurationS3) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput) KeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MembershipDefaultResultConfigurationOutputConfigurationS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput) ResultFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MembershipDefaultResultConfigurationOutputConfigurationS3) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResultFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+type MembershipPaymentConfiguration struct {
+	QueryCompute *MembershipPaymentConfigurationQueryCompute `pulumi:"queryCompute"`
+}
+
+// MembershipPaymentConfigurationInput is an input type that accepts MembershipPaymentConfigurationArgs and MembershipPaymentConfigurationOutput values.
+// You can construct a concrete instance of `MembershipPaymentConfigurationInput` via:
+//
+//	MembershipPaymentConfigurationArgs{...}
+type MembershipPaymentConfigurationInput interface {
+	pulumi.Input
+
+	ToMembershipPaymentConfigurationOutput() MembershipPaymentConfigurationOutput
+	ToMembershipPaymentConfigurationOutputWithContext(context.Context) MembershipPaymentConfigurationOutput
+}
+
+type MembershipPaymentConfigurationArgs struct {
+	QueryCompute MembershipPaymentConfigurationQueryComputePtrInput `pulumi:"queryCompute"`
+}
+
+func (MembershipPaymentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipPaymentConfiguration)(nil)).Elem()
+}
+
+func (i MembershipPaymentConfigurationArgs) ToMembershipPaymentConfigurationOutput() MembershipPaymentConfigurationOutput {
+	return i.ToMembershipPaymentConfigurationOutputWithContext(context.Background())
+}
+
+func (i MembershipPaymentConfigurationArgs) ToMembershipPaymentConfigurationOutputWithContext(ctx context.Context) MembershipPaymentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipPaymentConfigurationOutput)
+}
+
+func (i MembershipPaymentConfigurationArgs) ToMembershipPaymentConfigurationPtrOutput() MembershipPaymentConfigurationPtrOutput {
+	return i.ToMembershipPaymentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i MembershipPaymentConfigurationArgs) ToMembershipPaymentConfigurationPtrOutputWithContext(ctx context.Context) MembershipPaymentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipPaymentConfigurationOutput).ToMembershipPaymentConfigurationPtrOutputWithContext(ctx)
+}
+
+// MembershipPaymentConfigurationPtrInput is an input type that accepts MembershipPaymentConfigurationArgs, MembershipPaymentConfigurationPtr and MembershipPaymentConfigurationPtrOutput values.
+// You can construct a concrete instance of `MembershipPaymentConfigurationPtrInput` via:
+//
+//	        MembershipPaymentConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type MembershipPaymentConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToMembershipPaymentConfigurationPtrOutput() MembershipPaymentConfigurationPtrOutput
+	ToMembershipPaymentConfigurationPtrOutputWithContext(context.Context) MembershipPaymentConfigurationPtrOutput
+}
+
+type membershipPaymentConfigurationPtrType MembershipPaymentConfigurationArgs
+
+func MembershipPaymentConfigurationPtr(v *MembershipPaymentConfigurationArgs) MembershipPaymentConfigurationPtrInput {
+	return (*membershipPaymentConfigurationPtrType)(v)
+}
+
+func (*membershipPaymentConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipPaymentConfiguration)(nil)).Elem()
+}
+
+func (i *membershipPaymentConfigurationPtrType) ToMembershipPaymentConfigurationPtrOutput() MembershipPaymentConfigurationPtrOutput {
+	return i.ToMembershipPaymentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *membershipPaymentConfigurationPtrType) ToMembershipPaymentConfigurationPtrOutputWithContext(ctx context.Context) MembershipPaymentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipPaymentConfigurationPtrOutput)
+}
+
+type MembershipPaymentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MembershipPaymentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipPaymentConfiguration)(nil)).Elem()
+}
+
+func (o MembershipPaymentConfigurationOutput) ToMembershipPaymentConfigurationOutput() MembershipPaymentConfigurationOutput {
+	return o
+}
+
+func (o MembershipPaymentConfigurationOutput) ToMembershipPaymentConfigurationOutputWithContext(ctx context.Context) MembershipPaymentConfigurationOutput {
+	return o
+}
+
+func (o MembershipPaymentConfigurationOutput) ToMembershipPaymentConfigurationPtrOutput() MembershipPaymentConfigurationPtrOutput {
+	return o.ToMembershipPaymentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o MembershipPaymentConfigurationOutput) ToMembershipPaymentConfigurationPtrOutputWithContext(ctx context.Context) MembershipPaymentConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MembershipPaymentConfiguration) *MembershipPaymentConfiguration {
+		return &v
+	}).(MembershipPaymentConfigurationPtrOutput)
+}
+
+func (o MembershipPaymentConfigurationOutput) QueryCompute() MembershipPaymentConfigurationQueryComputePtrOutput {
+	return o.ApplyT(func(v MembershipPaymentConfiguration) *MembershipPaymentConfigurationQueryCompute {
+		return v.QueryCompute
+	}).(MembershipPaymentConfigurationQueryComputePtrOutput)
+}
+
+type MembershipPaymentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (MembershipPaymentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipPaymentConfiguration)(nil)).Elem()
+}
+
+func (o MembershipPaymentConfigurationPtrOutput) ToMembershipPaymentConfigurationPtrOutput() MembershipPaymentConfigurationPtrOutput {
+	return o
+}
+
+func (o MembershipPaymentConfigurationPtrOutput) ToMembershipPaymentConfigurationPtrOutputWithContext(ctx context.Context) MembershipPaymentConfigurationPtrOutput {
+	return o
+}
+
+func (o MembershipPaymentConfigurationPtrOutput) Elem() MembershipPaymentConfigurationOutput {
+	return o.ApplyT(func(v *MembershipPaymentConfiguration) MembershipPaymentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret MembershipPaymentConfiguration
+		return ret
+	}).(MembershipPaymentConfigurationOutput)
+}
+
+func (o MembershipPaymentConfigurationPtrOutput) QueryCompute() MembershipPaymentConfigurationQueryComputePtrOutput {
+	return o.ApplyT(func(v *MembershipPaymentConfiguration) *MembershipPaymentConfigurationQueryCompute {
+		if v == nil {
+			return nil
+		}
+		return v.QueryCompute
+	}).(MembershipPaymentConfigurationQueryComputePtrOutput)
+}
+
+type MembershipPaymentConfigurationQueryCompute struct {
+	// Indicates whether the collaboration member has accepted to pay for query compute costs.
+	IsResponsible bool `pulumi:"isResponsible"`
+}
+
+// MembershipPaymentConfigurationQueryComputeInput is an input type that accepts MembershipPaymentConfigurationQueryComputeArgs and MembershipPaymentConfigurationQueryComputeOutput values.
+// You can construct a concrete instance of `MembershipPaymentConfigurationQueryComputeInput` via:
+//
+//	MembershipPaymentConfigurationQueryComputeArgs{...}
+type MembershipPaymentConfigurationQueryComputeInput interface {
+	pulumi.Input
+
+	ToMembershipPaymentConfigurationQueryComputeOutput() MembershipPaymentConfigurationQueryComputeOutput
+	ToMembershipPaymentConfigurationQueryComputeOutputWithContext(context.Context) MembershipPaymentConfigurationQueryComputeOutput
+}
+
+type MembershipPaymentConfigurationQueryComputeArgs struct {
+	// Indicates whether the collaboration member has accepted to pay for query compute costs.
+	IsResponsible pulumi.BoolInput `pulumi:"isResponsible"`
+}
+
+func (MembershipPaymentConfigurationQueryComputeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipPaymentConfigurationQueryCompute)(nil)).Elem()
+}
+
+func (i MembershipPaymentConfigurationQueryComputeArgs) ToMembershipPaymentConfigurationQueryComputeOutput() MembershipPaymentConfigurationQueryComputeOutput {
+	return i.ToMembershipPaymentConfigurationQueryComputeOutputWithContext(context.Background())
+}
+
+func (i MembershipPaymentConfigurationQueryComputeArgs) ToMembershipPaymentConfigurationQueryComputeOutputWithContext(ctx context.Context) MembershipPaymentConfigurationQueryComputeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipPaymentConfigurationQueryComputeOutput)
+}
+
+func (i MembershipPaymentConfigurationQueryComputeArgs) ToMembershipPaymentConfigurationQueryComputePtrOutput() MembershipPaymentConfigurationQueryComputePtrOutput {
+	return i.ToMembershipPaymentConfigurationQueryComputePtrOutputWithContext(context.Background())
+}
+
+func (i MembershipPaymentConfigurationQueryComputeArgs) ToMembershipPaymentConfigurationQueryComputePtrOutputWithContext(ctx context.Context) MembershipPaymentConfigurationQueryComputePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipPaymentConfigurationQueryComputeOutput).ToMembershipPaymentConfigurationQueryComputePtrOutputWithContext(ctx)
+}
+
+// MembershipPaymentConfigurationQueryComputePtrInput is an input type that accepts MembershipPaymentConfigurationQueryComputeArgs, MembershipPaymentConfigurationQueryComputePtr and MembershipPaymentConfigurationQueryComputePtrOutput values.
+// You can construct a concrete instance of `MembershipPaymentConfigurationQueryComputePtrInput` via:
+//
+//	        MembershipPaymentConfigurationQueryComputeArgs{...}
+//
+//	or:
+//
+//	        nil
+type MembershipPaymentConfigurationQueryComputePtrInput interface {
+	pulumi.Input
+
+	ToMembershipPaymentConfigurationQueryComputePtrOutput() MembershipPaymentConfigurationQueryComputePtrOutput
+	ToMembershipPaymentConfigurationQueryComputePtrOutputWithContext(context.Context) MembershipPaymentConfigurationQueryComputePtrOutput
+}
+
+type membershipPaymentConfigurationQueryComputePtrType MembershipPaymentConfigurationQueryComputeArgs
+
+func MembershipPaymentConfigurationQueryComputePtr(v *MembershipPaymentConfigurationQueryComputeArgs) MembershipPaymentConfigurationQueryComputePtrInput {
+	return (*membershipPaymentConfigurationQueryComputePtrType)(v)
+}
+
+func (*membershipPaymentConfigurationQueryComputePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipPaymentConfigurationQueryCompute)(nil)).Elem()
+}
+
+func (i *membershipPaymentConfigurationQueryComputePtrType) ToMembershipPaymentConfigurationQueryComputePtrOutput() MembershipPaymentConfigurationQueryComputePtrOutput {
+	return i.ToMembershipPaymentConfigurationQueryComputePtrOutputWithContext(context.Background())
+}
+
+func (i *membershipPaymentConfigurationQueryComputePtrType) ToMembershipPaymentConfigurationQueryComputePtrOutputWithContext(ctx context.Context) MembershipPaymentConfigurationQueryComputePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipPaymentConfigurationQueryComputePtrOutput)
+}
+
+type MembershipPaymentConfigurationQueryComputeOutput struct{ *pulumi.OutputState }
+
+func (MembershipPaymentConfigurationQueryComputeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipPaymentConfigurationQueryCompute)(nil)).Elem()
+}
+
+func (o MembershipPaymentConfigurationQueryComputeOutput) ToMembershipPaymentConfigurationQueryComputeOutput() MembershipPaymentConfigurationQueryComputeOutput {
+	return o
+}
+
+func (o MembershipPaymentConfigurationQueryComputeOutput) ToMembershipPaymentConfigurationQueryComputeOutputWithContext(ctx context.Context) MembershipPaymentConfigurationQueryComputeOutput {
+	return o
+}
+
+func (o MembershipPaymentConfigurationQueryComputeOutput) ToMembershipPaymentConfigurationQueryComputePtrOutput() MembershipPaymentConfigurationQueryComputePtrOutput {
+	return o.ToMembershipPaymentConfigurationQueryComputePtrOutputWithContext(context.Background())
+}
+
+func (o MembershipPaymentConfigurationQueryComputeOutput) ToMembershipPaymentConfigurationQueryComputePtrOutputWithContext(ctx context.Context) MembershipPaymentConfigurationQueryComputePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MembershipPaymentConfigurationQueryCompute) *MembershipPaymentConfigurationQueryCompute {
+		return &v
+	}).(MembershipPaymentConfigurationQueryComputePtrOutput)
+}
+
+// Indicates whether the collaboration member has accepted to pay for query compute costs.
+func (o MembershipPaymentConfigurationQueryComputeOutput) IsResponsible() pulumi.BoolOutput {
+	return o.ApplyT(func(v MembershipPaymentConfigurationQueryCompute) bool { return v.IsResponsible }).(pulumi.BoolOutput)
+}
+
+type MembershipPaymentConfigurationQueryComputePtrOutput struct{ *pulumi.OutputState }
+
+func (MembershipPaymentConfigurationQueryComputePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipPaymentConfigurationQueryCompute)(nil)).Elem()
+}
+
+func (o MembershipPaymentConfigurationQueryComputePtrOutput) ToMembershipPaymentConfigurationQueryComputePtrOutput() MembershipPaymentConfigurationQueryComputePtrOutput {
+	return o
+}
+
+func (o MembershipPaymentConfigurationQueryComputePtrOutput) ToMembershipPaymentConfigurationQueryComputePtrOutputWithContext(ctx context.Context) MembershipPaymentConfigurationQueryComputePtrOutput {
+	return o
+}
+
+func (o MembershipPaymentConfigurationQueryComputePtrOutput) Elem() MembershipPaymentConfigurationQueryComputeOutput {
+	return o.ApplyT(func(v *MembershipPaymentConfigurationQueryCompute) MembershipPaymentConfigurationQueryCompute {
+		if v != nil {
+			return *v
+		}
+		var ret MembershipPaymentConfigurationQueryCompute
+		return ret
+	}).(MembershipPaymentConfigurationQueryComputeOutput)
+}
+
+// Indicates whether the collaboration member has accepted to pay for query compute costs.
+func (o MembershipPaymentConfigurationQueryComputePtrOutput) IsResponsible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MembershipPaymentConfigurationQueryCompute) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsResponsible
+	}).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationDataEncryptionMetadataInput)(nil)).Elem(), CollaborationDataEncryptionMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationDataEncryptionMetadataPtrInput)(nil)).Elem(), CollaborationDataEncryptionMetadataArgs{})
@@ -458,10 +1194,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMemberArrayInput)(nil)).Elem(), CollaborationMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableTableReferenceInput)(nil)).Elem(), ConfiguredTableTableReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableTableReferencePtrInput)(nil)).Elem(), ConfiguredTableTableReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipDefaultResultConfigurationInput)(nil)).Elem(), MembershipDefaultResultConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipDefaultResultConfigurationPtrInput)(nil)).Elem(), MembershipDefaultResultConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipDefaultResultConfigurationOutputConfigurationInput)(nil)).Elem(), MembershipDefaultResultConfigurationOutputConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipDefaultResultConfigurationOutputConfigurationPtrInput)(nil)).Elem(), MembershipDefaultResultConfigurationOutputConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipDefaultResultConfigurationOutputConfigurationS3Input)(nil)).Elem(), MembershipDefaultResultConfigurationOutputConfigurationS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipDefaultResultConfigurationOutputConfigurationS3PtrInput)(nil)).Elem(), MembershipDefaultResultConfigurationOutputConfigurationS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipPaymentConfigurationInput)(nil)).Elem(), MembershipPaymentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipPaymentConfigurationPtrInput)(nil)).Elem(), MembershipPaymentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipPaymentConfigurationQueryComputeInput)(nil)).Elem(), MembershipPaymentConfigurationQueryComputeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipPaymentConfigurationQueryComputePtrInput)(nil)).Elem(), MembershipPaymentConfigurationQueryComputeArgs{})
 	pulumi.RegisterOutputType(CollaborationDataEncryptionMetadataOutput{})
 	pulumi.RegisterOutputType(CollaborationDataEncryptionMetadataPtrOutput{})
 	pulumi.RegisterOutputType(CollaborationMemberOutput{})
 	pulumi.RegisterOutputType(CollaborationMemberArrayOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableTableReferenceOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableTableReferencePtrOutput{})
+	pulumi.RegisterOutputType(MembershipDefaultResultConfigurationOutput{})
+	pulumi.RegisterOutputType(MembershipDefaultResultConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(MembershipDefaultResultConfigurationOutputConfigurationOutput{})
+	pulumi.RegisterOutputType(MembershipDefaultResultConfigurationOutputConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(MembershipDefaultResultConfigurationOutputConfigurationS3Output{})
+	pulumi.RegisterOutputType(MembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput{})
+	pulumi.RegisterOutputType(MembershipPaymentConfigurationOutput{})
+	pulumi.RegisterOutputType(MembershipPaymentConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(MembershipPaymentConfigurationQueryComputeOutput{})
+	pulumi.RegisterOutputType(MembershipPaymentConfigurationQueryComputePtrOutput{})
 }

@@ -9,19 +9,33 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Configuring Basic Scanning
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const foo = new aws.ecr.AccountSetting("foo", {
+ * const basicScanTypeVersion = new aws.ecr.AccountSetting("basic_scan_type_version", {
  *     name: "BASIC_SCAN_TYPE_VERSION",
- *     value: "CLAIR",
+ *     value: "AWS_NATIVE",
+ * });
+ * ```
+ *
+ * ### Configuring Registry Policy Scope
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const registryPolicyScope = new aws.ecr.AccountSetting("registry_policy_scope", {
+ *     name: "REGISTRY_POLICY_SCOPE",
+ *     value: "V2",
  * });
  * ```
  *
  * ## Import
  *
- * Using `pulumi import`, import EMR Security Configurations using the `name`. For example:
+ * Using `pulumi import`, import EMR Security Configurations using the account setting name. For example:
  *
  * ```sh
  * $ pulumi import aws:ecr/accountSetting:AccountSetting foo BASIC_SCAN_TYPE_VERSION
@@ -56,11 +70,13 @@ export class AccountSetting extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the ECR Scan Type. This should be `BASIC_SCAN_TYPE_VERSION`.
+     * Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The value of the ECR Scan Type. This can be `AWS_NATIVE` or `CLAIR`.
+     * Setting value that is specified. Valid values are:
+     * * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+     * * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
      */
     public readonly value!: pulumi.Output<string>;
 
@@ -97,11 +113,13 @@ export class AccountSetting extends pulumi.CustomResource {
  */
 export interface AccountSettingState {
     /**
-     * The name of the ECR Scan Type. This should be `BASIC_SCAN_TYPE_VERSION`.
+     * Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
      */
     name?: pulumi.Input<string>;
     /**
-     * The value of the ECR Scan Type. This can be `AWS_NATIVE` or `CLAIR`.
+     * Setting value that is specified. Valid values are:
+     * * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+     * * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
      */
     value?: pulumi.Input<string>;
 }
@@ -111,11 +129,13 @@ export interface AccountSettingState {
  */
 export interface AccountSettingArgs {
     /**
-     * The name of the ECR Scan Type. This should be `BASIC_SCAN_TYPE_VERSION`.
+     * Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
      */
     name?: pulumi.Input<string>;
     /**
-     * The value of the ECR Scan Type. This can be `AWS_NATIVE` or `CLAIR`.
+     * Setting value that is specified. Valid values are:
+     * * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+     * * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
      */
     value: pulumi.Input<string>;
 }

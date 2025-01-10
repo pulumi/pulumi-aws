@@ -23,6 +23,7 @@ namespace Pulumi.Aws.Dms.Outputs
         public readonly int MessageMaxBytes;
         public readonly bool NoHexPrefix;
         public readonly bool PartitionIncludeSchemaTable;
+        public readonly string SaslMechanism;
         public readonly string SaslPassword;
         public readonly string SaslUsername;
         public readonly string SecurityProtocol;
@@ -54,6 +55,8 @@ namespace Pulumi.Aws.Dms.Outputs
 
             bool partitionIncludeSchemaTable,
 
+            string saslMechanism,
+
             string saslPassword,
 
             string saslUsername,
@@ -80,6 +83,7 @@ namespace Pulumi.Aws.Dms.Outputs
             MessageMaxBytes = messageMaxBytes;
             NoHexPrefix = noHexPrefix;
             PartitionIncludeSchemaTable = partitionIncludeSchemaTable;
+            SaslMechanism = saslMechanism;
             SaslPassword = saslPassword;
             SaslUsername = saslUsername;
             SecurityProtocol = securityProtocol;

@@ -17156,6 +17156,280 @@ func (o ObjectCopyGrantArrayOutput) Index(i pulumi.IntInput) ObjectCopyGrantOutp
 	}).(ObjectCopyGrantOutput)
 }
 
+type ObjectCopyOverrideProvider struct {
+	// Override the provider `defaultTags` configuration block.
+	DefaultTags *ObjectCopyOverrideProviderDefaultTags `pulumi:"defaultTags"`
+}
+
+// ObjectCopyOverrideProviderInput is an input type that accepts ObjectCopyOverrideProviderArgs and ObjectCopyOverrideProviderOutput values.
+// You can construct a concrete instance of `ObjectCopyOverrideProviderInput` via:
+//
+//	ObjectCopyOverrideProviderArgs{...}
+type ObjectCopyOverrideProviderInput interface {
+	pulumi.Input
+
+	ToObjectCopyOverrideProviderOutput() ObjectCopyOverrideProviderOutput
+	ToObjectCopyOverrideProviderOutputWithContext(context.Context) ObjectCopyOverrideProviderOutput
+}
+
+type ObjectCopyOverrideProviderArgs struct {
+	// Override the provider `defaultTags` configuration block.
+	DefaultTags ObjectCopyOverrideProviderDefaultTagsPtrInput `pulumi:"defaultTags"`
+}
+
+func (ObjectCopyOverrideProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectCopyOverrideProvider)(nil)).Elem()
+}
+
+func (i ObjectCopyOverrideProviderArgs) ToObjectCopyOverrideProviderOutput() ObjectCopyOverrideProviderOutput {
+	return i.ToObjectCopyOverrideProviderOutputWithContext(context.Background())
+}
+
+func (i ObjectCopyOverrideProviderArgs) ToObjectCopyOverrideProviderOutputWithContext(ctx context.Context) ObjectCopyOverrideProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectCopyOverrideProviderOutput)
+}
+
+func (i ObjectCopyOverrideProviderArgs) ToObjectCopyOverrideProviderPtrOutput() ObjectCopyOverrideProviderPtrOutput {
+	return i.ToObjectCopyOverrideProviderPtrOutputWithContext(context.Background())
+}
+
+func (i ObjectCopyOverrideProviderArgs) ToObjectCopyOverrideProviderPtrOutputWithContext(ctx context.Context) ObjectCopyOverrideProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectCopyOverrideProviderOutput).ToObjectCopyOverrideProviderPtrOutputWithContext(ctx)
+}
+
+// ObjectCopyOverrideProviderPtrInput is an input type that accepts ObjectCopyOverrideProviderArgs, ObjectCopyOverrideProviderPtr and ObjectCopyOverrideProviderPtrOutput values.
+// You can construct a concrete instance of `ObjectCopyOverrideProviderPtrInput` via:
+//
+//	        ObjectCopyOverrideProviderArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObjectCopyOverrideProviderPtrInput interface {
+	pulumi.Input
+
+	ToObjectCopyOverrideProviderPtrOutput() ObjectCopyOverrideProviderPtrOutput
+	ToObjectCopyOverrideProviderPtrOutputWithContext(context.Context) ObjectCopyOverrideProviderPtrOutput
+}
+
+type objectCopyOverrideProviderPtrType ObjectCopyOverrideProviderArgs
+
+func ObjectCopyOverrideProviderPtr(v *ObjectCopyOverrideProviderArgs) ObjectCopyOverrideProviderPtrInput {
+	return (*objectCopyOverrideProviderPtrType)(v)
+}
+
+func (*objectCopyOverrideProviderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObjectCopyOverrideProvider)(nil)).Elem()
+}
+
+func (i *objectCopyOverrideProviderPtrType) ToObjectCopyOverrideProviderPtrOutput() ObjectCopyOverrideProviderPtrOutput {
+	return i.ToObjectCopyOverrideProviderPtrOutputWithContext(context.Background())
+}
+
+func (i *objectCopyOverrideProviderPtrType) ToObjectCopyOverrideProviderPtrOutputWithContext(ctx context.Context) ObjectCopyOverrideProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectCopyOverrideProviderPtrOutput)
+}
+
+type ObjectCopyOverrideProviderOutput struct{ *pulumi.OutputState }
+
+func (ObjectCopyOverrideProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectCopyOverrideProvider)(nil)).Elem()
+}
+
+func (o ObjectCopyOverrideProviderOutput) ToObjectCopyOverrideProviderOutput() ObjectCopyOverrideProviderOutput {
+	return o
+}
+
+func (o ObjectCopyOverrideProviderOutput) ToObjectCopyOverrideProviderOutputWithContext(ctx context.Context) ObjectCopyOverrideProviderOutput {
+	return o
+}
+
+func (o ObjectCopyOverrideProviderOutput) ToObjectCopyOverrideProviderPtrOutput() ObjectCopyOverrideProviderPtrOutput {
+	return o.ToObjectCopyOverrideProviderPtrOutputWithContext(context.Background())
+}
+
+func (o ObjectCopyOverrideProviderOutput) ToObjectCopyOverrideProviderPtrOutputWithContext(ctx context.Context) ObjectCopyOverrideProviderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObjectCopyOverrideProvider) *ObjectCopyOverrideProvider {
+		return &v
+	}).(ObjectCopyOverrideProviderPtrOutput)
+}
+
+// Override the provider `defaultTags` configuration block.
+func (o ObjectCopyOverrideProviderOutput) DefaultTags() ObjectCopyOverrideProviderDefaultTagsPtrOutput {
+	return o.ApplyT(func(v ObjectCopyOverrideProvider) *ObjectCopyOverrideProviderDefaultTags { return v.DefaultTags }).(ObjectCopyOverrideProviderDefaultTagsPtrOutput)
+}
+
+type ObjectCopyOverrideProviderPtrOutput struct{ *pulumi.OutputState }
+
+func (ObjectCopyOverrideProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObjectCopyOverrideProvider)(nil)).Elem()
+}
+
+func (o ObjectCopyOverrideProviderPtrOutput) ToObjectCopyOverrideProviderPtrOutput() ObjectCopyOverrideProviderPtrOutput {
+	return o
+}
+
+func (o ObjectCopyOverrideProviderPtrOutput) ToObjectCopyOverrideProviderPtrOutputWithContext(ctx context.Context) ObjectCopyOverrideProviderPtrOutput {
+	return o
+}
+
+func (o ObjectCopyOverrideProviderPtrOutput) Elem() ObjectCopyOverrideProviderOutput {
+	return o.ApplyT(func(v *ObjectCopyOverrideProvider) ObjectCopyOverrideProvider {
+		if v != nil {
+			return *v
+		}
+		var ret ObjectCopyOverrideProvider
+		return ret
+	}).(ObjectCopyOverrideProviderOutput)
+}
+
+// Override the provider `defaultTags` configuration block.
+func (o ObjectCopyOverrideProviderPtrOutput) DefaultTags() ObjectCopyOverrideProviderDefaultTagsPtrOutput {
+	return o.ApplyT(func(v *ObjectCopyOverrideProvider) *ObjectCopyOverrideProviderDefaultTags {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultTags
+	}).(ObjectCopyOverrideProviderDefaultTagsPtrOutput)
+}
+
+type ObjectCopyOverrideProviderDefaultTags struct {
+	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// ObjectCopyOverrideProviderDefaultTagsInput is an input type that accepts ObjectCopyOverrideProviderDefaultTagsArgs and ObjectCopyOverrideProviderDefaultTagsOutput values.
+// You can construct a concrete instance of `ObjectCopyOverrideProviderDefaultTagsInput` via:
+//
+//	ObjectCopyOverrideProviderDefaultTagsArgs{...}
+type ObjectCopyOverrideProviderDefaultTagsInput interface {
+	pulumi.Input
+
+	ToObjectCopyOverrideProviderDefaultTagsOutput() ObjectCopyOverrideProviderDefaultTagsOutput
+	ToObjectCopyOverrideProviderDefaultTagsOutputWithContext(context.Context) ObjectCopyOverrideProviderDefaultTagsOutput
+}
+
+type ObjectCopyOverrideProviderDefaultTagsArgs struct {
+	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (ObjectCopyOverrideProviderDefaultTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectCopyOverrideProviderDefaultTags)(nil)).Elem()
+}
+
+func (i ObjectCopyOverrideProviderDefaultTagsArgs) ToObjectCopyOverrideProviderDefaultTagsOutput() ObjectCopyOverrideProviderDefaultTagsOutput {
+	return i.ToObjectCopyOverrideProviderDefaultTagsOutputWithContext(context.Background())
+}
+
+func (i ObjectCopyOverrideProviderDefaultTagsArgs) ToObjectCopyOverrideProviderDefaultTagsOutputWithContext(ctx context.Context) ObjectCopyOverrideProviderDefaultTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectCopyOverrideProviderDefaultTagsOutput)
+}
+
+func (i ObjectCopyOverrideProviderDefaultTagsArgs) ToObjectCopyOverrideProviderDefaultTagsPtrOutput() ObjectCopyOverrideProviderDefaultTagsPtrOutput {
+	return i.ToObjectCopyOverrideProviderDefaultTagsPtrOutputWithContext(context.Background())
+}
+
+func (i ObjectCopyOverrideProviderDefaultTagsArgs) ToObjectCopyOverrideProviderDefaultTagsPtrOutputWithContext(ctx context.Context) ObjectCopyOverrideProviderDefaultTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectCopyOverrideProviderDefaultTagsOutput).ToObjectCopyOverrideProviderDefaultTagsPtrOutputWithContext(ctx)
+}
+
+// ObjectCopyOverrideProviderDefaultTagsPtrInput is an input type that accepts ObjectCopyOverrideProviderDefaultTagsArgs, ObjectCopyOverrideProviderDefaultTagsPtr and ObjectCopyOverrideProviderDefaultTagsPtrOutput values.
+// You can construct a concrete instance of `ObjectCopyOverrideProviderDefaultTagsPtrInput` via:
+//
+//	        ObjectCopyOverrideProviderDefaultTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObjectCopyOverrideProviderDefaultTagsPtrInput interface {
+	pulumi.Input
+
+	ToObjectCopyOverrideProviderDefaultTagsPtrOutput() ObjectCopyOverrideProviderDefaultTagsPtrOutput
+	ToObjectCopyOverrideProviderDefaultTagsPtrOutputWithContext(context.Context) ObjectCopyOverrideProviderDefaultTagsPtrOutput
+}
+
+type objectCopyOverrideProviderDefaultTagsPtrType ObjectCopyOverrideProviderDefaultTagsArgs
+
+func ObjectCopyOverrideProviderDefaultTagsPtr(v *ObjectCopyOverrideProviderDefaultTagsArgs) ObjectCopyOverrideProviderDefaultTagsPtrInput {
+	return (*objectCopyOverrideProviderDefaultTagsPtrType)(v)
+}
+
+func (*objectCopyOverrideProviderDefaultTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObjectCopyOverrideProviderDefaultTags)(nil)).Elem()
+}
+
+func (i *objectCopyOverrideProviderDefaultTagsPtrType) ToObjectCopyOverrideProviderDefaultTagsPtrOutput() ObjectCopyOverrideProviderDefaultTagsPtrOutput {
+	return i.ToObjectCopyOverrideProviderDefaultTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *objectCopyOverrideProviderDefaultTagsPtrType) ToObjectCopyOverrideProviderDefaultTagsPtrOutputWithContext(ctx context.Context) ObjectCopyOverrideProviderDefaultTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectCopyOverrideProviderDefaultTagsPtrOutput)
+}
+
+type ObjectCopyOverrideProviderDefaultTagsOutput struct{ *pulumi.OutputState }
+
+func (ObjectCopyOverrideProviderDefaultTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectCopyOverrideProviderDefaultTags)(nil)).Elem()
+}
+
+func (o ObjectCopyOverrideProviderDefaultTagsOutput) ToObjectCopyOverrideProviderDefaultTagsOutput() ObjectCopyOverrideProviderDefaultTagsOutput {
+	return o
+}
+
+func (o ObjectCopyOverrideProviderDefaultTagsOutput) ToObjectCopyOverrideProviderDefaultTagsOutputWithContext(ctx context.Context) ObjectCopyOverrideProviderDefaultTagsOutput {
+	return o
+}
+
+func (o ObjectCopyOverrideProviderDefaultTagsOutput) ToObjectCopyOverrideProviderDefaultTagsPtrOutput() ObjectCopyOverrideProviderDefaultTagsPtrOutput {
+	return o.ToObjectCopyOverrideProviderDefaultTagsPtrOutputWithContext(context.Background())
+}
+
+func (o ObjectCopyOverrideProviderDefaultTagsOutput) ToObjectCopyOverrideProviderDefaultTagsPtrOutputWithContext(ctx context.Context) ObjectCopyOverrideProviderDefaultTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObjectCopyOverrideProviderDefaultTags) *ObjectCopyOverrideProviderDefaultTags {
+		return &v
+	}).(ObjectCopyOverrideProviderDefaultTagsPtrOutput)
+}
+
+// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o ObjectCopyOverrideProviderDefaultTagsOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ObjectCopyOverrideProviderDefaultTags) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+type ObjectCopyOverrideProviderDefaultTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (ObjectCopyOverrideProviderDefaultTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObjectCopyOverrideProviderDefaultTags)(nil)).Elem()
+}
+
+func (o ObjectCopyOverrideProviderDefaultTagsPtrOutput) ToObjectCopyOverrideProviderDefaultTagsPtrOutput() ObjectCopyOverrideProviderDefaultTagsPtrOutput {
+	return o
+}
+
+func (o ObjectCopyOverrideProviderDefaultTagsPtrOutput) ToObjectCopyOverrideProviderDefaultTagsPtrOutputWithContext(ctx context.Context) ObjectCopyOverrideProviderDefaultTagsPtrOutput {
+	return o
+}
+
+func (o ObjectCopyOverrideProviderDefaultTagsPtrOutput) Elem() ObjectCopyOverrideProviderDefaultTagsOutput {
+	return o.ApplyT(func(v *ObjectCopyOverrideProviderDefaultTags) ObjectCopyOverrideProviderDefaultTags {
+		if v != nil {
+			return *v
+		}
+		var ret ObjectCopyOverrideProviderDefaultTags
+		return ret
+	}).(ObjectCopyOverrideProviderDefaultTagsOutput)
+}
+
+// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o ObjectCopyOverrideProviderDefaultTagsPtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ObjectCopyOverrideProviderDefaultTags) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointPublicAccessBlockConfigurationInput)(nil)).Elem(), AccessPointPublicAccessBlockConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointPublicAccessBlockConfigurationPtrInput)(nil)).Elem(), AccessPointPublicAccessBlockConfigurationArgs{})
@@ -17395,6 +17669,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InventorySchedulePtrInput)(nil)).Elem(), InventoryScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectCopyGrantInput)(nil)).Elem(), ObjectCopyGrantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectCopyGrantArrayInput)(nil)).Elem(), ObjectCopyGrantArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObjectCopyOverrideProviderInput)(nil)).Elem(), ObjectCopyOverrideProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObjectCopyOverrideProviderPtrInput)(nil)).Elem(), ObjectCopyOverrideProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObjectCopyOverrideProviderDefaultTagsInput)(nil)).Elem(), ObjectCopyOverrideProviderDefaultTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObjectCopyOverrideProviderDefaultTagsPtrInput)(nil)).Elem(), ObjectCopyOverrideProviderDefaultTagsArgs{})
 	pulumi.RegisterOutputType(AccessPointPublicAccessBlockConfigurationOutput{})
 	pulumi.RegisterOutputType(AccessPointPublicAccessBlockConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AccessPointVpcConfigurationOutput{})
@@ -17633,4 +17911,8 @@ func init() {
 	pulumi.RegisterOutputType(InventorySchedulePtrOutput{})
 	pulumi.RegisterOutputType(ObjectCopyGrantOutput{})
 	pulumi.RegisterOutputType(ObjectCopyGrantArrayOutput{})
+	pulumi.RegisterOutputType(ObjectCopyOverrideProviderOutput{})
+	pulumi.RegisterOutputType(ObjectCopyOverrideProviderPtrOutput{})
+	pulumi.RegisterOutputType(ObjectCopyOverrideProviderDefaultTagsOutput{})
+	pulumi.RegisterOutputType(ObjectCopyOverrideProviderDefaultTagsPtrOutput{})
 }

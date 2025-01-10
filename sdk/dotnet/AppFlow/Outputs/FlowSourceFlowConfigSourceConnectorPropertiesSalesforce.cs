@@ -14,6 +14,10 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class FlowSourceFlowConfigSourceConnectorPropertiesSalesforce
     {
         /// <summary>
+        /// Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
+        /// </summary>
+        public readonly string? DataTransferApi;
+        /// <summary>
         /// Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
         /// </summary>
         public readonly bool? EnableDynamicFieldUpdate;
@@ -25,12 +29,15 @@ namespace Pulumi.Aws.AppFlow.Outputs
 
         [OutputConstructor]
         private FlowSourceFlowConfigSourceConnectorPropertiesSalesforce(
+            string? dataTransferApi,
+
             bool? enableDynamicFieldUpdate,
 
             bool? includeDeletedRecords,
 
             string @object)
         {
+            DataTransferApi = dataTransferApi;
             EnableDynamicFieldUpdate = enableDynamicFieldUpdate;
             IncludeDeletedRecords = includeDeletedRecords;
             Object = @object;

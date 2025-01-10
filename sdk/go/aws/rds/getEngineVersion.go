@@ -150,10 +150,16 @@ type GetEngineVersionResult struct {
 	SupportedModes []string `pulumi:"supportedModes"`
 	// Set of the time zones supported by the engine version.
 	SupportedTimezones []string `pulumi:"supportedTimezones"`
+	// Whether the certificates can be rotated without restarting the Aurora instance.
+	SupportsCertificateRotationWithoutRestart bool `pulumi:"supportsCertificateRotationWithoutRestart"`
 	// Whether you can use Aurora global databases with the engine version.
 	SupportsGlobalDatabases bool `pulumi:"supportsGlobalDatabases"`
+	// Whether the engine version supports integrations with other AWS services.
+	SupportsIntegrations bool `pulumi:"supportsIntegrations"`
 	// Whether the engine version supports Aurora Limitless Database.
 	SupportsLimitlessDatabase bool `pulumi:"supportsLimitlessDatabase"`
+	// Whether the engine version supports local write forwarding or not.
+	SupportsLocalWriteForwarding bool `pulumi:"supportsLocalWriteForwarding"`
 	// Whether the engine version supports exporting the log types specified by `exportableLogTypes` to CloudWatch Logs.
 	SupportsLogExportsToCloudwatch bool `pulumi:"supportsLogExportsToCloudwatch"`
 	// Whether you can use Aurora parallel query with the engine version.
@@ -319,14 +325,29 @@ func (o GetEngineVersionResultOutput) SupportedTimezones() pulumi.StringArrayOut
 	return o.ApplyT(func(v GetEngineVersionResult) []string { return v.SupportedTimezones }).(pulumi.StringArrayOutput)
 }
 
+// Whether the certificates can be rotated without restarting the Aurora instance.
+func (o GetEngineVersionResultOutput) SupportsCertificateRotationWithoutRestart() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) bool { return v.SupportsCertificateRotationWithoutRestart }).(pulumi.BoolOutput)
+}
+
 // Whether you can use Aurora global databases with the engine version.
 func (o GetEngineVersionResultOutput) SupportsGlobalDatabases() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetEngineVersionResult) bool { return v.SupportsGlobalDatabases }).(pulumi.BoolOutput)
 }
 
+// Whether the engine version supports integrations with other AWS services.
+func (o GetEngineVersionResultOutput) SupportsIntegrations() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) bool { return v.SupportsIntegrations }).(pulumi.BoolOutput)
+}
+
 // Whether the engine version supports Aurora Limitless Database.
 func (o GetEngineVersionResultOutput) SupportsLimitlessDatabase() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetEngineVersionResult) bool { return v.SupportsLimitlessDatabase }).(pulumi.BoolOutput)
+}
+
+// Whether the engine version supports local write forwarding or not.
+func (o GetEngineVersionResultOutput) SupportsLocalWriteForwarding() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) bool { return v.SupportsLocalWriteForwarding }).(pulumi.BoolOutput)
 }
 
 // Whether the engine version supports exporting the log types specified by `exportableLogTypes` to CloudWatch Logs.

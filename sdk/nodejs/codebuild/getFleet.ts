@@ -82,6 +82,10 @@ export interface GetFleetResult {
      */
     readonly baseCapacity: number;
     /**
+     * Compute configuration of the compute fleet.
+     */
+    readonly computeConfigurations: outputs.codebuild.GetFleetComputeConfiguration[];
+    /**
      * Compute resources the compute fleet uses.
      */
     readonly computeType: string;

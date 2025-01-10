@@ -42,6 +42,7 @@ __all__ = [
     'UserPoolClientTokenValidityUnits',
     'UserPoolDeviceConfiguration',
     'UserPoolEmailConfiguration',
+    'UserPoolEmailMfaConfiguration',
     'UserPoolLambdaConfig',
     'UserPoolLambdaConfigCustomEmailSender',
     'UserPoolLambdaConfigCustomSmsSender',
@@ -50,12 +51,14 @@ __all__ = [
     'UserPoolSchema',
     'UserPoolSchemaNumberAttributeConstraints',
     'UserPoolSchemaStringAttributeConstraints',
+    'UserPoolSignInPolicy',
     'UserPoolSmsConfiguration',
     'UserPoolSoftwareTokenMfaConfiguration',
     'UserPoolUserAttributeUpdateSettings',
     'UserPoolUserPoolAddOns',
     'UserPoolUsernameConfiguration',
     'UserPoolVerificationMessageTemplate',
+    'UserPoolWebAuthnConfiguration',
     'GetIdentityPoolCognitoIdentityProviderResult',
     'GetUserGroupsGroupResult',
     'GetUserPoolAccountRecoverySettingResult',
@@ -1623,6 +1626,37 @@ class UserPoolEmailConfiguration(dict):
 
 
 @pulumi.output_type
+class UserPoolEmailMfaConfiguration(dict):
+    def __init__(__self__, *,
+                 message: Optional[str] = None,
+                 subject: Optional[str] = None):
+        """
+        :param str message: The template for the email messages that your user pool sends to users with codes for MFA and sign-in with email OTPs. The message must contain the {####} placeholder. In the message, Amazon Cognito replaces this placeholder with the code. If you don't provide this parameter, Amazon Cognito sends messages in the default format.
+        :param str subject: The subject of the email messages that your user pool sends to users with codes for MFA and email OTP sign-in.
+        """
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if subject is not None:
+            pulumi.set(__self__, "subject", subject)
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        The template for the email messages that your user pool sends to users with codes for MFA and sign-in with email OTPs. The message must contain the {####} placeholder. In the message, Amazon Cognito replaces this placeholder with the code. If you don't provide this parameter, Amazon Cognito sends messages in the default format.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def subject(self) -> Optional[str]:
+        """
+        The subject of the email messages that your user pool sends to users with codes for MFA and email OTP sign-in.
+        """
+        return pulumi.get(self, "subject")
+
+
+@pulumi.output_type
 class UserPoolLambdaConfig(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2311,6 +2345,42 @@ class UserPoolSchemaStringAttributeConstraints(dict):
 
 
 @pulumi.output_type
+class UserPoolSignInPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedFirstAuthFactors":
+            suggest = "allowed_first_auth_factors"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolSignInPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolSignInPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolSignInPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_first_auth_factors: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] allowed_first_auth_factors: The sign in methods your user pool supports as the first factor. This is a list of strings, allowed values are `PASSWORD`, `EMAIL_OTP`, `SMS_OTP`, and `WEB_AUTHN`.
+        """
+        if allowed_first_auth_factors is not None:
+            pulumi.set(__self__, "allowed_first_auth_factors", allowed_first_auth_factors)
+
+    @property
+    @pulumi.getter(name="allowedFirstAuthFactors")
+    def allowed_first_auth_factors(self) -> Optional[Sequence[str]]:
+        """
+        The sign in methods your user pool supports as the first factor. This is a list of strings, allowed values are `PASSWORD`, `EMAIL_OTP`, `SMS_OTP`, and `WEB_AUTHN`.
+        """
+        return pulumi.get(self, "allowed_first_auth_factors")
+
+
+@pulumi.output_type
 class UserPoolSmsConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2599,6 +2669,56 @@ class UserPoolVerificationMessageTemplate(dict):
         SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
         """
         return pulumi.get(self, "sms_message")
+
+
+@pulumi.output_type
+class UserPoolWebAuthnConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "relyingPartyId":
+            suggest = "relying_party_id"
+        elif key == "userVerification":
+            suggest = "user_verification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolWebAuthnConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolWebAuthnConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolWebAuthnConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 relying_party_id: Optional[str] = None,
+                 user_verification: Optional[str] = None):
+        """
+        :param str relying_party_id: The authentication domain that passkeys providers use as a relying party.
+        :param str user_verification: If your user pool should require a passkey. Must be one of `required` or `preferred`.
+        """
+        if relying_party_id is not None:
+            pulumi.set(__self__, "relying_party_id", relying_party_id)
+        if user_verification is not None:
+            pulumi.set(__self__, "user_verification", user_verification)
+
+    @property
+    @pulumi.getter(name="relyingPartyId")
+    def relying_party_id(self) -> Optional[str]:
+        """
+        The authentication domain that passkeys providers use as a relying party.
+        """
+        return pulumi.get(self, "relying_party_id")
+
+    @property
+    @pulumi.getter(name="userVerification")
+    def user_verification(self) -> Optional[str]:
+        """
+        If your user pool should require a passkey. Must be one of `required` or `preferred`.
+        """
+        return pulumi.get(self, "user_verification")
 
 
 @pulumi.output_type

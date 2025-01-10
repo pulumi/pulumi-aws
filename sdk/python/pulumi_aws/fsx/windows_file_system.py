@@ -889,9 +889,9 @@ class WindowsFileSystem(pulumi.CustomResource):
         example = aws.fsx.WindowsFileSystem("example",
             active_directory_id=example_aws_directory_service_directory["id"],
             kms_key_id=example_aws_kms_key["arn"],
-            storage_capacity=300,
+            storage_capacity=32,
             subnet_ids=[example_aws_subnet["id"]],
-            throughput_capacity=1024)
+            throughput_capacity=32)
         ```
 
         ### Using a Self-Managed Microsoft Active Directory
@@ -904,9 +904,9 @@ class WindowsFileSystem(pulumi.CustomResource):
 
         example = aws.fsx.WindowsFileSystem("example",
             kms_key_id=example_aws_kms_key["arn"],
-            storage_capacity=300,
+            storage_capacity=32,
             subnet_ids=[example_aws_subnet["id"]],
-            throughput_capacity=1024,
+            throughput_capacity=32,
             self_managed_active_directory={
                 "dns_ips": [
                     "10.0.0.111",
@@ -977,9 +977,9 @@ class WindowsFileSystem(pulumi.CustomResource):
         example = aws.fsx.WindowsFileSystem("example",
             active_directory_id=example_aws_directory_service_directory["id"],
             kms_key_id=example_aws_kms_key["arn"],
-            storage_capacity=300,
+            storage_capacity=32,
             subnet_ids=[example_aws_subnet["id"]],
-            throughput_capacity=1024)
+            throughput_capacity=32)
         ```
 
         ### Using a Self-Managed Microsoft Active Directory
@@ -992,9 +992,9 @@ class WindowsFileSystem(pulumi.CustomResource):
 
         example = aws.fsx.WindowsFileSystem("example",
             kms_key_id=example_aws_kms_key["arn"],
-            storage_capacity=300,
+            storage_capacity=32,
             subnet_ids=[example_aws_subnet["id"]],
-            throughput_capacity=1024,
+            throughput_capacity=32,
             self_managed_active_directory={
                 "dns_ips": [
                     "10.0.0.111",

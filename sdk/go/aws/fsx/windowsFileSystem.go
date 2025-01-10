@@ -37,11 +37,11 @@ import (
 //			_, err := fsx.NewWindowsFileSystem(ctx, "example", &fsx.WindowsFileSystemArgs{
 //				ActiveDirectoryId: pulumi.Any(exampleAwsDirectoryServiceDirectory.Id),
 //				KmsKeyId:          pulumi.Any(exampleAwsKmsKey.Arn),
-//				StorageCapacity:   pulumi.Int(300),
+//				StorageCapacity:   pulumi.Int(32),
 //				SubnetIds: pulumi.StringArray{
 //					exampleAwsSubnet.Id,
 //				},
-//				ThroughputCapacity: pulumi.Int(1024),
+//				ThroughputCapacity: pulumi.Int(32),
 //			})
 //			if err != nil {
 //				return err
@@ -70,11 +70,11 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fsx.NewWindowsFileSystem(ctx, "example", &fsx.WindowsFileSystemArgs{
 //				KmsKeyId:        pulumi.Any(exampleAwsKmsKey.Arn),
-//				StorageCapacity: pulumi.Int(300),
+//				StorageCapacity: pulumi.Int(32),
 //				SubnetIds: pulumi.StringArray{
 //					exampleAwsSubnet.Id,
 //				},
-//				ThroughputCapacity: pulumi.Int(1024),
+//				ThroughputCapacity: pulumi.Int(32),
 //				SelfManagedActiveDirectory: &fsx.WindowsFileSystemSelfManagedActiveDirectoryArgs{
 //					DnsIps: pulumi.StringArray{
 //						pulumi.String("10.0.0.111"),

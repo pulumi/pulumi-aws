@@ -28,7 +28,7 @@ class GetVpcEndpointServiceResult:
     """
     A collection of values returned by getVpcEndpointService.
     """
-    def __init__(__self__, acceptance_required=None, arn=None, availability_zones=None, base_endpoint_dns_names=None, filters=None, id=None, manages_vpc_endpoints=None, owner=None, private_dns_name=None, private_dns_names=None, service=None, service_id=None, service_name=None, service_type=None, supported_ip_address_types=None, tags=None, vpc_endpoint_policy_supported=None):
+    def __init__(__self__, acceptance_required=None, arn=None, availability_zones=None, base_endpoint_dns_names=None, filters=None, id=None, manages_vpc_endpoints=None, owner=None, private_dns_name=None, private_dns_names=None, region=None, service=None, service_id=None, service_name=None, service_regions=None, service_type=None, supported_ip_address_types=None, tags=None, vpc_endpoint_policy_supported=None):
         if acceptance_required and not isinstance(acceptance_required, bool):
             raise TypeError("Expected argument 'acceptance_required' to be a bool")
         pulumi.set(__self__, "acceptance_required", acceptance_required)
@@ -59,6 +59,9 @@ class GetVpcEndpointServiceResult:
         if private_dns_names and not isinstance(private_dns_names, list):
             raise TypeError("Expected argument 'private_dns_names' to be a list")
         pulumi.set(__self__, "private_dns_names", private_dns_names)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if service and not isinstance(service, str):
             raise TypeError("Expected argument 'service' to be a str")
         pulumi.set(__self__, "service", service)
@@ -68,6 +71,9 @@ class GetVpcEndpointServiceResult:
         if service_name and not isinstance(service_name, str):
             raise TypeError("Expected argument 'service_name' to be a str")
         pulumi.set(__self__, "service_name", service_name)
+        if service_regions and not isinstance(service_regions, list):
+            raise TypeError("Expected argument 'service_regions' to be a list")
+        pulumi.set(__self__, "service_regions", service_regions)
         if service_type and not isinstance(service_type, str):
             raise TypeError("Expected argument 'service_type' to be a str")
         pulumi.set(__self__, "service_type", service_type)
@@ -101,7 +107,7 @@ class GetVpcEndpointServiceResult:
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Sequence[str]:
         """
-        Availability Zones in which the service is available.
+        Availability Zones in which the service is available. Not available for endpoint services in other regions.
         """
         return pulumi.get(self, "availability_zones")
 
@@ -160,6 +166,14 @@ class GetVpcEndpointServiceResult:
 
     @property
     @pulumi.getter
+    def region(self) -> str:
+        """
+        Region of the endpoint service.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def service(self) -> Optional[str]:
         return pulumi.get(self, "service")
 
@@ -175,6 +189,11 @@ class GetVpcEndpointServiceResult:
     @pulumi.getter(name="serviceName")
     def service_name(self) -> str:
         return pulumi.get(self, "service_name")
+
+    @property
+    @pulumi.getter(name="serviceRegions")
+    def service_regions(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "service_regions")
 
     @property
     @pulumi.getter(name="serviceType")
@@ -222,9 +241,11 @@ class AwaitableGetVpcEndpointServiceResult(GetVpcEndpointServiceResult):
             owner=self.owner,
             private_dns_name=self.private_dns_name,
             private_dns_names=self.private_dns_names,
+            region=self.region,
             service=self.service,
             service_id=self.service_id,
             service_name=self.service_name,
+            service_regions=self.service_regions,
             service_type=self.service_type,
             supported_ip_address_types=self.supported_ip_address_types,
             tags=self.tags,
@@ -234,6 +255,7 @@ class AwaitableGetVpcEndpointServiceResult(GetVpcEndpointServiceResult):
 def get_vpc_endpoint_service(filters: Optional[Sequence[Union['GetVpcEndpointServiceFilterArgs', 'GetVpcEndpointServiceFilterArgsDict']]] = None,
                              service: Optional[str] = None,
                              service_name: Optional[str] = None,
+                             service_regions: Optional[Sequence[str]] = None,
                              service_type: Optional[str] = None,
                              tags: Optional[Mapping[str, str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcEndpointServiceResult:
@@ -285,6 +307,7 @@ def get_vpc_endpoint_service(filters: Optional[Sequence[Union['GetVpcEndpointSer
     :param Sequence[Union['GetVpcEndpointServiceFilterArgs', 'GetVpcEndpointServiceFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     :param str service: Common name of an AWS service (e.g., `s3`).
     :param str service_name: Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+    :param Sequence[str] service_regions: AWS regions in which to look for services.
     :param str service_type: Service type, `Gateway` or `Interface`.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
            
@@ -294,6 +317,7 @@ def get_vpc_endpoint_service(filters: Optional[Sequence[Union['GetVpcEndpointSer
     __args__['filters'] = filters
     __args__['service'] = service
     __args__['serviceName'] = service_name
+    __args__['serviceRegions'] = service_regions
     __args__['serviceType'] = service_type
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -310,9 +334,11 @@ def get_vpc_endpoint_service(filters: Optional[Sequence[Union['GetVpcEndpointSer
         owner=pulumi.get(__ret__, 'owner'),
         private_dns_name=pulumi.get(__ret__, 'private_dns_name'),
         private_dns_names=pulumi.get(__ret__, 'private_dns_names'),
+        region=pulumi.get(__ret__, 'region'),
         service=pulumi.get(__ret__, 'service'),
         service_id=pulumi.get(__ret__, 'service_id'),
         service_name=pulumi.get(__ret__, 'service_name'),
+        service_regions=pulumi.get(__ret__, 'service_regions'),
         service_type=pulumi.get(__ret__, 'service_type'),
         supported_ip_address_types=pulumi.get(__ret__, 'supported_ip_address_types'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -320,6 +346,7 @@ def get_vpc_endpoint_service(filters: Optional[Sequence[Union['GetVpcEndpointSer
 def get_vpc_endpoint_service_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcEndpointServiceFilterArgs', 'GetVpcEndpointServiceFilterArgsDict']]]]] = None,
                                     service: Optional[pulumi.Input[Optional[str]]] = None,
                                     service_name: Optional[pulumi.Input[Optional[str]]] = None,
+                                    service_regions: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                     service_type: Optional[pulumi.Input[Optional[str]]] = None,
                                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcEndpointServiceResult]:
@@ -371,6 +398,7 @@ def get_vpc_endpoint_service_output(filters: Optional[pulumi.Input[Optional[Sequ
     :param Sequence[Union['GetVpcEndpointServiceFilterArgs', 'GetVpcEndpointServiceFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     :param str service: Common name of an AWS service (e.g., `s3`).
     :param str service_name: Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+    :param Sequence[str] service_regions: AWS regions in which to look for services.
     :param str service_type: Service type, `Gateway` or `Interface`.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
            
@@ -380,6 +408,7 @@ def get_vpc_endpoint_service_output(filters: Optional[pulumi.Input[Optional[Sequ
     __args__['filters'] = filters
     __args__['service'] = service
     __args__['serviceName'] = service_name
+    __args__['serviceRegions'] = service_regions
     __args__['serviceType'] = service_type
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -395,9 +424,11 @@ def get_vpc_endpoint_service_output(filters: Optional[pulumi.Input[Optional[Sequ
         owner=pulumi.get(__response__, 'owner'),
         private_dns_name=pulumi.get(__response__, 'private_dns_name'),
         private_dns_names=pulumi.get(__response__, 'private_dns_names'),
+        region=pulumi.get(__response__, 'region'),
         service=pulumi.get(__response__, 'service'),
         service_id=pulumi.get(__response__, 'service_id'),
         service_name=pulumi.get(__response__, 'service_name'),
+        service_regions=pulumi.get(__response__, 'service_regions'),
         service_type=pulumi.get(__response__, 'service_type'),
         supported_ip_address_types=pulumi.get(__response__, 'supported_ip_address_types'),
         tags=pulumi.get(__response__, 'tags'),

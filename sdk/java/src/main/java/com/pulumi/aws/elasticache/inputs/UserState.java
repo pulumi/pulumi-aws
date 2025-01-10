@@ -65,14 +65,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The current supported value is `REDIS`.
+     * The current supported values are `REDIS`, `VALKEY`.
      * 
      */
     @Import(name="engine")
     private @Nullable Output<String> engine;
 
     /**
-     * @return The current supported value is `REDIS`.
+     * @return The current supported values are `REDIS`, `VALKEY`.
      * 
      */
     public Optional<Output<String>> engine() {
@@ -274,7 +274,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engine The current supported value is `REDIS`.
+         * @param engine The current supported values are `REDIS`, `VALKEY`.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engine The current supported value is `REDIS`.
+         * @param engine The current supported values are `REDIS`, `VALKEY`.
          * 
          * @return builder
          * 

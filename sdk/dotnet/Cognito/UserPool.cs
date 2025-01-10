@@ -173,6 +173,12 @@ namespace Pulumi.Aws.Cognito
         public Output<Outputs.UserPoolEmailConfiguration?> EmailConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Detailed below.
+        /// </summary>
+        [Output("emailMfaConfiguration")]
+        public Output<Outputs.UserPoolEmailMfaConfiguration?> EmailMfaConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
         /// </summary>
         [Output("emailVerificationMessage")]
@@ -235,6 +241,12 @@ namespace Pulumi.Aws.Cognito
         public Output<ImmutableArray<Outputs.UserPoolSchema>> Schemas { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block for information about the user pool sign in policy. Detailed below.
+        /// </summary>
+        [Output("signInPolicy")]
+        public Output<Outputs.UserPoolSignInPolicy> SignInPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
         /// </summary>
         [Output("smsAuthenticationMessage")]
@@ -283,6 +295,12 @@ namespace Pulumi.Aws.Cognito
         public Output<Outputs.UserPoolUserPoolAddOns?> UserPoolAddOns { get; private set; } = null!;
 
         /// <summary>
+        /// The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html), or tier. Valid values: `LITE`, `ESSENTIALS`, `PLUS`.
+        /// </summary>
+        [Output("userPoolTier")]
+        public Output<string> UserPoolTier { get; private set; } = null!;
+
+        /// <summary>
         /// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
         /// </summary>
         [Output("usernameAttributes")]
@@ -299,6 +317,12 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Output("verificationMessageTemplate")]
         public Output<Outputs.UserPoolVerificationMessageTemplate> VerificationMessageTemplate { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block for web authn configuration. Detailed below.
+        /// </summary>
+        [Output("webAuthnConfiguration")]
+        public Output<Outputs.UserPoolWebAuthnConfiguration?> WebAuthnConfiguration { get; private set; } = null!;
 
 
         /// <summary>
@@ -401,6 +425,12 @@ namespace Pulumi.Aws.Cognito
         public Input<Inputs.UserPoolEmailConfigurationArgs>? EmailConfiguration { get; set; }
 
         /// <summary>
+        /// Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Detailed below.
+        /// </summary>
+        [Input("emailMfaConfiguration")]
+        public Input<Inputs.UserPoolEmailMfaConfigurationArgs>? EmailMfaConfiguration { get; set; }
+
+        /// <summary>
         /// String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
         /// </summary>
         [Input("emailVerificationMessage")]
@@ -451,6 +481,12 @@ namespace Pulumi.Aws.Cognito
         }
 
         /// <summary>
+        /// Configuration block for information about the user pool sign in policy. Detailed below.
+        /// </summary>
+        [Input("signInPolicy")]
+        public Input<Inputs.UserPoolSignInPolicyArgs>? SignInPolicy { get; set; }
+
+        /// <summary>
         /// String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
         /// </summary>
         [Input("smsAuthenticationMessage")]
@@ -498,6 +534,12 @@ namespace Pulumi.Aws.Cognito
         [Input("userPoolAddOns")]
         public Input<Inputs.UserPoolUserPoolAddOnsArgs>? UserPoolAddOns { get; set; }
 
+        /// <summary>
+        /// The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html), or tier. Valid values: `LITE`, `ESSENTIALS`, `PLUS`.
+        /// </summary>
+        [Input("userPoolTier")]
+        public Input<string>? UserPoolTier { get; set; }
+
         [Input("usernameAttributes")]
         private InputList<string>? _usernameAttributes;
 
@@ -521,6 +563,12 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Input("verificationMessageTemplate")]
         public Input<Inputs.UserPoolVerificationMessageTemplateArgs>? VerificationMessageTemplate { get; set; }
+
+        /// <summary>
+        /// Configuration block for web authn configuration. Detailed below.
+        /// </summary>
+        [Input("webAuthnConfiguration")]
+        public Input<Inputs.UserPoolWebAuthnConfigurationArgs>? WebAuthnConfiguration { get; set; }
 
         public UserPoolArgs()
         {
@@ -609,6 +657,12 @@ namespace Pulumi.Aws.Cognito
         public Input<Inputs.UserPoolEmailConfigurationGetArgs>? EmailConfiguration { get; set; }
 
         /// <summary>
+        /// Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Detailed below.
+        /// </summary>
+        [Input("emailMfaConfiguration")]
+        public Input<Inputs.UserPoolEmailMfaConfigurationGetArgs>? EmailMfaConfiguration { get; set; }
+
+        /// <summary>
         /// String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
         /// </summary>
         [Input("emailVerificationMessage")]
@@ -677,6 +731,12 @@ namespace Pulumi.Aws.Cognito
         }
 
         /// <summary>
+        /// Configuration block for information about the user pool sign in policy. Detailed below.
+        /// </summary>
+        [Input("signInPolicy")]
+        public Input<Inputs.UserPoolSignInPolicyGetArgs>? SignInPolicy { get; set; }
+
+        /// <summary>
         /// String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
         /// </summary>
         [Input("smsAuthenticationMessage")]
@@ -737,6 +797,12 @@ namespace Pulumi.Aws.Cognito
         [Input("userPoolAddOns")]
         public Input<Inputs.UserPoolUserPoolAddOnsGetArgs>? UserPoolAddOns { get; set; }
 
+        /// <summary>
+        /// The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html), or tier. Valid values: `LITE`, `ESSENTIALS`, `PLUS`.
+        /// </summary>
+        [Input("userPoolTier")]
+        public Input<string>? UserPoolTier { get; set; }
+
         [Input("usernameAttributes")]
         private InputList<string>? _usernameAttributes;
 
@@ -760,6 +826,12 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Input("verificationMessageTemplate")]
         public Input<Inputs.UserPoolVerificationMessageTemplateGetArgs>? VerificationMessageTemplate { get; set; }
+
+        /// <summary>
+        /// Configuration block for web authn configuration. Detailed below.
+        /// </summary>
+        [Input("webAuthnConfiguration")]
+        public Input<Inputs.UserPoolWebAuthnConfigurationGetArgs>? WebAuthnConfiguration { get; set; }
 
         public UserPoolState()
         {

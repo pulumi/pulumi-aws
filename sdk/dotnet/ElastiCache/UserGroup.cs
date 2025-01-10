@@ -65,7 +65,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The current supported value is `REDIS`.
+        /// The current supported value are `REDIS`, `VALKEY`.
         /// </summary>
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.ElastiCache
     public sealed class UserGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The current supported value is `REDIS`.
+        /// The current supported value are `REDIS`, `VALKEY`.
         /// </summary>
         [Input("engine", required: true)]
         public Input<string> Engine { get; set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The current supported value is `REDIS`.
+        /// The current supported value are `REDIS`, `VALKEY`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }

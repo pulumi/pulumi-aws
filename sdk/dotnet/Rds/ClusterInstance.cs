@@ -218,7 +218,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> NetworkType { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether Performance Insights is enabled or not.
+        /// Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `aws.rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
         /// </summary>
         [Output("performanceInsightsEnabled")]
         public Output<bool> PerformanceInsightsEnabled { get; private set; } = null!;
@@ -439,7 +439,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? MonitoringRoleArn { get; set; }
 
         /// <summary>
-        /// Specifies whether Performance Insights is enabled or not.
+        /// Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `aws.rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
         /// </summary>
         [Input("performanceInsightsEnabled")]
         public Input<bool>? PerformanceInsightsEnabled { get; set; }
@@ -640,7 +640,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? NetworkType { get; set; }
 
         /// <summary>
-        /// Specifies whether Performance Insights is enabled or not.
+        /// Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `aws.rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
         /// </summary>
         [Input("performanceInsightsEnabled")]
         public Input<bool>? PerformanceInsightsEnabled { get; set; }

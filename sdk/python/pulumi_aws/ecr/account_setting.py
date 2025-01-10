@@ -23,8 +23,10 @@ class AccountSettingArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AccountSetting resource.
-        :param pulumi.Input[str] value: The value of the ECR Scan Type. This can be `AWS_NATIVE` or `CLAIR`.
-        :param pulumi.Input[str] name: The name of the ECR Scan Type. This should be `BASIC_SCAN_TYPE_VERSION`.
+        :param pulumi.Input[str] value: Setting value that is specified. Valid values are:
+               * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+               * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
+        :param pulumi.Input[str] name: Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
         """
         pulumi.set(__self__, "value", value)
         if name is not None:
@@ -34,7 +36,9 @@ class AccountSettingArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        The value of the ECR Scan Type. This can be `AWS_NATIVE` or `CLAIR`.
+        Setting value that is specified. Valid values are:
+        * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+        * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
         """
         return pulumi.get(self, "value")
 
@@ -46,7 +50,7 @@ class AccountSettingArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the ECR Scan Type. This should be `BASIC_SCAN_TYPE_VERSION`.
+        Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
         """
         return pulumi.get(self, "name")
 
@@ -62,8 +66,10 @@ class _AccountSettingState:
                  value: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AccountSetting resources.
-        :param pulumi.Input[str] name: The name of the ECR Scan Type. This should be `BASIC_SCAN_TYPE_VERSION`.
-        :param pulumi.Input[str] value: The value of the ECR Scan Type. This can be `AWS_NATIVE` or `CLAIR`.
+        :param pulumi.Input[str] name: Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
+        :param pulumi.Input[str] value: Setting value that is specified. Valid values are:
+               * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+               * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -74,7 +80,7 @@ class _AccountSettingState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the ECR Scan Type. This should be `BASIC_SCAN_TYPE_VERSION`.
+        Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
         """
         return pulumi.get(self, "name")
 
@@ -86,7 +92,9 @@ class _AccountSettingState:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
-        The value of the ECR Scan Type. This can be `AWS_NATIVE` or `CLAIR`.
+        Setting value that is specified. Valid values are:
+        * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+        * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
         """
         return pulumi.get(self, "value")
 
@@ -108,18 +116,31 @@ class AccountSetting(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Configuring Basic Scanning
+
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ecr.AccountSetting("foo",
+        basic_scan_type_version = aws.ecr.AccountSetting("basic_scan_type_version",
             name="BASIC_SCAN_TYPE_VERSION",
-            value="CLAIR")
+            value="AWS_NATIVE")
+        ```
+
+        ### Configuring Registry Policy Scope
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        registry_policy_scope = aws.ecr.AccountSetting("registry_policy_scope",
+            name="REGISTRY_POLICY_SCOPE",
+            value="V2")
         ```
 
         ## Import
 
-        Using `pulumi import`, import EMR Security Configurations using the `name`. For example:
+        Using `pulumi import`, import EMR Security Configurations using the account setting name. For example:
 
         ```sh
         $ pulumi import aws:ecr/accountSetting:AccountSetting foo BASIC_SCAN_TYPE_VERSION
@@ -127,8 +148,10 @@ class AccountSetting(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the ECR Scan Type. This should be `BASIC_SCAN_TYPE_VERSION`.
-        :param pulumi.Input[str] value: The value of the ECR Scan Type. This can be `AWS_NATIVE` or `CLAIR`.
+        :param pulumi.Input[str] name: Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
+        :param pulumi.Input[str] value: Setting value that is specified. Valid values are:
+               * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+               * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
         """
         ...
     @overload
@@ -141,18 +164,31 @@ class AccountSetting(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### Configuring Basic Scanning
+
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ecr.AccountSetting("foo",
+        basic_scan_type_version = aws.ecr.AccountSetting("basic_scan_type_version",
             name="BASIC_SCAN_TYPE_VERSION",
-            value="CLAIR")
+            value="AWS_NATIVE")
+        ```
+
+        ### Configuring Registry Policy Scope
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        registry_policy_scope = aws.ecr.AccountSetting("registry_policy_scope",
+            name="REGISTRY_POLICY_SCOPE",
+            value="V2")
         ```
 
         ## Import
 
-        Using `pulumi import`, import EMR Security Configurations using the `name`. For example:
+        Using `pulumi import`, import EMR Security Configurations using the account setting name. For example:
 
         ```sh
         $ pulumi import aws:ecr/accountSetting:AccountSetting foo BASIC_SCAN_TYPE_VERSION
@@ -207,8 +243,10 @@ class AccountSetting(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the ECR Scan Type. This should be `BASIC_SCAN_TYPE_VERSION`.
-        :param pulumi.Input[str] value: The value of the ECR Scan Type. This can be `AWS_NATIVE` or `CLAIR`.
+        :param pulumi.Input[str] name: Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
+        :param pulumi.Input[str] value: Setting value that is specified. Valid values are:
+               * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+               * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -222,7 +260,7 @@ class AccountSetting(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the ECR Scan Type. This should be `BASIC_SCAN_TYPE_VERSION`.
+        Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
         """
         return pulumi.get(self, "name")
 
@@ -230,7 +268,9 @@ class AccountSetting(pulumi.CustomResource):
     @pulumi.getter
     def value(self) -> pulumi.Output[str]:
         """
-        The value of the ECR Scan Type. This can be `AWS_NATIVE` or `CLAIR`.
+        Setting value that is specified. Valid values are:
+        * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+        * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
         """
         return pulumi.get(self, "value")
 

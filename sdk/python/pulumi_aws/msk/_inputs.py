@@ -1603,6 +1603,9 @@ if not MYPY:
         Configuration for specifying the position in the topics to start replicating from.
         """
         topic_name_configuration: NotRequired[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgsDict']]
+        """
+        Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+        """
         topics_to_excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
         List of regular expression patterns indicating the topics that should not be replica.
@@ -1626,6 +1629,7 @@ class ReplicatorReplicationInfoListTopicReplicationArgs:
         :param pulumi.Input[bool] copy_topic_configurations: Whether to periodically configure remote topics to match their corresponding upstream topics.
         :param pulumi.Input[bool] detect_and_copy_new_topics: Whether to periodically check for new topics and partitions.
         :param pulumi.Input['ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs'] starting_position: Configuration for specifying the position in the topics to start replicating from.
+        :param pulumi.Input['ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs'] topic_name_configuration: Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics_to_excludes: List of regular expression patterns indicating the topics that should not be replica.
         """
         pulumi.set(__self__, "topics_to_replicates", topics_to_replicates)
@@ -1705,6 +1709,9 @@ class ReplicatorReplicationInfoListTopicReplicationArgs:
     @property
     @pulumi.getter(name="topicNameConfiguration")
     def topic_name_configuration(self) -> Optional[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs']]:
+        """
+        Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+        """
         return pulumi.get(self, "topic_name_configuration")
 
     @topic_name_configuration.setter
@@ -1759,6 +1766,9 @@ class ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs:
 if not MYPY:
     class ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgsDict(TypedDict):
         type: NotRequired[pulumi.Input[str]]
+        """
+        The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
+        """
 elif False:
     ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1766,12 +1776,18 @@ elif False:
 class ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
+        """
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter

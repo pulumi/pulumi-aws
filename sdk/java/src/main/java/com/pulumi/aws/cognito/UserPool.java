@@ -10,15 +10,18 @@ import com.pulumi.aws.cognito.outputs.UserPoolAccountRecoverySetting;
 import com.pulumi.aws.cognito.outputs.UserPoolAdminCreateUserConfig;
 import com.pulumi.aws.cognito.outputs.UserPoolDeviceConfiguration;
 import com.pulumi.aws.cognito.outputs.UserPoolEmailConfiguration;
+import com.pulumi.aws.cognito.outputs.UserPoolEmailMfaConfiguration;
 import com.pulumi.aws.cognito.outputs.UserPoolLambdaConfig;
 import com.pulumi.aws.cognito.outputs.UserPoolPasswordPolicy;
 import com.pulumi.aws.cognito.outputs.UserPoolSchema;
+import com.pulumi.aws.cognito.outputs.UserPoolSignInPolicy;
 import com.pulumi.aws.cognito.outputs.UserPoolSmsConfiguration;
 import com.pulumi.aws.cognito.outputs.UserPoolSoftwareTokenMfaConfiguration;
 import com.pulumi.aws.cognito.outputs.UserPoolUserAttributeUpdateSettings;
 import com.pulumi.aws.cognito.outputs.UserPoolUserPoolAddOns;
 import com.pulumi.aws.cognito.outputs.UserPoolUsernameConfiguration;
 import com.pulumi.aws.cognito.outputs.UserPoolVerificationMessageTemplate;
+import com.pulumi.aws.cognito.outputs.UserPoolWebAuthnConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -329,6 +332,20 @@ public class UserPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.emailConfiguration);
     }
     /**
+     * Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Detailed below.
+     * 
+     */
+    @Export(name="emailMfaConfiguration", refs={UserPoolEmailMfaConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ UserPoolEmailMfaConfiguration> emailMfaConfiguration;
+
+    /**
+     * @return Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Detailed below.
+     * 
+     */
+    public Output<Optional<UserPoolEmailMfaConfiguration>> emailMfaConfiguration() {
+        return Codegen.optional(this.emailMfaConfiguration);
+    }
+    /**
      * String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
      * 
      */
@@ -473,6 +490,20 @@ public class UserPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.schemas);
     }
     /**
+     * Configuration block for information about the user pool sign in policy. Detailed below.
+     * 
+     */
+    @Export(name="signInPolicy", refs={UserPoolSignInPolicy.class}, tree="[0]")
+    private Output<UserPoolSignInPolicy> signInPolicy;
+
+    /**
+     * @return Configuration block for information about the user pool sign in policy. Detailed below.
+     * 
+     */
+    public Output<UserPoolSignInPolicy> signInPolicy() {
+        return this.signInPolicy;
+    }
+    /**
      * String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
      * 
      */
@@ -589,6 +620,20 @@ public class UserPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.userPoolAddOns);
     }
     /**
+     * The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html), or tier. Valid values: `LITE`, `ESSENTIALS`, `PLUS`.
+     * 
+     */
+    @Export(name="userPoolTier", refs={String.class}, tree="[0]")
+    private Output<String> userPoolTier;
+
+    /**
+     * @return The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html), or tier. Valid values: `LITE`, `ESSENTIALS`, `PLUS`.
+     * 
+     */
+    public Output<String> userPoolTier() {
+        return this.userPoolTier;
+    }
+    /**
      * Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
      * 
      */
@@ -629,6 +674,20 @@ public class UserPool extends com.pulumi.resources.CustomResource {
      */
     public Output<UserPoolVerificationMessageTemplate> verificationMessageTemplate() {
         return this.verificationMessageTemplate;
+    }
+    /**
+     * Configuration block for web authn configuration. Detailed below.
+     * 
+     */
+    @Export(name="webAuthnConfiguration", refs={UserPoolWebAuthnConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ UserPoolWebAuthnConfiguration> webAuthnConfiguration;
+
+    /**
+     * @return Configuration block for web authn configuration. Detailed below.
+     * 
+     */
+    public Output<Optional<UserPoolWebAuthnConfiguration>> webAuthnConfiguration() {
+        return Codegen.optional(this.webAuthnConfiguration);
     }
 
     /**

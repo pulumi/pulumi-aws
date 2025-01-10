@@ -13,6 +13,200 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type FleetComputeConfiguration struct {
+	// Amount of disk space of the instance type included in the fleet.
+	Disk *int `pulumi:"disk"`
+	// Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`.
+	MachineType *string `pulumi:"machineType"`
+	// Amount of memory of the instance type included in the fleet.
+	Memory *int `pulumi:"memory"`
+	// Number of vCPUs of the instance type included in the fleet.
+	Vcpu *int `pulumi:"vcpu"`
+}
+
+// FleetComputeConfigurationInput is an input type that accepts FleetComputeConfigurationArgs and FleetComputeConfigurationOutput values.
+// You can construct a concrete instance of `FleetComputeConfigurationInput` via:
+//
+//	FleetComputeConfigurationArgs{...}
+type FleetComputeConfigurationInput interface {
+	pulumi.Input
+
+	ToFleetComputeConfigurationOutput() FleetComputeConfigurationOutput
+	ToFleetComputeConfigurationOutputWithContext(context.Context) FleetComputeConfigurationOutput
+}
+
+type FleetComputeConfigurationArgs struct {
+	// Amount of disk space of the instance type included in the fleet.
+	Disk pulumi.IntPtrInput `pulumi:"disk"`
+	// Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`.
+	MachineType pulumi.StringPtrInput `pulumi:"machineType"`
+	// Amount of memory of the instance type included in the fleet.
+	Memory pulumi.IntPtrInput `pulumi:"memory"`
+	// Number of vCPUs of the instance type included in the fleet.
+	Vcpu pulumi.IntPtrInput `pulumi:"vcpu"`
+}
+
+func (FleetComputeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetComputeConfiguration)(nil)).Elem()
+}
+
+func (i FleetComputeConfigurationArgs) ToFleetComputeConfigurationOutput() FleetComputeConfigurationOutput {
+	return i.ToFleetComputeConfigurationOutputWithContext(context.Background())
+}
+
+func (i FleetComputeConfigurationArgs) ToFleetComputeConfigurationOutputWithContext(ctx context.Context) FleetComputeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetComputeConfigurationOutput)
+}
+
+func (i FleetComputeConfigurationArgs) ToFleetComputeConfigurationPtrOutput() FleetComputeConfigurationPtrOutput {
+	return i.ToFleetComputeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FleetComputeConfigurationArgs) ToFleetComputeConfigurationPtrOutputWithContext(ctx context.Context) FleetComputeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetComputeConfigurationOutput).ToFleetComputeConfigurationPtrOutputWithContext(ctx)
+}
+
+// FleetComputeConfigurationPtrInput is an input type that accepts FleetComputeConfigurationArgs, FleetComputeConfigurationPtr and FleetComputeConfigurationPtrOutput values.
+// You can construct a concrete instance of `FleetComputeConfigurationPtrInput` via:
+//
+//	        FleetComputeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FleetComputeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFleetComputeConfigurationPtrOutput() FleetComputeConfigurationPtrOutput
+	ToFleetComputeConfigurationPtrOutputWithContext(context.Context) FleetComputeConfigurationPtrOutput
+}
+
+type fleetComputeConfigurationPtrType FleetComputeConfigurationArgs
+
+func FleetComputeConfigurationPtr(v *FleetComputeConfigurationArgs) FleetComputeConfigurationPtrInput {
+	return (*fleetComputeConfigurationPtrType)(v)
+}
+
+func (*fleetComputeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetComputeConfiguration)(nil)).Elem()
+}
+
+func (i *fleetComputeConfigurationPtrType) ToFleetComputeConfigurationPtrOutput() FleetComputeConfigurationPtrOutput {
+	return i.ToFleetComputeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetComputeConfigurationPtrType) ToFleetComputeConfigurationPtrOutputWithContext(ctx context.Context) FleetComputeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetComputeConfigurationPtrOutput)
+}
+
+type FleetComputeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FleetComputeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetComputeConfiguration)(nil)).Elem()
+}
+
+func (o FleetComputeConfigurationOutput) ToFleetComputeConfigurationOutput() FleetComputeConfigurationOutput {
+	return o
+}
+
+func (o FleetComputeConfigurationOutput) ToFleetComputeConfigurationOutputWithContext(ctx context.Context) FleetComputeConfigurationOutput {
+	return o
+}
+
+func (o FleetComputeConfigurationOutput) ToFleetComputeConfigurationPtrOutput() FleetComputeConfigurationPtrOutput {
+	return o.ToFleetComputeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FleetComputeConfigurationOutput) ToFleetComputeConfigurationPtrOutputWithContext(ctx context.Context) FleetComputeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetComputeConfiguration) *FleetComputeConfiguration {
+		return &v
+	}).(FleetComputeConfigurationPtrOutput)
+}
+
+// Amount of disk space of the instance type included in the fleet.
+func (o FleetComputeConfigurationOutput) Disk() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetComputeConfiguration) *int { return v.Disk }).(pulumi.IntPtrOutput)
+}
+
+// Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`.
+func (o FleetComputeConfigurationOutput) MachineType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FleetComputeConfiguration) *string { return v.MachineType }).(pulumi.StringPtrOutput)
+}
+
+// Amount of memory of the instance type included in the fleet.
+func (o FleetComputeConfigurationOutput) Memory() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetComputeConfiguration) *int { return v.Memory }).(pulumi.IntPtrOutput)
+}
+
+// Number of vCPUs of the instance type included in the fleet.
+func (o FleetComputeConfigurationOutput) Vcpu() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetComputeConfiguration) *int { return v.Vcpu }).(pulumi.IntPtrOutput)
+}
+
+type FleetComputeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetComputeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetComputeConfiguration)(nil)).Elem()
+}
+
+func (o FleetComputeConfigurationPtrOutput) ToFleetComputeConfigurationPtrOutput() FleetComputeConfigurationPtrOutput {
+	return o
+}
+
+func (o FleetComputeConfigurationPtrOutput) ToFleetComputeConfigurationPtrOutputWithContext(ctx context.Context) FleetComputeConfigurationPtrOutput {
+	return o
+}
+
+func (o FleetComputeConfigurationPtrOutput) Elem() FleetComputeConfigurationOutput {
+	return o.ApplyT(func(v *FleetComputeConfiguration) FleetComputeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FleetComputeConfiguration
+		return ret
+	}).(FleetComputeConfigurationOutput)
+}
+
+// Amount of disk space of the instance type included in the fleet.
+func (o FleetComputeConfigurationPtrOutput) Disk() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetComputeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Disk
+	}).(pulumi.IntPtrOutput)
+}
+
+// Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`.
+func (o FleetComputeConfigurationPtrOutput) MachineType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetComputeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MachineType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Amount of memory of the instance type included in the fleet.
+func (o FleetComputeConfigurationPtrOutput) Memory() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetComputeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Memory
+	}).(pulumi.IntPtrOutput)
+}
+
+// Number of vCPUs of the instance type included in the fleet.
+func (o FleetComputeConfigurationPtrOutput) Vcpu() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetComputeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Vcpu
+	}).(pulumi.IntPtrOutput)
+}
+
 type FleetScalingConfiguration struct {
 	DesiredCapacity *int `pulumi:"desiredCapacity"`
 	// Maximum number of instances in the ﬂeet when auto-scaling.
@@ -4975,6 +5169,130 @@ func (o WebhookScopeConfigurationPtrOutput) Scope() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetFleetComputeConfiguration struct {
+	// Amount of disk space of the instance type included in the fleet.
+	Disk int `pulumi:"disk"`
+	// Machine type of the instance type included in the fleet.
+	MachineType string `pulumi:"machineType"`
+	// Amount of memory of the instance type included in the fleet.
+	Memory int `pulumi:"memory"`
+	// Number of vCPUs of the instance type included in the fleet.
+	Vcpu int `pulumi:"vcpu"`
+}
+
+// GetFleetComputeConfigurationInput is an input type that accepts GetFleetComputeConfigurationArgs and GetFleetComputeConfigurationOutput values.
+// You can construct a concrete instance of `GetFleetComputeConfigurationInput` via:
+//
+//	GetFleetComputeConfigurationArgs{...}
+type GetFleetComputeConfigurationInput interface {
+	pulumi.Input
+
+	ToGetFleetComputeConfigurationOutput() GetFleetComputeConfigurationOutput
+	ToGetFleetComputeConfigurationOutputWithContext(context.Context) GetFleetComputeConfigurationOutput
+}
+
+type GetFleetComputeConfigurationArgs struct {
+	// Amount of disk space of the instance type included in the fleet.
+	Disk pulumi.IntInput `pulumi:"disk"`
+	// Machine type of the instance type included in the fleet.
+	MachineType pulumi.StringInput `pulumi:"machineType"`
+	// Amount of memory of the instance type included in the fleet.
+	Memory pulumi.IntInput `pulumi:"memory"`
+	// Number of vCPUs of the instance type included in the fleet.
+	Vcpu pulumi.IntInput `pulumi:"vcpu"`
+}
+
+func (GetFleetComputeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFleetComputeConfiguration)(nil)).Elem()
+}
+
+func (i GetFleetComputeConfigurationArgs) ToGetFleetComputeConfigurationOutput() GetFleetComputeConfigurationOutput {
+	return i.ToGetFleetComputeConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetFleetComputeConfigurationArgs) ToGetFleetComputeConfigurationOutputWithContext(ctx context.Context) GetFleetComputeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFleetComputeConfigurationOutput)
+}
+
+// GetFleetComputeConfigurationArrayInput is an input type that accepts GetFleetComputeConfigurationArray and GetFleetComputeConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetFleetComputeConfigurationArrayInput` via:
+//
+//	GetFleetComputeConfigurationArray{ GetFleetComputeConfigurationArgs{...} }
+type GetFleetComputeConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetFleetComputeConfigurationArrayOutput() GetFleetComputeConfigurationArrayOutput
+	ToGetFleetComputeConfigurationArrayOutputWithContext(context.Context) GetFleetComputeConfigurationArrayOutput
+}
+
+type GetFleetComputeConfigurationArray []GetFleetComputeConfigurationInput
+
+func (GetFleetComputeConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFleetComputeConfiguration)(nil)).Elem()
+}
+
+func (i GetFleetComputeConfigurationArray) ToGetFleetComputeConfigurationArrayOutput() GetFleetComputeConfigurationArrayOutput {
+	return i.ToGetFleetComputeConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetFleetComputeConfigurationArray) ToGetFleetComputeConfigurationArrayOutputWithContext(ctx context.Context) GetFleetComputeConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFleetComputeConfigurationArrayOutput)
+}
+
+type GetFleetComputeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetFleetComputeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFleetComputeConfiguration)(nil)).Elem()
+}
+
+func (o GetFleetComputeConfigurationOutput) ToGetFleetComputeConfigurationOutput() GetFleetComputeConfigurationOutput {
+	return o
+}
+
+func (o GetFleetComputeConfigurationOutput) ToGetFleetComputeConfigurationOutputWithContext(ctx context.Context) GetFleetComputeConfigurationOutput {
+	return o
+}
+
+// Amount of disk space of the instance type included in the fleet.
+func (o GetFleetComputeConfigurationOutput) Disk() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFleetComputeConfiguration) int { return v.Disk }).(pulumi.IntOutput)
+}
+
+// Machine type of the instance type included in the fleet.
+func (o GetFleetComputeConfigurationOutput) MachineType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFleetComputeConfiguration) string { return v.MachineType }).(pulumi.StringOutput)
+}
+
+// Amount of memory of the instance type included in the fleet.
+func (o GetFleetComputeConfigurationOutput) Memory() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFleetComputeConfiguration) int { return v.Memory }).(pulumi.IntOutput)
+}
+
+// Number of vCPUs of the instance type included in the fleet.
+func (o GetFleetComputeConfigurationOutput) Vcpu() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFleetComputeConfiguration) int { return v.Vcpu }).(pulumi.IntOutput)
+}
+
+type GetFleetComputeConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFleetComputeConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFleetComputeConfiguration)(nil)).Elem()
+}
+
+func (o GetFleetComputeConfigurationArrayOutput) ToGetFleetComputeConfigurationArrayOutput() GetFleetComputeConfigurationArrayOutput {
+	return o
+}
+
+func (o GetFleetComputeConfigurationArrayOutput) ToGetFleetComputeConfigurationArrayOutputWithContext(ctx context.Context) GetFleetComputeConfigurationArrayOutput {
+	return o
+}
+
+func (o GetFleetComputeConfigurationArrayOutput) Index(i pulumi.IntInput) GetFleetComputeConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFleetComputeConfiguration {
+		return vs[0].([]GetFleetComputeConfiguration)[vs[1].(int)]
+	}).(GetFleetComputeConfigurationOutput)
+}
+
 type GetFleetScalingConfiguration struct {
 	// The desired number of instances in the ﬂeet when auto-scaling.
 	DesiredCapacity int `pulumi:"desiredCapacity"`
@@ -5438,6 +5756,8 @@ func (o GetFleetVpcConfigArrayOutput) Index(i pulumi.IntInput) GetFleetVpcConfig
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetComputeConfigurationInput)(nil)).Elem(), FleetComputeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetComputeConfigurationPtrInput)(nil)).Elem(), FleetComputeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetScalingConfigurationInput)(nil)).Elem(), FleetScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetScalingConfigurationPtrInput)(nil)).Elem(), FleetScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetScalingConfigurationTargetTrackingScalingConfigInput)(nil)).Elem(), FleetScalingConfigurationTargetTrackingScalingConfigArgs{})
@@ -5498,6 +5818,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookFilterGroupFilterArrayInput)(nil)).Elem(), WebhookFilterGroupFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookScopeConfigurationInput)(nil)).Elem(), WebhookScopeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookScopeConfigurationPtrInput)(nil)).Elem(), WebhookScopeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFleetComputeConfigurationInput)(nil)).Elem(), GetFleetComputeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFleetComputeConfigurationArrayInput)(nil)).Elem(), GetFleetComputeConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFleetScalingConfigurationInput)(nil)).Elem(), GetFleetScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFleetScalingConfigurationArrayInput)(nil)).Elem(), GetFleetScalingConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFleetScalingConfigurationTargetTrackingScalingConfigInput)(nil)).Elem(), GetFleetScalingConfigurationTargetTrackingScalingConfigArgs{})
@@ -5506,6 +5828,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFleetStatusArrayInput)(nil)).Elem(), GetFleetStatusArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFleetVpcConfigInput)(nil)).Elem(), GetFleetVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFleetVpcConfigArrayInput)(nil)).Elem(), GetFleetVpcConfigArray{})
+	pulumi.RegisterOutputType(FleetComputeConfigurationOutput{})
+	pulumi.RegisterOutputType(FleetComputeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FleetScalingConfigurationOutput{})
 	pulumi.RegisterOutputType(FleetScalingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FleetScalingConfigurationTargetTrackingScalingConfigOutput{})
@@ -5566,6 +5890,8 @@ func init() {
 	pulumi.RegisterOutputType(WebhookFilterGroupFilterArrayOutput{})
 	pulumi.RegisterOutputType(WebhookScopeConfigurationOutput{})
 	pulumi.RegisterOutputType(WebhookScopeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GetFleetComputeConfigurationOutput{})
+	pulumi.RegisterOutputType(GetFleetComputeConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetFleetScalingConfigurationOutput{})
 	pulumi.RegisterOutputType(GetFleetScalingConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetFleetScalingConfigurationTargetTrackingScalingConfigOutput{})

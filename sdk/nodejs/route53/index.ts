@@ -35,6 +35,11 @@ export const getQueryLogConfig: typeof import("./getQueryLogConfig").getQueryLog
 export const getQueryLogConfigOutput: typeof import("./getQueryLogConfig").getQueryLogConfigOutput = null as any;
 utilities.lazyLoad(exports, ["getQueryLogConfig","getQueryLogConfigOutput"], () => require("./getQueryLogConfig"));
 
+export { GetRecordsArgs, GetRecordsResult, GetRecordsOutputArgs } from "./getRecords";
+export const getRecords: typeof import("./getRecords").getRecords = null as any;
+export const getRecordsOutput: typeof import("./getRecords").getRecordsOutput = null as any;
+utilities.lazyLoad(exports, ["getRecords","getRecordsOutput"], () => require("./getRecords"));
+
 export { GetResolverEndpointArgs, GetResolverEndpointResult, GetResolverEndpointOutputArgs } from "./getResolverEndpoint";
 export const getResolverEndpoint: typeof import("./getResolverEndpoint").getResolverEndpoint = null as any;
 export const getResolverEndpointOutput: typeof import("./getResolverEndpoint").getResolverEndpointOutput = null as any;

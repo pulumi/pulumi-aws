@@ -65,6 +65,7 @@ export function getVpcEndpointService(args?: GetVpcEndpointServiceArgs, opts?: p
         "filters": args.filters,
         "service": args.service,
         "serviceName": args.serviceName,
+        "serviceRegions": args.serviceRegions,
         "serviceType": args.serviceType,
         "tags": args.tags,
     }, opts);
@@ -86,6 +87,10 @@ export interface GetVpcEndpointServiceArgs {
      * Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
      */
     serviceName?: string;
+    /**
+     * AWS regions in which to look for services.
+     */
+    serviceRegions?: string[];
     /**
      * Service type, `Gateway` or `Interface`.
      */
@@ -111,7 +116,7 @@ export interface GetVpcEndpointServiceResult {
      */
     readonly arn: string;
     /**
-     * Availability Zones in which the service is available.
+     * Availability Zones in which the service is available. Not available for endpoint services in other regions.
      */
     readonly availabilityZones: string[];
     /**
@@ -139,12 +144,17 @@ export interface GetVpcEndpointServiceResult {
      * Private DNS names assigned to the VPC endpoint service.
      */
     readonly privateDnsNames: string[];
+    /**
+     * Region of the endpoint service.
+     */
+    readonly region: string;
     readonly service?: string;
     /**
      * ID of the endpoint service.
      */
     readonly serviceId: string;
     readonly serviceName: string;
+    readonly serviceRegions?: string[];
     readonly serviceType: string;
     /**
      * The supported IP address types.
@@ -217,6 +227,7 @@ export function getVpcEndpointServiceOutput(args?: GetVpcEndpointServiceOutputAr
         "filters": args.filters,
         "service": args.service,
         "serviceName": args.serviceName,
+        "serviceRegions": args.serviceRegions,
         "serviceType": args.serviceType,
         "tags": args.tags,
     }, opts);
@@ -238,6 +249,10 @@ export interface GetVpcEndpointServiceOutputArgs {
      * Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
      */
     serviceName?: pulumi.Input<string>;
+    /**
+     * AWS regions in which to look for services.
+     */
+    serviceRegions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Service type, `Gateway` or `Interface`.
      */

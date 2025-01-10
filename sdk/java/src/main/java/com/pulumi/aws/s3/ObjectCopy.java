@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.s3.ObjectCopyArgs;
 import com.pulumi.aws.s3.inputs.ObjectCopyState;
 import com.pulumi.aws.s3.outputs.ObjectCopyGrant;
+import com.pulumi.aws.s3.outputs.ObjectCopyOverrideProvider;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -55,6 +56,53 @@ import javax.annotation.Nullable;
  *                 .uri("http://acs.amazonaws.com/groups/global/AllUsers")
  *                 .type("Group")
  *                 .permissions("READ")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Ignoring Provider `default_tags`
+ * 
+ * S3 objects support a [maximum of 10 tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html).
+ * If the resource&#39;s own `tags` and the provider-level `default_tags` would together lead to more than 10 tags on an S3 object copy, use the `override_provider` configuration block to suppress any provider-level `default_tags`.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.ObjectCopy;
+ * import com.pulumi.aws.s3.ObjectCopyArgs;
+ * import com.pulumi.aws.s3.inputs.ObjectCopyOverrideProviderArgs;
+ * import com.pulumi.aws.s3.inputs.ObjectCopyOverrideProviderDefaultTagsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new ObjectCopy("test", ObjectCopyArgs.builder()
+ *             .bucket("destination_bucket")
+ *             .key("destination_key")
+ *             .source("source_bucket/source_key")
+ *             .overrideProvider(ObjectCopyOverrideProviderArgs.builder()
+ *                 .defaultTags(ObjectCopyOverrideProviderDefaultTagsArgs.builder()
+ *                     .tags()
+ *                     .build())
  *                 .build())
  *             .build());
  * 
@@ -576,6 +624,12 @@ public class ObjectCopy extends com.pulumi.resources.CustomResource {
      */
     public Output<String> objectLockRetainUntilDate() {
         return this.objectLockRetainUntilDate;
+    }
+    @Export(name="overrideProvider", refs={ObjectCopyOverrideProvider.class}, tree="[0]")
+    private Output</* @Nullable */ ObjectCopyOverrideProvider> overrideProvider;
+
+    public Output<Optional<ObjectCopyOverrideProvider>> overrideProvider() {
+        return Codegen.optional(this.overrideProvider);
     }
     /**
      * If present, indicates that the requester was successfully charged for the request.

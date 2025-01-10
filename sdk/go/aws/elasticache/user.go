@@ -127,7 +127,7 @@ type User struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Denotes the user's authentication properties. Detailed below.
 	AuthenticationMode UserAuthenticationModeOutput `pulumi:"authenticationMode"`
-	// The current supported value is `REDIS`.
+	// The current supported values are `REDIS`, `VALKEY`.
 	Engine pulumi.StringOutput `pulumi:"engine"`
 	// Indicates a password is not required for this user.
 	NoPasswordRequired pulumi.BoolPtrOutput `pulumi:"noPasswordRequired"`
@@ -200,7 +200,7 @@ type userState struct {
 	Arn *string `pulumi:"arn"`
 	// Denotes the user's authentication properties. Detailed below.
 	AuthenticationMode *UserAuthenticationMode `pulumi:"authenticationMode"`
-	// The current supported value is `REDIS`.
+	// The current supported values are `REDIS`, `VALKEY`.
 	Engine *string `pulumi:"engine"`
 	// Indicates a password is not required for this user.
 	NoPasswordRequired *bool `pulumi:"noPasswordRequired"`
@@ -225,7 +225,7 @@ type UserState struct {
 	Arn pulumi.StringPtrInput
 	// Denotes the user's authentication properties. Detailed below.
 	AuthenticationMode UserAuthenticationModePtrInput
-	// The current supported value is `REDIS`.
+	// The current supported values are `REDIS`, `VALKEY`.
 	Engine pulumi.StringPtrInput
 	// Indicates a password is not required for this user.
 	NoPasswordRequired pulumi.BoolPtrInput
@@ -252,7 +252,7 @@ type userArgs struct {
 	AccessString string `pulumi:"accessString"`
 	// Denotes the user's authentication properties. Detailed below.
 	AuthenticationMode *UserAuthenticationMode `pulumi:"authenticationMode"`
-	// The current supported value is `REDIS`.
+	// The current supported values are `REDIS`, `VALKEY`.
 	Engine string `pulumi:"engine"`
 	// Indicates a password is not required for this user.
 	NoPasswordRequired *bool `pulumi:"noPasswordRequired"`
@@ -274,7 +274,7 @@ type UserArgs struct {
 	AccessString pulumi.StringInput
 	// Denotes the user's authentication properties. Detailed below.
 	AuthenticationMode UserAuthenticationModePtrInput
-	// The current supported value is `REDIS`.
+	// The current supported values are `REDIS`, `VALKEY`.
 	Engine pulumi.StringInput
 	// Indicates a password is not required for this user.
 	NoPasswordRequired pulumi.BoolPtrInput
@@ -392,7 +392,7 @@ func (o UserOutput) AuthenticationMode() UserAuthenticationModeOutput {
 	return o.ApplyT(func(v *User) UserAuthenticationModeOutput { return v.AuthenticationMode }).(UserAuthenticationModeOutput)
 }
 
-// The current supported value is `REDIS`.
+// The current supported values are `REDIS`, `VALKEY`.
 func (o UserOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Engine }).(pulumi.StringOutput)
 }

@@ -2345,7 +2345,7 @@ class GetConnectorSftpConfigResult(dict):
                  user_secret_id: str):
         """
         :param Sequence[str] trusted_host_keys: List of the public portions of the host keys that are used to identify the servers the connector is connected to.
-        :param str user_secret_id: Identifer for the secret in AWS Secrets Manager that contains the SFTP user's private key, and/or password.
+        :param str user_secret_id: Identifier for the secret in AWS Secrets Manager that contains the SFTP user's private key, and/or password.
         """
         pulumi.set(__self__, "trusted_host_keys", trusted_host_keys)
         pulumi.set(__self__, "user_secret_id", user_secret_id)
@@ -2362,7 +2362,7 @@ class GetConnectorSftpConfigResult(dict):
     @pulumi.getter(name="userSecretId")
     def user_secret_id(self) -> str:
         """
-        Identifer for the secret in AWS Secrets Manager that contains the SFTP user's private key, and/or password.
+        Identifier for the secret in AWS Secrets Manager that contains the SFTP user's private key, and/or password.
         """
         return pulumi.get(self, "user_secret_id")
 

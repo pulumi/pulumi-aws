@@ -87,6 +87,10 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly baseCapacity!: pulumi.Output<number>;
     /**
+     * The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`. See `computeConfiguration` below.
+     */
+    public readonly computeConfiguration!: pulumi.Output<outputs.codebuild.FleetComputeConfiguration | undefined>;
+    /**
      * Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
      */
     public readonly computeType!: pulumi.Output<string>;
@@ -121,7 +125,7 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly overflowBehavior!: pulumi.Output<string>;
     /**
-     * Configuration block. Detailed below. This option is only valid when your overflow behavior is `QUEUE`.
+     * Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
      */
     public readonly scalingConfiguration!: pulumi.Output<outputs.codebuild.FleetScalingConfiguration | undefined>;
     /**
@@ -137,7 +141,7 @@ export class Fleet extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Configuration block. Detailed below.
+     * Configuration block. See `vpcConfig` below.
      */
     public readonly vpcConfigs!: pulumi.Output<outputs.codebuild.FleetVpcConfig[] | undefined>;
 
@@ -156,6 +160,7 @@ export class Fleet extends pulumi.CustomResource {
             const state = argsOrState as FleetState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["baseCapacity"] = state ? state.baseCapacity : undefined;
+            resourceInputs["computeConfiguration"] = state ? state.computeConfiguration : undefined;
             resourceInputs["computeType"] = state ? state.computeType : undefined;
             resourceInputs["created"] = state ? state.created : undefined;
             resourceInputs["environmentType"] = state ? state.environmentType : undefined;
@@ -181,6 +186,7 @@ export class Fleet extends pulumi.CustomResource {
                 throw new Error("Missing required property 'environmentType'");
             }
             resourceInputs["baseCapacity"] = args ? args.baseCapacity : undefined;
+            resourceInputs["computeConfiguration"] = args ? args.computeConfiguration : undefined;
             resourceInputs["computeType"] = args ? args.computeType : undefined;
             resourceInputs["environmentType"] = args ? args.environmentType : undefined;
             resourceInputs["fleetServiceRole"] = args ? args.fleetServiceRole : undefined;
@@ -213,6 +219,10 @@ export interface FleetState {
      * Number of machines allocated to the ﬂeet.
      */
     baseCapacity?: pulumi.Input<number>;
+    /**
+     * The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`. See `computeConfiguration` below.
+     */
+    computeConfiguration?: pulumi.Input<inputs.codebuild.FleetComputeConfiguration>;
     /**
      * Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
      */
@@ -248,7 +258,7 @@ export interface FleetState {
      */
     overflowBehavior?: pulumi.Input<string>;
     /**
-     * Configuration block. Detailed below. This option is only valid when your overflow behavior is `QUEUE`.
+     * Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
      */
     scalingConfiguration?: pulumi.Input<inputs.codebuild.FleetScalingConfiguration>;
     /**
@@ -264,7 +274,7 @@ export interface FleetState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Configuration block. Detailed below.
+     * Configuration block. See `vpcConfig` below.
      */
     vpcConfigs?: pulumi.Input<pulumi.Input<inputs.codebuild.FleetVpcConfig>[]>;
 }
@@ -277,6 +287,10 @@ export interface FleetArgs {
      * Number of machines allocated to the ﬂeet.
      */
     baseCapacity: pulumi.Input<number>;
+    /**
+     * The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE`. See `computeConfiguration` below.
+     */
+    computeConfiguration?: pulumi.Input<inputs.codebuild.FleetComputeConfiguration>;
     /**
      * Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
      */
@@ -304,7 +318,7 @@ export interface FleetArgs {
      */
     overflowBehavior?: pulumi.Input<string>;
     /**
-     * Configuration block. Detailed below. This option is only valid when your overflow behavior is `QUEUE`.
+     * Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
      */
     scalingConfiguration?: pulumi.Input<inputs.codebuild.FleetScalingConfiguration>;
     /**
@@ -312,7 +326,7 @@ export interface FleetArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Configuration block. Detailed below.
+     * Configuration block. See `vpcConfig` below.
      */
     vpcConfigs?: pulumi.Input<pulumi.Input<inputs.codebuild.FleetVpcConfig>[]>;
 }

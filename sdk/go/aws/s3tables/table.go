@@ -45,7 +45,7 @@ import (
 //			}
 //			_, err = s3tables.NewTable(ctx, "example", &s3tables.TableArgs{
 //				Name:           pulumi.String("example-table"),
-//				Namespace:      exampleNamespace,
+//				Namespace:      exampleNamespace.Namespace,
 //				TableBucketArn: exampleNamespace.TableBucketArn,
 //				Format:         pulumi.String("ICEBERG"),
 //			})

@@ -65,7 +65,7 @@ class ClusterInstanceArgs:
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[int] monitoring_interval: Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
         :param pulumi.Input[str] monitoring_role_arn: ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
-        :param pulumi.Input[bool] performance_insights_enabled: Specifies whether Performance Insights is enabled or not.
+        :param pulumi.Input[bool] performance_insights_enabled: Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
         :param pulumi.Input[str] performance_insights_kms_key_id: ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
         :param pulumi.Input[int] performance_insights_retention_period: Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
         :param pulumi.Input[str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.
@@ -331,7 +331,7 @@ class ClusterInstanceArgs:
     @pulumi.getter(name="performanceInsightsEnabled")
     def performance_insights_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether Performance Insights is enabled or not.
+        Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
         """
         return pulumi.get(self, "performance_insights_enabled")
 
@@ -488,7 +488,7 @@ class _ClusterInstanceState:
         :param pulumi.Input[int] monitoring_interval: Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
         :param pulumi.Input[str] monitoring_role_arn: ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
         :param pulumi.Input[str] network_type: Network type of the DB instance.
-        :param pulumi.Input[bool] performance_insights_enabled: Specifies whether Performance Insights is enabled or not.
+        :param pulumi.Input[bool] performance_insights_enabled: Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
         :param pulumi.Input[str] performance_insights_kms_key_id: ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
         :param pulumi.Input[int] performance_insights_retention_period: Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
         :param pulumi.Input[int] port: Database port
@@ -856,7 +856,7 @@ class _ClusterInstanceState:
     @pulumi.getter(name="performanceInsightsEnabled")
     def performance_insights_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether Performance Insights is enabled or not.
+        Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
         """
         return pulumi.get(self, "performance_insights_enabled")
 
@@ -1101,7 +1101,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'InstanceType']] instance_class: Instance class to use. For details on CPU and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details. For Aurora Serverless v2 use `db.serverless`.
         :param pulumi.Input[int] monitoring_interval: Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
         :param pulumi.Input[str] monitoring_role_arn: ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
-        :param pulumi.Input[bool] performance_insights_enabled: Specifies whether Performance Insights is enabled or not.
+        :param pulumi.Input[bool] performance_insights_enabled: Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
         :param pulumi.Input[str] performance_insights_kms_key_id: ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
         :param pulumi.Input[int] performance_insights_retention_period: Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
         :param pulumi.Input[str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.
@@ -1334,7 +1334,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[int] monitoring_interval: Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
         :param pulumi.Input[str] monitoring_role_arn: ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
         :param pulumi.Input[str] network_type: Network type of the DB instance.
-        :param pulumi.Input[bool] performance_insights_enabled: Specifies whether Performance Insights is enabled or not.
+        :param pulumi.Input[bool] performance_insights_enabled: Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
         :param pulumi.Input[str] performance_insights_kms_key_id: ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
         :param pulumi.Input[int] performance_insights_retention_period: Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
         :param pulumi.Input[int] port: Database port
@@ -1577,7 +1577,7 @@ class ClusterInstance(pulumi.CustomResource):
     @pulumi.getter(name="performanceInsightsEnabled")
     def performance_insights_enabled(self) -> pulumi.Output[bool]:
         """
-        Specifies whether Performance Insights is enabled or not.
+        Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
         """
         return pulumi.get(self, "performance_insights_enabled")
 

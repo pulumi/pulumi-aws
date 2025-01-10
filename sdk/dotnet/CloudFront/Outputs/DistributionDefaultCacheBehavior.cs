@@ -30,7 +30,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly bool? Compress;
         /// <summary>
-        /// Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
+        /// Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header. The TTL defined in Cache Policy overrides this configuration.
         /// </summary>
         public readonly int? DefaultTtl;
         /// <summary>
@@ -46,15 +46,19 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DistributionDefaultCacheBehaviorFunctionAssociation> FunctionAssociations;
         /// <summary>
+        /// A config block that sets the grpc config.
+        /// </summary>
+        public readonly Outputs.DistributionDefaultCacheBehaviorGrpcConfig? GrpcConfig;
+        /// <summary>
         /// A config block that triggers a lambda function with specific actions (maximum 4).
         /// </summary>
         public readonly ImmutableArray<Outputs.DistributionDefaultCacheBehaviorLambdaFunctionAssociation> LambdaFunctionAssociations;
         /// <summary>
-        /// Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
+        /// Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers. The TTL defined in Cache Policy overrides this configuration.
         /// </summary>
         public readonly int? MaxTtl;
         /// <summary>
-        /// Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
+        /// Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds. The TTL defined in Cache Policy overrides this configuration.
         /// </summary>
         public readonly int? MinTtl;
         /// <summary>
@@ -108,6 +112,8 @@ namespace Pulumi.Aws.CloudFront.Outputs
 
             ImmutableArray<Outputs.DistributionDefaultCacheBehaviorFunctionAssociation> functionAssociations,
 
+            Outputs.DistributionDefaultCacheBehaviorGrpcConfig? grpcConfig,
+
             ImmutableArray<Outputs.DistributionDefaultCacheBehaviorLambdaFunctionAssociation> lambdaFunctionAssociations,
 
             int? maxTtl,
@@ -138,6 +144,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
             FieldLevelEncryptionId = fieldLevelEncryptionId;
             ForwardedValues = forwardedValues;
             FunctionAssociations = functionAssociations;
+            GrpcConfig = grpcConfig;
             LambdaFunctionAssociations = lambdaFunctionAssociations;
             MaxTtl = maxTtl;
             MinTtl = minTtl;

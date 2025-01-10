@@ -77,6 +77,12 @@ namespace Pulumi.Aws.Emr
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
+        /// </summary>
+        [Output("encryptionKeyArn")]
+        public Output<string?> EncryptionKeyArn { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.
         /// </summary>
         [Output("engineSecurityGroupId")]
@@ -212,6 +218,12 @@ namespace Pulumi.Aws.Emr
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
+        /// </summary>
+        [Input("encryptionKeyArn")]
+        public Input<string>? EncryptionKeyArn { get; set; }
+
+        /// <summary>
         /// The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.
         /// </summary>
         [Input("engineSecurityGroupId", required: true)]
@@ -316,6 +328,12 @@ namespace Pulumi.Aws.Emr
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
+        /// </summary>
+        [Input("encryptionKeyArn")]
+        public Input<string>? EncryptionKeyArn { get; set; }
 
         /// <summary>
         /// The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.
