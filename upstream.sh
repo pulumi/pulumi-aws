@@ -23,6 +23,7 @@ COMMANDS
   check_in              Write checkedout commits back to patches, add upstream
                         and patches changes to the git staging area and exit
                         checkout mode.
+  file_target           Print a file path to depend on in make.
   help                  Print this help message, plus examples.
 
 OPTIONS
@@ -334,6 +335,23 @@ re-initializing using updated patches and updated upstream base.
 EOF
 }
 
+# file_target prints a file path to depend on in make to trigger an init when required.
+# Also updates the file timestamp if the submodule needs updating.
+file_target() {
+  path=.git/modules/upstream/HEAD
+  # Don't print a file if it doesn't exist - it's probably not initialized yet.
+  if [[ ! -f "${path}" ]]; then
+    exit 0
+  fi
+  # If the submodule is changed, touch the file to trigger a re-init.
+  desired_commit=$(git ls-tree HEAD upstream | cut -d ' ' -f3 | cut -f1 || true)
+  current_commit=$(cat "${path}")
+  if [[ "${desired_commit}" != "${current_commit}" ]]; then
+    touch "${path}"
+  fi
+  echo "${path}"
+}
+
 if [[ -z ${original_cmd} ]]; then
   echo "Error: command is required."
   echo
@@ -371,6 +389,9 @@ case ${original_cmd} in
     ;;
   check_in|checkin)
     check_in "$@"
+    ;;
+  file_target)
+    file_target "$@"
     ;;
   *)
     echo "Error: unknown command \"${original_cmd}\"."
