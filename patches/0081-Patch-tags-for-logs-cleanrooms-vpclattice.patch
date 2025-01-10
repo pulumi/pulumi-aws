@@ -1,0 +1,71 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Anton Tayanovskyy <anton@pulumi.com>
+Date: Fri, 10 Jan 2025 14:24:40 -0500
+Subject: [PATCH] Patch tags for logs, cleanrooms, vpclattice
+
+
+diff --git a/internal/service/cleanrooms/membership.go b/internal/service/cleanrooms/membership.go
+index a72d635b53..bce2d9829f 100644
+--- a/internal/service/cleanrooms/membership.go
++++ b/internal/service/cleanrooms/membership.go
+@@ -115,7 +115,7 @@ func (r *resourceMembership) Schema(ctx context.Context, _ resource.SchemaReques
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 			"update_time": schema.StringAttribute{
+ 				CustomType: timetypes.RFC3339Type{},
+ 				Computed:   true,
+diff --git a/internal/service/logs/delivery.go b/internal/service/logs/delivery.go
+index 579c64372b..3d6f7fabee 100644
+--- a/internal/service/logs/delivery.go
++++ b/internal/service/logs/delivery.go
+@@ -91,7 +91,7 @@ func (r *deliveryResource) Schema(ctx context.Context, request resource.SchemaRe
+ 			},
+ 			"s3_delivery_configuration": framework.ResourceOptionalComputedListOfObjectAttribute[s3DeliveryConfigurationModel](ctx),
+ 			names.AttrTags:              tftags.TagsAttribute(),
+-			names.AttrTagsAll:           tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 	}
+ }
+diff --git a/internal/service/logs/delivery_destination.go b/internal/service/logs/delivery_destination.go
+index 593acce875..27eedb895c 100644
+--- a/internal/service/logs/delivery_destination.go
++++ b/internal/service/logs/delivery_destination.go
+@@ -73,7 +73,7 @@ func (r *deliveryDestinationResource) Schema(ctx context.Context, request resour
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 		Blocks: map[string]schema.Block{
+ 			"delivery_destination_configuration": schema.ListNestedBlock{
+diff --git a/internal/service/logs/delivery_source.go b/internal/service/logs/delivery_source.go
+index a051dfcd0f..97d47e535d 100644
+--- a/internal/service/logs/delivery_source.go
++++ b/internal/service/logs/delivery_source.go
+@@ -83,7 +83,7 @@ func (r *deliverySourceResource) Schema(ctx context.Context, request resource.Sc
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 		},
+ 	}
+ }
+diff --git a/internal/service/vpclattice/resource_gateway.go b/internal/service/vpclattice/resource_gateway.go
+index be786deea2..6606a8a474 100644
+--- a/internal/service/vpclattice/resource_gateway.go
++++ b/internal/service/vpclattice/resource_gateway.go
+@@ -97,7 +97,7 @@ func (r *resourceGatewayResource) Schema(ctx context.Context, request resource.S
+ 				},
+ 			},
+ 			names.AttrTags:    tftags.TagsAttribute(),
+-			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
++			names.AttrTagsAll: tftags.TagsAttribute(),
+ 			names.AttrVPCID: schema.StringAttribute{
+ 				Required: true,
+ 				PlanModifiers: []planmodifier.String{
