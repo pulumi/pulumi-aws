@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const default = aws.cloudwatch.getEventBus({
+ * const _default = aws.cloudwatch.getEventBus({
  *     name: "default",
  * });
  * const example = new aws.sesv2.ConfigurationSetEventDestination("example", {
